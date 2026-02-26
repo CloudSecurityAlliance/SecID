@@ -3,8 +3,8 @@
 This document explains the principles, patterns, and process for contributing to the SecID registry.
 
 For technical details, see:
-- [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) - JSON schema, resolution pipeline, variable extraction
-- [SPEC.md](SPEC.md) - Full SecID specification
+- [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) - JSON schema, resolution pipeline, variable extraction
+- [SPEC.md](../../SPEC.md) - Full SecID specification
 
 ## Scope: Labeling and Finding
 
@@ -231,7 +231,7 @@ versions_available:
     note: "Still widely referenced in existing documentation."
 ```
 
-See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the complete field definitions and JSON examples.
+See [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) for the complete field definitions and JSON examples.
 
 ## Common Patterns
 
@@ -430,7 +430,7 @@ Use `lookup_table` when URLs can't be computed from a pattern template — the s
 
 **Always include `provenance`** — record how you found the URLs, when you verified them, and from what source page. This lets reviewers re-verify the data and future maintainers know where to check for updates.
 
-See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the full schema, examples, and the relationship between `lookup_table`, `known_values`, and `url` templates.
+See [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) for the full schema, examples, and the relationship between `lookup_table`, `known_values`, and `url` templates.
 
 ### Why This Isn't Enrichment
 
@@ -523,7 +523,7 @@ SecID previously used short names for namespaces (`mitre`, `nist`, `redhat`). Th
 - No ownership verification mechanism
 - Required a central naming authority
 
-**For the complete old→new mapping**, see [NAMESPACE-MAPPING.md](NAMESPACE-MAPPING.md).
+**For the complete old→new mapping**, see [NAMESPACE-MAPPING.md](../reference/NAMESPACE-MAPPING.md).
 
 **Quick reference for common namespaces:**
 
@@ -540,8 +540,8 @@ SecID previously used short names for namespaces (`mitre`, `nist`, `redhat`). Th
 
 ## See Also
 
-- [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) - Technical schema specification
-- [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) - Rationale for design choices
-- [EDGE-CASES.md](EDGE-CASES.md) - Domain-name namespace edge cases
-- [NAMESPACE-MAPPING.md](NAMESPACE-MAPPING.md) - Complete short-name to domain-name mapping
-- [registry/README.md](registry/README.md) - Registry structure overview
+- [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) - Technical schema specification
+- [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md) - Rationale for design choices
+- [EDGE-CASES.md](../reference/EDGE-CASES.md) - Domain-name namespace edge cases
+- [NAMESPACE-MAPPING.md](../reference/NAMESPACE-MAPPING.md) - Complete short-name to domain-name mapping
+- [registry/README.md](../../registry/README.md) - Registry structure overview

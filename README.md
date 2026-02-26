@@ -303,20 +303,25 @@ Types are intentionally broad. We overload related concepts into existing types:
 | `advisory` | Incident reports (AIID, NHTSA, FDA) | Both are "something happened" publications |
 | `control` | Prescriptive benchmarks, documentation standards | Define requirements (what to test, what to document) |
 
-Split into new types only when usage demonstrates the need. See [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md#type-evolution).
+Split into new types only when usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution).
 
 ## Repository Structure
 
 ```
 secid/
 ├── SPEC.md              # Identifier specification
-├── RATIONALE.md         # Why SecID exists
-├── DESIGN-DECISIONS.md  # Key decisions and architecture
-├── STRATEGY.md          # Adoption and governance
+├── docs/
+│   ├── explanation/             # Why decisions were made
+│   │   ├── RATIONALE.md         # Why SecID exists
+│   │   └── DESIGN-DECISIONS.md  # Key decisions and architecture
+│   ├── guides/                  # Task-oriented how-tos
+│   ├── reference/               # Technical specs (formats, versioning, edge cases)
+│   └── future/                  # Aspirational (not commitments)
+│       ├── STRATEGY.md          # Adoption and governance
+│       ├── USE-CASES.md         # Concrete examples
+│       ├── RELATIONSHIPS.md     # Relationship layer (exploratory)
+│       └── OVERLAYS.md          # Overlay layer (exploratory)
 ├── ROADMAP.md           # Implementation phases
-├── USE-CASES.md         # Concrete examples
-├── RELATIONSHIPS.md     # Future: relationship layer (exploratory)
-├── OVERLAYS.md          # Future: overlay layer (exploratory)
 ├── registry/            # Namespace definitions
 │   ├── advisory.md      # Type definition (what is an advisory?)
 │   ├── advisory/        # Advisory namespaces (ONE FILE PER NAMESPACE)
@@ -352,7 +357,7 @@ secid/
 └── seed/                # Research data (CSV) - see seed/README.md
 ```
 
-**One file per namespace.** Each namespace file (e.g., `registry/advisory/com/redhat.md`) contains ALL sources for that namespace with ID patterns and URL templates. See [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) for the full architecture.
+**One file per namespace.** Each namespace file (e.g., `registry/advisory/com/redhat.md`) contains ALL sources for that namespace with ID patterns and URL templates. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) for the full architecture.
 
 ## File Format
 
@@ -429,19 +434,19 @@ Resolution URLs are defined in each namespace's registry file. Item versions (li
 | Document | Purpose |
 |----------|---------|
 | [SPEC.md](SPEC.md) | Full technical specification for identifiers |
-| [RATIONALE.md](RATIONALE.md) | Why SecID exists and how we got here |
-| [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) | Key decisions and alternatives considered |
-| [EDGE-CASES.md](EDGE-CASES.md) | Domain-name namespace edge cases and how SecID handles them |
-| [STRATEGY.md](STRATEGY.md) | Adoption, governance, and positioning |
+| [RATIONALE.md](docs/explanation/RATIONALE.md) | Why SecID exists and how we got here |
+| [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) | Key decisions and alternatives considered |
+| [EDGE-CASES.md](docs/reference/EDGE-CASES.md) | Domain-name namespace edge cases and how SecID handles them |
+| [STRATEGY.md](docs/future/STRATEGY.md) | Adoption, governance, and positioning |
 | [ROADMAP.md](ROADMAP.md) | Implementation phases and priorities |
-| [USE-CASES.md](USE-CASES.md) | Concrete examples of what SecID enables |
+| [USE-CASES.md](docs/future/USE-CASES.md) | Concrete examples of what SecID enables |
 
 ### Future Work (Not Yet Designed)
 
 | Document | Purpose |
 |----------|---------|
-| [RELATIONSHIPS.md](RELATIONSHIPS.md) | Exploratory thinking on how identifiers might connect |
-| [OVERLAYS.md](OVERLAYS.md) | Exploratory thinking on enrichment without mutation |
+| [RELATIONSHIPS.md](docs/future/RELATIONSHIPS.md) | Exploratory thinking on how identifiers might connect |
+| [OVERLAYS.md](docs/future/OVERLAYS.md) | Exploratory thinking on enrichment without mutation |
 
 **The spec is just IDs.** Relationships and overlays are future layers that will be designed based on real-world usage of the identifier system. We're deliberately deferring these to avoid premature complexity.
 
@@ -476,7 +481,7 @@ SecID currently uses a **Benevolent Dictator For Life (BDFL)** model for rapid e
 
 **Long-term intent:** We are explicitly working toward a sustainable, vendor-neutral, multi-stakeholder governance structure appropriate for industry infrastructure. The spec and registry content are separable governance artifacts - the identifier format can stabilize while registry policies continue to evolve.
 
-See [STRATEGY.md](STRATEGY.md) for detailed governance philosophy, funding approach, and organizational strategy.
+See [STRATEGY.md](docs/future/STRATEGY.md) for detailed governance philosophy, funding approach, and organizational strategy.
 
 ## Ecosystem Architecture
 
@@ -511,8 +516,8 @@ See [SPEC.md Section 1.3](SPEC.md#13-scope-what-secid-identifies-and-what-it-doe
 ## Getting Started
 
 - **Read the spec:** [SPEC.md](SPEC.md)
-- **Understand why:** [RATIONALE.md](RATIONALE.md)
-- **See examples:** [USE-CASES.md](USE-CASES.md)
+- **Understand why:** [RATIONALE.md](docs/explanation/RATIONALE.md)
+- **See examples:** [USE-CASES.md](docs/future/USE-CASES.md)
 - **Browse namespaces:** [registry/](registry/)
 
 ## Current Status
@@ -569,7 +574,7 @@ Official client libraries for production use:
 
 We support the [llms.txt standard](https://llmstxt.org/) for AI-friendly content discovery. The website provides `/llms.txt` with structured links to key resources, enabling AI agents to efficiently understand SecID.
 
-See [INFRASTRUCTURE.md](INFRASTRUCTURE.md) for technical details on hosting and architecture
+See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for technical details on hosting and architecture
 
 ## License
 

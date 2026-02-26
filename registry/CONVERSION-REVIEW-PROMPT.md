@@ -10,8 +10,8 @@ You are reviewing pilot conversions of SecID registry files from YAML+Markdown f
 
 **First, read these files to understand the formats:**
 
-1. `REGISTRY-JSON-FORMAT.md` — The target JSON schema specification. This is the authority on what the JSON should look like.
-2. `REGISTRY-FORMAT.md` — The current YAML+Markdown format being converted from.
+1. `docs/reference/REGISTRY-JSON-FORMAT.md` — The target JSON schema specification. This is the authority on what the JSON should look like.
+2. `docs/reference/REGISTRY-FORMAT.md` — The current YAML+Markdown format being converted from.
 
 **Then, for each pair below, read the original `.md` file and the new `.json` file and check for problems:**
 
@@ -25,7 +25,7 @@ You are reviewing pilot conversions of SecID registry files from YAML+Markdown f
 **What to check:**
 
 1. **Data loss** — Is any information from the YAML frontmatter or Markdown body missing in the JSON? Every URL, pattern, example, and piece of context should be accounted for.
-2. **Field mapping** — Do fields map correctly per the migration table in REGISTRY-JSON-FORMAT.md? (`full_name` → `official_name`, `website` → `urls[]`, flat `sources` → nested `match_nodes` tree, etc.)
+2. **Field mapping** — Do fields map correctly per the migration table in `docs/reference/REGISTRY-JSON-FORMAT.md`? (`full_name` → `official_name`, `website` → `urls[]`, flat `sources` → nested `match_nodes` tree, etc.)
 3. **Dropped fields** — `operator`, `established`, and `versions[]` should NOT appear in the JSON (they moved to the data layer). But the information they carried should be preserved in `notes` if it's useful context.
 4. **Pattern correctness** — Are `match_nodes` `patterns[]` values anchored with `^...$`? Do name-level patterns use `(?i)` for case-insensitive matching? Do subpath-level children match the same strings as the original `id_pattern`?
 5. **URL completeness** — Are all URLs from the original present in the JSON? Are URL types (`website`, `lookup`, `api`, `bulk_data`, `docs`, `github`) assigned correctly?

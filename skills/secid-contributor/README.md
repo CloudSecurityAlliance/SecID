@@ -53,7 +53,7 @@ End-to-end workflow for creating a new registry entry:
 ### Contribution Process
 
 - PR conventions and review criteria
-- What reviewers look for (from CONTRIBUTING.md + REGISTRY-GUIDE.md quality standards)
+- What reviewers look for (from CONTRIBUTING.md + docs/guides/REGISTRY-GUIDE.md quality standards)
 - How to propose spec changes vs. registry additions
 - Documentation standards
 
@@ -63,17 +63,17 @@ The information needed for this skill **exists but is scattered** across multipl
 
 | Knowledge Area | Current Location(s) | Status |
 |---------------|---------------------|--------|
-| Decision tree (type, namespace) | REGISTRY-GUIDE.md | Good but could use worked examples |
-| Filesystem path algorithm | SPEC.md, CLAUDE.md, REGISTRY-GUIDE.md | Duplicated 3x, SPEC.md is canonical |
-| JSON schema / field reference | REGISTRY-JSON-FORMAT.md | Comprehensive |
-| YAML format (current) | REGISTRY-FORMAT.md | Adequate |
-| Source identifier preservation | SPEC.md, REGISTRY-GUIDE.md, CLAUDE.md | Duplicated, REGISTRY-GUIDE.md is most practical |
-| Version resolution behavior | REGISTRY-JSON-FORMAT.md, REGISTRY-GUIDE.md, DESIGN-DECISIONS.md | Good coverage after recent additions |
-| Quality standards | REGISTRY-GUIDE.md | Good (null vs absent, id_pattern anchoring, etc.) |
-| Provenance workflow | REGISTRY-JSON-FORMAT.md (field def only) | Gap — field exists but "how to do it" isn't documented |
+| Decision tree (type, namespace) | docs/guides/REGISTRY-GUIDE.md | Good but could use worked examples |
+| Filesystem path algorithm | SPEC.md, CLAUDE.md, docs/guides/REGISTRY-GUIDE.md | Duplicated 3x, SPEC.md is canonical |
+| JSON schema / field reference | docs/reference/REGISTRY-JSON-FORMAT.md | Comprehensive |
+| YAML format (current) | docs/reference/REGISTRY-FORMAT.md | Adequate |
+| Source identifier preservation | SPEC.md, docs/guides/REGISTRY-GUIDE.md, CLAUDE.md | Duplicated, REGISTRY-GUIDE.md is most practical |
+| Version resolution behavior | docs/reference/REGISTRY-JSON-FORMAT.md, docs/guides/REGISTRY-GUIDE.md, docs/explanation/DESIGN-DECISIONS.md | Good coverage after recent additions |
+| Quality standards | docs/guides/REGISTRY-GUIDE.md | Good (null vs absent, id_pattern anchoring, etc.) |
+| Provenance workflow | docs/reference/REGISTRY-JSON-FORMAT.md (field def only) | Gap — field exists but "how to do it" isn't documented |
 | Research workflow | Nowhere | Major gap — no guidance on how to research a new source |
 | Validation workflow | CLAUDE.md (grep commands only) | Major gap — manual grep, no systematic validation |
-| Edge cases | EDGE-CASES.md | Good for domains/internationalization |
+| Edge cases | docs/reference/EDGE-CASES.md | Good for domains/internationalization |
 | Real examples | registry/weakness/org/owasp.json | Excellent complex example |
 | Template | registry/advisory/_template.md | Too minimal for complex cases |
 
@@ -96,7 +96,7 @@ The information needed for this skill **exists but is scattered** across multipl
 
 ## Resources This Skill Will Bundle
 
-- Complete field reference (consolidated from REGISTRY-JSON-FORMAT.md)
+- Complete field reference (consolidated from docs/reference/REGISTRY-JSON-FORMAT.md)
 - Decision tree for type selection
 - Filesystem path algorithm
 - Research workflow guide (to be written)

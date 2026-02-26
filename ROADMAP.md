@@ -238,7 +238,7 @@ Connect SecIDs to each other: CVE → CWE weakness, weakness → control mitigat
 
 **Why independent?** Relationship design benefits from real-world usage. We can ship content before relationships are fully designed.
 
-See [RELATIONSHIPS.md](RELATIONSHIPS.md) for exploratory thinking.
+See [RELATIONSHIPS.md](docs/future/RELATIONSHIPS.md) for exploratory thinking.
 
 ### Overlays (Future)
 
@@ -246,7 +246,7 @@ Add metadata without modifying sources: cross-references, quality flags, severit
 
 **Why independent?** Same reason - usage will inform design. Overlays can be added to any response once the infrastructure exists.
 
-See [OVERLAYS.md](OVERLAYS.md) for exploratory thinking.
+See [OVERLAYS.md](docs/future/OVERLAYS.md) for exploratory thinking.
 
 ## Registry Seeding Strategy
 

@@ -133,7 +133,7 @@ Together, these mean: encountering an unknown SecID is a **temporary state**. Th
 
 ### What We Defer
 
-The relationship and overlay layers are documented as exploratory thinking (see [RELATIONSHIPS.md](RELATIONSHIPS.md) and [OVERLAYS.md](OVERLAYS.md)). They capture what we're considering, not what we've decided.
+The relationship and overlay layers are documented as exploratory thinking (see [RELATIONSHIPS.md](../future/RELATIONSHIPS.md) and [OVERLAYS.md](../future/OVERLAYS.md)). They capture what we're considering, not what we've decided.
 
 We'll design these layers when:
 1. The registry has enough content to make relationships valuable
@@ -524,7 +524,7 @@ Domain names can change (acquisitions, rebranding) or expire and be re-registere
 - **The registry is the source of truth** - after a namespace is registered, it exists in the registry independent of DNS. A domain expiring doesn't invalidate existing SecID identifiers.
 - **Equivalence is a relationship-layer concern** - if `twitter.com` rebrands to `x.com`, the mapping between `secid:entity/twitter.com/...` and `secid:entity/x.com/...` belongs in the relationship layer, not the registry.
 
-See [EDGE-CASES.md](EDGE-CASES.md) for more edge cases including Punycode/IDN normalization, shared platform domains, and trailing DNS dots.
+See [EDGE-CASES.md](../reference/EDGE-CASES.md) for more edge cases including Punycode/IDN normalization, shared platform domains, and trailing DNS dots.
 
 ### What We Considered and Rejected
 
@@ -2047,11 +2047,11 @@ secid:weakness/owasp.org/top10#A01                    → 2021: Broken Access Co
 
 ### Registry Fields
 
-See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the source-level fields that control this behavior: `version_required`, `unversioned_behavior`, `version_disambiguation`, and `versions_available`.
+See [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) for the source-level fields that control this behavior: `version_required`, `unversioned_behavior`, `version_disambiguation`, and `versions_available`.
 
 ### Further Reading
 
-See [VERSIONING.md](VERSIONING.md) for the empirical analysis of how versioning works across security knowledge sources (spoiler: it's rare and shallow), the four API response outcomes, and the full resolution algorithm for graceful version handling.
+See [VERSIONING.md](../reference/VERSIONING.md) for the empirical analysis of how versioning works across security knowledge sources (spoiler: it's rare and shallow), the four API response outcomes, and the full resolution algorithm for graceful version handling.
 
 ---
 

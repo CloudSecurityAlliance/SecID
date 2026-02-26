@@ -18,8 +18,8 @@ The project is composed of Markdown files that define the specification and the 
 
 *   **`README.md`**: The main entry point that provides a high-level introduction to SecID, its vision, and its structure.
 *   **`SPEC.md`**: The complete technical specification for the SecID identifier format, including grammar, types, and normalization rules.
-*   **`RATIONALE.md`**: A critical document explaining the "why" behind key design decisions, such as the choice of PURL grammar and the "advisory-centric" model.
-*   **`USE-CASES.md`**: Contains concrete examples of how SecID can be used to solve real-world security problems, such as correlating vulnerability data or mapping controls to standards.
+*   **`docs/explanation/RATIONALE.md`**: A critical document explaining the "why" behind key design decisions, such as the choice of PURL grammar and the "advisory-centric" model.
+*   **`docs/future/USE-CASES.md`**: Contains concrete examples of how SecID can be used to solve real-world security problems, such as correlating vulnerability data or mapping controls to standards.
 *   **`registry/`**: This directory is the functional heart of the project. It contains a hierarchy of Markdown files that define all valid SecID types and namespaces.
     *   **`registry/<type>.md`**: Describes a top-level type (e.g., `advisory.md`, `weakness.md`).
     *   **`registry/<type>/<tld>/<domain>.md`**: Defines a specific namespace using reverse-DNS directory layout, including its resolution rules, ID patterns, and relevant URLs. For example, `registry/advisory/org/mitre.md` defines how to handle `secid:advisory/mitre.org/cve#...` and other MITRE advisory identifiers.

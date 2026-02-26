@@ -116,7 +116,7 @@ We'll start designing the overlay layer when:
 ## Related
 
 - [RELATIONSHIPS.md](RELATIONSHIPS.md) - Exploratory thinking on connections
-- [ROADMAP.md](ROADMAP.md) - Overall project phases
+- [ROADMAP.md](../../ROADMAP.md) - Overall project phases
 - [USE-CASES.md](USE-CASES.md) - What overlays would enable
 
 ---

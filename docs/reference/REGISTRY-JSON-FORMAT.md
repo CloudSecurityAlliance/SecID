@@ -1,6 +1,6 @@
 # JSON Format Specification
 
-This document defines the JSON format for SecID registry files. The registry currently uses YAML+Markdown (see REGISTRY-FORMAT.md) for flexibility during exploration. This document specifies the target JSON format for v1.0+.
+This document defines the JSON format for SecID registry files. The registry currently uses YAML+Markdown (see [REGISTRY-FORMAT.md](REGISTRY-FORMAT.md)) for flexibility during exploration. This document specifies the target JSON format for v1.0+.
 
 ## Scope: Labeling and Finding
 
@@ -41,7 +41,7 @@ secid:advisory/github.com/advisories/ghsa#GHSA-1234-5678-abcd
 |------|-----------|--------------|
 | 1 | scheme | Literal `secid:` |
 | 2 | type | Match against 7 known values |
-| 3 | namespace | **Shortest-to-longest matching** against registry. Namespaces can contain `/` (e.g., `github.com/advisories`). See SPEC.md Section 4.3. |
+| 3 | namespace | **Shortest-to-longest matching** against registry. Namespaces can contain `/` (e.g., `github.com/advisories`). See [SPEC.md](../../SPEC.md) Section 4.3. |
 | 4 | name | Match remaining path against name-level pattern nodes in `match_nodes` |
 | 5 | version | If `@` present after name, match against version-level children |
 | 6 | source qualifiers | Parse `?...` until `#` |
@@ -51,7 +51,7 @@ secid:advisory/github.com/advisories/ghsa#GHSA-1234-5678-abcd
 
 **Why registry-aware?** Names can contain any characters (including `#`, `@`, `?`, `:`). The registry defines what names exist, and longest-match resolves ambiguity.
 
-**Shortest-to-longest namespace resolution:** Since namespaces can contain `/`, the parser tries shortest namespace first against the registry, then progressively longer matches. See SPEC.md Section 4.3 for details.
+**Shortest-to-longest namespace resolution:** Since namespaces can contain `/`, the parser tries shortest namespace first against the registry, then progressively longer matches. See [SPEC.md](../../SPEC.md) Section 4.3 for details.
 
 ```
 Input: secid:advisory/github.com/advisories/ghsa#GHSA-xxxx
@@ -83,7 +83,7 @@ Using type, namespace, and name, find the source definition:
 registry[type][namespace][name] → registry["advisory"]["mitre.org"]["cve"]
 ```
 
-**Filesystem mapping:** The abstract `registry[type][namespace]` maps to a filesystem path via the reverse-DNS algorithm (see SPEC.md Section 4.0):
+**Filesystem mapping:** The abstract `registry[type][namespace]` maps to a filesystem path via the reverse-DNS algorithm (see [SPEC.md](../../SPEC.md) Section 4.0):
 
 | Lookup | Filesystem Path |
 |--------|----------------|
@@ -694,7 +694,7 @@ Example with format (appending literal text):
 
 **Why anchored patterns?** Anchored patterns (`^CVE-\d{4}-\d{4,}$`) ensure the entire input at each level must match. Unanchored patterns would match substrings, allowing invalid input.
 
-**Patterns match the human-readable (unencoded) form.** Write patterns matching what you see in the source documentation. `^Auditing Guidelines$` with a literal space, not `^Auditing%20Guidelines$`. Resolvers are responsible for decoding percent-encoded input before matching against patterns (see SPEC.md Section 8.3).
+**Patterns match the human-readable (unencoded) form.** Write patterns matching what you see in the source documentation. `^Auditing Guidelines$` with a literal space, not `^Auditing%20Guidelines$`. Resolvers are responsible for decoding percent-encoded input before matching against patterns (see [SPEC.md](../../SPEC.md) Section 8.3).
 
 **Sibling patterns are independent.** All sibling patterns at each level are tested independently. All matching patterns contribute results. When siblings overlap on the same input, `weight` helps consumers choose.
 

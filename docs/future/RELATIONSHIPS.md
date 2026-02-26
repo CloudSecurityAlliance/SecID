@@ -130,7 +130,7 @@ We'll start designing the relationship layer when:
 ## Related
 
 - [OVERLAYS.md](OVERLAYS.md) - Exploratory thinking on enrichment
-- [ROADMAP.md](ROADMAP.md) - Overall project phases
+- [ROADMAP.md](../../ROADMAP.md) - Overall project phases
 - [USE-CASES.md](USE-CASES.md) - What relationships would enable
 
 ---

@@ -175,7 +175,7 @@ secid:weakness/mitre.org/cwe#CWE-123
 6. Build URL → https://cwe.mitre.org/data/definitions/123.html
 ```
 
-**Note:** If version is absent in step 2, check the source's `version_required` field. If `true`, the resolver's behavior changes — instead of building a single URL, it returns multiple versions with disambiguation guidance. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for details.
+**Note:** If version is absent in step 2, check the source's `version_required` field. If `true`, the resolver's behavior changes — instead of building a single URL, it returns multiple versions with disambiguation guidance. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for details.
 
 For complex URLs, patterns define variables that extract parts of the ID:
 
@@ -194,7 +194,7 @@ For complex URLs, patterns define variables that extract parts of the ID:
 
 When URLs can't be computed from patterns — because the source uses inconsistent slugs or non-derivable paths — `lookup_table` maps specific IDs directly to their URLs. For example, the OWASP LLM Top 10 entries have inconsistent URL slugs (`llm01-prompt-injection` vs `llm022025-sensitive-information-disclosure`), so each entry is mapped explicitly. A `provenance` object records how the lookup data was gathered (method, date, source URL) so reviewers can re-verify it.
 
-See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the complete schema.
+See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the complete schema.
 
 **More examples showing the pattern:**
 
@@ -383,7 +383,7 @@ secid:reference/arxiv.org/2303.08774
 
 ## 3. Types
 
-SecID defines seven types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md#type-evolution) for the rationale.
+SecID defines seven types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution) for the rationale.
 
 | Type | What it identifies | Question it answers |
 |------|-------------------|---------------------|
@@ -802,7 +802,7 @@ secid:weakness/owasp.org/top10#A01             # Ambiguous — returns 2021 + 20
 secid:weakness/owasp.org/top10@2021#A01        # Unambiguous — Broken Access Control
 ```
 
-The registry controls this via three `unversioned_behavior` values: `"current"` (default), `"current_with_history"`, and `"all_with_guidance"`. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for field definitions.
+The registry controls this via three `unversioned_behavior` values: `"current"` (default), `"current_with_history"`, and `"all_with_guidance"`. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for field definitions.
 
 ### 5.1b Item Version (`#subpath@item_version`)
 
@@ -1015,8 +1015,8 @@ secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12@draft
 
 | Layer | Purpose | Status |
 |-------|---------|--------|
-| **Relationships** | Connect SecIDs (aliases, enriches, mitigates, etc.) | Planned - see [RELATIONSHIPS.md](RELATIONSHIPS.md) |
-| **Overlays** | Add metadata without modifying sources | Planned - see [OVERLAYS.md](OVERLAYS.md) |
+| **Relationships** | Connect SecIDs (aliases, enriches, mitigates, etc.) | Planned - see [RELATIONSHIPS.md](docs/future/RELATIONSHIPS.md) |
+| **Overlays** | Add metadata without modifying sources | Planned - see [OVERLAYS.md](docs/future/OVERLAYS.md) |
 
 ### Why Deferred?
 
@@ -1032,7 +1032,7 @@ Rather than design these upfront, we're building the identifier system and regis
 
 ## 7. Namespace Definition Format
 
-**Note:** The registry is transitioning from YAML+Markdown to JSON. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the canonical JSON schema, including the resolution pipeline, variable extraction, and pattern matching.
+**Note:** The registry is transitioning from YAML+Markdown to JSON. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the canonical JSON schema, including the resolution pipeline, variable extraction, and pattern matching.
 
 The examples below show the legacy YAML format for reference. New contributions should use the JSON format.
 
@@ -1227,7 +1227,7 @@ Punycode-encoded domain labels are identified by the `xn--` ACE prefix ([RFC 349
 2. **If not found and input contains `xn--` labels (Punycode)** - Convert to Unicode, try again
 3. **If not found and input is Unicode** - Convert to Punycode, try again
 
-If the resolver hits an **alias stub** (a registry entry with `alias_of` and no sources), it follows the redirect to the canonical namespace. Only one form holds actual records; the other is an alias. See REGISTRY-FORMAT.md for alias stub format and [EDGE-CASES.md](EDGE-CASES.md#punycode-vs-unicode-idn-resolution) for full details.
+If the resolver hits an **alias stub** (a registry entry with `alias_of` and no sources), it follows the redirect to the canonical namespace. Only one form holds actual records; the other is an alias. See [REGISTRY-FORMAT.md](docs/reference/REGISTRY-FORMAT.md) for alias stub format and [EDGE-CASES.md](docs/reference/EDGE-CASES.md#punycode-vs-unicode-idn-resolution) for full details.
 
 ```
 Input: "secid:control/cloudsecurityalliance.org/ccm#IAM-12/Auditing%20Guidelines"
@@ -1391,8 +1391,8 @@ SecID separates concerns into three layers:
 | Layer | Purpose | Status |
 |-------|---------|--------|
 | **Registry** | Defines namespaces, ID patterns, resolution | Current (`registry/`) |
-| **Relationships** | Connections between identifiers | Future (see [RELATIONSHIPS.md](RELATIONSHIPS.md)) |
-| **Overlays** | Corrections, enrichments, warnings | Future (see [OVERLAYS.md](OVERLAYS.md)) |
+| **Relationships** | Connections between identifiers | Future (see [RELATIONSHIPS.md](docs/future/RELATIONSHIPS.md)) |
+| **Overlays** | Corrections, enrichments, warnings | Future (see [OVERLAYS.md](docs/future/OVERLAYS.md)) |
 
 The registry is definitional: "what identifiers exist and how to resolve them." It doesn't track history, state changes, or connections - those will belong in relationship and overlay layers once designed.
 

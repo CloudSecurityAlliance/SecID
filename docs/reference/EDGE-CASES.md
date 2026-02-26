@@ -2,7 +2,7 @@
 
 This document catalogs known edge cases for domain-name namespaces and SecID parsing. Each entry describes the scenario, why it matters, and how SecID handles it (or plans to).
 
-For design rationale, see [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md). For the full specification, see [SPEC.md](SPEC.md).
+For design rationale, see [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md). For the full specification, see [SPEC.md](../../SPEC.md).
 
 ## Namespace Parsing
 
@@ -37,7 +37,7 @@ If it ever became a problem, the namespace is still unambiguous and parseable. I
 2. `github.com/advisories` — exists? Yes, longer candidate (wins).
 3. `github.com/advisories/ghsa` — exists? No, stop.
 
-Longest matching namespace wins. This is deterministic and registry-driven. See SPEC.md Section 4.3.
+Longest matching namespace wins. This is deterministic and registry-driven. See [SPEC.md](../../SPEC.md) Section 4.3.
 
 ### Platform Sub-Namespace Conflicts
 
@@ -91,7 +91,7 @@ The test: where does the organization publish its security content?
 
 **Scenario:** An Internationalized Domain Name (IDN) has two representations: Unicode (`münchen.de`) and Punycode (`xn--mnchen-3ya.de`). Are these the same namespace?
 
-**Yes — handled via try-both resolution + alias stubs.** This follows the same pattern as flexible input resolution for percent-encoding (SPEC.md Section 8.3): try the input form first, then try the other form.
+**Yes — handled via try-both resolution + alias stubs.** This follows the same pattern as flexible input resolution for percent-encoding ([SPEC.md](../../SPEC.md) Section 8.3): try the input form first, then try the other form.
 
 **Standards:** Punycode encoding is defined in [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492). Internationalized Domain Names in Applications (IDNA2008) is defined in [RFC 5890](https://www.rfc-editor.org/rfc/rfc5890)–[5893](https://www.rfc-editor.org/rfc/rfc5893). These are mature, widely-implemented standards.
 
@@ -157,7 +157,7 @@ Resolvers SHOULD normalize Unicode input to NFC before looking up namespaces. Th
 
 **Scenario:** Is `GitHub.com` the same namespace as `github.com`?
 
-**Yes.** SPEC.md Section 8.1 specifies that namespaces are always normalized to lowercase. DNS is case-insensitive, and SecID follows the same rule. `GitHub.com`, `GITHUB.COM`, and `github.com` all normalize to `github.com`.
+**Yes.** [SPEC.md](../../SPEC.md) Section 8.1 specifies that namespaces are always normalized to lowercase. DNS is case-insensitive, and SecID follows the same rule. `GitHub.com`, `GITHUB.COM`, and `github.com` all normalize to `github.com`.
 
 On case-sensitive filesystems (Linux), the registry file must be lowercase: `registry/advisory/com/github.md`.
 
@@ -210,10 +210,10 @@ This is different from platform sub-namespaces (`github.com/advisories`), which 
 
 **Yes, by design.** The self-registration mechanisms (DNS TXT records, ACME challenges, challenge files) are all machine-friendly. An AI agent managing security operations for an organization can perform domain verification, submit registry entries, and maintain namespace content — just as AI agents already manage DNS records, certificates, and CI/CD pipelines.
 
-This is a future feature (namespace registration is currently manual via pull requests), but the verification protocols are designed with both human and AI agent workflows in mind. See [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) for the planned self-registration process.
+This is a future feature (namespace registration is currently manual via pull requests), but the verification protocols are designed with both human and AI agent workflows in mind. See [REGISTRY-GUIDE.md](../guides/REGISTRY-GUIDE.md) for the planned self-registration process.
 
 ## See Also
 
-- [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) - Design rationale (includes "Why Not Reverse DNS" and "Domain Name Changes" sections)
-- [SPEC.md](SPEC.md) - Full specification (Section 4: Namespaces, Section 8: Parsing)
-- [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) - Registry contribution guide (includes self-registration roadmap)
+- [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md) - Design rationale (includes "Why Not Reverse DNS" and "Domain Name Changes" sections)
+- [SPEC.md](../../SPEC.md) - Full specification (Section 4: Namespaces, Section 8: Parsing)
+- [REGISTRY-GUIDE.md](../guides/REGISTRY-GUIDE.md) - Registry contribution guide (includes self-registration roadmap)

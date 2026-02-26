@@ -269,7 +269,7 @@ The test: "Does AI need this field to be structured, or can it derive it from te
 
 ## JSON Schema: Options Over Answers
 
-The target JSON format (see [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md)) embodies the AI-first philosophy in its structure.
+The target JSON format (see [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md)) embodies the AI-first philosophy in its structure.
 
 ### Traditional vs AI-First
 
@@ -329,7 +329,7 @@ Designing relationship and enrichment layers requires answering hard questions:
 
 We could guess at answers, but we'd probably guess wrong. Better to build the identifier system first and let usage inform the data layer design.
 
-See [RELATIONSHIPS.md](RELATIONSHIPS.md) and [OVERLAYS.md](OVERLAYS.md) for exploratory thinking on these future layers.
+See [RELATIONSHIPS.md](../future/RELATIONSHIPS.md) and [OVERLAYS.md](../future/OVERLAYS.md) for exploratory thinking on these future layers.
 
 ## Governance Philosophy
 

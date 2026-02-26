@@ -43,50 +43,93 @@ With 20+ markdown files, know which document answers which question:
 |----------|-----------|
 | What are the design principles? | [PRINCIPLES.md](PRINCIPLES.md) - AI-first, helpful over correct, four response outcomes |
 | How do SecID strings work? | [SPEC.md](SPEC.md) - grammar, types, parsing, encoding |
-| Why does SecID exist? | [RATIONALE.md](RATIONALE.md) |
-| Why was X designed this way? | [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) |
-| How do I add a namespace? | [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) - principles, patterns, process |
-| What's the JSON schema? | [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) - target format for v1.0+ |
-| What's the current file format? | [REGISTRY-FORMAT.md](REGISTRY-FORMAT.md) - YAML+Markdown (what's in use now) |
+| Why does SecID exist? | [RATIONALE.md](docs/explanation/RATIONALE.md) |
+| Why was X designed this way? | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) |
+| How do I add a namespace? | [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) - principles, patterns, process |
+| How do I add a namespace (step-by-step)? | [ADD-NAMESPACE.md](docs/guides/ADD-NAMESPACE.md) - task-oriented walkthrough |
+| How do I update an existing namespace? | [UPDATE-NAMESPACE.md](docs/guides/UPDATE-NAMESPACE.md) |
+| How do I convert YAML to JSON? | [YAML-TO-JSON.md](docs/guides/YAML-TO-JSON.md) |
+| How do I write and test regex patterns? | [REGEX-WORKFLOW.md](docs/guides/REGEX-WORKFLOW.md) |
+| What's the JSON schema? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) - target format for v1.0+ |
+| What's the current file format? | [REGISTRY-FORMAT.md](docs/reference/REGISTRY-FORMAT.md) - YAML+Markdown (what's in use now) |
 | What's being built and when? | [ROADMAP.md](ROADMAP.md) |
-| How does versioning work? | [VERSIONING.md](VERSIONING.md) - analysis, API behavior, response outcomes |
-| Edge cases with domains? | [EDGE-CASES.md](EDGE-CASES.md) |
-| What's deferred? | [TODO.md](TODO.md), [registry/_deferred/](registry/_deferred/) |
+| How does versioning work? | [VERSIONING.md](docs/reference/VERSIONING.md) - analysis, API behavior, response outcomes |
+| Edge cases with domains? | [EDGE-CASES.md](docs/reference/EDGE-CASES.md) |
+| What's deferred? | [TODO.md](docs/project/TODO.md), [registry/_deferred/](registry/_deferred/) |
+| Multi-repo architecture? | [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) |
+| AI agent instructions? | [AGENTS.md](AGENTS.md) |
 
-Documents like RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, and STRATEGY.md are exploratory/aspirational — not needed for day-to-day registry work.
+Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
+
+## Multi-Repo Architecture
+
+See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo is the spec + registry only:
+
+| Repo | Purpose |
+|------|---------|
+| **SecID** (this repo) | Specification, registry data, design documents |
+| **SecID-Service** | Cloudflare Worker REST API + MCP server |
+| **SecID-Website** | Cloudflare Pages documentation site |
+| **SecID-Client** | Client libraries (Python, npm, Go, Rust, Java, C#) |
 
 ## Repository Structure
 
 ```
 secid/
 ├── SPEC.md                  # Full technical specification
-├── REGISTRY-GUIDE.md        # Principles and patterns for registry contributions
-├── REGISTRY-JSON-FORMAT.md  # Target JSON schema specification (v1.0+)
-├── REGISTRY-FORMAT.md       # Current YAML+Markdown format (what's in use now)
+├── PRINCIPLES.md            # Foundational design principles
+├── ROADMAP.md               # Project status and phases
+├── docs/
+│   ├── reference/           # Authoritative technical specs
+│   │   ├── REGISTRY-FORMAT.md           # Current YAML+Markdown format
+│   │   ├── REGISTRY-JSON-FORMAT.md      # Target JSON schema (v1.0+)
+│   │   ├── VERSIONING.md               # Version analysis and API behavior
+│   │   ├── EDGE-CASES.md               # Domain-name edge cases
+│   │   ├── INFRASTRUCTURE.md           # Multi-repo architecture
+│   │   └── NAMESPACE-MAPPING.md        # Namespace-to-filesystem mapping
+│   ├── explanation/         # Why decisions were made
+│   │   ├── RATIONALE.md                # Why SecID exists
+│   │   └── DESIGN-DECISIONS.md         # Key design decisions
+│   ├── guides/              # Task-oriented step-by-step how-tos
+│   │   ├── REGISTRY-GUIDE.md           # Principles and patterns for contributions
+│   │   ├── ADD-NAMESPACE.md            # How to add a new namespace
+│   │   ├── UPDATE-NAMESPACE.md         # How to update an existing namespace
+│   │   ├── YAML-TO-JSON.md             # How to convert YAML to JSON
+│   │   └── REGEX-WORKFLOW.md           # How to write and test regex patterns
+│   ├── future/              # Aspirational, explicitly not commitments
+│   │   ├── FUTURE-VISION.md, STRATEGY.md, USE-CASES.md
+│   │   ├── RELATIONSHIPS.md, OVERLAYS.md
+│   └── project/             # Internal tracking and organizational docs
+│       ├── TODO.md, GAPS.md, CONCERNS.md
+│       └── csa/             # CSA-internal documents
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md  # Namespace file (reverse-DNS, e.g., org/mitre.md)
 │   └── _deferred/           # Partially researched entries not ready for main registry
-└── seed/                    # Bulk import data (CSV) for seeding
+├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
+└── skills/                  # Planned Claude Code skills (not yet built)
 ```
 
 ## Registry File Format
 
-**Current state: All registry files are YAML frontmatter + Markdown.** The JSON format in REGISTRY-JSON-FORMAT.md is the target for v1.0+, not yet in use.
+**Current state: All registry files are YAML frontmatter + Markdown.** The JSON format in [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) is the target for v1.0+, not yet in use.
 
-One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` as a starting point for new files.
+One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` or `registry/reference/_template.md` as a starting point for new files.
 
 ### Status Values
 
-| Status | Meaning |
-|--------|---------|
-| `proposed` | Suggested, minimal info |
-| `draft` | Being worked on |
-| `pending` | Awaiting review (all fields present) |
-| `published` | Reviewed and approved |
+**Current YAML files** use: `active`, `draft`, `superseded`, `historical`
+
+**Target JSON format** (v1.0+) uses: `proposed`, `draft`, `pending`, `published`
 
 `published` means "reviewed", not "complete". Empty arrays and `null` values are valid—they show we looked and found nothing.
+
+### Null vs Absent Convention
+
+In registry data, `null` and absent mean different things:
+- **`null`** = "we looked and found nothing" (researched, confirmed empty)
+- **absent field** = "not yet researched" (unknown state)
 
 ## Key Design Principles
 
@@ -94,11 +137,14 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 
 1. **Labeling and finding** - Identity, resolution, disambiguation only. Enrichment and relationships are separate layers.
 2. **AI-first, human-legible** - Primary consumer is AI agents, but humans must be able to read and write everything.
-3. **Helpful over correct** - Always return something useful. Never a bare error. Four response outcomes: exact match, corrected match, related data, not found.
-4. **Honest uncertainty** - Say what you know, what you don't, and what the risks are.
-5. **Follow the source** - Use names and ID structures the source uses. Preserve identifiers exactly.
-6. **PURL compatibility** - Same grammar as Package URL, different scheme.
-7. **Progressive resolution** - Try most specific match first, loosen progressively. `/*` wildcard for exploration at any level.
+3. **Helpful over correct** - Always return something useful. Never a bare error.
+4. **Four response outcomes** - Every query returns one of: exact match, corrected match, related data, not found (with guidance).
+5. **Honest uncertainty** - Say what you know, what you don't, and what the risks are.
+6. **Follow the source** - Use names and ID structures the source uses. Preserve identifiers exactly.
+7. **Never normalize lossily** - No lowercasing, no character stripping, no format mangling. Canonical form is the source's form.
+8. **PURL compatibility** - Same grammar as Package URL, different scheme.
+9. **Progressive resolution** - Try most specific match first, loosen progressively.
+10. **Wildcard convention** - `/*` at any level for exploration and discovery.
 
 ## SecID Types
 
@@ -148,7 +194,35 @@ Simple cases: `mitre.org` → `registry/<type>/org/mitre.md`, `nist.gov` → `re
 5. Include: urls, pattern tree nodes (match_nodes with descriptions), examples
 6. Use `registry/_deferred/` for incomplete research
 
-See [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) for detailed patterns.
+See [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) for detailed patterns.
+
+## Pattern Tree (match_nodes)
+
+The JSON target format uses a nested `match_nodes` tree (not flat `id_pattern` lists) to match subpath identifiers. Each node can have children for hierarchical ID systems:
+
+```json
+{
+  "match_nodes": {
+    "CVE": {
+      "pattern": "^CVE-\\d{4}-\\d{4,}$",
+      "description": "CVE identifier",
+      "url_template": "https://www.cve.org/CVERecord?id={id}"
+    }
+  }
+}
+```
+
+See `registry/advisory/com/redhat.json` for a complex example with nested children (RHSA/RHBA/RHEA under errata).
+
+## JSON Pilot Files
+
+Four registry entries have been converted to the target JSON format as pilots:
+- `registry/advisory/org/mitre.json`
+- `registry/advisory/com/redhat.json`
+- `registry/control/org/cloudsecurityalliance.json`
+- `registry/weakness/org/owasp.json` (reference example for `version_required` and `version_disambiguation`)
+
+These `.json` files sit alongside their `.md` counterparts. Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review of YAML→JSON conversions.
 
 ## Entity Type Differences
 
@@ -159,7 +233,11 @@ Entity files describe organizations, not data sources. They use a `names` block 
 # vs registry/advisory/org/mitre.md uses sources: { cve: {...} }
 ```
 
-See REGISTRY-JSON-FORMAT.md "Entity Type Differences" section for the full schema.
+See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Type Differences" section for the full schema.
+
+## Cross-Type Documentation
+
+Some sources appear in multiple types. For example, a security tool might be both an `entity` (the product) and a `control` (its capabilities). A weakness taxonomy like OWASP AI Exchange defines both `weakness` entries and `control` entries. Each type gets its own registry file — see `registry/README.md` for the dual-documentation pattern.
 
 ## Development Commands
 
@@ -207,7 +285,7 @@ This is a **specification-only repository** — no build system, no tests, no co
 
 **Why registry-required?** Names can contain `#`, `@`, `?`, `:` - the registry lookup determines where name ends.
 
-**Version resolution:** Sources with `version_required: true` behave differently when `@version` is omitted — the resolver returns all matching versions with disambiguation guidance instead of a single result. See REGISTRY-JSON-FORMAT.md "Version Resolution Fields".
+**Version resolution:** Sources with `version_required: true` behave differently when `@version` is omitted — the resolver returns all matching versions with disambiguation guidance instead of a single result. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Version Resolution Fields".
 
 ## Preserve Source Identifiers
 

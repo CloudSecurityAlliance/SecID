@@ -1,16 +1,22 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-The repository is documentation-first: Markdown specs and design notes live at the root (`README.md`, `SPEC.md`, `DESIGN-DECISIONS.md`), the authoritative registry sits in `registry/`, and research CSVs are staged under `seed/`. Registry entries follow `registry/<type>/<tld>/<domain>.md`, so `registry/control/gov/nist.md` defines every `secid:control/nist.gov/*` namespace. JSON mirrors exist where automation is being trialed (for example `registry/control/org/cloudsecurityalliance.json`); keep Markdown and JSON neighbors in sync. Treat `seed/*.csv` files as research scratchpads only—promote vetted sources into the registry with rich narrative context per `REGISTRY-FORMAT.md`.
+This repo is documentation-first: foundational specs live at the root (`README.md`, `SPEC.md`) with decision records and format docs under `docs/` (`docs/explanation/DESIGN-DECISIONS.md`, `docs/reference/REGISTRY-FORMAT.md`). Authoritative SecID definitions sit under `registry/` with the pattern `registry/<type>/<tld>/<domain>.md`; for example, `registry/control/gov/nist.md` governs every `secid:control/nist.gov/*` entry. JSON mirrors such as `registry/control/org/cloudsecurityalliance.json` must match the Markdown narrative beside them. Research CSVs (`seed/*.csv`) are scratchpads only—promote finalized data into the registry with provenance notes and SecID examples.
 
 ## Build, Test, and Development Commands
-There is no compile pipeline, but two quick checks keep contributions sane: `rg -n 'namespace:' registry/control` locates precedents so new namespaces fit existing patterns, and `python -m json.tool registry/control/org/cloudsecurityalliance.json` validates any JSON mirrors before committing. Run `git status -sb` prior to a PR to ensure you are only touching intentional files.
+- `rg -n 'namespace:' registry/control` — inspect precedent namespaces before minting new ones.
+- `python -m json.tool registry/control/org/cloudsecurityalliance.json` — pretty-print and validate JSON mirrors.
+- `rg -n 'TODO' registry` — ensure drafts are removed prior to submission.
+- `git status -sb` — confirm only intended files are staged for review.
 
 ## Coding Style & Naming Conventions
-Registry files must open with YAML frontmatter delimited by `---`, indented with two spaces, and use lower-case reverse-DNS namespaces (`mitre.org`, `cloudsecurityalliance.org`). Markdown headings should mirror the source name (`# MITRE Advisory Sources`) and include example SecIDs like ``secid:advisory/mitre.org/cve#CVE-2024-1234``. Keep CSV headers untouched and prefer snake_case column names. When text calls out identifiers, quote them with backticks to help toolchains parse references.
+Open every registry file with YAML frontmatter wrapped in `---` and indented with two spaces. Use lower-case reverse-DNS namespaces (`mitre.org`, `cloudsecurityalliance.org`) and match Markdown headings to the source name (e.g., `# MITRE Advisory Sources`). Provide at least one concrete SecID example such as ``secid:advisory/mitre.org/cve#CVE-2024-1234``. Quote identifiers with backticks so downstream tooling can parse them. Keep CSV headers unchanged and favor snake_case column names.
 
 ## Testing Guidelines
-Before submitting, manually resolve every example SecID you add to confirm lookup URLs and regexes. Run a spelling/formatting pass (e.g., `rg -n 'TODO' registry`) to ensure drafts are not promoted accidentally. If you edit a seed CSV, spot-check that its contents already exist—or intentionally do not yet exist—in `registry/` so agents know whether data is authoritative. There are no coverage targets, but each new namespace needs at least one concrete example plus resolution instructions.
+Manually resolve each SecID example you add to confirm URLs, regexes, and lookup text. When editing `seed/` data, verify whether each row already exists in `registry/` to signal authoritative coverage. There is no automated test suite, so rely on targeted `rg` checks and manual validation before opening a PR.
 
 ## Commit & Pull Request Guidelines
-Follow the pattern already in Git history: short imperative subject lines (`Add CSA CCM sources`) and one logical change per commit. Reference related issues in the PR description, note whether you touched Markdown, JSON, or CSV assets, and call out any new identifier patterns or lookup rules. PRs should list screenshots only when UI output is relevant (rare here) but must always summarize added namespaces or documents and link to their sources for reviewer verification.
+Follow the existing history: short imperative commit subjects (`Add CSA CCM sources`) and one logical change per commit. In PRs, reference related issues, summarize any new namespaces or documents, state whether Markdown, JSON, or CSV files were touched, and link to external sources for reviewer verification. Screenshots are only needed when UI output is relevant.
+
+## Agent Workflow Tips
+Keep `docs/guides/REGISTRY-GUIDE.md`, `docs/reference/REGISTRY-JSON-FORMAT.md`, and `docs/reference/REGISTRY-FORMAT.md` nearby while editing to confirm field-by-field requirements. Prefer creating new files in the correct registry path rather than reshaping existing namespaces unless you are explicitly refactoring them.

@@ -64,7 +64,7 @@ These source-level fields (defined in [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FO
 | `version_disambiguation` | AI-readable instructions for determining intended version from context |
 | `versions_available` | Array of `{version, release_date, status, note}` — all known versions |
 
-See [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) "Version Resolution Behavior" for the rationale behind these fields.
+See [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md) "Version Resolution Behavior" for the rationale behind these fields.
 
 ## API Response Behavior
 
@@ -224,6 +224,6 @@ This dovetails with the broader security mapping problem (e.g., CCM 4.0 → 4.1 
 | Topic | Read This |
 |-------|-----------|
 | Version resolution field definitions | [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) "Version Resolution Fields" |
-| Why versioning works the way it does | [DESIGN-DECISIONS.md](DESIGN-DECISIONS.md) "Why Each Component Does or Doesn't Support Versioning" and "Version Resolution Behavior" |
-| Contributor guidance for version fields | [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) "Version Requirements and Disambiguation" |
-| Grammar and parsing | [SPEC.md](SPEC.md) "Versionless References" |
+| Why versioning works the way it does | [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md) "Why Each Component Does or Doesn't Support Versioning" and "Version Resolution Behavior" |
+| Contributor guidance for version fields | [REGISTRY-GUIDE.md](../guides/REGISTRY-GUIDE.md) "Version Requirements and Disambiguation" |
+| Grammar and parsing | [SPEC.md](../../SPEC.md) "Versionless References" |

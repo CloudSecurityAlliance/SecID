@@ -34,6 +34,9 @@ This document tracks gaps identified in SecID project documentation and their re
 | Registry file validation requirement | Medium | SPEC.md or CONTRIBUTING.md should require `id_pattern` in all registry files |
 | Central discovery hub | Low | "awesome-secid" list or similar for community tools |
 | URL rot mitigation details | Low | Content caching strategy (addressed conceptually by v1.x raw content phase) |
+| Markdown⇄JSON lifecycle | Medium | Document when exploratory Markdown entries graduate to JSON mirrors and how to keep them synchronized |
+| Regex authoring workflow | Medium | Consolidated how-to plus compatibility checks for building and testing resolver regex trees |
+| Task-focused contributor guides | Medium | Step-by-step docs for common tasks (e.g., new registry entry, regex testing) alongside the reference material |
 
 ---
 
@@ -133,6 +136,25 @@ This is the correct approach. Designing these layers before v1.0 adoption would 
 - Percent-encoding complexity (necessary evil)
 - Filesystem path length limits (future database solves)
 - Database indexing (not a concern at current scale)
+
+---
+
+### 6. Documentation & Workflow Gaps
+
+#### Markdown⇄JSON Lifecycle (MEDIUM PRIORITY)
+- **Where it's mentioned:** `AGENTS.md:3-4` tells contributors that Markdown registry files and JSON mirrors must match, while `REGISTRY-FORMAT.md:5-16` only notes that JSON is a “future direction.” Neither source explains when exploratory Markdown files should remain narrative-only, when to generate JSON mirrors, or how to keep Markdown authoritative once JSON exists.
+- **Impact:** Contributors may promote research-stage content into JSON too early (hurting API stability) or forget to sync JSON after Markdown edits (leading to resolver regressions).
+- **Needed fix:** Document the lifecycle explicitly: draft in Markdown → validate SecIDs/regexes → mark “ready” → generate JSON mirror → keep Markdown as the narrative/authoritative text and describe how to re-sync JSON when Markdown changes. A short checklist in `REGISTRY-FORMAT.md` (linked from `AGENTS.md`) would prevent ambiguity.
+
+#### Regex Authoring Workflow & Compatibility Testing (MEDIUM PRIORITY)
+- **Where info lives now:** `SPEC.md:14-18` and `README.md:153-160` explain that registry patterns drive parsing, `DESIGN-DECISIONS.md:2072-2089` describes the unified pattern tree, and `REGISTRY-JSON-FORMAT.md:456-515` plus `REGISTRY-GUIDE.md:369-375` list schema expectations. There is no single workflow or automated validation.
+- **Impact:** Contributors must hop across multiple reference docs and manually trust that their regexes compile everywhere. There is also no lint/test harness to enforce the “PCRE2-safe, no backtracking” constraints, so incompatibilities will only surface at runtime.
+- **Needed fix:** Publish a task-oriented guide (e.g., `REGEX-WORKFLOW.md`) walking through deriving patterns, encoding them in Markdown/JSON, validating with `rg`/Python, and testing SecID examples. Pair it with a script/CI job that loads every `patterns[]` entry and compiles it using the target runtimes (JS/Python/Go/Rust) with timeout guards to catch ReDoS-prone expressions.
+
+#### Task-Focused Contributor Guides (MEDIUM PRIORITY)
+- **Current state:** `AGENTS.md:21-22` merely suggests keeping the reference docs handy; contributors must infer how to perform common workflows.
+- **Impact:** Important tasks—creating a namespace, promoting Markdown to JSON, testing regexes, or validating SecID examples—lack concise procedures, slowing onboarding and creating review churn.
+- **Needed fix:** Add short runbooks or checklists (either within `AGENTS.md` or as separate `WORKFLOW` docs) that enumerate steps, commands, and success criteria for frequent tasks. Link each step back to the authoritative reference but provide an ordered, actionable path another AI can execute.
 
 ---
 
