@@ -352,18 +352,18 @@ This learning feeds back into spec refinement and overlay priorities.
 
 | Deliverable | Status | Notes |
 |-------------|--------|-------|
-| Specification (SPEC.md) | ✅ Complete | Open for public comment |
-| Registry structure | ✅ Complete | 100+ namespace definitions |
-| Type documentation | ✅ Complete | All 7 types documented |
-| Design documentation | ✅ Complete | RATIONALE, DESIGN-DECISIONS, STRATEGY |
-| Namespace documentation | ✅ Complete | _index.md files for advisory namespaces |
+| Specification (SPEC.md) | Complete | Open for public comment |
+| Registry structure | Complete | 100+ namespace definitions |
+| Type documentation | Complete | All 7 types documented |
+| Design documentation | Complete | RATIONALE, DESIGN-DECISIONS, STRATEGY |
+| Namespace documentation | Complete | _index.md files for advisory namespaces |
 
 ### Version 1.0: URL Resolution
 
 | Deliverable | Status | Success Criteria |
 |-------------|--------|------------------|
 | Registry data (500+ namespaces) | In progress | Every namespace has URL resolution rules + description |
-| Compliance test suite | Not started | Canonical test cases for implementations |
+| Compliance test suite | Not started | Canonical test cases built during API development; doubles as conformance spec for third-party implementations |
 | Python library (`secid`) | Not started | `pip install secid` enables parsing and resolution |
 | npm/TypeScript library (`secid`) | Not started | `npm install secid` enables parsing and resolution |
 | REST API | Not started | Any language can resolve SecIDs via HTTP |
@@ -371,6 +371,18 @@ This learning feeds back into spec refinement and overlay priorities.
 | Rust library | Not started | Native Rust support for systems tools |
 | Java library | Not started | Native Java support for enterprise tools |
 | C#/.NET library | Not started | Native .NET support for Windows ecosystem |
+
+### Skills
+
+Three Claude Code skills support the registry workflow. All three are built **incrementally during API development**, not as standalone deliverables — each new namespace, conversion, or test case teaches the skills what they need to cover.
+
+| Skill | Purpose | Built During |
+|-------|---------|-------------|
+| [Registry Research](skills/registry-research/) | Research sources, create/update .md registry files, determine resolution strategy | Registry buildout |
+| [Registry Formalization](skills/registry-formalization/) | Convert .md to .json, validate against JSON Schema, ensure cross-format consistency | API development (JSON Schema emerges from API needs) |
+| [Compliance Testing](skills/compliance-testing/) | Run canonical test suite against resolver implementations, diagnose failures | API development (test cases accumulate as edge cases are discovered) |
+
+A fourth skill, [SecID User](skills/secid-user/), covers consuming SecID as an end user. It's blocked on SecID-Service existing.
 
 ### Validation Strategy: AI-Assisted
 

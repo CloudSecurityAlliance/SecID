@@ -26,7 +26,7 @@
         "common_name": null,
         "alternate_names": null,
         "description": "Red Hat's advisory system publishing security fixes (RHSA), bug fixes (RHBA), and enhancements (RHEA) for Red Hat products.",
-        "notes": "Errata IDs contain colons (e.g., RHSA-2024:1234) — preserve the colon in subpaths. RHSA advisories often bundle fixes for multiple CVEs in a single errata. Errata are tied to specific product versions and architectures. Each errata includes affected packages and their updated versions. Security advisories (RHSA) include severity ratings. The number after the colon is sequential within a year.",
+        "notes": "Errata IDs contain colons (e.g., RHSA-2024:1234) — preserve the colon in subpaths. RHSA advisories often bundle fixes for multiple CVEs in a single errata. Errata are tied to specific product versions and architectures. Each errata includes affected packages and their updated versions. Security advisories (RHSA) include severity ratings. The number after the colon is sequential within a year.\n\nMultiple access methods: Errata are available both as HTML pages at access.redhat.com/errata/{id} and as machine-readable JSON via the Hydra REST API at access.redhat.com/hydra/rest/securitydata. The web pages are the primary human-facing resolution; the API provides the same data in structured format for programmatic access.",
         "urls": [
           {"type": "website", "url": "https://access.redhat.com/errata/"},
           {"type": "api", "url": "https://access.redhat.com/hydra/rest/securitydata"},
@@ -65,7 +65,7 @@
         "common_name": null,
         "alternate_names": null,
         "description": "Red Hat's own CVE analysis pages with Red Hat-specific CVSS scores, affected products, and mitigation guidance.",
-        "notes": "Red Hat CVE pages have their own CVSS scores which may differ from NVD. Includes RHEL-specific mitigation and remediation guidance. Shows which Red Hat products are affected. Links to related errata (RHSA) that fix the CVE. CVE pages describe the vulnerability; errata (RHSA/RHBA/RHEA) are the actual fixes.",
+        "notes": "Red Hat CVE pages have their own CVSS scores which may differ from NVD. Includes RHEL-specific mitigation and remediation guidance. Shows which Red Hat products are affected. Links to related errata (RHSA) that fix the CVE. CVE pages describe the vulnerability; errata (RHSA/RHBA/RHEA) are the actual fixes.\n\nMultiple representations: The same CVE data is available as an HTML page at access.redhat.com/security/cve/{id} and as JSON via the Hydra REST API. The web page is the primary resolution for humans; the API is for programmatic access. Note this is Red Hat's own CVE analysis — for the canonical CVE record, see secid:advisory/mitre.org/cve.",
         "urls": [
           {"type": "website", "url": "https://access.redhat.com/security/"},
           {"type": "api", "url": "https://access.redhat.com/hydra/rest/securitydata"},

@@ -58,6 +58,10 @@ With 20+ markdown files, know which document answers which question:
 | What's deferred? | [TODO.md](docs/project/TODO.md), [registry/_deferred/](registry/_deferred/) |
 | Multi-repo architecture? | [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) |
 | AI agent instructions? | [AGENTS.md](AGENTS.md) |
+| How is SecID deployed? | [docs/operations/](docs/operations/) - DNS, deployment, CI/CD, bootstrap |
+| How do I research a new namespace? | [skills/registry-research/](skills/registry-research/) - research workflow skill |
+| How do I convert .md to .json? | [skills/registry-formalization/](skills/registry-formalization/) - formalization skill |
+| How do I test a resolver? | [skills/compliance-testing/](skills/compliance-testing/) - compliance testing skill |
 
 Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
 
@@ -67,7 +71,7 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 
 | Repo | Purpose |
 |------|---------|
-| **SecID** (this repo) | Specification, registry data, design documents |
+| **SecID** (this repo) | Specification, registry data, design documents, operations docs |
 | **SecID-Service** | Cloudflare Worker REST API + MCP server |
 | **SecID-Website** | Cloudflare Pages documentation site |
 | **SecID-Client** | Client libraries (Python, npm, Go, Rust, Java, C#) |
@@ -99,9 +103,10 @@ secid/
 │   ├── future/              # Aspirational, explicitly not commitments
 │   │   ├── FUTURE-VISION.md, STRATEGY.md, USE-CASES.md
 │   │   ├── RELATIONSHIPS.md, OVERLAYS.md
-│   └── project/             # Internal tracking and organizational docs
-│       ├── TODO.md, GAPS.md, CONCERNS.md
-│       └── csa/             # CSA-internal documents
+│   ├── project/             # Internal tracking and organizational docs
+│   │   ├── TODO.md, GAPS.md, CONCERNS.md
+│   │   └── csa/             # CSA-internal documents
+│   └── operations/          # Infrastructure, DNS, deployment, CI/CD
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files

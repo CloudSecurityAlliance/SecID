@@ -2322,3 +2322,117 @@ secid:reference/nist.gov/ai-rmf  sameAs  secid:reference/doi.org/10.6028/NIST.AI
 
 This keeps the registry focused on its core job: labeling and finding things.
 
+## All Repositories Are Public
+
+### The Decision
+
+All SecID repositories are public.
+
+### Why
+
+**No secrets exist.** SecID-Service is a Cloudflare Worker that reads public registry data and returns URLs. SecID-Website is a static site. There are no databases, no authentication systems, no API keys baked into application code. The only credential is a Cloudflare deploy token used by CI/CD, which lives in GitHub Actions secrets — never in the repo.
+
+**The attack surface doesn't benefit from obscurity.** Knowing that we use a Cloudflare Worker with path-based routing (`/api/*`, `/mcp/*`, `/*`) tells an attacker nothing useful. The infrastructure is a CDN edge function serving public data. There are no internal networks, no database connection strings, no admin endpoints to discover.
+
+**Consistency with project philosophy.** SecID is CC0, AI-first, and designed to be self-hostable. Making the service code public but hiding how it's deployed contradicts that. Someone who wants to run their own SecID infrastructure needs the operations repo to do it.
+
+**Transparency builds trust.** For a project that aims to be industry infrastructure for security knowledge, hiding infrastructure decisions would undermine credibility. If the deployment is sound, showing it proves that. If it has weaknesses, hiding the config doesn't fix them.
+
+### What This Means
+
+| Repo | Visibility | Contains |
+|------|-----------|----------|
+| SecID | Public | Spec, registry data, design docs, operations documentation |
+| SecID-Service | Public | Cloudflare Worker (API + MCP server) |
+| SecID-Website | Public | Cloudflare Pages documentation site |
+| SecID-Client | Public | Client libraries |
+
+## Operations Documentation Lives in This Repo
+
+### The Decision
+
+Infrastructure and operations documentation (bootstrap runbook, DNS decisions, routing config, CI/CD pipeline design) lives in `docs/operations/` within this repo, not in a separate SecID-Operations repository.
+
+### Why
+
+**It's documentation, not code.** The operations content is markdown files describing decisions and procedures — DNS records chosen, routing layout, bootstrap steps, CI/CD design. There's no Terraform, no scripts, no build artifacts that need their own lifecycle. Documentation belongs with documentation.
+
+**Fewer repos reduces overhead.** Five repos where four are empty is worse than one repo with good organization. Each repo needs its own README, its own issue tracker, its own contributor onboarding. That overhead isn't justified for a handful of markdown files.
+
+**One place for the full picture.** This repo already has `docs/reference/INFRASTRUCTURE.md` describing the multi-repo architecture. Operations docs are the natural companion — *what* the architecture is and *how* it's deployed, in the same place. Contributors don't have to cross-reference between repos to understand how things work.
+
+**Extraction is easy if needed later.** If operations ever grows to include real infrastructure-as-code (Terraform, Pulumi), CI/CD scripts with their own tests, or monitoring configuration that needs its own release cycle, splitting out a separate repo is straightforward. Starting merged and splitting later is cheaper than starting split and merging.
+
+### What This Means
+
+Operations documentation lives at `docs/operations/` alongside the existing docs hierarchy:
+
+```
+docs/
+├── reference/        # Technical specs (formats, versioning, edge cases)
+├── explanation/       # Why decisions were made
+├── guides/            # Task-oriented how-tos
+├── future/            # Aspirational (not commitments)
+├── project/           # Internal tracking
+└── operations/        # Infrastructure, DNS, deployment, CI/CD
+```
+
+If operations outgrows documentation into actual IaC code with its own build/test/release needs, it gets extracted into a separate repo at that point.
+
+## Licensing: CC0 for Content, Apache 2.0 for Code
+
+### The Decision
+
+| Repo | License | Rationale |
+|------|---------|-----------|
+| **SecID** (spec, registry, docs) | CC0 1.0 | Content. Maximum adoption, zero barriers to use. |
+| **SecID-Website** (documentation site) | CC0 1.0 | Content. Same rationale — it's rendered documentation. |
+| **SecID-Service** (API + MCP server) | Apache 2.0 | Code. Industry-standard for open-source software. |
+| **SecID-Client** (libraries) | Apache 2.0 | Code. Industry-standard, expected by package registries. |
+
+### Why CC0 for Content
+
+SecID's spec and registry data exist to be adopted as widely as possible. Any licensing friction — even attribution requirements — reduces adoption. CC0 (public domain dedication) removes all restrictions: anyone can use, copy, modify, and redistribute without permission, attribution, or notice.
+
+This is the right choice for:
+- The specification (standards should be freely implementable)
+- Registry data (factual data about where security knowledge lives)
+- Documentation (removing barriers to understanding)
+
+### Why Apache 2.0 for Code
+
+CC0 is unusual for software and creates practical issues:
+
+**Patent protection.** Apache 2.0 includes an explicit patent grant — contributors license any patents they hold that cover their contributions. CC0 has no patent clause. For code that organizations will depend on in production, patent protection matters.
+
+**Legal team familiarity.** Enterprise legal teams routinely approve Apache 2.0 dependencies. CC0 for software is uncommon enough that it triggers additional review, slowing adoption.
+
+**Ecosystem expectations.** Package registries (PyPI, npm, crates.io) and their users expect standard software licenses. Apache 2.0 is one of the most widely used and understood.
+
+**Attribution is reasonable for code.** Unlike a spec (where attribution requirements impede adoption), attribution for a library is normal and expected. Apache 2.0's attribution requirement (keep the LICENSE and NOTICE files) is minimal.
+
+### Why Not MIT?
+
+Apache 2.0 and MIT are both permissive. Apache 2.0 adds:
+- Explicit patent grant (MIT is silent on patents)
+- Clear contribution terms
+- NOTICE file mechanism for attribution
+
+For infrastructure software that organizations depend on, the patent clarity is worth the slightly longer license text.
+
+## SPF Record on Service Subdomains
+
+### The Decision
+
+Every SecID subdomain that hosts services (not email) gets an SPF record denying all email:
+
+```
+secid.cloudsecurityalliance.org    TXT    "v=spf1 -all"
+```
+
+### Why
+
+The subdomain `secid.cloudsecurityalliance.org` hosts a Cloudflare Worker and Pages site. It will never send email. Without an explicit SPF `-all` record, an attacker could send spoofed email appearing to come from `secid.cloudsecurityalliance.org` — which could be used for phishing attacks targeting CSA's reputation.
+
+`v=spf1 -all` tells mail servers: "this domain sends no email; reject anything claiming to come from it." This is a low-effort, high-value hardening step that should be applied at domain creation time, not retrofitted later.
+

@@ -24,7 +24,7 @@ SecID is split across multiple repositories for clear separation of concerns:
 
 | Repository | Purpose | Contents |
 |------------|---------|----------|
-| **SecID** (this repo) | Spec + Registry | Specification, registry data, design docs. Source of truth. |
+| **SecID** (this repo) | Spec + Registry + Operations | Specification, registry data, design docs, infrastructure/deployment docs. Source of truth. |
 | **SecID-Service** | API + MCP | Cloudflare Worker code for `/v1/` and `/mcp`. Consumes registry. |
 | **SecID-Website** | Documentation site | Cloudflare Pages. Generated from other repos by Claude skill. |
 | **SecID-Client** | Official clients | Python, npm, Go libraries. Claude skills for using SecID. |
@@ -35,6 +35,8 @@ SecID is split across multiple repositories for clear separation of concerns:
 - Service can be self-hosted by others
 - Website is derived content, not source
 - Clients are independent of service implementation
+
+**Why operations lives here (not a separate repo):** Operations content is documentation (bootstrap runbook, DNS decisions, CI/CD design), not code with its own build/release lifecycle. See [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md#operations-documentation-lives-in-this-repo). Operations docs live at `docs/operations/`.
 
 **Registry curator:** CSA maintains the default registry data in the SecID repo.
 

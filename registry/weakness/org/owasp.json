@@ -26,10 +26,9 @@
         "common_name": "OWASP Top 10",
         "alternate_names": null,
         "description": "The most critical web application security risks. Updated every 3-4 years.",
-        "notes": "Version matters: top10@2021#A01 (Broken Access Control) is not the same as top10@2017#A01 (Injection). The lookup URL requires assembling the item number, year, and name slug — not a simple {id} substitution. Maps to CWEs.",
+        "notes": "Version matters: top10@2021#A01 (Broken Access Control) is not the same as top10@2017#A1 (Injection). ID format differs by version: 2021 uses zero-padded IDs (A01-A10), while 2017 and 2013 use non-padded IDs (A1-A10). The lookup URL requires assembling the item number, year, and name slug — not a simple {id} substitution, so each version uses a lookup_table. Maps to CWEs.\n\n2013 individual pages are no longer live — only a PDF of the full document is available. 2017 URLs have a quirk: A10's URL contains %2526 (double-encoded ampersand) because the title 'Insufficient Logging & Monitoring' has & encoded as %26, then % encoded as %25.",
         "urls": [
-          {"type": "website", "url": "https://owasp.org/www-project-top-ten/"},
-          {"type": "lookup", "url": "https://owasp.org/Top10/A{num}_{year}_{name}/", "note": "Requires assembling num, year, and name slug — not automatable from ID alone without a lookup table"}
+          {"type": "website", "url": "https://owasp.org/www-project-top-ten/"}
         ],
         "version_required": true,
         "unversioned_behavior": "all_with_guidance",
@@ -43,23 +42,111 @@
       },
       "children": [
         {
-          "patterns": ["^A\\d{2}$"],
-          "description": "OWASP Top 10 item number (e.g., A01, A03)",
+          "patterns": ["^2021$"],
+          "description": "OWASP Top 10 2021 (current)",
           "weight": 100,
           "data": {
-            "known_values": {
-              "A01": "Broken Access Control (2021)",
-              "A02": "Cryptographic Failures (2021)",
-              "A03": "Injection (2021)",
-              "A04": "Insecure Design (2021)",
-              "A05": "Security Misconfiguration (2021)",
-              "A06": "Vulnerable and Outdated Components (2021)",
-              "A07": "Identification and Authentication Failures (2021)",
-              "A08": "Software and Data Integrity Failures (2021)",
-              "A09": "Security Logging and Monitoring Failures (2021)",
-              "A10": "Server-Side Request Forgery (2021)"
+            "note": "Major restructuring from 2017. A01 changed from Injection to Broken Access Control. Uses zero-padded IDs (A01-A10).",
+            "urls": [
+              {"type": "website", "url": "https://owasp.org/Top10/"}
+            ]
+          },
+          "children": [
+            {
+              "patterns": ["^A0[1-9]$", "^A10$"],
+              "description": "OWASP Top 10 2021 item (A01-A10, zero-padded)",
+              "weight": 100,
+              "data": {
+                "lookup_table": {
+                  "A01": {"url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/", "title": "Broken Access Control"},
+                  "A02": {"url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/", "title": "Cryptographic Failures"},
+                  "A03": {"url": "https://owasp.org/Top10/A03_2021-Injection/", "title": "Injection"},
+                  "A04": {"url": "https://owasp.org/Top10/A04_2021-Insecure_Design/", "title": "Insecure Design"},
+                  "A05": {"url": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/", "title": "Security Misconfiguration"},
+                  "A06": {"url": "https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/", "title": "Vulnerable and Outdated Components"},
+                  "A07": {"url": "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/", "title": "Identification and Authentication Failures"},
+                  "A08": {"url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/", "title": "Software and Data Integrity Failures"},
+                  "A09": {"url": "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/", "title": "Security Logging and Monitoring Failures"},
+                  "A10": {"url": "https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_(SSRF)/", "title": "Server-Side Request Forgery (SSRF)"}
+                },
+                "provenance": {
+                  "method": "Verified URLs at owasp.org/Top10/ listing page. Each URL confirmed to load.",
+                  "date": "2026-03-02",
+                  "source_url": "https://owasp.org/Top10/"
+                }
+              }
             }
-          }
+          ]
+        },
+        {
+          "patterns": ["^2017$"],
+          "description": "OWASP Top 10 2017 (superseded)",
+          "weight": 100,
+          "data": {
+            "note": "Still widely referenced in existing documentation and certifications. Uses non-padded IDs (A1-A10, NOT A01-A10). A10 URL contains double-encoded ampersand (%2526).",
+            "urls": [
+              {"type": "website", "url": "https://owasp.org/www-project-top-ten/2017/"}
+            ]
+          },
+          "children": [
+            {
+              "patterns": ["^A[1-9]$", "^A10$"],
+              "description": "OWASP Top 10 2017 item (A1-A10, NOT zero-padded)",
+              "weight": 100,
+              "data": {
+                "lookup_table": {
+                  "A1": {"url": "https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html", "title": "Injection"},
+                  "A2": {"url": "https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html", "title": "Broken Authentication"},
+                  "A3": {"url": "https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure.html", "title": "Sensitive Data Exposure"},
+                  "A4": {"url": "https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE).html", "title": "XML External Entities (XXE)"},
+                  "A5": {"url": "https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html", "title": "Broken Access Control"},
+                  "A6": {"url": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html", "title": "Security Misconfiguration"},
+                  "A7": {"url": "https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS).html", "title": "Cross-Site Scripting (XSS)"},
+                  "A8": {"url": "https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization.html", "title": "Insecure Deserialization"},
+                  "A9": {"url": "https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities.html", "title": "Using Components with Known Vulnerabilities"},
+                  "A10": {"url": "https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring.html", "title": "Insufficient Logging & Monitoring"}
+                },
+                "provenance": {
+                  "method": "Verified URLs at owasp.org/www-project-top-ten/2017/ listing page. A10 URL confirmed to use double-encoded %2526 for the & character.",
+                  "date": "2026-03-02",
+                  "source_url": "https://owasp.org/www-project-top-ten/2017/"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "patterns": ["^2013$"],
+          "description": "OWASP Top 10 2013 (legacy, superseded)",
+          "weight": 100,
+          "data": {
+            "note": "Legacy. Individual item pages are no longer live. Only the full PDF document is available. Uses non-padded IDs (A1-A10).",
+            "urls": [
+              {"type": "docs", "url": "https://owasp.org/www-pdf-archive/OWASP_Top_10_-_2013.pdf", "format": "pdf", "note": "Full document PDF. Individual item web pages no longer available."}
+            ]
+          },
+          "children": [
+            {
+              "patterns": ["^A[1-9]$", "^A10$"],
+              "description": "OWASP Top 10 2013 item (A1-A10, NOT zero-padded)",
+              "weight": 100,
+              "data": {
+                "note": "No individual item URLs available. Return the PDF link from the parent version node.",
+                "known_values": {
+                  "A1": "Injection",
+                  "A2": "Broken Authentication and Session Management",
+                  "A3": "Cross-Site Scripting (XSS)",
+                  "A4": "Insecure Direct Object References",
+                  "A5": "Security Misconfiguration",
+                  "A6": "Sensitive Data Exposure",
+                  "A7": "Missing Function Level Access Control",
+                  "A8": "Cross-Site Request Forgery (CSRF)",
+                  "A9": "Using Components with Known Vulnerabilities",
+                  "A10": "Unvalidated Redirects and Forwards"
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -130,7 +217,7 @@
           {"type": "website", "url": "https://owasp.org/www-project-machine-learning-security-top-10/"},
           {"type": "docs", "url": "https://mltop10.info/"},
           {"type": "github", "url": "https://github.com/OWASP/www-project-machine-learning-security-top-10"},
-          {"type": "lookup", "url": "https://mltop10.info/#{id}/"}
+          {"type": "lookup", "url": "https://mltop10.info/#{id}/", "note": "Uses URL hash fragments. The page is a single-page site with anchored sections — navigate within the page to find the matching item. Automated resolution should note that the # in the URL is a fragment identifier, not a subpath delimiter."}
         ],
         "examples": ["ML01", "ML05", "ML10"]
       },
@@ -141,6 +228,7 @@
           "weight": 100,
           "data": {
             "url": "https://mltop10.info/#{id}/",
+            "note": "URL uses hash fragment — this is a single-page site with anchored sections, not separate pages per item.",
             "known_values": {
               "ML01": "Input Manipulation Attack",
               "ML02": "Data Poisoning Attack",

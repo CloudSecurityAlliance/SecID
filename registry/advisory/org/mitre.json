@@ -26,7 +26,7 @@
         "common_name": "CVE",
         "alternate_names": null,
         "description": "The canonical vulnerability identifier system, operated by MITRE under contract with CISA.",
-        "notes": "CVE is the canonical identifier — other advisories cross-reference CVEs. NVD (NIST) enriches CVE records with CVSS scores, CPE entries, and CWE mappings, but NVD has processing backlogs. Quality of CVE descriptions varies by CNA — some provide detailed technical analysis, others minimal information. The cvelistV5 GitHub repo contains raw JSON records organized by year and bucket directories.",
+        "notes": "CVE is the canonical identifier — other advisories cross-reference CVEs. NVD (NIST) enriches CVE records with CVSS scores, CPE entries, and CWE mappings, but NVD has processing backlogs. Quality of CVE descriptions varies by CNA — some provide detailed technical analysis, others minimal information. The cvelistV5 GitHub repo contains raw JSON records organized by year and bucket directories.\n\nMultiple representations: The same CVE record is available through three access methods — the cve.org website (human-readable HTML page), the cvelistV5 GitHub repository (raw JSON organized by year/bucket), and the CVE Services API (JSON, richer data than the web page). All three return the same underlying CVE record in different formats. The children below have identical patterns but different weights: the website (weight 100) is the primary human-facing resolution, while GitHub and API (weight 50) are alternative machine-readable access methods.",
         "urls": [
           {"type": "website", "url": "https://www.cve.org"},
           {"type": "api", "url": "https://cveawg.mitre.org/api"},

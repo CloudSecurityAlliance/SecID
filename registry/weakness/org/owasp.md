@@ -11,8 +11,12 @@ sources:
     full_name: "OWASP Top 10"
     urls:
       website: "https://owasp.org/www-project-top-ten/"
-      lookup: "https://owasp.org/Top10/A{num}_{year}_{name}/"
-    id_pattern: "A\\d{2}"
+      v2021: "https://owasp.org/Top10/"
+      v2017: "https://owasp.org/www-project-top-ten/2017/"
+      v2013_pdf: "https://owasp.org/www-pdf-archive/OWASP_Top_10_-_2013.pdf"
+    id_pattern_2021: "A0[1-9]|A10"
+    id_pattern_2017_2013: "A[1-9]|A10"
+    id_pattern_note: "ID format differs by version: 2021 uses zero-padded (A01-A10), 2017/2013 use non-padded (A1-A10). URLs are version-specific with name slugs — requires lookup table, not a simple template."
     versions:
       - "2021"
       - "2017"
@@ -22,7 +26,7 @@ sources:
     version_disambiguation: "Versions are released by year. Match the version whose release year is closest to but not after the referring document's publication date. If no date context is available, use the latest version (2021). Note: item numbering restarts with each version — A01 in one version is unrelated to A01 in another."
     examples:
       - "secid:weakness/owasp.org/top10@2021#A01"
-      - "secid:weakness/owasp.org/top10@2021#A03"
+      - "secid:weakness/owasp.org/top10@2017#A1"
       - "secid:weakness/owasp.org/top10#A01"
 
   llm-top10:
@@ -133,11 +137,14 @@ The most critical web application security risks.
 
 ```
 secid:weakness/owasp.org/top10[@YEAR]#ITEM
-secid:weakness/owasp.org/top10@2021#A03
-secid:weakness/owasp.org/top10#A01           # Current version
+secid:weakness/owasp.org/top10@2021#A03     # 2021 (zero-padded)
+secid:weakness/owasp.org/top10@2017#A1      # 2017 (NOT zero-padded)
+secid:weakness/owasp.org/top10#A01          # No version = latest (2021)
 ```
 
-### 2021 Edition
+ID format differs by version: 2021 uses zero-padded IDs (A01-A10), 2017 and 2013 use non-padded IDs (A1-A10). URLs are version-specific with name slugs -- each version requires a lookup table, not a simple URL template.
+
+### 2021 Edition (current)
 
 | ID | Name |
 |----|------|
@@ -150,12 +157,49 @@ secid:weakness/owasp.org/top10#A01           # Current version
 | A07 | Identification and Authentication Failures |
 | A08 | Software and Data Integrity Failures |
 | A09 | Security Logging and Monitoring Failures |
-| A10 | Server-Side Request Forgery |
+| A10 | Server-Side Request Forgery (SSRF) |
+
+### 2017 Edition (superseded)
+
+Still widely referenced in existing documentation and certifications.
+
+| ID | Name |
+|----|------|
+| A1 | Injection |
+| A2 | Broken Authentication |
+| A3 | Sensitive Data Exposure |
+| A4 | XML External Entities (XXE) |
+| A5 | Broken Access Control |
+| A6 | Security Misconfiguration |
+| A7 | Cross-Site Scripting (XSS) |
+| A8 | Insecure Deserialization |
+| A9 | Using Components with Known Vulnerabilities |
+| A10 | Insufficient Logging & Monitoring |
+
+Note: A10 2017 URL contains double-encoded ampersand (%2526) due to the & in the title.
+
+### 2013 Edition (legacy, superseded)
+
+Individual item pages are no longer live. Only a PDF of the full document is available.
+
+| ID | Name |
+|----|------|
+| A1 | Injection |
+| A2 | Broken Authentication and Session Management |
+| A3 | Cross-Site Scripting (XSS) |
+| A4 | Insecure Direct Object References |
+| A5 | Security Misconfiguration |
+| A6 | Sensitive Data Exposure |
+| A7 | Missing Function Level Access Control |
+| A8 | Cross-Site Request Forgery (CSRF) |
+| A9 | Using Components with Known Vulnerabilities |
+| A10 | Unvalidated Redirects and Forwards |
 
 ### Notes
 
 - Updated every 3-4 years
-- Version matters: top10@2021#A01 != top10@2017#A01
+- Version matters: top10@2021#A01 (Broken Access Control) != top10@2017#A1 (Injection)
+- ID format changes between versions (A01 vs A1)
 - Maps to CWEs
 
 ---

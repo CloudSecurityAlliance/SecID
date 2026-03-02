@@ -1,6 +1,6 @@
 # secid-user
 
-**Status: Stub — not yet built.** Waiting on API, MCP server, and registry stabilization before building.
+**Status: Stub — not yet built.** Blocked on SecID-Service (Cloudflare Worker REST API + MCP server) and registry stabilization before building.
 
 ## Purpose
 
@@ -33,10 +33,13 @@ Guidance for building tools that consume SecID. Grammar rules, parsing algorithm
 ## Dependencies Before Building
 
 - [ ] Registry has sufficient coverage (~500+ namespaces per ROADMAP.md v1.0 target)
-- [ ] Resolution API exists (REST endpoint that does parse → lookup → URL)
-- [ ] MCP server exists (so AI agents can call resolution as a tool)
+- [ ] SecID-Service deployed (Cloudflare Worker REST API — does parse → lookup → URL)
+- [ ] SecID-Service MCP server operational (so AI agents can call resolution as a tool)
 - [ ] SPEC.md grammar is stable (v1.0)
-- [ ] Version resolution behavior is implemented in the API (not just documented)
+- [ ] Version resolution behavior implemented in SecID-Service (not just documented)
+- [ ] Compliance test suite passing (see [skills/compliance-testing/](../compliance-testing/))
+
+This skill cannot be built until a working resolver exists — you can't use SecID without one.
 
 ## Resources This Skill Will Bundle
 

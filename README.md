@@ -519,12 +519,16 @@ See [SPEC.md Section 1.3](SPEC.md#13-scope-what-secid-identifies-and-what-it-doe
 - **Understand why:** [RATIONALE.md](docs/explanation/RATIONALE.md)
 - **See examples:** [USE-CASES.md](docs/future/USE-CASES.md)
 - **Browse namespaces:** [registry/](registry/)
+- **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- **Hands-on guides:** [docs/guides/](docs/guides/) — step-by-step walkthroughs for adding namespaces, writing patterns, and converting formats
+
+**Using AI tools?** We encourage it. See [AGENTS.md](AGENTS.md) for general agent instructions. If you're using Claude Code, Gemini, or similar tools, run `/init` to pick up the repo-specific configuration files automatically.
 
 ## Current Status
 
 **Version 0.9 - Public Draft**
 
-This specification is open for public comment. We welcome feedback, questions, and suggestions via [GitHub Issues](https://github.com/kurtseifried/SecID/issues).
+This specification is open for public comment. We welcome feedback, questions, and suggestions via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues).
 
 **What's Ready:**
 - Identifier grammar defined
@@ -542,13 +546,15 @@ This specification is open for public comment. We welcome feedback, questions, a
 - Relationship layer
 - Overlay layer
 
+**Where help is needed:** See [docs/project/](docs/project/) for gap analysis, open issues, and known concerns.
+
 ## Future: Making SecID Easy to Consume
 
 Our goal is to make SecID as easy to consume as possible. We're building:
 
 | Repository | Purpose | Status |
 |------------|---------|--------|
-| **SecID** (this repo) | Spec + Registry | Active |
+| **SecID** (this repo) | Spec, registry, operations docs | Active |
 | **SecID-Service** | Hosted API + MCP server | Planned |
 | **SecID-Website** | Documentation and registry browser | Planned |
 | **SecID-Client** | Official client libraries + Claude skills | Planned |
