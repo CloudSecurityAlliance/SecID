@@ -19,6 +19,37 @@ Deferring because:
 
 **When to revisit:** After v1.0 registry format is stable.
 
+### Resolver and Regex Test Fixture Strategy
+**Status:** Planned - start during SecID-Service API development
+
+Current coverage is split across docs:
+- `docs/reference/REGISTRY-JSON-FORMAT.md` defines resolver behavior and fields (`match_nodes`, `version_required`, `unversioned_behavior`, `examples`)
+- `docs/guides/REGEX-WORKFLOW.md` defines regex authoring and manual testing workflow
+- `skills/compliance-testing/` describes compliance-test direction
+
+Current gap:
+- ~~`data.examples` are input samples only (not executable input/output fixtures)~~ **Partially addressed:** Structured ExampleObject entries now exist in all 15 JSON registry files (input, variables, url, note fields). These serve as positive test fixtures for resolver conformance. See `REGISTRY-JSON-FORMAT.md` "Examples" section for the schema.
+- No canonical fixture set yet for negative/rejection tests or multi-resolution behavior tests
+- No fixture extraction tooling yet (to pull structured examples from registry JSON into a test runner)
+
+Need to add:
+- Fixture extraction script to collect all structured examples from registry JSON files into a test corpus
+- Negative test fixtures (invalid inputs that should be rejected) — these are API-level, not registry-level
+- Regex compile checks in resolver runtime (not just generic regex lint)
+- Overlap detection checks for sibling patterns (with explicit allow/tie policy)
+- Deterministic ordering tests for multiple matches (weight + stable tie-break)
+- Version-behavior tests (`version_required`, `current_with_history`, `all_with_guidance`)
+- Placeholder/variable expansion tests (`{id}`, `{year}`, custom `variables`)
+
+Open decisions (must be explicit before enforcing CI gates):
+- Overlap policy: fail by default vs allow with documented justification
+- API result policy: return all matches vs single primary match
+- Tie-break policy when weights are equal
+- Regex dialect policy for runtime compatibility
+- URL health checks: blocking vs non-blocking in CI
+
+**When to revisit:** Before enabling strict resolver conformance gates in CI.
+
 ### Resolution Instructions for Non-Deterministic Systems
 **Status:** Deferred - design decision needed
 

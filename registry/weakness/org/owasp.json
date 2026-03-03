@@ -73,7 +73,11 @@
                   "method": "Verified URLs at owasp.org/Top10/ listing page. Each URL confirmed to load.",
                   "date": "2026-03-02",
                   "source_url": "https://owasp.org/Top10/"
-                }
+                },
+                "examples": [
+                  {"input": "A01", "version": "2021", "url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/", "note": "Broken Access Control — #1 in 2021, was #5 in 2017"},
+                  {"input": "A03", "version": "2021", "url": "https://owasp.org/Top10/A03_2021-Injection/", "note": "Injection — was #1 in 2017, dropped to #3 in 2021"}
+                ]
               }
             }
           ]
@@ -110,7 +114,11 @@
                   "method": "Verified URLs at owasp.org/www-project-top-ten/2017/ listing page. A10 URL confirmed to use double-encoded %2526 for the & character.",
                   "date": "2026-03-02",
                   "source_url": "https://owasp.org/www-project-top-ten/2017/"
-                }
+                },
+                "examples": [
+                  {"input": "A1", "version": "2017", "url": "https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html", "note": "Non-padded ID format (A1 not A01). Injection was #1 in 2017."},
+                  {"input": "A10", "version": "2017", "url": "https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring.html", "note": "URL contains double-encoded ampersand (%2526) for the & in 'Logging & Monitoring'"}
+                ]
               }
             }
           ]
@@ -160,11 +168,9 @@
         "common_name": "LLM Top 10",
         "alternate_names": null,
         "description": "Security risks specific to Large Language Model applications.",
-        "notes": "AI/ML-specific weakness categories. Maps to CWE and MITRE ATLAS. Updated more frequently than traditional OWASP Top 10. v2.0 released 2025, labelled '2025' in titles (e.g., 'LLM01:2025'). v1 content archived at a different URL path. URL slugs are inconsistent — LLM01 lacks the year prefix that LLM02-10 have. Actual titles from OWASP may differ from commonly cited names (e.g., 'Improper Output Handling' not 'Insecure Output Handling' for LLM05).",
+        "notes": "AI/ML-specific weakness categories. Maps to CWE and MITRE ATLAS. Updated more frequently than traditional OWASP Top 10. Item numbering is reused across versions but items were significantly renamed and reordered between v1.0 and v2.0. Actual titles from OWASP may differ from commonly cited names (e.g., 'Improper Output Handling' not 'Insecure Output Handling' for v2.0 LLM05).",
         "urls": [
-          {"type": "website", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"},
-          {"type": "docs", "url": "https://genai.owasp.org/llm-top-10/", "note": "v2.0 list"},
-          {"type": "docs", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/0_1_vulns/", "note": "v1.0 list (archived)"}
+          {"type": "website", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"}
         ],
         "version_required": true,
         "unversioned_behavior": "all_with_guidance",
@@ -177,28 +183,86 @@
       },
       "children": [
         {
-          "patterns": ["^LLM\\d{2}$"],
-          "description": "LLM Top 10 item number (e.g., LLM01, LLM02)",
+          "patterns": ["^2\\.0$"],
+          "description": "LLM Top 10 v2.0 (2025, current)",
           "weight": 100,
           "data": {
-            "lookup_table": {
-              "LLM01": {"url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/", "title": "Prompt Injection"},
-              "LLM02": {"url": "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/", "title": "Sensitive Information Disclosure"},
-              "LLM03": {"url": "https://genai.owasp.org/llmrisk/llm032025-supply-chain/", "title": "Supply Chain"},
-              "LLM04": {"url": "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/", "title": "Data and Model Poisoning"},
-              "LLM05": {"url": "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/", "title": "Improper Output Handling"},
-              "LLM06": {"url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/", "title": "Excessive Agency"},
-              "LLM07": {"url": "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/", "title": "System Prompt Leakage"},
-              "LLM08": {"url": "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/", "title": "Vector and Embedding Weaknesses"},
-              "LLM09": {"url": "https://genai.owasp.org/llmrisk/llm092025-misinformation/", "title": "Misinformation"},
-              "LLM10": {"url": "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/", "title": "Unbounded Consumption"}
-            },
-            "provenance": {
-              "method": "Searched genai.owasp.org for 'site:genai.owasp.org/llmrisk/' to find all v2.0 (2025) URLs, then verified each URL loads. LLM01 slug lacks the '2025' year that all other entries have (llm01-prompt-injection vs llm022025-...) — confirmed this is how OWASP published it, not a data entry error.",
-              "date": "2026-02-22",
-              "source_url": "https://genai.owasp.org/llm-top-10/"
+            "note": "Major update from v1.0. Labelled '2025' in titles (e.g., 'LLM01:2025'). Some items renamed and reordered. LLM01 URL slug lacks the '2025' year that LLM02-10 have — confirmed this is how OWASP published it, not a data entry error.",
+            "urls": [
+              {"type": "website", "url": "https://genai.owasp.org/llm-top-10/"}
+            ]
+          },
+          "children": [
+            {
+              "patterns": ["^LLM\\d{2}$"],
+              "description": "LLM Top 10 v2.0 item (LLM01-LLM10)",
+              "weight": 100,
+              "data": {
+                "lookup_table": {
+                  "LLM01": {"url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/", "title": "Prompt Injection"},
+                  "LLM02": {"url": "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/", "title": "Sensitive Information Disclosure"},
+                  "LLM03": {"url": "https://genai.owasp.org/llmrisk/llm032025-supply-chain/", "title": "Supply Chain"},
+                  "LLM04": {"url": "https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/", "title": "Data and Model Poisoning"},
+                  "LLM05": {"url": "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/", "title": "Improper Output Handling"},
+                  "LLM06": {"url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/", "title": "Excessive Agency"},
+                  "LLM07": {"url": "https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/", "title": "System Prompt Leakage"},
+                  "LLM08": {"url": "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/", "title": "Vector and Embedding Weaknesses"},
+                  "LLM09": {"url": "https://genai.owasp.org/llmrisk/llm092025-misinformation/", "title": "Misinformation"},
+                  "LLM10": {"url": "https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/", "title": "Unbounded Consumption"}
+                },
+                "provenance": {
+                  "method": "Searched genai.owasp.org for 'site:genai.owasp.org/llmrisk/' to find all v2.0 (2025) URLs, then verified each URL loads. LLM01 slug lacks the '2025' year that all other entries have (llm01-prompt-injection vs llm022025-...) — confirmed this is how OWASP published it, not a data entry error.",
+                  "date": "2026-02-22",
+                  "source_url": "https://genai.owasp.org/llm-top-10/"
+                },
+                "examples": [
+                  {"input": "LLM01", "version": "2.0", "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/", "note": "LLM01 URL slug lacks '2025' year — unlike LLM02-10. This is how OWASP published it."},
+                  {"input": "LLM06", "version": "2.0", "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"}
+                ]
+              }
             }
-          }
+          ]
+        },
+        {
+          "patterns": ["^1\\.0$"],
+          "description": "LLM Top 10 v1.0 (2023, superseded)",
+          "weight": 100,
+          "data": {
+            "note": "First edition (October 2023). Archived. URL slugs use inconsistent casing (CamelCase, snake_case, abbreviation) — that is how OWASP published them, not a data entry error. Page headings are just titles without LLM ID prefixes.",
+            "urls": [
+              {"type": "website", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/"}
+            ]
+          },
+          "children": [
+            {
+              "patterns": ["^LLM\\d{2}$"],
+              "description": "LLM Top 10 v1.0 item (LLM01-LLM10)",
+              "weight": 100,
+              "data": {
+                "lookup_table": {
+                  "LLM01": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM01_PromptInjection", "title": "Prompt Injection"},
+                  "LLM02": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM02_InsecureOutputHandling", "title": "Insecure Output Handling"},
+                  "LLM03": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM03_Training_Data_Poisoning", "title": "Training Data Poisoning"},
+                  "LLM04": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM04_ModelDoS", "title": "Model Denial of Service"},
+                  "LLM05": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM05_SupplyChainVulnerabilities", "title": "Supply-Chain Vulnerabilities"},
+                  "LLM06": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM06_Sensitive_Information_Disclosure", "title": "Sensitive Information Disclosure"},
+                  "LLM07": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM07_InsecurePluginDesign", "title": "Insecure Plugin Design"},
+                  "LLM08": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM08_ExcessiveAgency", "title": "Excessive Agency"},
+                  "LLM09": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM09_Overreliance", "title": "Overreliance"},
+                  "LLM10": {"url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM10_Model_Theft", "title": "Model Theft"}
+                },
+                "provenance": {
+                  "method": "Found v1.0 items at Archive/1_0_vulns/ path (NOT 0_1_vulns which is v0.1). URL slugs verified against GitHub repository file listing. Inconsistent slug casing (CamelCase vs snake_case) matches OWASP's published filenames.",
+                  "date": "2026-03-02",
+                  "source_url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/"
+                },
+                "examples": [
+                  {"input": "LLM01", "version": "1.0", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM01_PromptInjection", "note": "CamelCase slug (matches OWASP's published filename)"},
+                  {"input": "LLM03", "version": "1.0", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/LLM03_Training_Data_Poisoning", "note": "Snake_case slug (inconsistent with LLM01 CamelCase — matches OWASP's published filenames)"}
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -219,6 +283,9 @@
           {"type": "github", "url": "https://github.com/OWASP/www-project-machine-learning-security-top-10"},
           {"type": "lookup", "url": "https://mltop10.info/#{id}/", "note": "Uses URL hash fragments. The page is a single-page site with anchored sections — navigate within the page to find the matching item. Automated resolution should note that the # in the URL is a fragment identifier, not a subpath delimiter."}
         ],
+        "versions_available": [
+          {"version": "2023", "release_date": "2023-01-01", "status": "current", "note": "First and only edition."}
+        ],
         "examples": ["ML01", "ML05", "ML10"]
       },
       "children": [
@@ -229,6 +296,9 @@
           "data": {
             "url": "https://mltop10.info/#{id}/",
             "note": "URL uses hash fragment — this is a single-page site with anchored sections, not separate pages per item.",
+            "examples": [
+              {"input": "ML01", "url": "https://mltop10.info/#ML01/", "note": "URL uses hash fragment on single-page site"}
+            ],
             "known_values": {
               "ML01": "Input Manipulation Attack",
               "ML02": "Data Poisoning Attack",
@@ -262,6 +332,9 @@
           {"type": "docs", "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/", "note": "Announcement blog post"},
           {"type": "lookup", "url": "https://genai.owasp.org/agentic/{id}/"}
         ],
+        "versions_available": [
+          {"version": "2026", "release_date": "2025-12-10", "status": "current", "note": "First edition. Released December 2025, labelled '2026'. Developed by 100+ industry experts."}
+        ],
         "examples": ["ASI01", "ASI06", "ASI10"]
       },
       "children": [
@@ -271,6 +344,10 @@
           "weight": 100,
           "data": {
             "url": "https://genai.owasp.org/agentic/{id}/",
+            "examples": [
+              {"input": "ASI01", "url": "https://genai.owasp.org/agentic/ASI01/"},
+              {"input": "ASI06", "url": "https://genai.owasp.org/agentic/ASI06/"}
+            ],
             "known_values": {
               "ASI01": "Agent Goal Hijack",
               "ASI02": "Tool Misuse and Exploitation",
@@ -313,6 +390,10 @@
           "weight": 100,
           "data": {
             "url": "https://owaspai.org/goto/{id}/",
+            "examples": [
+              {"input": "DIRECTPROMPTINJECTION", "url": "https://owaspai.org/goto/DIRECTPROMPTINJECTION/"},
+              {"input": "DATAPOISON", "url": "https://owaspai.org/goto/DATAPOISON/"}
+            ],
             "known_values": {
               "DIRECTPROMPTINJECTION": "Direct prompt injection",
               "INDIRECTPROMPTINJECTION": "Indirect prompt injection",
@@ -343,15 +424,58 @@
       "data": {
         "official_name": "AI Vulnerability Scoring System",
         "common_name": "AIVSS",
-        "alternate_names": null,
-        "description": "Extends CVSS concepts to score AI/ML-specific vulnerabilities.",
-        "notes": "Under active development. Traditional CVSS doesn't capture AI-specific risk factors: probabilistic attack success (vs binary exploitability), adaptive attacks (vs static attack vectors), cascading AI failures (vs single impact type), and model-update-dependent vulnerabilities (vs fixed temporal metrics). AIVSS adds metrics for model access level (black/gray/white-box), attack transferability, detectability, and reversibility. Complements CVSS for AI vulnerabilities. Used by security teams assessing AI risks.",
+        "alternate_names": ["Artificial Intelligence Vulnerability Scoring System"],
+        "description": "AI-specific vulnerability scoring framework extending CVSS with metrics for model robustness, data sensitivity, ethical impact, and other AI-specific risk factors.",
+        "notes": "v0.5 published; v1.0 targeted for RSA Conference late March 2026. Traditional CVSS doesn't capture AI-specific risk factors: probabilistic attack success (vs binary exploitability), adaptive attacks (vs static attack vectors), cascading AI failures (vs single impact type), and model-update-dependent vulnerabilities (vs fixed temporal metrics).\n\nTwo scoring frameworks coexist in v0.5: (1) 'Classic AIVSS' with 5 CVSS-derived Base metrics + 5 AI-Specific metrics + 4 Impact metrics + 3 Temporal metrics + 4 Environmental metrics, using a weighted product formula; (2) 'Agentic AIVSS v0.5' with 10 amplification factors and a simpler formula (CVSS_Base + AARS) / 2 x ThM. The classic metrics have formal abbreviations suitable for subpath references; the Agentic amplification factors do not yet have formal abbreviations.\n\nMetric abbreviations below are from the classic framework. Base metrics (AV, AC, PR, UI, S) are inherited from CVSS. AI-Specific metrics (MR, DS, EI, DC, AD) are AIVSS-original. Impact metrics (C, I, A, SI) extend CVSS with Societal Impact. Temporal (E, RL, RC) and Environmental (CR, IR, AR, SIR) are CVSS-derived.",
         "urls": [
-          {"type": "website", "url": "https://owasp.org/www-project-ai-vulnerability-scoring-system/"},
-          {"type": "github", "url": "https://github.com/OWASP/www-project-ai-vulnerability-scoring-system"}
+          {"type": "website", "url": "https://aivss.owasp.org/"},
+          {"type": "github", "url": "https://github.com/OWASP/www-project-artificial-intelligence-vulnerability-scoring-system"},
+          {"type": "docs", "url": "https://aivss.owasp.org/assets/publications/AIVSS%20Scoring%20System%20For%20OWASP%20Agentic%20AI%20Core%20Security%20Risks%20v0.5.pdf", "format": "pdf", "note": "v0.5 specification PDF"}
         ],
-        "examples": []
-      }
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "0.5", "release_date": "2025-01-01", "status": "current", "note": "First published version. Introduces both classic multi-metric and Agentic scoring frameworks."}
+        ],
+        "examples": ["AV", "MR", "DS", "SI"]
+      },
+      "children": [
+        {
+          "patterns": ["^[A-Z]{1,3}$"],
+          "description": "AIVSS metric abbreviation (e.g., AV, MR, DS, SI)",
+          "weight": 100,
+          "data": {
+            "note": "Metric abbreviations from the classic AIVSS framework. Each metric belongs to one of five groups: Base (CVSS-derived), AI-Specific (AIVSS-original), Impact, Temporal, or Environmental. Values are scored on group-specific scales.",
+            "examples": [
+              {"input": "MR", "note": "Model Robustness — AI-Specific metric (AIVSS-original, no CVSS equivalent)"},
+              {"input": "SI", "note": "Societal Impact — AIVSS-original extension to the CIA triad"}
+            ],
+            "known_values": {
+              "AV": "Attack Vector (Base) — Network/Adjacent/Local/Physical. How the vulnerability is exploited.",
+              "AC": "Attack Complexity (Base) — Low/High. Conditions beyond attacker control required for exploitation.",
+              "PR": "Privileges Required (Base) — None/Low/High. Level of access needed before exploitation.",
+              "UI": "User Interaction (Base) — None/Required. Whether a human must participate for exploitation.",
+              "S": "Scope (Base) — Unchanged/Changed. Whether exploitation impacts resources beyond the vulnerable component.",
+              "MR": "Model Robustness (AI-Specific) — Resilience to adversarial attacks: evasion resistance, gradient masking, robustness certification.",
+              "DS": "Data Sensitivity (AI-Specific) — Data confidentiality, integrity, and provenance risks.",
+              "EI": "Ethical Impact (AI-Specific) — Bias, transparency, accountability, and societal impact concerns.",
+              "DC": "Decision Criticality (AI-Specific) — Consequences of incorrect AI decisions: safety-critical, financial, reputational, operational.",
+              "AD": "Adaptability (AI-Specific) — Security maintenance over time: monitoring, retraining, threat intelligence, adversarial training.",
+              "C": "Confidentiality Impact (Impact) — None/Low/Medium/High/Critical. Impact on data confidentiality.",
+              "I": "Integrity Impact (Impact) — None/Low/Medium/High/Critical. Impact on data and system integrity.",
+              "A": "Availability Impact (Impact) — None/Low/Medium/High/Critical. Impact on system availability.",
+              "SI": "Societal Impact (Impact) — None/Low/Medium/High/Critical. Impact on society or safety. AIVSS-original extension to CVSS impact triad.",
+              "E": "Exploitability (Temporal) — Not Defined/Unproven/Proof-of-Concept/Functional/High. Maturity of exploit techniques.",
+              "RL": "Remediation Level (Temporal) — Not Defined/Official Fix/Temporary Fix/Workaround/Unavailable.",
+              "RC": "Report Confidence (Temporal) — Not Defined/Unknown/Reasonable/Confirmed.",
+              "CR": "Confidentiality Requirement (Environmental) — Not Defined/Low/Medium/High. Adjusts Confidentiality Impact based on deployment context.",
+              "IR": "Integrity Requirement (Environmental) — Not Defined/Low/Medium/High. Adjusts Integrity Impact based on deployment context.",
+              "AR": "Availability Requirement (Environmental) — Not Defined/Low/Medium/High. Adjusts Availability Impact based on deployment context.",
+              "SIR": "Societal Impact Requirement (Environmental) — Not Defined/Low/Medium/High. AIVSS-original extension adjusting Societal Impact based on deployment context."
+            }
+          }
+        }
+      ]
     }
   ]
 }

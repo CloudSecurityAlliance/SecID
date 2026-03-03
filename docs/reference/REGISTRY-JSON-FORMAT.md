@@ -499,7 +499,7 @@ The `data` object at each level contains whatever result information is appropri
 | `unversioned_behavior` | string | See Version Resolution Fields |
 | `version_disambiguation` | string \| null | See Version Resolution Fields |
 | `versions_available` | array \| null | See Version Resolution Fields |
-| `examples` | string[] | Representative identifier examples |
+| `examples` | (string \| ExampleObject)[] | Representative identifier examples (see Examples) |
 
 **Subpath-level data** (pattern-specific resolution):
 
@@ -512,6 +512,7 @@ The `data` object at each level contains whatever result information is appropri
 | `known_values` | object | Enumeration of finite, stable values (see Known Values) |
 | `lookup_table` | object | Map of IDs to URLs for non-computable URLs (see Lookup Table) |
 | `variables` | object | Variable extraction for complex URL building (see Variable Extraction) |
+| `examples` | (string \| ExampleObject)[] | Test fixtures with expected outputs (see Examples) |
 
 #### Description and Notes (in Node Data)
 
@@ -986,11 +987,43 @@ This implements the **"AI on both ends" pattern**: the registry provides reasoni
 
 #### Examples
 
+The `examples` field accepts both bare strings and structured ExampleObject entries:
+
 ```json
 "examples": ["CVE-2024-1234", "CVE-2021-44228", "CVE-2023-44487"]
 ```
 
-Simple string array showing valid ID formats. Helps humans and AI understand what identifiers look like.
+Bare strings show valid ID formats. Helps humans and AI understand what identifiers look like.
+
+**Structured ExampleObject** adds expected outputs, turning examples into test fixtures:
+
+```json
+"examples": [
+  {
+    "input": "DSA-5678-1",
+    "variables": {"num": "5678", "year": "2024"},
+    "url": "https://www.debian.org/security/2024/dsa-5678",
+    "note": "Year 2024: 5678 >= 5593 (2024 start) and < 5839 (2025 start)"
+  }
+]
+```
+
+**ExampleObject Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `input` | string | yes | The identifier string to resolve |
+| `version` | string | no | Version context for versioned sources (e.g., `"2.0"` for CSF) |
+| `variables` | object | no | Expected variable extraction results (keys match the `variables` definition) |
+| `url` | string | no | Expected resolved URL |
+| `note` | string | no | Human/AI context explaining resolution logic or notable behavior |
+
+**Placement conventions:**
+
+- **Source-level** `data.examples`: bare strings (representative samples of valid identifiers)
+- **Child-level** (leaf pattern nodes) `data.examples`: structured ExampleObjects where variables, URLs, or notes add value. Bare strings remain valid at any level.
+
+Structured examples support future resolver conformance testing — each ExampleObject is a positive test case with expected outputs that a resolver implementation can verify against.
 
 ## Reference Type Fields
 

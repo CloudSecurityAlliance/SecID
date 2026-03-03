@@ -40,25 +40,49 @@
           "patterns": ["^PYSEC-\\d{4}-\\d+$"],
           "description": "Python ecosystem vulnerability (PyPI)",
           "weight": 100,
-          "data": {"type": "ecosystem-pypi", "url": "https://osv.dev/vulnerability/{id}"}
+          "data": {
+            "type": "ecosystem-pypi",
+            "url": "https://osv.dev/vulnerability/{id}",
+            "examples": [
+              {"input": "PYSEC-2024-1", "url": "https://osv.dev/vulnerability/PYSEC-2024-1"}
+            ]
+          }
         },
         {
           "patterns": ["^RUSTSEC-\\d{4}-\\d+$"],
           "description": "Rust ecosystem vulnerability (crates.io)",
           "weight": 100,
-          "data": {"type": "ecosystem-crates", "url": "https://osv.dev/vulnerability/{id}"}
+          "data": {
+            "type": "ecosystem-crates",
+            "url": "https://osv.dev/vulnerability/{id}",
+            "examples": [
+              {"input": "RUSTSEC-2024-0001", "url": "https://osv.dev/vulnerability/RUSTSEC-2024-0001"}
+            ]
+          }
         },
         {
           "patterns": ["^GO-\\d{4}-\\d+$"],
           "description": "Go ecosystem vulnerability",
           "weight": 100,
-          "data": {"type": "ecosystem-go", "url": "https://osv.dev/vulnerability/{id}"}
+          "data": {
+            "type": "ecosystem-go",
+            "url": "https://osv.dev/vulnerability/{id}",
+            "examples": [
+              {"input": "GO-2024-0001", "url": "https://osv.dev/vulnerability/GO-2024-0001"}
+            ]
+          }
         },
         {
           "patterns": ["^GHSA-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}$"],
           "description": "GitHub Security Advisory (via OSV aggregation)",
           "weight": 100,
-          "data": {"type": "ecosystem-github", "url": "https://osv.dev/vulnerability/{id}"}
+          "data": {
+            "type": "ecosystem-github",
+            "url": "https://osv.dev/vulnerability/{id}",
+            "examples": [
+              {"input": "GHSA-jfh8-c2jp-5v3q", "url": "https://osv.dev/vulnerability/GHSA-jfh8-c2jp-5v3q"}
+            ]
+          }
         }
       ]
     },
@@ -85,7 +109,10 @@
           "description": "CVE ID for a Chrome vulnerability — no direct per-CVE lookup URL; search the Chrome Releases blog",
           "weight": 100,
           "data": {
-            "note": "No direct URL template for individual Chrome CVEs. The Chrome Releases blog documents CVEs in batch release posts. To find information about a specific Chrome CVE, search chromereleases.googleblog.com or check crbug.com (if the bug is public)."
+            "note": "No direct URL template for individual Chrome CVEs. The Chrome Releases blog documents CVEs in batch release posts. To find information about a specific Chrome CVE, search chromereleases.googleblog.com or check crbug.com (if the bug is public).",
+            "examples": [
+              {"input": "CVE-2024-0519", "note": "No per-CVE URL — must search Chrome Releases blog"}
+            ]
           }
         }
       ]
@@ -113,7 +140,10 @@
           "weight": 100,
           "data": {
             "type": "bulletin-date",
-            "url": "https://source.android.com/docs/security/bulletin/{id}"
+            "url": "https://source.android.com/docs/security/bulletin/{id}",
+            "examples": [
+              {"input": "2024-01-01", "url": "https://source.android.com/docs/security/bulletin/2024-01-01"}
+            ]
           }
         },
         {
@@ -150,7 +180,10 @@
           "weight": 100,
           "data": {
             "url": "https://cloud.google.com/support/bulletins#{id}",
-            "note": "URL uses a hash fragment to anchor to the specific bulletin on the page. The '#' in this URL is a page anchor, not a SecID subpath delimiter."
+            "note": "URL uses a hash fragment to anchor to the specific bulletin on the page. The '#' in this URL is a page anchor, not a SecID subpath delimiter.",
+            "examples": [
+              {"input": "GCP-2024-001", "url": "https://cloud.google.com/support/bulletins#GCP-2024-001", "note": "URL # is a page anchor, not a SecID subpath delimiter"}
+            ]
           }
         }
       ]
@@ -178,7 +211,12 @@
           "patterns": ["^\\d+$"],
           "description": "Project Zero issue number",
           "weight": 100,
-          "data": {"url": "https://bugs.chromium.org/p/project-zero/issues/detail?id={id}"}
+          "data": {
+            "url": "https://bugs.chromium.org/p/project-zero/issues/detail?id={id}",
+            "examples": [
+              {"input": "2374", "url": "https://bugs.chromium.org/p/project-zero/issues/detail?id=2374"}
+            ]
+          }
         }
       ]
     }

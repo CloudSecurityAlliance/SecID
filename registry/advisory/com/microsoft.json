@@ -39,7 +39,12 @@
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
           "description": "Standard CVE ID format",
           "weight": 100,
-          "data": {"url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}"}
+          "data": {
+            "url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — high-profile CVE affecting multiple vendors"}
+            ]
+          }
         }
       ]
     },
@@ -65,7 +70,12 @@
           "patterns": ["^ADV\\d{6}$"],
           "description": "Microsoft Security Advisory ID (ADVYYNNNN format)",
           "weight": 100,
-          "data": {"url": "https://msrc.microsoft.com/update-guide/advisory/{id}"}
+          "data": {
+            "url": "https://msrc.microsoft.com/update-guide/advisory/{id}",
+            "examples": [
+              {"input": "ADV240001", "url": "https://msrc.microsoft.com/update-guide/advisory/ADV240001"}
+            ]
+          }
         }
       ]
     },
@@ -98,7 +108,10 @@
                 "extract": "^KB(\\d+)$",
                 "description": "Numeric portion of the KB ID (e.g., '5001234' from 'KB5001234'). The 'KB' prefix is stripped for the URL."
               }
-            }
+            },
+            "examples": [
+              {"input": "KB5034441", "variables": {"number": "5034441"}, "url": "https://support.microsoft.com/kb/5034441"}
+            ]
           }
         }
       ]
@@ -138,7 +151,21 @@
                 "extract": "^(MS\\d{2}-\\d{3})$",
                 "description": "Full bulletin ID in lowercase for the URL path (e.g., 'MS17-010')"
               }
-            }
+            },
+            "examples": [
+              {
+                "input": "MS17-010",
+                "variables": {"year": "2017", "id": "MS17-010"},
+                "url": "https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/MS17-010",
+                "note": "EternalBlue — exploited by WannaCry ransomware"
+              },
+              {
+                "input": "MS08-067",
+                "variables": {"year": "2008", "id": "MS08-067"},
+                "url": "https://docs.microsoft.com/en-us/security-updates/securitybulletins/2008/MS08-067",
+                "note": "Exploited by Conficker worm"
+              }
+            ]
           }
         }
       ]

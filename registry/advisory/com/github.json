@@ -44,7 +44,10 @@
           "description": "GHSA identifier (four groups of four lowercase alphanumeric characters)",
           "weight": 100,
           "data": {
-            "url": "https://github.com/advisories/{id}"
+            "url": "https://github.com/advisories/{id}",
+            "examples": [
+              {"input": "GHSA-jfh8-c2jp-5v3q", "url": "https://github.com/advisories/GHSA-jfh8-c2jp-5v3q"}
+            ]
           }
         }
       ]

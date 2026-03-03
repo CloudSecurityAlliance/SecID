@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "ttp",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": ["The MITRE Corporation"],
+  "notes": "MITRE operates several frameworks for describing adversary tactics, techniques, and procedures (TTPs). ATT&CK is the industry-standard cyber adversary behavior framework. ATLAS extends ATT&CK specifically for AI/ML threats. CAPEC provides higher-abstraction attack patterns that link to CWE weaknesses. Each framework serves different use cases while maintaining structural consistency.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^attack$"],
+      "description": "MITRE ATT&CK",
+      "weight": 100,
+      "data": {
+        "official_name": "MITRE ATT&CK",
+        "common_name": "ATT&CK",
+        "alternate_names": ["Adversarial Tactics, Techniques, and Common Knowledge"],
+        "description": "The industry-standard framework for describing cyber adversary behavior.",
+        "notes": "ATT&CK documents adversary tactics, techniques, and procedures observed in real-world attacks. Organized into three matrices: Enterprise (Windows, Linux, macOS, Cloud, etc.), Mobile (Android, iOS), and ICS (Industrial Control Systems). Updated quarterly.\n\nID types: techniques (T-prefixed), sub-techniques (T-prefixed with .NNN suffix), tactics (TA-prefixed), mitigations (M-prefixed), groups (G-prefixed), and software (S-prefixed). Each type has its own URL path.\n\nSub-technique URL transformation: the dot separator in sub-technique IDs (e.g., T1059.003) becomes a slash in the URL path (e.g., /techniques/T1059/003/). This is the only case where the URL differs from the ID format.\n\nATT&CK IDs are stable — deprecated techniques are marked but not removed. Maps to mitigations and detection analytics (CAR).",
+        "urls": [
+          {"type": "website", "url": "https://attack.mitre.org"},
+          {"type": "bulk_data", "url": "https://github.com/mitre-attack/attack-stix-data", "format": "json", "note": "STIX 2.1 format data for all ATT&CK matrices"}
+        ],
+        "examples": ["T1059", "T1059.003", "TA0001", "M1036", "G0007", "S0154"]
+      },
+      "children": [
+        {
+          "patterns": ["^T\\d{4}$"],
+          "description": "ATT&CK technique (e.g., T1059 Command and Scripting Interpreter)",
+          "weight": 100,
+          "data": {
+            "type": "technique",
+            "url": "https://attack.mitre.org/techniques/{id}/",
+            "examples": [
+              {"input": "T1059", "url": "https://attack.mitre.org/techniques/T1059/"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^T\\d{4}\\.\\d{3}$"],
+          "description": "ATT&CK sub-technique (e.g., T1059.003 Windows Command Shell). Dot in ID becomes slash in URL.",
+          "weight": 100,
+          "data": {
+            "type": "sub-technique",
+            "url": "https://attack.mitre.org/techniques/{parent}/{sub}/",
+            "variables": {
+              "parent": {
+                "extract": "^(T\\d{4})\\.\\d{3}$",
+                "description": "Parent technique ID (e.g., 'T1059' from 'T1059.003')"
+              },
+              "sub": {
+                "extract": "^T\\d{4}\\.(\\d{3})$",
+                "description": "Sub-technique number (e.g., '003' from 'T1059.003')"
+              }
+            },
+            "examples": [
+              {
+                "input": "T1059.003",
+                "variables": {"parent": "T1059", "sub": "003"},
+                "url": "https://attack.mitre.org/techniques/T1059/003/",
+                "note": "Dot in ID becomes slash in URL path"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": ["^TA\\d{4}$"],
+          "description": "ATT&CK tactic (e.g., TA0001 Initial Access)",
+          "weight": 100,
+          "data": {
+            "type": "tactic",
+            "url": "https://attack.mitre.org/tactics/{id}/",
+            "examples": [
+              {"input": "TA0001", "url": "https://attack.mitre.org/tactics/TA0001/"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^M\\d{4}$"],
+          "description": "ATT&CK mitigation (e.g., M1036 Account Use Policies)",
+          "weight": 100,
+          "data": {
+            "type": "mitigation",
+            "url": "https://attack.mitre.org/mitigations/{id}/",
+            "examples": [
+              {"input": "M1036", "url": "https://attack.mitre.org/mitigations/M1036/"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^G\\d{4}$"],
+          "description": "ATT&CK group (e.g., G0007 APT28)",
+          "weight": 100,
+          "data": {
+            "type": "group",
+            "url": "https://attack.mitre.org/groups/{id}/",
+            "examples": [
+              {"input": "G0007", "url": "https://attack.mitre.org/groups/G0007/", "note": "APT28 (Fancy Bear)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^S\\d{4}$"],
+          "description": "ATT&CK software (e.g., S0154 Cobalt Strike)",
+          "weight": 100,
+          "data": {
+            "type": "software",
+            "url": "https://attack.mitre.org/software/{id}/",
+            "examples": [
+              {"input": "S0154", "url": "https://attack.mitre.org/software/S0154/", "note": "Cobalt Strike"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^atlas$"],
+      "description": "MITRE ATLAS",
+      "weight": 100,
+      "data": {
+        "official_name": "MITRE ATLAS",
+        "common_name": "ATLAS",
+        "alternate_names": ["Adversarial Threat Landscape for AI Systems"],
+        "description": "ATT&CK-style framework specifically for AI/ML threats.",
+        "notes": "ATLAS documents adversary tactics and techniques targeting AI/ML systems. Modeled after ATT&CK structure but focused on AI-specific threats: model evasion, data poisoning, model theft, prompt injection, etc. Includes case studies of real-world AI attacks.\n\nAll ATLAS IDs use the AML. prefix to distinguish from ATT&CK IDs. Dots in ATLAS IDs are preserved in URLs (unlike ATT&CK sub-techniques). Technique sub-techniques use .NNN suffix like ATT&CK.\n\nNote: atlas.mitre.org is a client-side rendered single-page application (SPA). The technique/tactic/study URLs use client-side routing — they work in browsers but return HTTP 404 on direct server requests. This is a known limitation; the URLs are correct for browser navigation.\n\nRelationships to other SecID types: ATLAS techniques map to CWE weaknesses (e.g., AML.T0043 Prompt Injection → CWE-1427) and OWASP LLM Top 10 categories.",
+        "urls": [
+          {"type": "website", "url": "https://atlas.mitre.org"},
+          {"type": "api", "url": "https://atlas.mitre.org/api", "note": "ATLAS data API"}
+        ],
+        "examples": ["AML.T0043", "AML.T0043.000", "AML.T0051", "AML.TA0001", "AML.CS0001"]
+      },
+      "children": [
+        {
+          "patterns": ["^AML\\.T\\d{4}$"],
+          "description": "ATLAS technique (e.g., AML.T0043 Prompt Injection)",
+          "weight": 100,
+          "data": {
+            "type": "technique",
+            "url": "https://atlas.mitre.org/techniques/{id}",
+            "examples": [
+              {"input": "AML.T0043", "url": "https://atlas.mitre.org/techniques/AML.T0043", "note": "Prompt Injection"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^AML\\.T\\d{4}\\.\\d{3}$"],
+          "description": "ATLAS sub-technique (e.g., AML.T0043.000 Direct Prompt Injection). Dots preserved in URL.",
+          "weight": 100,
+          "data": {
+            "type": "sub-technique",
+            "url": "https://atlas.mitre.org/techniques/{id}",
+            "examples": [
+              {"input": "AML.T0043.000", "url": "https://atlas.mitre.org/techniques/AML.T0043.000", "note": "Dots preserved in URL (unlike ATT&CK sub-techniques)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^AML\\.TA\\d{4}$"],
+          "description": "ATLAS tactic (e.g., AML.TA0001)",
+          "weight": 100,
+          "data": {
+            "type": "tactic",
+            "url": "https://atlas.mitre.org/tactics/{id}",
+            "examples": [
+              {"input": "AML.TA0001", "url": "https://atlas.mitre.org/tactics/AML.TA0001"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^AML\\.CS\\d{4}$"],
+          "description": "ATLAS case study (e.g., AML.CS0001)",
+          "weight": 100,
+          "data": {
+            "type": "case-study",
+            "url": "https://atlas.mitre.org/studies/{id}",
+            "examples": [
+              {"input": "AML.CS0001", "url": "https://atlas.mitre.org/studies/AML.CS0001"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^capec$"],
+      "description": "Common Attack Pattern Enumeration and Classification",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Attack Pattern Enumeration and Classification",
+        "common_name": "CAPEC",
+        "alternate_names": null,
+        "description": "Higher-abstraction attack patterns that link to CWE weaknesses.",
+        "notes": "CAPEC describes attack patterns at a higher abstraction level than ATT&CK techniques. Each CAPEC entry documents: attack prerequisites, required skills, related CWEs (the weakness exploited), mitigations, and examples. Over 550 attack patterns.\n\nCAPEC IDs use the CAPEC- prefix followed by a numeric ID. The URL uses only the numeric portion. Hierarchical — some patterns are children of others (e.g., CAPEC-66 SQL Injection is a child of CAPEC-248 Command Injection).\n\nRelationships: CAPEC patterns map to CWE weaknesses (the flaw being exploited) and to ATT&CK techniques (the adversary behavior).",
+        "urls": [
+          {"type": "website", "url": "https://capec.mitre.org"},
+          {"type": "bulk_data", "url": "https://capec.mitre.org/data/xml/capec_latest.xml", "format": "xml", "note": "Full CAPEC list in XML format"}
+        ],
+        "examples": ["CAPEC-66", "CAPEC-86", "CAPEC-242"]
+      },
+      "children": [
+        {
+          "patterns": ["^CAPEC-\\d+$"],
+          "description": "CAPEC attack pattern (e.g., CAPEC-66 SQL Injection)",
+          "weight": 100,
+          "data": {
+            "url": "https://capec.mitre.org/data/definitions/{num}.html",
+            "variables": {
+              "num": {
+                "extract": "^CAPEC-(\\d+)$",
+                "description": "Numeric CAPEC ID (e.g., '66' from 'CAPEC-66')"
+              }
+            },
+            "examples": [
+              {"input": "CAPEC-66", "variables": {"num": "66"}, "url": "https://capec.mitre.org/data/definitions/66.html", "note": "SQL Injection"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

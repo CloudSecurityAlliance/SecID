@@ -39,19 +39,37 @@
           "patterns": ["^RHSA-\\d{4}:\\d+$"],
           "description": "Red Hat Security Advisory — security vulnerability fixes",
           "weight": 100,
-          "data": {"type": "security", "url": "https://access.redhat.com/errata/{id}"}
+          "data": {
+            "type": "security",
+            "url": "https://access.redhat.com/errata/{id}",
+            "examples": [
+              {"input": "RHSA-2024:1234", "url": "https://access.redhat.com/errata/RHSA-2024:1234", "note": "Colon in ID is preserved in the URL path"}
+            ]
+          }
         },
         {
           "patterns": ["^RHBA-\\d{4}:\\d+$"],
           "description": "Red Hat Bug Advisory — non-security bug fixes",
           "weight": 100,
-          "data": {"type": "bugfix", "url": "https://access.redhat.com/errata/{id}"}
+          "data": {
+            "type": "bugfix",
+            "url": "https://access.redhat.com/errata/{id}",
+            "examples": [
+              {"input": "RHBA-2024:5678", "url": "https://access.redhat.com/errata/RHBA-2024:5678"}
+            ]
+          }
         },
         {
           "patterns": ["^RHEA-\\d{4}:\\d+$"],
           "description": "Red Hat Enhancement Advisory — new features",
           "weight": 100,
-          "data": {"type": "enhancement", "url": "https://access.redhat.com/errata/{id}"}
+          "data": {
+            "type": "enhancement",
+            "url": "https://access.redhat.com/errata/{id}",
+            "examples": [
+              {"input": "RHEA-2024:9012", "url": "https://access.redhat.com/errata/RHEA-2024:9012"}
+            ]
+          }
         }
       ]
     },
@@ -78,7 +96,12 @@
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
           "description": "Standard CVE ID format",
           "weight": 100,
-          "data": {"url": "https://access.redhat.com/security/cve/{id}"}
+          "data": {
+            "url": "https://access.redhat.com/security/cve/{id}",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/security/cve/CVE-2023-44487"}
+            ]
+          }
         }
       ]
     },

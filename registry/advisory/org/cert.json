@@ -45,7 +45,10 @@
                 "extract": "^VU#(\\d+)$",
                 "description": "Numeric portion of the VU# identifier (e.g., '867593' from 'VU#867593')"
               }
-            }
+            },
+            "examples": [
+              {"input": "VU#867593", "variables": {"number": "867593"}, "url": "https://www.kb.cert.org/vuls/id/867593"}
+            ]
           }
         }
       ]

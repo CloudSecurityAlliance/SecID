@@ -39,7 +39,12 @@
           "patterns": ["^cisco-sa-[a-zA-Z0-9-]+$"],
           "description": "Cisco PSIRT advisory ID (cisco-sa-{description}-{suffix})",
           "weight": 100,
-          "data": {"url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/{id}"}
+          "data": {
+            "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/{id}",
+            "examples": [
+              {"input": "cisco-sa-apache-log4j-qRuKNEbd", "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd"}
+            ]
+          }
         }
       ]
     },
@@ -65,7 +70,12 @@
           "patterns": ["^CSC[a-z]{2}\\d{5}$"],
           "description": "Cisco bug ID (CSC + two lowercase letters + five digits)",
           "weight": 100,
-          "data": {"url": "https://bst.cloudapps.cisco.com/bugsearch/bug/{id}"}
+          "data": {
+            "url": "https://bst.cloudapps.cisco.com/bugsearch/bug/{id}",
+            "examples": [
+              {"input": "CSCvv12345", "url": "https://bst.cloudapps.cisco.com/bugsearch/bug/CSCvv12345"}
+            ]
+          }
         }
       ]
     }

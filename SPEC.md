@@ -1036,6 +1036,8 @@ Rather than design these upfront, we're building the identifier system and regis
 
 During transition, `.md` files are authoritative for contributions. Pilot namespaces have `.json` mirrors derived from the `.md`; JSON parity may lag for non-pilot entries. The examples below show the current YAML format.
 
+In JSON registry files, the `examples` field accepts both bare strings (`"CVE-2024-1234"`) and structured objects with expected outputs (`{"input": "CVE-2024-1234", "url": "...", "variables": {...}}`). Structured examples serve as documentation and positive test fixtures for resolver conformance. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the ExampleObject schema.
+
 ### 7.1 Frontmatter (Structured Data)
 
 ```yaml

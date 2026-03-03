@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "National Institute of Standards and Technology",
+  "common_name": "NIST",
+  "alternate_names": null,
+  "notes": "NIST produces authoritative security control frameworks used globally as references for cybersecurity requirements. Federal agency with regulatory influence, research-backed, referenced in executive orders and regulations, used internationally. Publishes SP 800-53 (mandatory for US federal systems) and the Cybersecurity Framework (voluntary risk management).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nist.gov"},
+    {"type": "website", "url": "https://csrc.nist.gov", "note": "Computer Security Resource Center — primary home for NIST cybersecurity publications"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^800-53$"],
+      "description": "NIST SP 800-53 Security and Privacy Controls",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST Special Publication 800-53: Security and Privacy Controls for Information Systems and Organizations",
+        "common_name": "SP 800-53",
+        "alternate_names": ["NIST 800-53"],
+        "description": "Federal security and privacy controls. Mandatory for US federal systems, widely adopted as reference baseline globally.",
+        "notes": "Rev 5 (with Update 1) is current. 20 control families identified by two-letter codes (AC, AT, AU, etc.). Controls are numbered within families (AC-1, AC-2, etc.). Control enhancements use parenthesized numbers: AC-2(1), SI-7(6). Note: the parentheses are part of the identifier — preserve them exactly.\n\nNo stable official per-control web URLs exist. The NIST CPRT (Cybersecurity and Privacy Reference Tool) at csrc.nist.gov provides interactive browsing but uses JavaScript SPA hash fragments, not stable linkable URLs. Machine-readable data available in OSCAL format on GitHub.\n\nThird-party per-control URLs available at csf.tools (e.g., https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-1/). Note: csf.tools requires lowercased control family and ID in the URL path.\n\nBasis for FedRAMP, FISMA, and many other compliance frameworks. Rev 5 added privacy controls (PT family) and supply chain risk management controls (SR family).",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "rev5", "release_date": "2020-09-23", "status": "current", "note": "Rev 5 with Update 1 (Dec 2024). 20 control families, over 1,000 controls and enhancements. Added PT and SR families."},
+          {"version": "rev4", "release_date": "2013-04-30", "status": "superseded", "note": "18 control families. Still referenced in older compliance documentation."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "note": "Official publication page for Rev 5 Update 1"},
+          {"type": "docs", "url": "https://csrc.nist.gov/Projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_1/home", "note": "NIST CPRT interactive browser (JavaScript SPA — not directly linkable per control)"},
+          {"type": "bulk_data", "url": "https://github.com/usnistgov/oscal-content", "format": "json", "note": "OSCAL (Open Security Controls Assessment Language) machine-readable format. Preferred for programmatic access."},
+          {"type": "docs", "url": "https://csf.tools/reference/nist-sp-800-53/r5/", "note": "Third-party per-control browser (csf.tools). Not operated by NIST."}
+        ],
+        "examples": ["AC-1", "AC-2", "AC-2(1)", "SI-7", "SI-7(6)", "PT-1", "SR-1"]
+      },
+      "children": [
+        {
+          "patterns": ["^[A-Z]{2}$"],
+          "description": "Control family (e.g., AC, SI, PT). Contains multiple controls.",
+          "weight": 100,
+          "data": {
+            "type": "family",
+            "note": "No per-family web page. Return the CPRT or csf.tools URL from the parent with instructions to filter by family code.",
+            "examples": [
+              {"input": "AC", "note": "Access Control family — the most commonly referenced 800-53 family"}
+            ],
+            "known_values": {
+              "AC": "Access Control",
+              "AT": "Awareness and Training",
+              "AU": "Audit and Accountability",
+              "CA": "Assessment, Authorization, and Monitoring",
+              "CM": "Configuration Management",
+              "CP": "Contingency Planning",
+              "IA": "Identification and Authentication",
+              "IR": "Incident Response",
+              "MA": "Maintenance",
+              "MP": "Media Protection",
+              "PE": "Physical and Environmental Protection",
+              "PL": "Planning",
+              "PM": "Program Management",
+              "PS": "Personnel Security",
+              "PT": "PII Processing and Transparency",
+              "RA": "Risk Assessment",
+              "SA": "System and Services Acquisition",
+              "SC": "System and Communications Protection",
+              "SI": "System and Information Integrity",
+              "SR": "Supply Chain Risk Management"
+            }
+          }
+        },
+        {
+          "patterns": ["^[A-Z]{2}-\\d+$"],
+          "description": "Base control (e.g., AC-1, SI-7). Belongs to a family.",
+          "weight": 100,
+          "data": {
+            "type": "control",
+            "note": "No official per-control web URL. To find this control: (1) Use the OSCAL data from GitHub for programmatic access. (2) Browse the NIST CPRT interactive tool. (3) Third-party: csf.tools provides per-control pages (requires lowercased family and control ID in URL path).",
+            "examples": [
+              {"input": "AC-1", "note": "No official per-control URL. Third-party: csf.tools/reference/nist-sp-800-53/r5/ac/ac-1/"},
+              {"input": "SI-7", "note": "System and Information Integrity control"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^[A-Z]{2}-\\d+\\(\\d+\\)$"],
+          "description": "Control enhancement (e.g., AC-2(1), SI-7(6)). Parentheses are part of the ID — preserve them exactly.",
+          "weight": 100,
+          "data": {
+            "type": "enhancement",
+            "note": "Control enhancements add specificity to base controls. Same resolution approach as base controls — no official per-enhancement URL. The parenthesized number is part of the source identifier format.",
+            "examples": [
+              {"input": "AC-2(1)", "note": "Parentheses are part of the identifier — preserve exactly. No official per-enhancement URL."}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^csf$"],
+      "description": "NIST Cybersecurity Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST Cybersecurity Framework",
+        "common_name": "CSF",
+        "alternate_names": ["NIST CSF", "Cybersecurity Framework"],
+        "description": "Voluntary framework for managing and reducing cybersecurity risk, organized by functions, categories, and subcategories.",
+        "notes": "CSF 2.0 (released February 2024) is current. Organized hierarchically: 6 functions → 22 categories → 106 subcategories.\n\nCSF 2.0 added the Govern (GV) function — CSF 1.1 had only 5 functions (ID, PR, DE, RS, RC). The ID numbering changed between versions, so version matters for correct resolution.\n\nSubcategory IDs use the format Function.Category-NN (e.g., GV.RM-01, ID.AM-01, PR.AC-01). Function codes are two uppercase letters. Category codes are two uppercase letters prefixed by their function.\n\nNo stable official per-subcategory web URLs exist. Same situation as 800-53 — the NIST site uses JavaScript SPA navigation. Third-party per-subcategory URLs available at csf.tools.\n\nMaps to other frameworks including ISO 27001, CIS Controls, and NIST SP 800-53. Widely adopted in private sector and referenced in regulations. Includes implementation tiers (Partial, Risk Informed, Repeatable, Adaptive).",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "2.0", "release_date": "2024-02-26", "status": "current", "note": "6 functions (added Govern), 22 categories, 106 subcategories. Major restructuring from 1.1."},
+          {"version": "1.1", "release_date": "2018-04-16", "status": "superseded", "note": "5 functions (no Govern), 23 categories, 108 subcategories. Different numbering than 2.0."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.nist.gov/cyberframework", "note": "Official CSF home page"},
+          {"type": "docs", "url": "https://csrc.nist.gov/Projects/Cybersecurity-Framework/Filters#/csf/filters", "note": "NIST CSF 2.0 Reference Tool (interactive browser)"},
+          {"type": "bulk_data", "url": "https://github.com/usnistgov/oscal-content", "format": "json", "note": "OSCAL machine-readable format (includes CSF profiles)"},
+          {"type": "docs", "url": "https://csf.tools/reference/nist-cybersecurity-framework/v2-0/", "note": "Third-party per-subcategory browser (csf.tools). Not operated by NIST."}
+        ],
+        "examples": ["GV.RM-01", "ID.AM-01", "PR.AA-01", "DE.CM-01", "RS.AN-01", "RC.RP-01"]
+      },
+      "children": [
+        {
+          "patterns": ["^[A-Z]{2}$"],
+          "description": "CSF function (e.g., GV, ID, PR). Top-level organizing concept.",
+          "weight": 100,
+          "data": {
+            "type": "function",
+            "note": "Functions are the highest-level organizing concepts in the CSF. CSF 2.0 has 6 functions; CSF 1.1 had 5 (no Govern).",
+            "examples": [
+              {"input": "GV", "note": "Govern — new in CSF 2.0 (not present in 1.1)"}
+            ],
+            "known_values": {
+              "GV": "Govern (CSF 2.0 only)",
+              "ID": "Identify",
+              "PR": "Protect",
+              "DE": "Detect",
+              "RS": "Respond",
+              "RC": "Recover"
+            }
+          }
+        },
+        {
+          "patterns": ["^[A-Z]{2}\\.[A-Z]{2}$"],
+          "description": "CSF category (e.g., GV.RM, ID.AM, PR.AC). Groups related subcategories.",
+          "weight": 100,
+          "data": {
+            "type": "category",
+            "note": "Categories group related subcategories under a function. CSF 2.0 has 22 categories across 6 functions. No per-category web page; return the CSF reference tool URL with instructions to filter by category.",
+            "examples": [
+              {"input": "GV.RM", "note": "Risk Management Strategy — under Govern function"}
+            ],
+            "known_values": {
+              "GV.OC": "Organizational Context",
+              "GV.OV": "Oversight",
+              "GV.PO": "Policy",
+              "GV.RM": "Risk Management Strategy",
+              "GV.RR": "Roles, Responsibilities, and Authorities",
+              "GV.SC": "Cybersecurity Supply Chain Risk Management",
+              "ID.AM": "Asset Management",
+              "ID.RA": "Risk Assessment",
+              "ID.IM": "Improvement",
+              "PR.AA": "Identity Management, Authentication, and Access Control",
+              "PR.AT": "Awareness and Training",
+              "PR.DS": "Data Security",
+              "PR.PS": "Platform Security",
+              "PR.IR": "Technology Infrastructure Resilience",
+              "DE.CM": "Continuous Monitoring",
+              "DE.AE": "Adverse Event Analysis",
+              "RS.MA": "Incident Management",
+              "RS.AN": "Incident Analysis",
+              "RS.CO": "Incident Response Reporting and Communication",
+              "RS.MI": "Incident Mitigation",
+              "RC.RP": "Incident Recovery Plan Execution",
+              "RC.CO": "Incident Recovery Communication"
+            }
+          }
+        },
+        {
+          "patterns": ["^[A-Z]{2}\\.[A-Z]{2}-\\d{2}$"],
+          "description": "CSF subcategory (e.g., GV.RM-01, ID.AM-01). The specific control outcome.",
+          "weight": 100,
+          "data": {
+            "type": "subcategory",
+            "note": "Subcategories are the specific control outcomes in the CSF. No official per-subcategory web URL. To find this subcategory: (1) Use the OSCAL data from GitHub for programmatic access. (2) Browse the NIST CSF Reference Tool. (3) Third-party: csf.tools provides per-subcategory pages.",
+            "examples": [
+              {"input": "GV.RM-01", "note": "No official per-subcategory URL. Third-party: csf.tools/reference/nist-cybersecurity-framework/v2-0/gv/gv-rm/gv-rm-01/"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

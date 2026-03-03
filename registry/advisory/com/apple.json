@@ -38,7 +38,12 @@
           "patterns": ["^HT\\d{6}$"],
           "description": "Apple HT support article ID",
           "weight": 100,
-          "data": {"url": "https://support.apple.com/{id}"}
+          "data": {
+            "url": "https://support.apple.com/{id}",
+            "examples": [
+              {"input": "HT214036", "url": "https://support.apple.com/HT214036"}
+            ]
+          }
         }
       ]
     }

@@ -40,7 +40,10 @@
           "description": "CVE ID in KEV catalog",
           "weight": 100,
           "data": {
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext={id}"
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext={id}",
+            "examples": [
+              {"input": "CVE-2021-44228", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2021-44228", "note": "Log4Shell — one of the first CVEs added to KEV"}
+            ]
           }
         }
       ]
@@ -77,7 +80,14 @@
                 "extract": "^(CVE-\\d{4}-\\d+)$",
                 "description": "Full CVE ID"
               }
-            }
+            },
+            "examples": [
+              {
+                "input": "CVE-2024-1234",
+                "variables": {"year": "2024", "id": "CVE-2024-1234"},
+                "url": "https://github.com/cisagov/vulnrichment/tree/develop/cvelistV5/2024/CVE-2024-1234"
+              }
+            ]
           }
         }
       ]

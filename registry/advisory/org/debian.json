@@ -55,7 +55,21 @@
                 "lookup": "range_table",
                 "description": "Publication year, derived from the advisory number via the DSA number-to-year range table in the parent notes. Extract the advisory number, then find the highest range start that is <= that number. For example, DSA-5678: 5678 >= 5593 → year 2024."
               }
-            }
+            },
+            "examples": [
+              {
+                "input": "DSA-5678-1",
+                "variables": {"num": "5678", "year": "2024"},
+                "url": "https://www.debian.org/security/2024/dsa-5678",
+                "note": "Year 2024: 5678 >= 5593 (2024 start) and < 5839 (2025 start)"
+              },
+              {
+                "input": "DSA-5432-2",
+                "variables": {"num": "5432", "year": "2023"},
+                "url": "https://www.debian.org/security/2023/dsa-5432",
+                "note": "Revision 2 of advisory; year 2023: 5432 >= 5311 (2023) and < 5593 (2024)"
+              }
+            ]
           }
         }
       ]
@@ -99,7 +113,21 @@
                 "lookup": "range_table",
                 "description": "Publication year, derived from the advisory number via the DLA number-to-year range table in the parent notes. Extract the advisory number, then find the highest range start that is <= that number. For example, DLA-3456: 3456 >= 3260 → year 2023."
               }
-            }
+            },
+            "examples": [
+              {
+                "input": "DLA-3456-2",
+                "variables": {"num": "3456", "year": "2023"},
+                "url": "https://www.debian.org/lts/security/2023/dla-3456",
+                "note": "Year 2023: 3456 >= 3260 (2023) and < 3706 (2024)"
+              },
+              {
+                "input": "DLA-4100-1",
+                "variables": {"num": "4100", "year": "2025"},
+                "url": "https://www.debian.org/lts/security/2025/dla-4100",
+                "note": "Year 2025: 4100 >= 4007 (2025) and < 4430 (2026)"
+              }
+            ]
           }
         }
       ]

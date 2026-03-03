@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "weakness",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": ["The MITRE Corporation"],
+  "notes": "MITRE operates CWE, the canonical weakness taxonomy referenced by virtually all vulnerability databases. CWE provides a hierarchical classification of software and hardware weaknesses — views (organize by perspective), categories (group related weaknesses), and specific weakness entries. Over 900 weakness types. AI/ML weaknesses added in the CWE-1400 series. Referenced by CVE, NVD, and most vulnerability databases globally.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cwe$"],
+      "description": "Common Weakness Enumeration",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Weakness Enumeration",
+        "common_name": "CWE",
+        "alternate_names": null,
+        "description": "The canonical software and hardware weakness taxonomy, operated by MITRE.",
+        "notes": "Hierarchical taxonomy with three structural levels: views (organize weaknesses by perspective, e.g., CWE-1000 Research Concepts), categories (group related weaknesses, e.g., CWE-19 Data Processing Errors), and weaknesses (specific flaw types, e.g., CWE-79 XSS). Over 900 weakness entries. Referenced by CVE, NVD, and virtually all vulnerability databases.\n\nAI/ML weaknesses added in the CWE-1400 series: CWE-1426 (Improper Validation of Generative AI Output), CWE-1427 (Improper Neutralization of Input for LLM Prompting), CWE-1434 (Insecure ML Model Inference Parameters).\n\nAll CWE IDs (views, categories, and weaknesses) use the same numeric format and the same URL template. The CWE number space is shared — no collisions between types. Updated regularly with community contributions.",
+        "urls": [
+          {"type": "website", "url": "https://cwe.mitre.org"},
+          {"type": "docs", "url": "https://cwe.mitre.org/data/index.html", "note": "CWE data index — links to XML, CSV, and PDF downloads"},
+          {"type": "bulk_data", "url": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip", "format": "xml", "note": "Full CWE list in XML format (zipped)"}
+        ],
+        "examples": ["CWE-79", "CWE-89", "CWE-22", "CWE-78", "CWE-1427"]
+      },
+      "children": [
+        {
+          "patterns": ["^CWE-\\d+$"],
+          "description": "CWE identifier (e.g., CWE-79, CWE-1427). Covers views, categories, and weaknesses — all use the same ID format.",
+          "weight": 100,
+          "data": {
+            "url": "https://cwe.mitre.org/data/definitions/{num}.html",
+            "variables": {
+              "num": {
+                "extract": "^CWE-(\\d+)$",
+                "description": "Numeric CWE ID (e.g., '79' from 'CWE-79')"
+              }
+            },
+            "examples": [
+              {"input": "CWE-79", "variables": {"num": "79"}, "url": "https://cwe.mitre.org/data/definitions/79.html"},
+              {"input": "CWE-1427", "variables": {"num": "1427"}, "url": "https://cwe.mitre.org/data/definitions/1427.html", "note": "Improper Neutralization of Input for LLM Prompting — AI/ML weakness (CWE-1400 series)"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

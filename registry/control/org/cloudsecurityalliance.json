@@ -7,7 +7,7 @@
 
   "official_name": "Cloud Security Alliance",
   "common_name": "CSA",
-  "alternate_names": ["CSA"],
+  "alternate_names": null,
   "notes": "CSA is the leading cloud security standards body. Industry standard (CCM used in thousands of organizations), vendor neutral, expanding into AI security. Publishes control frameworks (CCM, AICM), runs the STAR certification program (public compliance attestations), and conducts AI security research through its AI Safety Initiative.",
   "wikidata": null,
   "wikipedia": null,
@@ -47,9 +47,14 @@
         {
           "patterns": ["^[A-Z&]{2,3}$"],
           "description": "Control domain (e.g., IAM, A&A). Contains multiple controls.",
+          "weight": 100,
           "data": {
             "type": "domain",
             "note": "No per-domain web pages. Return the CCM download URL from the parent node with instructions to filter by domain code.",
+            "examples": [
+              {"input": "IAM", "note": "Identity & Access Management domain — contains controls IAM-01 through IAM-16"},
+              {"input": "A&A", "note": "Audit & Assurance — domain code contains ampersand"}
+            ],
             "known_values": {
               "A&A": "Audit & Assurance",
               "AIS": "Application & Interface Security",
@@ -74,9 +79,14 @@
         {
           "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
           "description": "Specific control (e.g., IAM-01, DSP-07, A&A-01). Belongs to a domain.",
+          "weight": 100,
           "data": {
             "type": "control",
-            "note": "No per-control web page exists. To find this control: download the CCM bundle (see parent URLs), open the Excel spreadsheet, go to the 'CCM Controls' sheet, and find the row where 'Control ID' matches. The 'Control Specification' column contains the full control text. Alternatively, use the Machine Readable Bundle (JSON/YAML/OSCAL) for programmatic access."
+            "note": "No per-control web page exists. To find this control: download the CCM bundle (see parent URLs), open the Excel spreadsheet, go to the 'CCM Controls' sheet, and find the row where 'Control ID' matches. The 'Control Specification' column contains the full control text. Alternatively, use the Machine Readable Bundle (JSON/YAML/OSCAL) for programmatic access.",
+            "examples": [
+              {"input": "IAM-01", "note": "No per-control URL — resolve via CCM bundle download"},
+              {"input": "A&A-01", "note": "Ampersand in domain code — preserved in identifier"}
+            ]
           }
         }
       ]
@@ -91,7 +101,12 @@
         "common_name": "AICM",
         "alternate_names": null,
         "description": "Security controls specific to AI/ML systems, complementing CCM for AI workloads.",
-        "notes": "Version 1.0 released July 2025 (243 controls, updated to v1.0.2). Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "1.0.3", "release_date": null, "status": "current", "note": "243 controls across 18 domains. Incremental update from v1.0."}
+        ],
+        "notes": "Version 1.0 released July 2025 (243 controls, updated to v1.0.3). Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "Direct download (no account required). ZIP bundle containing AICM spreadsheet, AI-CAIQ, guidelines, and mappings."}
@@ -102,9 +117,13 @@
         {
           "patterns": ["^[A-Z&]{2,3}$"],
           "description": "AICM control domain. Shares all 17 CCM domains plus MDS (Model Security).",
+          "weight": 100,
           "data": {
             "type": "domain",
             "note": "AICM reuses CCM domain codes and adds MDS. No per-domain web pages. Return the AICM download URL from the parent node with instructions to filter by domain code. The known_values below show only the MDS domain unique to AICM; for the other 17 domains, see the CCM entry above.",
+            "examples": [
+              {"input": "MDS", "note": "Model Security — AICM-only domain (not in CCM)"}
+            ],
             "known_values": {
               "MDS": "Model Security (AICM-only domain)"
             }
@@ -113,9 +132,13 @@
         {
           "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
           "description": "Specific AICM control (e.g., IAM-01, MDS-01). Same ID format as CCM.",
+          "weight": 100,
           "data": {
             "type": "control",
-            "note": "No per-control web page exists. To find this control: download the AICM bundle (see parent URLs), open the spreadsheet, go to the controls sheet, and find the row where 'Control ID' matches. The 'Specifications' column contains the full control text."
+            "note": "No per-control web page exists. To find this control: download the AICM bundle (see parent URLs), open the spreadsheet, go to the controls sheet, and find the row where 'Control ID' matches. The 'Specifications' column contains the full control text.",
+            "examples": [
+              {"input": "MDS-01", "note": "No per-control URL — resolve via AICM bundle download"}
+            ]
           }
         }
       ]
