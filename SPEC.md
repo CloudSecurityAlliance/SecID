@@ -1032,9 +1032,9 @@ Rather than design these upfront, we're building the identifier system and regis
 
 ## 7. Namespace Definition Format
 
-**Note:** The registry is transitioning from YAML+Markdown to JSON. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the canonical JSON schema, including the resolution pipeline, variable extraction, and pattern matching.
+**Note:** The registry is transitioning from YAML+Markdown to JSON. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the target JSON schema, including the resolution pipeline, variable extraction, and pattern matching.
 
-The examples below show the legacy YAML format for reference. New contributions should use the JSON format.
+During transition, `.md` files are authoritative for contributions. Pilot namespaces have `.json` mirrors derived from the `.md`; JSON parity may lag for non-pilot entries. The examples below show the current YAML format.
 
 ### 7.1 Frontmatter (Structured Data)
 

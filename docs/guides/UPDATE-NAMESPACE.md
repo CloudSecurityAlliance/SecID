@@ -71,6 +71,18 @@ Some namespaces have both `.md` (current) and `.json` (pilot) files:
 3. Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review
 4. See [YAML-TO-JSON.md](YAML-TO-JSON.md) for the conversion workflow
 
+### When to sync
+
+**Sync immediately** when:
+- The namespace is a pilot (see [YAML-TO-JSON.md](YAML-TO-JSON.md) for the list)
+- Downstream tooling, tests, or runtime consume the `.json` data
+- The PR explicitly targets JSON schema or consumer behavior
+
+**Sync can wait** when:
+- The `.md` changes are exploratory research or still in flux
+- The namespace is not a pilot
+- The change is minor (e.g., fixing a typo in narrative content not reflected in JSON)
+
 ## See Also
 
 - [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) - Principles and quality standards

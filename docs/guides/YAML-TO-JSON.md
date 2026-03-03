@@ -12,19 +12,24 @@ Not every registry file needs a JSON counterpart yet. Create one when:
 - You need to validate the JSON schema against real data
 - The namespace is a pilot for the v1.0 format
 
-Current pilot files:
+Current pilot files (7):
 - `registry/advisory/org/mitre.json`
 - `registry/advisory/com/redhat.json`
 - `registry/control/org/cloudsecurityalliance.json`
+- `registry/control/gov/nist.json`
 - `registry/weakness/org/owasp.json`
+- `registry/weakness/org/mitre.json`
+- `registry/ttp/org/mitre.json`
 
 ## Lifecycle Stages
 
 ```
 draft .md → active .md → create .json mirror → validate → .json becomes authoritative (v1.0+)
+                                  ▲
+                          we are here (v0.9)
 ```
 
-During transition, the `.md` file remains authoritative. The `.json` is a derived mirror.
+During transition, the `.md` file remains authoritative. The `.json` is a derived mirror. The flip to ".json becomes authoritative" has not happened yet — that is a v1.0+ milestone.
 
 ## Field Migration Table
 
@@ -32,7 +37,7 @@ During transition, the `.md` file remains authoritative. The `.json` is a derive
 |------------|-----------|-------|
 | `title` / `full_name` | `official_name` | Use the source's official name |
 | `website` | `urls[]` | Array of URL objects with `type` and `url` |
-| `sources` (flat) | `sources` with `match_nodes` (nested) | Restructure flat patterns into a tree |
+| `sources` (flat) | top-level `match_nodes` (nested tree) | Convert flat source patterns into nested `match_nodes` |
 | `id_pattern` | `match_nodes[].pattern` | Move into tree nodes |
 | `url_template` | `match_nodes[].url_template` | Move into tree nodes |
 | `description` | `description` | Preserve as-is |

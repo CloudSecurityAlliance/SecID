@@ -12,7 +12,7 @@ Registry files use YAML frontmatter followed by Markdown content. This format is
 - Allows rich narrative content alongside structured data
 - Facilitates exploration and iteration on the schema
 
-**Future direction:** Once the schema stabilizes, registry data will migrate to JSON for programmatic consumption. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the target JSON schema specification. The JSON format uses a nested pattern tree (`match_nodes`) instead of the flat `sources`/`id_pattern` structure used in YAML — the data is the same, just restructured for recursive matching. The Markdown narrative content may be retained separately or embedded.
+**Future direction:** Once the schema stabilizes, registry data will migrate to JSON for programmatic consumption. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the target JSON schema specification. The JSON format uses a nested pattern tree (`match_nodes`) instead of the flat `sources`/`id_pattern` structure used in YAML — the data is the same, just restructured for recursive matching. The Markdown narrative content may be retained separately or embedded. Seven pilot `.json` files already exist alongside their `.md` counterparts; see [INDEX.md](../../registry/INDEX.md) for the full list and current status.
 
 ## File Structure
 
