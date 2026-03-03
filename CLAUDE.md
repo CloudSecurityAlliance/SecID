@@ -62,6 +62,7 @@ With 20+ markdown files, know which document answers which question:
 | How do I research a new namespace? | [skills/registry-research/](skills/registry-research/) - research workflow skill |
 | How do I convert .md to .json? | [skills/registry-formalization/](skills/registry-formalization/) - formalization skill |
 | How do I test a resolver? | [skills/compliance-testing/](skills/compliance-testing/) - compliance testing skill |
+| How do I use SecID as an end user? | [skills/secid-user/](skills/secid-user/) - end-user usage skill |
 
 Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
 
@@ -110,15 +111,16 @@ secid/
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
-│   ├── <type>/<tld>/<domain>.md  # Namespace file (reverse-DNS, e.g., org/mitre.md)
+│   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (15 namespaces converted so far)
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
-└── skills/                  # Planned Claude Code skills (not yet built)
+└── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
 ```
 
 ## Registry File Format
 
-**Current state: All registry files are YAML frontmatter + Markdown.** The JSON format in [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) is the target for v1.0+, not yet in use.
+**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for 15 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
 
 One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` or `registry/reference/_template.md` as a starting point for new files.
 
@@ -203,31 +205,68 @@ See [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) for detailed patterns.
 
 ## Pattern Tree (match_nodes)
 
-The JSON target format uses a nested `match_nodes` tree (not flat `id_pattern` lists) to match subpath identifiers. Each node can have children for hierarchical ID systems:
+The JSON format uses a nested `match_nodes` array (not flat `id_pattern` lists) to match subpath identifiers. Each node can have children for hierarchical ID systems:
 
 ```json
 {
-  "match_nodes": {
-    "CVE": {
-      "pattern": "^CVE-\\d{4}-\\d{4,}$",
-      "description": "CVE identifier",
-      "url_template": "https://www.cve.org/CVERecord?id={id}"
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cve$"],
+      "description": "Common Vulnerabilities and Exposures",
+      "weight": 100,
+      "data": {
+        "examples": ["CVE-2024-1234", "CVE-2021-44228"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Standard CVE ID format",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cve.org/CVERecord?id={id}",
+            "examples": [
+              {"input": "CVE-2021-44228", "url": "https://www.cve.org/CVERecord?id=CVE-2021-44228"}
+            ]
+          }
+        }
+      ]
     }
-  }
+  ]
 }
 ```
 
-See `registry/advisory/com/redhat.json` for a complex example with nested children (RHSA/RHBA/RHEA under errata).
+Source-level `data.examples` uses bare strings (representative samples). Child-level `data.examples` uses structured ExampleObject entries (`{input, variables, url, note}`) that serve as test fixtures. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for full schema.
 
-## JSON Pilot Files
+See `registry/advisory/com/redhat.json` for a complex example with nested children (RHSA/RHBA/RHEA under errata), and `registry/advisory/org/debian.json` for range-table variable extraction.
 
-Four registry entries have been converted to the target JSON format as pilots:
-- `registry/advisory/org/mitre.json`
-- `registry/advisory/com/redhat.json`
-- `registry/control/org/cloudsecurityalliance.json`
-- `registry/weakness/org/owasp.json` (reference example for `version_required` and `version_disambiguation`)
+## JSON Registry Files
 
-These `.json` files sit alongside their `.md` counterparts. Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review of YAML→JSON conversions.
+15 registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts:
+
+**Advisory (10):**
+- `registry/advisory/org/mitre.json` — CVE (with cvelistV5 variable extraction)
+- `registry/advisory/org/cert.json` — CERT/CC VU#
+- `registry/advisory/org/debian.json` — DSA/DLA (range-table year lookup)
+- `registry/advisory/com/apple.json` — Apple HT articles
+- `registry/advisory/com/cisco.json` — PSIRT, Bug Search
+- `registry/advisory/com/github.json` — GHSA
+- `registry/advisory/com/google.json` — OSV, Chrome, Android, GCP, Project Zero
+- `registry/advisory/com/microsoft.json` — MSRC, Advisory, KB, Bulletin
+- `registry/advisory/com/redhat.json` — Errata (RHSA/RHBA/RHEA), CVE, Bugzilla
+- `registry/advisory/gov/cisa.json` — KEV, Vulnrichment
+
+**Weakness (2):**
+- `registry/weakness/org/mitre.json` — CWE
+- `registry/weakness/org/owasp.json` — Top 10, LLM Top 10, ML Top 10, Agentic Top 10, AI Exchange, AIVSS (reference for `version_required` and `version_disambiguation`)
+
+**Control (2):**
+- `registry/control/org/cloudsecurityalliance.json` — CCM, AICM
+- `registry/control/gov/nist.json` — SP 800-53, CSF
+
+**TTP (1):**
+- `registry/ttp/org/mitre.json` — ATT&CK, ATLAS, CAPEC
+
+Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review of YAML→JSON conversions.
 
 ## Entity Type Differences
 
@@ -259,11 +298,17 @@ rg -l 'namespace: mitre.org' registry/
 # Count registry files per type
 for type in advisory weakness ttp control regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
 
+# Validate all JSON registry files parse correctly
+for f in registry/**/*.json; do python3 -c "import json; json.load(open('$f'))" && echo "OK: $f" || echo "FAIL: $f"; done
+
+# List JSON files with structured examples
+python3 -c "import json,glob; [print(f) for f in sorted(glob.glob('registry/**/*.json',recursive=True)) if any(isinstance(e,dict) for n in json.load(open(f)).get('match_nodes',[]) for c in n.get('children',[]) for e in c.get('data',{}).get('examples',[]))]"
+
 # Lint markdown (if markdownlint is installed)
 markdownlint **/*.md
 ```
 
-This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter.
+This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
 
 ## Parsing Rules
 
