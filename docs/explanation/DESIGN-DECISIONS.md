@@ -2345,7 +2345,7 @@ All SecID repositories are public.
 | SecID | Public | Spec, registry data, design docs, operations documentation |
 | SecID-Service | Public | Cloudflare Worker (API + MCP server) |
 | SecID-Website | Public | Cloudflare Pages documentation site |
-| SecID-Client | Public | Client libraries |
+| SecID-Client-SDK | Public | Client libraries |
 
 ## Operations Documentation Lives in This Repo
 
@@ -2388,7 +2388,7 @@ If operations outgrows documentation into actual IaC code with its own build/tes
 | **SecID** (spec, registry, docs) | CC0 1.0 | Content. Maximum adoption, zero barriers to use. |
 | **SecID-Website** (documentation site) | CC0 1.0 | Content. Same rationale — it's rendered documentation. |
 | **SecID-Service** (API + MCP server) | Apache 2.0 | Code. Industry-standard for open-source software. |
-| **SecID-Client** (libraries) | Apache 2.0 | Code. Industry-standard, expected by package registries. |
+| **SecID-Client-SDK** (libraries) | Apache 2.0 | Code. Industry-standard, expected by package registries. |
 
 ### Why CC0 for Content
 

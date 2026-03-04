@@ -575,26 +575,24 @@ Our goal is to make SecID as easy to consume as possible. We're building:
 | **SecID** (this repo) | Spec, registry, operations docs | Active |
 | **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Hosted API + MCP server | Active |
 | **SecID-Website** | Documentation and registry browser | Planned |
-| **SecID-Client** | Official client libraries + Claude skills | Planned |
+| **SecID-Client-SDK** | Client libraries + AI instructions | Planned |
 
 ### SecID-Service
 
 **The SecID service is live!** See the [SecID-Service repository](https://github.com/CloudSecurityAlliance/SecID-Service) for details.
 
 Cloudflare Worker providing:
-- REST API at `/v1/` for programmatic access
+- REST API at `/api/v1/` for programmatic access
 - MCP server at `/mcp` for AI agent integration
-- Code snippets and prompts for generating implementations
 
-**Philosophy:** We assume you have capable AI tooling. The service includes prompts to generate clients in any language, not just pre-built libraries.
+**Primary integration path:** Add `https://secid.cloudsecurityalliance.org/mcp` as a remote MCP server. Your AI assistant can then use the tools directly or generate API client code on the fly.
 
-### SecID-Client
+### SecID-Client-SDK
 
-Official client libraries for production use:
-- Python (`pip install secid`)
-- npm/TypeScript (`npm install secid`)
-- Go, Rust, others over time
-- Claude skills for using SecID protocol and MCP server
+Reference client libraries and AI-consumable instructions:
+- Python (`pip install secid`) and npm/TypeScript (`npm install secid`) for SEO and discoverability
+- AI instructions for generating clients in any language
+- Test fixtures extracted from the registry
 
 ### LLM-Friendly
 

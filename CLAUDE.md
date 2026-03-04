@@ -76,7 +76,7 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 | **SecID** (this repo) | Specification, registry data, design documents, operations docs |
 | **SecID-Service** | Cloudflare Worker REST API + MCP server |
 | **SecID-Website** | Cloudflare Pages documentation site |
-| **SecID-Client** | Client libraries (Python, npm, Go, Rust, Java, C#) |
+| **SecID-Client-SDK** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
 
 ## Repository Structure
 

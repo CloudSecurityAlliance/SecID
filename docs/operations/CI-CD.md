@@ -55,7 +55,7 @@ This repo has two kinds of changes: documentation and registry data. Only regist
 **On merge to main:**
 - Build and deploy to production (automatic via Cloudflare Pages git integration)
 
-### SecID-Client
+### SecID-Client-SDK
 
 **On every PR (per language):**
 - Run language-specific tests
@@ -100,7 +100,7 @@ push to main
 | Compliance test suite | PR to SecID-Service | Against preview deployment |
 | Integration tests | Merge to SecID-Service | Against production |
 | Smoke tests | After any production deploy | Against production |
-| Client tests | PR to SecID-Client | Against public API |
+| Client tests | PR to SecID-Client-SDK | Against public API |
 
 The compliance test suite (see [skills/compliance-testing/](../../skills/compliance-testing/)) is the most important quality gate. It runs canonical test cases (input SecID → expected parse + expected URLs) against the actual deployed service. A PR to SecID-Service cannot merge if compliance tests fail.
 

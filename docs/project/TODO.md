@@ -98,16 +98,16 @@ Create a standalone plugin (Claude Code plugin, VS Code extension, etc.) that bu
 - Integration with IDE-specific features (e.g., hover-to-resolve SecID strings)
 - A presence in plugin marketplaces for discoverability
 
-**When to revisit:** After MCP tool descriptions are enriched and SecID-SDK reference implementations are published.
+**When to revisit:** After MCP tool descriptions are enriched and SecID-Client-SDK reference implementations are published.
 
-### SecID-SDK Reference Implementations and Package Publishing
+### SecID-Client-SDK Reference Implementations and Package Publishing
 **Status:** Planned
 
 Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (`npm install secid`) for SEO and discoverability. These are thin wrappers around the one-endpoint API — the real value is that people searching "secid" on PyPI/npm find something. The packages should:
 - Be single-file, zero-external-dep implementations
 - Include CLI mode
 - Link back to the MCP server as the primary integration path
-- Live in the SecID-SDK repo alongside AI-consumable instructions
+- Live in the SecID-Client-SDK repo alongside AI-consumable instructions
 
 **When to revisit:** After MCP server improvements are deployed.
 

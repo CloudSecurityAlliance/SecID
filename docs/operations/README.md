@@ -11,7 +11,7 @@ SecID is split across four repositories. All are public (see [DESIGN-DECISIONS.m
 | **[SecID](https://github.com/CloudSecurityAlliance/SecID)** | CC0 1.0 | Spec, registry data, design docs, operations docs | Source of truth. Everything starts here. |
 | **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Apache 2.0 | Cloudflare Worker serving `/api/*` and `/mcp/*` | Has its own build/deploy/test cycle. Code that runs in production. Can be self-hosted by others. |
 | **[SecID-Website](https://github.com/CloudSecurityAlliance/SecID-Website)** | CC0 1.0 | Cloudflare Pages serving `/*` | Derived content (generated from other repos). Different deployment mechanism (Pages vs Workers). |
-| **[SecID-Client](https://github.com/CloudSecurityAlliance/SecID-Client)** | Apache 2.0 | Client libraries (Python, npm, Go, Rust, Java, C#) | Independent release cadence per language. Consumers of the API, not the API itself. |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Apache 2.0 | Client libraries (Python, npm, Go, Rust, Java, C#) | Independent release cadence per language. Consumers of the API, not the API itself. |
 
 **Why not fewer repos?**
 

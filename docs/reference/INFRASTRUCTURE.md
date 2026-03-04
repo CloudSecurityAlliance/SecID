@@ -27,7 +27,7 @@ SecID is split across multiple repositories for clear separation of concerns:
 | **SecID** (this repo) | Spec + Registry + Operations | Specification, registry data, design docs, infrastructure/deployment docs. Source of truth. |
 | **SecID-Service** | API + MCP | Cloudflare Worker code for `/v1/` and `/mcp`. Consumes registry. |
 | **SecID-Website** | Documentation site | Cloudflare Pages. Generated from other repos by Claude skill. |
-| **SecID-Client** | Official clients | Python, npm, Go libraries. Claude skills for using SecID. |
+| **SecID-Client-SDK** | Official clients | Python, npm, Go libraries. Claude skills for using SecID. |
 
 **Why split?**
 - Different release cadences

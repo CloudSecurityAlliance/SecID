@@ -11,7 +11,7 @@ Step-by-step instructions for setting up the full SecID infrastructure from scra
   - [SecID](https://github.com/CloudSecurityAlliance/SecID) (spec + registry)
   - [SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service) (API + MCP)
   - [SecID-Website](https://github.com/CloudSecurityAlliance/SecID-Website) (docs site)
-  - [SecID-Client](https://github.com/CloudSecurityAlliance/SecID-Client) (client libraries)
+  - [SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (client libraries)
 - `wrangler` CLI installed and authenticated (`wrangler login`)
 - Node.js for building SecID-Service
 
@@ -72,7 +72,7 @@ The full pipeline: registry change in this repo → Service rebuilds → resolut
 4. Query the API for the changed entry
 5. Confirm the response reflects the new data
 
-## Step 6: Set Up SecID-Client (When Ready)
+## Step 6: Set Up SecID-Client-SDK (When Ready)
 
 Client libraries are independent of the infrastructure. Set up CI/CD for each language when the libraries are being actively developed.
 

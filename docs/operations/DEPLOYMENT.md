@@ -10,7 +10,7 @@ How each SecID component is deployed, updated, and rolled back.
 |-----------|------------------|-----------|
 | SecID-Service | Cloudflare Worker | `wrangler deploy` (via GitHub Actions) |
 | SecID-Website | Cloudflare Pages | Git integration or `wrangler pages deploy` |
-| SecID-Client | Package registries (PyPI, npm, etc.) | Per-language publish workflows |
+| SecID-Client-SDK | Package registries (PyPI, npm, etc.) | Per-language publish workflows |
 
 ## SecID-Service (Worker)
 
@@ -61,7 +61,7 @@ Worker configuration lives in `wrangler.toml` in the SecID-Service repo:
 
 Cloudflare Pages maintains deployment history. Rollback to any previous deployment via the Cloudflare dashboard or API.
 
-## SecID-Client (Libraries)
+## SecID-Client-SDK (Libraries)
 
 Each language publishes independently:
 
