@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "namespace": "govinfo.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "United States Federal",
+  "common_name": "US Federal",
+  "alternate_names": null,
+  "notes": "United States federal laws and regulations governing healthcare, financial, education, and cybersecurity. Federal laws apply nationally. CFR citations use standard format (Title/Part/Section).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.govinfo.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^hipaa$"],
+      "description": "Health Insurance Portability and Accountability Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Health Insurance Portability and Accountability Act",
+        "common_name": "HIPAA",
+        "alternate_names": ["Public Law 104-191"],
+        "description": "US healthcare data protection law. Security Rule (45 CFR 164.312) requires administrative, physical, and technical safeguards.",
+        "notes": "Enforced by HHS Office for Civil Rights. Applies to covered entities (providers, plans, clearinghouses) and business associates. Three main rules: Privacy Rule (use/disclosure of PHI), Security Rule (ePHI safeguards), Breach Notification Rule (notification requirements). HITECH Act (2009) expanded enforcement and penalties.",
+        "urls": [
+          {"type": "website", "url": "https://www.hhs.gov/hipaa/index.html"},
+          {"type": "lookup", "url": "https://www.ecfr.gov/current/title-45/part-164"}
+        ],
+        "examples": ["164.312", "164.312.a.1", "164.308"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d+\\.\\d+(\\.[a-z](\\.(\\d+|[ivx]+))?)?$"],
+          "description": "CFR section reference (e.g., 164.312, 164.312.a.1). References 45 CFR Part 160/164.",
+          "weight": 100,
+          "data": {
+            "note": "References to the Code of Federal Regulations (Title 45, Parts 160 and 164). The eCFR (Electronic Code of Federal Regulations) provides per-section browsing. Section references follow the pattern Part.Section(.subsection(.paragraph)).",
+            "examples": [
+              {"input": "164.312", "note": "Technical safeguards for ePHI"},
+              {"input": "164.312.a.1", "note": "Access control \u2014 assign unique user ID"},
+              {"input": "164.308", "note": "Administrative safeguards"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^fisma$"],
+      "description": "Federal Information Security Management Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Federal Information Security Management Act",
+        "common_name": "FISMA",
+        "alternate_names": ["Federal Information Security Modernization Act of 2014"],
+        "description": "Requires federal agencies to develop information security programs. Originally enacted 2002, updated by FISMA 2014 (Federal Information Security Modernization Act).",
+        "notes": "Requires agencies to implement NIST standards (SP 800-53, FIPS 199/200). Mandates annual security assessments and reporting to OMB. FISMA 2014 updated the original 2002 law, shifting oversight responsibilities and modernizing breach notification requirements. Compliance assessed through Inspector General audits.",
+        "urls": [
+          {"type": "website", "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/federal-information-security-modernization-act"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^glba$"],
+      "description": "Gramm-Leach-Bliley Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Gramm-Leach-Bliley Act",
+        "common_name": "GLBA",
+        "alternate_names": ["Financial Services Modernization Act of 1999", "Public Law 106-102"],
+        "description": "Financial services data protection requirements. Requires financial institutions to explain information-sharing practices and safeguard sensitive data.",
+        "notes": "Three main rules: Financial Privacy Rule (notice and opt-out for sharing), Safeguards Rule (security program requirements, updated by FTC in 2023), Pretexting Provisions (prohibits fraudulent access to financial information). FTC Safeguards Rule (16 CFR 314) mandates specific technical controls including encryption, MFA, and penetration testing. Enforced by FTC, federal banking regulators, and state attorneys general.",
+        "urls": [
+          {"type": "website", "url": "https://www.ftc.gov/legal-library/browse/statutes/gramm-leach-bliley-act"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cfaa$"],
+      "description": "Computer Fraud and Abuse Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Computer Fraud and Abuse Act",
+        "common_name": "CFAA",
+        "alternate_names": ["18 U.S.C. \u00a71030"],
+        "description": "Federal computer crime statute (18 U.S.C. \u00a71030). Criminalizes unauthorized access to computer systems.",
+        "notes": "Originally enacted 1986, amended multiple times. Covers: unauthorized access to government/financial/protected computers, trafficking in passwords, causing damage through unauthorized access. Provides both criminal penalties and civil cause of action. Supreme Court narrowed scope in Van Buren v. United States (2021), ruling that 'exceeds authorized access' requires accessing information in areas off-limits, not misusing information one is authorized to access.",
+        "urls": [
+          {"type": "website", "url": "https://www.law.cornell.edu/uscode/text/18/1030"}
+        ],
+        "examples": ["1030.a.2", "1030.a.5"]
+      },
+      "children": [
+        {
+          "patterns": ["^1030\\.[a-g](\\.\\d+)?$"],
+          "description": "CFAA subsection reference (e.g., 1030.a.2). References 18 U.S.C. \u00a71030 subsections.",
+          "weight": 100,
+          "data": {
+            "note": "Subsection references to 18 U.S.C. \u00a71030. Subsection (a) defines offenses, (b) defines attempt/conspiracy, (c) defines penalties, (e) defines terms, (g) defines civil actions.",
+            "examples": [
+              {"input": "1030.a.2", "note": "Intentionally accessing a computer to obtain information without or exceeding authorization"},
+              {"input": "1030.a.5", "note": "Knowingly causing damage to a protected computer"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisecurity.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Center for Internet Security",
+  "common_name": "CIS",
+  "alternate_names": null,
+  "notes": "CIS Critical Security Controls provide prioritized, actionable security guidance. Controls are ordered by effectiveness and scaled for organization size through Implementation Groups (IG1-IG3). Maps to NIST CSF, ISO 27001, and other frameworks. Community-driven, consensus from practitioners.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.cisecurity.org/controls"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^controls$"],
+      "description": "CIS Critical Security Controls",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Critical Security Controls",
+        "common_name": "CIS Controls",
+        "alternate_names": null,
+        "description": "18 prioritized security control groups, each containing specific sub-controls (safeguards). Version 8 is current.",
+        "notes": "CIS Controls v8 has 18 control groups with 153 safeguards. Implementation Groups: IG1 (essential cyber hygiene), IG2 (growing organizations), IG3 (advanced/mature). No per-control public URL — the full controls document requires registration to download. Maps to NIST CSF, ISO 27001.",
+        "version_required": true,
+        "versions_available": [
+          {"version": "8.0", "release_date": null, "status": "current", "note": "18 control groups, 153 safeguards. Implementation Groups IG1-IG3."},
+          {"version": "7.1", "release_date": null, "status": "superseded", "note": "20 control groups. Different structure from v8."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/controls"}
+        ],
+        "examples": ["1.1", "4.1", "16.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}$"],
+          "description": "CIS Control group number (1-18)",
+          "weight": 50,
+          "data": {
+            "note": "No per-control URL. CIS Controls document requires registration to download from cisecurity.org.",
+            "examples": [
+              {"input": "1", "note": "Inventory and Control of Enterprise Assets"},
+              {"input": "4", "note": "Secure Configuration of Enterprise Assets and Software"},
+              {"input": "16", "note": "Application Software Security"}
+            ],
+            "known_values": {
+              "1": "Inventory and Control of Enterprise Assets",
+              "2": "Inventory and Control of Software Assets",
+              "3": "Data Protection",
+              "4": "Secure Configuration of Enterprise Assets and Software",
+              "5": "Account Management",
+              "6": "Access Control Management",
+              "7": "Continuous Vulnerability Management",
+              "8": "Audit Log Management",
+              "9": "Email and Web Browser Protections",
+              "10": "Malware Defenses",
+              "11": "Data Recovery",
+              "12": "Network Infrastructure Management",
+              "13": "Network Monitoring and Defense",
+              "14": "Security Awareness and Skills Training",
+              "15": "Service Provider Management",
+              "16": "Application Software Security",
+              "17": "Incident Response Management",
+              "18": "Penetration Testing"
+            }
+          }
+        },
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}$"],
+          "description": "CIS Safeguard ID (ControlGroup.Safeguard)",
+          "weight": 100,
+          "data": {
+            "note": "No per-safeguard URL. CIS Controls document requires registration to download.",
+            "examples": [
+              {"input": "1.1", "note": "Establish and Maintain Detailed Enterprise Asset Inventory (IG1)"},
+              {"input": "4.1", "note": "Establish and Maintain a Secure Configuration Process (IG1)"},
+              {"input": "16.1", "note": "Establish and Maintain a Secure Application Development Process (IG2)"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

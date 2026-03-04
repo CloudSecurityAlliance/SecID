@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iso.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "International Organization for Standardization",
+  "common_name": "ISO",
+  "alternate_names": null,
+  "notes": "ISO publishes globally recognized information security standards. The ISO/IEC 27000 series is the most widely adopted information security management framework. ISO standards are not freely available — must be purchased from ISO or national standards bodies.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.iso.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^27001$"],
+      "description": "ISO/IEC 27001 Information Security Management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27001 Information Security Management",
+        "common_name": "ISO 27001",
+        "alternate_names": null,
+        "description": "The global certification standard for information security management systems (ISMS). Annex A contains normative control objectives.",
+        "notes": "ISO 27001 is a certification standard — organizations can be audited and certified. Version 2022 restructured from 14 domains to 4 themes: Organizational (A.5, 37 controls), People (A.6, 8 controls), Physical (A.7, 14 controls), Technological (A.8, 34 controls). Maps to NIST CSF, CIS Controls, and other frameworks. Many contracts and regulations require ISO 27001 certification.",
+        "version_required": true,
+        "version_disambiguation": "The 2022 version restructured significantly: 4 themes with 93 controls (was 14 domains with 114 controls in 2013). Control numbering changed between versions — always specify version.",
+        "versions_available": [
+          {"version": "2022", "release_date": "2022-10-25", "status": "current", "note": "4 themes (Organizational, People, Physical, Technological), 93 Annex A controls. Major restructuring from 2013."},
+          {"version": "2013", "release_date": "2013-10-01", "status": "superseded", "note": "14 domains (A.5 through A.18), 114 controls. Still referenced in older compliance documentation and certifications."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/27001"},
+          {"type": "overview", "url": "https://www.iso.org/isoiec-27001-information-security.html"}
+        ],
+        "examples": ["A.5.1", "A.8.2", "A.8.28"]
+      },
+      "children": [
+        {
+          "patterns": ["^A\\.\\d{1,2}$"],
+          "description": "ISO 27001 Annex A theme/domain prefix (e.g., A.5, A.8). Groups related controls.",
+          "weight": 50,
+          "data": {
+            "note": "No per-theme URL — ISO standards must be purchased. In 2022: A.5=Organizational, A.6=People, A.7=Physical, A.8=Technological. In 2013: A.5 through A.18 represented 14 domains.",
+            "examples": [
+              {"input": "A.5", "version": "2022", "note": "Organizational controls (37 controls)"},
+              {"input": "A.8", "version": "2022", "note": "Technological controls (34 controls)"}
+            ],
+            "known_values": {
+              "A.5": "Organizational (2022) / Information Security Policies (2013)",
+              "A.6": "People (2022) / Organization of Information Security (2013)",
+              "A.7": "Physical (2022) / Human Resource Security (2013)",
+              "A.8": "Technological (2022) / Asset Management (2013)"
+            }
+          }
+        },
+        {
+          "patterns": ["^A\\.\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "ISO 27001 Annex A control ID. 2022 uses A.N.N (two-level), 2013 uses A.N.N.N (three-level).",
+          "weight": 100,
+          "data": {
+            "note": "No per-control URL — ISO standards must be purchased. Some derivative resources and summaries are freely available.",
+            "examples": [
+              {"input": "A.5.1", "version": "2022", "note": "Policies for information security (Organizational theme)"},
+              {"input": "A.8.2", "version": "2022", "note": "Privileged access rights (Technological theme)"},
+              {"input": "A.8.28", "version": "2022", "note": "Secure coding (Technological theme)"},
+              {"input": "A.5.1.1", "version": "2013", "note": "Policies for information security (2013 numbering — deeper hierarchy)"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^27002$"],
+      "description": "ISO/IEC 27002 Information Security Controls",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27002 Information Security Controls",
+        "common_name": "ISO 27002",
+        "alternate_names": null,
+        "description": "Implementation guidance for ISO 27001 Annex A controls. Not a certification standard.",
+        "notes": "Control numbering matches Annex A minus the 'A.' prefix. 27001 says what to do, 27002 says how to do it. For example: 27001 A.5.1 maps to 27002 5.1.",
+        "version_required": true,
+        "versions_available": [
+          {"version": "2022", "release_date": "2022-02-15", "status": "current", "note": "Aligned with 27001:2022. 4 themes, 93 controls. Major restructuring from 2013."},
+          {"version": "2013", "release_date": "2013-10-01", "status": "superseded", "note": "Aligned with 27001:2013. 14 domains, 114 controls."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/75652.html"}
+        ],
+        "examples": ["5.1", "8.2"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "ISO 27002 control ID (Theme.Control). Numbering matches 27001 Annex A without the 'A.' prefix.",
+          "weight": 100,
+          "data": {
+            "note": "No per-control URL — ISO standards must be purchased. Numbering matches 27001 Annex A without the 'A.' prefix.",
+            "examples": [
+              {"input": "5.1", "version": "2022", "note": "Policies for information security — implementation guidance for 27001 A.5.1"},
+              {"input": "8.2", "version": "2022", "note": "Privileged access rights — implementation guidance for 27001 A.8.2"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^42001$"],
+      "description": "ISO/IEC 42001 AI Management System",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 42001 AI Management System",
+        "common_name": "ISO 42001",
+        "alternate_names": null,
+        "description": "Management system standard for AI. Provides requirements for establishing, implementing, maintaining and continually improving an AI management system.",
+        "notes": "Published 2023. First international standard for AI management. Addresses AI-specific risks including bias, transparency, and safety.",
+        "versions_available": [
+          {"version": "2023", "release_date": "2023-12-18", "status": "current", "note": "First edition. First international certification standard for AI management systems."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/81230.html"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^23894$"],
+      "description": "ISO/IEC 23894 AI Risk Management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 23894 AI Risk Management",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Guidance on AI risk management processes.",
+        "versions_available": [
+          {"version": "2023", "release_date": "2023-02-01", "status": "current", "note": "First edition. Guidance on managing risk specifically related to AI."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/77304.html"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^24028$"],
+      "description": "ISO/IEC 24028 AI Trustworthiness",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 24028 AI Trustworthiness",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Overview of trustworthiness in AI, including bias, transparency, and accountability.",
+        "versions_available": [
+          {"version": "2020", "release_date": "2020-05-01", "status": "current", "note": "First edition. Overview of trustworthiness in artificial intelligence."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/77608.html"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^24029$"],
+      "description": "ISO/IEC 24029 AI Robustness",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 24029 AI Robustness",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Assessment of robustness of neural networks.",
+        "versions_available": [
+          {"version": "2021", "release_date": "2021-01-01", "status": "current", "note": "First edition. Methods for assessing robustness of neural networks."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/77609.html"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

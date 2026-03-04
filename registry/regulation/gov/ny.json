@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ny.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "New York State",
+  "common_name": "New York",
+  "alternate_names": null,
+  "notes": "New York state privacy and cybersecurity laws. Strong enforcement through DFS (Department of Financial Services).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nysenate.gov/legislation"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^dfs-500$"],
+      "description": "NYDFS Cybersecurity Regulation (23 NYCRR 500)",
+      "weight": 100,
+      "data": {
+        "official_name": "NYDFS Cybersecurity Regulation (23 NYCRR 500)",
+        "common_name": "DFS 500",
+        "alternate_names": ["23 NYCRR Part 500", "NYDFS Cybersecurity Regulation"],
+        "description": "Cybersecurity requirements for financial services companies regulated by NYDFS.",
+        "notes": "Effective 2017, amended 2023. Requires cybersecurity program, CISO, penetration testing, risk assessments, incident response, third-party oversight. The 2023 amendment added requirements for privileged access management, endpoint detection, and enhanced governance. Applies to banks, insurance companies, and other financial services institutions licensed by NYDFS.",
+        "urls": [
+          {"type": "website", "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity"}
+        ],
+        "examples": ["500.12", "500.02", "500.05"]
+      },
+      "children": [
+        {
+          "patterns": ["^500\\.\\d{2}$"],
+          "description": "23 NYCRR 500 section reference (e.g., 500.12, 500.02).",
+          "weight": 100,
+          "data": {
+            "note": "Section references to 23 NYCRR Part 500. Sections are numbered 500.00 through 500.24 (as of 2023 amendment). No per-section lookup URL; the full regulation is published as a single document by NYDFS.",
+            "examples": [
+              {"input": "500.12", "note": "Multi-factor authentication requirements"},
+              {"input": "500.02", "note": "Cybersecurity program requirements"},
+              {"input": "500.05", "note": "Penetration testing and vulnerability assessments"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^shield-act$"],
+      "description": "Stop Hacks and Improve Electronic Data Security Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Stop Hacks and Improve Electronic Data Security Act",
+        "common_name": "SHIELD Act",
+        "alternate_names": null,
+        "description": "Broad-scope data breach notification and security requirements. Effective 2020.",
+        "notes": "Broadened the definition of private information and expanded breach notification requirements beyond New York residents. Requires businesses that collect private information of New York residents to implement reasonable safeguards: administrative (designate coordinator, train employees), technical (assess risks, detect attacks), and physical (detect/prevent intrusions, dispose data securely). Applies to any person or business that owns or licenses computerized data including private information of a New York resident, regardless of where the business is located.",
+        "urls": [
+          {"type": "website", "url": "https://www.nysenate.gov/legislation/bills/2019/S5575"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^nybcl$"],
+      "description": "New York Biometric Collection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "New York Biometric Collection Law",
+        "common_name": "NYBCL",
+        "alternate_names": null,
+        "description": "Restrictions on collection, storage, and use of biometric data. Effective 2021.",
+        "notes": "Applies to businesses that collect biometric identifier information (fingerprints, retina/iris scans, voiceprints, hand geometry). Requires written notice and consent before collection. Prohibits selling, leasing, or trading biometric data. Businesses must implement reasonable safeguards for storage. Primarily targets commercial establishments in New York City. Private right of action with statutory damages.",
+        "urls": [
+          {"type": "website", "url": "https://www.nysenate.gov/legislation/bills/2019/A8155"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

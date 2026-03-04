@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "weakness",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "National Institute of Standards and Technology",
+  "common_name": "NIST",
+  "alternate_names": null,
+  "notes": "NIST provides the official US government perspective on security weaknesses. Authoritative federal agency with regulatory influence, research-backed, referenced in executive orders and regulations.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nist.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-100-2$"],
+      "description": "NIST AI 100-2 Adversarial Machine Learning Taxonomy",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST AI 100-2 Adversarial Machine Learning Taxonomy",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Official NIST taxonomy for adversarial machine learning attacks. The authoritative US government classification of ML security threats.",
+        "notes": "First edition January 2024. Categorizes attacks by stage (training time vs inference time). Complements MITRE ATLAS (TTPs) with weakness taxonomy. Referenced in AI executive orders and policy. Updates expected as field evolves.",
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"},
+          {"type": "pdf", "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf"}
+        ],
+        "versions": ["E2025"],
+        "examples": ["Evasion", "DataPoisoning", "MembershipInference"]
+      },
+      "children": [
+        {
+          "patterns": ["^(Evasion|Poisoning|DataPoisoning|ModelPoisoning|Privacy|MembershipInference|AttributeInference|ModelInversion|Extraction).*$"],
+          "description": "NIST AI 100-2 attack category",
+          "weight": 100,
+          "data": {
+            "note": "No per-category URL. All categories are documented in the NIST AI 100-2 publication (PDF and web).",
+            "examples": [
+              {"input": "Evasion", "note": "Inference-time attacks: adversarial examples, perturbations"},
+              {"input": "DataPoisoning", "note": "Training-time attacks: manipulating training data"},
+              {"input": "MembershipInference", "note": "Privacy attack: determining if data was in the training set"},
+              {"input": "Extraction", "note": "Stealing model functionality via queries"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

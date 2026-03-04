@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "avidml.org",
+  "type": "weakness",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "AI Vulnerability Database",
+  "common_name": "AVID",
+  "alternate_names": ["AVID ML"],
+  "notes": "AVID (AI Vulnerability Database) is a community-driven knowledge base for AI/ML security vulnerabilities. Provides both taxonomy and database. Cross-references CVEs, ATLAS, and other sources. Maintained by AVID ML community.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://avidml.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^taxonomy$"],
+      "description": "AVID Vulnerability Taxonomy",
+      "weight": 100,
+      "data": {
+        "official_name": "AVID Vulnerability Taxonomy",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Structured classification for AI/ML security issues. Categories include Vulnerabilities (V), Risks (R), and Ethics (E).",
+        "notes": "AVID IDs format: AVID-YYYY-XNNN where X indicates category (V=vulnerability, R=risk, E=ethics). Complements rather than replaces CVE/CWE. Useful for AI-specific vulnerability tracking.",
+        "urls": [
+          {"type": "website", "url": "https://avidml.org/taxonomy"},
+          {"type": "api", "url": "https://avidml.org/api"},
+          {"type": "github", "url": "https://github.com/avidml/avid-taxonomy"}
+        ],
+        "examples": ["AVID-2023-V001", "AVID-2023-R001"]
+      },
+      "children": [
+        {
+          "patterns": ["^AVID-\\d{4}-[VRE]\\d{3}$"],
+          "description": "AVID taxonomy ID (AVID-YYYY-XNNN)",
+          "weight": 100,
+          "data": {
+            "url": "https://avidml.org/database/{id}",
+            "examples": [
+              {"input": "AVID-2023-V001", "url": "https://avidml.org/database/AVID-2023-V001", "note": "Vulnerability category entry"},
+              {"input": "AVID-2023-R001", "url": "https://avidml.org/database/AVID-2023-R001", "note": "Risk category entry"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

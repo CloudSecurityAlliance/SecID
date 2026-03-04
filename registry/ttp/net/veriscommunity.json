@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "veriscommunity.net",
+  "type": "ttp",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "VERIS Framework",
+  "common_name": "VERIS",
+  "alternate_names": ["Vocabulary for Event Recording and Incident Sharing"],
+  "notes": "VERIS (Vocabulary for Event Recording and Incident Sharing) is the structured classification system behind Verizon's annual Data Breach Investigations Report (DBIR). Uses the A4 model: Actor (who), Action (what), Asset (which), Attribute (how/CIA). Developed by Verizon RISK Team. Open source at github.com/vz-risk/veris. Version 1.3.7 is current. Community database (VCDB) tracks public incidents.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "http://veriscommunity.net"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^framework$"],
+      "description": "Vocabulary for Event Recording and Incident Sharing",
+      "weight": 100,
+      "data": {
+        "official_name": "Vocabulary for Event Recording and Incident Sharing",
+        "common_name": "VERIS",
+        "alternate_names": null,
+        "description": "Comprehensive structured vocabulary for classifying security incidents across four dimensions (A4): Actor, Action, Asset, Attribute.",
+        "notes": "VERIS uses dot notation for categories (e.g., action.hacking, actor.external). Powers the annual DBIR report — industry's most cited breach report. Enables statistical analysis of breach trends. JSON schema for structured data.",
+        "versions": ["1.3.7"],
+        "urls": [
+          {"type": "website", "url": "http://veriscommunity.net"},
+          {"type": "github", "url": "https://github.com/vz-risk/veris"},
+          {"type": "report", "url": "https://www.verizon.com/business/resources/reports/dbir/", "note": "Verizon Data Breach Investigations Report (DBIR)"}
+        ],
+        "examples": ["action.hacking", "action.malware", "action.social", "actor.external"]
+      },
+      "children": [
+        {
+          "patterns": ["^(actor|action|asset|attribute)\\.[a-z]+(-[a-z]+)*$"],
+          "description": "VERIS A4 category.subcategory (dot notation)",
+          "weight": 100,
+          "data": {
+            "note": "No per-category URL. VERIS is a vocabulary/schema for incident classification. Categories are documented in the GitHub repository and schema files.",
+            "examples": [
+              {"input": "action.hacking", "note": "Action category: Unauthorized access attempts (exploitation, brute force, SQLi)"},
+              {"input": "action.malware", "note": "Action category: Malicious software (ransomware, backdoors, keyloggers)"},
+              {"input": "action.social", "note": "Action category: Social engineering (phishing, pretexting, bribery)"},
+              {"input": "actor.external", "note": "Actor category: Outside the organization (criminals, nation-states, hacktivists)"},
+              {"input": "actor.internal", "note": "Actor category: Inside the organization (malicious insiders, negligent users)"},
+              {"input": "asset.server", "note": "Asset category: Server infrastructure (web, database, file, mail servers)"},
+              {"input": "attribute.confidentiality", "note": "Attribute category: Data disclosure/exposure (CIA triad)"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

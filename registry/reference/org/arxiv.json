@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "arxiv.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "arXiv Preprints",
+  "common_name": "arXiv",
+  "alternate_names": null,
+  "notes": "arXiv is the primary open-access preprint repository for AI/ML security research. Paper IDs use YYMM.NNNNN format (year-month.sequence). Not peer-reviewed. Hosted by Cornell University. API available at export.arxiv.org/api/query.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://arxiv.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^\\d{4}\\.\\d{4,5}$"],
+      "description": "arXiv paper ID (YYMM.NNNNN format)",
+      "weight": 100,
+      "data": {
+        "official_name": "arXiv Paper",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "arXiv preprint identified by year-month and sequence number.",
+        "notes": "Resolution provides both abstract page and direct PDF link. Primary source for AI security research. Not peer-reviewed.",
+        "urls": [
+          {"type": "website", "url": "https://arxiv.org"},
+          {"type": "api", "url": "https://export.arxiv.org/api/query"},
+          {"type": "lookup", "url": "https://arxiv.org/abs/{id}"},
+          {"type": "pdf", "url": "https://arxiv.org/pdf/{id}.pdf"}
+        ],
+        "examples": [
+          {"input": "2303.08774", "url": "https://arxiv.org/abs/2303.08774", "note": "GPT-4 Technical Report (OpenAI)"},
+          {"input": "2307.03109", "url": "https://arxiv.org/abs/2307.03109", "note": "Jailbroken: How Does LLM Safety Training Fail? (Wei et al.)"},
+          {"input": "2402.05369", "url": "https://arxiv.org/abs/2402.05369", "note": "Sleeper Agents (Anthropic)"}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ca.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "California State",
+  "common_name": "California",
+  "alternate_names": null,
+  "notes": "California state privacy and security laws. California often sets the US privacy standard. California Privacy Protection Agency (CPPA) enforces.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://leginfo.legislature.ca.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ccpa$"],
+      "description": "California Consumer Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "California Consumer Privacy Act",
+        "common_name": "CCPA",
+        "alternate_names": ["Civil Code \u00a71798.100 et seq."],
+        "description": "California's landmark consumer privacy law (Civil Code \u00a71798.100 et seq.), effective 2020.",
+        "notes": "Gives consumers rights: know, delete, opt-out of sale, non-discrimination. Amended and expanded by CPRA in 2023.",
+        "urls": [
+          {"type": "website", "url": "https://oag.ca.gov/privacy/ccpa"}
+        ],
+        "examples": ["1798.100", "1798.120", "1798.150"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{4}\\.\\d+$"],
+          "description": "California Civil Code section number (e.g., 1798.100, 1798.120).",
+          "weight": 100,
+          "data": {
+            "note": "Section numbers reference the California Civil Code. The full CCPA spans \u00a71798.100 through \u00a71798.199.100. No per-section lookup URL; use the California Legislative Information site to search by section number.",
+            "examples": [
+              {"input": "1798.100", "note": "Right to know what personal information is collected"},
+              {"input": "1798.120", "note": "Right to opt out of sale of personal information"},
+              {"input": "1798.150", "note": "Private right of action for data breaches (limited scope)"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^cpra$"],
+      "description": "California Privacy Rights Act",
+      "weight": 100,
+      "data": {
+        "official_name": "California Privacy Rights Act",
+        "common_name": "CPRA",
+        "alternate_names": ["Proposition 24"],
+        "description": "Amended and expanded CCPA, effective 2023. Added right to correct and right to limit sensitive data use.",
+        "notes": "Passed as ballot initiative (Proposition 24) in November 2020, operative January 2023. Created the California Privacy Protection Agency (CPPA) as a dedicated enforcement body. Added new consumer rights: right to correct inaccurate information, right to limit use of sensitive personal information. Introduced data minimization requirements and expanded opt-out rights.",
+        "urls": [
+          {"type": "website", "url": "https://cppa.ca.gov"}
+        ],
+        "examples": ["1798.185", "1798.100"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{4}\\.\\d+$"],
+          "description": "California Civil Code section number as amended by CPRA.",
+          "weight": 100,
+          "data": {
+            "note": "CPRA amended existing CCPA sections and added new ones. Section numbers reference the California Civil Code.",
+            "examples": [
+              {"input": "1798.185", "note": "CPPA rulemaking authority \u2014 regulations implementing CCPA/CPRA"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^caloppa$"],
+      "description": "California Online Privacy Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "California Online Privacy Protection Act",
+        "common_name": "CalOPPA",
+        "alternate_names": ["Business and Professions Code \u00a722575 et seq."],
+        "description": "Requires websites collecting personal information from California consumers to post a privacy policy. Effective 2004.",
+        "notes": "One of the first US privacy laws. Requires conspicuous privacy policy, disclosure of categories of personal information collected, and description of the process for notifying consumers of changes. Predates CCPA by over 15 years. Enforced by the California Attorney General.",
+        "urls": [
+          {"type": "website", "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=8.&chapter=22.&lawCode=BPC"}
+        ],
+        "examples": ["22575", "22577"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{5}$"],
+          "description": "Business and Professions Code section number.",
+          "weight": 100,
+          "data": {
+            "note": "Section numbers reference the California Business and Professions Code, Chapter 22 (Online Privacy Protection).",
+            "examples": [
+              {"input": "22575", "note": "Requirement to conspicuously post privacy policy"},
+              {"input": "22577", "note": "Required contents of privacy policy"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

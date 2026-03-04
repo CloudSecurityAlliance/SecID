@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "unifiedkillchain.com",
+  "type": "ttp",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Unified Kill Chain",
+  "common_name": "UKC",
+  "alternate_names": null,
+  "notes": "The Unified Kill Chain (UKC) extends and modernizes the Lockheed Martin Cyber Kill Chain by incorporating MITRE ATT&CK tactics and addressing the original model's limitations. Developed by Paul Pols (2017, updated 2022). Bridges strategic and tactical views of adversary operations. Freely available at unifiedkillchain.com.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.unifiedkillchain.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ukc$"],
+      "description": "Unified Kill Chain",
+      "weight": 100,
+      "data": {
+        "official_name": "Unified Kill Chain",
+        "common_name": "UKC",
+        "alternate_names": null,
+        "description": "The UKC describes attack progression through three major phases (Initial Foothold, Network Propagation, Action on Objectives), each containing multiple tactics. Total 18 tactics across all phases.",
+        "notes": "Key improvements over the original Kill Chain: cyclic model (tactics can repeat), includes insider threat paths, built on ATT&CK tactics, adds pivoting and social engineering. Version 2.2 is current.",
+        "versions": ["2.2"],
+        "urls": [
+          {"type": "website", "url": "https://www.unifiedkillchain.com"},
+          {"type": "paper", "url": "https://www.unifiedkillchain.com/assets/The-Unified-Kill-Chain.pdf"}
+        ],
+        "examples": ["initial-foothold", "network-propagation", "action-on-objectives"]
+      },
+      "children": [
+        {
+          "patterns": ["^(initial-foothold|network-propagation|action-on-objectives)$"],
+          "description": "UKC major phase name",
+          "weight": 100,
+          "data": {
+            "note": "No per-phase URL. UKC phases are documented on the main page and PDF.",
+            "examples": [
+              {"input": "initial-foothold", "note": "Phase 1: Getting into the network — recon through persistence (8 tactics)"},
+              {"input": "network-propagation", "note": "Phase 2: Moving through the network — discovery through lateral movement (6 tactics)"},
+              {"input": "action-on-objectives", "note": "Phase 3: Achieving goals — collection through impact (4 tactics)"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "namespace": "europa.eu",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "European Union",
+  "common_name": "EU",
+  "alternate_names": null,
+  "notes": "European Union regulations and directives governing data protection, AI, cybersecurity, and digital services. Regulations apply directly in member states; directives require national implementation. EUR-Lex provides access to EU law. The EU AI Act became effective August 2025.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://eur-lex.europa.eu"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^gdpr$"],
+      "description": "General Data Protection Regulation",
+      "weight": 100,
+      "data": {
+        "official_name": "General Data Protection Regulation",
+        "common_name": "GDPR",
+        "alternate_names": ["Regulation (EU) 2016/679"],
+        "description": "EU regulation on data protection and privacy (Regulation 2016/679). The global benchmark for data protection law.",
+        "notes": "Effective May 2018. Applies to organizations processing EU residents' data regardless of organization location. Enforced by national Data Protection Authorities (DPAs). Maximum penalties: 4% of annual global turnover or \u20ac20M.",
+        "urls": [
+          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"}
+        ],
+        "examples": ["art-32", "art-5", "recital-78"]
+      },
+      "children": [
+        {
+          "patterns": ["^art-\\d+(\\.[a-z])?$"],
+          "description": "GDPR article reference (e.g., art-32, art-5). Articles are the operative legal provisions.",
+          "weight": 100,
+          "data": {
+            "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document. Third-party sites (gdpr-info.eu) provide per-article pages but are not official EU resources.",
+            "examples": [
+              {"input": "art-32", "note": "Security of processing \u2014 requires appropriate technical and organizational measures"},
+              {"input": "art-5", "note": "Principles relating to processing of personal data"},
+              {"input": "art-17", "note": "Right to erasure ('right to be forgotten')"},
+              {"input": "art-25", "note": "Data protection by design and by default"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^(chapter|recital)-\\d+$"],
+          "description": "GDPR chapter or recital reference. Recitals provide interpretive context for articles.",
+          "weight": 100,
+          "data": {
+            "note": "Chapters group related articles. Recitals are non-binding interpretive guidance that precede the articles in the regulation text. Courts and DPAs frequently cite recitals to interpret article requirements.",
+            "examples": [
+              {"input": "recital-78", "note": "Recital on appropriate technical and organizational measures (supports art-25 and art-32)"},
+              {"input": "chapter-3", "note": "Rights of the data subject"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^ai-act$"],
+      "description": "EU Artificial Intelligence Act",
+      "weight": 100,
+      "data": {
+        "official_name": "EU Artificial Intelligence Act",
+        "common_name": "AI Act",
+        "alternate_names": ["Regulation (EU) 2024/1689"],
+        "description": "World's first comprehensive AI regulation (Regulation 2024/1689). Risk-based framework classifying AI systems.",
+        "notes": "Effective August 2025 (phased). Bans certain AI practices, sets requirements for high-risk AI systems. Establishes conformity assessment procedures.",
+        "urls": [
+          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
+        ],
+        "examples": ["art-6", "annex-III", "art-52"]
+      },
+      "children": [
+        {
+          "patterns": ["^art-\\d+$"],
+          "description": "AI Act article reference.",
+          "weight": 100,
+          "data": {
+            "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
+            "examples": [
+              {"input": "art-6", "note": "Classification rules for high-risk AI systems"},
+              {"input": "art-52", "note": "Transparency obligations for certain AI systems"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^annex-[IVX]+$"],
+          "description": "AI Act annex reference (Roman numerals). Annexes define technical requirements and high-risk categories.",
+          "weight": 100,
+          "data": {
+            "note": "Annexes are integral to the AI Act's risk classification system. Annex III lists high-risk AI system areas.",
+            "examples": [
+              {"input": "annex-III", "note": "Areas of high-risk AI systems (biometrics, critical infrastructure, education, employment, etc.)"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^nis2$"],
+      "description": "Network and Information Security Directive 2",
+      "weight": 100,
+      "data": {
+        "official_name": "Network and Information Security Directive 2",
+        "common_name": "NIS2",
+        "alternate_names": ["Directive (EU) 2022/2555"],
+        "description": "EU directive on cybersecurity requirements for essential and important entities (Directive 2022/2555).",
+        "notes": "Expands scope beyond NIS1. Requires incident reporting within 24 hours. Applies to energy, transport, banking, health, digital infrastructure. As a directive, requires national transposition — implementation varies across member states.",
+        "urls": [
+          {"type": "website", "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"}
+        ],
+        "examples": ["art-21", "art-23"]
+      },
+      "children": [
+        {
+          "patterns": ["^art-\\d+$"],
+          "description": "NIS2 article reference.",
+          "weight": 100,
+          "data": {
+            "note": "No per-article lookup URL. EUR-Lex publishes the full directive as a single document.",
+            "examples": [
+              {"input": "art-21", "note": "Cybersecurity risk-management measures"},
+              {"input": "art-23", "note": "Reporting obligations for significant incidents"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^dora$"],
+      "description": "Digital Operational Resilience Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Digital Operational Resilience Act",
+        "common_name": "DORA",
+        "alternate_names": ["Regulation (EU) 2022/2554"],
+        "description": "EU regulation on digital operational resilience for financial entities (Regulation 2022/2554).",
+        "notes": "Applies to banks, insurance, investment firms, and their ICT service providers. Effective January 2025. Establishes requirements for ICT risk management, incident reporting, digital operational resilience testing, and third-party risk management.",
+        "urls": [
+          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"}
+        ],
+        "examples": ["art-6", "art-19"]
+      },
+      "children": [
+        {
+          "patterns": ["^art-\\d+$"],
+          "description": "DORA article reference.",
+          "weight": 100,
+          "data": {
+            "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
+            "examples": [
+              {"input": "art-6", "note": "ICT risk management framework"},
+              {"input": "art-19", "note": "Reporting of major ICT-related incidents"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

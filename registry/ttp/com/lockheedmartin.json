@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "lockheedmartin.com",
+  "type": "ttp",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Lockheed Martin",
+  "common_name": "Lockheed Martin",
+  "alternate_names": null,
+  "notes": "Lockheed Martin developed the Cyber Kill Chain (2011), one of the foundational models for understanding adversary operations. Based on military kill chain concept. While MITRE ATT&CK provides detailed techniques, the Kill Chain provides strategic phases of a targeted intrusion.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^killchain$"],
+      "description": "Cyber Kill Chain",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyber Kill Chain",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "The Cyber Kill Chain describes the seven phases of a targeted cyber intrusion, from initial reconnaissance through achieving objectives.",
+        "notes": "Published 2011 by Lockheed Martin. Foundational to modern threat modeling. Enables 'defense in depth' — multiple opportunities to detect and disrupt attacks at each phase. Known limitations: assumes linear progression (real attacks skip/repeat phases), focuses on external threats, lacks technique-level detail. These limitations led to the Unified Kill Chain and MITRE ATT&CK.",
+        "versions": ["1.0"],
+        "urls": [
+          {"type": "website", "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"},
+          {"type": "paper", "url": "https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/Gaining_the_Advantage_Cyber_Kill_Chain.pdf"}
+        ],
+        "examples": ["reconnaissance", "weaponization", "delivery", "exploitation", "installation", "c2", "actions-on-objectives"]
+      },
+      "children": [
+        {
+          "patterns": ["^(reconnaissance|weaponization|delivery|exploitation|installation|c2|actions-on-objectives)$"],
+          "description": "Kill Chain phase name",
+          "weight": 100,
+          "data": {
+            "note": "No per-phase URL. The Cyber Kill Chain is a conceptual model — all phases are documented on the main page and PDF.",
+            "examples": [
+              {"input": "reconnaissance", "note": "Phase 1: Target research, harvesting emails, OSINT"},
+              {"input": "weaponization", "note": "Phase 2: Coupling exploit with backdoor into deliverable payload"},
+              {"input": "delivery", "note": "Phase 3: Transmitting weapon to target (email, web, USB)"},
+              {"input": "exploitation", "note": "Phase 4: Triggering the exploit (vulnerability, user action)"},
+              {"input": "installation", "note": "Phase 5: Installing backdoor/implant on victim system"},
+              {"input": "c2", "note": "Phase 6: Command and control channel for remote manipulation"},
+              {"input": "actions-on-objectives", "note": "Phase 7: Achieving goals (exfiltration, destruction, ransomware)"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
