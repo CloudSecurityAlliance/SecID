@@ -43,11 +43,11 @@ SecID is split across multiple repositories for clear separation of concerns:
 ## URL Structure
 
 ```
-https://secid.cloudsecurityalliance.org/  (provisional)
+https://secid.cloudsecurityalliance.org/
 ├── /              → Static website (Cloudflare Pages)
-├── /mcp           → MCP endpoint (Cloudflare Worker)
-├── /v1/           → REST API v1 (Cloudflare Worker)
-├── /v2/           → REST API v2 (future)
+├── /mcp/          → MCP endpoint (Cloudflare Worker)
+├── /api/v1/       → REST API v1 (Cloudflare Worker)
+├── /api/v2/       → REST API v2 (future)
 └── /llms.txt      → LLM-friendly site summary (llmstxt.org standard)
 ```
 
@@ -84,56 +84,34 @@ Model Context Protocol server for AI agent integration.
 - `describe` tool - Return description and metadata for a SecID
 - `registry` resource - Browse available namespaces
 
-### REST API (`/v1/`)
+### REST API (`/api/v1/`)
 
-Traditional REST API for programmatic access.
+Single endpoint handles all queries — resolution, browsing, and cross-source search.
 
-**Endpoints (v1):**
+**Endpoint:**
 
 ```
-GET /v1/resolve?secid={secid}
-    → Returns URL(s) for the given SecID
-
-GET /v1/resolve?secid={secid}&include=description,patterns
-    → Returns URL(s) plus additional metadata
-
-GET /v1/registry
-    → Returns full registry (all namespaces, sources, patterns)
-
-GET /v1/registry/{type}
-    → Returns all namespaces for a type (e.g., advisory, control)
-
-GET /v1/registry/{type}/{namespace}
-    → Returns all sources for a namespace
-
-GET /v1/registry/{type}/{namespace}/{source}
-    → Returns details for a specific source
+GET /api/v1/resolve?secid={secid}
 ```
+
+Query depth determines response depth:
+
+| Query | Returns |
+|-------|---------|
+| `secid:advisory/mitre.org/cve#CVE-2026-1234` | Resolved URL(s) with weights |
+| `secid:advisory/mitre.org/cve` | Source record (data, urls, patterns, examples) |
+| `secid:advisory/mitre.org` | All sources under namespace |
+| `secid:advisory` | List of namespaces |
+| `secid:advisory/CVE-2026-1234` | Cross-source search across all advisory namespaces |
 
 **Core principle: Format validation, not existence checking.**
-SecID validates that an identifier matches a known pattern - it does NOT check if the thing exists. `secid:advisory/mitre.org/cve#CVE-2099-99999` is valid (fits pattern) even if that CVE doesn't exist yet. Existence is for the relationship/enrichment layers.
+SecID validates that an identifier matches a known pattern — it does NOT check if the thing exists. `secid:advisory/mitre.org/cve#CVE-2099-99999` is valid (fits pattern) even if that CVE doesn't exist yet. Existence is for the relationship/enrichment layers.
 
-**Discovery mode:** Partial or bare identifiers return ALL matching patterns:
-- `CVE-2024-1234` (bare) → Returns matches from mitre/cve, nist/nvd, redhat/cve, etc.
-- `secid:advisory/cve#...` (missing namespace) → Returns all advisory namespaces with matching patterns
-
-**Invalid format handling:** If input doesn't match any pattern for the specified namespace, return suggestions ("did you mean...") with valid options.
-
-**Response format:** JSON (JSON-LD under consideration)
-
-**Response modes:**
-| Mode | Parameter | Contains | Use Case |
-|------|-----------|----------|----------|
-| `full` | `?mode=full` | Rule matched, source data, derivation, verifiable | Debugging, transparency, auditing |
-| `answers` | `?mode=answers` (default) | Just URLs/instructions | Production, minimal bandwidth |
-
-**Hierarchical lookup:** Responses aggregate data from four levels:
-1. **Registry level** - System-wide announcements (e.g., "API keys required March 1", "Migrating to new domain")
-2. **Type level** - Type-wide hints (e.g., advisory aggregator services)
-3. **Namespace level** - Namespace-wide hints (e.g., "Also try secid.mitre.org")
-4. **Pattern level** - Specific regex match with resolution URL
+**Cross-source search:** When the client provides an identifier without specifying which source, the resolver tries it against all match_node children in scope and returns all matches ranked by weight. `secid:advisory/CVE-2026-1234` returns every place that CVE can be found.
 
 **Authentication:** Public/no auth initially. Future: API key via header.
+
+See [API-RESPONSE-FORMAT.md](API-RESPONSE-FORMAT.md) for the complete response specification.
 
 ## Technical Stack
 
@@ -150,7 +128,7 @@ Reference: [Hono on Cloudflare Workers](https://hono.dev/docs/getting-started/cl
 
 ### Single Worker
 
-One Cloudflare Worker handles both `/mcp` and `/v1/`:
+One Cloudflare Worker handles both `/mcp/` and `/api/v1/`:
 
 ```typescript
 import { Hono } from 'hono'
@@ -161,12 +139,8 @@ const app = new Hono()
 app.post('/mcp', handleMCPPost)
 app.get('/mcp', handleMCPGet)
 
-// REST API v1
-app.get('/v1/resolve', handleResolve)
-app.get('/v1/registry', handleRegistryList)
-app.get('/v1/registry/:type', handleRegistryType)
-app.get('/v1/registry/:type/:namespace', handleRegistryNamespace)
-app.get('/v1/registry/:type/:namespace/:source', handleRegistrySource)
+// REST API v1 — single resolve endpoint
+app.get('/api/v1/resolve', handleResolve)
 
 export default app
 ```
@@ -363,6 +337,6 @@ These items need decisions before production deployment. Pinned for later discus
 - **GraphQL** - Offer GraphQL alongside REST?
 - **SDK generation** - Auto-generate client SDKs from OpenAPI?
 
-### Documentation Pending
+### Documentation
 
-- **API-RESPONSE-FORMAT.md** - Formal spec for API/MCP response format. Natural extension of REGISTRY-JSON-FORMAT.md wrapped in a lightweight container. Will define response envelope, hierarchical lookup results, error format, and mode differences (full vs answers).
+- **[API-RESPONSE-FORMAT.md](API-RESPONSE-FORMAT.md)** - Formal spec for API/MCP response format: envelope, progressive resolution, cross-source search, status values, result shapes.

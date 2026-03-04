@@ -57,6 +57,7 @@ With 20+ markdown files, know which document answers which question:
 | Edge cases with domains? | [EDGE-CASES.md](docs/reference/EDGE-CASES.md) |
 | What's deferred? | [TODO.md](docs/project/TODO.md), [registry/_deferred/](registry/_deferred/) |
 | Multi-repo architecture? | [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) |
+| What does the API return? | [API-RESPONSE-FORMAT.md](docs/reference/API-RESPONSE-FORMAT.md) - envelope, progressive resolution, cross-source search |
 | AI agent instructions? | [AGENTS.md](AGENTS.md) |
 | How is SecID deployed? | [docs/operations/](docs/operations/) - DNS, deployment, CI/CD, bootstrap |
 | How do I research a new namespace? | [skills/registry-research/](skills/registry-research/) - research workflow skill |
