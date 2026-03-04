@@ -35,8 +35,8 @@ sources:
       website: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
       index: "https://genai.owasp.org/llm-top-10/"
       v2_list: "https://genai.owasp.org/llm-top-10/"
-      v1_list: "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/0_1_vulns/"
-      lookup: "https://genai.owasp.org/llmrisk/{id}/"
+      v1_list: "https://owasp.org/www-project-top-10-for-large-language-model-applications/Archive/1_0_vulns/"
+      lookup_note: "URLs require name slugs (e.g., llm01-prompt-injection), not simple ID substitution. Use lookup tables per version."
     id_pattern: "LLM\\d{2}"
     versions:
       - "2.0"
@@ -95,12 +95,17 @@ sources:
   aivss:
     full_name: "AI Vulnerability Scoring System"
     urls:
-      website: "https://owasp.org/www-project-ai-vulnerability-scoring-system/"
-      github: "https://github.com/OWASP/www-project-ai-vulnerability-scoring-system"
+      website: "https://aivss.owasp.org/"
+      github: "https://github.com/OWASP/www-project-artificial-intelligence-vulnerability-scoring-system"
+      spec_pdf: "https://aivss.owasp.org/assets/publications/AIVSS%20Scoring%20System%20For%20OWASP%20Agentic%20AI%20Core%20Security%20Risks%20v0.5.pdf"
     versions:
-      - "1.0"
+      - "0.5"
+    id_pattern: "[A-Z]{1,3}"
+    id_pattern_note: "Metric abbreviations from the classic AIVSS framework. Base metrics (AV, AC, PR, UI, S) inherited from CVSS. AI-Specific metrics (MR, DS, EI, DC, AD) are AIVSS-original."
     examples:
-      - "secid:weakness/owasp.org/aivss@1.0"
+      - "secid:weakness/owasp.org/aivss@0.5#MR"
+      - "secid:weakness/owasp.org/aivss@0.5#AV"
+      - "secid:weakness/owasp.org/aivss@0.5#SI"
 ---
 
 # OWASP Weakness Taxonomies
@@ -222,14 +227,31 @@ secid:weakness/owasp.org/llm-top10#LLM01           # Current version
 |----|------|
 | LLM01 | Prompt Injection |
 | LLM02 | Sensitive Information Disclosure |
-| LLM03 | Supply Chain Vulnerabilities |
+| LLM03 | Supply Chain |
 | LLM04 | Data and Model Poisoning |
-| LLM05 | Insecure Output Handling |
+| LLM05 | Improper Output Handling |
 | LLM06 | Excessive Agency |
 | LLM07 | System Prompt Leakage |
 | LLM08 | Vector and Embedding Weaknesses |
 | LLM09 | Misinformation |
 | LLM10 | Unbounded Consumption |
+
+### 2023 Edition (v1.0, superseded)
+
+Items were significantly renamed and reordered between v1.0 and v2.0. Archived at a different URL path with inconsistent slug casing.
+
+| ID | Name |
+|----|------|
+| LLM01 | Prompt Injection |
+| LLM02 | Insecure Output Handling |
+| LLM03 | Training Data Poisoning |
+| LLM04 | Model Denial of Service |
+| LLM05 | Supply-Chain Vulnerabilities |
+| LLM06 | Sensitive Information Disclosure |
+| LLM07 | Insecure Plugin Design |
+| LLM08 | Excessive Agency |
+| LLM09 | Overreliance |
+| LLM10 | Model Theft |
 
 ### Relationships
 
@@ -479,12 +501,15 @@ secid:control/owasp.org/ai-exchange#PROMPTINJECTIONIOHANDLING
 
 ## aivss
 
-The AI Vulnerability Scoring System (AIVSS) extends CVSS concepts to score AI/ML-specific vulnerabilities.
+The AI Vulnerability Scoring System (AIVSS) extends CVSS concepts to score AI/ML-specific vulnerabilities. Individual metrics are referenceable by their formal abbreviations.
 
 ### Format
 
 ```
-secid:weakness/owasp.org/aivss@1.0
+secid:weakness/owasp.org/aivss@0.5#METRIC
+secid:weakness/owasp.org/aivss@0.5#MR      # Model Robustness
+secid:weakness/owasp.org/aivss@0.5#AV      # Attack Vector (from CVSS)
+secid:weakness/owasp.org/aivss@0.5#SI      # Societal Impact
 ```
 
 ### Why AIVSS Exists
@@ -498,27 +523,73 @@ Traditional CVSS doesn't capture AI-specific risk factors:
 | Single impact type | AI failures cascade across systems |
 | Fixed temporal metrics | AI vulnerabilities change with model updates |
 
-### AIVSS Metric Groups
+### Metric Groups
 
-| Group | Metrics |
-|-------|---------|
-| **Base** | Attack complexity, privilege required, user interaction |
-| **AI-Specific** | Model access level, attack transferability |
-| **Impact** | Confidentiality, integrity, availability, safety |
-| **Temporal** | Exploit maturity, remediation level |
+#### Base Metrics (CVSS-derived)
 
-### AI-Specific Factors
+| Abbrev | Metric | Values |
+|--------|--------|--------|
+| AV | Attack Vector | Network, Adjacent, Local, Physical |
+| AC | Attack Complexity | Low, High |
+| PR | Privileges Required | None, Low, High |
+| UI | User Interaction | None, Required |
+| S | Scope | Unchanged, Changed |
 
-| Factor | Description |
-|--------|-------------|
-| **Model Access** | Black-box, gray-box, white-box |
-| **Transferability** | Does attack work across models? |
-| **Detectability** | How easily can attack be detected? |
-| **Reversibility** | Can the impact be undone? |
+#### AI-Specific Metrics (AIVSS-original)
+
+| Abbrev | Metric | Description |
+|--------|--------|-------------|
+| MR | Model Robustness | Resilience to adversarial attacks (evasion resistance, gradient masking) |
+| DS | Data Sensitivity | Data confidentiality, integrity, and provenance risks |
+| EI | Ethical Impact | Bias, transparency, accountability, societal impact concerns |
+| DC | Decision Criticality | Consequences of incorrect AI decisions (safety, financial, operational) |
+| AD | Adaptability | Security maintenance over time (monitoring, retraining, threat intelligence) |
+
+#### Impact Metrics
+
+| Abbrev | Metric | Values |
+|--------|--------|--------|
+| C | Confidentiality Impact | None, Low, Medium, High, Critical |
+| I | Integrity Impact | None, Low, Medium, High, Critical |
+| A | Availability Impact | None, Low, Medium, High, Critical |
+| SI | Societal Impact | None, Low, Medium, High, Critical |
+
+SI (Societal Impact) is an AIVSS-original extension to the CVSS confidentiality/integrity/availability triad.
+
+#### Temporal Metrics
+
+| Abbrev | Metric | Values |
+|--------|--------|--------|
+| E | Exploitability | Not Defined, Unproven, Proof-of-Concept, Functional, High |
+| RL | Remediation Level | Not Defined, Official Fix, Temporary Fix, Workaround, Unavailable |
+| RC | Report Confidence | Not Defined, Unknown, Reasonable, Confirmed |
+
+#### Environmental Metrics
+
+| Abbrev | Metric | Values |
+|--------|--------|--------|
+| CR | Confidentiality Requirement | Not Defined, Low, Medium, High |
+| IR | Integrity Requirement | Not Defined, Low, Medium, High |
+| AR | Availability Requirement | Not Defined, Low, Medium, High |
+| SIR | Societal Impact Requirement | Not Defined, Low, Medium, High |
+
+SIR (Societal Impact Requirement) is an AIVSS-original extension to the CVSS environmental metrics.
+
+### Two Scoring Frameworks
+
+AIVSS v0.5 contains two parallel scoring approaches:
+
+| Framework | Approach | Formula |
+|-----------|----------|---------|
+| Classic AIVSS | Weighted product of 5 metric groups | `(w1 x Base + w2 x AI + w3 x Impact) x Temporal x Mitigation` |
+| Agentic AIVSS v0.5 | Simplified for agentic AI risks | `(CVSS_Base + AARS) / 2 x ThreatMultiplier` |
+
+The classic framework uses the formal metric abbreviations above. The Agentic framework uses 10 amplification factors (autonomy of action, tool use, memory use, etc.) that do not yet have formal abbreviations.
 
 ### Notes
 
-- Under active development
+- v0.5 published; v1.0 targeted for RSA Conference late March 2026
 - Complements CVSS for AI vulnerabilities
 - Used by security teams assessing AI risks
 - Maps to OWASP AI Top 10 risks
+- Calculator implementations exist with varying weight schemes

@@ -1,22 +1,38 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This is a documentation-first repo. Canonical specs (`README.md`, `SPEC.md`) and rationale (`docs/`) define how SecIDs work, while the authoritative registry lives under `registry/<type>/<tld>/<domain>.md`. For example, `registry/control/gov/nist.md` governs every `secid:control/nist.gov/*`. Keep the JSON mirrors beside each Markdown file in sync (e.g., `registry/control/org/cloudsecurityalliance.json`). Research notes belong in `seed/` CSVs until they are promoted into the registry with provenance comments and concrete SecID examples.
+- `registry/` is the source of truth for SecID namespaces and type definitions.
+- `registry/<type>.md` describes each type (`advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference`).
+- `registry/<type>/<tld>/<domain>.md` stores namespace entries (reverse-DNS layout, for example `registry/advisory/org/mitre.md`).
+- `docs/` contains guidance and design docs (`guides/`, `reference/`, `operations/`, `explanation/`, `project/`, `future/`).
+- `seed/` contains CSV seed datasets used for registry research and expansion.
+- `skills/` contains workflow-specific helper guidance.
 
 ## Build, Test, and Development Commands
-- `rg -n 'namespace:' registry/control` — confirm existing namespace patterns before minting new ones.
-- `python -m json.tool registry/control/org/cloudsecurityalliance.json` — pretty-print and validate mirrors.
-- `rg -n 'TODO' registry` — surface unfinished prose before review.
-- `git status -sb` — verify only intentional files are staged.
+This repo is documentation/data-first and has no local build pipeline.
+- `rg --files` lists all tracked files quickly.
+- `rg -n 'namespace:' registry/` audits namespace declarations.
+- `rg -n 'secid:' registry/ docs/` finds identifier examples and cross-references.
+- `ls registry/<type>/<tld>/` verifies namespace placement (example: `ls registry/advisory/org/`).
+- Optional (if installed): `markdownlint '**/*.md'` for Markdown style checks.
 
 ## Coding Style & Naming Conventions
-Open every registry doc with YAML frontmatter bounded by `---` and indent keys with two spaces. Use lower-case reverse DNS namespaces (`mitre.org`, `cloudsecurityalliance.org`) and copy the source name verbatim into the first heading (e.g., `# MITRE Advisory Sources`). Quote SecIDs with backticks so tooling can parse entries such as ``secid:advisory/mitre.org/cve#CVE-2024-1234``. CSV headers stay untouched and rely on snake_case to keep ingestion scripts stable.
+- Use Markdown for docs and YAML frontmatter + Markdown body for registry files.
+- Keep identifiers source-faithful (do not normalize upstream IDs like `RHSA-2026:0932`).
+- Use lowercase, domain-based namespaces and reverse-DNS file paths.
+- Prefer concise, scannable sections; keep prose instructional.
+- Follow existing file naming patterns (`UPPERCASE-WITH-HYPHEN.md` for many docs, lowercase for registry entries by domain).
 
 ## Testing Guidelines
-No automated suite exists, so manually resolve every SecID URL, regex, and lookup workflow before merging. When editing `seed/` rows, confirm the same coverage is not already represented in `registry/` and promote authoritative material with references plus sample SecIDs. Rerun focused `rg` checks anytime you add namespaces or placeholders.
+- Treat validation as data quality checks:
+  - Confirm examples match expected SecID format.
+  - Confirm URLs and templates resolve to authoritative sources.
+  - Ensure regex/pattern changes reject malformed IDs.
+- When editing registry content, check related guidance in `docs/guides/REGISTRY-GUIDE.md` and `docs/guides/REGEX-WORKFLOW.md`.
 
 ## Commit & Pull Request Guidelines
-Ensure commits are small, single-purpose, and use imperative subjects such as `Add CSA CCM sources`. Pull requests must link related issues, summarize any new namespaces or files, note which artifacts changed (Markdown, JSON, CSV), and cite source URLs reviewers can verify. Include screenshots only when UI output materially changes.
-
-## Security & Provenance Tips
-Cite the authoritative source, URL, and publication date inside each registry entry. Before shipping, confirm mirrors and Markdown both resolve remotely, include at least one working `secid:` example, and capture any restrictions or licensing notes in the provenance block.
+- Match existing commit style: short imperative subjects (`Add ...`, `Fix ...`, `Update ...`, `Clarify ...`).
+- Keep commits focused to one logical change.
+- Open an issue first for non-trivial proposals, then submit a PR.
+- PRs should include: purpose, scope, affected paths (for example `registry/control/...`), and any validation notes.
+- Link related issues/docs and call out follow-up work explicitly.

@@ -156,7 +156,7 @@ Use both for comprehensive AI cloud security.
 
 ### Notes
 
-- Version 1.0 released July 2025 (243 controls, updated to v1.0.2)
+- Version 1.0 released July 2025 (243 controls, updated to v1.0.3)
 - Complements CCM for AI workloads
 - Aligns with NIST AI RMF, ISO 42001, BSI AI C4
 - Spreadsheet format (ZIP bundle download)
