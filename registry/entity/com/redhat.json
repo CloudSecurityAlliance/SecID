@@ -166,11 +166,121 @@
       "data": {
         "official_name": "Red Hat Advanced Cluster Security",
         "common_name": "ACS",
-        "description": "Kubernetes-native security platform",
+        "description": "Kubernetes-native security platform (formerly StackRox, acquired 2021)",
         "urls": [
           {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes"}
         ],
         "examples": ["acs"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^jboss$"],
+      "description": "Red Hat JBoss Enterprise Application Platform — Java application server",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat JBoss Enterprise Application Platform",
+        "common_name": "JBoss EAP",
+        "description": "Java EE / Jakarta EE application server. Upstream project is WildFly. Frequent target in CVEs due to deserialization vulnerabilities.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/jboss-middleware/application-platform"},
+          {"type": "docs", "url": "https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform"}
+        ],
+        "examples": ["jboss"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^openstack$"],
+      "description": "Red Hat OpenStack Platform — private cloud infrastructure",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat OpenStack Platform",
+        "common_name": "RHOSP",
+        "description": "Private cloud infrastructure platform based on upstream OpenStack. Used for NFV and telco workloads.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/linux-platforms/openstack-platform"}
+        ],
+        "examples": ["openstack"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ceph$"],
+      "description": "Red Hat Ceph Storage — distributed storage system",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Ceph Storage",
+        "common_name": null,
+        "description": "Software-defined distributed storage based on upstream Ceph. Provides block, object, and file storage.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/storage/ceph"}
+        ],
+        "examples": ["ceph"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^insights$"],
+      "description": "Red Hat Insights — predictive analytics and management",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Insights",
+        "common_name": null,
+        "description": "SaaS analytics service that identifies security, performance, and availability risks across RHEL and OpenShift environments. Includes vulnerability assessment, compliance reporting, and remediation playbooks.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/management/insights"},
+          {"type": "console", "url": "https://console.redhat.com/insights"}
+        ],
+        "examples": ["insights"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^podman$"],
+      "description": "Podman — daemonless container engine",
+      "weight": 100,
+      "data": {
+        "official_name": "Podman",
+        "common_name": null,
+        "description": "Daemonless container engine for developing, managing, and running OCI containers. Rootless by default. Drop-in replacement for Docker CLI.",
+        "urls": [
+          {"type": "website", "url": "https://podman.io"},
+          {"type": "docs", "url": "https://docs.podman.io"},
+          {"type": "github", "url": "https://github.com/containers/podman"}
+        ],
+        "examples": ["podman"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^virtualization$"],
+      "description": "Red Hat Virtualization — enterprise virtualization platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Virtualization",
+        "common_name": "RHV",
+        "description": "KVM-based enterprise virtualization platform. Based on upstream oVirt. Being replaced by OpenShift Virtualization for new deployments.",
+        "notes": "RHV is approaching end of life; Red Hat recommends migrating to OpenShift Virtualization.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/virtualization/enterprise-virtualization"}
+        ],
+        "examples": ["virtualization"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^directory-server$"],
+      "description": "Red Hat Directory Server — LDAP directory service",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Directory Server",
+        "common_name": null,
+        "description": "LDAP-based directory service for centralized identity and authentication management. Based on upstream 389 Directory Server.",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/directory-server"}
+        ],
+        "examples": ["directory-server"]
       }
     }
   ]

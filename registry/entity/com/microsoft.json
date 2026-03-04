@@ -107,6 +107,167 @@
         ],
         "examples": ["sentinel"]
       }
+    },
+
+    {
+      "patterns": ["(?i)^entra$"],
+      "description": "Microsoft Entra — identity and access management",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Entra",
+        "common_name": null,
+        "description": "Identity and network access product family. Entra ID (formerly Azure Active Directory) is the core cloud identity service used by nearly every Microsoft 365 and Azure tenant. Major attack surface for credential theft and privilege escalation.",
+        "notes": "Renamed from Azure Active Directory to Microsoft Entra ID in July 2023. Entra is the umbrella brand covering Entra ID, Entra External ID, Entra Permissions Management, Entra Verified ID, and Entra Internet/Private Access.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/security/business/microsoft-entra"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/entra/"},
+          {"type": "portal", "url": "https://entra.microsoft.com"}
+        ],
+        "examples": ["entra"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^intune$"],
+      "description": "Microsoft Intune — endpoint management",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Intune",
+        "common_name": null,
+        "description": "Cloud-based endpoint management for mobile devices, desktops, and apps. Enforces security policies, compliance, and conditional access across managed devices.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/security/business/endpoint-management/microsoft-intune"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/mem/intune/"}
+        ],
+        "examples": ["intune"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^purview$"],
+      "description": "Microsoft Purview — data governance and compliance",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Purview",
+        "common_name": null,
+        "description": "Data governance, risk, and compliance platform. Includes data loss prevention (DLP), information protection, insider risk management, eDiscovery, and audit capabilities.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/security/business/microsoft-purview"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/purview/"}
+        ],
+        "examples": ["purview"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^teams$"],
+      "description": "Microsoft Teams — communication and collaboration",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Teams",
+        "common_name": null,
+        "description": "Communication and collaboration platform with chat, video conferencing, and file sharing. Integrated with M365. Security-relevant due to external federation, guest access, and app permissions.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software"}
+        ],
+        "examples": ["teams"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^exchange$"],
+      "description": "Microsoft Exchange — email server platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Exchange",
+        "common_name": null,
+        "description": "Email server and calendaring platform. Exchange Server (on-premises) and Exchange Online (cloud). Exchange Server is a frequent target — ProxyLogon (CVE-2021-26855), ProxyShell, ProxyNotShell were among the most exploited vulnerabilities in recent years.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/microsoft-365/exchange/email"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/exchange/"}
+        ],
+        "examples": ["exchange"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^sharepoint$"],
+      "description": "Microsoft SharePoint — document management and collaboration",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft SharePoint",
+        "common_name": null,
+        "description": "Document management, intranet, and collaboration platform. Available on-premises and as SharePoint Online. Security considerations include external sharing, permissions models, and custom app permissions.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/sharepoint/"}
+        ],
+        "examples": ["sharepoint"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^sql-server$"],
+      "description": "Microsoft SQL Server — relational database",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft SQL Server",
+        "common_name": "SQL Server",
+        "description": "Relational database management system. Available on-premises, in Azure (Azure SQL), and in containers. Regularly patched in Patch Tuesday releases.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/sql-server"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/sql/"}
+        ],
+        "examples": ["sql-server"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^copilot$"],
+      "description": "Microsoft Copilot — AI assistant",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Copilot",
+        "common_name": null,
+        "description": "AI assistant integrated across Microsoft products (M365, Azure, Windows, GitHub, Security). Security considerations include data access scope, prompt injection, and enterprise data governance.",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/microsoft-copilot"}
+        ],
+        "examples": ["copilot"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^github$"],
+      "description": "GitHub — code hosting platform (Microsoft subsidiary)",
+      "weight": 100,
+      "data": {
+        "official_name": "GitHub",
+        "common_name": null,
+        "description": "Code hosting, CI/CD, and developer collaboration platform. Acquired by Microsoft in 2018. Operates GitHub Security Advisories (GHSA), Dependabot, and code scanning. For GHSA identifiers, see secid:advisory/github.com/advisories.",
+        "notes": "GitHub is also registered as secid:entity/github.com with its own namespace. This entry documents it as a Microsoft subsidiary product.",
+        "urls": [
+          {"type": "website", "url": "https://github.com"},
+          {"type": "security", "url": "https://github.com/security"}
+        ],
+        "examples": ["github"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^power-platform$"],
+      "description": "Microsoft Power Platform — low-code application platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Power Platform",
+        "common_name": null,
+        "description": "Low-code platform including Power Apps, Power Automate, Power BI, and Power Virtual Agents. Security considerations include connector permissions, data loss prevention policies, and citizen-developer governance.",
+        "urls": [
+          {"type": "website", "url": "https://powerplatform.microsoft.com"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/power-platform/"}
+        ],
+        "examples": ["power-platform"]
+      }
     }
   ]
 }
