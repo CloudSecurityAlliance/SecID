@@ -7,12 +7,11 @@ Last updated: 2026-03-03
 
 ## Summary
 
-**121 entries** across 7 types, **108 JSON conversions** (all non-entity types), **67 resolvable** (have patterns + URLs)
+**121 entries** across 7 types, **121 JSON conversions** (100% coverage), **67 resolvable** (have patterns + URLs)
 
 | Maturity | Count | Meaning |
 |----------|-------|---------|
-| json | 108 | Has .json conversion alongside .md (all non-entity types) |
-| md-only | 13 | Entity type — uses `names` block, different JSON schema needed |
+| json | 121 | All namespaces have .json alongside .md |
 
 ## Cross-Cutting Concerns
 

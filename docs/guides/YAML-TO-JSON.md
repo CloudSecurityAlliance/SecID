@@ -12,17 +12,17 @@ Not every registry file needs a JSON counterpart yet. Create one when:
 - You need to validate the JSON schema against real data
 - The namespace is a pilot for the v1.0 format
 
-108 namespaces have been converted to JSON — all non-entity types are at 100% coverage:
+All 121 namespaces have been converted to JSON (100% coverage):
 
-| Type | Count | Coverage |
-|------|-------|----------|
-| Advisory | 42 | 100% |
-| Weakness | 13 | 100% |
-| TTP | 4 | 100% |
-| Control | 24 | 100% |
-| Regulation | 4 | 100% |
-| Reference | 21 | 100% |
-| Entity | 0 | 0% (uses `names` block — different schema, not yet converted) |
+| Type | Count |
+|------|-------|
+| Advisory | 42 |
+| Weakness | 13 |
+| TTP | 4 |
+| Control | 24 |
+| Regulation | 4 |
+| Reference | 21 |
+| Entity | 13 |
 
 ## Lifecycle Stages
 

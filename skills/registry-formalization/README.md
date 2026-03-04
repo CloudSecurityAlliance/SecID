@@ -73,7 +73,7 @@ When the .md file changes after .json already exists:
 
 - [docs/reference/REGISTRY-JSON-FORMAT.md](../../docs/reference/REGISTRY-JSON-FORMAT.md) — Target JSON schema specification
 - [registry/CONVERSION-REVIEW-PROMPT.md](../../registry/CONVERSION-REVIEW-PROMPT.md) — AI-assisted review prompt for conversions
-- 108 existing .json files as worked examples (see CLAUDE.md "JSON Registry Files" for full list). Key reference files:
+- 121 existing .json files covering all registry namespaces (see CLAUDE.md "JSON Registry Files" for full list). Key reference files:
   - `registry/advisory/org/mitre.json` — Simple advisory with variable extraction (cvelistV5 bucket)
   - `registry/advisory/com/redhat.json` — Complex nested match_nodes (RHSA/RHBA/RHEA)
   - `registry/advisory/org/debian.json` — Range-table year lookup (DSA/DLA)

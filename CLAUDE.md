@@ -112,7 +112,7 @@ secid/
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (108 namespaces converted — all non-entity types)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (121 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
 └── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
@@ -120,7 +120,7 @@ secid/
 
 ## Registry File Format
 
-**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for 108 namespaces (all non-entity types)** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
+**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 121 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
 
 One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` or `registry/reference/_template.md` as a starting point for new files.
 
@@ -241,17 +241,17 @@ See `registry/advisory/com/redhat.json` for a complex example with nested childr
 
 ## JSON Registry Files
 
-108 registry namespaces have been converted to JSON format (all non-entity types). These `.json` files sit alongside their `.md` counterparts:
+All 121 registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts:
 
-| Type | Count | Coverage |
-|------|-------|----------|
-| Advisory | 42 | 100% |
-| Weakness | 13 | 100% |
-| TTP | 4 | 100% |
-| Control | 24 | 100% |
-| Regulation | 4 | 100% |
-| Reference | 21 | 100% |
-| Entity | 0 | 0% (uses `names` block, different schema) |
+| Type | Count |
+|------|-------|
+| Advisory | 42 |
+| Weakness | 13 |
+| TTP | 4 |
+| Control | 24 |
+| Regulation | 4 |
+| Reference | 21 |
+| Entity | 13 |
 
 **Key reference files for complex patterns:**
 - `registry/advisory/org/mitre.json` — CVE (with cvelistV5 variable extraction)
