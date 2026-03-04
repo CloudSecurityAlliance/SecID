@@ -12,14 +12,15 @@ Not every registry file needs a JSON counterpart yet. Create one when:
 - You need to validate the JSON schema against real data
 - The namespace is a pilot for the v1.0 format
 
-Current pilot files (7):
-- `registry/advisory/org/mitre.json`
-- `registry/advisory/com/redhat.json`
-- `registry/control/org/cloudsecurityalliance.json`
-- `registry/control/gov/nist.json`
-- `registry/weakness/org/owasp.json`
-- `registry/weakness/org/mitre.json`
-- `registry/ttp/org/mitre.json`
+Current JSON files (15):
+
+**Advisory (10):** `registry/advisory/org/mitre.json`, `registry/advisory/org/cert.json`, `registry/advisory/org/debian.json`, `registry/advisory/com/apple.json`, `registry/advisory/com/cisco.json`, `registry/advisory/com/github.json`, `registry/advisory/com/google.json`, `registry/advisory/com/microsoft.json`, `registry/advisory/com/redhat.json`, `registry/advisory/gov/cisa.json`
+
+**Weakness (2):** `registry/weakness/org/mitre.json`, `registry/weakness/org/owasp.json`
+
+**Control (2):** `registry/control/org/cloudsecurityalliance.json`, `registry/control/gov/nist.json`
+
+**TTP (1):** `registry/ttp/org/mitre.json`
 
 ## Lifecycle Stages
 

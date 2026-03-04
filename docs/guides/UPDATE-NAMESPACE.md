@@ -64,7 +64,7 @@ When an organization changes domains (e.g., acquisition):
 
 ## Syncing .md and .json When Both Exist
 
-Some namespaces have both `.md` (current) and `.json` (pilot) files:
+15 namespaces have both `.md` and `.json` files (see [YAML-TO-JSON.md](YAML-TO-JSON.md) for the list):
 
 1. The `.md` file remains authoritative during transition
 2. After editing `.md`, update the `.json` to match
@@ -74,13 +74,13 @@ Some namespaces have both `.md` (current) and `.json` (pilot) files:
 ### When to sync
 
 **Sync immediately** when:
-- The namespace is a pilot (see [YAML-TO-JSON.md](YAML-TO-JSON.md) for the list)
+- The namespace has a `.json` file (see [YAML-TO-JSON.md](YAML-TO-JSON.md) for the list)
 - Downstream tooling, tests, or runtime consume the `.json` data
 - The PR explicitly targets JSON schema or consumer behavior
 
 **Sync can wait** when:
 - The `.md` changes are exploratory research or still in flux
-- The namespace is not a pilot
+- The namespace has no `.json` file yet
 - The change is minor (e.g., fixing a typo in narrative content not reflected in JSON)
 
 ## See Also
