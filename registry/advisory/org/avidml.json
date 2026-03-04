@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "avidml.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "AI Vulnerability Database",
+  "common_name": "AVID",
+  "alternate_names": null,
+  "notes": "AVID provides both a vulnerability taxonomy (weakness type) and a database of reported AI/ML vulnerabilities (advisory type). This registry entry covers the advisory/database aspect — individual vulnerability and report records.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://avidml.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^avid$"],
+      "description": "AI Vulnerability Database",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Vulnerability Database",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Database of reported AI/ML security vulnerabilities and incident reports.",
+        "notes": "AVID IDs: AVID-YYYY-VNNN for vulnerabilities, AVID-YYYY-RNNNN for reports. Community-driven, cross-references CVEs and ATLAS.",
+        "urls": [
+          {"type": "website", "url": "https://avidml.org"},
+          {"type": "api", "url": "https://avidml.org/api"},
+          {"type": "github", "url": "https://github.com/avidml/avid-db"}
+        ],
+        "examples": ["AVID-2023-V001", "AVID-2025-R0001"]
+      },
+      "children": [
+        {
+          "patterns": ["^AVID-\\d{4}-V\\d+$"],
+          "description": "AVID vulnerability ID",
+          "weight": 100,
+          "data": {
+            "url": "https://avidml.org/database/vulnerability/{id}",
+            "examples": [
+              {"input": "AVID-2023-V001", "url": "https://avidml.org/database/vulnerability/AVID-2023-V001", "note": "AI vulnerability record"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^AVID-\\d{4}-R\\d+$"],
+          "description": "AVID report ID",
+          "weight": 100,
+          "data": {
+            "url": "https://avidml.org/database/vulnerability/{id}",
+            "examples": [
+              {"input": "AVID-2025-R0001", "url": "https://avidml.org/database/vulnerability/AVID-2025-R0001", "note": "AI incident report"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

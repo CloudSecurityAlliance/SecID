@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dmv.ca.gov",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "California Department of Motor Vehicles",
+  "common_name": "CA DMV",
+  "alternate_names": null,
+  "notes": "California DMV oversees autonomous vehicle testing and deployment. Maintains databases of AV collision reports, disengagement reports, and testing permits. Relevant to AI safety \u2014 autonomous vehicle incidents are a form of AI safety failure.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.dmv.ca.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^av-collision$"],
+      "description": "Reports of collisions involving autonomous vehicles during testing in California.",
+      "weight": 100,
+      "data": {
+        "official_name": "Autonomous Vehicle Collision Reports",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Reports of collisions involving autonomous vehicles during testing in California.",
+        "notes": "No formal report ID pattern. Reports published on DMV website.",
+        "urls": [
+          {"type": "website", "url": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/autonomous-vehicle-collision-reports/"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^av-disengagement$"],
+      "description": "Annual reports of autonomous vehicle disengagement events.",
+      "weight": 100,
+      "data": {
+        "official_name": "Autonomous Vehicle Disengagement Reports",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Annual reports of autonomous vehicle disengagement events \u2014 when the AV system hands control back to the human operator.",
+        "notes": "Companies testing AVs in California must report disengagements annually.",
+        "urls": [
+          {"type": "website", "url": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/disengagement-reports/"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^av-permits$"],
+      "description": "Registry of companies permitted to test autonomous vehicles in California.",
+      "weight": 100,
+      "data": {
+        "official_name": "Autonomous Vehicle Testing Permits",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Registry of companies permitted to test autonomous vehicles in California.",
+        "notes": null,
+        "urls": [
+          {"type": "website", "url": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

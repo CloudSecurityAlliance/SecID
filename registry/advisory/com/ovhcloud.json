@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ovhcloud.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "OVHcloud",
+  "common_name": "OVH",
+  "alternate_names": null,
+  "notes": "OVHcloud is a major European cloud and hosting provider. Bug bounty through YesWeHack.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.ovhcloud.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security$"],
+      "description": "OVHcloud Security",
+      "weight": 100,
+      "data": {
+        "official_name": "OVHcloud Security",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories and status updates for OVHcloud services.",
+        "notes": "No formal advisory ID pattern documented. Bug bounty through YesWeHack platform.",
+        "urls": [
+          {"type": "website", "url": "https://www.ovhcloud.com/en/security/"},
+          {"type": "bug-bounty", "url": "https://yeswehack.com/programs/ovh"},
+          {"type": "status", "url": "https://www.status-ovhcloud.com"}
+        ],
+        "examples": []
+      },
+      "children": []
+    }
+  ]
+}

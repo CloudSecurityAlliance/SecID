@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nhtsa.gov",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "National Highway Traffic Safety Administration",
+  "common_name": "NHTSA",
+  "alternate_names": null,
+  "notes": "NHTSA regulates motor vehicle safety including autonomous vehicles. Maintains crash reporting databases and recall systems relevant to AI safety in transportation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nhtsa.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^sgo$"],
+      "description": "Mandatory crash reports for vehicles equipped with automated driving systems.",
+      "weight": 100,
+      "data": {
+        "official_name": "Standing General Order Crash Reports",
+        "common_name": "SGO",
+        "alternate_names": null,
+        "description": "Mandatory crash reports for vehicles equipped with automated driving systems or advanced driver assistance systems.",
+        "notes": "Required reporting since June 2021. Data published on NHTSA website.",
+        "urls": [
+          {"type": "website", "url": "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^av-recalls$"],
+      "description": "Recalls involving autonomous and automated driving systems.",
+      "weight": 100,
+      "data": {
+        "official_name": "Autonomous Vehicle Recalls",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Recalls involving autonomous and automated driving systems.",
+        "notes": null,
+        "urls": [
+          {"type": "website", "url": "https://www.nhtsa.gov/recalls-spotlight/automated-vehicle-recalls"},
+          {"type": "search", "url": "https://www.nhtsa.gov/recalls"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^odi$"],
+      "description": "Vehicle safety complaints and defect investigations.",
+      "weight": 100,
+      "data": {
+        "official_name": "Office of Defects Investigation",
+        "common_name": "ODI",
+        "alternate_names": null,
+        "description": "Vehicle safety complaints and defect investigations.",
+        "notes": null,
+        "urls": [
+          {"type": "website", "url": "https://www.nhtsa.gov/vehicle-safety/vehicle-related-complaints"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

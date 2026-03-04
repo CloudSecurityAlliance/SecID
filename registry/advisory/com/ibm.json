@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ibm.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "IBM Corporation",
+  "common_name": "IBM",
+  "alternate_names": null,
+  "notes": "IBM is a major enterprise technology company with products spanning cloud, AI, middleware, databases, and systems. IBM communicates vulnerabilities through security bulletins, X-Force Exchange threat intelligence, and IBM Cloud security updates. IBM is a CVE Numbering Authority (CNA).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.ibm.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security-bulletin$"],
+      "description": "IBM Security Bulletins",
+      "weight": 100,
+      "data": {
+        "official_name": "IBM Security Bulletins",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Product-specific security bulletins covering WebSphere, Db2, MQ, Cloud Paks, QRadar, and other IBM products.",
+        "notes": "Searchable bulletin database. Query by product name, CVE, date, or severity. PDF downloads available. No formal ID pattern — bulletins use descriptive URLs.",
+        "urls": [
+          {"type": "website", "url": "https://www.ibm.com/support/pages/bulletin/"},
+          {"type": "overview", "url": "https://www.ibm.com/trust/security-bulletins"}
+        ],
+        "examples": ["bulletin-id"]
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^cloud$"],
+      "description": "IBM Cloud Security Bulletins",
+      "weight": 100,
+      "data": {
+        "official_name": "IBM Cloud Security Bulletins",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security bulletins for IBM Cloud services (IKS, ROKS, Cloud Foundry, Virtual Servers, managed databases).",
+        "notes": null,
+        "urls": [
+          {"type": "website", "url": "https://cloud.ibm.com/status/security"}
+        ],
+        "examples": ["bulletin-id"]
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^psirt$"],
+      "description": "IBM Product Security Incident Response",
+      "weight": 100,
+      "data": {
+        "official_name": "IBM Product Security Incident Response",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "IBM PSIRT coordinates vulnerability disclosure and response.",
+        "notes": "Report vulnerabilities to psirt@us.ibm.com. Part of IBM Trust Center.",
+        "urls": [
+          {"type": "website", "url": "https://www.ibm.com/trust/security-vulnerability-management"}
+        ],
+        "examples": []
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^xforce$"],
+      "description": "IBM X-Force Exchange",
+      "weight": 100,
+      "data": {
+        "official_name": "IBM X-Force Exchange",
+        "common_name": "X-Force",
+        "alternate_names": null,
+        "description": "Threat intelligence platform providing vulnerability data, threat actor tracking, malware analysis, and IoCs.",
+        "notes": "Free registration for access. API available. Broader than just IBM products. Vulnerability entries cross-reference CVEs.",
+        "urls": [
+          {"type": "website", "url": "https://exchange.xforce.ibmcloud.com/"},
+          {"type": "vulnerabilities", "url": "https://exchange.xforce.ibmcloud.com/vulnerabilities"}
+        ],
+        "examples": ["vulnerability-id"]
+      },
+      "children": []
+    }
+  ]
+}

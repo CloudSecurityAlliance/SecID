@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pypi.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Python Package Index (PyPA)",
+  "common_name": "PyPI",
+  "alternate_names": null,
+  "notes": "PyPI is the official Python package repository. The Python Advisory Database (maintained by PyPA) tracks security vulnerabilities in Python packages using PYSEC identifiers. Indexed in Google's OSV database.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://pypi.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^advisory-db$"],
+      "description": "Python Advisory Database",
+      "weight": 100,
+      "data": {
+        "official_name": "Python Advisory Database",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories for Python packages, using PYSEC identifiers.",
+        "notes": "PYSEC IDs are assigned by the Python Packaging Authority. Advisories use OSV schema and are indexed in Google's OSV database. Resolution goes through osv.dev.",
+        "urls": [
+          {"type": "website", "url": "https://github.com/pypa/advisory-database"},
+          {"type": "lookup", "url": "https://osv.dev/vulnerability/{id}"}
+        ],
+        "examples": ["PYSEC-2024-1", "PYSEC-2023-100"]
+      },
+      "children": [
+        {
+          "patterns": ["^PYSEC-\\d{4}-\\d+$"],
+          "description": "Python advisory ID (PYSEC-YYYY-N)",
+          "weight": 100,
+          "data": {
+            "url": "https://osv.dev/vulnerability/{id}",
+            "examples": [
+              {"input": "PYSEC-2024-1", "url": "https://osv.dev/vulnerability/PYSEC-2024-1", "note": "Python package vulnerability"},
+              {"input": "PYSEC-2023-100", "url": "https://osv.dev/vulnerability/PYSEC-2023-100"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

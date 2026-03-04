@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hetzner.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Hetzner Online",
+  "common_name": "Hetzner",
+  "alternate_names": null,
+  "notes": "Hetzner is a major European hosting and cloud provider, popular for affordable dedicated servers and cloud instances.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.hetzner.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^status$"],
+      "description": "Status and security updates for Hetzner services.",
+      "weight": 100,
+      "data": {
+        "official_name": null,
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Status and security updates for Hetzner services.",
+        "notes": "No formal advisory ID pattern documented.",
+        "urls": [
+          {"type": "website", "url": "https://status.hetzner.com"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

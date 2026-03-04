@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "namespace": "huawei.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Huawei Technologies",
+  "common_name": "Huawei",
+  "alternate_names": null,
+  "notes": "Huawei is a major telecommunications and networking equipment vendor. Products include networking infrastructure, mobile devices, and cloud services. Huawei publishes security advisories through its PSIRT team.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.huawei.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^psirt$"],
+      "description": "Huawei PSIRT Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Huawei PSIRT Security Advisories",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Product security incident response advisories covering Huawei networking and telecom equipment.",
+        "notes": null,
+        "urls": [
+          {"type": "website", "url": "https://www.huawei.com/en/psirt"},
+          {"type": "all-bulletins", "url": "https://www.huawei.com/en/psirt/all-bulletins"}
+        ],
+        "examples": ["HWPSIRT-2024-12345"]
+      },
+      "children": [
+        {
+          "patterns": ["^HWPSIRT-\\d{4}-\\d+$"],
+          "description": "Huawei PSIRT advisory ID",
+          "weight": 100,
+          "data": {
+            "note": "No direct lookup URL documented. Advisories listed at huawei.com/en/psirt/all-bulletins.",
+            "examples": [
+              {"input": "HWPSIRT-2024-12345", "note": "Huawei PSIRT advisory — check all-bulletins listing page"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^security-advisories$"],
+      "description": "Huawei Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Huawei Security Advisories",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Huawei security advisories with detailed vulnerability information.",
+        "notes": "Advisory IDs use huawei-sa- prefix. No formal per-advisory lookup URL pattern documented.",
+        "urls": [
+          {"type": "website", "url": "https://www.huawei.com/en/psirt/security-advisories"}
+        ],
+        "examples": ["huawei-sa-xxxxx"]
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^security-notices$"],
+      "description": "Huawei Security Notices",
+      "weight": 100,
+      "data": {
+        "official_name": "Huawei Security Notices",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Huawei security notices for lower-severity issues.",
+        "notes": "Advisory IDs use huawei-sn- prefix. No formal per-notice lookup URL pattern documented.",
+        "urls": [
+          {"type": "website", "url": "https://www.huawei.com/en/psirt/security-notices"}
+        ],
+        "examples": ["huawei-sn-xxxxx"]
+      },
+      "children": []
+    }
+  ]
+}

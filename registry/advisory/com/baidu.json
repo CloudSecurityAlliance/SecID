@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "baidu.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Baidu",
+  "common_name": "Baidu",
+  "alternate_names": null,
+  "notes": "Baidu is a major Chinese technology company, primarily known for search engine and AI research (including Ernie LLM). Baidu Security handles vulnerability response.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.baidu.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security$"],
+      "description": "Baidu Security",
+      "weight": 100,
+      "data": {
+        "official_name": "Baidu Security",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories for Baidu products and cloud services.",
+        "notes": "No formal advisory ID pattern or per-advisory lookup URL documented.",
+        "urls": [
+          {"type": "website", "url": "https://sec.baidu.com"},
+          {"type": "cloud", "url": "https://cloud.baidu.com"}
+        ],
+        "examples": []
+      },
+      "children": []
+    }
+  ]
+}

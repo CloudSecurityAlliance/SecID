@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aws.amazon.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Amazon Web Services",
+  "common_name": "AWS",
+  "alternate_names": null,
+  "notes": "Amazon Web Services is the world's largest cloud provider. AWS publishes security bulletins for service-level issues and Amazon Linux Security Advisories (ALAS) for OS-level package vulnerabilities across three Amazon Linux generations.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security-bulletins$"],
+      "description": "AWS Security Bulletins",
+      "weight": 100,
+      "data": {
+        "official_name": "AWS Security Bulletins",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "AWS service-level security bulletins covering cross-service vulnerabilities and AWS-specific issues.",
+        "notes": "No formal advisory ID pattern — bulletins use descriptive slugs. RSS feed available.",
+        "urls": [
+          {"type": "website", "url": "https://aws.amazon.com/security/security-bulletins/"}
+        ],
+        "examples": ["AWS-2024-001"]
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^alas$"],
+      "description": "Amazon Linux Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Amazon Linux Security Advisories",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Package-level security advisories for Amazon Linux 1, 2, and 2023.",
+        "notes": "Three generations with different ID prefixes: ALAS- (Amazon Linux 1), ALAS2- (Amazon Linux 2), ALAS2023- (Amazon Linux 2023). URLs vary by generation.",
+        "urls": [
+          {"type": "website", "url": "https://alas.aws.amazon.com"},
+          {"type": "lookup", "url": "https://alas.aws.amazon.com/{id}.html"}
+        ],
+        "examples": ["ALAS2-2024-2400", "ALAS2023-2024-500"]
+      },
+      "children": [
+        {
+          "patterns": ["^ALAS-\\d{4}-\\d+$"],
+          "description": "Amazon Linux 1 advisory",
+          "weight": 100,
+          "data": {
+            "url": "https://alas.aws.amazon.com/{id}.html",
+            "examples": [
+              {"input": "ALAS-2024-1234", "url": "https://alas.aws.amazon.com/ALAS-2024-1234.html", "note": "Amazon Linux 1 advisory"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^ALAS2-\\d{4}-\\d+$"],
+          "description": "Amazon Linux 2 advisory",
+          "weight": 100,
+          "data": {
+            "url": "https://alas.aws.amazon.com/AL2/{id}.html",
+            "examples": [
+              {"input": "ALAS2-2024-2400", "url": "https://alas.aws.amazon.com/AL2/ALAS2-2024-2400.html", "note": "Amazon Linux 2 advisory"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^ALAS2023-\\d{4}-\\d+$"],
+          "description": "Amazon Linux 2023 advisory",
+          "weight": 100,
+          "data": {
+            "url": "https://alas.aws.amazon.com/AL2023/{id}.html",
+            "examples": [
+              {"input": "ALAS2023-2024-500", "url": "https://alas.aws.amazon.com/AL2023/ALAS2023-2024-500.html", "note": "Amazon Linux 2023 advisory"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

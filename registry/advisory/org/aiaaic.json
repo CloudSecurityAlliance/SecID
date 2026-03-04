@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aiaaic.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "AI, Algorithmic and Automation Incidents and Controversies",
+  "common_name": "AIAAIC",
+  "alternate_names": null,
+  "notes": "AIAAIC Repository is a comprehensive collection of AI, algorithmic, and automation incidents and controversies. Tracks real-world impacts of AI systems.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.aiaaic.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^repository$"],
+      "description": "Curated database of AI incidents, algorithmic controversies, and automation failures.",
+      "weight": 100,
+      "data": {
+        "official_name": "AIAAIC Repository",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Curated database of AI incidents, algorithmic controversies, and automation failures.",
+        "notes": "No formal incident ID pattern documented. Database browsable through website.",
+        "urls": [
+          {"type": "website", "url": "https://www.aiaaic.org/aiaaic-repository"},
+          {"type": "database", "url": "https://www.aiaaic.org/aiaaic-repository/ai-algorithmic-and-automation-incidents-controversies"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

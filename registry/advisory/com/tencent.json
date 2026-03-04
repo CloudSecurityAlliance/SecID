@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tencent.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Tencent",
+  "common_name": "Tencent",
+  "alternate_names": null,
+  "notes": "Tencent is a major Chinese technology company operating WeChat, QQ, Tencent Cloud, and gaming platforms. Tencent Security Response Center (TSRC) handles vulnerability disclosure.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.tencent.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^tsrc$"],
+      "description": "Tencent Security Response Center",
+      "weight": 100,
+      "data": {
+        "official_name": "Tencent Security Response Center",
+        "common_name": "TSRC",
+        "alternate_names": null,
+        "description": "Vulnerability reporting and advisory portal for Tencent products.",
+        "notes": "No formal advisory ID pattern documented. Report vulnerabilities through web form.",
+        "urls": [
+          {"type": "website", "url": "https://en.security.tencent.com/"}
+        ],
+        "examples": []
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^cloud$"],
+      "description": "Tencent Cloud Security Advisory",
+      "weight": 100,
+      "data": {
+        "official_name": "Tencent Cloud Security Advisory",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories for Tencent Cloud services.",
+        "notes": "No formal advisory ID pattern documented.",
+        "urls": [
+          {"type": "website", "url": "https://www.tencentcloud.com/document/product/627/38433"}
+        ],
+        "examples": []
+      },
+      "children": []
+    }
+  ]
+}

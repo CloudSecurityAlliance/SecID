@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "National Institute of Standards and Technology",
+  "common_name": "NIST",
+  "alternate_names": null,
+  "notes": "NIST operates the National Vulnerability Database (NVD), the US government repository of vulnerability data based on CVE records. NVD enriches CVE data with CVSS scores, CPE matching, and CWE classification.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nist.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^nvd$"],
+      "description": "National Vulnerability Database",
+      "weight": 100,
+      "data": {
+        "official_name": "National Vulnerability Database",
+        "common_name": "NVD",
+        "alternate_names": null,
+        "description": "US government repository of vulnerability data. Enriches CVE records with CVSS scores, CPE platform matching, and CWE classification.",
+        "notes": "NVD is the authoritative US government source for vulnerability severity scores. Provides both web UI and REST API (v2.0). Bulk data feeds available. NVD has experienced processing delays since 2024 — some CVEs take weeks to get NVD enrichment.",
+        "urls": [
+          {"type": "website", "url": "https://nvd.nist.gov"},
+          {"type": "api", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0"},
+          {"type": "lookup", "url": "https://nvd.nist.gov/vuln/detail/{id}"}
+        ],
+        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE identifier",
+          "weight": 100,
+          "data": {
+            "url": "https://nvd.nist.gov/vuln/detail/{id}",
+            "examples": [
+              {"input": "CVE-2024-1234", "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1234"},
+              {"input": "CVE-2023-44487", "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — mass exploitation of web servers"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "partnershiponai.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Partnership on AI",
+  "common_name": "PAI",
+  "alternate_names": null,
+  "notes": "Partnership on AI operates the AI Incident Database (AIID), a comprehensive collection of AI-related incidents and harms. Community-contributed incident reports with cross-references.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://partnershiponai.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^aiid$"],
+      "description": "AI Incident Database",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Incident Database",
+        "common_name": "AIID",
+        "alternate_names": null,
+        "description": "Comprehensive collection of AI-related incidents documenting harms and near-misses.",
+        "notes": "Numeric incident IDs. Community-contributed with editorial review. Incidents cross-referenced with news reports and research.",
+        "urls": [
+          {"type": "website", "url": "https://incidentdatabase.ai"},
+          {"type": "api", "url": "https://incidentdatabase.ai/api"},
+          {"type": "github", "url": "https://github.com/responsible-ai-collaborative/aiid"},
+          {"type": "lookup", "url": "https://incidentdatabase.ai/cite/{id}"}
+        ],
+        "examples": ["1", "100"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d+$"],
+          "description": "AIID incident number",
+          "weight": 100,
+          "data": {
+            "url": "https://incidentdatabase.ai/cite/{id}",
+            "examples": [
+              {"input": "1", "url": "https://incidentdatabase.ai/cite/1", "note": "First documented AI incident in the database"},
+              {"input": "100", "url": "https://incidentdatabase.ai/cite/100"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

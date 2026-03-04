@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "atlassian.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Atlassian Corporation",
+  "common_name": "Atlassian",
+  "alternate_names": null,
+  "notes": "Atlassian develops Jira, Confluence, Bitbucket, and other collaboration tools widely used in enterprises. Atlassian products are frequent targets — Confluence vulnerabilities in particular have been exploited by nation-state actors.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.atlassian.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^jira-security$"],
+      "description": "Atlassian Security Advisory",
+      "weight": 100,
+      "data": {
+        "official_name": "Atlassian Security Advisory",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories for Atlassian products (Jira, Confluence, Bitbucket, etc.).",
+        "notes": "Advisories can be looked up by CVE identifier or Jira issue ID (e.g., CONFSERVER-92475). The Jira instance at jira.atlassian.com provides the primary lookup.",
+        "urls": [
+          {"type": "website", "url": "https://www.atlassian.com/trust/security/advisories"},
+          {"type": "jira", "url": "https://jira.atlassian.com/browse/{id}"}
+        ],
+        "examples": ["CVE-2023-22515", "CONFSERVER-92475"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE identifier for Atlassian vulnerability",
+          "weight": 50,
+          "data": {
+            "note": "Atlassian advisories page lists by CVE, but individual advisory URLs use Jira issue IDs. See the advisories page at atlassian.com/trust/security/advisories.",
+            "examples": [
+              {"input": "CVE-2023-22515", "note": "Critical Confluence privilege escalation — exploited by nation-state actors"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^[A-Z]+-\\d+$"],
+          "description": "Atlassian Jira issue ID (PROJECT-NUMBER)",
+          "weight": 100,
+          "data": {
+            "url": "https://jira.atlassian.com/browse/{id}",
+            "examples": [
+              {"input": "CONFSERVER-92475", "url": "https://jira.atlassian.com/browse/CONFSERVER-92475", "note": "Confluence Server security issue"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

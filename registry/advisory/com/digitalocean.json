@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "digitalocean.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "DigitalOcean",
+  "common_name": "DigitalOcean",
+  "alternate_names": null,
+  "notes": "DigitalOcean is a cloud infrastructure provider focused on developers and small businesses. Bug bounty through Intigriti.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.digitalocean.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security$"],
+      "description": "Security advisories for DigitalOcean cloud services.",
+      "weight": 100,
+      "data": {
+        "official_name": null,
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories for DigitalOcean cloud services.",
+        "notes": "No formal advisory ID pattern documented.",
+        "urls": [
+          {"type": "website", "url": "https://www.digitalocean.com/security"},
+          {"type": "bug-bounty", "url": "https://app.intigriti.com/programs/digitalocean/digitalocean"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

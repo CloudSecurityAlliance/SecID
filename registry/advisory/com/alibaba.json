@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "alibaba.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Alibaba Cloud",
+  "common_name": "Alibaba",
+  "alternate_names": ["Aliyun"],
+  "notes": "Alibaba Cloud (Aliyun) is the largest cloud provider in China and Asia-Pacific. Alibaba Security handles vulnerability response.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.alibabacloud.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security$"],
+      "description": "Alibaba Security",
+      "weight": 100,
+      "data": {
+        "official_name": "Alibaba Security",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories and trust center for Alibaba Cloud services.",
+        "notes": "No formal advisory ID pattern or per-advisory lookup URL documented.",
+        "urls": [
+          {"type": "website", "url": "https://security.alibaba.com"},
+          {"type": "cloud-security", "url": "https://www.alibabacloud.com/trust-center"}
+        ],
+        "examples": []
+      },
+      "children": []
+    }
+  ]
+}

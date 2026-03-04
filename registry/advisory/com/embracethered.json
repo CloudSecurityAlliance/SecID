@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "embracethered.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Embrace the Red",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "Embrace the Red is a security research blog by Johann Rehberger focused on AI/ML security. Runs the 'Month of AI Bugs' project documenting AI security vulnerabilities.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://embracethered.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^monthofaibugs$"],
+      "description": "Month of AI Bugs",
+      "weight": 100,
+      "data": {
+        "official_name": "Month of AI Bugs",
+        "common_name": null,
+        "alternate_names": null,
+        "versions": ["2025"],
+        "description": "A structured AI bug disclosure project revealing AI security vulnerabilities on a regular schedule.",
+        "notes": "Episode-based format. Each episode documents one or more AI security vulnerabilities.",
+        "urls": [
+          {"type": "website", "url": "https://monthofaibugs.com"},
+          {"type": "lookup", "url": "https://monthofaibugs.com/{id}/"}
+        ],
+        "examples": ["episode-1", "episode-15", "episode-29"]
+      },
+      "children": [
+        {
+          "patterns": ["^episode-\\d+$"],
+          "description": "Month of AI Bugs episode number",
+          "weight": 100,
+          "data": {
+            "url": "https://monthofaibugs.com/{id}/",
+            "examples": [
+              {"input": "episode-1", "url": "https://monthofaibugs.com/episode-1/", "note": "First episode of Month of AI Bugs"},
+              {"input": "episode-29", "url": "https://monthofaibugs.com/episode-29/"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

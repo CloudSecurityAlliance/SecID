@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "protectai.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Protect AI",
+  "common_name": "Protect AI",
+  "alternate_names": null,
+  "notes": "Protect AI is an AI security company operating the Sightline AI/ML vulnerability database and the huntr AI/ML bug bounty platform.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://protectai.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^sightline$"],
+      "description": "Sightline AI/ML Vulnerability Database",
+      "weight": 100,
+      "data": {
+        "official_name": "Sightline AI/ML Vulnerability Database",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "AI/ML-specific vulnerability database curated by Protect AI.",
+        "notes": "PAI- prefixed IDs. API available for programmatic access.",
+        "urls": [
+          {"type": "website", "url": "https://sightline.protectai.com"},
+          {"type": "api", "url": "https://sightline.protectai.com/api"}
+        ],
+        "examples": ["PAI-2024-001"]
+      },
+      "children": []
+    },
+
+    {
+      "patterns": ["(?i)^huntr$"],
+      "description": "huntr AI/ML Bug Bounty",
+      "weight": 100,
+      "data": {
+        "official_name": "huntr AI/ML Bug Bounty",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "AI/ML-focused bug bounty platform for responsible vulnerability disclosure.",
+        "notes": "Open bug bounty platform. Bounties listed at huntr.com/bounties.",
+        "urls": [
+          {"type": "website", "url": "https://huntr.com"},
+          {"type": "disclosure", "url": "https://huntr.com/bounties"}
+        ],
+        "examples": ["vulnerability-id"]
+      },
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fda.gov",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "U.S. Food and Drug Administration",
+  "common_name": "FDA",
+  "alternate_names": null,
+  "notes": "FDA regulates medical devices including AI/ML-enabled devices. Maintains databases of adverse events (MAUDE), recalls, and a list of authorized AI/ML-enabled medical devices.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.fda.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^maude$"],
+      "description": "Manufacturer and User Facility Device Experience database.",
+      "weight": 100,
+      "data": {
+        "official_name": "MAUDE Medical Device Adverse Events",
+        "common_name": "MAUDE",
+        "alternate_names": null,
+        "description": "Manufacturer and User Facility Device Experience database \u2014 adverse event reports for medical devices.",
+        "notes": "Searchable database. No formal per-report lookup URL pattern.",
+        "urls": [
+          {"type": "website", "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^aiml-devices$"],
+      "description": "List of FDA-authorized AI/ML-enabled medical devices.",
+      "weight": 100,
+      "data": {
+        "official_name": "AI/ML-Enabled Medical Devices",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "List of FDA-authorized AI/ML-enabled medical devices.",
+        "notes": "Over 700 authorized devices as of 2024. No per-device lookup URL.",
+        "urls": [
+          {"type": "website", "url": "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-aiml-enabled-medical-devices"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^recalls$"],
+      "description": "Medical device recall database.",
+      "weight": 100,
+      "data": {
+        "official_name": "Medical Device Recalls",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Medical device recall database.",
+        "notes": "Searchable recall database. Relevant for AI/ML device safety failures.",
+        "urls": [
+          {"type": "website", "url": "https://www.fda.gov/medical-devices/medical-device-recalls"},
+          {"type": "search", "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
