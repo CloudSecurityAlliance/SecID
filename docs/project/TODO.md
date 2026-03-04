@@ -68,6 +68,49 @@ Need to:
 
 **When to revisit:** When adding a namespace that requires search-based resolution.
 
+### Cross-Source Search Index for KV
+**Status:** Deferred — accept N reads for now, optimize later
+
+Cross-source search (`secid:advisory/CVE-2024-1234`) requires checking every namespace in a type to find which children match the identifier. With KV storage, this means reading all ~42 advisory namespace records.
+
+Planned optimization: build a cross-source index into the type-level key. The `advisory` key value would include a mapping of child patterns to namespaces they belong to, so a single KV read returns enough information to identify which namespace(s) to fetch. Example structure:
+
+```json
+{
+  "namespaces": ["mitre.org", "redhat.com", ...],
+  "child_index": [
+    {"pattern": "^CVE-\\d{4}-\\d{4,}$", "namespaces": ["mitre.org", "nist.gov", "redhat.com", ...]},
+    {"pattern": "^RHSA-\\d{4}:\\d+$", "namespaces": ["redhat.com"]}
+  ]
+}
+```
+
+This turns cross-source from N reads into 1 read (type index) + 1-3 reads (matched namespaces).
+
+**When to revisit:** After KV migration is working. Only matters if cross-source search latency becomes a problem.
+
+### Standalone SecID Plugin
+**Status:** Planned
+
+Create a standalone plugin (Claude Code plugin, VS Code extension, etc.) that bundles the SecID MCP server for users who want a local/installable option rather than pointing at the remote MCP server. The remote server at `https://secid.cloudsecurityalliance.org/mcp` works for most users, but a plugin provides:
+- Offline access
+- Bundled tool descriptions and resources
+- Integration with IDE-specific features (e.g., hover-to-resolve SecID strings)
+- A presence in plugin marketplaces for discoverability
+
+**When to revisit:** After MCP tool descriptions are enriched and SecID-SDK reference implementations are published.
+
+### SecID-SDK Reference Implementations and Package Publishing
+**Status:** Planned
+
+Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (`npm install secid`) for SEO and discoverability. These are thin wrappers around the one-endpoint API — the real value is that people searching "secid" on PyPI/npm find something. The packages should:
+- Be single-file, zero-external-dep implementations
+- Include CLI mode
+- Link back to the MCP server as the primary integration path
+- Live in the SecID-SDK repo alongside AI-consumable instructions
+
+**When to revisit:** After MCP server improvements are deployed.
+
 ## Completed
 
 - [x] Registry architecture refactoring (one file per namespace)

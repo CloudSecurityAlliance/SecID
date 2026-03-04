@@ -1,6 +1,24 @@
+<p align="center">
+  <img src="csa-logo.jpeg" alt="Cloud Security Alliance" width="200">
+</p>
+
 # SecID - Security Identifiers
 
 **SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities.**
+
+**Live service: [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/)**
+
+## SecID MCP Server
+
+Add SecID to your AI assistant as a remote MCP server:
+
+```
+https://secid.cloudsecurityalliance.org/mcp
+```
+
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 121 other security knowledge sources.
+
+## What SecID Does
 
 `secid:advisory/mitre.org/cve#CVE-2024-1234` refers to a CVE record published by MITRE. SecID doesn't create CVEs, assign CWE numbers, or issue ATT&CK technique IDs—it provides a consistent way to reference them all.
 
@@ -540,9 +558,9 @@ This specification is open for public comment. We welcome feedback, questions, a
 - Registry expansion (targeting broader coverage)
 - Reference implementations (Python library first)
 - Compliance test suite
+- [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) (live, iterating)
 
 **What's Planned (Post-1.0):**
-- REST API for resolution
 - Relationship layer
 - Overlay layer
 
@@ -555,11 +573,13 @@ Our goal is to make SecID as easy to consume as possible. We're building:
 | Repository | Purpose | Status |
 |------------|---------|--------|
 | **SecID** (this repo) | Spec, registry, operations docs | Active |
-| **SecID-Service** | Hosted API + MCP server | Planned |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Hosted API + MCP server | Active |
 | **SecID-Website** | Documentation and registry browser | Planned |
 | **SecID-Client** | Official client libraries + Claude skills | Planned |
 
 ### SecID-Service
+
+**The SecID service is live!** See the [SecID-Service repository](https://github.com/CloudSecurityAlliance/SecID-Service) for details.
 
 Cloudflare Worker providing:
 - REST API at `/v1/` for programmatic access
