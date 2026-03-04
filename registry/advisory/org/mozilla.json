@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mozilla.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Mozilla Foundation / Mozilla Corporation",
+  "common_name": "Mozilla",
+  "alternate_names": null,
+  "notes": "Mozilla develops Firefox (~3% market share, security-focused users), Thunderbird, and the NSS crypto library (used by many projects). Incubated the Rust programming language. Strong security culture, active bug bounty program, CNA. NSS vulnerabilities can affect many non-Mozilla applications. Firefox ESR is popular in enterprises.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mozilla.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^mfsa$"],
+      "description": "Mozilla Foundation Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Mozilla Foundation Security Advisories",
+        "common_name": "MFSA",
+        "alternate_names": null,
+        "description": "Security advisories published by Mozilla covering Firefox, Firefox ESR, and Thunderbird.",
+        "notes": "MFSA advisories cover Firefox, Firefox ESR, Thunderbird. Each MFSA typically corresponds to a software release and may contain multiple CVEs.",
+        "urls": [
+          {"type": "website", "url": "https://www.mozilla.org/security/advisories/"},
+          {"type": "lookup", "url": "https://www.mozilla.org/security/advisories/mfsa{id}/"}
+        ],
+        "examples": ["2024-01", "2023-56"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{4}-\\d{2}$"],
+          "description": "MFSA advisory identifier (YYYY-NN format)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mozilla.org/security/advisories/mfsa{id}/",
+            "examples": [
+              {"input": "2024-01", "url": "https://www.mozilla.org/security/advisories/mfsa2024-01/"},
+              {"input": "2023-56", "url": "https://www.mozilla.org/security/advisories/mfsa2023-56/"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": ["(?i)^bugzilla$"],
+      "description": "Mozilla Bugzilla bug tracker",
+      "weight": 100,
+      "data": {
+        "official_name": "Mozilla Bugzilla",
+        "common_name": "Bugzilla",
+        "alternate_names": null,
+        "description": "Mozilla's public bug tracker. Security bugs are often restricted until fixes ship.",
+        "notes": "Security bugs are often restricted until fixes ship. Referenced in MFSA advisories.",
+        "urls": [
+          {"type": "website", "url": "https://bugzilla.mozilla.org"},
+          {"type": "lookup", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id={id}"}
+        ],
+        "examples": ["1234567", "1876543"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d+$"],
+          "description": "Bugzilla numeric bug ID",
+          "weight": 100,
+          "data": {
+            "url": "https://bugzilla.mozilla.org/show_bug.cgi?id={id}",
+            "examples": [
+              {"input": "1234567", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1234567"},
+              {"input": "1876543", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1876543"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

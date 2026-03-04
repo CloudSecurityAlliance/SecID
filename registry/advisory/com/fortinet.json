@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fortinet.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Fortinet, Inc.",
+  "common_name": "Fortinet",
+  "alternate_names": null,
+  "notes": "Fortinet is a cybersecurity company specializing in network security appliances, particularly firewalls. FortiGate is one of the most deployed enterprise firewalls globally. Key products: FortiGate (next-gen firewalls), FortiOS (device operating system), FortiManager (centralized management), FortiAnalyzer (logging/analytics), FortiClient (endpoint protection). Fortinet devices sit at network boundaries with access to internal networks, making vulnerabilities high-value targets for nation-state actors, ransomware operators, and initial access brokers. Critical FortiOS vulnerabilities frequently appear in CISA KEV. Fortinet is a CNA. SSL-VPN vulnerabilities are particularly high-risk because they are internet-exposed. FortiGuard Labs publishes threat research alongside PSIRT advisories.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.fortinet.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^fsa$"],
+      "description": "Fortinet Security Advisory",
+      "weight": 100,
+      "data": {
+        "official_name": "Fortinet Security Advisory",
+        "common_name": "FSA",
+        "alternate_names": ["Fortinet PSIRT Advisory", "FortiGuard PSIRT"],
+        "description": "Fortinet's PSIRT advisories covering FortiOS, FortiGate, FortiManager, FortiAnalyzer, and other Fortinet products.",
+        "notes": "Advisory IDs use FG-IR-YY-NNN format: two-digit year and three-digit sequential number. Covers all Fortinet products. Fortinet products are high-value targets; advisories are often critical severity. FortiGuard Labs publishes threat research alongside PSIRT advisories.",
+        "urls": [
+          {"type": "website", "url": "https://www.fortiguard.com/psirt"},
+          {"type": "lookup", "url": "https://www.fortiguard.com/psirt/{id}"}
+        ],
+        "examples": ["FG-IR-24-001", "FG-IR-23-097"]
+      },
+      "children": [
+        {
+          "patterns": ["^FG-IR-\\d{2}-\\d{3}$"],
+          "description": "Fortinet advisory ID (FG-IR-YY-NNN)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.fortiguard.com/psirt/{id}",
+            "examples": [
+              {"input": "FG-IR-24-001", "url": "https://www.fortiguard.com/psirt/FG-IR-24-001"},
+              {"input": "FG-IR-23-097", "url": "https://www.fortiguard.com/psirt/FG-IR-23-097"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

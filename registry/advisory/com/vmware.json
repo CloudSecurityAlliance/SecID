@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "vmware.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "VMware (Broadcom)",
+  "common_name": "VMware",
+  "alternate_names": ["VMware, Inc.", "Broadcom VMware"],
+  "notes": "VMware is the leading virtualization and cloud infrastructure company, acquired by Broadcom in November 2023. Key products: ESXi (hypervisor), vCenter (management platform), vSphere (complete virtualization platform), NSX (network virtualization), Workspace ONE (endpoint management). VMware infrastructure hosts most enterprise virtualized workloads. Compromising VMware infrastructure gives attackers access to all hosted workloads. Ransomware groups frequently target ESXi because it runs without traditional endpoint protection. VMware vulnerabilities often enable hypervisor escape or privilege escalation. Advisory URLs still work at vmware.com; advisories are also available via the Broadcom support portal.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.vmware.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^vmsa$"],
+      "description": "VMware Security Advisory",
+      "weight": 100,
+      "data": {
+        "official_name": "VMware Security Advisory",
+        "common_name": "VMSA",
+        "alternate_names": null,
+        "description": "VMware's official security advisories covering all VMware products including vSphere, ESXi, vCenter, NSX, and Workspace ONE.",
+        "notes": "Advisory IDs use VMSA-YYYY-NNNN format: four-digit year and four-digit sequential number. VMSA advisories often bundle multiple CVEs per advisory. VMware was acquired by Broadcom in November 2023. The main advisory listing is now at the Broadcom site, but individual VMSA URLs at vmware.com still work. ESXi vulnerabilities are particularly high-value for ransomware operators because ESXi runs without traditional endpoint protection.",
+        "urls": [
+          {"type": "website", "url": "https://www.broadcom.com/support/vmware-security-advisories"},
+          {"type": "legacy", "url": "https://www.vmware.com/security/advisories.html"},
+          {"type": "lookup", "url": "https://www.vmware.com/security/advisories/{id}.html"}
+        ],
+        "examples": ["VMSA-2024-0001", "VMSA-2021-0028"]
+      },
+      "children": [
+        {
+          "patterns": ["^VMSA-\\d{4}-\\d{4}$"],
+          "description": "VMware security advisory ID (VMSA-YYYY-NNNN)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.vmware.com/security/advisories/{id}.html",
+            "examples": [
+              {"input": "VMSA-2024-0001", "url": "https://www.vmware.com/security/advisories/VMSA-2024-0001.html"},
+              {"input": "VMSA-2021-0028", "url": "https://www.vmware.com/security/advisories/VMSA-2021-0028.html", "note": "Log4Shell advisory"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

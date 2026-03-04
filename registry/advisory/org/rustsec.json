@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "rustsec.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "RustSec Advisory Database",
+  "common_name": "RustSec",
+  "alternate_names": null,
+  "notes": "RustSec is a community-driven security advisory database for the Rust ecosystem. It tracks vulnerabilities and security issues in Rust crates (packages) published to crates.io. cargo-audit is the official scanning tool that checks Cargo.lock against the RustSec database.\n\nAdvisory categories include vulnerabilities, unmaintained crate warnings, and informational advisories. Advisories use TOML format (human and machine readable). RUSTSEC advisories are indexed in Google's OSV database. Important for supply chain security in the Rust ecosystem, where memory safety guarantees prevent some bug classes but not all.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://rustsec.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^advisories$"],
+      "description": "RustSec Advisory Database",
+      "weight": 100,
+      "data": {
+        "official_name": "RustSec Advisory Database",
+        "common_name": "RustSec Advisories",
+        "alternate_names": null,
+        "description": "Security advisories for Rust crates, maintained by the RustSec organization.",
+        "notes": "RUSTSEC IDs are assigned by the RustSec working group. Categories include code-execution, crypto, denial-of-service, and memory-corruption. cargo-audit integrates directly with this database. Advisories use TOML format and are indexed in Google's OSV database.",
+        "urls": [
+          {"type": "website", "url": "https://rustsec.org"},
+          {"type": "lookup", "url": "https://rustsec.org/advisories/{id}"},
+          {"type": "api", "url": "https://rustsec.org/advisories"},
+          {"type": "bulk_data", "url": "https://github.com/rustsec/advisory-db"}
+        ],
+        "examples": ["RUSTSEC-2024-0001", "RUSTSEC-2023-0071"]
+      },
+      "children": [
+        {
+          "patterns": ["^RUSTSEC-\\d{4}-\\d+$"],
+          "description": "RustSec advisory ID",
+          "weight": 100,
+          "data": {
+            "url": "https://rustsec.org/advisories/{id}",
+            "examples": [
+              {"input": "RUSTSEC-2024-0001", "url": "https://rustsec.org/advisories/RUSTSEC-2024-0001"},
+              {"input": "RUSTSEC-2023-0071", "url": "https://rustsec.org/advisories/RUSTSEC-2023-0071"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

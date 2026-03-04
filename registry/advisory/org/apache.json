@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "namespace": "apache.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Apache Software Foundation",
+  "common_name": "Apache",
+  "alternate_names": ["ASF"],
+  "notes": "Apache Software Foundation (ASF) is a nonprofit developing hundreds of open-source projects. Apache projects include some of the most widely deployed server software (httpd, Tomcat, Log4j, Kafka, Struts, Spark). Apache vulnerabilities can have massive blast radius. Apache is a CNA. Each project has its own security page, mailing list, and release process. Notable: CVE-2021-44228 (Log4Shell), CVE-2017-5638 (Struts/Equifax).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.apache.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security$"],
+      "description": "Apache Security",
+      "weight": 100,
+      "data": {
+        "official_name": "Apache Security",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Apache Software Foundation security information — CVE identifiers for vulnerabilities across all Apache projects.",
+        "notes": "Apache is an umbrella organization — each project (httpd, Tomcat, Log4j, Struts, Kafka, etc.) maintains its own security page. No single URL template resolves all Apache CVEs. The central page at apache.org/security/ provides links to per-project security pages. Resolution is project-dependent: CVE-2021-44228 (Log4j) resolves to logging.apache.org, while an httpd CVE resolves to httpd.apache.org. Security reports go to security@apache.org or project-specific lists. Apache projects vary widely in security maturity.",
+        "urls": [
+          {"type": "website", "url": "https://www.apache.org/security/"}
+        ],
+        "examples": ["CVE-2021-44228", "CVE-2024-1234"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE identifier for Apache project vulnerability",
+          "weight": 100,
+          "data": {
+            "note": "Apache is an umbrella organization — each project (httpd, Tomcat, Log4j, Struts, Kafka, etc.) maintains its own security page. No single URL template resolves all Apache CVEs. The central page at apache.org/security/ provides links to per-project security pages.",
+            "examples": [
+              {"input": "CVE-2021-44228", "note": "Log4Shell — Log4j RCE, one of the most impactful vulnerabilities ever. Project: logging.apache.org"},
+              {"input": "CVE-2017-5638", "note": "Struts RCE that led to Equifax breach. Project: struts.apache.org"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^jira$"],
+      "description": "Apache Jira",
+      "weight": 100,
+      "data": {
+        "official_name": "Apache Jira",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Apache Software Foundation's issue tracking system, used for bug reports, feature requests, and security issues across all Apache projects.",
+        "notes": "Each Apache project has its own Jira project key (e.g., LOG4J2, HTTPD, TOMCAT, STRUTS, KAFKA, SPARK). The project key in the issue ID indicates which Apache project it belongs to. Security issues may be restricted until fixed. For official security pages, see secid:advisory/apache.org/security.",
+        "urls": [
+          {"type": "website", "url": "https://issues.apache.org/jira"},
+          {"type": "lookup", "url": "https://issues.apache.org/jira/browse/{id}"}
+        ],
+        "examples": ["LOG4J2-3201", "HTTPD-1234", "TOMCAT-5678"]
+      },
+      "children": [
+        {
+          "patterns": ["^[A-Z][A-Z0-9]+-\\d+$"],
+          "description": "Apache Jira issue ID (PROJECT-NUMBER)",
+          "weight": 100,
+          "data": {
+            "url": "https://issues.apache.org/jira/browse/{id}",
+            "examples": [
+              {"input": "LOG4J2-3201", "url": "https://issues.apache.org/jira/browse/LOG4J2-3201", "note": "Log4j project issue tracker"},
+              {"input": "HTTPD-1234", "url": "https://issues.apache.org/jira/browse/HTTPD-1234", "note": "Apache HTTP Server issue"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

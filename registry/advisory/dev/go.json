@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "go.dev",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Go Programming Language",
+  "common_name": "Go",
+  "alternate_names": ["Golang"],
+  "notes": "Go is a programming language developed by Google, known for its simplicity, concurrency support, and fast compilation. Go powers cloud-native infrastructure: Kubernetes, Docker, Terraform, and security tools like Trivy, Grype, and Falco. Go vulnerabilities can affect critical infrastructure tooling.\n\nThe Go team maintains an official vulnerability database (vulndb) at github.com/golang/vulndb. govulncheck performs call graph analysis (symbol-level) to determine if vulnerable code is actually reachable in your application, reducing false positives. GO- advisories are indexed in Google's OSV database. The standard library is also covered, not just third-party modules.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://go.dev"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^vulndb$"],
+      "description": "Go Vulnerability Database",
+      "weight": 100,
+      "data": {
+        "official_name": "Go Vulnerability Database",
+        "common_name": "Go Vulndb",
+        "alternate_names": null,
+        "description": "Official vulnerability database for Go modules, maintained by the Go security team at Google.",
+        "notes": "GO- IDs are assigned by the Go security team. govulncheck integrates directly with this database and performs call graph analysis to determine if vulnerable functions are reachable. Advisories use OSV format and are indexed in Google's OSV database. Standard library vulnerabilities are also covered.",
+        "urls": [
+          {"type": "website", "url": "https://vuln.go.dev"},
+          {"type": "lookup", "url": "https://pkg.go.dev/vuln/{id}"},
+          {"type": "api", "url": "https://vuln.go.dev/index.json"},
+          {"type": "bulk_data", "url": "https://github.com/golang/vulndb"}
+        ],
+        "examples": ["GO-2024-2887", "GO-2023-1840"]
+      },
+      "children": [
+        {
+          "patterns": ["^GO-\\d{4}-\\d+$"],
+          "description": "Go vulnerability advisory ID",
+          "weight": 100,
+          "data": {
+            "url": "https://pkg.go.dev/vuln/{id}",
+            "examples": [
+              {"input": "GO-2024-2887", "url": "https://pkg.go.dev/vuln/GO-2024-2887"},
+              {"input": "GO-2023-1840", "url": "https://pkg.go.dev/vuln/GO-2023-1840"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

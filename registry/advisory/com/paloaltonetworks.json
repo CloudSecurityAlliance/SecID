@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "paloaltonetworks.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Palo Alto Networks",
+  "common_name": "Palo Alto",
+  "alternate_names": ["PAN", "Palo Alto Networks, Inc."],
+  "notes": "Palo Alto Networks is a cybersecurity company known for next-generation firewalls and the Cortex security platform. They pioneered application-aware firewalls. Key products: PAN-OS (firewall operating system), GlobalProtect (VPN/endpoint protection), Cortex XDR (extended detection and response), Prisma (cloud security). Unit 42 is their threat intelligence team publishing detailed threat research and IOCs. Like Fortinet, firewall vulnerabilities are high-value targets for nation-state actors. Palo Alto is a CNA. GlobalProtect VPN vulnerabilities are high-risk because they are internet-exposed. Notable: CVE-2024-3400 was a critical PAN-OS command injection actively exploited in the wild; CVE-2024-0012 was an authentication bypass in the management interface. Both appeared in CISA KEV with evidence of nation-state exploitation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.paloaltonetworks.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pan-sa$"],
+      "description": "Palo Alto Networks Security Advisory",
+      "weight": 100,
+      "data": {
+        "official_name": "Palo Alto Networks Security Advisory",
+        "common_name": "PAN-SA",
+        "alternate_names": null,
+        "description": "Palo Alto Networks security advisories covering PAN-OS, GlobalProtect, Cortex, Prisma, and other Palo Alto products.",
+        "notes": "Palo Alto indexes advisories by CVE ID rather than a proprietary ID format. The security portal allows direct lookup by CVE number. Advisory URLs use the CVE ID in the path: https://security.paloaltonetworks.com/CVE-YYYY-NNNN. Covers PAN-OS, GlobalProtect, Cortex, Prisma, and other products. High-profile vulnerabilities because firewalls are critical infrastructure. Palo Alto also publishes PAN-SA-* identifiers in some contexts.",
+        "urls": [
+          {"type": "website", "url": "https://security.paloaltonetworks.com/"},
+          {"type": "lookup", "url": "https://security.paloaltonetworks.com/{id}"}
+        ],
+        "examples": ["CVE-2024-3400", "CVE-2024-0012"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE ID used as Palo Alto advisory identifier",
+          "weight": 100,
+          "data": {
+            "url": "https://security.paloaltonetworks.com/{id}",
+            "examples": [
+              {"input": "CVE-2024-3400", "url": "https://security.paloaltonetworks.com/CVE-2024-3400", "note": "Critical PAN-OS command injection, actively exploited"},
+              {"input": "CVE-2024-0012", "url": "https://security.paloaltonetworks.com/CVE-2024-0012", "note": "Authentication bypass in management interface"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

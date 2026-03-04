@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kernel.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Linux Kernel",
+  "common_name": "Linux Kernel",
+  "alternate_names": ["Linux"],
+  "notes": "Linux kernel runs everything from smartphones (Android) to supercomputers to cloud infrastructure. Majority of internet servers, AWS/Azure/GCP VMs, Docker/Kubernetes all run Linux. A kernel vulnerability can enable privilege escalation on any Linux system. Container escapes often exploit kernel vulnerabilities. Android kernel patches lag mainline by months/years. As of 2024, Linux kernel project is its own CNA, leading to significant increase in assigned CVEs. Notable vulnerabilities: Dirty Pipe (CVE-2022-0847), Dirty COW (CVE-2016-5195).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.kernel.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^kernel$"],
+      "description": "Linux Kernel CVE",
+      "weight": 100,
+      "data": {
+        "official_name": "Linux Kernel CVE",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security vulnerabilities in the Linux kernel, identified by CVE IDs.",
+        "notes": "Linux kernel CVEs resolve to multiple targets — there is no single kernel-specific advisory page. CVE.org provides the canonical CVE record, NVD provides enriched data with CVSS scores, and lore.kernel.org hosts patches and commit discussions. As of 2024 the kernel project is its own CNA, which led to a significant increase in assigned CVEs as the kernel team now proactively assigns CVEs to security-relevant commits. Historically underreported; now aggressively assigning CVEs. Fixes go to stable kernel trees, then distributions backport.",
+        "urls": [
+          {"type": "website", "url": "https://www.kernel.org/"},
+          {"type": "lookup", "url": "https://www.cve.org/CVERecord?id={id}"},
+          {"type": "related", "url": "https://lore.kernel.org/all/"}
+        ],
+        "examples": ["CVE-2024-1234", "CVE-2022-0847"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Linux kernel CVE identifier",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cve.org/CVERecord?id={id}",
+            "note": "Linux kernel CVEs resolve to CVE.org as primary. NVD (nvd.nist.gov/vuln/detail/{id}) and lore.kernel.org provide additional context. No single kernel-specific advisory page exists.",
+            "examples": [
+              {"input": "CVE-2022-0847", "url": "https://www.cve.org/CVERecord?id=CVE-2022-0847", "note": "Dirty Pipe — arbitrary file overwrite, privilege escalation"},
+              {"input": "CVE-2016-5195", "url": "https://www.cve.org/CVERecord?id=CVE-2016-5195", "note": "Dirty COW — copy-on-write race condition, privilege escalation"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

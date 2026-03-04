@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openssl.org",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "OpenSSL Project",
+  "common_name": "OpenSSL",
+  "alternate_names": null,
+  "notes": "OpenSSL is a critical internet dependency — used by nearly every web server (Apache, nginx), programming language (Python, Ruby, PHP), and application (curl, git, databases). An OpenSSL vulnerability can affect nearly every internet-connected system. Notable: CVE-2014-0160 (Heartbleed), CVE-2014-0224 (CCS Injection), CVE-2022-3602 (X.509 buffer overflow). OpenSSL 3.x is current; 1.1.1 is EOL. LibreSSL and BoringSSL are forks. Project moved to openssl-library.org.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://openssl-library.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^secadv$"],
+      "description": "OpenSSL security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenSSL Security Advisories",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Security advisories published by the OpenSSL project, organized by date. Each advisory may cover multiple CVEs.",
+        "notes": "OpenSSL groups multiple CVEs into single dated advisory files. Advisory URLs use YYYYMMDD date format. The project moved from openssl.org to openssl-library.org; legacy URLs at https://www.openssl.org/news/secadv/ still work.",
+        "urls": [
+          {"type": "website", "url": "https://openssl-library.org/news/secadv/"},
+          {"type": "legacy", "url": "https://www.openssl.org/news/secadv/"}
+        ],
+        "examples": ["CVE-2014-0160", "20140407"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE identifier for OpenSSL vulnerability",
+          "weight": 50,
+          "data": {
+            "note": "OpenSSL groups multiple CVEs into single dated advisory files. A CVE alone cannot determine which advisory file contains it. Use the date-based lookup (YYYYMMDD) for direct resolution, or search the advisory listing page.",
+            "examples": [
+              {"input": "CVE-2014-0160", "note": "Heartbleed — advisory date 20140407, but CVE alone doesn't resolve to URL"},
+              {"input": "CVE-2022-3602", "note": "X.509 buffer overflow — advisory date 20221101"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^\\d{8}$"],
+          "description": "Advisory date (YYYYMMDD format)",
+          "weight": 100,
+          "data": {
+            "url": "https://openssl-library.org/news/secadv/{id}.txt",
+            "examples": [
+              {"input": "20140407", "url": "https://openssl-library.org/news/secadv/20140407.txt", "note": "Heartbleed disclosure advisory"},
+              {"input": "20221101", "url": "https://openssl-library.org/news/secadv/20221101.txt", "note": "X.509 buffer overflow advisory"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ubuntu.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Ubuntu (Canonical)",
+  "common_name": "Ubuntu",
+  "alternate_names": ["Canonical"],
+  "notes": "Ubuntu is the most popular Linux distribution for desktops and cloud servers, developed by Canonical Ltd and based on Debian. Default/popular choice on AWS, Azure, GCP. Common base image for Docker containers. Ubuntu Core for IoT. Canonical is a CVE Numbering Authority (CNA). Downstream of Debian — many packages are shared. LTS releases every 2 years (e.g., 22.04, 24.04) with 5+ years of support. Ubuntu Pro (formerly Ubuntu Advantage) extends security with ESM (Extended Security Maintenance), kernel livepatch, and FIPS-certified packages. USN advisories cover multiple Ubuntu releases and often reference multiple CVEs.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://ubuntu.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^usn$"],
+      "description": "Ubuntu Security Notice",
+      "weight": 100,
+      "data": {
+        "official_name": "Ubuntu Security Notice",
+        "common_name": "USN",
+        "alternate_names": null,
+        "description": "Canonical's security advisories for Ubuntu. Each USN may address multiple CVEs and specifies which Ubuntu releases are affected.",
+        "notes": "USN format: USN-NNNN-R where the suffix (-1, -2, etc.) indicates revisions or updates to the notice. USN advisories cover multiple Ubuntu releases and often reference multiple CVEs in a single notice. For bug tracking, see secid:advisory/ubuntu.com/launchpad. For CVE status across releases, see secid:advisory/ubuntu.com/cve-tracker.",
+        "urls": [
+          {"type": "website", "url": "https://ubuntu.com/security/notices"},
+          {"type": "lookup", "url": "https://ubuntu.com/security/notices/{id}"}
+        ],
+        "examples": ["USN-6543-1", "USN-6789-2"]
+      },
+      "children": [
+        {
+          "patterns": ["^USN-\\d+-\\d+$"],
+          "description": "Ubuntu Security Notice ID (USN-NNNN-R)",
+          "weight": 100,
+          "data": {
+            "url": "https://ubuntu.com/security/notices/{id}",
+            "examples": [
+              {"input": "USN-6543-1", "url": "https://ubuntu.com/security/notices/USN-6543-1"},
+              {"input": "USN-6789-2", "url": "https://ubuntu.com/security/notices/USN-6789-2", "note": "Suffix -2 indicates a revision or update to the original notice"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^cve-tracker$"],
+      "description": "Ubuntu CVE Tracker",
+      "weight": 100,
+      "data": {
+        "official_name": "Ubuntu CVE Tracker",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Ubuntu's CVE tracking system showing fix status across all supported Ubuntu releases.",
+        "notes": "Shows CVE status across all supported Ubuntu releases. Indicates which releases are affected and fix status. Links to related USN advisories. This is Ubuntu's own CVE analysis — for the canonical CVE record, see secid:advisory/mitre.org/cve. For official advisories, see secid:advisory/ubuntu.com/usn.",
+        "urls": [
+          {"type": "website", "url": "https://ubuntu.com/security/cves"},
+          {"type": "lookup", "url": "https://ubuntu.com/security/cves/{id}"}
+        ],
+        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Standard CVE ID format",
+          "weight": 100,
+          "data": {
+            "url": "https://ubuntu.com/security/cves/{id}",
+            "examples": [
+              {"input": "CVE-2024-1234", "url": "https://ubuntu.com/security/cves/CVE-2024-1234"},
+              {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/cves/CVE-2023-44487"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^launchpad$"],
+      "description": "Launchpad Bugs",
+      "weight": 100,
+      "data": {
+        "official_name": "Launchpad Bugs",
+        "common_name": "Launchpad",
+        "alternate_names": null,
+        "description": "Ubuntu/Canonical's bug tracking system hosted at bugs.launchpad.net.",
+        "notes": "Launchpad is used for Ubuntu and many other open source projects. Security bugs may be marked private until fixed. For official security notices, see secid:advisory/ubuntu.com/usn.",
+        "urls": [
+          {"type": "website", "url": "https://bugs.launchpad.net"},
+          {"type": "lookup", "url": "https://bugs.launchpad.net/bugs/{id}"}
+        ],
+        "examples": ["1234567", "2045678"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d+$"],
+          "description": "Numeric Launchpad bug ID",
+          "weight": 100,
+          "data": {
+            "url": "https://bugs.launchpad.net/bugs/{id}",
+            "examples": [
+              {"input": "1234567", "url": "https://bugs.launchpad.net/bugs/1234567"},
+              {"input": "2045678", "url": "https://bugs.launchpad.net/bugs/2045678"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "namespace": "suse.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "SUSE",
+  "common_name": "SUSE",
+  "alternate_names": ["SUSE Linux Enterprise", "openSUSE"],
+  "notes": "SUSE is a German enterprise Linux company producing SUSE Linux Enterprise (SLE) and sponsoring openSUSE. Popular in Europe and SAP environments. SUSE acquired Rancher Labs (Kubernetes management) in 2020. SUSE is a CVE Numbering Authority (CNA). openSUSE Leap is binary-compatible with SLES. Tumbleweed is rolling release. Security updates are similar across variants but support timelines differ. SUSE-SU IDs contain a colon (SUSE-SU-2024:0001-1) which is preserved in the SecID subpath.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.suse.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^suse-su$"],
+      "description": "SUSE Security Update",
+      "weight": 100,
+      "data": {
+        "official_name": "SUSE Security Update",
+        "common_name": "SUSE-SU",
+        "alternate_names": null,
+        "description": "SUSE Linux security updates covering SUSE Linux Enterprise and openSUSE.",
+        "notes": "SUSE-SU format: SUSE-SU-YYYY:NNNN-R where YYYY is the year, NNNN is a sequential advisory number, and R is the revision. The colon in the ID (e.g., SUSE-SU-2024:0001-1) is preserved in the SecID subpath. The URL slug is a transformed form: lowercased with the colon removed (SUSE-SU-2024:0001-1 becomes suse-su-20240001-1). For CVE tracking, see secid:advisory/suse.com/bugzilla.",
+        "urls": [
+          {"type": "website", "url": "https://www.suse.com/security/cve/"},
+          {"type": "lookup", "url": "https://www.suse.com/support/update/announcement/{year}/suse-su-{year}{num}-{rev}/"}
+        ],
+        "examples": ["SUSE-SU-2024:0001-1", "SUSE-SU-2023:4567-1"]
+      },
+      "children": [
+        {
+          "patterns": ["^SUSE-SU-\\d{4}:\\d{4}-\\d+$"],
+          "description": "SUSE Security Update ID (SUSE-SU-YYYY:NNNN-R)",
+          "weight": 100,
+          "data": {
+            "variables": {
+              "year": {
+                "extract": "^SUSE-SU-(\\d{4}):\\d{4}-\\d+$",
+                "description": "Advisory year"
+              },
+              "num": {
+                "extract": "^SUSE-SU-\\d{4}:(\\d{4})-\\d+$",
+                "description": "Advisory number"
+              },
+              "rev": {
+                "extract": "^SUSE-SU-\\d{4}:\\d{4}-(\\d+)$",
+                "description": "Revision number"
+              }
+            },
+            "url": "https://www.suse.com/support/update/announcement/{year}/suse-su-{year}{num}-{rev}/",
+            "examples": [
+              {
+                "input": "SUSE-SU-2024:0001-1",
+                "variables": {"year": "2024", "num": "0001", "rev": "1"},
+                "url": "https://www.suse.com/support/update/announcement/2024/suse-su-20240001-1/",
+                "note": "URL slug lowercases the ID and removes the colon: SUSE-SU-2024:0001-1 becomes suse-su-20240001-1"
+              },
+              {
+                "input": "SUSE-SU-2023:4567-1",
+                "variables": {"year": "2023", "num": "4567", "rev": "1"},
+                "url": "https://www.suse.com/support/update/announcement/2023/suse-su-20234567-1/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^bugzilla$"],
+      "description": "SUSE Bugzilla",
+      "weight": 100,
+      "data": {
+        "official_name": "SUSE Bugzilla",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "SUSE's bug tracking system where security bugs are tracked with CVE aliases.",
+        "notes": "SUSE Bugzilla supports CVE aliases — you can look up a bug by its CVE identifier and Bugzilla redirects to the tracking bug. Both numeric bug IDs and CVE aliases are valid SecID subpaths. Security bugs may be restricted until fixed. For official security updates, see secid:advisory/suse.com/suse-su.",
+        "urls": [
+          {"type": "website", "url": "https://bugzilla.suse.com"},
+          {"type": "lookup", "url": "https://bugzilla.suse.com/show_bug.cgi?id={id}"}
+        ],
+        "examples": ["1234567", "CVE-2024-1234"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d+$"],
+          "description": "Numeric bug ID",
+          "weight": 100,
+          "data": {
+            "url": "https://bugzilla.suse.com/show_bug.cgi?id={id}",
+            "examples": [
+              {"input": "1234567", "url": "https://bugzilla.suse.com/show_bug.cgi?id=1234567"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE alias (redirects to tracking bug)",
+          "weight": 50,
+          "data": {
+            "url": "https://bugzilla.suse.com/show_bug.cgi?id={id}",
+            "examples": [
+              {"input": "CVE-2024-1234", "url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2024-1234", "note": "SUSE Bugzilla accepts CVE aliases and redirects to the tracking bug"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

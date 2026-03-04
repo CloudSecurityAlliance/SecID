@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oracle.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Oracle Corporation",
+  "common_name": "Oracle",
+  "alternate_names": null,
+  "notes": "Oracle is a major enterprise software company. Products include Oracle Database, Java SE, WebLogic, MySQL, Oracle Cloud. Oracle releases security patches quarterly through Critical Patch Updates (CPUs). CPUs often fix hundreds of CVEs at once. WebLogic vulnerabilities are frequently exploited in the wild. Java vulnerabilities affect many applications beyond Oracle products. Oracle Linux is binary-compatible with RHEL.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.oracle.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cpu$"],
+      "description": "Oracle Critical Patch Update",
+      "weight": 100,
+      "data": {
+        "official_name": "Oracle Critical Patch Update",
+        "common_name": "CPU",
+        "alternate_names": null,
+        "description": "Oracle's quarterly security patch releases bundling fixes for many CVEs across all Oracle products.",
+        "notes": "Oracle releases CPUs quarterly on the third Tuesday of January, April, July, and October. Each CPU bundles fixes for many CVEs across all Oracle products. CPUs often fix hundreds of CVEs at once. WebLogic vulnerabilities are frequently exploited in the wild. For individual CVE alerts outside the quarterly schedule, see secid:advisory/oracle.com/alert.",
+        "urls": [
+          {"type": "website", "url": "https://www.oracle.com/security-alerts/"},
+          {"type": "lookup", "url": "https://www.oracle.com/security-alerts/cpu{id}.html"}
+        ],
+        "examples": ["jan2024", "oct2023", "apr2024"]
+      },
+      "children": [
+        {
+          "patterns": ["^(jan|apr|jul|oct)\\d{4}$"],
+          "description": "CPU identifier: month abbreviation + 4-digit year",
+          "weight": 100,
+          "data": {
+            "url": "https://www.oracle.com/security-alerts/cpu{id}.html",
+            "examples": [
+              {"input": "jan2024", "url": "https://www.oracle.com/security-alerts/cpujan2024.html", "note": "January 2024 Critical Patch Update"},
+              {"input": "oct2023", "url": "https://www.oracle.com/security-alerts/cpuoct2023.html", "note": "October 2023 Critical Patch Update"},
+              {"input": "apr2024", "url": "https://www.oracle.com/security-alerts/cpuapr2024.html", "note": "April 2024 Critical Patch Update"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^alert$"],
+      "description": "Oracle Security Alert",
+      "weight": 100,
+      "data": {
+        "official_name": "Oracle Security Alert",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Out-of-band security alerts for critical vulnerabilities requiring immediate attention, issued outside the regular CPU schedule.",
+        "notes": "Security Alerts are issued outside the regular CPU schedule for critical vulnerabilities requiring immediate attention. Used for issues too urgent to wait for the quarterly release. Alert URLs use a lowercased form of the CVE ID in the path (e.g., CVE-2021-44228 becomes alert-cve-2021-44228).",
+        "urls": [
+          {"type": "website", "url": "https://www.oracle.com/security-alerts/"},
+          {"type": "lookup", "url": "https://www.oracle.com/security-alerts/alert-{id_lower}.html"}
+        ],
+        "examples": ["CVE-2024-1234", "CVE-2021-44228"]
+      },
+      "children": [
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE identifier for Oracle Security Alert",
+          "weight": 100,
+          "data": {
+            "url": "https://www.oracle.com/security-alerts/alert-{id_lower}.html",
+            "note": "URL uses lowercased ID: CVE-2021-44228 becomes alert-cve-2021-44228 in the URL path",
+            "examples": [
+              {
+                "input": "CVE-2021-44228",
+                "url": "https://www.oracle.com/security-alerts/alert-cve-2021-44228.html",
+                "note": "Log4Shell -- Oracle's out-of-band security alert. URL lowercases the CVE prefix."
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^linux$"],
+      "description": "Oracle Linux Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Oracle Linux Security Advisories",
+        "common_name": "ELSA",
+        "alternate_names": null,
+        "description": "Security advisories for Oracle Linux, which is binary-compatible with Red Hat Enterprise Linux.",
+        "notes": "Oracle Linux is binary-compatible with RHEL. Security fixes often mirror RHEL advisories. Supports Oracle Linux 9 (current), 8 (current), 7 (extended support). Ksplice provides rebootless kernel patching. Published same day as CPUs for relevant issues.",
+        "urls": [
+          {"type": "website", "url": "https://linux.oracle.com/security/"},
+          {"type": "errata", "url": "https://linux.oracle.com/errata/"},
+          {"type": "lookup", "url": "https://linux.oracle.com/errata/{id}.html"}
+        ],
+        "examples": ["ELSA-2024-1234"]
+      },
+      "children": [
+        {
+          "patterns": ["^ELSA-\\d{4}-\\d+$"],
+          "description": "Oracle Linux Security Advisory ID",
+          "weight": 100,
+          "data": {
+            "url": "https://linux.oracle.com/errata/{id}.html",
+            "examples": [
+              {"input": "ELSA-2024-1234", "url": "https://linux.oracle.com/errata/ELSA-2024-1234.html", "note": "Oracle Linux security advisory"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^vm$"],
+      "description": "Oracle VM Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Oracle VM Security Advisories",
+        "common_name": "OVMSA",
+        "alternate_names": null,
+        "description": "Security advisories covering Oracle VM Server for x86, including virtualization-specific and hypervisor security vulnerabilities.",
+        "notes": "Oracle VM Server security advisories covering virtualization-specific vulnerabilities. Published with quarterly CPUs. No direct per-advisory lookup URL available -- advisories are listed on the Oracle security alerts page.",
+        "urls": [
+          {"type": "website", "url": "https://www.oracle.com/security-alerts/"}
+        ],
+        "examples": ["OVMSA-2024-0001"]
+      },
+      "children": [
+        {
+          "patterns": ["^OVMSA-\\d{4}-\\d+$"],
+          "description": "Oracle VM Security Advisory ID",
+          "weight": 100,
+          "data": {
+            "note": "No direct lookup URL available. OVMSA advisories are listed on the Oracle security alerts page.",
+            "examples": [
+              {"input": "OVMSA-2024-0001", "note": "No per-advisory URL; check https://www.oracle.com/security-alerts/"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
