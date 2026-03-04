@@ -1057,40 +1057,89 @@ secid:reference/ietf.org/rfc9110
 
 If a document has both a human-readable reference (`secid:reference/nist.gov/ai-rmf`) and a DOI (`secid:reference/doi.org/10.6028/NIST.AI.100-1`), the equivalence relationship between them belongs in the **relationship layer**, not the registry.
 
-## Entity Type Differences
+## Entity Type
 
-Entity files describe organizations rather than data sources. They use a `names` block instead of `sources` to document products/projects the entity is known for:
+Entity files describe organizations and their products/services. They use the same `match_nodes` structure as other types — the resolver walks the same tree for `secid:entity/redhat.com/openshift` as it does for `secid:advisory/redhat.com/errata#RHSA-2024:1234`.
+
+Entity match_nodes typically use literal patterns (`(?i)^openshift$`) rather than regex patterns, since entity names are fixed strings rather than structured identifier formats. However, the same tree shape enables hierarchical navigation — products can have sub-products as children.
+
+### Entity-specific data fields
+
+Entity match_nodes may include these additional fields in `data`:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `issues_type` | string | SecID type this entity issues (`"advisory"`, `"weakness"`, `"ttp"`, `"control"`) |
+| `issues_namespace` | string | SecID namespace for those identifiers |
+| `established` | integer | Year the organization was established |
+
+### Example
 
 ```json
 {
-  "namespace": "mitre.org",
+  "namespace": "redhat.com",
   "type": "entity",
-  "official_name": "The MITRE Corporation",
-  "common_name": "MITRE",
-  "notes": "US nonprofit operating FFRDCs for the US government. Headquarters in Bedford, MA and McLean, VA. Created and maintains foundational cybersecurity frameworks including CVE, CWE, ATT&CK, CAPEC, and ATLAS.",
-  "wikidata": ["Q1116236"],
-  "wikipedia": ["https://en.wikipedia.org/wiki/Mitre_Corporation"],
+  "official_name": "Red Hat, Inc.",
+  "common_name": "Red Hat",
+  "notes": "Enterprise open source company, part of IBM since 2019.",
 
   "urls": [
-    {"type": "website", "url": "https://www.mitre.org"}
+    {"type": "website", "url": "https://www.redhat.com"},
+    {"type": "security", "url": "https://access.redhat.com/security/"}
   ],
 
-  "names": {
-    "cve": {
-      "official_name": "Common Vulnerabilities and Exposures",
-      "common_name": "CVE",
-      "urls": [ ... ]
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^openshift$"],
+      "description": "Red Hat OpenShift",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat OpenShift",
+        "description": "Kubernetes-based container platform (general/umbrella term)",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift"},
+          {"type": "docs", "url": "https://docs.openshift.com"}
+        ],
+        "examples": ["openshift"]
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^rosa$"],
+          "description": "Red Hat OpenShift Service on AWS",
+          "weight": 100,
+          "data": {
+            "official_name": "Red Hat OpenShift Service on AWS",
+            "common_name": "ROSA",
+            "description": "Managed OpenShift on AWS (jointly operated with AWS)",
+            "urls": [
+              {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/aws"},
+              {"type": "aws", "url": "https://aws.amazon.com/rosa/"}
+            ],
+            "examples": ["rosa"]
+          }
+        }
+      ]
     },
-    "attack": {
-      "official_name": "MITRE ATT&CK",
-      "common_name": "ATT&CK",
-      "urls": [ ... ]
+    {
+      "patterns": ["(?i)^rhel$"],
+      "description": "Red Hat Enterprise Linux",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Enterprise Linux",
+        "description": "Enterprise Linux distribution",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"}
+        ],
+        "examples": ["rhel"]
+      }
     }
-  }
+  ]
 }
 ```
 
-The `names` block helps with disambiguation and finding - "What does MITRE publish?" These are labels and access points, not relationship data. Cross-references between entities and their publications belong in an enrichment layer.
+The `match_nodes` approach means the resolver doesn't need entity-specific logic. `secid:entity/redhat.com/openshift` walks the tree the same way `secid:advisory/redhat.com/errata` does. Products with variants (OpenShift → ROSA, ARO) naturally become parent → children relationships.
+
+Cross-references between entities and their publications (e.g., "MITRE operates CVE") are documented via `issues_type` and `issues_namespace` fields in entity data, but the formal equivalence belongs in the relationship layer.
 
 ## Complete Example
 

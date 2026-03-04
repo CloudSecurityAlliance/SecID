@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Google LLC",
+  "common_name": "Google",
+  "alternate_names": null,
+  "notes": "Google operates several security initiatives including the Open Source Vulnerabilities database (OSV), Project Zero security research team, and oss-fuzz continuous fuzzing for open source software.",
+  "wikidata": "Q95",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.google.com"},
+    {"type": "security", "url": "https://security.google"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^osv$"],
+      "description": "Open Source Vulnerabilities",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Source Vulnerabilities",
+        "common_name": "OSV",
+        "description": "Open source vulnerability database aggregating advisories across multiple ecosystems.",
+        "issues_type": "advisory",
+        "issues_namespace": "osv",
+        "urls": [
+          {"type": "website", "url": "https://osv.dev"},
+          {"type": "api", "url": "https://api.osv.dev"},
+          {"type": "github", "url": "https://github.com/google/osv.dev"}
+        ],
+        "examples": ["osv"]
+      }
+    }
+  ]
+}

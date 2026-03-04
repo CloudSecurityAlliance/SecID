@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "debian.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Debian Project",
+  "common_name": "Debian",
+  "alternate_names": null,
+  "notes": "The Debian Project is a volunteer-driven organization that develops and maintains the Debian GNU/Linux distribution. Debian serves as the upstream for many other distributions including Ubuntu. Debian operates a comprehensive security response program including DSA (Debian Security Advisories), DLA (Debian LTS Advisories), and a security tracker.",
+  "wikidata": "Q7715973",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.debian.org"},
+    {"type": "security", "url": "https://www.debian.org/security/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^debian$"],
+      "description": "Debian GNU/Linux",
+      "weight": 100,
+      "data": {
+        "official_name": "Debian GNU/Linux",
+        "description": "Community-developed Linux distribution.",
+        "issues_type": "advisory",
+        "issues_namespace": "debian.org",
+        "urls": [
+          {"type": "website", "url": "https://www.debian.org"},
+          {"type": "packages", "url": "https://packages.debian.org"},
+          {"type": "tracker", "url": "https://security-tracker.debian.org/tracker"}
+        ],
+        "examples": ["debian"]
+      }
+    }
+  ]
+}

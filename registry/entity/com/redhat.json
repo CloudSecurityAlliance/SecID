@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "namespace": "redhat.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Red Hat, Inc.",
+  "common_name": "Red Hat",
+  "alternate_names": ["Red Hat"],
+  "notes": "Enterprise open source company, part of IBM since 2019. Provides enterprise Linux, container platforms, and automation tools. Operates comprehensive security response program with RHSA, RHBA, RHEA advisories.",
+  "wikidata": "Q485809",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.redhat.com"},
+    {"type": "security", "url": "https://access.redhat.com/security/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^openshift$"],
+      "description": "Red Hat OpenShift — Kubernetes-based container platform (general/umbrella term)",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat OpenShift",
+        "common_name": null,
+        "description": "Kubernetes-based container platform (general/umbrella term)",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift"},
+          {"type": "docs", "url": "https://docs.openshift.com"},
+          {"type": "console", "url": "https://console.redhat.com/openshift"}
+        ],
+        "examples": ["openshift"]
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^openshift-container-platform$"],
+          "description": "Red Hat OpenShift Container Platform — self-managed OpenShift (the downloadable product)",
+          "weight": 100,
+          "data": {
+            "official_name": "Red Hat OpenShift Container Platform",
+            "common_name": null,
+            "description": "Self-managed OpenShift (the downloadable product)",
+            "urls": [
+              {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/container-platform"}
+            ],
+            "examples": ["openshift-container-platform"]
+          }
+        },
+        {
+          "patterns": ["(?i)^rosa$"],
+          "description": "Red Hat OpenShift Service on AWS (ROSA) — managed OpenShift on AWS",
+          "weight": 100,
+          "data": {
+            "official_name": "Red Hat OpenShift Service on AWS",
+            "common_name": "ROSA",
+            "description": "Managed OpenShift on AWS (jointly operated with AWS)",
+            "urls": [
+              {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/aws"},
+              {"type": "aws", "url": "https://aws.amazon.com/rosa/"}
+            ],
+            "examples": ["rosa"]
+          }
+        },
+        {
+          "patterns": ["(?i)^aro$"],
+          "description": "Azure Red Hat OpenShift (ARO) — managed OpenShift on Azure",
+          "weight": 100,
+          "data": {
+            "official_name": "Azure Red Hat OpenShift",
+            "common_name": "ARO",
+            "description": "Managed OpenShift on Azure (jointly operated with Microsoft)",
+            "urls": [
+              {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/azure"},
+              {"type": "azure", "url": "https://azure.microsoft.com/en-us/products/openshift"}
+            ],
+            "examples": ["aro"]
+          }
+        },
+        {
+          "patterns": ["(?i)^openshift-dedicated$"],
+          "description": "Red Hat OpenShift Dedicated — managed OpenShift on AWS/GCP (operated by Red Hat)",
+          "weight": 100,
+          "data": {
+            "official_name": "Red Hat OpenShift Dedicated",
+            "common_name": null,
+            "description": "Managed OpenShift on AWS/GCP (operated by Red Hat)",
+            "urls": [
+              {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/dedicated"}
+            ],
+            "examples": ["openshift-dedicated"]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^rhel$"],
+      "description": "Red Hat Enterprise Linux — enterprise Linux distribution",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Enterprise Linux",
+        "common_name": "RHEL",
+        "description": "Enterprise Linux distribution",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"},
+          {"type": "docs", "url": "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux"}
+        ],
+        "examples": ["rhel"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ansible$"],
+      "description": "Red Hat Ansible Automation Platform — IT automation platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Ansible Automation Platform",
+        "common_name": "Ansible",
+        "description": "IT automation platform",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/management/ansible"},
+          {"type": "docs", "url": "https://docs.ansible.com"},
+          {"type": "galaxy", "url": "https://galaxy.ansible.com"}
+        ],
+        "examples": ["ansible"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^satellite$"],
+      "description": "Red Hat Satellite — systems management platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Satellite",
+        "common_name": null,
+        "description": "Systems management platform",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/management/satellite"}
+        ],
+        "examples": ["satellite"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^quay$"],
+      "description": "Red Hat Quay — container registry",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Quay",
+        "common_name": null,
+        "description": "Container registry",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/quay"},
+          {"type": "public", "url": "https://quay.io"}
+        ],
+        "examples": ["quay"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^acs$"],
+      "description": "Red Hat Advanced Cluster Security — Kubernetes-native security platform",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Advanced Cluster Security",
+        "common_name": "ACS",
+        "description": "Kubernetes-native security platform",
+        "urls": [
+          {"type": "website", "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes"}
+        ],
+        "examples": ["acs"]
+      }
+    }
+  ]
+}

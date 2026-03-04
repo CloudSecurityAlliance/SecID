@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "The MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": null,
+  "notes": "US nonprofit operating federally funded research and development centers (FFRDCs) for the US government. Created and maintains CVE, CWE, ATT&CK, CAPEC, and ATLAS — foundational identifier systems and frameworks for cybersecurity. In April 2025, MITRE's CVE contract nearly expired with short notice; CISA extended funding, prompting formation of the CVE Foundation as a nonprofit to ensure long-term stability.",
+  "wikidata": ["Q1116236"],
+  "wikipedia": null,
+  "established": 1958,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cve$"],
+      "description": "Common Vulnerabilities and Exposures",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Vulnerabilities and Exposures",
+        "common_name": "CVE",
+        "description": "The canonical vulnerability identifier system, operated by MITRE under contract with CISA. CVE IDs are the standard cross-reference for vulnerability advisories worldwide.",
+        "issues_type": "advisory",
+        "issues_namespace": "cve",
+        "urls": [
+          {"type": "website", "url": "https://www.cve.org"},
+          {"type": "api", "url": "https://cveawg.mitre.org/api"},
+          {"type": "bulk_data", "url": "https://github.com/CVEProject/cvelistV5", "format": "json"}
+        ],
+        "examples": ["cve"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cwe$"],
+      "description": "Common Weakness Enumeration",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Weakness Enumeration",
+        "common_name": "CWE",
+        "description": "A taxonomy of software and hardware weakness types. Used by NVD, OWASP, and vulnerability databases to classify root causes of vulnerabilities.",
+        "issues_type": "weakness",
+        "issues_namespace": "cwe",
+        "urls": [
+          {"type": "website", "url": "https://cwe.mitre.org"},
+          {"type": "api", "url": "https://cwe.mitre.org/data/index.html"}
+        ],
+        "examples": ["cwe"]
+      }
+    },
+    {
+      "patterns": ["(?i)^attack$"],
+      "description": "MITRE ATT&CK",
+      "weight": 100,
+      "data": {
+        "official_name": "MITRE ATT&CK",
+        "common_name": "ATT&CK",
+        "description": "Knowledge base of adversary tactics, techniques, and procedures (TTPs) based on real-world observations. The standard framework for threat modeling and detection engineering.",
+        "issues_type": "ttp",
+        "issues_namespace": "attack",
+        "urls": [
+          {"type": "website", "url": "https://attack.mitre.org"},
+          {"type": "api", "url": "https://attack.mitre.org/docs/api/"},
+          {"type": "github", "url": "https://github.com/mitre-attack/attack-stix-data"}
+        ],
+        "examples": ["attack"]
+      }
+    },
+    {
+      "patterns": ["(?i)^atlas$"],
+      "description": "Adversarial Threat Landscape for AI Systems",
+      "weight": 100,
+      "data": {
+        "official_name": "Adversarial Threat Landscape for AI Systems",
+        "common_name": "ATLAS",
+        "description": "Knowledge base of adversary tactics and techniques targeting AI/ML systems. Extends ATT&CK concepts to the AI domain.",
+        "issues_type": "ttp",
+        "issues_namespace": "atlas",
+        "urls": [
+          {"type": "website", "url": "https://atlas.mitre.org"},
+          {"type": "github", "url": "https://github.com/mitre-atlas/atlas-data"}
+        ],
+        "examples": ["atlas"]
+      }
+    },
+    {
+      "patterns": ["(?i)^capec$"],
+      "description": "Common Attack Pattern Enumeration and Classification",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Attack Pattern Enumeration and Classification",
+        "common_name": "CAPEC",
+        "description": "A taxonomy of attack patterns — how adversaries exploit weaknesses. Complementary to CWE (which describes the weaknesses themselves).",
+        "issues_type": "ttp",
+        "issues_namespace": "capec",
+        "urls": [
+          {"type": "website", "url": "https://capec.mitre.org"}
+        ],
+        "examples": ["capec"]
+      }
+    }
+  ]
+}

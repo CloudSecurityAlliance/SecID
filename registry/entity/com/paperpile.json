@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "namespace": "paperpile.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Paperpile",
+  "common_name": "Paperpile",
+  "alternate_names": null,
+  "notes": "Paperpile is a reference management tool that allows sharing of curated bibliographies. Paperpile shared libraries serve as curated collections of research that can help identify frameworks, taxonomies, and standards to add to the SecID registry.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://paperpile.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-risk-frameworks$"],
+      "description": "AI Risk Repository Frameworks Collection",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Risk Repository Frameworks Collection",
+        "description": "A curated bibliography of 75+ AI risk frameworks, taxonomies, and research papers maintained as a shared Paperpile library. Includes risk taxonomies, incident analysis research, safety benchmarks, governance frameworks, and academic surveys.",
+        "urls": [
+          {"type": "website", "url": "https://paperpile.com/shared/AI-Risk-Repository-Frameworks-PUBLIC-t2cvtMee8TkuNni4tuDJSeQ"}
+        ],
+        "examples": ["ai-risk-frameworks"]
+      }
+    }
+  ]
+}

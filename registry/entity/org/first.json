@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "first.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Forum of Incident Response and Security Teams",
+  "common_name": "FIRST",
+  "alternate_names": null,
+  "notes": "FIRST is a global forum for incident response and security teams. FIRST develops and maintains key security standards including the Common Vulnerability Scoring System (CVSS), the Exploit Prediction Scoring System (EPSS), and the Traffic Light Protocol (TLP).",
+  "wikidata": "Q5468579",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.first.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cvss$"],
+      "description": "Common Vulnerability Scoring System",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Vulnerability Scoring System",
+        "common_name": "CVSS",
+        "description": "Vulnerability severity scoring standard.",
+        "urls": [
+          {"type": "website", "url": "https://www.first.org/cvss/"},
+          {"type": "calculator", "url": "https://www.first.org/cvss/calculator/4.0"}
+        ],
+        "examples": ["cvss"]
+      }
+    },
+    {
+      "patterns": ["(?i)^epss$"],
+      "description": "Exploit Prediction Scoring System",
+      "weight": 100,
+      "data": {
+        "official_name": "Exploit Prediction Scoring System",
+        "common_name": "EPSS",
+        "description": "Probability of exploitation scoring.",
+        "urls": [
+          {"type": "website", "url": "https://www.first.org/epss/"},
+          {"type": "api", "url": "https://api.first.org/data/v1/epss"}
+        ],
+        "examples": ["epss"]
+      }
+    }
+  ]
+}

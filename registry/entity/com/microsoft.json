@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Microsoft Corporation",
+  "common_name": "Microsoft",
+  "alternate_names": null,
+  "notes": "Technology company providing operating systems, cloud services, productivity software, and security solutions. Acquired GitHub (2018), LinkedIn (2016), Nuance (2022). Operates comprehensive security programs including MSRC (Patch Tuesday releases), Microsoft Threat Intelligence Center (MSTIC), and multiple bug bounty programs.",
+  "wikidata": ["Q2283"],
+  "wikipedia": null,
+  "established": 1975,
+
+  "urls": [
+    {"type": "website", "url": "https://www.microsoft.com"},
+    {"type": "security", "url": "https://www.microsoft.com/en-us/security"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^msrc$"],
+      "description": "Microsoft Security Response Center",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Security Response Center",
+        "common_name": "MSRC",
+        "description": "Microsoft's security advisory and incident response program. Publishes Patch Tuesday releases monthly with security updates across all Microsoft products.",
+        "issues_type": "advisory",
+        "issues_namespace": "microsoft.com",
+        "urls": [
+          {"type": "website", "url": "https://msrc.microsoft.com"},
+          {"type": "api", "url": "https://api.msrc.microsoft.com"},
+          {"type": "blog", "url": "https://msrc.microsoft.com/blog"}
+        ],
+        "examples": ["msrc"]
+      }
+    },
+    {
+      "patterns": ["(?i)^azure$"],
+      "description": "Microsoft Azure",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Azure",
+        "description": "Cloud computing platform. Azure security services span identity, network, and data protection.",
+        "urls": [
+          {"type": "website", "url": "https://azure.microsoft.com"},
+          {"type": "portal", "url": "https://portal.azure.com"},
+          {"type": "docs", "url": "https://docs.microsoft.com/en-us/azure"},
+          {"type": "security", "url": "https://docs.microsoft.com/en-us/azure/security"}
+        ],
+        "examples": ["azure"]
+      }
+    },
+    {
+      "patterns": ["(?i)^windows$"],
+      "description": "Microsoft Windows",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Windows",
+        "description": "Operating system family",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/windows"},
+          {"type": "docs", "url": "https://docs.microsoft.com/en-us/windows"},
+          {"type": "security", "url": "https://www.microsoft.com/en-us/windows/comprehensive-security"}
+        ],
+        "examples": ["windows"]
+      }
+    },
+    {
+      "patterns": ["(?i)^m365$"],
+      "description": "Microsoft 365",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft 365",
+        "description": "Productivity and collaboration platform",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/microsoft-365"},
+          {"type": "security", "url": "https://www.microsoft.com/en-us/security/business/microsoft-365-security"}
+        ],
+        "examples": ["m365"]
+      }
+    },
+    {
+      "patterns": ["(?i)^defender$"],
+      "description": "Microsoft Defender",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Defender",
+        "description": "Security product family spanning endpoint, identity, cloud, and email protection",
+        "urls": [
+          {"type": "website", "url": "https://www.microsoft.com/en-us/security/business/microsoft-defender"}
+        ],
+        "examples": ["defender"]
+      }
+    },
+    {
+      "patterns": ["(?i)^sentinel$"],
+      "description": "Microsoft Sentinel",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Sentinel",
+        "description": "Cloud-native SIEM and SOAR",
+        "urls": [
+          {"type": "website", "url": "https://azure.microsoft.com/en-us/products/microsoft-sentinel"}
+        ],
+        "examples": ["sentinel"]
+      }
+    }
+  ]
+}

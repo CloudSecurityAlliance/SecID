@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisco.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Cisco Systems, Inc.",
+  "common_name": "Cisco",
+  "alternate_names": null,
+  "notes": "Networking and security company. Products include routers, switches, firewalls, and collaboration tools. Cisco PSIRT publishes security advisories using descriptive IDs (cisco-sa-*) with random suffixes. IOS and IOS XE are different code bases despite similar names.",
+  "wikidata": ["Q173395"],
+  "wikipedia": null,
+  "established": 1984,
+
+  "urls": [
+    {"type": "website", "url": "https://www.cisco.com"},
+    {"type": "security", "url": "https://sec.cloudapps.cisco.com/security/center/home.x"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^psirt$"],
+      "description": "Cisco Product Security Incident Response Team",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco Product Security Incident Response Team",
+        "common_name": "Cisco PSIRT",
+        "description": "Cisco's security advisory and incident response program. Publishes advisories with CVRF/CSAF machine-readable formats and impact ratings (Critical, High, Medium, Low).",
+        "issues_type": "advisory",
+        "issues_namespace": "cisco.com",
+        "urls": [
+          {"type": "website", "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x"},
+          {"type": "api", "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory"}
+        ],
+        "examples": ["psirt"]
+      }
+    },
+    {
+      "patterns": ["(?i)^ios$"],
+      "description": "Cisco IOS",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco IOS",
+        "description": "Network operating system for routers and switches",
+        "urls": [
+          {"type": "website", "url": "https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-software/index.html"}
+        ],
+        "examples": ["ios"]
+      }
+    },
+    {
+      "patterns": ["(?i)^ios-xe$"],
+      "description": "Cisco IOS XE",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco IOS XE",
+        "description": "Modern network operating system. Different code base from IOS despite similar naming.",
+        "urls": [
+          {"type": "website", "url": "https://www.cisco.com/c/en/us/products/ios-nx-os-software/ios-xe/index.html"}
+        ],
+        "examples": ["ios-xe"]
+      }
+    },
+    {
+      "patterns": ["(?i)^asa$"],
+      "description": "Cisco Adaptive Security Appliance",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco Adaptive Security Appliance",
+        "common_name": "Cisco ASA",
+        "description": "Firewall and VPN appliance",
+        "urls": [
+          {"type": "website", "url": "https://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html"}
+        ],
+        "examples": ["asa"]
+      }
+    },
+    {
+      "patterns": ["(?i)^firepower$"],
+      "description": "Cisco Firepower",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco Firepower",
+        "description": "Next-generation firewall and IPS",
+        "urls": [
+          {"type": "website", "url": "https://www.cisco.com/c/en/us/products/security/firepower-ngfw/index.html"}
+        ],
+        "examples": ["firepower"]
+      }
+    },
+    {
+      "patterns": ["(?i)^webex$"],
+      "description": "Cisco Webex",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco Webex",
+        "description": "Collaboration and video conferencing platform",
+        "urls": [
+          {"type": "website", "url": "https://www.webex.com"}
+        ],
+        "examples": ["webex"]
+      }
+    }
+  ]
+}

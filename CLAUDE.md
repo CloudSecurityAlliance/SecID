@@ -266,16 +266,13 @@ See `registry/advisory/com/redhat.json` for a complex example with nested childr
 
 Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review of YAML→JSON conversions.
 
-## Entity Type Differences
+## Entity Type
 
-Entity files describe organizations, not data sources. They use a `names` block instead of `sources` to document products/projects:
+Entity files describe organizations and their products/services. **YAML `.md` files** use a `names` block; **JSON `.json` files** use `match_nodes` — the same tree structure as all other types. This means the resolver walks the same tree for entities as for advisories.
 
-```yaml
-# registry/entity/org/mitre.md uses names: { cve: {...}, attack: {...} }
-# vs registry/advisory/org/mitre.md uses sources: { cve: {...} }
-```
+Entity match_nodes use literal patterns (`(?i)^openshift$`) since entity names are fixed strings. Products with variants become parent → children relationships (e.g., OpenShift → ROSA, ARO). Entity-specific `data` fields include `issues_type` and `issues_namespace` for cross-referencing.
 
-See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Type Differences" section for the full schema.
+See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Type" section for the full schema and example.
 
 ## Cross-Type Documentation
 

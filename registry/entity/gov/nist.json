@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "National Institute of Standards and Technology",
+  "common_name": "NIST",
+  "alternate_names": null,
+  "notes": "NIST is a US federal agency within the Department of Commerce. In the security context, NIST is known for the National Vulnerability Database (NVD), the NIST Cybersecurity Framework (CSF), and the SP 800 series of security guidelines and standards.",
+  "wikidata": "Q176691",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nist.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^nvd$"],
+      "description": "National Vulnerability Database",
+      "weight": 100,
+      "data": {
+        "official_name": "National Vulnerability Database",
+        "common_name": "NVD",
+        "description": "CVE enrichment database providing analysis, scoring, and additional metadata for CVE records.",
+        "issues_type": "advisory",
+        "issues_namespace": "nvd",
+        "urls": [
+          {"type": "website", "url": "https://nvd.nist.gov"},
+          {"type": "api", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0"},
+          {"type": "bulk_data", "url": "https://nvd.nist.gov/vuln/data-feeds"}
+        ],
+        "examples": ["nvd"]
+      }
+    }
+  ]
+}

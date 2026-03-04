@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mcpshark.sh",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "MCPShark",
+  "common_name": "MCPShark",
+  "alternate_names": null,
+  "notes": "Security tooling for the Model Context Protocol (MCP) ecosystem. First dedicated MCP security scanner. Combines rule-based checks with LLM-powered semantic analysis.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://mcpshark.sh"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^smart$"],
+      "description": "Smart Scan — comprehensive security analysis tool for MCP servers and AI agents",
+      "weight": 100,
+      "data": {
+        "official_name": "Smart Scan - MCP Security Analyzer",
+        "common_name": "Smart Scan",
+        "description": "Comprehensive security analysis tool for MCP servers and AI agents. Evaluates safety and trustworthiness by analyzing agents, tools, resources, prompts, and capabilities.",
+        "urls": [
+          {"type": "website", "url": "https://smart.mcpshark.sh"},
+          {"type": "dashboard", "url": "https://smart.mcpshark.sh/dashboard"},
+          {"type": "api", "url": "https://smart.mcpshark.sh/api"},
+          {"type": "docs", "url": "https://smart.mcpshark.sh/docs"}
+        ],
+        "examples": ["smart"]
+      }
+    }
+  ]
+}

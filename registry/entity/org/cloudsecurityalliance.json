@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cloudsecurityalliance.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Cloud Security Alliance",
+  "common_name": "CSA",
+  "alternate_names": null,
+  "notes": "Cloud Security Alliance is a nonprofit organization focused on cloud and AI security. CSA develops key security frameworks including the Cloud Controls Matrix (CCM), AI Controls Matrix (AICM), and the Security, Trust, Assurance, and Risk (STAR) program.",
+  "wikidata": "Q5135907",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloudsecurityalliance.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ccm$"],
+      "description": "Cloud Controls Matrix",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Controls Matrix",
+        "common_name": "CCM",
+        "description": "Cloud security controls framework.",
+        "issues_type": "control",
+        "issues_namespace": "csa-ccm",
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix/"}
+        ],
+        "examples": ["ccm"]
+      }
+    },
+    {
+      "patterns": ["(?i)^aicm$"],
+      "description": "AI Controls Matrix",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Controls Matrix",
+        "common_name": "AICM",
+        "description": "AI security controls framework.",
+        "issues_type": "control",
+        "issues_namespace": "csa-aicm",
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/research/ai-controls-matrix/"}
+        ],
+        "examples": ["aicm"]
+      }
+    }
+  ]
+}

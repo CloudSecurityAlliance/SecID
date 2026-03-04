@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "namespace": "owasp.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Open Worldwide Application Security Project",
+  "common_name": "OWASP",
+  "alternate_names": null,
+  "notes": "Nonprofit foundation focused on improving software security. Key projects include Top 10, LLM Top 10, ASVS, Testing Guide, and AIVSS. OWASP produces widely referenced weakness taxonomies and security verification standards used across the industry.",
+  "wikidata": ["Q1142418"],
+  "wikipedia": null,
+  "established": 2001,
+
+  "urls": [
+    {"type": "website", "url": "https://owasp.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^top-10$"],
+      "description": "OWASP Top 10",
+      "weight": 100,
+      "data": {
+        "official_name": "OWASP Top 10",
+        "description": "Periodically updated list of the most critical web application security risks. The standard awareness document for web application security.",
+        "issues_type": "weakness",
+        "issues_namespace": "owasp-top10",
+        "urls": [
+          {"type": "website", "url": "https://owasp.org/www-project-top-ten/"}
+        ],
+        "examples": ["top-10"]
+      }
+    },
+    {
+      "patterns": ["(?i)^llm-top-10$"],
+      "description": "OWASP Top 10 for LLM Applications",
+      "weight": 100,
+      "data": {
+        "official_name": "OWASP Top 10 for LLM Applications",
+        "description": "Top security risks specific to applications built with large language models. Covers prompt injection, data poisoning, supply chain, and other LLM-specific attack surfaces.",
+        "issues_type": "weakness",
+        "issues_namespace": "owasp-llm",
+        "urls": [
+          {"type": "website", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"},
+          {"type": "github", "url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications"}
+        ],
+        "examples": ["llm-top-10"]
+      }
+    },
+    {
+      "patterns": ["(?i)^aivss$"],
+      "description": "AI Vulnerability Scoring System",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Vulnerability Scoring System",
+        "common_name": "AIVSS",
+        "description": "Scoring system for AI-specific vulnerabilities (extends CVSS concepts for AI). No self-identifying string format yet; reference via entity, not as peer scheme. Current version: 0.5.",
+        "urls": [
+          {"type": "website", "url": "https://aivss.owasp.org"}
+        ],
+        "examples": ["aivss"]
+      }
+    }
+  ]
+}

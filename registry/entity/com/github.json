@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub, Inc.",
+  "common_name": "GitHub",
+  "alternate_names": null,
+  "notes": "GitHub is a platform for software development and version control. In security, GitHub provides the GitHub Security Advisories database (GHSA), Dependabot automated dependency security updates, and code scanning for security vulnerability detection.",
+  "wikidata": "Q364",
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"},
+    {"type": "security", "url": "https://github.com/security"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ghsa$"],
+      "description": "GitHub Security Advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "GitHub Security Advisories",
+        "common_name": "GHSA",
+        "description": "GitHub's security advisory database covering multiple package ecosystems.",
+        "issues_type": "advisory",
+        "issues_namespace": "ghsa",
+        "urls": [
+          {"type": "website", "url": "https://github.com/advisories"},
+          {"type": "api", "url": "https://docs.github.com/en/rest/security-advisories"},
+          {"type": "bulk_data", "url": "https://github.com/github/advisory-database"}
+        ],
+        "examples": ["ghsa"]
+      }
+    }
+  ]
+}
