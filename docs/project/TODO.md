@@ -50,6 +50,20 @@ Open decisions (must be explicit before enforcing CI gates):
 
 **When to revisit:** Before enabling strict resolver conformance gates in CI.
 
+### URL Template Variable Sanitization Guidance
+**Status:** Needs documentation + implementation review
+
+Registry URL templates use `{id}` variable substitution (e.g., `https://bugzilla.redhat.com/show_bug.cgi?id={id}`). The `{id}` values come from user input (the subpath portion of the SecID string). If resolver implementations perform naive string substitution without URL-encoding the variable, an attacker could inject additional query parameters.
+
+Example: `secid:advisory/redhat.com/bugzilla#123&redirect=evil.com` with naive substitution produces `https://bugzilla.redhat.com/show_bug.cgi?id=123&redirect=evil.com`.
+
+Need to:
+- Add explicit requirement to `REGISTRY-JSON-FORMAT.md` that resolvers MUST URL-encode template variables before substitution
+- Audit SecID-Service `resolver.ts` to verify `{id}` substitution is URL-encoded
+- Consider whether patterns should reject inputs containing URL-control characters (`&`, `=`, `#`) that don't belong in the identifier
+
+**When to revisit:** Before v1.0 release — this is a security requirement for all resolver implementations.
+
 ### Resolution Instructions for Non-Deterministic Systems
 **Status:** Deferred - design decision needed
 
