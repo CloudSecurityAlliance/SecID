@@ -51,18 +51,17 @@ Open decisions (must be explicit before enforcing CI gates):
 **When to revisit:** Before enabling strict resolver conformance gates in CI.
 
 ### URL Template Variable Sanitization Guidance
-**Status:** Needs documentation + implementation review
+**Status:** Resolved — no code changes needed
 
-Registry URL templates use `{id}` variable substitution (e.g., `https://bugzilla.redhat.com/show_bug.cgi?id={id}`). The `{id}` values come from user input (the subpath portion of the SecID string). If resolver implementations perform naive string substitution without URL-encoding the variable, an attacker could inject additional query parameters.
+Registry URL templates use `{id}` variable substitution (e.g., `https://bugzilla.redhat.com/show_bug.cgi?id={id}`). The `{id}` values come from user input (the subpath portion of the SecID string).
 
-Example: `secid:advisory/redhat.com/bugzilla#123&redirect=evil.com` with naive substitution produces `https://bugzilla.redhat.com/show_bug.cgi?id=123&redirect=evil.com`.
+**Analysis:** The registry's regex patterns are the primary defense. Every child `match_node` requires the subpath to match a pattern before URL substitution occurs. These patterns are strict (e.g., `^\d+$` for Bugzilla IDs, `^CVE-\d{4}-\d{4,}$` for CVEs) and reject inputs containing URL-control characters (`&`, `=`, `?`, `#`, `<`, `>`). No registry pattern matches these characters.
 
-Need to:
-- Add explicit requirement to `REGISTRY-JSON-FORMAT.md` that resolvers MUST URL-encode template variables before substitution
-- Audit SecID-Service `resolver.ts` to verify `{id}` substitution is URL-encoded
-- Consider whether patterns should reject inputs containing URL-control characters (`&`, `=`, `#`) that don't belong in the identifier
+Percent-encoding all variables was considered and rejected because it mangles vendor URLs — e.g., Red Hat's `RHSA-2024:1234` would become `RHSA-2024%3A1234`, violating the "follow the source" principle. The generated URLs must match what vendors actually use.
 
-**When to revisit:** Before v1.0 release — this is a security requirement for all resolver implementations.
+For display safety: the website uses `textContent` (not `innerHTML`), which auto-escapes `<>`. The API returns JSON, where `<>` are inert. Custom extracted variables (`{year}`, `{num}`) are numeric-only by regex construction.
+
+**Conclusion:** Regex validation at the registry layer provides defense in depth. Resolver implementations should document that patterns must reject injection characters, but no URL-encoding of template variables is needed.
 
 ### Resolution Instructions for Non-Deterministic Systems
 **Status:** Deferred - design decision needed
@@ -82,26 +81,18 @@ Need to:
 
 **When to revisit:** When adding a namespace that requires search-based resolution.
 
-### Cross-Source Search Index for KV
-**Status:** Deferred — accept N reads for now, optimize later
+### CI/CD Secrets for KV Registry Upload
+**Status:** Deferred — local dev uses `wrangler login`, CI/CD needs secrets configured
 
-Cross-source search (`secid:advisory/CVE-2024-1234`) requires checking every namespace in a type to find which children match the identifier. With KV storage, this means reading all ~42 advisory namespace records.
+The SecID-Service has GitHub Actions workflows for automated KV registry upload:
+- `SecID/.github/workflows/update-registry.yml` — triggers on registry JSON changes, fires `repository_dispatch`
+- `SecID-Service/.github/workflows/registry-kv-upload.yml` — responds to dispatch, uploads to KV, deploys Worker
 
-Planned optimization: build a cross-source index into the type-level key. The `advisory` key value would include a mapping of child patterns to namespaces they belong to, so a single KV read returns enough information to identify which namespace(s) to fetch. Example structure:
+Secrets needed:
+- `CloudSecurityAlliance/SecID-Service` repo: `CLOUDFLARE_API_TOKEN` (Workers KV Read/Write + Workers Scripts Edit permissions)
+- `CloudSecurityAlliance/SecID` repo: `SERVICE_REPO_TOKEN` (GitHub PAT with `repo` scope to trigger dispatches to SecID-Service)
 
-```json
-{
-  "namespaces": ["mitre.org", "redhat.com", ...],
-  "child_index": [
-    {"pattern": "^CVE-\\d{4}-\\d{4,}$", "namespaces": ["mitre.org", "nist.gov", "redhat.com", ...]},
-    {"pattern": "^RHSA-\\d{4}:\\d+$", "namespaces": ["redhat.com"]}
-  ]
-}
-```
-
-This turns cross-source from N reads into 1 read (type index) + 1-3 reads (matched namespaces).
-
-**When to revisit:** After KV migration is working. Only matters if cross-source search latency becomes a problem.
+**When to revisit:** When ready to automate registry updates end-to-end.
 
 ### Standalone SecID Plugin
 **Status:** Planned
@@ -131,3 +122,5 @@ Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (
 - [x] ISO 27001/27002 control entry
 - [x] CONCERNS.md updates
 - [x] CLAUDE.md contributor guidance updates
+- [x] Cross-source search index for KV (`child_index` in TypeIndex — 1 read + N matched namespace reads)
+- [x] KV registry migration (SecID-Service reads from Cloudflare KV, bundled fallback for local dev)
