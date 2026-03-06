@@ -28,3 +28,17 @@ Quay,Quay,Red Hat,https://www.projectquay.io,https://github.com/quay/quay,regist
 ECR Scanning,Amazon ECR Scanning,AWS,https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html,https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html,registry,AWS container registry scanning
 GCR Scanning,Google Container Analysis,Google,https://cloud.google.com/container-analysis,https://cloud.google.com/container-analysis/docs,registry,GCP container vulnerability scanning
 ACR Defender,Microsoft Defender for Containers,Microsoft,https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction,https://docs.microsoft.com/en-us/azure/defender-for-cloud,registry,Azure container security
+Kubescape,Kubescape Kubernetes Security,ARMO,https://kubescape.io,active,Kubernetes security platform (NSA/CISA hardening)
+KubeHunter,kube-hunter Kubernetes Penetration Testing,Aqua Security,https://github.com/aquasecurity/kube-hunter,active,Kubernetes cluster penetration testing
+KubeBench,kube-bench CIS Kubernetes Benchmark,Aqua Security,https://github.com/aquasecurity/kube-bench,active,CIS Kubernetes benchmark checking
+Cilium,Cilium eBPF Networking and Security,Isovalent/Cisco,https://cilium.io,active,eBPF-based networking security and observability
+Calico,Calico Cloud-Native Networking,Tigera,https://www.tigera.io/project-calico/,active,Kubernetes network policy and security
+Istio,Istio Service Mesh,CNCF,https://istio.io,active,Service mesh with mTLS and authorization
+Linkerd,Linkerd Service Mesh,CNCF/Buoyant,https://linkerd.io,active,Lightweight service mesh with mTLS
+SPIFFE/SPIRE,SPIFFE/SPIRE Workload Identity,CNCF,https://spiffe.io,active,Universal workload identity framework
+Cosign,Cosign Container Image Signing,Sigstore,https://github.com/sigstore/cosign,active,OCI artifact signing
+Harbor,Harbor Container Registry,CNCF,https://goharbor.io,active,Trusted container registry with scanning
+Clair,Clair Container Vulnerability Scanner,Quay/Red Hat,https://github.com/quay/clair,active,Static container vulnerability analysis
+Snyk Container,Snyk Container Security,Snyk,https://snyk.io/product/container-vulnerability-management/,active,Container image vulnerability scanning
+Sysdig,Sysdig Cloud-Native Security,Sysdig,https://sysdig.com,active,Runtime security and forensics
+Tetragon,Tetragon eBPF Security Observability,Isovalent/Cisco,https://tetragon.io,active,eBPF-based runtime enforcement

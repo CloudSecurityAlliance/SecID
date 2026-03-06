@@ -95,3 +95,110 @@ Syslog,Syslog Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc54
 JSON-LD,JSON for Linking Data,W3C,format,https://json-ld.org,active,Linked data format
 SHACL,Shapes Constraint Language,W3C,language,https://www.w3.org/TR/shacl,active,RDF validation
 SPARQL,SPARQL Query Language,W3C,language,https://www.w3.org/TR/sparql11-query,active,RDF query language
+TLS 1.3,Transport Layer Security 1.3,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8446,active,Modern transport security (RFC 8446)
+TLS 1.2,Transport Layer Security 1.2,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc5246,active,Widely deployed transport security (RFC 5246)
+DTLS 1.3,Datagram Transport Layer Security 1.3,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9147,active,TLS for UDP (RFC 9147)
+HTTP/2,Hypertext Transfer Protocol Version 2,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9113,active,Multiplexed HTTP (RFC 9113)
+HTTP/3,Hypertext Transfer Protocol Version 3,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9114,active,QUIC-based HTTP (RFC 9114)
+QUIC,QUIC Transport Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9000,active,UDP-based transport (RFC 9000)
+WireGuard,WireGuard VPN Protocol,Jason Donenfeld,protocol,https://www.wireguard.com,active,Modern VPN protocol
+IPsec,Internet Protocol Security,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4301,active,Network layer security (RFC 4301)
+IKEv2,Internet Key Exchange Version 2,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7296,active,IPsec key exchange (RFC 7296)
+MACsec,Media Access Control Security,IEEE,protocol,https://standards.ieee.org/ieee/802.1AE/7345/,active,Layer 2 encryption (IEEE 802.1AE)
+802.1X,Port-Based Network Access Control,IEEE,protocol,https://standards.ieee.org/ieee/802.1X/7345/,active,Network access control (IEEE 802.1X)
+RADIUS,Remote Authentication Dial-In User Service,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc2865,active,Authentication protocol (RFC 2865)
+TACACS+,Terminal Access Controller Access-Control System Plus,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8907,active,Device admin authentication (RFC 8907)
+Kerberos,Kerberos V5,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4120,active,Network authentication (RFC 4120)
+LDAP,Lightweight Directory Access Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4511,active,Directory services (RFC 4511)
+SAML 2.0,Security Assertion Markup Language 2.0,OASIS,protocol,https://docs.oasis-open.org/security/saml/v2.0/,active,Federated identity assertions
+OAuth 2.0,OAuth 2.0 Authorization Framework,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc6749,active,Delegated authorization (RFC 6749)
+OAuth 2.1,OAuth 2.1 Authorization Framework,IETF,protocol,https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1,draft,Consolidated OAuth (draft)
+OIDC,OpenID Connect,OpenID Foundation,protocol,https://openid.net/connect/,active,Identity layer on OAuth 2.0
+FIDO2/WebAuthn,Web Authentication,W3C/FIDO Alliance,protocol,https://www.w3.org/TR/webauthn-3/,active,Passwordless authentication
+Passkeys,Passkeys (FIDO2 discoverable credentials),FIDO Alliance,protocol,https://fidoalliance.org/passkeys/,active,Cross-device passwordless authentication
+SCIM,System for Cross-domain Identity Management,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7644,active,Identity provisioning (RFC 7644)
+JWT,JSON Web Token,IETF,format,https://datatracker.ietf.org/doc/html/rfc7519,active,Compact claims representation (RFC 7519)
+JWS,JSON Web Signature,IETF,format,https://datatracker.ietf.org/doc/html/rfc7515,active,Signed JSON payloads (RFC 7515)
+JWE,JSON Web Encryption,IETF,format,https://datatracker.ietf.org/doc/html/rfc7516,active,Encrypted JSON payloads (RFC 7516)
+JWK,JSON Web Key,IETF,format,https://datatracker.ietf.org/doc/html/rfc7517,active,Key representation (RFC 7517)
+COSE,CBOR Object Signing and Encryption,IETF,format,https://datatracker.ietf.org/doc/html/rfc9052,active,Compact binary crypto (RFC 9052)
+CWT,CBOR Web Token,IETF,format,https://datatracker.ietf.org/doc/html/rfc8392,active,Binary JWT equivalent (RFC 8392)
+ACME,Automatic Certificate Management Environment,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8555,active,Automated cert issuance (RFC 8555)
+CT,Certificate Transparency,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc6962,active,Public cert logging (RFC 6962)
+OCSP,Online Certificate Status Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc6960,active,Certificate revocation checking (RFC 6960)
+DANE,DNS-Based Authentication of Named Entities,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc6698,active,DNS-based certificate validation (RFC 6698)
+DNSSEC,Domain Name System Security Extensions,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4033,active,DNS authentication (RFC 4033)
+DoH,DNS over HTTPS,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8484,active,Encrypted DNS (RFC 8484)
+DoT,DNS over TLS,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7858,active,Encrypted DNS (RFC 7858)
+DMARC,Domain-based Message Authentication Reporting and Conformance,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7489,active,Email authentication policy (RFC 7489)
+SPF,Sender Policy Framework,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7208,active,Email sender validation (RFC 7208)
+DKIM,DomainKeys Identified Mail,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc6376,active,Email signing (RFC 6376)
+ARC,Authenticated Received Chain,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8617,active,Email forwarding auth (RFC 8617)
+MTA-STS,SMTP MTA Strict Transport Security,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc8461,active,Email transport encryption policy (RFC 8461)
+S/MIME,Secure/Multipurpose Internet Mail Extensions,IETF,format,https://datatracker.ietf.org/doc/html/rfc8551,active,Email encryption (RFC 8551)
+OpenPGP,OpenPGP Message Format,IETF,format,https://datatracker.ietf.org/doc/html/rfc9580,active,Message encryption/signing (RFC 9580)
+SSH,Secure Shell Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4253,active,Secure remote access (RFC 4253)
+SCP,Secure Copy Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc4253,active,Secure file transfer over SSH
+SFTP,SSH File Transfer Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer,active,Secure file transfer
+FIPS 197,Advanced Encryption Standard (AES),NIST,cryptography,https://csrc.nist.gov/pubs/fips/197/final,active,Block cipher standard
+FIPS 180-4,Secure Hash Standard (SHA),NIST,cryptography,https://csrc.nist.gov/pubs/fips/180-4/upd1/final,active,SHA-1/224/256/384/512
+FIPS 198-1,HMAC,NIST,cryptography,https://csrc.nist.gov/pubs/fips/198-1/final,active,Keyed-hash message authentication
+FIPS 186-5,Digital Signature Standard,NIST,cryptography,https://csrc.nist.gov/pubs/fips/186-5/final,active,RSA/ECDSA/EdDSA signatures
+FIPS 202,SHA-3 Standard,NIST,cryptography,https://csrc.nist.gov/pubs/fips/202/final,active,SHA-3 / Keccak
+FIPS 203,ML-KEM (Module-Lattice Key Encapsulation),NIST,cryptography,https://csrc.nist.gov/pubs/fips/203/final,active,Post-quantum key encapsulation (Kyber)
+FIPS 204,ML-DSA (Module-Lattice Digital Signature),NIST,cryptography,https://csrc.nist.gov/pubs/fips/204/final,active,Post-quantum signatures (Dilithium)
+FIPS 205,SLH-DSA (Stateless Hash-Based Digital Signature),NIST,cryptography,https://csrc.nist.gov/pubs/fips/205/final,active,Post-quantum signatures (SPHINCS+)
+FIPS 140-3,Security Requirements for Cryptographic Modules,NIST,cryptography,https://csrc.nist.gov/pubs/fips/140-3/final,active,Crypto module validation standard
+X.509,X.509 Public Key Infrastructure,ITU-T/IETF,format,https://datatracker.ietf.org/doc/html/rfc5280,active,Certificate format (RFC 5280)
+PKCS,Public-Key Cryptography Standards,RSA Labs/IETF,format,https://datatracker.ietf.org/doc/html/rfc8017,active,Crypto standards suite (PKCS #1-#15)
+CMS,Cryptographic Message Syntax,IETF,format,https://datatracker.ietf.org/doc/html/rfc5652,active,Signed/encrypted data (RFC 5652)
+KMIP,Key Management Interoperability Protocol,OASIS,protocol,https://www.oasis-open.org/committees/kmip/,active,Key management standard
+PKCE,Proof Key for Code Exchange,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc7636,active,OAuth code exchange security (RFC 7636)
+DPoP,Demonstrating Proof-of-Possession,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9449,active,Token binding (RFC 9449)
+FAPI 2.0,Financial-grade API Security Profile 2.0,OpenID Foundation,protocol,https://openid.net/specs/fapi-security-profile-2_0.html,active,High-security OAuth profile
+RAR,Rich Authorization Requests,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9396,active,Fine-grained OAuth authorization (RFC 9396)
+GNAP,Grant Negotiation and Authorization Protocol,IETF,protocol,https://datatracker.ietf.org/doc/html/rfc9635,active,Next-gen authorization (RFC 9635)
+STIX,Structured Threat Information eXpression,OASIS,format,https://oasis-open.github.io/cti-documentation/stix/intro.html,active,Threat intelligence format (v2.1)
+TAXII,Trusted Automated eXchange of Intelligence Information,OASIS,protocol,https://oasis-open.github.io/cti-documentation/taxii/intro.html,active,Threat intel transport (v2.1)
+OpenC2,Open Command and Control,OASIS,protocol,https://openc2.org,active,Machine-to-machine security commands
+SARIF,Static Analysis Results Interchange Format,OASIS,format,https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html,active,Static analysis output format
+CycloneDX,CycloneDX SBOM Standard,OWASP,format,https://cyclonedx.org,active,Software bill of materials
+SPDX,Software Package Data Exchange,Linux Foundation,format,https://spdx.dev,active,SBOM and license format (ISO/IEC 5962)
+VEX,Vulnerability Exploitability eXchange,CISA/NTIA,format,https://www.cisa.gov/sbom,active,Vulnerability applicability statements
+CSAF,Common Security Advisory Framework,OASIS,format,https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html,active,Machine-readable security advisories
+OSV,Open Source Vulnerability Format,Google,format,https://osv.dev/docs/,active,Open source vulnerability schema
+CVSS 4.0,Common Vulnerability Scoring System 4.0,FIRST,scoring,https://www.first.org/cvss/v4-0/,active,Vulnerability severity scoring
+CVSS 3.1,Common Vulnerability Scoring System 3.1,FIRST,scoring,https://www.first.org/cvss/v3-1/,active,Vulnerability severity scoring (widely used)
+EPSS,Exploit Prediction Scoring System,FIRST,scoring,https://www.first.org/epss/,active,Exploit likelihood prediction
+SSVC,Stakeholder-Specific Vulnerability Categorization,CISA,scoring,https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc,active,Decision-tree vulnerability prioritization
+KEV,Known Exploited Vulnerabilities Catalog,CISA,catalog,https://www.cisa.gov/known-exploited-vulnerabilities-catalog,active,Actively exploited vulnerabilities
+CPE,Common Platform Enumeration,NIST,identifier,https://nvd.nist.gov/products/cpe,active,Product naming standard (CPE 2.3)
+SWID,Software Identification Tags,ISO/IEC,identifier,https://csrc.nist.gov/projects/Software-Identification-SWID/,active,Software asset identification (ISO/IEC 19770-2)
+PURL,Package URL,GitHub/Community,identifier,https://github.com/package-url/purl-spec,active,Universal package identifier
+OmniBOR,Universal Bill of Receipts,OmniBOR,identifier,https://omnibor.io,active,Artifact dependency graph identifier
+SCAP,Security Content Automation Protocol,NIST,framework,https://csrc.nist.gov/projects/security-content-automation-protocol,active,Security automation protocol suite
+OVAL,Open Vulnerability and Assessment Language,MITRE/CIS,format,https://oval.mitre.org,active,System configuration assessment
+XCCDF,Extensible Configuration Checklist Description Format,NIST,format,https://csrc.nist.gov/projects/security-content-automation-protocol/scap-specifications/xccdf,active,Security checklist format
+OSCAL,Open Security Controls Assessment Language,NIST,format,https://pages.nist.gov/OSCAL/,active,Machine-readable security controls
+OpenDXL,Open Data Exchange Layer,McAfee/Trellix,protocol,https://www.opendxl.com,active,Security tool messaging bus
+VERIS,Vocabulary for Event Recording and Incident Sharing,Verizon,format,https://verisframework.org,active,Incident classification schema
+IODEF,Incident Object Description Exchange Format,IETF,format,https://datatracker.ietf.org/doc/html/rfc7970,active,Incident data exchange (RFC 7970)
+RFC 2119,Key Words for Use in RFCs,IETF,meta,https://datatracker.ietf.org/doc/html/rfc2119,active,MUST/SHALL/SHOULD/MAY definitions
+RFC 9457,Problem Details for HTTP APIs,IETF,format,https://datatracker.ietf.org/doc/html/rfc9457,active,Standard error response format
+SBOM,Software Bill of Materials,NTIA/CISA,concept,https://www.cisa.gov/sbom,active,Software component inventory concept
+Zero Trust Architecture,Zero Trust Architecture,NIST,architecture,https://csrc.nist.gov/pubs/sp/800-207/final,active,NIST SP 800-207 Zero Trust
+PASTA,Process for Attack Simulation and Threat Analysis,OWASP,methodology,https://owasp.org/www-project-threat-model/,active,Risk-centric threat modeling
+STRIDE,STRIDE Threat Model,Microsoft,methodology,https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats,active,Threat classification model
+DREAD,DREAD Risk Assessment Model,Microsoft,methodology,https://learn.microsoft.com/en-us/archive/blogs/david_leblanc/dreadful,historical,Legacy risk scoring model
+LINDDUN,LINDDUN Privacy Threat Model,KU Leuven,methodology,https://linddun.org,active,Privacy threat modeling framework
+OCSF,Open Cybersecurity Schema Framework,AWS/Splunk,format,https://schema.ocsf.io,active,Normalized security event schema
+ECS,Elastic Common Schema,Elastic,format,https://www.elastic.co/guide/en/ecs/current/index.html,active,Log normalization schema
+CEF,Common Event Format,ArcSight/Micro Focus,format,https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/,active,SIEM event format
+LEEF,Log Event Extended Format,IBM,format,https://www.ibm.com/docs/en/dsm?topic=overview-leef-event-components,active,QRadar event format
+Sigma,Sigma Detection Rules,SigmaHQ,format,https://sigmahq.io,active,Generic SIEM detection format
+YARA,YARA Pattern Matching Rules,VirusTotal,format,https://yara.readthedocs.io,active,Malware detection patterns
+Snort Rules,Snort IDS Rules,Cisco/Snort,format,https://www.snort.org/rule_docs,active,Network intrusion detection rules
+Suricata Rules,Suricata IDS/IPS Rules,OISF,format,https://docs.suricata.io/en/latest/rules/,active,Network detection rules
+MISP Objects,MISP Standard Objects,MISP Project,format,https://www.misp-project.org/objects.html,active,Threat intel object templates
+OpenIOC,Open Indicators of Compromise,Mandiant,format,https://github.com/mandiant/OpenIOC_1.1,active,IOC description format
+MAEC,Malware Attribute Enumeration and Characterization,MITRE,format,https://maecproject.github.io,active,Malware behavior description

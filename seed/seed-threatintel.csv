@@ -32,3 +32,24 @@ SpamHaus,SpamHaus,https://www.spamhaus.org,https://www.spamhaus.org/drop,txt,blo
 IPsum,IPsum,https://github.com/stamparm/ipsum,https://raw.githubusercontent.com/stamparm/ipsum/master/levels,txt,blocklist,Daily aggregated threat IP feeds
 Botvrij,Botvrij.eu,https://botvrij.eu,https://botvrij.eu/data,txt,iocs,OSINT IOC feeds
 ThreatBook,ThreatBook,https://x.threatbook.com,https://api.threatbook.cn,json,iocs,Chinese threat intelligence platform
+VirusTotal,VirusTotal Intelligence,https://www.virustotal.com,https://www.virustotal.com/api/v3/,REST API,multi-scanner,File/URL/IP analysis aggregator (Google)
+Recorded Future,Recorded Future Intelligence Cloud,https://www.recordedfuture.com,,API,threat-platform,AI-powered threat intelligence platform
+Mandiant Advantage,Mandiant Advantage Threat Intelligence,https://www.mandiant.com/advantage/threat-intelligence,,API,threat-platform,Incident-driven threat intelligence (Google)
+Intel 471,Intel 471 Adversary Intelligence,https://intel471.com,,API,underground,Underground and adversary intelligence
+Flashpoint,Flashpoint Threat Intelligence,https://flashpoint.io,,API,underground,Deep/dark web threat intelligence
+GreyNoise,GreyNoise Intelligence,https://www.greynoise.io,https://api.greynoise.io/v3/,REST API,internet-scanning,Internet background noise analysis
+Censys,Censys Internet Intelligence,https://censys.io,https://search.censys.io/api,REST API,internet-scanning,Internet-wide scanning and discovery
+Shodan,Shodan Internet Scanner,https://www.shodan.io,https://api.shodan.io/,REST API,internet-scanning,Internet-connected device search
+BinaryEdge,BinaryEdge Internet Scanning,https://www.binaryedge.io,https://api.binaryedge.io/v2/,REST API,internet-scanning,Internet attack surface discovery
+ZoomEye,ZoomEye Cyberspace Search,https://www.zoomeye.org,https://api.zoomeye.org/,REST API,internet-scanning,Chinese internet device search (Knownsec)
+CIRCL,CIRCL (Computer Incident Response Center Luxembourg),https://www.circl.lu,https://www.circl.lu/services/,MISP/API,national-cert,Luxembourg CERT with public threat intel
+RiskIQ/Microsoft,Microsoft Defender Threat Intelligence,https://ti.defender.microsoft.com,,API,threat-platform,Attack surface intelligence (formerly RiskIQ)
+Pulsedive,Pulsedive Threat Intelligence,https://pulsedive.com,https://pulsedive.com/api/,REST API,community,Community threat intelligence platform
+ThreatFox,ThreatFox IOC Database,https://threatfox.abuse.ch,https://threatfox-api.abuse.ch/api/v1/,REST API,iocs,IOC sharing platform (abuse.ch)
+Feodo Tracker,Feodo Tracker Botnet C2,https://feodotracker.abuse.ch,https://feodotracker.abuse.ch/downloads/,csv/json,botnet,Botnet C2 IP tracking (abuse.ch)
+MalwareBazaar,MalwareBazaar Malware Samples,https://bazaar.abuse.ch,https://mb-api.abuse.ch/api/v1/,REST API,malware,Malware sample sharing (abuse.ch)
+YETI,YETI Threat Intelligence Platform,https://yeti-platform.io,,REST API,platform,Open-source threat intel management
+OpenCTI,OpenCTI Platform,https://www.opencti.io,https://docs.opencti.io/latest/deployment/connectors/,REST API,platform,Open-source threat intel platform (Filigran)
+MISP,MISP Threat Intelligence Sharing Platform,https://www.misp-project.org,https://www.misp-project.org/documentation/,MISP/REST,platform,Open-source threat sharing platform
+TheHive,TheHive Security Incident Response,https://thehive-project.org,,REST API,platform,Open-source IR case management
+IntelOwl,IntelOwl Threat Intelligence Automation,https://github.com/intelowlproject/IntelOwl,,REST API,automation,Automated threat intel aggregation

@@ -70,3 +70,18 @@ KEV-CVE,CISA KEV,CVE,exploitation,https://www.cisa.gov/known-exploited-vulnerabi
 Sigma-ATT&CK,Sigma Rules,MITRE ATT&CK,detection,https://sigmahq.io,SigmaHQ,Detection rules tagged with ATT&CK
 YARA-Malware,YARA Rules,Malware,detection,https://virustotal.github.io/yara,VirusTotal,Malware detection signatures
 Snort-ATT&CK,Snort Rules,MITRE ATT&CK,detection,https://www.snort.org,Cisco,IDS rules with ATT&CK mapping
+NIST CSF 2.0 → ISO 27001:2022,NIST CSF 2.0 maps to ISO 27001:2022,NIST,https://www.nist.gov/cyberframework/framework,official,NIST-published crosswalk
+NIST SP 800-53 → ISO 27001,NIST 800-53 controls map to ISO 27001 Annex A,NIST,https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final,official,Control-level mapping
+MITRE ATT&CK → NIST 800-53,ATT&CK techniques mapped to NIST 800-53 mitigations,MITRE,https://attack.mitre.org/mitigations/,official,Technique to mitigation mapping
+MITRE ATT&CK → D3FEND,ATT&CK techniques mapped to D3FEND countermeasures,MITRE,https://d3fend.mitre.org,official,Offense to defense mapping
+CWE → CAPEC,CWE weaknesses linked to CAPEC attack patterns,MITRE,https://cwe.mitre.org,official,Weakness to attack pattern mapping
+OWASP Top 10 → CWE,OWASP Top 10 categories mapped to CWE entries,OWASP,https://owasp.org/Top10/,official,Risk category to weakness mapping
+CIS Controls v8 → NIST CSF,CIS Controls mapped to NIST CSF subcategories,CIS,https://www.cisecurity.org/controls/cis-controls-navigator,official,Control framework crosswalk
+CCM v4 → ISO 27001,CSA CCM v4 mapped to ISO 27001:2022 controls,CSA,https://cloudsecurityalliance.org/research/cloud-controls-matrix,official,Cloud control to ISO mapping
+CCM v4 → NIST 800-53,CSA CCM v4 mapped to NIST 800-53 controls,CSA,https://cloudsecurityalliance.org/research/cloud-controls-matrix,official,Cloud control to NIST mapping
+PCI DSS 4.0 → NIST CSF,PCI DSS requirements mapped to NIST CSF,PCI SSC,https://www.pcisecuritystandards.org,community,Payment to framework mapping
+DORA → NIS2,DORA requirements overlap with NIS2 obligations,EU,https://digital-strategy.ec.europa.eu,official,EU regulation harmonization
+CMMC → NIST 800-171,CMMC levels aligned to NIST SP 800-171 practices,US-DoD,https://dodcio.defense.gov/CMMC/,official,Defense maturity to control mapping
+SOC 2 → NIST CSF,SOC 2 Trust Services Criteria mapped to NIST CSF,AICPA,https://www.aicpa.org,community,Audit framework to NIST mapping
+OSCAL → NIST SP 800-53,OSCAL provides machine-readable NIST 800-53 catalogs,NIST,https://pages.nist.gov/OSCAL/,official,Machine-readable control representation
+VERIS → ATT&CK,VERIS incident classification linked to ATT&CK TTPs,Verizon/MITRE,https://verisframework.org,community,Incident to technique mapping
