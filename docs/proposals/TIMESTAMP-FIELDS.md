@@ -1,4 +1,4 @@
-# Proposal: `_checked` / `_updated` Timestamp Fields for Registry Data
+# Proposal: `_checked` / `_updated` / `_note` Fields for Registry Data
 
 **Status:** Proposed
 **Date:** 2026-03-06
@@ -26,12 +26,13 @@ This is insufficient. A null from yesterday and a null from a year ago look iden
 
 ## Proposed Fields
 
-Two timestamp fields per verifiable datum:
+Three metadata fields per verifiable datum:
 
 | Field | Meaning | Changes When |
 |-------|---------|--------------|
 | **`_updated`** | Date the value last materially changed | Only when the actual data changes |
 | **`_checked`** | Date someone last verified the value was still accurate | Every verification pass, even if nothing changed |
+| **`_note`** | Free-text observation about what was found during verification | When the observation changes |
 
 ### Interpretation
 
@@ -46,17 +47,17 @@ Two timestamp fields per verifiable datum:
 
 ## Naming Convention (Resolved)
 
-Two contexts, consistent naming:
+Two contexts, consistent naming across all three fields:
 
 | Context | Fields | Example |
 |---------|--------|---------|
-| **Source-level** (top of file) | `checked`, `updated` | `"checked": "2026-03-06"` |
-| **Attached to a specific field** (scalar suffix) | `field_checked`, `field_updated` | `"security_txt_checked": "2026-03-06"` |
-| **Inside objects** (URL entries, etc.) | `checked`, `updated` | `{"url": "...", "checked": "2026-03-06"}` |
+| **Source-level** (top of file) | `checked`, `updated`, `note` | `"checked": "2026-03-06"` |
+| **Attached to a specific field** (scalar suffix) | `field_checked`, `field_updated`, `field_note` | `"security_txt_checked": "2026-03-06"` |
+| **Inside objects** (URL entries, etc.) | `checked`, `updated`, `note` | `{"url": "...", "checked": "2026-03-06"}` |
 
-The `_checked`/`_updated` suffix "attaches" the timestamp to the field it describes. Inside objects, the fields are already scoped by the object, so no suffix needed.
+The `_checked`/`_updated`/`_note` suffix "attaches" the metadata to the field it describes. Inside objects, the fields are already scoped by the object, so no suffix needed.
 
-Source-level `checked`/`updated` means "someone verified this entire registry entry is still accurate on this date."
+Source-level `checked`/`updated` means "someone verified this entire registry entry is still accurate on this date." Source-level `note` captures general observations about the entry as a whole.
 
 ## Application Patterns
 
@@ -93,13 +94,16 @@ URLs are already structured as objects, so `checked`/`updated` are sibling field
 
 ### Scalar Fields
 
-For flat fields (email, security.txt, policy text, etc.), use `_checked` / `_updated` suffixes:
+For flat fields (email, security.txt, policy text, etc.), use `_checked` / `_updated` / `_note` suffixes:
+
+Confirmed positive (checked and found something):
 
 ```json
 {
   "security_txt": "https://security.access.redhat.com/data/meta/v1/security.txt",
   "security_txt_checked": "2026-03-06",
-  "security_txt_updated": "2026-03-06"
+  "security_txt_updated": "2026-03-06",
+  "security_txt_note": ".well-known/security.txt redirects here. PGP signed, RFC 9116 compliant. Expires 2026-06-04."
 }
 ```
 
@@ -113,6 +117,8 @@ Confirmed negative (checked and found nothing):
   "security_txt_note": "https://www.oracle.com/.well-known/security.txt redirects to homepage"
 }
 ```
+
+The `_note` field records *what was observed* — particularly useful for null findings (why it's null) and for recording validation details on positive findings.
 
 ### Template URLs in `data` Blocks
 
@@ -179,9 +185,11 @@ Applies to all 7 registry types. Impact varies by type:
 
 ## Resolved Questions
 
-1. **Naming convention:** `checked`/`updated` inside objects and at source level; `field_checked`/`field_updated` suffix for scalars. No `last_` prefix — it's redundant and verbose.
+1. **Naming convention:** `checked`/`updated`/`note` inside objects and at source level; `field_checked`/`field_updated`/`field_note` suffix for scalars. No `last_` prefix — it's redundant and verbose.
 
-2. **Source-level timestamps:** Yes. Top-level `checked`/`updated` fields indicate when someone last verified the entire registry entry.
+2. **Source-level fields:** Yes. Top-level `checked`/`updated`/`note` fields apply to the entire registry entry.
+
+3. **Note field:** Yes. `_note` (or `note` at source/object level) records what was observed during verification. Particularly valuable for null findings ("redirects to homepage") and positive findings with caveats ("RFC 9116 compliant, missing Canonical field").
 
 ## Open Questions
 

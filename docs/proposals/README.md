@@ -6,7 +6,7 @@ Registry schema changes and significant design additions go through a proposal p
 
 | Proposal | Status | Date | Summary |
 |----------|--------|------|---------|
-| [TIMESTAMP-FIELDS.md](TIMESTAMP-FIELDS.md) | Proposed | 2026-03-06 | Per-field `_checked`/`_updated` timestamps for freshness tracking |
+| [TIMESTAMP-FIELDS.md](TIMESTAMP-FIELDS.md) | Proposed | 2026-03-06 | Per-field `_checked`/`_updated`/`_note` metadata for freshness and verification tracking |
 
 ## Process
 

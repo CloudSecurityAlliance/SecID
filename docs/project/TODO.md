@@ -118,10 +118,10 @@ Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (
 
 ## Proposed
 
-### Timestamp Fields for Registry Data (`_checked` / `_updated`)
+### Metadata Fields for Registry Data (`_checked` / `_updated` / `_note`)
 **Status:** Proposed — see [docs/proposals/TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md)
 
-Per-field `_checked` and `_updated` timestamps for verifiable data (URLs, emails, policy text, null findings). Enables freshness assessment without relying solely on git history.
+Per-field `_checked`, `_updated`, and `_note` metadata for verifiable data (URLs, emails, policy text, null findings). Enables freshness assessment and records verification observations without relying solely on git history.
 
 **Depends on:** Approval of proposal
 **Blocks:** `disclosure` type (which relies heavily on data freshness)
