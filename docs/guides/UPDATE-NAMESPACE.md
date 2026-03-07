@@ -46,6 +46,16 @@ Registry files progress through status values:
 - At least one example resolves correctly
 - Patterns have been tested against real IDs
 
+## Updating Verification Timestamps
+
+When re-verifying an existing entry:
+
+- **Always** update `_checked` (or source-level `checked`) to today's date
+- **Only** update `_updated` if the actual value changed
+- **Update** `_note` if your observations differ from what was previously recorded
+
+This keeps the gap between `_updated` and `_checked` meaningful — a wide gap signals stable, well-verified data.
+
 ## Handling Deprecation
 
 When a source is deprecated or superseded:

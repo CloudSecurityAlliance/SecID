@@ -254,6 +254,93 @@ For arrays:
 
 **Why?** This lets us track completeness. An absent field signals work to be done. A `null` signals confirmed absence.
 
+### Per-Field Metadata (`checked` / `updated` / `note`)
+
+Three optional metadata fields record *when* data was verified and *what* was observed:
+
+| Field | Meaning | Changes when |
+|-------|---------|--------------|
+| `checked` | Date someone last verified the value is still accurate | Every verification pass, even if nothing changed |
+| `updated` | Date the value last materially changed | Only when the actual data changes |
+| `note` | Free-text observation about what was found during verification | When the observation changes |
+
+Date format: `YYYY-MM-DD` (ISO 8601, no time component — day granularity is sufficient).
+
+#### Naming Convention
+
+| Context | Fields | Example |
+|---------|--------|---------|
+| **Source-level** (top of file) | `checked`, `updated`, `note` | `"checked": "2026-03-06"` |
+| **Attached to a scalar field** | `field_checked`, `field_updated`, `field_note` | `"security_txt_checked": "2026-03-06"` |
+| **Inside objects** (URL entries, etc.) | `checked`, `updated`, `note` | `{"url": "...", "checked": "2026-03-06"}` |
+
+Source-level `checked`/`updated` apply to the entire registry entry. Inside objects, the fields are scoped by the object. The `_checked`/`_updated`/`_note` suffix "attaches" metadata to the scalar field it describes.
+
+#### Extending the Null/Absent Convention
+
+Timestamps make null values strictly more informative:
+
+| State | Meaning |
+|-------|---------|
+| `"field": null` | We looked and found nothing (existing) |
+| `"field": null, "field_checked": "2026-03-06"` | We looked **on this date** and found nothing |
+| `"field"` absent | Not yet researched (existing, unchanged) |
+
+Existing files without timestamps remain valid — absent timestamps mean "not yet tracked."
+
+#### Examples
+
+**Source-level timestamps:**
+
+```json
+{
+  "schema_version": "1.0",
+  "namespace": "redhat.com",
+  "type": "entity",
+  "status": "draft",
+  "checked": "2026-03-06",
+  "updated": "2026-03-06",
+  ...
+}
+```
+
+**URL object with verification note:**
+
+```json
+"urls": [
+  {
+    "type": "security",
+    "url": "https://access.redhat.com/security/",
+    "checked": "2026-03-06",
+    "updated": "2026-03-06"
+  }
+]
+```
+
+**Scalar field — confirmed positive:**
+
+```json
+{
+  "security_txt": "https://security.access.redhat.com/data/meta/v1/security.txt",
+  "security_txt_checked": "2026-03-06",
+  "security_txt_updated": "2026-03-06",
+  "security_txt_note": "PGP signed, RFC 9116 compliant. Expires 2026-06-04."
+}
+```
+
+**Scalar field — confirmed negative:**
+
+```json
+{
+  "security_txt": null,
+  "security_txt_checked": "2026-03-06",
+  "security_txt_updated": "2026-03-06",
+  "security_txt_note": "/.well-known/security.txt redirects to homepage"
+}
+```
+
+See [TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md) for full rationale, backwards compatibility analysis, and pilot files.
+
 ## Schema Structure
 
 ### Top-Level Fields
@@ -264,6 +351,8 @@ For arrays:
   "namespace": "mitre.org",
   "type": "advisory",
   "status": "published",
+  "checked": "2026-03-06",
+  "updated": "2026-01-15",
 
   "official_name": "MITRE Corporation",
   "common_name": "MITRE",

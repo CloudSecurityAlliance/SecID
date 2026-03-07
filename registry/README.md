@@ -76,6 +76,8 @@ https://cwe.mitre.org/data/definitions/{num}.html
 
 The file location `registry/weakness/org/mitre.md` corresponds to `secid:weakness/mitre.org/*` (all MITRE weakness namespaces like CWE).
 
+JSON files support optional per-field metadata (`checked`, `updated`, `note`) for tracking when data was last verified. This extends the null/absent convention — a null value with a `_checked` date tells you *when* the absence was confirmed. See [REGISTRY-JSON-FORMAT.md](../docs/reference/REGISTRY-JSON-FORMAT.md) "Per-Field Metadata" for the full convention.
+
 ## Patterns
 
 ### Security Tools: Entity + Control

@@ -88,6 +88,8 @@ secid:<type>/<namespace>/<name>#<example-id>
 - [ ] Regex patterns match all example IDs
 - [ ] Regex patterns reject obviously wrong IDs
 - [ ] No ReDoS risk in patterns (see [REGEX-WORKFLOW.md](REGEX-WORKFLOW.md))
+- [ ] Source-level `checked` and `updated` dates are set
+- [ ] Null fields include a `_note` explaining why the value is null
 
 ## Step 9: Decide Readiness
 

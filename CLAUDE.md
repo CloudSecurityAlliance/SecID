@@ -140,6 +140,8 @@ In registry data, `null` and absent mean different things:
 - **`null`** = "we looked and found nothing" (researched, confirmed empty)
 - **absent field** = "not yet researched" (unknown state)
 
+Optional per-field metadata (`_checked`, `_updated`, `_note` suffixes) record *when* data was verified. A `null` with `_checked` tells you when the absence was confirmed. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Per-Field Metadata" for naming conventions and examples.
+
 ## Key Design Principles
 
 See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:

@@ -364,6 +364,18 @@ Put partially researched entries in `registry/_deferred/` until they're ready. T
 
 This lets us track completeness. An absent field signals work to be done.
 
+Optional `_checked`/`_updated`/`_note` suffixes make null values more informative — `"field": null` plus `"field_checked": "2026-03-06"` tells you *when* the absence was confirmed. See [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) "Per-Field Metadata" for the full convention.
+
+### Data Freshness
+
+When creating or updating registry entries, add verification timestamps:
+
+- Set source-level `checked` and `updated` dates
+- For null fields, include a `_note` explaining why the value is null (e.g., "redirects to homepage")
+- For positive findings with caveats, use `_note` to record validation details
+
+These fields are optional and additive — adoption is incremental, field by field.
+
 ### Good Patterns
 
 - **Anchor patterns** with `^...$` to match the complete input at each level (rejects malformed IDs)
