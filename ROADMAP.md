@@ -79,6 +79,39 @@ resolution:
 
 **Rust, Java, C#/.NET later** because their communities can use the REST API until native libraries ship. These are important for completeness but not blockers for adoption.
 
+## Vision
+
+**A SecID isn't just an identifier - it's a handle that gives you everything you need to understand and work with security knowledge.**
+
+Today, security data is fragmented. CVEs live in one place, CWEs in another, controls in spreadsheets, regulations in PDFs. Finding information requires knowing where to look. Understanding it requires domain expertise. Connecting it requires manual effort.
+
+SecID changes this. When you have a SecID, you can:
+
+1. **Find it** - Get the URL or search instructions
+2. **Understand it** - Read a description of what it is
+3. **Read it** - Get the actual content (where licensing permits)
+4. **Interpret it** - Understand what the fields mean
+5. **Use it** - Know what to do with this data
+6. **Connect it** - See related concepts, mitigations, and examples
+
+**This is AI-first infrastructure** - but not AI-only. The primary consumer is AI agents that need to navigate security knowledge autonomously. When an agent receives a SecID response, it should be self-describing - the agent knows what it has, how to interpret it, and what to do with it.
+
+**Traditional tools are first-class consumers too.** SecID identifiers work in:
+- **SIEMs and SOC platforms** - Correlate alerts across vulnerability, weakness, and technique taxonomies
+- **GRC tools** - Map controls to regulations to compliance evidence
+- **Vulnerability scanners** - Link findings to weaknesses, techniques, and remediations
+- **SBOMs and VEX documents** - Reference advisories with consistent identifiers
+- **Asset inventories** - Tag systems with applicable controls and regulations
+- **Policy automation** - Define rules that reference specific controls or requirements
+
+AI agents accelerate adoption because they can consume SecID immediately without organizational buy-in. But the long-term value is infrastructure that humans, traditional tools, and AI all use together.
+
+We're building this in layers:
+- **v1.0**: URL resolution + descriptions (where to find it, what it is)
+- **v1.x**: Raw content with licensing (the actual text, properly attributed)
+- **v2.x**: Metadata wrapper (interpretation and usage guidance for AI)
+- **Future**: Relationships and overlays (connections and enrichment)
+
 ## What We're Building (Full Stack)
 
 SecID isn't just a spec - it's a complete system for working with security knowledge. We're building in **two parallel tracks**:
@@ -353,7 +386,7 @@ This learning feeds back into spec refinement and overlay priorities.
 | Deliverable | Status | Notes |
 |-------------|--------|-------|
 | Specification (SPEC.md) | Complete | Open for public comment |
-| Registry structure | Complete | 100+ namespace definitions |
+| Registry structure | Complete | 121 namespace definitions (YAML + JSON) |
 | Type documentation | Complete | All 7 types documented |
 | Design documentation | Complete | RATIONALE, DESIGN-DECISIONS, STRATEGY |
 | Namespace documentation | Complete | _index.md files for advisory namespaces |
@@ -362,11 +395,11 @@ This learning feeds back into spec refinement and overlay priorities.
 
 | Deliverable | Status | Success Criteria |
 |-------------|--------|------------------|
-| Registry data (500+ namespaces) | In progress | Every namespace has URL resolution rules + description |
+| Registry data (500+ namespaces) | In progress (121 done) | Every namespace has URL resolution rules + description |
+| REST API + MCP server | **Live** | [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) — MCP server shipped first, REST API followed |
 | Compliance test suite | Not started | Canonical test cases built during API development; doubles as conformance spec for third-party implementations |
 | Python library (`secid`) | Not started | `pip install secid` enables parsing and resolution |
 | npm/TypeScript library (`secid`) | Not started | `npm install secid` enables parsing and resolution |
-| REST API | Not started | Any language can resolve SecIDs via HTTP |
 | Go library | Not started | Native Go support for cloud-native tools |
 | Rust library | Not started | Native Rust support for systems tools |
 | Java library | Not started | Native Java support for enterprise tools |
@@ -374,15 +407,15 @@ This learning feeds back into spec refinement and overlay priorities.
 
 ### Skills
 
-Three Claude Code skills support the registry workflow. All three are built **incrementally during API development**, not as standalone deliverables — each new namespace, conversion, or test case teaches the skills what they need to cover.
+Claude Code skills support the registry workflow. Skills are built **incrementally during API development**, not as standalone deliverables — each new namespace, conversion, or test case teaches the skills what they need to cover.
 
-| Skill | Purpose | Built During |
-|-------|---------|-------------|
-| [Registry Research](skills/registry-research/) | Research sources, create/update .md registry files, determine resolution strategy | Registry buildout |
-| [Registry Formalization](skills/registry-formalization/) | Convert .md to .json, validate against JSON Schema, ensure cross-format consistency | API development (JSON Schema emerges from API needs) |
-| [Compliance Testing](skills/compliance-testing/) | Run canonical test suite against resolver implementations, diagnose failures | API development (test cases accumulate as edge cases are discovered) |
-
-A fourth skill, [SecID User](skills/secid-user/), covers consuming SecID as an end user. It's blocked on SecID-Service existing.
+| Skill | Purpose | Status |
+|-------|---------|--------|
+| [Registry Research](skills/registry-research/) | Research sources, create/update .md registry files, determine resolution strategy | Active |
+| [Registry Formalization](skills/registry-formalization/) | Convert .md to .json, validate against JSON Schema, ensure cross-format consistency | Active |
+| [Registry Validation](skills/registry-validation/) | Validate registry entries against the JSON schema and naming conventions | **Active** — first non-stub skill |
+| [Compliance Testing](skills/compliance-testing/) | Run canonical test suite against resolver implementations, diagnose failures | Stub (accumulates test cases as edge cases are discovered) |
+| [SecID User](skills/secid-user/) | Consuming SecID as an end user via the live service | Active (SecID-Service is live) |
 
 ### Validation Strategy: AI-Assisted
 
@@ -435,6 +468,60 @@ This isn't "AI does everything" - it's AI as a team member that handles the tedi
 | Web interface | REST API | Browse and search security knowledge visually |
 | AI-powered assistant | All of the above | Natural language queries over security knowledge |
 | Knowledge graph UI | Relationships | Visualize connections between security concepts |
+
+## Ecosystem Architecture
+
+SecID is designed as a federated ecosystem with multiple independent components:
+
+| Component | What It Is | Can Be Multiple? |
+|-----------|------------|------------------|
+| **SecID Standard** | The identifier specification (`secid:type/namespace/name#subpath`) | One canonical spec, versioned |
+| **SecID Registries** | Namespace definitions, resolution rules | Yes - private registries, organizational overlays |
+| **Relationship Databases** | Connections between identifiers | Yes - different sources, perspectives |
+| **Enrichment Databases** | Metadata, annotations, context | Yes - organizational data, private enrichments |
+| **SecID APIs** | Services that resolve and query | Yes - different providers, implementations |
+
+**Federation means:** Organizations can run their own registries, databases, and APIs that overlay or extend the canonical data. A company might maintain private namespace definitions, internal relationship mappings, or proprietary enrichments - all compatible with the public ecosystem.
+
+### Arbitrary URL Support
+
+SecID identifiers are for **structured security knowledge with defined namespaces**. Arbitrary URLs are explicitly NOT part of the identifier specification (no `secid:url/...` type). However, APIs and databases can support URL queries:
+
+| Component | SecID Identifiers | Arbitrary URLs |
+|-----------|-------------------|----------------|
+| **SecID Standard** | ✅ Defines these | ❌ Explicitly excluded |
+| **SecID Registry** | ✅ Contains these | ❌ Not applicable |
+| **Our API** | ✅ Must support | ✅ Probably will support |
+| **Our Relationship DB** | ✅ Must include | ✅ Probably will include |
+| **Our Enrichment DB** | ✅ Must include | ✅ Probably will include |
+
+**Why this separation?** URLs are already globally unique identifiers - wrapping them in `secid:url/...` adds complexity without value. But APIs and databases can accept URLs as query inputs and store relationships/enrichments for arbitrary web content. This keeps the spec clean while enabling practical use cases like "what do we know about this Stack Overflow answer?"
+
+See [SPEC.md Section 1.3](SPEC.md#13-scope-what-secid-identifies-and-what-it-doesnt) for the full rationale.
+
+## Making SecID Easy to Consume
+
+Our goal is to make SecID as easy to consume as possible. We're building:
+
+| Repository | Purpose | Status |
+|------------|---------|--------|
+| **SecID** (this repo) | Spec, registry, operations docs | Active |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Hosted API + MCP server | **Live** |
+| **SecID-Website** | Documentation and registry browser | Planned |
+| **SecID-Client-SDK** | Client libraries + AI instructions | Planned |
+
+### SecID-Client-SDK
+
+Reference client libraries and AI-consumable instructions:
+- Python (`pip install secid`) and npm/TypeScript (`npm install secid`) for SEO and discoverability
+- AI instructions for generating clients in any language
+- Test fixtures extracted from the registry
+
+### LLM-Friendly
+
+We support the [llms.txt standard](https://llmstxt.org/) for AI-friendly content discovery. The website provides `/llms.txt` with structured links to key resources, enabling AI agents to efficiently understand SecID.
+
+See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for technical details on hosting and architecture.
 
 ## Success Indicators
 

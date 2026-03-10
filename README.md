@@ -88,41 +88,6 @@ SecID is a **meta-identifier system**—it identifies things that already have i
 
 SecID is **explicitly scoped to identifiers only**. On its own, a naming system is useful but limited. The real value comes from what you build on top: relationship graphs, enrichment layers, tooling, and integrations. SecID is foundational infrastructure.
 
-## Vision
-
-**A SecID isn't just an identifier - it's a handle that gives you everything you need to understand and work with security knowledge.**
-
-Today, security data is fragmented. CVEs live in one place, CWEs in another, controls in spreadsheets, regulations in PDFs. Finding information requires knowing where to look. Understanding it requires domain expertise. Connecting it requires manual effort.
-
-SecID changes this. When you have a SecID, you can:
-
-1. **Find it** - Get the URL or search instructions
-2. **Understand it** - Read a description of what it is
-3. **Read it** - Get the actual content (where licensing permits)
-4. **Interpret it** - Understand what the fields mean
-5. **Use it** - Know what to do with this data
-6. **Connect it** - See related concepts, mitigations, and examples
-
-**This is AI-first infrastructure** - but not AI-only. The primary consumer is AI agents that need to navigate security knowledge autonomously. When an agent receives a SecID response, it should be self-describing - the agent knows what it has, how to interpret it, and what to do with it.
-
-**Traditional tools are first-class consumers too.** SecID identifiers work in:
-- **SIEMs and SOC platforms** - Correlate alerts across vulnerability, weakness, and technique taxonomies
-- **GRC tools** - Map controls to regulations to compliance evidence
-- **Vulnerability scanners** - Link findings to weaknesses, techniques, and remediations
-- **SBOMs and VEX documents** - Reference advisories with consistent identifiers
-- **Asset inventories** - Tag systems with applicable controls and regulations
-- **Policy automation** - Define rules that reference specific controls or requirements
-
-AI agents accelerate adoption because they can consume SecID immediately without organizational buy-in. But the long-term value is infrastructure that humans, traditional tools, and AI all use together.
-
-We're building this in layers:
-- **v1.0**: URL resolution + descriptions (where to find it, what it is)
-- **v1.x**: Raw content with licensing (the actual text, properly attributed)
-- **v2.x**: Metadata wrapper (interpretation and usage guidance for AI)
-- **Future**: Relationships and overlays (connections and enrichment)
-
-See [ROADMAP.md](ROADMAP.md) for the full implementation plan.
-
 ## PURL to SecID Mapping
 
 SecID is PURL with a different scheme. The grammar is identical:
@@ -459,15 +424,6 @@ Resolution URLs are defined in each namespace's registry file. Item versions (li
 | [ROADMAP.md](ROADMAP.md) | Implementation phases and priorities |
 | [USE-CASES.md](docs/future/USE-CASES.md) | Concrete examples of what SecID enables |
 
-### Future Work (Not Yet Designed)
-
-| Document | Purpose |
-|----------|---------|
-| [RELATIONSHIPS.md](docs/future/RELATIONSHIPS.md) | Exploratory thinking on how identifiers might connect |
-| [OVERLAYS.md](docs/future/OVERLAYS.md) | Exploratory thinking on enrichment without mutation |
-
-**The spec is just IDs.** Relationships and overlays are future layers that will be designed based on real-world usage of the identifier system. We're deliberately deferring these to avoid premature complexity.
-
 ## Design Principles
 
 1. **AI-first** - Primary consumer is AI agents; registry content includes context, guidance, and parsing hints that enable AI to work autonomously with security knowledge
@@ -495,41 +451,7 @@ Being explicit about scope helps set expectations. SecID is deliberately limited
 
 ## Governance
 
-SecID currently uses a **Benevolent Dictator For Life (BDFL)** model for rapid early-stage decision making. This is a pragmatic choice - premature governance complexity kills more projects than it saves.
-
-**Long-term intent:** We are explicitly working toward a sustainable, vendor-neutral, multi-stakeholder governance structure appropriate for industry infrastructure. The spec and registry content are separable governance artifacts - the identifier format can stabilize while registry policies continue to evolve.
-
-See [STRATEGY.md](docs/future/STRATEGY.md) for detailed governance philosophy, funding approach, and organizational strategy.
-
-## Ecosystem Architecture
-
-SecID is designed as a federated ecosystem with multiple independent components:
-
-| Component | What It Is | Can Be Multiple? |
-|-----------|------------|------------------|
-| **SecID Standard** | The identifier specification (`secid:type/namespace/name#subpath`) | One canonical spec, versioned |
-| **SecID Registries** | Namespace definitions, resolution rules | Yes - private registries, organizational overlays |
-| **Relationship Databases** | Connections between identifiers | Yes - different sources, perspectives |
-| **Enrichment Databases** | Metadata, annotations, context | Yes - organizational data, private enrichments |
-| **SecID APIs** | Services that resolve and query | Yes - different providers, implementations |
-
-**Federation means:** Organizations can run their own registries, databases, and APIs that overlay or extend the canonical data. A company might maintain private namespace definitions, internal relationship mappings, or proprietary enrichments - all compatible with the public ecosystem.
-
-### Arbitrary URL Support
-
-SecID identifiers are for **structured security knowledge with defined namespaces**. Arbitrary URLs are explicitly NOT part of the identifier specification (no `secid:url/...` type). However, APIs and databases can support URL queries:
-
-| Component | SecID Identifiers | Arbitrary URLs |
-|-----------|-------------------|----------------|
-| **SecID Standard** | ✅ Defines these | ❌ Explicitly excluded |
-| **SecID Registry** | ✅ Contains these | ❌ Not applicable |
-| **Our API** | ✅ Must support | ✅ Probably will support |
-| **Our Relationship DB** | ✅ Must include | ✅ Probably will include |
-| **Our Enrichment DB** | ✅ Must include | ✅ Probably will include |
-
-**Why this separation?** URLs are already globally unique identifiers - wrapping them in `secid:url/...` adds complexity without value. But APIs and databases can accept URLs as query inputs and store relationships/enrichments for arbitrary web content. This keeps the spec clean while enabling practical use cases like "what do we know about this Stack Overflow answer?"
-
-See [SPEC.md Section 1.3](SPEC.md#13-scope-what-secid-identifies-and-what-it-doesnt) for the full rationale.
+SecID uses a BDFL model during early development, with an explicit path toward multi-stakeholder governance. See [GOVERNANCE.md](GOVERNANCE.md) for the current operating model and [STRATEGY.md](docs/future/STRATEGY.md) for long-term governance philosophy.
 
 ## Getting Started
 
@@ -548,57 +470,18 @@ See [SPEC.md Section 1.3](SPEC.md#13-scope-what-secid-identifies-and-what-it-doe
 
 This specification is open for public comment. We welcome feedback, questions, and suggestions via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues).
 
-**What's Ready:**
-- Identifier grammar defined
-- Seven types established
-- Registry structure with 100+ namespace definitions
-- Documentation for spec, rationale, design decisions, and strategy
-
-**What's In Progress:**
-- Registry expansion (targeting broader coverage)
-- Reference implementations (Python library first)
-- Compliance test suite
-- [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) (live, iterating)
-
-**What's Planned (Post-1.0):**
-- Relationship layer
-- Overlay layer
+| Component | Status |
+|-----------|--------|
+| Identifier grammar + 8 types | **Done** |
+| Registry: 121 namespaces (YAML + JSON) | **Done** |
+| [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
+| Registry validation skill | **Active** |
+| Compliance test suite | Not started |
+| Client SDKs (Python, npm, Go, etc.) | Not started |
+| Relationship layer | Post-1.0 |
+| Overlay layer | Post-1.0 |
 
 **Where help is needed:** See [docs/project/](docs/project/) for gap analysis, open issues, and known concerns.
-
-## Future: Making SecID Easy to Consume
-
-Our goal is to make SecID as easy to consume as possible. We're building:
-
-| Repository | Purpose | Status |
-|------------|---------|--------|
-| **SecID** (this repo) | Spec, registry, operations docs | Active |
-| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Hosted API + MCP server | Active |
-| **SecID-Website** | Documentation and registry browser | Planned |
-| **SecID-Client-SDK** | Client libraries + AI instructions | Planned |
-
-### SecID-Service
-
-**The SecID service is live!** See the [SecID-Service repository](https://github.com/CloudSecurityAlliance/SecID-Service) for details.
-
-Cloudflare Worker providing:
-- REST API at `/api/v1/` for programmatic access
-- MCP server at `/mcp` for AI agent integration
-
-**Primary integration path:** Add `https://secid.cloudsecurityalliance.org/mcp` as a remote MCP server. Your AI assistant can then use the tools directly or generate API client code on the fly.
-
-### SecID-Client-SDK
-
-Reference client libraries and AI-consumable instructions:
-- Python (`pip install secid`) and npm/TypeScript (`npm install secid`) for SEO and discoverability
-- AI instructions for generating clients in any language
-- Test fixtures extracted from the registry
-
-### LLM-Friendly
-
-We support the [llms.txt standard](https://llmstxt.org/) for AI-friendly content discovery. The website provides `/llms.txt` with structured links to key resources, enabling AI agents to efficiently understand SecID.
-
-See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for technical details on hosting and architecture
 
 ## License
 
