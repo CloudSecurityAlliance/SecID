@@ -124,8 +124,8 @@ Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (
 Per-field `_checked`, `_updated`, and `_note` metadata for verifiable data (URLs, emails, policy text, null findings). Enables freshness assessment and records verification observations without relying solely on git history.
 
 **Depends on:** Approval of proposal
-**Blocks:** `disclosure` type (which relies heavily on data freshness)
-**When to implement:** After proposal review, before disclosure type work begins
+**Blocks:** `disclosure` type namespace entries (which rely heavily on data freshness)
+**When to implement:** After proposal review, before disclosure namespace entries are populated
 
 ## Completed
 

@@ -48,7 +48,7 @@ SecID:  secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qua
 | PURL Component | SecID Component | Required | SecID Usage |
 |----------------|-----------------|----------|-------------|
 | `pkg:` | `secid:` | Yes | Scheme (constant prefix) |
-| `type` | `type` | Yes | Security domain: `advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference` |
+| `type` | `type` | Yes | Security domain: `advisory`, `weakness`, `ttp`, `control`, `disclosure`, `regulation`, `entity`, `reference` |
 | `namespace` | `namespace` | Yes | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. A plain domain (`redhat.com`, `cloudsecurityalliance.org`) or a domain with `/`-separated path segments (`github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`). |
 | `name` | `name` | Yes | **Database/framework/standard** they publish (e.g., `cve`, `nvd`, `cwe`, `attack`, `ccm`, `27001`) |
 | `@version` | `@version` | No | Edition or revision (e.g., `@4.0`, `@2022`, `@2.0`) |
@@ -238,7 +238,7 @@ PURL uses `pkg:` to identify packages. SecID uses `secid:` to identify security 
 
 PURL types are package ecosystems: `npm`, `pypi`, `maven`, `cargo`, `nuget`, etc.
 
-SecID types are security domains: `advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference`.
+SecID types are security domains: `advisory`, `weakness`, `ttp`, `control`, `disclosure`, `regulation`, `entity`, `reference`.
 
 This is semantic, not structural - the grammar is identical, just the vocabulary differs.
 
@@ -346,7 +346,7 @@ secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qualifiers]
 | Component | Required | Description |
 |-----------|----------|-------------|
 | `secid:` | Yes | The URL scheme (constant, like `pkg:` in PURL) |
-| `type` | Yes | The security domain: advisory, weakness, ttp, control, regulation, entity, reference |
+| `type` | Yes | The security domain: advisory, weakness, ttp, control, disclosure, regulation, entity, reference |
 | `namespace` | Yes | The domain name of the organization (mitre.org, nist.gov, owasp.org, etc.), optionally with sub-namespace path segments (github.com/advisories) |
 | `name` | Yes | The database/framework/document they publish (cve, nvd, ccm, attack, etc.) |
 | `@version` | No | Edition or revision of the thing itself |
@@ -383,7 +383,7 @@ secid:reference/arxiv.org/2303.08774
 
 ## 3. Types
 
-SecID defines seven types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution) for the rationale.
+SecID defines eight types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution) for the rationale.
 
 | Type | What it identifies | Question it answers |
 |------|-------------------|---------------------|
@@ -392,6 +392,7 @@ SecID defines seven types. Each answers a different question. Types are intentio
 | `ttp` | Adversary techniques and behaviors | "How do attackers do this?" |
 | `control` | Security requirements, benchmarks, and documentation standards | "How do we prevent/detect/document this?" |
 | `regulation` | Laws and binding legal requirements | "What does the law require?" |
+| `disclosure` | Vulnerability disclosure programs, policies, reporting channels | "How do I report a vulnerability?" |
 | `entity` | Vendors, products, services, platforms | "What/who is this?" |
 | `reference` | Documents, publications, research | "What source supports this?" |
 
@@ -480,7 +481,20 @@ secid:control/cisecurity.org/controls@8.0#1.1            # CIS Control
 secid:control/iso.org/27001@2022#A.8.1            # ISO 27001 Annex A control
 ```
 
-### 3.5 Regulation
+### 3.5 Disclosure
+
+Vulnerability disclosure programs, policies, reporting channels, and contacts — how to report security issues to an organization. Distinct from `advisory` (published vulnerability records) and `entity` (the organization itself).
+
+```
+secid:disclosure/redhat.com/psirt                     # Red Hat's PSIRT program
+secid:disclosure/redhat.com/security-txt              # Red Hat's security.txt
+secid:disclosure/hackerone.com/programs#redhat         # Red Hat's HackerOne bug bounty
+secid:disclosure/microsoft.com/msrc                    # Microsoft Security Response Center
+secid:disclosure/google.com/vrp                        # Google Vulnerability Reward Program
+secid:disclosure/ietf.org/security-txt                 # RFC 9116 security.txt standard
+```
+
+### 3.6 Regulation
 
 Laws, directives, and binding legal requirements.
 
@@ -495,7 +509,7 @@ secid:regulation/govinfo.gov/sox                    # Sarbanes-Oxley
 secid:regulation/europa.eu/nis2                   # NIS2 Directive
 ```
 
-### 3.6 Entity
+### 3.7 Entity
 
 Organizations, products, services, platforms - stable anchors when PURL/SPDX are unavailable.
 
@@ -511,7 +525,7 @@ secid:entity/redhat.com/rhel                   # RHEL product
 
 The namespace is the organization; the name is the specific thing (product, service, system) within that organization. The namespace definition file (e.g., `registry/entity/org/mitre.md`) describes the organization itself.
 
-### 3.7 Reference
+### 3.8 Reference
 
 Documents, publications, and research that don't fit into other categories. The reference type has a **deliberately narrow scope** to avoid duplicating what other types cover well.
 
@@ -1113,7 +1127,7 @@ Rather than defining a complex list of banned characters that users must memoriz
 
 **Parsing algorithm:**
 
-1. **Type** - Match against known list: `advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference`
+1. **Type** - Match against known list: `advisory`, `weakness`, `ttp`, `control`, `disclosure`, `regulation`, `entity`, `reference`
 2. **Namespace** - Try shortest-to-longest namespace matches against the registry (see below)
 3. **Name** - Match remaining path against source names in `registry[type][namespace]`. **Longest match wins.** Names can contain any characters including `#`, `@`, `?`, `:`.
 4. **Source version** - After name match, parse `@...` until `?` or `#`

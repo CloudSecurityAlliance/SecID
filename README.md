@@ -137,7 +137,7 @@ SecID:  secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qua
 | PURL Component | SecID Component | SecID Usage |
 |----------------|-----------------|-------------|
 | `pkg:` | `secid:` | Scheme (constant prefix) |
-| `type` | `type` | Security domain: `advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference` |
+| `type` | `type` | Security domain: `advisory`, `weakness`, `ttp`, `control`, `disclosure`, `regulation`, `entity`, `reference` |
 | `namespace` | `namespace` | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. Examples: `redhat.com`, `cloudsecurityalliance.org`, `github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`. |
 | `name` | `name` | **Database/framework/standard** they publish (e.g., `cve`, `nvd`, `cwe`, `attack`, `27001`) |
 | `@version` | `@version` | Edition or revision (e.g., `@4.0`, `@2022`, `@2.0`) |
@@ -311,6 +311,7 @@ SecID strings are human-readable - no encoding needed. Subpaths can use `/` for 
 | `ttp` | Adversary techniques and behaviors |
 | `control` | Security requirements and capabilities that implement them |
 | `regulation` | Laws and binding legal requirements |
+| `disclosure` | Vulnerability disclosure programs, policies, reporting channels |
 | `entity` | Organizations, products, services, platforms |
 | `reference` | Documents, publications, research |
 
@@ -365,6 +366,8 @@ secid/
 │   │   │   └── nist.md  # NIST: csf, 800-53, ai-rmf
 │   │   └── org/
 │   │       └── iso.md   # ISO: 27001, 27002
+│   ├── disclosure.md    # Type definition
+│   ├── disclosure/      # Disclosure namespaces (empty — new type)
 │   ├── entity.md        # Type definition
 │   ├── entity/
 │   │   ├── org/
@@ -404,7 +407,7 @@ Why this format:
 |------|------------|
 | **SecID** | A complete identifier string starting with `secid:` |
 | **Scheme** | The URL scheme - always `secid:` (like `pkg:` in PURL) |
-| **Type** | The security domain (advisory, weakness, ttp, control, regulation, entity, reference) |
+| **Type** | The security domain (advisory, weakness, ttp, control, disclosure, regulation, entity, reference) |
 | **Namespace** | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. A plain domain (`redhat.com`, `cloudsecurityalliance.org`) or a domain with `/`-separated path segments (`github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`). Allowed per segment: `a-z`, `0-9`, `-`, `.`, and Unicode letters/numbers. |
 | **Name** | The database/framework/document they publish (e.g., `cve`, `nvd`, `ccm`, `attack`). Can contain any characters - resolved by registry lookup. |
 | **Version** | Optional `@version` suffix on the name for edition/revision of the source (e.g., `@4.0`, `@2021`, `@2016-04-27`) |
@@ -550,7 +553,7 @@ This specification is open for public comment. We welcome feedback, questions, a
 
 **What's Ready:**
 - Identifier grammar defined
-- Seven types established
+- Eight types established
 - Registry structure with 100+ namespace definitions
 - Documentation for spec, rationale, design decisions, and strategy
 

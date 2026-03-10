@@ -26,7 +26,7 @@ How to investigate a new security knowledge source end-to-end:
 
 ### Determine Type and Namespace
 
-- Decision criteria for the 7 SecID types (advisory, weakness, ttp, control, regulation, entity, reference)
+- Decision criteria for the 8 SecID types (advisory, weakness, ttp, control, disclosure, regulation, entity, reference)
 - Compute filesystem path using the reverse-DNS algorithm
 - Check if namespace already exists (add source vs. create new file)
 - Handle cross-type documentation (same source in multiple types)

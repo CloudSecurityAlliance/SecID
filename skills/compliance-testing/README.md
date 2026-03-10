@@ -31,7 +31,7 @@ The test suite covers all dimensions of SecID resolution:
 
 | Area | What's Tested |
 |------|--------------|
-| All 7 types | advisory, weakness, ttp, control, regulation, entity, reference |
+| All 8 types | advisory, weakness, ttp, control, disclosure, regulation, entity, reference |
 | Percent-encoding | `RHSA-2024:1234` round-trips correctly, `%3A` decodes to `:` |
 | version_required | Versioned sources return disambiguation when version omitted |
 | Qualifiers | `?lang=en` and other qualifier parsing |

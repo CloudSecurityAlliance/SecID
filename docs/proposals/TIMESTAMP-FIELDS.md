@@ -12,7 +12,7 @@ Git history tracks when files were committed, but not when the real-world facts 
 
 - A `null` `security_txt` from 6 months ago needs re-checking; a `null` from last week is trustworthy
 - A PSIRT URL confirmed working last week is reliable; one set 2 years ago might 404
-- The upcoming `disclosure` type will heavily depend on freshness — contact info, reporting channels, and policy descriptions go stale fast
+- The `disclosure` type heavily depends on freshness — contact info, reporting channels, and policy descriptions go stale fast
 - AI agents consuming registry data need to assess trustworthiness of individual facts
 
 The existing null/absent convention tells you *if* we looked, but not *when*:

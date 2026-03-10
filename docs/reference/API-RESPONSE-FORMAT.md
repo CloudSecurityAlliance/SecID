@@ -341,7 +341,7 @@ GET /api/v1/resolve?secid=secid:frobnicate/mitre.org/cve
   "secid_query": "secid:frobnicate/mitre.org/cve",
   "status": "not_found",
   "results": [],
-  "message": "'frobnicate' is not a valid type. Valid types: advisory, weakness, ttp, control, regulation, entity, reference."
+  "message": "'frobnicate' is not a valid type. Valid types: advisory, weakness, ttp, control, disclosure, regulation, entity, reference."
 }
 ```
 

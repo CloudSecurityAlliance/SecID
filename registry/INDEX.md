@@ -7,7 +7,7 @@ Last updated: 2026-03-03
 
 ## Summary
 
-**121 entries** across 7 types, **121 JSON conversions** (100% coverage), **67 resolvable** (have patterns + URLs)
+**121 entries** across 8 types, **121 JSON conversions** (100% coverage), **67 resolvable** (have patterns + URLs)
 
 | Maturity | Count | Meaning |
 |----------|-------|---------|
@@ -125,6 +125,10 @@ conversion handles the mapping.
 | `org/metr` | METR (task-standard, evals) | partial | — | **no** | — | 2026-02-10 | no patterns |
 | `org/mlcommons` | MLCommons (ai-safety, croissant, mlperf) | partial | — | **no** | — | 2026-02-10 | no patterns |
 | `sg/gov/imda` | Singapore (ai-verify, model-governance) | partial | — | **no** | — | 2026-02-10 | no patterns |
+
+## disclosure (0 entries, 0 pilots, 0 resolvable)
+
+New type for vulnerability disclosure programs, policies, and reporting channels. No namespace entries yet — see `registry/disclosure.md` for the type description and `registry/disclosure/_template.md` for the contributor template.
 
 ## weakness (13 entries, 2 pilots, 9 resolvable)
 
