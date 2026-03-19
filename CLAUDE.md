@@ -115,7 +115,7 @@ secid/
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (121 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (123 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
 └── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
@@ -123,7 +123,7 @@ secid/
 
 ## Registry File Format
 
-**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 121 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
+**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 123 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
 
 One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` or `registry/reference/_template.md` as a starting point for new files.
 
@@ -255,8 +255,8 @@ All 121 registry namespaces have been converted to JSON format. These `.json` fi
 | TTP | 4 |
 | Control | 24 |
 | Regulation | 4 |
-| Reference | 21 |
-| Entity | 13 |
+| Reference | 22 |
+| Entity | 14 |
 
 **Key reference files for complex patterns:**
 - `registry/advisory/org/mitre.json` — CVE (with cvelistV5 variable extraction)
@@ -266,6 +266,7 @@ All 121 registry namespaces have been converted to JSON format. These `.json` fi
 - `registry/advisory/com/suse.json` — SUSE-SU (colon-in-ID variable extraction)
 - `registry/weakness/org/owasp.json` — `version_required`, `version_disambiguation`, structured ExampleObject fixtures
 - `registry/control/org/cloudsecurityalliance.json` — CCM, AICM (versioned controls)
+- `registry/reference/org/cloudsecurityalliance.json` — CSA website artifacts (1,131 publications with known_values lookup)
 - `registry/control/org/iso.json` — 6 ISO standards
 - `registry/ttp/org/mitre.json` — ATT&CK, ATLAS, CAPEC
 
