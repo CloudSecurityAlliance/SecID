@@ -303,6 +303,7 @@ Before adding anything, study how the source is **presented** and how people **u
    - Abstract flaw patterns → `weakness`
    - Adversary techniques → `ttp`
    - Security requirements → `control`
+   - Vulnerability disclosure programs, policies, reporting channels → `disclosure`
    - Laws and legal requirements → `regulation`
    - Organizations, products, services → `entity`
    - Documents and research → `reference`

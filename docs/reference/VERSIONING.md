@@ -169,7 +169,7 @@ Status:   not_found
 ```
 Query:    secid:frobnicate/mitre.org/cve#CVE-2024-1234
 Response: "frobnicate" is not a valid type.
-          Valid types: advisory, weakness, ttp, control, regulation, entity, reference.
+          Valid types: advisory, weakness, ttp, control, disclosure, regulation, entity, reference.
 Status:   not_found
 ```
 

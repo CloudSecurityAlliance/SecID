@@ -6,7 +6,7 @@ This guide walks through adding a new namespace to the SecID registry, from init
 
 ## Prerequisites
 
-- Understand SecID types (advisory, weakness, ttp, control, regulation, entity, reference)
+- Understand SecID types (advisory, weakness, ttp, control, disclosure, regulation, entity, reference)
 - Have a source to register (a database, framework, standard, or authority)
 - Read [REGISTRY-GUIDE.md](REGISTRY-GUIDE.md) for principles and patterns
 

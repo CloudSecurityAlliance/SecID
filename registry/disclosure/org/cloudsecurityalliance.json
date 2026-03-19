@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cloudsecurityalliance.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Cloud Security Alliance",
+  "common_name": "CSA",
+  "alternate_names": null,
+  "notes": "CSA's vulnerability disclosure and security reporting channels. CSA operates a responsible disclosure program and publishes a security.txt file per RFC 9116.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloudsecurityalliance.org"},
+    {"type": "security_txt", "url": "https://cloudsecurityalliance.org/.well-known/security.txt"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security-txt$"],
+      "description": "CSA's security.txt file (RFC 9116)",
+      "weight": 60,
+      "data": {
+        "official_name": "CSA security.txt",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Machine-readable security contact and disclosure information per RFC 9116.",
+        "notes": "Standard location at /.well-known/security.txt. Contains contact information, preferred languages, disclosure policy link, and expiration date.",
+        "urls": [
+          {"type": "security_txt", "url": "https://cloudsecurityalliance.org/.well-known/security.txt"},
+          {"type": "standard", "url": "https://www.rfc-editor.org/rfc/rfc9116", "note": "RFC 9116 — security.txt specification"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^responsible-disclosure$"],
+      "description": "CSA's responsible disclosure policy and reporting channel",
+      "weight": 100,
+      "data": {
+        "official_name": "CSA Responsible Disclosure",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Primary channel for reporting security vulnerabilities in CSA systems and services.",
+        "notes": "Contact security@cloudsecurityalliance.org for vulnerability reports. CSA follows responsible disclosure practices.",
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/security"}
+        ],
+        "contacts": [
+          {"type": "email", "value": "security@cloudsecurityalliance.org", "preferred": true}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

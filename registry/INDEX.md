@@ -7,7 +7,7 @@ Last updated: 2026-03-03
 
 ## Summary
 
-**121 entries** across 7 types, **121 JSON conversions** (100% coverage), **67 resolvable** (have patterns + URLs)
+**123 entries** across 8 types, **123 JSON conversions** (100% coverage), **67 resolvable** (have patterns + URLs)
 
 | Maturity | Count | Meaning |
 |----------|-------|---------|
@@ -125,6 +125,14 @@ conversion handles the mapping.
 | `org/metr` | METR (task-standard, evals) | partial | — | **no** | — | 2026-02-10 | no patterns |
 | `org/mlcommons` | MLCommons (ai-safety, croissant, mlperf) | partial | — | **no** | — | 2026-02-10 | no patterns |
 | `sg/gov/imda` | Singapore (ai-verify, model-governance) | partial | — | **no** | — | 2026-02-10 | no patterns |
+
+## disclosure (1 entry, 0 pilots, 0 resolvable)
+
+New type for vulnerability disclosure programs, policies, and reporting channels. See `registry/disclosure.md` for the type description and `registry/disclosure/_template.md` for the contributor template.
+
+| Namespace | Description | Maturity | JSON | Patterns | Lookup | Updated | Notes |
+|-----------|-------------|----------|------|----------|--------|---------|-------|
+| `org/cloudsecurityalliance` | CSA vulnerability disclosure | draft | yes | yes | no | 2026-03-18 | first disclosure entry |
 
 ## weakness (13 entries, 2 pilots, 9 resolvable)
 

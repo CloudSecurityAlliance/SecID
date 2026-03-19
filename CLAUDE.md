@@ -115,7 +115,7 @@ secid/
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (123 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (124 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
 └── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
@@ -123,9 +123,9 @@ secid/
 
 ## Registry File Format
 
-**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 123 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
+**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 124 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
 
-One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md` or `registry/reference/_template.md` as a starting point for new files.
+One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md`, `registry/disclosure/_template.md`, or `registry/reference/_template.md` as a starting point for new files.
 
 ### Status Values
 
@@ -166,6 +166,7 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 | `weakness` | Abstract flaw patterns (CWE, OWASP Top 10) |
 | `ttp` | Adversary techniques (ATT&CK, ATLAS, CAPEC) |
 | `control` | Security requirements (NIST CSF, ISO 27001, benchmarks) |
+| `disclosure` | Vulnerability disclosure programs, policies, reporting channels |
 | `regulation` | Laws and legal requirements (GDPR, HIPAA) |
 | `entity` | Organizations, products, services |
 | `reference` | Documents, research, identifier systems (arXiv, DOI, ISBN, RFCs) |
@@ -199,7 +200,7 @@ Simple cases: `mitre.org` → `registry/<type>/org/mitre.md`, `nist.gov` → `re
 
 ## Adding New Namespaces
 
-1. Determine type (advisory, weakness, ttp, control, regulation, entity, reference)
+1. Determine type (advisory, weakness, ttp, control, disclosure, regulation, entity, reference)
 2. Compute the filesystem path using the algorithm above
 3. Check if the file already exists — if so, add a source section to it
 4. If new, copy from `registry/advisory/_template.md` and fill in fields
@@ -297,7 +298,7 @@ rg -n '^namespace:' registry/**/*.md
 rg -l 'namespace: mitre.org' registry/
 
 # Count registry files per type
-for type in advisory weakness ttp control regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
+for type in advisory weakness ttp control disclosure regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
 
 # Validate all JSON registry files parse correctly
 for f in registry/**/*.json; do python3 -c "import json; json.load(open('$f'))" && echo "OK: $f" || echo "FAIL: $f"; done
@@ -319,7 +320,7 @@ This is a **specification-only repository** — no build system, no tests, no co
 
 | Component | Character Rules |
 |-----------|-----------------|
-| `type` | Fixed list of 7 values |
+| `type` | Fixed list of 8 values |
 | `namespace` | Domain name, optionally with `/`-separated sub-namespace path segments. Per-segment: `a-z`, `0-9`, `-`, `.`, Unicode `\p{L}\p{N}`. |
 | `name` | **Anything** - resolved by registry lookup, longest match wins |
 | `subpath` | Anything (everything after `#`). May include `@item_version` suffix — parsed via pattern tree matching. |

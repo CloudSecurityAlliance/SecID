@@ -130,9 +130,9 @@ secid:advisory/redhat.com/cve#CVE-2024-1234 → enriches → secid:advisory/mitr
 
 The CVE advisory is the canonical anchor. Everything else relates to it.
 
-## The Seven Types
+## The Eight Types
 
-We arrived at seven types, each answering a different question:
+We arrived at eight types, each answering a different question:
 
 | Type | Question | Examples |
 |------|----------|----------|
@@ -140,11 +140,12 @@ We arrived at seven types, each answering a different question:
 | `weakness` | "What kind of mistake is this?" | CWE, OWASP Top 10 |
 | `ttp` | "How do attackers do this?" | ATT&CK, ATLAS, CAPEC |
 | `control` | "How do we prevent/detect this?" | CSA CCM, NIST CSF, CIS |
+| `disclosure` | "How do I report a vulnerability?" | PSIRT programs, bug bounties, security.txt |
 | `regulation` | "What does the law require?" | GDPR, HIPAA, SOX |
 | `entity` | "What/who is this?" | Vendors, products, systems |
 | `reference` | "What source supports this?" | Research papers, policy documents |
 
-### Why These Seven?
+### Why These Eight?
 
 Each type is **semantically distinct** - no overlaps:
 
@@ -152,6 +153,7 @@ Each type is **semantically distinct** - no overlaps:
 - Weaknesses are abstract flaw patterns (not instances)
 - TTPs are adversary behaviors (not flaws)
 - Controls are what you implement (not what's wrong)
+- Disclosures are how to report (not the published record)
 - Regulations are legal requirements (not voluntary)
 - Entities are things that exist (meta-level)
 - References are source documents (citations, research, policy)

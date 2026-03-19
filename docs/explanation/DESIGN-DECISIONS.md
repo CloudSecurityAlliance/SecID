@@ -194,6 +194,20 @@ Create a new type when:
 
 This is data-driven type design. We let usage teach us what needs separation rather than speculating upfront.
 
+### Case Study: The `disclosure` Split
+
+The `disclosure` type is the first type added after the original seven. It was split from `entity` because all four "When to Split" criteria were met:
+
+1. **Resolution patterns diverge** — Disclosure entries resolve to contact information (emails, forms, security.txt URLs), policy documents, and program descriptions. Entity entries resolve to product descriptions and capability lists. The data structures and URL patterns are fundamentally different.
+
+2. **Consumers diverge** — A security researcher who found a vulnerability needs to know *how to report it* immediately. That's a different workflow from looking up what products an organization sells. Vulnerability disclosure tools, coordinated disclosure platforms, and security researchers are a distinct consumer group from asset inventory and product reference tools.
+
+3. **Semantics drift** — `entity` answers "What is this organization/product?" while `disclosure` answers "How do I report a vulnerability to this organization?" These are meaningfully different questions with different urgency profiles.
+
+4. **Volume justifies it** — Every organization with a security presence has disclosure channels: PSIRT programs, bug bounty platforms, security.txt files, disclosure policies. Bug bounty platforms (HackerOne, Bugcrowd, Intigriti) host thousands of programs. RFC 9116 (security.txt) standardizes machine-readable disclosure information.
+
+**Additional factor: freshness requirements.** Disclosure data goes stale fast — contact emails change, reporting forms move, bug bounty programs open and close. Entity data (product names, descriptions) is relatively stable. The `_checked` / `_updated` metadata fields are especially important for disclosure entries, where a stale email address means a vulnerability report goes undelivered.
+
 ---
 
 ## Why No UUIDs?

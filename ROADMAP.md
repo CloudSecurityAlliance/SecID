@@ -387,7 +387,7 @@ This learning feeds back into spec refinement and overlay priorities.
 |-------------|--------|-------|
 | Specification (SPEC.md) | Complete | Open for public comment |
 | Registry structure | Complete | 121 namespace definitions (YAML + JSON) |
-| Type documentation | Complete | All 7 types documented |
+| Type documentation | Complete | All 8 types documented |
 | Design documentation | Complete | RATIONALE, DESIGN-DECISIONS, STRATEGY |
 | Namespace documentation | Complete | _index.md files for advisory namespaces |
 

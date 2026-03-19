@@ -72,7 +72,7 @@ sources:
 
 | Field | Description |
 |-------|-------------|
-| `type` | SecID type: `advisory`, `weakness`, `ttp`, `control`, `regulation`, `entity`, `reference` |
+| `type` | SecID type: `advisory`, `weakness`, `ttp`, `control`, `disclosure`, `regulation`, `entity`, `reference` |
 | `namespace` | Organization/source identifier (lowercase, hyphenated) |
 | `full_name` | Human-readable name of the namespace operator |
 

@@ -375,7 +375,7 @@ See [TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md) for full rationale, 
 |-------|------|-------------|
 | `schema_version` | string | JSON schema version for this file |
 | `namespace` | string | Organization identifier — domain name (used in SecIDs). See namespace validation below. |
-| `type` | string | SecID type: advisory, weakness, ttp, control, regulation, entity, reference |
+| `type` | string | SecID type: advisory, weakness, ttp, control, disclosure, regulation, entity, reference |
 | `status` | string | Registry entry status (see below) |
 | `status_notes` | string \| null | Optional context about status (blockers, gaps, guidance for contributors) |
 | `notes` | string \| null | Free-form context for AI and human readers (see Notes Fields below) |

@@ -31,6 +31,7 @@ Each type has:
 | `weakness` | Abstract flaw patterns | |
 | `ttp` | Adversary techniques and behaviors | |
 | `control` | Security requirements and capabilities | Prescriptive benchmarks, documentation standards |
+| `disclosure` | Vulnerability disclosure programs, policies, reporting channels | |
 | `regulation` | Laws and binding legal requirements | |
 | `entity` | Organizations, products, services, platforms | |
 | `reference` | Documents, publications, research | |
