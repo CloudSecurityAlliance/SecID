@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/repo",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Repositories",
+  "common_name": "GitHub Repos",
+  "alternate_names": ["GitHub Repositories"],
+  "notes": "Source code repositories hosted on GitHub. Identified by owner (organization or user) and repository name. GitHub is the world's largest source code hosting platform with over 200 million repositories.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"},
+    {"type": "api", "url": "https://api.github.com/repos"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$"],
+      "description": "Repository identified by owner/repo",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{owner}/{repo}",
+        "variables": {
+          "owner": {
+            "extract": "^([^/]+)/[^/]+$",
+            "description": "Repository owner (organization or user)"
+          },
+          "repo": {
+            "extract": "^[^/]+/([^/]+)$",
+            "description": "Repository name"
+          }
+        },
+        "examples": [
+          {
+            "input": "CloudSecurityAlliance/SecID",
+            "variables": {"owner": "CloudSecurityAlliance", "repo": "SecID"},
+            "url": "https://github.com/CloudSecurityAlliance/SecID"
+          },
+          {
+            "input": "torvalds/linux",
+            "variables": {"owner": "torvalds", "repo": "linux"},
+            "url": "https://github.com/torvalds/linux"
+          }
+        ]
+      }
+    }
+  ]
+}

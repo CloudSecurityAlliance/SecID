@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/issues",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Issues",
+  "common_name": "GitHub Issues",
+  "alternate_names": null,
+  "notes": "Issues on GitHub repositories. Identified by owner, repository name, and issue number. GitHub issues and pull requests share a number sequence within each repository — an issue and a PR cannot have the same number in the same repo.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$"],
+      "description": "Issue identified by owner/repo/number",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{owner}/{repo}/issues/{number}",
+        "variables": {
+          "owner": {
+            "extract": "^([^/]+)/[^/]+/\\d+$",
+            "description": "Repository owner (organization or user)"
+          },
+          "repo": {
+            "extract": "^[^/]+/([^/]+)/\\d+$",
+            "description": "Repository name"
+          },
+          "number": {
+            "extract": "^[^/]+/[^/]+/(\\d+)$",
+            "description": "Issue number"
+          }
+        },
+        "examples": [
+          {
+            "input": "CloudSecurityAlliance/SecID/17",
+            "variables": {"owner": "CloudSecurityAlliance", "repo": "SecID", "number": "17"},
+            "url": "https://github.com/CloudSecurityAlliance/SecID/issues/17"
+          }
+        ]
+      }
+    }
+  ]
+}

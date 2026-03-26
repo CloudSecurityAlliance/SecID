@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/commit",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Commits",
+  "common_name": "GitHub Commits",
+  "alternate_names": null,
+  "notes": "Git commit objects hosted on GitHub. Commits are identified by SHA-1 hashes (40 hex characters), though abbreviated forms (7+ characters) are widely used. Because commit hashes are content-addressed, the same hash uniquely identifies the same commit across forks and mirrors. Resolution uses GitHub's commit search, which finds the commit in any public repository.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"},
+    {"type": "search", "url": "https://github.com/search?type=commits"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[0-9a-f]{40}$"],
+      "description": "Full SHA-1 commit hash (40 hex characters)",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/search?q={id}&type=commits",
+        "examples": [
+          {
+            "input": "742ad9425bdfc8191a89a47065fb056f45a331a7",
+            "url": "https://github.com/search?q=742ad9425bdfc8191a89a47065fb056f45a331a7&type=commits",
+            "note": "Full 40-character SHA resolves unambiguously"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": ["^[0-9a-f]{7,39}$"],
+      "description": "Abbreviated commit hash (7-39 hex characters)",
+      "weight": 50,
+      "data": {
+        "url": "https://github.com/search?q={id}&type=commits",
+        "notes": "Abbreviated hashes may match multiple commits across repositories. GitHub search returns all matches. Prefer full 40-character hashes for unambiguous resolution.",
+        "examples": [
+          {
+            "input": "742ad94",
+            "url": "https://github.com/search?q=742ad94&type=commits",
+            "note": "Short hash — may match multiple commits"
+          }
+        ]
+      }
+    }
+  ]
+}

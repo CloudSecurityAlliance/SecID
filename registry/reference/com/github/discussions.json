@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/discussions",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Discussions",
+  "common_name": "GitHub Discussions",
+  "alternate_names": null,
+  "notes": "Discussion threads on GitHub repositories. A forum-like feature for community Q&A, announcements, and general conversation. Identified by owner, repository name, and discussion number. Discussions share the same number sequence as issues and pull requests within a repository.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$"],
+      "description": "Discussion identified by owner/repo/number",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{owner}/{repo}/discussions/{number}",
+        "variables": {
+          "owner": {
+            "extract": "^([^/]+)/[^/]+/\\d+$",
+            "description": "Repository owner (organization or user)"
+          },
+          "repo": {
+            "extract": "^[^/]+/([^/]+)/\\d+$",
+            "description": "Repository name"
+          },
+          "number": {
+            "extract": "^[^/]+/[^/]+/(\\d+)$",
+            "description": "Discussion number"
+          }
+        },
+        "examples": [
+          {
+            "input": "vercel/next.js/50000",
+            "variables": {"owner": "vercel", "repo": "next.js", "number": "50000"},
+            "url": "https://github.com/vercel/next.js/discussions/50000"
+          }
+        ]
+      }
+    }
+  ]
+}

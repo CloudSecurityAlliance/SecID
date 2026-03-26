@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/users",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Users and Organizations",
+  "common_name": "GitHub Users",
+  "alternate_names": ["GitHub Organizations", "GitHub Orgs"],
+  "notes": "User and organization profiles on GitHub. GitHub does not distinguish between user and organization URLs — both resolve at github.com/{name}. Usernames are alphanumeric with hyphens, cannot start or end with a hyphen, and are case-insensitive.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$"],
+      "description": "GitHub username or organization name",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{id}",
+        "examples": [
+          {
+            "input": "CloudSecurityAlliance",
+            "url": "https://github.com/CloudSecurityAlliance"
+          },
+          {
+            "input": "torvalds",
+            "url": "https://github.com/torvalds"
+          }
+        ]
+      }
+    }
+  ]
+}

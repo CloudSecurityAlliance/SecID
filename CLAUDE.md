@@ -118,6 +118,7 @@ secid/
 │   ├── <type>/<tld>/<domain>.json  # JSON format (124 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
+├── slides/                  # Presentation assets (overview deck)
 └── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
 ```
 
@@ -247,7 +248,7 @@ See `registry/advisory/com/redhat.json` for a complex example with nested childr
 
 ## JSON Registry Files
 
-All 121 registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts:
+All 124 registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts:
 
 | Type | Count |
 |------|-------|
@@ -255,6 +256,7 @@ All 121 registry namespaces have been converted to JSON format. These `.json` fi
 | Weakness | 13 |
 | TTP | 4 |
 | Control | 24 |
+| Disclosure | 1 |
 | Regulation | 4 |
 | Reference | 22 |
 | Entity | 14 |
@@ -270,6 +272,7 @@ All 121 registry namespaces have been converted to JSON format. These `.json` fi
 - `registry/reference/org/cloudsecurityalliance.json` — CSA website artifacts (1,131 publications with known_values lookup)
 - `registry/control/org/iso.json` — 6 ISO standards
 - `registry/ttp/org/mitre.json` — ATT&CK, ATLAS, CAPEC
+- `registry/disclosure/org/cloudsecurityalliance.json` — Product security program (first disclosure entry)
 
 Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review of YAML→JSON conversions.
 

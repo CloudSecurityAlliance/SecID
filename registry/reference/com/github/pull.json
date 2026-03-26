@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/pull",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Pull Requests",
+  "common_name": "GitHub PRs",
+  "alternate_names": ["GitHub Pull Requests"],
+  "notes": "Pull requests on GitHub repositories. Identified by owner, repository name, and pull request number. The subpath format mirrors GitHub's URL structure: owner/repo/number.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$"],
+      "description": "Pull request identified by owner/repo/number",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{owner}/{repo}/pull/{number}",
+        "variables": {
+          "owner": {
+            "extract": "^([^/]+)/[^/]+/\\d+$",
+            "description": "Repository owner (organization or user)"
+          },
+          "repo": {
+            "extract": "^[^/]+/([^/]+)/\\d+$",
+            "description": "Repository name"
+          },
+          "number": {
+            "extract": "^[^/]+/[^/]+/(\\d+)$",
+            "description": "Pull request number"
+          }
+        },
+        "examples": [
+          {
+            "input": "CloudSecurityAlliance/SecID/42",
+            "variables": {"owner": "CloudSecurityAlliance", "repo": "SecID", "number": "42"},
+            "url": "https://github.com/CloudSecurityAlliance/SecID/pull/42"
+          },
+          {
+            "input": "torvalds/linux/1000",
+            "variables": {"owner": "torvalds", "repo": "linux", "number": "1000"},
+            "url": "https://github.com/torvalds/linux/pull/1000"
+          }
+        ]
+      }
+    }
+  ]
+}

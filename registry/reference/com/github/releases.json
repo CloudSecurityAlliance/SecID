@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/releases",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "GitHub Releases",
+  "common_name": "GitHub Releases",
+  "alternate_names": null,
+  "notes": "Software releases on GitHub repositories. Releases are tied to Git tags and can include release notes and binary assets. Identified by owner, repository name, and tag name. Tag names commonly follow semantic versioning (v1.0.0) but can be any string.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/.+$"],
+      "description": "Release identified by owner/repo/tag",
+      "weight": 100,
+      "data": {
+        "url": "https://github.com/{owner}/{repo}/releases/tag/{tag}",
+        "variables": {
+          "owner": {
+            "extract": "^([^/]+)/[^/]+/.+$",
+            "description": "Repository owner (organization or user)"
+          },
+          "repo": {
+            "extract": "^[^/]+/([^/]+)/.+$",
+            "description": "Repository name"
+          },
+          "tag": {
+            "extract": "^[^/]+/[^/]+/(.+)$",
+            "description": "Release tag name (e.g., v1.0.0)"
+          }
+        },
+        "examples": [
+          {
+            "input": "nodejs/node/v22.0.0",
+            "variables": {"owner": "nodejs", "repo": "node", "tag": "v22.0.0"},
+            "url": "https://github.com/nodejs/node/releases/tag/v22.0.0"
+          }
+        ]
+      }
+    }
+  ]
+}
