@@ -16,7 +16,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 121 other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 130+ other security knowledge sources.
 
 ## What SecID Does
 
@@ -456,6 +456,17 @@ Being explicit about scope helps set expectations. SecID is deliberately limited
 
 SecID is a Cloud Security Alliance project with a lightweight governance model during early development and an explicit path toward broader community governance. See [GOVERNANCE.md](GOVERNANCE.md) for the current operating model and [STRATEGY.md](docs/future/STRATEGY.md) for long-term governance philosophy.
 
+## Project Repositories
+
+SecID is built across multiple repositories under the [CloudSecurityAlliance](https://github.com/CloudSecurityAlliance) GitHub organization:
+
+| Repo | Purpose |
+|------|---------|
+| **[SecID](https://github.com/CloudSecurityAlliance/SecID)** (this repo) | Specification, registry data, design documents |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Cloudflare Worker REST API + MCP server — **live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
+| **SecID-Website** | Cloudflare Pages documentation site (planned) |
+
 ## Getting Started
 
 - **Read the spec:** [SPEC.md](SPEC.md)
@@ -476,13 +487,31 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Component | Status |
 |-----------|--------|
 | Identifier grammar + 8 types | **Done** |
-| Registry: 121 namespaces (YAML + JSON) | **Done** |
+| Registry namespaces (YAML + JSON) | **Done** — see counts below |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
+| [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, npm, Go, etc.) | In progress |
 | Registry validation skill | **Active** |
 | Compliance test suite | Not started |
-| Client SDKs (Python, npm, Go, etc.) | Not started |
 | Relationship layer | Post-1.0 |
 | Overlay layer | Post-1.0 |
+
+### Registry Namespace Counts
+
+<!-- REGISTRY-COUNTS-START -->
+
+| Type | Count |
+|------|-------|
+| Advisory | 42 |
+| Weakness | 13 |
+| Ttp | 4 |
+| Control | 24 |
+| Disclosure | 1 |
+| Regulation | 4 |
+| Entity | 14 |
+| Reference | 29 |
+| **Total** | **131** |
+
+<!-- REGISTRY-COUNTS-END -->
 
 **Where help is needed:** See [docs/project/](docs/project/) for gap analysis, open issues, and known concerns.
 

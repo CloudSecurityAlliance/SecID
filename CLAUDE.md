@@ -75,10 +75,10 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 
 | Repo | Purpose |
 |------|---------|
-| **SecID** (this repo) | Specification, registry data, design documents, operations docs |
-| **SecID-Service** | Cloudflare Worker REST API + MCP server |
-| **SecID-Website** | Cloudflare Pages documentation site |
-| **SecID-Client-SDK** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
+| **[SecID](https://github.com/CloudSecurityAlliance/SecID)** (this repo) | Specification, registry data, design documents, operations docs |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Cloudflare Worker REST API + MCP server — live at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
+| **SecID-Website** | Cloudflare Pages documentation site (planned) |
 
 ## Repository Structure
 
@@ -248,18 +248,25 @@ See `registry/advisory/com/redhat.json` for a complex example with nested childr
 
 ## JSON Registry Files
 
-All 124 registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts:
+All registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts.
+
+<!-- REGISTRY-COUNTS-START -->
 
 | Type | Count |
 |------|-------|
 | Advisory | 42 |
 | Weakness | 13 |
-| TTP | 4 |
+| Ttp | 4 |
 | Control | 24 |
 | Disclosure | 1 |
 | Regulation | 4 |
-| Reference | 22 |
 | Entity | 14 |
+| Reference | 29 |
+| **Total** | **131** |
+
+<!-- REGISTRY-COUNTS-END -->
+
+Run `./scripts/update-counts.sh` to refresh these counts after adding namespaces.
 
 **Key reference files for complex patterns:**
 - `registry/advisory/org/mitre.json` — CVE (with cvelistV5 variable extraction)
@@ -309,11 +316,22 @@ for f in registry/**/*.json; do python3 -c "import json; json.load(open('$f'))" 
 # List JSON files with structured examples
 python3 -c "import json,glob; [print(f) for f in sorted(glob.glob('registry/**/*.json',recursive=True)) if any(isinstance(e,dict) for n in json.load(open(f)).get('match_nodes',[]) for c in n.get('children',[]) for e in c.get('data',{}).get('examples',[]))]"
 
+# Update namespace counts in CLAUDE.md and README.md
+./scripts/update-counts.sh
+
 # Lint markdown (if markdownlint is installed)
 markdownlint **/*.md
 ```
 
 This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
+
+## CI/CD
+
+A GitHub Actions workflow (`.github/workflows/update-registry.yml`) fires on pushes to `main` that touch `registry/**/*.json`. It sends a `repository-dispatch` event to `CloudSecurityAlliance/SecID-Service`, which triggers the service to re-upload the registry data. **This means JSON registry changes merged to main are automatically deployed to the live resolver.**
+
+## Commit and PR Style
+
+Use short, imperative commit subjects (e.g., "Add EUVD advisory namespace", "Update Red Hat errata patterns"). One logical change per commit. For PRs that modify regex patterns, include a note about regex safety (anchored, no catastrophic backtracking).
 
 ## Parsing Rules
 
