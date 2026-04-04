@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "axxonsoft.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "AxxonSoft Limited",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Ireland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://axxonsoft.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "AxxonSoft products and solutions, Abetechs GmbH products and solutions (GRUNDIG security products, and C-WERK software solutions).",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Hosted Service",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@axxonsoft.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.axxonsoft.com/legal/axxonsoft-vulnerability-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.axxonsoft.com/legal/axxonsoft-vulnerability-disclosure-policy/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/AxxonSoft",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

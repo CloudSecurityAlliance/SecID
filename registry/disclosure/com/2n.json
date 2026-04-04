@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "2n.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "2N Telekomunikace a.s.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Czech Republic.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://2n.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All products of 2N Telekomunikace a.s. including end-of-life/end-of-service products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.2n.com/en-GB/about-2n/cybersecurity/vulnerability-management",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.2n.com/en-GB/about-2n/cybersecurity/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/2N",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

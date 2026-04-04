@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "upkeeper.se",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "upKeeper Solutions",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Sweden.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://upkeeper.se"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All upKeeper Solutions products, excluding end-of-life (EOL) as listed in the upKeeper Solutions End of Life Policy.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secure@upkeeper.se",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://support.upkeeper.se/hc/en-us/articles/14123589368092-Coordinated-Vulnerability-Disclosure",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.upkeeper.se/hc/en-us/articles/14170844051868-Security-Advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/upKeeper",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

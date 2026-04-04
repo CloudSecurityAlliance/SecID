@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "imanage.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "iManage LLC",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://imanage.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "iManage issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ProductVulnerability@imanage.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://imanage.com/about/vulnerability-report/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://docs.imanage.com/security/Security_Vulnerabilities.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/iManage",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

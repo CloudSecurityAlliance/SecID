@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fluidattacks.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Fluid Attacks",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Colombia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://fluidattacks.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in third-party software discovered by or reported to Fluid Attacks that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "help@fluidattacks.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://fluidattacks.com/advisories/policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://fluidattacks.com/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Fluid_Attacks",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

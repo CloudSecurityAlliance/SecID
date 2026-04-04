@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "namespace": "beckman.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Beckman Coulter Diagnostics",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://beckman.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-diagnostics$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Beckman Coulter Diagnostics manufactured products and technologies only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ProductSecurity@beckman.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.beckmancoulter.com/en/about-beckman-coulter/product-security",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.beckmancoulter.com/en/about-beckman-coulter/product-security/product-security-updates",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BECDX",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-life\\-sciences$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Beckman Coulter Life Sciences manufactured products and technologies only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ProductSecurity@beckman.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.beckman.com/about-us/compliance/coordinated-vulnerability-disclosure",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.beckman.com/about-us/compliance/coordinated-vulnerability-disclosure/product-security-updates",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BECLS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

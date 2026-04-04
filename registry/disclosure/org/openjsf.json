@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openjsf.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "OpenJS Foundation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://openjsf.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All projects listed at https://openjsf.org/projects.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@lists.openjsf.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cna.openjsf.org/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://cna.openjsf.org/security-advisories.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/openjs",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

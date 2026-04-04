@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dragos.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Dragos, Inc.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dragos.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Dragos products and third-party products it researches related to operational technology (OT)/industrial control systems (ICS) not covered by another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ot-cert@dragos.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.dragos.com/vulnerabilities-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.dragos.com/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Dragos",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

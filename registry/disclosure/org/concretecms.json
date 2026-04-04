@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "concretecms.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Concrete CMS",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://concretecms.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Concrete CMS Core versions 8.5 and above.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@concretecms.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.concretecms.org/security",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.concretecms.org/about/project-news/security",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ConcreteCMS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

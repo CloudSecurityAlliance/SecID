@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hitachivantara.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Hitachi Vantara",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://hitachivantara.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Hitachi Vantara products and technologies.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security.vulnerabilities@hitachivantara.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.hitachivantara.com/en-us/security#section-vulnerability-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://knowledge.hitachivantara.com/portal/app/portlets/results/viewsolution.jsp?solutionid=241403050017684",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Hitachi_Vantara",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

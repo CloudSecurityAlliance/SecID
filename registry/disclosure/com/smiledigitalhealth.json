@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "smiledigitalhealth.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Smile CDR Inc. (doing business as “Smile Digital Health”)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Canada.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://smiledigitalhealth.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Smile Digital Health products and HAPI FHIR.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@smiledigitalhealth.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.smiledigitalhealth.com/responsible-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.smiledigitalhealth.com/legal/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SmileDigitalHealth",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

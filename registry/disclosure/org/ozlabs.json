@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ozlabs.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "The OpenBMC Project",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ozlabs.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities related to the repositories maintained by the OpenBMC project.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "openbmc-security@lists.ozlabs.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://github.com/openbmc/openbmc/wiki/Security-working-group",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/openbmc/openbmc/security/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenBMC",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

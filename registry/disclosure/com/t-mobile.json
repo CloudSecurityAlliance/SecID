@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "t-mobile.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "T-Mobile US",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://t-mobile.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All T-Mobile US products (including end-of-life/end-of-service products), as well as vulnerabilities in third-party software/hardware discovered by T-Mobile US that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@t-mobile.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://bugcrowd.com/engagements/t-mobile",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://t-mobile.github.io/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TMUS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

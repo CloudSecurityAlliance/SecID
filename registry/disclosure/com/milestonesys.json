@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "milestonesys.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Milestone Systems A/S",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Denmark.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://milestonesys.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Supported Milestone XProtect products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@milestonesys.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://doc.milestonesys.com/latest/en-US/portal/htm/chapter-page-cve-vulnerabilitymanagementpolicy.htm",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://supportcommunity.milestonesys.com/s/knowledgebase?language=en_US",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/milestonesys",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

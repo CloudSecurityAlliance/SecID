@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "siemens.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Siemens",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Germany.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://siemens.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Siemens issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "productcert@siemens.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://www.siemens.com/cert",
+            "note": "Siemens security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.siemens.com/global/en/products/services/cert/vulnerability-process.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.siemens.com/global/en/products/services/cert.html#SiemensSecurityAdvisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/siemens",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

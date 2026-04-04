@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "zuso.ai",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "ZUSO Advanced Research Team (ZUSO ART)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Taiwan.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://zuso.ai"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in third-party products discovered by ZUSO ART that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ART@zuso.ai",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://zuso.ai/Policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://zuso.ai/Advisory.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ZUSO_ART",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

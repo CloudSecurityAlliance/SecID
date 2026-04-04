@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bbraun.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "B. Braun SE",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Germany.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://bbraun.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "B. Braun’s commercially available products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "productsecurity@bbraun.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.bbraun.com/en/products-and-solutions/b--braun-product-security.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bbraun.com/en/products-and-solutions/b--braun-product-security.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/B.Braun",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

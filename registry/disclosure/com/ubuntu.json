@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ubuntu.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Canonical Ltd.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: UK.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ubuntu.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Canonical issues (including Ubuntu Linux) only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@ubuntu.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://wiki.ubuntu.com/SecurityTeam/FAQ#Contact",
+            "note": "Ubuntu security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://ubuntu.com/security/disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://usn.ubuntu.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/canonical",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

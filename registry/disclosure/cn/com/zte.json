@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "zte.com.cn",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "ZTE Corporation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: China.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://zte.com.cn"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "ZTE products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "web",
+            "value": "https://www.zte.com.cn/global/cybersecurity/ztepsirt.html",
+            "note": "ZTE PSIRT contact form"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.zte.com.cn/global/cybersecurity/ztepsirt/bug-bounty/products.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "http://support.zte.com.cn/support/news/NewsMain.aspx",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ZTE",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

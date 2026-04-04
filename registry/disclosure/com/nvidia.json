@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nvidia.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "NVIDIA Corporation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nvidia.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "NVIDIA issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@nvidia.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://www.nvidia.com/en-us/security/report-vulnerability/",
+            "note": "NVIDIA security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.nvidia.com/en-us/security/psirt-policies/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.nvidia.com/en-us/security/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/nvidia",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

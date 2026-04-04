@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cert.org.tw",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "TWCERT/CC",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Taiwan.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cert.org.tw"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@cert.org.tw",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/twcert",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

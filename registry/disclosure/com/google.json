@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Google LLC",
+  "common_name": "Google",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://google.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-android$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Android issues, as well as vulnerabilities in third-party software discovered by Android that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "android-cna-team@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://source.android.com/security/overview/updates-resources#report-issues",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://source.android.com/security/bulletin",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/google_android",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-cloud$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in any Google Cloud developed product and not under the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "google-cloud-cve-program@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://about.google/company-info/appsecurity/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://cloud.google.com/support/bulletins",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GoogleCloud",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-devices$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Google Devices - Pixel, Nest, and Chromecast.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "dspa-cve@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://support.google.com/product-documentation/answer/13658251?hl=en&amp;ref_topic=12974021&amp;sjid=11464995960873540884-NA",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Google_Devices",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-root$"
+      ],
+      "description": "Root",
+      "weight": 60,
+      "data": {
+        "scope": "Alphabet organizations.",
+        "cve_program_role": "Root",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "alphabet-cna@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.google.ch/about/appsecurity/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/google/security-research",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Google",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Google products, including open source software published and maintained by Google, and vulnerabilities in third-party software discovered by Google that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "alphabet-cna@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.google.ch/about/appsecurity/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/google/security-research",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Google",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-mandiant$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in Mandiant products or discovered by Mandiant while performing vulnerability research or security assessments, unless covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "mandiant-cve@google.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://about.google/intl/ALL_us/appsecurity/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/mandiant/Vulnerability-Disclosures",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Mandiant",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

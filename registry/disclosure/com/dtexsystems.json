@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dtexsystems.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "DTEX Systems, Inc.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dtexsystems.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All DTEX products, including DTEX Forwarder for Mac, DTEX Forwarder for Linux, DTEX Forwarder for Windows, and DTEX platform including DTEX Analytics Server.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Hosted Service",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vulnerability-disclosure@dtexsystems.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://advisories.dtexsystems.com/vulnerability-disclosure-policy.pdf",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://advisories.dtexsystems.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DTEX",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

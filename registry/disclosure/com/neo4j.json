@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "neo4j.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Neo4j",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Sweden.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://neo4j.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Neo4j products and Neo4j-maintained projects only, not including end-of-life components or products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@neo4j.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://neo4j.com/trust-center/responsible-disclosure/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://neo4j.com/security/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Neo4j",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

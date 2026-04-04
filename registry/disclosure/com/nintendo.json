@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nintendo.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Nintendo Co., Ltd.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Japan.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nintendo.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "System vulnerabilities regarding the Nintendo Switch 2, Nintendo Switch, Nintendo Switch Lite, and vulnerabilities regarding Nintendo Switch 2 and Nintendo Switch applications for which Nintendo is the publisher worldwide.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.nintendo.com/jp/security-advisories/en/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.nintendo.com/jp/security-advisories/en/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Nintendo",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "exodusintel.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Exodus Intelligence",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://exodusintel.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities discovered by Exodus Intelligence as well as acquisitions from independent researchers via its Research Sponsorship Program (RSP).",
+        "cve_program_role": "CNA",
+        "organization_type": "Bug Bounty Provider, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "disclosures@exodusintel.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://blog.exodusintel.com/2021/03/17/2021-disclosure-policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://blog.exodusintel.com/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/XI",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

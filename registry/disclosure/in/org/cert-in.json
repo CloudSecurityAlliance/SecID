@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cert-in.org.in",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Indian Computer Emergency Response Team (CERT-In)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: India.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cert-in.org.in"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability coordination for vulnerabilities in all products reported to CERT-In in accordance with our vulnerability coordination role as a CERT. Vulnerability assignments for vulnerabilities impacting all products designed, developed, and manufactured in India.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vdisclose@cert-in.org.in",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cert-in.org.in/RVDCP.jsp",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cert-in.org.in/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CERT-In",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

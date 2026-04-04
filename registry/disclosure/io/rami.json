@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "rami.io",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "rami.io GmbH",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Germany.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://rami.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All rami.io GmbH products and open source projects, including pretix, official pretix plugins and apps, and Venueless.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Hosted Service, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@rami.io",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://rami.io/security/disclosure/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://rami.io/security/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/rami.io",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

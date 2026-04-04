@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "namespace": "redhat.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Red Hat, Inc.",
+  "common_name": "Red Hat",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://redhat.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-tlr$"
+      ],
+      "description": "Root (reports to MITRE Top-Level Root)",
+      "weight": 40,
+      "data": {
+        "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
+        "cve_program_role": "Root (reports to MITRE Top-Level Root)",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "RootCNA-Coordination@redhat.com",
+            "note": "Root contact email"
+          },
+          {
+            "type": "email",
+            "value": "cnalr-coordination@redhat.com",
+            "note": "CNA-LR contact email"
+          },
+          {
+            "type": "email",
+            "value": "secalert@redhat.com",
+            "note": "CNA contact email"
+          },
+          {
+            "type": "web",
+            "value": "https://access.redhat.com/security/team/contact",
+            "note": "Red Hat security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://access.redhat.com/articles/red_hat_cna_vulnerability_disclosure_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://access.redhat.com/security/security-updates/#/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-lr$"
+      ],
+      "description": "CNA-LR (reports to Red Hat Root)",
+      "weight": 50,
+      "data": {
+        "scope": "Vulnerabilities in software developed by a CNA within the Red Hat Root hierarchy.",
+        "cve_program_role": "CNA-LR (reports to Red Hat Root)",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "RootCNA-Coordination@redhat.com",
+            "note": "Root contact email"
+          },
+          {
+            "type": "email",
+            "value": "cnalr-coordination@redhat.com",
+            "note": "CNA-LR contact email"
+          },
+          {
+            "type": "email",
+            "value": "secalert@redhat.com",
+            "note": "CNA contact email"
+          },
+          {
+            "type": "web",
+            "value": "https://access.redhat.com/security/team/contact",
+            "note": "Red Hat security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://access.redhat.com/articles/red_hat_cna_vulnerability_disclosure_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://access.redhat.com/security/security-updates/#/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA (reports to Red Hat Root)",
+      "weight": 80,
+      "data": {
+        "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
+        "cve_program_role": "CNA (reports to Red Hat Root)",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "RootCNA-Coordination@redhat.com",
+            "note": "Root contact email"
+          },
+          {
+            "type": "email",
+            "value": "cnalr-coordination@redhat.com",
+            "note": "CNA-LR contact email"
+          },
+          {
+            "type": "email",
+            "value": "secalert@redhat.com",
+            "note": "CNA contact email"
+          },
+          {
+            "type": "web",
+            "value": "https://access.redhat.com/security/team/contact",
+            "note": "Red Hat security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://access.redhat.com/articles/red_hat_cna_vulnerability_disclosure_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://access.redhat.com/security/security-updates/#/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

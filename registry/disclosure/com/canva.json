@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "canva.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Canva",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Australia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://canva.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Canva products, including open-source software published and maintained by Canva, as well as vulnerabilities in third-party software discovered by Canva that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@canva.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.canva.com/security/bug-bounty/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://trust.canva.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Canva",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

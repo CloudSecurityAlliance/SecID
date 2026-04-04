@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "opengauss.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "openGauss Community",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: China.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://opengauss.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "openGauss issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "securities@opengauss.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://opengauss.org/zh/security.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://opengauss.org/en/security-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/openGauss",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

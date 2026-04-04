@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "leonardo.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Leonardo S.p.A.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Italy.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://leonardo.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities found in the following product: Leonardo SC2.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@leonardo.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cybersecurity.leonardo.com/documents/16277703/0/VULNERABILITIES+REPORT+%28LDO_IT25_01520%29.pdf?t=1757318888035",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://cybersecurity.leonardo.com/documents/16277703/0/VULNERABILITIES+REPORT+%28LDO_IT25_01520%29.pdf?t=1757318888035",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Leonardo",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

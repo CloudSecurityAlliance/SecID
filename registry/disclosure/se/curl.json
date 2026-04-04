@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "curl.se",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "curl",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Sweden.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://curl.se"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All products made and managed by the curl project. This includes curl, libcurl, and trurl.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@curl.se",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://curl.se/dev/vuln-disclosure.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://curl.se/docs/security.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/curl",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

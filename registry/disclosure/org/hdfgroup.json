@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hdfgroup.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "The HDF Group",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://hdfgroup.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All HDF software including HDF5, HDF4, HSDS, HDFView.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@hdfgroup.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://github.com/HDFGroup/hdf5/blob/develop/SECURITY.md",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/HDFGroup/hdf5/security/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/HDFG",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

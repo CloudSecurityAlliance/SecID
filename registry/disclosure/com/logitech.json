@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "logitech.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Logitech",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Switzerland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://logitech.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All current products/software/apps made by Logitech, Ultimate Ears, Jaybird, Streamlabs, Logitech G, Logicool, Blue, and Astro Gaming.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-coordination@logitech.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://hackerone.com/logitech",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://hackerone.com/logitech/hacktivity",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Logitech",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

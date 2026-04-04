@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cloud.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Spotfire",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cloud.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-jaspersoft$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Jaspersoft products and services only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secure@cloud.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://community.jaspersoft.com/security/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://community.jaspersoft.com/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Jaspersoft",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-netscaler$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "NetScaler issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secure@cloud.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cloud.com/trust-center/product-security/vulnerability-response",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.citrix.com/support-home/topic-article-list?trendingCategory=20&trendingTopicName=Security%20Bulletin",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/NetScaler",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-spotfire$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities associated with the Spotfire product only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secure@cloud.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://community.spotfire.com/security/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://community.spotfire.com/security-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Spotfire",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

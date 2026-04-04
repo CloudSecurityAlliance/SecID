@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "open-xchange.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Open-Xchange",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Germany.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://open-xchange.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Products and services provided by Open-Xchange, PowerDNS, and Dovecot.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@open-xchange.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://vdp.open-xchange.com/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://documentation.open-xchange.com/appsuite/security/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OX",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sec-consult.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "SEC Consult Vulnerability Lab",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Austria.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sec-consult.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All vulnerabilities discovered in third-party hardware/software by SEC Consult Vulnerability Lab (part of SEC Consult, an Eviden business), which are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security-research@sec-consult.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://sec-consult.com/vulnerability-lab/responsible-disclosure-policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://sec-consult.com/vulnerability-lab/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SEC-VLab",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

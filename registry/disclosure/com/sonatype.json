@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sonatype.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Sonatype Inc.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sonatype.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Sonatype products and vulnerabilities in third-party software discovered by Sonatype that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@sonatype.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://help.sonatype.com/en/responsible-disclosure.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.sonatype.com/hc/en-us/sections/203012668-Security-Advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Sonatype",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

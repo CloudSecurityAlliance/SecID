@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "netapp.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "NetApp, Inc.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://netapp.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All NetApp products as well as projects hosted on https://github.com/netapp.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security-alert@netapp.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://security.netapp.com/",
+            "note": "NetApp security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://security.netapp.com/policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://security.netapp.com/advisory/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/netapp",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

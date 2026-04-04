@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oracle.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Oracle",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://oracle.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Oracle supported version product issues only; CVE IDs will not be assigned for unsupported products or versions (Oracle will confirm support status and notify researcher).",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Open Source, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secalert_us@oracle.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://www.oracle.com/support/assurance/vulnerability-remediation/reporting-security-vulnerabilities.html",
+            "note": "Oracle security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.oracle.com/corporate/security-practices/assurance/vulnerability/disclosure.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.oracle.com/security-alerts/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/oracle",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "blackberry.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "BlackBerry",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Canada.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://blackberry.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All BlackBerry products identified on https://www.blackberry.com/us/en.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secure@blackberry.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://global.blackberry.com/en/secure/report-an-issue/en",
+            "note": "BlackBerry security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.blackberry.com/us/en/services/blackberry-product-security-incident-response/report-an-issue/blackberry-coordinated-vulnerability-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.blackberry.com/us/en/services/blackberry-product-security-incident-response",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/blackberry",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

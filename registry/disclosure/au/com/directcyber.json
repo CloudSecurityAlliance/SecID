@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "directcyber.com.au",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "DirectCyber",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Australia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://directcyber.com.au"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Issues in third-party products identified by or reported to DirectCyber, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "report@directcyber.com.au",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://directcyber.com.au/report.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://directcyber.com.au/advisory.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/directcyber",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

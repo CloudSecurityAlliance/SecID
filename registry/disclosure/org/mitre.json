@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "The MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mitre.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-secretariat$"
+      ],
+      "description": "Top-Level Root (reports to CVE Board), CNA-LR (reports to MITRE TL-Root), Secretariat (reports to CVE Board)",
+      "weight": 30,
+      "data": {
+        "scope": "All vulnerabilities, and Open Source software product vulnerabilities, not already covered by a CNA listed on this website.",
+        "cve_program_role": "Top-Level Root (reports to CVE Board), CNA-LR (reports to MITRE TL-Root), Secretariat (reports to CVE Board)",
+        "organization_type": null,
+        "contacts": null,
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

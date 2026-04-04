@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tech.gov.sg",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Government Technology Agency of Singapore Cyber Security Group (GovTech CSG)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Singapore.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://tech.gov.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities discovered by GovTech CSG only that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve_disclosure@tech.gov.sg",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://govtech-csg.github.io/security-advisories/disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://govtech-csg.github.io/security-advisories/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GovTech_CSG",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

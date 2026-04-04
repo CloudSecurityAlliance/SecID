@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openharmony.io",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "OpenHarmony",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: China.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://openharmony.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "openHarmony issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "scy@openharmony.io",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://gitee.com/openharmony/security/tree/master/en/security-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://gitee.com/openharmony/security/tree/master/en/security-disclosure",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenHarmony",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

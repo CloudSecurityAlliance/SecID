@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dfinity.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "DFINITY Foundation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Switzerland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dfinity.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Internet Computer projects as found on the following GitHub pages: https://github.com/dfinity and https://github.com/dfinity-lab.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security-cna@dfinity.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://github.com/dfinity/ic/security/policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://internetcomputer.org/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Dfinity",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

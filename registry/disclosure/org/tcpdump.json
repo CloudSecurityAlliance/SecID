@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tcpdump.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Tcpdump Group",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Canada.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://tcpdump.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Tcpdump and Libpcap only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@tcpdump.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.tcpdump.org/security.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.tcpdump.org/public-cve-list.txt",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Tcpdump",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

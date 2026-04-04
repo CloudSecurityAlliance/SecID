@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "roche.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Roche Diagnostics",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Switzerland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://roche.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Roche’s medical technology products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "product.security@roche.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://diagnostics.roche.com/global/en/legal/vulnerability-and-incident-handling-policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://diagnostics.roche.com/global/en/legal/product-security-advisory.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Roche",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

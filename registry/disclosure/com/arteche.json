@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "arteche.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Arteche",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Spain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://arteche.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Arteche issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@arteche.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.arteche.com/es/cmis/document/default/848286f4-236d-4b55-896b-c9e503ea688e",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.arteche.com/en/cybersecurity-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Arteche",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

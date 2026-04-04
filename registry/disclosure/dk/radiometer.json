@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "radiometer.dk",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Radiometer Medical ApS",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Denmark.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://radiometer.dk"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Radiometer products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "product.security@radiometer.dk",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.radiometer.com/en/about-radiometer/legal/coordinated-vulnerability-disclosure",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.radiometer.com/en/myradiometer",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Radiometer",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

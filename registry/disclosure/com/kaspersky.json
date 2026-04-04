@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kaspersky.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Kaspersky",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Russia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://kaspersky.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Kaspersky B2C and B2B products, as well as vulnerabilities discovered in third-party software not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cna@kaspersky.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://support.kaspersky.com/general/vulnerability.aspx?el=12429#block0",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.kaspersky.com/general/vulnerability.aspx?el=12430",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Kaspersky",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

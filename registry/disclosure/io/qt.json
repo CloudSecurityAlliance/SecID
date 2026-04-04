@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "qt.io",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "The Qt Company",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Finland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://qt.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All supported The Qt Company products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@qt.io",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.qt.io/terms-conditions/responsible-vulnerability-disclosure-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TQtC",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

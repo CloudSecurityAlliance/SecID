@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sec1.io",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Sec1",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: India.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sec1.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities found in cybersecurity software solutions developed and maintained by Sec1 as listed on https://sec1.io/, and vulnerabilities identified in software projects or products where Sec1 has a direct and substantial contribution or partnership, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@sec1.io",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://sec1.io/sec1-public-disclosure-policy-for-cve-reporting/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://sec1.io/sec1-security-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/sec1",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

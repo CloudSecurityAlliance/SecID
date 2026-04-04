@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "realpage.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "RealPage",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://realpage.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in RealPage products and services including but not limited to: Keyready, Knock CRM, HomeWiseDocs, REDS (Real Estate Data Solutions), G5, WhiteSky Communications, Chirp Systems, STRATIS IoT, Modern Message (Community Rewards), Hipercept, Investor Management Services, AIM, FUEL, Buildium, All Property Management, SimpleBills, DepositIQ, Rentlytics, ClickPay, LeaseLabs, PEX, On-Site, American Utility Management (AUM), Axiometrics, Lease Rent Optimization (LRO), AssetEye, NWP Services Corporation, Indatus, ActiveBuilding, RentMineOnline (RMO), MyNewPlace, Compliance Depot, SeniorLiving.net, eREI, Domin-8, Level One, Propertyware, Opstechnology, LeasingDesk, and YieldStar.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "responsibledisclosure@realpage.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.realpage.com/support/security/responsible-disclosure/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.realpage.com/support/security/responsible-disclosure/security-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/RealPage",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

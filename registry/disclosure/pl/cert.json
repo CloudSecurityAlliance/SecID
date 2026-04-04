@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cert.pl",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "CERT.PL",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Poland.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cert.pl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in software discovered by CERT.PL, and vulnerabilities reported to CERT.PL for coordinated disclosure, which are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cvd@cert.pl",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://incydent.cert.pl/#!/lang=pl,entityType=notObligatedEntity,easyIncidentType=vulnerability",
+            "note": "CERT.PL contact form (Polish)"
+          },
+          {
+            "type": "web",
+            "value": "https://incydent.cert.pl/#!/lang=en,entityType=notObligatedEntity,easyIncidentType=vulnerability",
+            "note": "CERT.PL contact form (English)"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CERT-PL",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

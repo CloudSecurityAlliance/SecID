@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "snyk.io",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Snyk",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: UK.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://snyk.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in Snyk products and vulnerabilities discovered by, or reported to, Snyk that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "report@snyk.io",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://snyk.io/vulnerability-disclosure/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://snyk.io/vuln/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/snyk",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "almaviva.it",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Almaviva S.p.A.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Italy.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://almaviva.it"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in Almaviva proprietary software solutions such as Joshua CybeRisk Vision, Jiano, Sofia, and Giotto, as well as Almaviva-developed IT solutions.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Hosted Service",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-reporting@almaviva.it",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.almaviva.it/it_IT/CNA_vulnerability_disclosure_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cyberiskvision.com/zero-day/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Almaviva",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

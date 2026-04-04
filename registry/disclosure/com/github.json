@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "GitHub, Inc.",
+  "common_name": "GitHub",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://github.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "CVEs requested by code owners using the GitHub Security Advisories feature and vulnerabilities affecting open source projects discovered by security researchers at GitHub or Microsoft not covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security-advisories@github.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://help.github.com/en/articles/about-maintainer-security-advisories",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GitHub_M",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-products$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "GitHub Enterprise Server issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "product-cna@github.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://bounty.github.com/#rules",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://enterprise.github.com/releases",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GitHub_P",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

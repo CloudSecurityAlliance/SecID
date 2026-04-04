@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "djangoproject.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Django Software Foundation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://djangoproject.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Only supported and end-of-life Django versions available at https://www.djangoproject.com/download/ and projects listed at https://github.com/django (such as Django, channels, and daphne), excluding distributions maintained by third-party redistributors.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cna@djangoproject.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.djangoproject.com/foundation/cve-numbering-authority/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://docs.djangoproject.com/en/stable/releases/security/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DSF",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

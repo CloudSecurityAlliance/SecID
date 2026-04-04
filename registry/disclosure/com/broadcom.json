@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "namespace": "broadcom.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Broadcom Inc.",
+  "common_name": "Broadcom",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://broadcom.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-brocade$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Brocade products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "brocade.sirt@broadcom.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/21739",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.broadcom.com/support/fibre-channel-networking/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/brocade",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-ca$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "CA Technologies issues only. Note that Broadcom PSIRT handles all CA issues.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "PSIRT@broadcom.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.broadcom.com/support/resources/product-security-center",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ca",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-symantec$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Symantec Enterprise products as well as vulnerabilities in third-party software discovered by Symantec that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "symantec.psirt@broadcom.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.broadcom.com/support/security-center/vulnerability-management",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.broadcom.com/security-advisory/security-advisories-list.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/symantec",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-vmware$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "VMware, Spring, and Cloud Foundry issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vmware.psirt@broadcom.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.broadcom.com/support/vmware-services/security-response",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.broadcom.com/support/vmware-security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/vmware",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

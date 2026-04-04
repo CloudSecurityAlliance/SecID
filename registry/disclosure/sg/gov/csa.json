@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csa.gov.sg",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Cyber Security Agency of Singapore",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Singapore.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://csa.gov.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities reported to CSA unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "singcert@csa.gov.sg",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.csa.gov.sg/resources/singcert/csa-as-a-cve-numbering-authority--cna-",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.csa.gov.sg/alerts-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CSA",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

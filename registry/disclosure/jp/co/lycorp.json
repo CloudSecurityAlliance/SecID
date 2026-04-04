@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "lycorp.co.jp",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "LY Corporation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Japan.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://lycorp.co.jp"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Current versions of LINE Messenger Application for iOS, Android, Mac, and Windows, plus LINE Open Source projects hosted on https://github.com/line.",
+        "cve_program_role": "CNA",
+        "organization_type": "Open Source",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "ml-sec-cna@lycorp.co.jp",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://line.github.io/security-advisory-blog/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://line.github.io/security-advisory-blog/advisory",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/LY-Corporation",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

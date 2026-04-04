@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sciex.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "SCIEX",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sciex.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "SCIEX branded products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://sciex.com/support/product-security/coordinated-vulnerabilities-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://sciex.com/support/product-security/known-vulnerabilities",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SCIEX",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

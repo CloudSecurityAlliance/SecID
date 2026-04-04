@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.gov.il",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Israel National Cyber Directorate (INCD)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Israel.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cyber.gov.il"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cna@cyber.gov.il",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.gov.il/en/departments/general/cve_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.gov.il/en/departments/faq/cve_advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCD",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

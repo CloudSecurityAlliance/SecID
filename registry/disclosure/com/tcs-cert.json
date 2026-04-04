@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tcs-cert.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "TCS-CERT (Thales Cyber Solutions Customer’s CERT)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Belgium.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://tcs-cert.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities related to TCS-CERT’s customers’ environment and vulnerabilities related to research conducted by Cyber Solutions by Thales’ Intrusion and Application Security Team.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "team@tcs-cert.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cds.thalesgroup.com/en/tcs-cert/advisory",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://cds.thalesgroup.com/en/tcs-cert/advisory",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TCS-CERT",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

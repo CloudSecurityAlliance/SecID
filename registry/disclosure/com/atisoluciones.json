@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "atisoluciones.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "ATISoluciones Diseño de Sistemas Electrónicos, S.L.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Spain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://atisoluciones.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "AtiSoluciones products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@atisoluciones.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.atisoluciones.com/politica-cve",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.atisoluciones.com/incidentes-cve",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ATIS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

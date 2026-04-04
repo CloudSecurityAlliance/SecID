@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "namespace": "enisa.europa.eu",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "EU Agency for Cybersecurity (ENISA)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Greece.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://enisa.europa.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-root$"
+      ],
+      "description": "Root",
+      "weight": 60,
+      "data": {
+        "scope": "European Union (EU) member states/EU authorities, EU CSIRTs network members, and cooperative partners under ENISA’s mandate as well as other CNAs who choose ENISA as their Root.",
+        "cve_program_role": "Root",
+        "organization_type": "Consortium",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vuln@enisa.europa.eu",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://github.com/enisaeu/CNW/tree/main#vulnerability-disclosure-policies",
+            "note": "EU CSIRTs network contacts"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://csirtsnetwork.eu/homepage?tab=cvd",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/enisaeu/CNW/tree/main/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ENISA",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in information technology (IT) products discovered by European Union (EU) Computer Security Incident Response Teams (CSIRTs) or reported to EU CSIRTs for coordinated disclosure, as long as they do not fall under a CNA with a more specific scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Consortium",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vuln@enisa.europa.eu",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://github.com/enisaeu/CNW/tree/main#vulnerability-disclosure-policies",
+            "note": "EU CSIRTs network contacts"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://csirtsnetwork.eu/homepage?tab=cvd",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/enisaeu/CNW/tree/main/advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ENISA",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

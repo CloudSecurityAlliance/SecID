@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fsec.or.kr",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Financial Security Institute (FSI)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: South Korea.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://fsec.or.kr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to FSI’s vulnerability coordination role in the South Korea financial sector that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT, Researcher, Bug Bounty Provider",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vuln@fsec.or.kr",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.fsec.or.kr/bbs/detail?menuNo=1010&bbsNo=11403",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.fsec.or.kr/bbs/1010",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FSI",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

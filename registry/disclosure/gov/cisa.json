@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisa.gov",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Cybersecurity and Infrastructure Security Agency",
+  "common_name": "CISA",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cisa.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-tlr$"
+      ],
+      "description": "Top-Level Root (reports to CVE Board)",
+      "weight": 40,
+      "data": {
+        "scope": "Vulnerabilities that are (1) reported to or observed by CISA and (2) affect critical infrastructure, U.S. civilian government, industrial control systems, or medical devices, and (3) are not covered by another CNA’s scope.",
+        "cve_program_role": "Top-Level Root (reports to CVE Board)",
+        "organization_type": null,
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cisa.gov/coordinated-vulnerability-disclosure-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CISA",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-adp$"
+      ],
+      "description": "ADP (Authorized Data Publisher)",
+      "weight": 40,
+      "data": {
+        "scope": "View scope here.",
+        "cve_program_role": "ADP (Authorized Data Publisher)",
+        "organization_type": null,
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cisa.gov/coordinated-vulnerability-disclosure-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CISA",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-ics$"
+      ],
+      "description": "Root, CNA-LR (reports to CISA ICS Root)",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities that are (1) reported to or observed by CISA, (2) affect industrial control systems or medical devices, and (3) are not covered by another CNA’s scope.",
+        "cve_program_role": "Root, CNA-LR (reports to CISA ICS Root)",
+        "organization_type": "CERT",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cisa.gov/coordinated-vulnerability-disclosure-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/icscert",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-civilian$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities that are (1) reported to or observed by CISA, (2) affect critical infrastructure or U.S. civilian government, and (3) are not covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cisa.gov/coordinated-vulnerability-disclosure-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/cisa-cg",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

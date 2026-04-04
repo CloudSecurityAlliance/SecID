@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nibegroup.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "NIBE Group",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Sweden.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nibegroup.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Products, services, and solutions developed or sold by NIBE Industrier AB or any of its subsidiaries; open-source projects owned by NIBE Industrier AB or any of its subsidiaries; vulnerabilities in third-party products used by NIBE Industrier AB or any of its subsidiaries which are outside the scope of another CNA; and subsidiaries of NIBE Industrier AB are listed on https://www.nibe.com.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "vulnerability@nibegroup.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://vdp.nibegroup.com/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://vdp.nibegroup.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/NIBEGroup",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

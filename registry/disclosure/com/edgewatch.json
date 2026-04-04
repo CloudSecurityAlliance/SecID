@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "edgewatch.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Edgewatch Security Intelligence",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Spain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://edgewatch.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in third-party software discovered by Edgewatch that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@edgewatch.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://edgewatch.com/legal/disclosure/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://edgewatch.com/vulnerability-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Edgewatch",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

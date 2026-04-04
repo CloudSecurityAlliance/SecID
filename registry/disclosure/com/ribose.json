@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ribose.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Ribose Limited",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: UK.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ribose.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Ribose products and services, including open source projects, supported products, and end-of-life/end-of-service products.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Open Source, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-coordination@ribose.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://open.ribose.com/cve-policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://open.ribose.com/advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Ribose",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

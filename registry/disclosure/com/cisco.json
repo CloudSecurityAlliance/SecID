@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisco.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Cisco Systems, Inc.",
+  "common_name": "Cisco",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cisco.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Cisco products, and any third-party research targets that are not in another CNA’s scope. Cisco will not issue a CVE ID for issues reported on products that are past the Last Day of Support milestone, as defined on Cisco’s End-of-Life Policy, which is available at https://www.cisco.com/c/en/us/products/eos-eol-policy.html.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Open Source, Researcher, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@cisco.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.cisco.com/c/en/us/about/security-center/security-vulnerability-policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/cisco",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-talos$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Third-party products it researches.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "talos-cna@cisco.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://tools.cisco.com/security/center/resources/vendor_vulnerability_policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://talosintelligence.com/vulnerability_reports",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/talos",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "namespace": "chromium.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "The Chromium Projects",
+  "common_name": "Chromium",
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://chromium.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-chrome$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Chrome issues and projects that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@chromium.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.google.com/about/appsecurity/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://chromereleases.googleblog.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Chrome",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna\\-chromeos$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities that are (1) reported to ChromeOS Security, (2) affect ChromeOS device software and hardware, including our open source dependencies, and (3) are not covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Bug Bounty Provider",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "chromeos-security@chromium.org",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.google.com/about/appsecurity/research/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://chromereleases.googleblog.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ChromeOS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

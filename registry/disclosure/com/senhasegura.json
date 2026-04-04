@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "senhasegura.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "senhasegura",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Brazil.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://senhasegura.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in senhasegura products, and other vulnerabilities discovered by senhasegura that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@senhasegura.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.senhasegura.io/security-guidance/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://docs.senhasegura.io/security-center-advisories/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/senhasegura",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "huawei.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Huawei Technologies",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: China.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://huawei.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Huawei issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@huawei.com",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://www.huawei.com/psirt",
+            "note": "Huawei security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.huawei.com/en/psirt/vul-response-process",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.huawei.com/en/psirt/all-bulletins",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/huawei",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "yandex-team.ru",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Yandex N.V.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Russia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://yandex-team.ru"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Yandex issues only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "browser-security@yandex-team.ru",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://yandex.com/bugbounty/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://cloud.yandex.com/docs/overview/security-bulletins/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/yandex",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "usom.gov.tr",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "TR-CERT (Computer Emergency Response Team of the Republic of Türkiye)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Türkiye.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://usom.gov.tr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@usom.gov.tr",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TR-CERT",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

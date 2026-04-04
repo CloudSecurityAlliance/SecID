@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "korelogic.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "KoreLogic Security",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://korelogic.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in the KoreLogic website and other KoreLogic controlled assets, as well as vulnerabilities discovered by or reported to KoreLogic, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "disclosures@korelogic.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://korelogic.com/KoreLogic-Public-Vulnerability-Disclosure-Policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://korelogic.com/advisories.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/KoreLogic",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

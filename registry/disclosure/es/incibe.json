@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "namespace": "incibe.es",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Spanish National Cybersecurity Institute, S.A. (INCIBE)",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Spain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://incibe.es"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna\\-root$"
+      ],
+      "description": "Root",
+      "weight": 60,
+      "data": {
+        "scope": "Spain organizations.",
+        "cve_program_role": "Root",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-coordination@incibe.es",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCIBE",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role for Industrial Control Systems (ICS), Information Technologies (IT), and Internet of Things (IoT) systems issues at the national level, and vulnerabilities reported to INCIBE by Spain organizations and researchers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-coordination@incibe.es",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCIBE",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

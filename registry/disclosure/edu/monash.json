@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "monash.edu",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Monash University - Cyber Security Incident Response Team",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Australia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://monash.edu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in any Monash University developed products, or vulnerabilities identified in third-party vendor products used by Monash University, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT, Open Source, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve-coordination@monash.edu",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.monash.edu/cybersecurity/about/mon-csirt",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.monash.edu/cybersecurity/about/mon-csirt",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/MON-CSIRT",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

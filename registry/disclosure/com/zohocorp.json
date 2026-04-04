@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "zohocorp.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Zohocorp",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: India.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://zohocorp.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "ManageEngine, Zoho, and Zakya branded on-premise products only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cna@zohocorp.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://bugbounty.zohocorp.com/bb/info",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.manageengine.com/security/advisory/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Zohocorp",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

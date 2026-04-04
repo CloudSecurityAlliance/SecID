@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pingidentity.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Ping Identity Corporation",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://pingidentity.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All Ping Identity and ForgeRock products (supported products and end-of-life/end-of-service products), as well as vulnerabilities in third-party software discovered by Ping Identity or ForgeRock that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Researcher, Bug Bounty Provider",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@pingidentity.com",
+            "note": "Security Email"
+          },
+          {
+            "type": "email",
+            "value": "psirt@pingidentity.com",
+            "note": "PSIRT Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.pingidentity.com/en/company/security-at-ping-identity.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://docs.pingidentity.com/pingam/latest/release-notes/security-advisories.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PingIdentity",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

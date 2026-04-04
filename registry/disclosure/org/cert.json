@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cert.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "CERT/CC",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cert.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
+        "organization_type": "CERT",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cert@cert.org",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://kb.cert.org/vuls/report/",
+            "note": "CERT/CC contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://vuls.cert.org/confluence/display/Wiki/Vulnerability+Disclosure+Policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.kb.cert.org/vuls/bypublished/desc/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/certcc",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

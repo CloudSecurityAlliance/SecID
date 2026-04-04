@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "full.services",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "FULL INTERNET",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Brazil.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://full.services"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "All FULL products, as well as vulnerabilities in third-party software discovered by FULL that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Bug Bounty Provider, Hosted Service, Vendor, Researcher",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cve@wpfull.com.br",
+            "note": "Email"
+          },
+          {
+            "type": "web",
+            "value": "https://security.full.services/enviar-vulnerabilidade/",
+            "note": "FULL security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://security.full.services/politica-de-divulgacao-de-vulnerabilidades/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://security.full.services/vulnerabilidades-no-wordpress/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FULL",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

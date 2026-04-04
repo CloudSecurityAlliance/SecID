@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hackerone.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "HackerOne",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://hackerone.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Provides CVE IDs for its customers as part of its bug bounty and vulnerability coordination platform.",
+        "cve_program_role": "CNA",
+        "organization_type": "Bug Bounty Provider",
+        "contacts": null,
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.hackerone.com/disclosure-guidelines",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://hackerone.com/hacktivity?querystring=&filter=type:hacker-published&order_direction=DESC&order_field=popular",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/hackerone",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

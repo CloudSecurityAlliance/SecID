@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dualvs.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Dual Vipers LLC",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dualvs.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Dual Vipers projects and products (both open and closed source), as well as vulnerabilities in third-party software discovered by Dual Vipers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Open Source, Researcher, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "bugs@dualvs.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://advisory.dualvs.com/VDP.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://advisory.dualvs.com/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DualVS",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

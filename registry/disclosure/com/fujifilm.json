@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fujifilm.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Fujifilm Business Innovation Corp.",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Japan.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://fujifilm.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Fuji Xerox and FUJIFILM Business Innovation products such as multifunction devices, printers, production printers, software, and cloud services.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "dgi-fb_vulnerability_report@fujifilm.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.fujifilm.com/fbglobal/eng/company/quality/vdp",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.fujifilm.com/fbglobal/eng/company/quality/product_security/vulnerability",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FB",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

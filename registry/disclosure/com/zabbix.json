@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "zabbix.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Zabbix",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: Latvia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://zabbix.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Zabbix products and Zabbix projects listed on https://git.zabbix.com/ only.",
+        "cve_program_role": "CNA",
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@zabbix.com",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.zabbix.com/zabbix_security_policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://support.zabbix.com/projects/ZBX/issues/",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Zabbix",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

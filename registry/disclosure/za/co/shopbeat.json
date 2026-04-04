@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "shopbeat.co.za",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "official_name": "Shop Beat Solutions (Pty) LTD",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: South Africa.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://shopbeat.co.za"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$"
+      ],
+      "description": "CNA",
+      "weight": 80,
+      "data": {
+        "scope": "Vulnerabilities in Shop Beat products and services and vulnerabilities discovered by Shop Beat unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
+        "organization_type": "Hosted Service, Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "support@shopbeat.co.za",
+            "note": "Email"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.shopbeat.co.za/disclosure_policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.shopbeat.co.za/security_advisory_location.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ShopBeat",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
