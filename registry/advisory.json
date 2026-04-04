@@ -1,0 +1,350 @@
+{
+  "schema_version": "1.0",
+  "type": "advisory",
+  "official_name": "Advisory",
+  "description": "Publications about vulnerabilities, incident reports, and safety publications — anything that documents 'something happened.'",
+  "purpose": "Track and coordinate security and safety publications. Includes CVE records, vendor advisories (RHSA, DSA, MSRC), ecosystem databases (GHSA, OSV, RUSTSEC), AI vulnerability databases (AVID), and incident reports (AIID, NHTSA).",
+  "format": "secid:advisory/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:advisory/mitre.org/cve#CVE-2024-1234",
+    "secid:advisory/nist.gov/nvd#CVE-2024-1234",
+    "secid:advisory/github.com/advisories/ghsa#GHSA-jfh8-c2jp-5v3q",
+    "secid:advisory/redhat.com/errata#RHSA-2024:1234",
+    "secid:advisory/debian.org/dsa#DSA-5678-1"
+  ],
+  "notes": "Named 'advisory' not 'vulnerability' because a vulnerability doesn't exist without a publication describing it. Handles multi-vuln advisories (one RHSA can fix multiple CVEs). Incident reports share this type because they're structurally similar — publications documenting that something went wrong.",
+  "namespace_count": 42,
+  "namespaces": [
+    {
+      "namespace": "alibaba.com",
+      "official_name": "Alibaba Cloud",
+      "names": [
+        "security"
+      ]
+    },
+    {
+      "namespace": "aws.amazon.com",
+      "official_name": "Amazon Web Services",
+      "names": [
+        "security-bulletins",
+        "alas"
+      ]
+    },
+    {
+      "namespace": "apple.com",
+      "official_name": "Apple Inc.",
+      "names": [
+        "ht"
+      ]
+    },
+    {
+      "namespace": "atlassian.com",
+      "official_name": "Atlassian Corporation",
+      "names": [
+        "jira-security"
+      ]
+    },
+    {
+      "namespace": "baidu.com",
+      "official_name": "Baidu",
+      "names": [
+        "security"
+      ]
+    },
+    {
+      "namespace": "cisco.com",
+      "official_name": "Cisco Systems, Inc.",
+      "names": [
+        "psirt",
+        "bug"
+      ]
+    },
+    {
+      "namespace": "digitalocean.com",
+      "official_name": "DigitalOcean",
+      "names": [
+        "security"
+      ]
+    },
+    {
+      "namespace": "embracethered.com",
+      "official_name": "Embrace the Red",
+      "names": [
+        "monthofaibugs"
+      ]
+    },
+    {
+      "namespace": "fortinet.com",
+      "official_name": "Fortinet, Inc.",
+      "names": [
+        "fsa"
+      ]
+    },
+    {
+      "namespace": "github.com",
+      "official_name": "GitHub (Microsoft)",
+      "names": [
+        "ghsa"
+      ]
+    },
+    {
+      "namespace": "google.com",
+      "official_name": "Google LLC (Alphabet)",
+      "names": [
+        "osv",
+        "chrome",
+        "android",
+        "gcp-bulletins",
+        "project-zero"
+      ]
+    },
+    {
+      "namespace": "hetzner.com",
+      "official_name": "Hetzner Online",
+      "names": [
+        "status"
+      ]
+    },
+    {
+      "namespace": "huawei.com",
+      "official_name": "Huawei Technologies",
+      "names": [
+        "psirt",
+        "security-advisories",
+        "security-notices"
+      ]
+    },
+    {
+      "namespace": "ibm.com",
+      "official_name": "IBM Corporation",
+      "names": [
+        "security-bulletin",
+        "cloud",
+        "psirt",
+        "xforce"
+      ]
+    },
+    {
+      "namespace": "microsoft.com",
+      "official_name": "Microsoft Corporation",
+      "names": [
+        "msrc",
+        "advisory",
+        "kb",
+        "bulletin",
+        "threat-intel"
+      ]
+    },
+    {
+      "namespace": "oracle.com",
+      "official_name": "Oracle Corporation",
+      "names": [
+        "cpu",
+        "alert",
+        "linux",
+        "vm"
+      ]
+    },
+    {
+      "namespace": "ovhcloud.com",
+      "official_name": "OVHcloud",
+      "names": [
+        "security"
+      ]
+    },
+    {
+      "namespace": "paloaltonetworks.com",
+      "official_name": "Palo Alto Networks",
+      "names": [
+        "pan-sa"
+      ]
+    },
+    {
+      "namespace": "protectai.com",
+      "official_name": "Protect AI",
+      "names": [
+        "sightline",
+        "huntr"
+      ]
+    },
+    {
+      "namespace": "redhat.com",
+      "official_name": "Red Hat (IBM)",
+      "names": [
+        "errata",
+        "cve",
+        "bugzilla"
+      ]
+    },
+    {
+      "namespace": "suse.com",
+      "official_name": "SUSE",
+      "names": [
+        "suse-su",
+        "bugzilla"
+      ]
+    },
+    {
+      "namespace": "tencent.com",
+      "official_name": "Tencent",
+      "names": [
+        "tsrc",
+        "cloud"
+      ]
+    },
+    {
+      "namespace": "ubuntu.com",
+      "official_name": "Ubuntu (Canonical)",
+      "names": [
+        "usn",
+        "cve-tracker",
+        "launchpad"
+      ]
+    },
+    {
+      "namespace": "vmware.com",
+      "official_name": "VMware (Broadcom)",
+      "names": [
+        "vmsa"
+      ]
+    },
+    {
+      "namespace": "go.dev",
+      "official_name": "Go Programming Language",
+      "names": [
+        "vulndb"
+      ]
+    },
+    {
+      "namespace": "dmv.ca.gov",
+      "official_name": "California Department of Motor Vehicles",
+      "names": [
+        "av-collision",
+        "av-disengagement",
+        "av-permits"
+      ]
+    },
+    {
+      "namespace": "cisa.gov",
+      "official_name": "Cybersecurity and Infrastructure Security Agency",
+      "names": [
+        "kev",
+        "vulnrichment"
+      ]
+    },
+    {
+      "namespace": "fda.gov",
+      "official_name": "U.S. Food and Drug Administration",
+      "names": [
+        "maude",
+        "aiml-devices",
+        "recalls"
+      ]
+    },
+    {
+      "namespace": "nhtsa.gov",
+      "official_name": "National Highway Traffic Safety Administration",
+      "names": [
+        "sgo",
+        "av-recalls",
+        "odi"
+      ]
+    },
+    {
+      "namespace": "nist.gov",
+      "official_name": "National Institute of Standards and Technology",
+      "names": [
+        "nvd"
+      ]
+    },
+    {
+      "namespace": "aiaaic.org",
+      "official_name": "AI, Algorithmic and Automation Incidents and Controversies",
+      "names": [
+        "repository"
+      ]
+    },
+    {
+      "namespace": "apache.org",
+      "official_name": "Apache Software Foundation",
+      "names": [
+        "security",
+        "jira"
+      ]
+    },
+    {
+      "namespace": "avidml.org",
+      "official_name": "AI Vulnerability Database",
+      "names": [
+        "avid"
+      ]
+    },
+    {
+      "namespace": "cert.org",
+      "official_name": "CERT Coordination Center",
+      "names": [
+        "vu"
+      ]
+    },
+    {
+      "namespace": "debian.org",
+      "official_name": "Debian Project",
+      "names": [
+        "dsa",
+        "dla",
+        "tracker",
+        "bts"
+      ]
+    },
+    {
+      "namespace": "kernel.org",
+      "official_name": "Linux Kernel",
+      "names": [
+        "kernel"
+      ]
+    },
+    {
+      "namespace": "mitre.org",
+      "official_name": "MITRE Corporation",
+      "names": [
+        "cve"
+      ]
+    },
+    {
+      "namespace": "mozilla.org",
+      "official_name": "Mozilla Foundation / Mozilla Corporation",
+      "names": [
+        "mfsa",
+        "bugzilla"
+      ]
+    },
+    {
+      "namespace": "openssl.org",
+      "official_name": "OpenSSL Project",
+      "names": [
+        "secadv"
+      ]
+    },
+    {
+      "namespace": "partnershiponai.org",
+      "official_name": "Partnership on AI",
+      "names": [
+        "aiid"
+      ]
+    },
+    {
+      "namespace": "pypi.org",
+      "official_name": "Python Package Index (PyPA)",
+      "names": [
+        "advisory-db"
+      ]
+    },
+    {
+      "namespace": "rustsec.org",
+      "official_name": "RustSec Advisory Database",
+      "names": [
+        "advisories"
+      ]
+    }
+  ]
+}

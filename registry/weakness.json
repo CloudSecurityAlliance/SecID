@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "type": "weakness",
+  "official_name": "Weakness",
+  "description": "Abstract flaw patterns and weakness taxonomies — classes of vulnerabilities rather than specific instances.",
+  "purpose": "Reference weakness classifications that describe categories of security flaws. Includes CWE (MITRE), OWASP Top 10, LLM Top 10, AI/ML risk taxonomies, and safety risk classifications.",
+  "format": "secid:weakness/<namespace>/<name>[@version][#subpath]",
+  "examples": [
+    "secid:weakness/mitre.org/cwe#CWE-79",
+    "secid:weakness/owasp.org/top10@2021#A01",
+    "secid:weakness/owasp.org/llm-top10@2025#LLM01",
+    "secid:weakness/mitre.org/cwe#CWE-1427"
+  ],
+  "notes": "Some weakness sources require a version (OWASP Top 10 changes between editions — A01 means different things in 2017 vs 2021). Sources with version_required return all matching versions with disambiguation guidance when version is omitted.",
+  "namespace_count": 13,
+  "namespaces": [
+    {
+      "namespace": "gpai.ai",
+      "official_name": "General-Purpose AI Research",
+      "names": [
+        "risk-sources"
+      ]
+    },
+    {
+      "namespace": "anthropic.com",
+      "official_name": "Anthropic",
+      "names": [
+        "asl"
+      ]
+    },
+    {
+      "namespace": "berryvilleiml.com",
+      "official_name": "Berryville Institute of Machine Learning",
+      "names": [
+        "ml-risks",
+        "llm-risks"
+      ]
+    },
+    {
+      "namespace": "ibm.com",
+      "official_name": "IBM",
+      "names": [
+        "ai-risk-atlas"
+      ]
+    },
+    {
+      "namespace": "mit.edu",
+      "official_name": "Massachusetts Institute of Technology",
+      "names": [
+        "ai-risk-repository"
+      ]
+    },
+    {
+      "namespace": "stanford.edu",
+      "official_name": "Stanford Center for Research on Foundation Models",
+      "names": [
+        "air-bench",
+        "helm-safety"
+      ]
+    },
+    {
+      "namespace": "enisa.europa.eu",
+      "official_name": "European Union Agency for Cybersecurity",
+      "names": [
+        "ml-threats",
+        "ai-framework"
+      ]
+    },
+    {
+      "namespace": "nist.gov",
+      "official_name": "National Institute of Standards and Technology",
+      "names": [
+        "ai-100-2"
+      ]
+    },
+    {
+      "namespace": "avidml.org",
+      "official_name": "AI Vulnerability Database",
+      "names": [
+        "taxonomy"
+      ]
+    },
+    {
+      "namespace": "mitre.org",
+      "official_name": "MITRE Corporation",
+      "names": [
+        "cwe"
+      ]
+    },
+    {
+      "namespace": "mlcommons.org",
+      "official_name": "MLCommons",
+      "names": [
+        "ailuminate"
+      ]
+    },
+    {
+      "namespace": "oecd.org",
+      "official_name": "Organisation for Economic Co-operation and Development",
+      "names": [
+        "ai-classification",
+        "ai-incidents",
+        "incident-framework"
+      ]
+    },
+    {
+      "namespace": "owasp.org",
+      "official_name": "Open Web Application Security Project",
+      "names": [
+        "top10",
+        "llm-top10",
+        "ml-top10",
+        "agentic-top10",
+        "ai-exchange",
+        "aivss"
+      ]
+    }
+  ]
+}

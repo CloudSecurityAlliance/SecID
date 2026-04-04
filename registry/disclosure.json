@@ -1,0 +1,3448 @@
+{
+  "schema_version": "1.0",
+  "type": "disclosure",
+  "official_name": "Disclosure",
+  "description": "Vulnerability disclosure programs, policies, reporting channels, and contacts — how to report security issues to an organization.",
+  "purpose": "Track how to report vulnerabilities. Includes PSIRT programs, CNA (CVE Numbering Authority) roles and scopes, bug bounty platforms (HackerOne, Bugcrowd), security.txt files, and coordinated disclosure policies. Each program has a scope defining what it covers.",
+  "format": "secid:disclosure/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:disclosure/redhat.com/cna",
+    "secid:disclosure/redhat.com/cna-root",
+    "secid:disclosure/github.com/cna-products",
+    "secid:disclosure/cisa.gov/cna-ics",
+    "secid:disclosure/cloudsecurityalliance.org/responsible-disclosure"
+  ],
+  "notes": "The scope field on each disclosure entry answers 'if I found a vulnerability in X, does this program cover it?' Organizations may have multiple disclosure programs with different scopes — e.g., Red Hat has separate CNA, CNA-LR, and Root programs, each covering different categories of vulnerabilities. Contains all 502 CVE Program partners with their CNA scopes, contacts, and disclosure policies.",
+  "namespace_count": 486,
+  "namespaces": [
+    {
+      "namespace": "zuso.ai",
+      "official_name": "ZUSO Advanced Research Team (ZUSO ART)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "obdev.at",
+      "official_name": "Objective Development Software GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cygence.com.au",
+      "official_name": "Cygence Pty Ltd",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "directcyber.com.au",
+      "official_name": "DirectCyber",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gridware.com.au",
+      "official_name": "Gridware Cybersecurity",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "themissinglink.com.au",
+      "official_name": "The Missing Link Australia (TML)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "psirt.canon",
+      "official_name": "Canon Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ewelink.cc",
+      "official_name": "SHENZHEN CoolKit Technology CO., LTD.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ncsc.ch",
+      "official_name": "Switzerland National Cyber Security Centre (NCSC)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pangea.cloud",
+      "official_name": "Pangea Cyber Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zte.com.cn",
+      "official_name": "ZTE Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "elastic.co",
+      "official_name": "Elastic",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ict.co",
+      "official_name": "Integrated Control Technology LTD",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "2n.com",
+      "official_name": "2N Telekomunikace a.s.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "3ds.com",
+      "official_name": "Dassault Systèmes",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "42gears.com",
+      "official_name": "42Gears Mobility Systems Pvt Ltd",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "Commvault.com",
+      "official_name": "Commvault Systems Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "Cyberark.com",
+      "official_name": "CyberArk Labs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "Solidigm.com",
+      "official_name": "Solidigm",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "abb.com",
+      "official_name": "Asea Brown Boveri Ltd. (ABB)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "absolute.com",
+      "official_name": "Absolute Software",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "acer.com",
+      "official_name": "Acer Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "acronis.com",
+      "official_name": "Acronis International GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "adobe.com",
+      "official_name": "Adobe Systems Incorporated",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "airbus.com",
+      "official_name": "Airbus",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "algosec.com",
+      "official_name": "AlgoSec",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "aliasrobotics.com",
+      "official_name": "Alias Robotics S.L.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "alibaba-inc.com",
+      "official_name": "Alibaba, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "altera.com",
+      "official_name": "Altera",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "altium.com",
+      "official_name": "Altium",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "amazon.com",
+      "official_name": "Amazon",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "amd.com",
+      "official_name": "Advanced Micro Devices Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ami.com",
+      "official_name": "AMI",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "amperecomputing.com",
+      "official_name": "Ampere Computing",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "analog.com",
+      "official_name": "Analog Devices, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "appcheck-ng.com",
+      "official_name": "AppCheck Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "apple.com",
+      "official_name": "Apple Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arcinfo.com",
+      "official_name": "ARC Informatique",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arconnet.com",
+      "official_name": "ARCON Techsolutions Private Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arista.com",
+      "official_name": "Arista Networks, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arm.com",
+      "official_name": "Arm Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "armis.com",
+      "official_name": "Armis, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arteche.com",
+      "official_name": "Arteche",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "arxscan.com",
+      "official_name": "Arxscan, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "asrmicro.com",
+      "official_name": "ASR Microelectronics Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "asus.com",
+      "official_name": "ASUSTeK Computer Incorporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "asustor.com",
+      "official_name": "ASUSTOR, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "atisoluciones.com",
+      "official_name": "ATISoluciones Diseño de Sistemas Electrónicos, S.L.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "atlassian.com",
+      "official_name": "Atlassian",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "autodesk.com",
+      "official_name": "Autodesk",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "automox.com",
+      "official_name": "Automox Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "avaya.com",
+      "official_name": "Avaya, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "axis.com",
+      "official_name": "Axis Communications AB",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "axxonsoft.com",
+      "official_name": "AxxonSoft Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "azure-access.com",
+      "official_name": "Azure Access Technology",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "baidu.com",
+      "official_name": "Baidu, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "baxter.com",
+      "official_name": "Baxter Healthcare",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bbraun.com",
+      "official_name": "B. Braun SE",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bd.com",
+      "official_name": "Becton, Dickinson and Company (BD)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "beckman.com",
+      "official_name": "Beckman Coulter Diagnostics",
+      "names": [
+        "cna-diagnostics",
+        "cna-life-sciences"
+      ]
+    },
+    {
+      "namespace": "beyondtrust.com",
+      "official_name": "BeyondTrust Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bitdefender.com",
+      "official_name": "Bitdefender",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bizerba.com",
+      "official_name": "Bizerba SE & Co. KG",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "blackberry.com",
+      "official_name": "BlackBerry",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "blackduck.com",
+      "official_name": "Black Duck Software, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "blacklanternsecurity.com",
+      "official_name": "Black Lantern Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bluespice.com",
+      "official_name": "Hallo Welt! GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bosch.com",
+      "official_name": "Robert Bosch GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "broadcom.com",
+      "official_name": "Broadcom Inc.",
+      "names": [
+        "cna-brocade",
+        "cna-ca",
+        "cna-symantec",
+        "cna-vmware"
+      ]
+    },
+    {
+      "namespace": "bugcrowd.com",
+      "official_name": "Bugcrowd Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bytedance.com",
+      "official_name": "ByteDance, Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "canon-europe.com",
+      "official_name": "Canon EMEA",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "canva.com",
+      "official_name": "Canva",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "carrier.com",
+      "official_name": "Carrier Global Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "catonetworks.com",
+      "official_name": "Cato Networks",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "centreon.com",
+      "official_name": "Centreon",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cepheid.com",
+      "official_name": "Cepheid",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "checkmarx.com",
+      "official_name": "Checkmarx",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "checkmk.com",
+      "official_name": "Checkmk GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "checkpoint.com",
+      "official_name": "Check Point Software Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ciena.com",
+      "official_name": "Ciena Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cisco.com",
+      "official_name": "Cisco Systems, Inc.",
+      "names": [
+        "cna",
+        "cna-talos"
+      ]
+    },
+    {
+      "namespace": "citrix.com",
+      "official_name": "Citrix Systems, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "clickhouse.com",
+      "official_name": "ClickHouse, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cloud.com",
+      "official_name": "Spotfire",
+      "names": [
+        "cna-jaspersoft",
+        "cna-netscaler",
+        "cna-spotfire"
+      ]
+    },
+    {
+      "namespace": "cloudflare.com",
+      "official_name": "Cloudflare, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "connectwise.com",
+      "official_name": "ConnectWise LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "craftersoftware.com",
+      "official_name": "Crafter CMS",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "crestron.com",
+      "official_name": "Crestron Electronics, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "crowdstrike.com",
+      "official_name": "CrowdStrike Holdings, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ctone.com",
+      "official_name": "CTOne Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cyberdanube.com",
+      "official_name": "CyberDanube",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cybersecurityworks.com",
+      "official_name": "Cyber Security Works Pvt. Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cytiva.com",
+      "official_name": "Cytiva",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dahuatech.com",
+      "official_name": "Dahua Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "danfoss.com",
+      "official_name": "Danfoss",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "delinea.com",
+      "official_name": "Delinea, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dell.com",
+      "official_name": "Dell",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "deltaww.com",
+      "official_name": "Delta Electronics, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "devcycle.com",
+      "official_name": "DevCycle",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "digi.com",
+      "official_name": "Digi International Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "djangoproject.com",
+      "official_name": "Django Software Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "docker.com",
+      "official_name": "Docker Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dotcms.com",
+      "official_name": "dotCMS LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dragos.com",
+      "official_name": "Dragos, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dremio.com",
+      "official_name": "Dremio Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dtexsystems.com",
+      "official_name": "DTEX Systems, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dualvs.com",
+      "official_name": "Dual Vipers LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ea.com",
+      "official_name": "Electronic Arts, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "eaton.com",
+      "official_name": "Eaton",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "echohq.com",
+      "official_name": "Echo Software Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "edgewatch.com",
+      "official_name": "Edgewatch Security Intelligence",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "enterprisedb.com",
+      "official_name": "EnterpriseDB Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ericsson.com",
+      "official_name": "Ericsson",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "eset.com",
+      "official_name": "ESET, spol. s r.o.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "esri.com",
+      "official_name": "Environmental Systems Research Institute, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "exodusintel.com",
+      "official_name": "Exodus Intelligence",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "extremenetworks.com",
+      "official_name": "Extreme Networks, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "f5.com",
+      "official_name": "F5, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "facebook.com",
+      "official_name": "Meta Platforms, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fermax.com",
+      "official_name": "Fermax Technologies SLU",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fidelissecurity.com",
+      "official_name": "Fidelis Security, LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "flexerasoftware.com",
+      "official_name": "Flexera Software LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fluidattacks.com",
+      "official_name": "Fluid Attacks",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "forcepoint.com",
+      "official_name": "Forcepoint",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "forescout.com",
+      "official_name": "Forescout Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fortiguard.com",
+      "official_name": "Fortinet, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fortra.com",
+      "official_name": "Fortra, LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "foxit.com",
+      "official_name": "Foxit Software Incorporated",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fpt.com",
+      "official_name": "FPT Software Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fujifilm.com",
+      "official_name": "Fujifilm Business Innovation Corp.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gallagher.com",
+      "official_name": "Gallagher Group Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gehealthcare.com",
+      "official_name": "GE Healthcare",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gendigital.com",
+      "official_name": "Gen Digital Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "genetec.com",
+      "official_name": "Genetec Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gevernova.com",
+      "official_name": "GE Vernova",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "gitea.com",
+      "official_name": "Gitea Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "github.com",
+      "official_name": "GitHub, Inc.",
+      "names": [
+        "cna",
+        "cna-products"
+      ]
+    },
+    {
+      "namespace": "gitlab.com",
+      "official_name": "GitLab Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "google.com",
+      "official_name": "Google LLC",
+      "names": [
+        "cna-android",
+        "cna-cloud",
+        "cna-devices",
+        "cna-root",
+        "cna",
+        "cna-mandiant"
+      ]
+    },
+    {
+      "namespace": "googlegroups.com",
+      "official_name": "Jenkins Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "grafana.com",
+      "official_name": "Grafana Labs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "graphql-java.com",
+      "official_name": "GraphQL Java",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "greenrocketsecurity.com",
+      "official_name": "Green Rocket Security Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hackerone.com",
+      "official_name": "HackerOne",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hackrtu.com",
+      "official_name": "HackRTU",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "halborn.com",
+      "official_name": "Halborn",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hanwha.com",
+      "official_name": "Hanwha Vision Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hashicorp.com",
+      "official_name": "HashiCorp Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hckrt.com",
+      "official_name": "Hackrate Kft.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hcl-software.com",
+      "official_name": "HCL Software",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "herodevs.com",
+      "official_name": "HeroDevs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hiddenlayer.com",
+      "official_name": "HiddenLayer, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hihonor.com",
+      "official_name": "Honor Device Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hikvision.com",
+      "official_name": "Hangzhou Hikvision Digital Technology Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hillstonenet.com",
+      "official_name": "Hillstone Networks Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hitachienergy.com",
+      "official_name": "Hitachi Energy",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hitachivantara.com",
+      "official_name": "Hitachi Vantara",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "honeywell.com",
+      "official_name": "Honeywell International Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hp.com",
+      "official_name": "HP Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hpe.com",
+      "official_name": "Hewlett Packard Enterprise (HPE)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "huawei.com",
+      "official_name": "Huawei Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "huntr.com",
+      "official_name": "Protect AI (formerly huntr.dev)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "huntresslabs.com",
+      "official_name": "Huntress Labs Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hypr.com",
+      "official_name": "HYPR Corp",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ibm.com",
+      "official_name": "IBM Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "idbs.com",
+      "official_name": "ID Business Solutions",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "idemia.com",
+      "official_name": "IDEMIA",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "idtdna.com",
+      "official_name": "Integrated DNA Technologies, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "illumio.com",
+      "official_name": "Illumio",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "imanage.com",
+      "official_name": "iManage LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "imgtec.com",
+      "official_name": "Imagination Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "insyde.com",
+      "official_name": "Insyde Software",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "intel.com",
+      "official_name": "Intel Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "intigriti.com",
+      "official_name": "Intigriti",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "iot83.com",
+      "official_name": "IoT83 Ltd",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ivanti.com",
+      "official_name": "Ivanti",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jamf.com",
+      "official_name": "Jamf",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jci.com",
+      "official_name": "Johnson Controls",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jetbrains.com",
+      "official_name": "JetBrains s.r.o.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jfrog.com",
+      "official_name": "JFrog",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jupiterone.com",
+      "official_name": "JupiterOne, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "kaspersky.com",
+      "official_name": "Kaspersky",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "kcftech.com",
+      "official_name": "KCF Technologies, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "keepersecurity.com",
+      "official_name": "Keeper Security, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "knime.com",
+      "official_name": "KNIME AG",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "konghq.com",
+      "official_name": "Kong Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "korelogic.com",
+      "official_name": "KoreLogic Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "leica-microsystems.com",
+      "official_name": "Leica Microsystems",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "leicabiosystems.com",
+      "official_name": "Leica Biosystems",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "lenovo.com",
+      "official_name": "Lenovo Group Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "leonardo.com",
+      "official_name": "Leonardo S.p.A.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "lexmark.com",
+      "official_name": "Lexmark International Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "lge.com",
+      "official_name": "LG Electronics",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "liferay.com",
+      "official_name": "Liferay, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "logitech.com",
+      "official_name": "Logitech",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "m-files.com",
+      "official_name": "M-Files Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mammotome.com",
+      "official_name": "Mammotome",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "maritimehackingvillage.com",
+      "official_name": "Maritime Hacking Village",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mattermost.com",
+      "official_name": "Mattermost, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "me.com",
+      "official_name": "Larry Cashdollar",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mediatek.com",
+      "official_name": "MediaTek, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "medtronic.com",
+      "official_name": "Medtronic",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "microchip.com",
+      "official_name": "Microchip Technology",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "microsoft.com",
+      "official_name": "Microsoft Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "milestonesys.com",
+      "official_name": "Milestone Systems A/S",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mimsoftware.com",
+      "official_name": "MIM Software Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mirantis.com",
+      "official_name": "Mirantis",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "moleculardevices.com",
+      "official_name": "Molecular Devices",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mongodb.com",
+      "official_name": "MongoDB, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "moxa.com",
+      "official_name": "Moxa Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "n-able.com",
+      "official_name": "N-able",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "navercorp.com",
+      "official_name": "Naver Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nec.com",
+      "official_name": "NEC Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "neo4j.com",
+      "official_name": "Neo4j",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "netapp.com",
+      "official_name": "NetApp, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "netflix.com",
+      "official_name": "Netflix, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "netgear.com",
+      "official_name": "NETGEAR",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "netskope.com",
+      "official_name": "Netskope",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "networkoptix.com",
+      "official_name": "Network Optix",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ni.com",
+      "official_name": "National Instruments",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nibegroup.com",
+      "official_name": "NIBE Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nintendo.com",
+      "official_name": "Nintendo Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nokia.com",
+      "official_name": "Nokia",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nozominetworks.com",
+      "official_name": "Nozomi Networks Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nutanix.com",
+      "official_name": "Nutanix",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nvidia.com",
+      "official_name": "NVIDIA Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "oceanbase.com",
+      "official_name": "OceanBase",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "octopus.com",
+      "official_name": "Octopus Deploy",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "odoo.com",
+      "official_name": "Odoo",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "okta.com",
+      "official_name": "Okta",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "omnissa.com",
+      "official_name": "Omnissa, LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "omron.com",
+      "official_name": "OMRON Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "onekey.com",
+      "official_name": "ONEKEY GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "onlogic.com",
+      "official_name": "OnLogic",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "open-xchange.com",
+      "official_name": "Open-Xchange",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "opendesign.com",
+      "official_name": "Open Design Alliance",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "opennms.com",
+      "official_name": "The OpenNMS Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "opentext.com",
+      "official_name": "OpenText (formerly Micro Focus)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "opera.com",
+      "official_name": "Opera Norway AS",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "oppo.com",
+      "official_name": "OPPO Mobile Telecommunication Corp., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "oracle.com",
+      "official_name": "Oracle",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "otrs.com",
+      "official_name": "OTRS AG",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "palantir.com",
+      "official_name": "Palantir Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pall.com",
+      "official_name": "Pall Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "paloaltonetworks.com",
+      "official_name": "Palo Alto Networks, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "panasonic.com",
+      "official_name": "Panasonic Holdings Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pandorafms.com",
+      "official_name": "Pandora FMS",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "papercut.com",
+      "official_name": "PaperCut Software Pty Ltd",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "patchstack.com",
+      "official_name": "Patchstack",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pega.com",
+      "official_name": "Pegasystems Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pentraze.com",
+      "official_name": "Pentraze Cybersecurity",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "perforce.com",
+      "official_name": "Perforce",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "philips.com",
+      "official_name": "Philips",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "phoenixtech.com",
+      "official_name": "Phoenix Technologies, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pingcap.com",
+      "official_name": "PingCAP (US), Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "pingidentity.com",
+      "official_name": "Ping Identity Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "plextrac.com",
+      "official_name": "PlexTrac, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "profisee.com",
+      "official_name": "Profisee Group, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "progress.com",
+      "official_name": "Progress Software Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "proofpoint.com",
+      "official_name": "Proofpoint Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ptc.com",
+      "official_name": "PTC Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "purestorage.com",
+      "official_name": "Pure Storage, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "qnap.com",
+      "official_name": "QNAP Systems, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "qualcomm.com",
+      "official_name": "Qualcomm, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "qualys.com",
+      "official_name": "Qualys, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "rapid7.com",
+      "official_name": "Rapid7, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "realpage.com",
+      "official_name": "RealPage",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "redhat.com",
+      "official_name": "Red Hat, Inc.",
+      "names": [
+        "cna-tlr",
+        "cna-lr",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "replicated.com",
+      "official_name": "Replicated, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ribose.com",
+      "official_name": "Ribose Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "roche.com",
+      "official_name": "Roche Diagnostics",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "rockwellautomation.com",
+      "official_name": "Rockwell Automation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "rti.com",
+      "official_name": "Real-Time Innovations, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "runzero.com",
+      "official_name": "runZero, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sailpoint.com",
+      "official_name": "SailPoint Technologies",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "salesforce.com",
+      "official_name": "Salesforce, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "samsung.com",
+      "official_name": "Samsung",
+      "names": [
+        "cna-tv-appliance",
+        "cna-mobile"
+      ]
+    },
+    {
+      "namespace": "sandisk.com",
+      "official_name": "Sandisk",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sap.com",
+      "official_name": "SAP SE",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "saviynt.com",
+      "official_name": "Saviynt Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "schutzwerk.com",
+      "official_name": "SCHUTZWERK GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sciex.com",
+      "official_name": "SCIEX",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "se.com",
+      "official_name": "Schneider Electric",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "seagate.com",
+      "official_name": "Seagate Technology",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "search-guard.com",
+      "official_name": "floragunn GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sec-consult.com",
+      "official_name": "SEC Consult Vulnerability Lab",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "secomea.com",
+      "official_name": "Secomea A/S",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "securifera.com",
+      "official_name": "Securifera, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "selinc.com",
+      "official_name": "Schweitzer Engineering Laboratories, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "senhasegura.com",
+      "official_name": "senhasegura",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "servicenow.com",
+      "official_name": "ServiceNow",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "siemens.com",
+      "official_name": "Siemens",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sierrawireless.com",
+      "official_name": "Sierra Wireless Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "silabs.com",
+      "official_name": "Silicon Labs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "silver-peak.com",
+      "official_name": "Silver Peak Systems, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "simplinx.com",
+      "official_name": "Simplinx Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "smiledigitalhealth.com",
+      "official_name": "Smile CDR Inc. (doing business as “Smile Digital Health”)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "snowsoftware.com",
+      "official_name": "Snow Software",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "softing.com",
+      "official_name": "Softing",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "softiron.com",
+      "official_name": "SoftIron",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "software.com",
+      "official_name": "Software.com",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "solarwinds.com",
+      "official_name": "SolarWinds",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sonatype.com",
+      "official_name": "Sonatype Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sonicwall.com",
+      "official_name": "SonicWall, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sophos.com",
+      "official_name": "Sophos Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "spartanssec.com",
+      "official_name": "Spartans Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "strongdm.com",
+      "official_name": "StrongDM",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "stryker.com",
+      "official_name": "Stryker Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "supermicro.com",
+      "official_name": "Super Micro Computer, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "synaptics.com",
+      "official_name": "Synaptics, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "synology.com",
+      "official_name": "Synology Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "t-mobile.com",
+      "official_name": "T-Mobile US",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tcl.com",
+      "official_name": "TCL Electronics Holdings Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tcs-cert.com",
+      "official_name": "TCS-CERT (Thales Cyber Solutions Customer’s CERT)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "teamviewer.com",
+      "official_name": "TeamViewer Germany GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tecno-mobile.com",
+      "official_name": "TECNO Mobile Limited",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tegocyber.com",
+      "official_name": "Tego Cyber, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "teltonika-networks.com",
+      "official_name": "Teltonika Networks",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tenable.com",
+      "official_name": "Tenable Network Security, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "teradyne-robotics.com",
+      "official_name": "Teradyne Robotics",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "thalesgroup.com",
+      "official_name": "Thales Group",
+      "names": [
+        "cna-s21sec",
+        "cna-root",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tibco.com",
+      "official_name": "TIBCO Software Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "toreon.com",
+      "official_name": "Toreon",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tp-link.com",
+      "official_name": "TP-Link Systems Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "trellix.com",
+      "official_name": "Trellix",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "trendmicro.com",
+      "official_name": "Trend Micro, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "txone.com",
+      "official_name": "TXOne Networks, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ubuntu.com",
+      "official_name": "Canonical Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "unisoc.com",
+      "official_name": "Unisoc (Shanghai) Technologies Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "uniview.com",
+      "official_name": "Zhejiang Uniview Technologies Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vaadin.com",
+      "official_name": "Vaadin Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vantive.com",
+      "official_name": "Vantive",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vde.com",
+      "official_name": "CERT@VDE",
+      "names": [
+        "cna-root",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vivo.com",
+      "official_name": "Vivo Mobile Communication Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vuldb.com",
+      "official_name": "VulDB",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vulncheck.com",
+      "official_name": "VulnCheck",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "watchdog.com",
+      "official_name": "WatchDogDevelopment.com, LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "watchguard.com",
+      "official_name": "WatchGuard Technologies, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wdc.com",
+      "official_name": "Western Digital",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "windriver.com",
+      "official_name": "Wind River Systems Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wolfssl.com",
+      "official_name": "wolfSSL Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wordfence.com",
+      "official_name": "Wordfence",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wpscan.com",
+      "official_name": "WPScan",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wso2.com",
+      "official_name": "WSO2 LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xerox.com",
+      "official_name": "Xerox Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xiaomi.com",
+      "official_name": "Xiaomi Technology Co., Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xonasystems.com",
+      "official_name": "Xona Systems",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xpdfreader.com",
+      "official_name": "Glyph & Cog, LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xyleminc.com",
+      "official_name": "Xylem",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "yeswehack.com",
+      "official_name": "YesWeHack",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "yokogawa.com",
+      "official_name": "Yokogawa Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "yugabyte.com",
+      "official_name": "Yugabyte, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zabbix.com",
+      "official_name": "Zabbix",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zerodayinitiative.com",
+      "official_name": "Zero Day Initiative",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zigor.com",
+      "official_name": "ZGR",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zohocorp.com",
+      "official_name": "Zohocorp",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zscaler.com",
+      "official_name": "Zscaler, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "thebrowser.company",
+      "official_name": "The Browser Company of New York",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cirosec.de",
+      "official_name": "cirosec GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "os-s.de",
+      "official_name": "OpenSource Security GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "securepoint.de",
+      "official_name": "Securepoint GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sick.de",
+      "official_name": "SICK AG",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "suse.de",
+      "official_name": "SUSE",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "radiometer.dk",
+      "official_name": "Radiometer Medical ApS",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "monash.edu",
+      "official_name": "Monash University - Cyber Security Incident Response Team",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "incibe.es",
+      "official_name": "Spanish National Cybersecurity Institute, S.A. (INCIBE)",
+      "names": [
+        "cna-root",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "enisa.europa.eu",
+      "official_name": "EU Agency for Cybersecurity (ENISA)",
+      "names": [
+        "cna-root",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ncsc.fi",
+      "official_name": "National Cyber Security Centre Finland (NCSC-FI)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "payara.fish",
+      "official_name": "Payara",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cisa.gov",
+      "official_name": "Cybersecurity and Infrastructure Security Agency",
+      "names": [
+        "cna-tlr",
+        "cna-adp",
+        "cna-ics",
+        "cna-civilian"
+      ]
+    },
+    {
+      "namespace": "cyber.gov.il",
+      "official_name": "Israel National Cyber Directorate (INCD)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cert-in.org.in",
+      "official_name": "Indian Computer Emergency Response Team (CERT-In)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "asrg.io",
+      "official_name": "Automotive Security Research Group (ASRG)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "censys.io",
+      "official_name": "Censys",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cribl.io",
+      "official_name": "Cribl, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "groups.io",
+      "official_name": "TianoCore.org",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "krakend.io",
+      "official_name": "KrakenD, S.L.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "kubernetes.io",
+      "official_name": "Kubernetes",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "netrise.io",
+      "official_name": "NetRise",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openharmony.io",
+      "official_name": "OpenHarmony",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "projectblack.io",
+      "official_name": "Project Black",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "qt.io",
+      "official_name": "The Qt Company",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "rami.io",
+      "official_name": "rami.io GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sealsecurity.io",
+      "official_name": "Seal Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sec1.io",
+      "official_name": "Sec1",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "securin.io",
+      "official_name": "Securin",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "snyk.io",
+      "official_name": "Snyk",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "socradar.io",
+      "official_name": "SOCRadar Cyber Intelligence Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sra.io",
+      "official_name": "Security Risk Advisors (SRA)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "temporal.io",
+      "official_name": "Temporal Technologies Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tigera.io",
+      "official_name": "Tigera, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "villageb.io",
+      "official_name": "Biohacking Village",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wiz.io",
+      "official_name": "Wiz, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "harbor.ist",
+      "official_name": "Harborist",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "almaviva.it",
+      "official_name": "Almaviva S.p.A.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "MitsubishiElectric.co.jp",
+      "official_name": "Mitsubishi Electric Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hitachi.co.jp",
+      "official_name": "Hitachi, Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "lycorp.co.jp",
+      "official_name": "LY Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "toshiba.co.jp",
+      "official_name": "Toshiba Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openam.jp",
+      "official_name": "OpenAM Consortium",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "jpcert.or.jp",
+      "official_name": "JPCERT/CC",
+      "names": [
+        "cna-root",
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fsec.or.kr",
+      "official_name": "Financial Security Institute (FSI)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "krcert.or.kr",
+      "official_name": "KrCERT/CC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "proton.me",
+      "official_name": "Proton AG",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "codra.net",
+      "official_name": "CODRA",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "devolutions.net",
+      "official_name": "Devolutions Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "juniper.net",
+      "official_name": "Juniper Networks, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openvpn.net",
+      "official_name": "OpenVPN Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "php.net",
+      "official_name": "PHP Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "divd.nl",
+      "official_name": "Dutch Institute for Vulnerability Disclosure (DIVD)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ncsc.nl",
+      "official_name": "National Cyber Security Centre Netherlands (NCSC-NL)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nlnetlabs.nl",
+      "official_name": "NLnet Labs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "9front.org",
+      "official_name": "9front Systems",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "apache.org",
+      "official_name": "Apache Software Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bouncycastle.org",
+      "official_name": "Legion of the Bouncy Castle Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cert.org",
+      "official_name": "CERT/CC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "chipsalliance.org",
+      "official_name": "Caliptra Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "chromium.org",
+      "official_name": "The Chromium Projects",
+      "names": [
+        "cna-chrome",
+        "cna-chromeos"
+      ]
+    },
+    {
+      "namespace": "cloudsecurityalliance.org",
+      "official_name": "Cloud Security Alliance",
+      "names": [
+        "security-txt",
+        "responsible-disclosure"
+      ]
+    },
+    {
+      "namespace": "concretecms.org",
+      "official_name": "Concrete CMS",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "debian.org",
+      "official_name": "Debian GNU/Linux",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dfinity.org",
+      "official_name": "DFINITY Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "dhis2.org",
+      "official_name": "The HISP Centre at the University of Oslo",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "documentfoundation.org",
+      "official_name": "Document Foundation, The",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "drupal.org",
+      "official_name": "Drupal.org",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "eclipse.org",
+      "official_name": "Eclipse Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "erlef.org",
+      "official_name": "Erlang Ecosystem Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "fedoraproject.org",
+      "official_name": "Fedora Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "freebsd.org",
+      "official_name": "FreeBSD",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "golang.org",
+      "official_name": "Go Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hdfgroup.org",
+      "official_name": "The HDF Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "iojs.org",
+      "official_name": "Node.js",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "isc.org",
+      "official_name": "Internet Systems Consortium (ISC)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "joomla.org",
+      "official_name": "Joomla! Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "kernel.org",
+      "official_name": "kernel.org",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "libreswan.org",
+      "official_name": "Libreswan Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mautic.org",
+      "official_name": "Mautic",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "metacpan.org",
+      "official_name": "CPAN Security Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "mitre.org",
+      "official_name": "The MITRE Corporation",
+      "names": [
+        "cna-secretariat"
+      ]
+    },
+    {
+      "namespace": "mozilla.org",
+      "official_name": "Mozilla Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openanolis.org",
+      "official_name": "OpenAnolis",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openeuler.org",
+      "official_name": "openEuler",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "opengauss.org",
+      "official_name": "openGauss Community",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openjsf.org",
+      "official_name": "OpenJS Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openmainframeproject.org",
+      "official_name": "Zowe",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "openssl.org",
+      "official_name": "OpenSSL Software Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "ozlabs.org",
+      "official_name": "The OpenBMC Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "postgresql.org",
+      "official_name": "PostgreSQL",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "python.org",
+      "official_name": "Python Software Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "rust-lang.org",
+      "official_name": "The Rust Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sba-research.org",
+      "official_name": "SBA Research gGmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "sourceware.org",
+      "official_name": "GNU C Library",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "swift.org",
+      "official_name": "Swift Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "takeonme.org",
+      "official_name": "Austin Hackers Anonymous",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tanium.org",
+      "official_name": "Tanium Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tcpdump.org",
+      "official_name": "Tcpdump Group",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "typo3.org",
+      "official_name": "TYPO3 Association",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vulsec.org",
+      "official_name": "VULSec Labs",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wikimedia.org",
+      "official_name": "The Wikimedia Foundation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "wrensecurity.org",
+      "official_name": "Wren Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "xen.org",
+      "official_name": "Xen Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zephyrproject.org",
+      "official_name": "Zephyr Project",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cert.pl",
+      "official_name": "CERT.PL",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "yandex-team.ru",
+      "official_name": "Yandex N.V.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "curl.se",
+      "official_name": "curl",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "hemocue.se",
+      "official_name": "HemoCue AB",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "upkeeper.se",
+      "official_name": "upKeeper Solutions",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "full.services",
+      "official_name": "FULL INTERNET",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "csa.gov.sg",
+      "official_name": "Cyber Security Agency of Singapore",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "tech.gov.sg",
+      "official_name": "Government Technology Agency of Singapore Cyber Security Group (GovTech CSG)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "starlabs.sg",
+      "official_name": "STAR Labs SG Pte. Ltd.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "nbu.gov.sk",
+      "official_name": "National Cyber Security Centre SK-CERT",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "bombadil.systems",
+      "official_name": "Bombadil Systems LLC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "stackable.tech",
+      "official_name": "Stackable GmbH",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "profelis.com.tr",
+      "official_name": "Profelis IT Consultancy",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "vestel.com.tr",
+      "official_name": "Vestel Electronics Industry & Trade Co.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "usom.gov.tr",
+      "official_name": "TR-CERT (Computer Emergency Response Team of the Republic of Türkiye)",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "emc.com.tw",
+      "official_name": "ELAN Microelectronics Corp.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "geovision.com.tw",
+      "official_name": "GeoVision Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zyxel.com.tw",
+      "official_name": "Zyxel Corporation",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "cert.org.tw",
+      "official_name": "TWCERT/CC",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "zoom.us",
+      "official_name": "Zoom Communications, Inc.",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "turansec.uz",
+      "official_name": "Turan Security",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "voting.works",
+      "official_name": "VotingWorks",
+      "names": [
+        "cna"
+      ]
+    },
+    {
+      "namespace": "shopbeat.co.za",
+      "official_name": "Shop Beat Solutions (Pty) LTD",
+      "names": [
+        "cna"
+      ]
+    }
+  ]
+}

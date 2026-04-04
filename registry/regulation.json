@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "type": "regulation",
+  "official_name": "Regulation",
+  "description": "Laws, directives, and binding legal requirements — things organizations must comply with.",
+  "purpose": "Reference legally binding requirements. Includes EU regulations (GDPR, AI Act, NIS2, DORA), US federal laws (HIPAA, FISMA, GLBA, CFAA), state laws (CCPA/CPRA, CalOPPA), and other national regulations.",
+  "format": "secid:regulation/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:regulation/europa.eu/gdpr#art-32",
+    "secid:regulation/europa.eu/ai-act#art-6",
+    "secid:regulation/ca.gov/ccpa",
+    "secid:regulation/govinfo.gov/hipaa"
+  ],
+  "notes": "Regulations use subpath hierarchy to reference specific articles, sections, and paragraphs. Example: secid:regulation/europa.eu/gdpr#art-32/1/a for Article 32(1)(a) of GDPR. Distinct from controls — regulations are what you must comply with, controls are how you comply.",
+  "namespace_count": 4,
+  "namespaces": [
+    {
+      "namespace": "europa.eu",
+      "official_name": "European Union",
+      "names": [
+        "gdpr",
+        "ai-act",
+        "nis2",
+        "dora"
+      ]
+    },
+    {
+      "namespace": "ca.gov",
+      "official_name": "California State",
+      "names": [
+        "ccpa",
+        "cpra",
+        "caloppa"
+      ]
+    },
+    {
+      "namespace": "govinfo.gov",
+      "official_name": "United States Federal",
+      "names": [
+        "hipaa",
+        "fisma",
+        "glba",
+        "cfaa"
+      ]
+    },
+    {
+      "namespace": "ny.gov",
+      "official_name": "New York State",
+      "names": [
+        "dfs-500",
+        "shield-act",
+        "nybcl"
+      ]
+    }
+  ]
+}

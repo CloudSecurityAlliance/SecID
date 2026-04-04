@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "type": "ttp",
+  "official_name": "Tactics, Techniques & Procedures",
+  "description": "Adversary behavior frameworks — how attackers operate, organized into tactics, techniques, and procedures.",
+  "purpose": "Reference attack patterns and adversary behavior. Includes MITRE ATT&CK (enterprise, mobile, ICS), MITRE ATLAS (AI/ML attacks), CAPEC (common attack patterns), and kill chain models.",
+  "format": "secid:ttp/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:ttp/mitre.org/attack#T1059.003",
+    "secid:ttp/mitre.org/atlas#AML.T0043",
+    "secid:ttp/mitre.org/capec#CAPEC-66"
+  ],
+  "notes": "ATT&CK technique IDs use dots for sub-techniques (T1059.003), which SecID preserves exactly. ATLAS covers AI/ML-specific attack techniques. CAPEC provides common attack pattern enumerations.",
+  "namespace_count": 4,
+  "namespaces": [
+    {
+      "namespace": "lockheedmartin.com",
+      "official_name": "Lockheed Martin",
+      "names": [
+        "killchain"
+      ]
+    },
+    {
+      "namespace": "unifiedkillchain.com",
+      "official_name": "Unified Kill Chain",
+      "names": [
+        "ukc"
+      ]
+    },
+    {
+      "namespace": "veriscommunity.net",
+      "official_name": "VERIS Framework",
+      "names": [
+        "framework"
+      ]
+    },
+    {
+      "namespace": "mitre.org",
+      "official_name": "MITRE Corporation",
+      "names": [
+        "attack",
+        "atlas",
+        "capec"
+      ]
+    }
+  ]
+}

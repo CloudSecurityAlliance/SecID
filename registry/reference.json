@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "type": "reference",
+  "official_name": "Reference",
+  "description": "Documents, publications, research, and identifier systems that don't fit into other SecID types.",
+  "purpose": "Reference documents and identifier systems. Includes academic papers (arXiv, DOI), RFCs, ISBNs, GitHub artifacts (commits, pull requests, issues, discussions), CSA publications, and government documents (executive orders).",
+  "format": "secid:reference/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:reference/arxiv.org/2303.08774",
+    "secid:reference/doi.org/10.1145/3274694.3274708",
+    "secid:reference/ietf.org/rfc#RFC9116",
+    "secid:reference/github.com/commit#abc1234def5678"
+  ],
+  "notes": "The catch-all type for security-relevant documents that aren't advisories, weaknesses, TTPs, controls, disclosures, regulations, or entities. If something doesn't fit elsewhere, it belongs here.",
+  "namespace_count": 29,
+  "namespaces": [
+    {
+      "namespace": "amazon.com",
+      "official_name": "Amazon Standard Identification Number",
+      "names": [
+        "^[A-Z0-9]{10}"
+      ]
+    },
+    {
+      "namespace": "github.com/commit",
+      "official_name": "GitHub Commits",
+      "names": [
+        "^[0-9a-f]{40}",
+        "^[0-9a-f]{7,39}"
+      ]
+    },
+    {
+      "namespace": "github.com/discussions",
+      "official_name": "GitHub Discussions",
+      "names": [
+        "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/d+"
+      ]
+    },
+    {
+      "namespace": "github.com/issues",
+      "official_name": "GitHub Issues",
+      "names": [
+        "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/d+"
+      ]
+    },
+    {
+      "namespace": "github.com/pull",
+      "official_name": "GitHub Pull Requests",
+      "names": [
+        "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/d+"
+      ]
+    },
+    {
+      "namespace": "github.com/releases",
+      "official_name": "GitHub Releases",
+      "names": [
+        "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/.+"
+      ]
+    },
+    {
+      "namespace": "github.com/repo",
+      "official_name": "GitHub Repositories",
+      "names": [
+        "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+"
+      ]
+    },
+    {
+      "namespace": "github.com/users",
+      "official_name": "GitHub Users and Organizations",
+      "names": [
+        "^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?"
+      ]
+    },
+    {
+      "namespace": "ssrn.com",
+      "official_name": "Social Science Research Network",
+      "names": [
+        "^d{6,7}"
+      ]
+    },
+    {
+      "namespace": "nih.gov",
+      "official_name": "PubMed",
+      "names": [
+        "^d+"
+      ]
+    },
+    {
+      "namespace": "whitehouse.gov",
+      "official_name": "White House / Executive Branch",
+      "names": [
+        "^eo-d{5}",
+        "^m-d{2}-d{2}",
+        "^nsm-d+",
+        "^ncs-d{4}"
+      ]
+    },
+    {
+      "namespace": "acm.org",
+      "official_name": "ACM Digital Library",
+      "names": [
+        "^10.1145/d+.d+"
+      ]
+    },
+    {
+      "namespace": "arxiv.org",
+      "official_name": "arXiv Preprints",
+      "names": [
+        "^d{4}.d{4,5}"
+      ]
+    },
+    {
+      "namespace": "cloudsecurityalliance.org",
+      "official_name": "Cloud Security Alliance",
+      "names": [
+        "artifacts"
+      ]
+    },
+    {
+      "namespace": "dblp.org",
+      "official_name": "DBLP Computer Science Bibliography",
+      "names": [
+        "^[a-z]+/[a-zA-Z0-9/]+"
+      ]
+    },
+    {
+      "namespace": "doi.org",
+      "official_name": "Digital Object Identifier",
+      "names": [
+        "^10.d{4,}/[^s]+"
+      ]
+    },
+    {
+      "namespace": "iacr.org",
+      "official_name": "IACR Cryptology ePrint Archive",
+      "names": [
+        "^d{4}/d+"
+      ]
+    },
+    {
+      "namespace": "ieee.org",
+      "official_name": "IEEE Xplore Digital Library",
+      "names": [
+        "^d{7,8}"
+      ]
+    },
+    {
+      "namespace": "ietf.org",
+      "official_name": "Internet Engineering Task Force",
+      "names": [
+        "^d+"
+      ]
+    },
+    {
+      "namespace": "isbn.org",
+      "official_name": "International Standard Book Number",
+      "names": [
+        "^97[89]-?d{1,5}-?d{1,7}-?d{1,7}-?d"
+      ]
+    },
+    {
+      "namespace": "issn.org",
+      "official_name": "International Standard Serial Number",
+      "names": [
+        "^d{4}-d{3}[dX]"
+      ]
+    },
+    {
+      "namespace": "ndss-symposium.org",
+      "official_name": "Network and Distributed System Security Symposium",
+      "names": [
+        "^[a-z0-9-]+"
+      ]
+    },
+    {
+      "namespace": "openalex.org",
+      "official_name": "OpenAlex",
+      "names": [
+        "^Wd+"
+      ]
+    },
+    {
+      "namespace": "semanticscholar.org",
+      "official_name": "Semantic Scholar",
+      "names": [
+        "^[a-f0-9]{40}"
+      ]
+    },
+    {
+      "namespace": "techrxiv.org",
+      "official_name": "TechRxiv",
+      "names": [
+        "^d+(.vd+)?"
+      ]
+    },
+    {
+      "namespace": "usenix.org",
+      "official_name": "USENIX Association",
+      "names": [
+        "^[a-z0-9-]+/presentation/[a-z0-9-]+"
+      ]
+    },
+    {
+      "namespace": "zenodo.org",
+      "official_name": "Zenodo",
+      "names": [
+        "^d+"
+      ]
+    },
+    {
+      "namespace": "gov.uk",
+      "official_name": "UK Government",
+      "names": [
+        "ai-safety-report"
+      ]
+    },
+    {
+      "namespace": "aisi.gov.uk",
+      "official_name": "AI Safety Institutes",
+      "names": [
+        "uk",
+        "us",
+        "japan",
+        "international"
+      ]
+    }
+  ]
+}

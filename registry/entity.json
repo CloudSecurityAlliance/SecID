@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "type": "entity",
+  "official_name": "Entity",
+  "description": "Organizations, products, services, and platforms — stable identity anchors for things in the security ecosystem.",
+  "purpose": "Identify vendors, products, and services when PURL or SPDX identifiers aren't applicable. Includes organizations (MITRE, Red Hat, Cisco), products (OpenShift, iOS, Firepower), and services. Entity match_nodes use literal patterns since names are fixed strings.",
+  "format": "secid:entity/<namespace>/<name>[#subpath]",
+  "examples": [
+    "secid:entity/redhat.com/openshift",
+    "secid:entity/mitre.org/cve",
+    "secid:entity/cisco.com/ios"
+  ],
+  "notes": "Entity entries describe what organizations and their products are. They cross-reference other types via issues_type and issues_namespace fields — e.g., an entity's product links to the advisory namespace where its vulnerabilities are published.",
+  "namespace_count": 14,
+  "namespaces": [
+    {
+      "namespace": "cisco.com",
+      "official_name": "Cisco Systems, Inc.",
+      "names": [
+        "psirt",
+        "ios",
+        "ios-xe",
+        "asa",
+        "firepower",
+        "webex"
+      ]
+    },
+    {
+      "namespace": "github.com",
+      "official_name": "GitHub, Inc.",
+      "names": [
+        "ghsa"
+      ]
+    },
+    {
+      "namespace": "google.com",
+      "official_name": "Google LLC",
+      "names": [
+        "osv"
+      ]
+    },
+    {
+      "namespace": "microsoft.com",
+      "official_name": "Microsoft Corporation",
+      "names": [
+        "msrc",
+        "azure",
+        "windows",
+        "m365",
+        "defender",
+        "sentinel",
+        "entra",
+        "intune",
+        "purview",
+        "teams",
+        "exchange",
+        "sharepoint",
+        "sql-server",
+        "copilot",
+        "github",
+        "power-platform"
+      ]
+    },
+    {
+      "namespace": "oracle.com",
+      "official_name": "Oracle Corporation",
+      "names": [
+        "database",
+        "java",
+        "weblogic",
+        "mysql",
+        "linux",
+        "cloud"
+      ]
+    },
+    {
+      "namespace": "paperpile.com",
+      "official_name": "Paperpile",
+      "names": [
+        "ai-risk-frameworks"
+      ]
+    },
+    {
+      "namespace": "redhat.com",
+      "official_name": "Red Hat, Inc.",
+      "names": [
+        "openshift",
+        "rhel",
+        "ansible",
+        "satellite",
+        "quay",
+        "acs",
+        "jboss",
+        "openstack",
+        "ceph",
+        "insights",
+        "podman",
+        "virtualization",
+        "directory-server"
+      ]
+    },
+    {
+      "namespace": "nist.gov",
+      "official_name": "National Institute of Standards and Technology",
+      "names": [
+        "nvd"
+      ]
+    },
+    {
+      "namespace": "cloudsecurityalliance.org",
+      "official_name": "Cloud Security Alliance",
+      "names": [
+        "ccm",
+        "aicm"
+      ]
+    },
+    {
+      "namespace": "debian.org",
+      "official_name": "Debian Project",
+      "names": [
+        "debian"
+      ]
+    },
+    {
+      "namespace": "first.org",
+      "official_name": "Forum of Incident Response and Security Teams",
+      "names": [
+        "cvss",
+        "epss"
+      ]
+    },
+    {
+      "namespace": "mitre.org",
+      "official_name": "The MITRE Corporation",
+      "names": [
+        "cve",
+        "cwe",
+        "attack",
+        "atlas",
+        "capec"
+      ]
+    },
+    {
+      "namespace": "owasp.org",
+      "official_name": "Open Worldwide Application Security Project",
+      "names": [
+        "top-10",
+        "llm-top-10",
+        "aivss"
+      ]
+    },
+    {
+      "namespace": "mcpshark.sh",
+      "official_name": "MCPShark",
+      "names": [
+        "smart"
+      ]
+    }
+  ]
+}

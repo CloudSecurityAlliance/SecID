@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "type": "control",
+  "official_name": "Control",
+  "description": "Security requirements, frameworks, benchmarks, and documentation standards — what organizations should implement.",
+  "purpose": "Reference security controls and compliance requirements. Includes NIST CSF, NIST 800-53, ISO 27001/27002, CSA CCM, CSA AICM, CIS Benchmarks, PCI DSS, SOC 2, and AI-specific frameworks like NIST AI RMF and ISO 42001.",
+  "format": "secid:control/<namespace>/<name>[@version][#subpath]",
+  "examples": [
+    "secid:control/nist.gov/csf@2.0#PR.AC-1",
+    "secid:control/nist.gov/800-53@r5#AC-1",
+    "secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12",
+    "secid:control/iso.org/27001@2022#A.5.1"
+  ],
+  "notes": "Controls use the hierarchy levels the source provides. Example: secid:control/cloudsecurityalliance.org/ccm@4.0 (whole framework), #IAM (domain), #IAM-12 (specific control). Versioned frameworks like CCM and NIST CSF use @version.",
+  "namespace_count": 24,
+  "namespaces": [
+    {
+      "namespace": "safe.ai",
+      "official_name": "Center for AI Safety",
+      "names": [
+        "harmbench",
+        "wmdp"
+      ]
+    },
+    {
+      "namespace": "tc260.org.cn",
+      "official_name": "Standardization Administration of China (SAC) / TC260",
+      "names": [
+        "ai-safety-governance"
+      ]
+    },
+    {
+      "namespace": "concordia-ai.com",
+      "official_name": "Concordia AI",
+      "names": [
+        "frontier-ai-rmf"
+      ]
+    },
+    {
+      "namespace": "github.com/llm-attacks",
+      "official_name": "AdvBench",
+      "names": [
+        "benchmark"
+      ]
+    },
+    {
+      "namespace": "github.com/nyu-mll",
+      "official_name": "Bias Benchmarks",
+      "names": [
+        "bbq",
+        "winobias",
+        "stereoset",
+        "crowspairs"
+      ]
+    },
+    {
+      "namespace": "github.com/thu-coai",
+      "official_name": "SafetyBench",
+      "names": [
+        "benchmark"
+      ]
+    },
+    {
+      "namespace": "google.com",
+      "official_name": "Google",
+      "names": [
+        "saif",
+        "frontier-safety"
+      ]
+    },
+    {
+      "namespace": "meta.com",
+      "official_name": "Meta Platforms",
+      "names": [
+        "purple-llama",
+        "cyberseceval"
+      ]
+    },
+    {
+      "namespace": "openai.com",
+      "official_name": "OpenAI",
+      "names": [
+        "model-spec",
+        "preparedness",
+        "red-teaming",
+        "system-cards"
+      ]
+    },
+    {
+      "namespace": "europa.eu",
+      "official_name": "European Union",
+      "names": [
+        "altai",
+        "ethics-guidelines",
+        "ai-act"
+      ]
+    },
+    {
+      "namespace": "nist.gov",
+      "official_name": "National Institute of Standards and Technology",
+      "names": [
+        "800-53",
+        "csf"
+      ]
+    },
+    {
+      "namespace": "jailbreakbench.github.io",
+      "official_name": "JailbreakBench",
+      "names": [
+        "benchmark"
+      ]
+    },
+    {
+      "namespace": "trustllmbenchmark.github.io",
+      "official_name": "TrustLLM Benchmark",
+      "names": [
+        "benchmark"
+      ]
+    },
+    {
+      "namespace": "alignment.org",
+      "official_name": "ARC Evals (Alignment Research Center)",
+      "names": [
+        "evals"
+      ]
+    },
+    {
+      "namespace": "allenai.org",
+      "official_name": "Allen Institute for AI",
+      "names": [
+        "decodingtrust",
+        "realtoxicityprompts"
+      ]
+    },
+    {
+      "namespace": "cisecurity.org",
+      "official_name": "Center for Internet Security",
+      "names": [
+        "controls"
+      ]
+    },
+    {
+      "namespace": "cloudsecurityalliance.org",
+      "official_name": "Cloud Security Alliance",
+      "names": [
+        "ccm",
+        "aicm",
+        "ai-safety"
+      ]
+    },
+    {
+      "namespace": "ieee.org",
+      "official_name": "Institute of Electrical and Electronics Engineers",
+      "names": [
+        "ethically-aligned",
+        "7000",
+        "7001",
+        "7002",
+        "7010"
+      ]
+    },
+    {
+      "namespace": "iso.org",
+      "official_name": "International Organization for Standardization",
+      "names": [
+        "27001",
+        "27002",
+        "42001",
+        "23894",
+        "24028",
+        "24029"
+      ]
+    },
+    {
+      "namespace": "metr.org",
+      "official_name": "METR (Model Evaluation and Threat Research)",
+      "names": [
+        "task-standard",
+        "evaluations"
+      ]
+    },
+    {
+      "namespace": "mlcommons.org",
+      "official_name": "MLCommons",
+      "names": [
+        "ai-safety",
+        "croissant",
+        "mlperf"
+      ]
+    },
+    {
+      "namespace": "owasp.org",
+      "official_name": "Open Web Application Security Project",
+      "names": [
+        "ai-exchange"
+      ]
+    },
+    {
+      "namespace": "imda.gov.sg",
+      "official_name": "Singapore Government",
+      "names": [
+        "ai-verify",
+        "model-governance"
+      ]
+    },
+    {
+      "namespace": "mcpshark.sh",
+      "official_name": "MCPShark",
+      "names": [
+        "smart"
+      ]
+    }
+  ]
+}
