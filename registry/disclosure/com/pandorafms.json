@@ -27,8 +27,24 @@
         "scope": "Pandora FMS, Pandora ITSM, and Pandora RC issues only.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@pandorafms.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://pandorafms.com/en/security/vulnerability-disclosure-policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://pandorafms.com/common-vulnerabilities-and-exposures/",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PandoraFMS",

@@ -27,8 +27,24 @@
         "scope": "Core Joomla! CMS, the Joomla Framework, and Joomla! Extensions issues only.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@joomla.org",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://developer.joomla.org/security.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://developer.joomla.org/security-centre.html",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Joomla",

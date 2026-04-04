@@ -27,8 +27,24 @@
         "scope": "Vulnerabilities in Checkmarx products and open source vulnerabilities discovered by, or reported to, Checkmarx, that are not in another CNA’s scope.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "oss-report@checkmarx.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://devhub.checkmarx.com/disclosure-policy/",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://advisory.checkmarx.net/",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Checkmarx",

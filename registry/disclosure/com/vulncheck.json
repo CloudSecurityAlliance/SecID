@@ -27,8 +27,24 @@
         "scope": "Vulnerabilities observed by, discovered by, or reported to VulnCheck that are not in another CNA’s scope.",
         "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Researcher",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "disclosure@vulncheck.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://vulncheck.com/vulnerability-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://vulncheck.com/advisories",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/VulnCheck",

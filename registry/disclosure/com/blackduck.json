@@ -27,8 +27,24 @@
         "scope": "All Black Duck (formerly Synopsys Software Integrity Group) products, as well as vulnerabilities in third-party software discovered by Black Duck that are not in another CNA’s scope.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@blackduck.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.blackduck.com/company/legal/vulnerability-disclosure-policy.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.blackduck.com/blog/category.cyrc.html#1",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BlackDuck",

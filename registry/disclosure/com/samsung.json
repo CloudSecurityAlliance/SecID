@@ -59,8 +59,24 @@
         "scope": "Samsung Mobile Galaxy products, personal computers, and related services only.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "mobile.security@samsung.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://security.samsungmobile.com/securityReporting.smsb",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://security.samsungmobile.com/workScope.smsb",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Samsung_Mobile",

@@ -27,8 +27,24 @@
         "scope": "TIBCO issues only.",
         "cve_program_role": "CNA",
         "organization_type": "Vendor",
-        "contacts": null,
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@tibco.com",
+            "note": "Email"
+          }
+        ],
         "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.tibco.com/security/vulnerability-disclosure-policy",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.tibco.com/services/support/advisories",
+            "note": "Security advisories"
+          },
           {
             "type": "website",
             "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/tibco",
