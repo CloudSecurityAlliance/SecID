@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "type": "capability",
+  "official_name": "Capability",
+  "description": "Concrete security features provided by products and services — specific, configurable, auditable mechanisms with CLI/API commands.",
+  "purpose": "Track and reference actual security capabilities that products provide. Each capability includes configuration options, audit commands, and remediation instructions. Connects abstract control requirements to actionable product features.",
+  "format": "secid:capability/<namespace>/<service>#<feature>",
+  "examples": [
+    "secid:capability/amazon.com/aws/s3#default-encryption",
+    "secid:capability/amazon.com/aws/cloudtrail#multi-region",
+    "secid:capability/amazon.com/aws/iam#mfa-root-account",
+    "secid:capability/microsoft.com/azure/storage#encryption-at-rest",
+    "secid:capability/google.com/gcp/cloud-storage#uniform-bucket-access"
+  ],
+  "notes": "The capability type is the largest by volume (10,000+ entries across cloud providers) and the most frequently updated (product releases). It bridges the gap between abstract security requirements (control type) and specific product implementations. V2 data includes CLI commands, API calls, console paths, and IaC snippets.",
+  "namespace_count": 0,
+  "namespaces": []
+}
