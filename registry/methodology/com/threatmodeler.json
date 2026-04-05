@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "namespace": "threatmodeler.com",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry for VAST threat modeling methodology. Reviewed 2026-04-05.",
+
+  "official_name": "ThreatModeler",
+  "urls": [
+    {"type": "website", "url": "https://threatmodeler.com/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^vast$"],
+      "description": "Visual, Agile, and Simple Threat modeling (VAST): methodology designed for scalable threat modeling in agile and DevOps environments. Uses two model types: application threat models (process flow diagrams) and operational threat models (DFDs). Developed by ThreatModeler.",
+      "weight": 100,
+      "data": {
+        "url": "https://threatmodeler.com/threat-modeling-methodologies-vast/",
+        "examples": ["vast"]
+      }
+    }
+  ]
+}
