@@ -40,6 +40,8 @@ This matters because the methodology chosen changes the meaning and defensibilit
 | ISO 27005 | Follow this to perform risk assessment | `methodology` |
 | STRIDE | Follow this to enumerate threats | `methodology` |
 | ATT&CK matrix | Understand adversary behavior | `ttp` |
+| SOC 2 Trust Services Criteria | Comply with these audit criteria | `regulation` |
+| SOC 2 examination process | Follow this to conduct an examination | `methodology` |
 
 ### Embedded Methodology: Leave It Alone
 
