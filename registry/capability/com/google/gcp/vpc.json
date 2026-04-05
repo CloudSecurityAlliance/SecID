@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/vpc",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Google Cloud VPC documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
+
+  "official_name": "Google Cloud Virtual Private Cloud",
+  "common_name": "VPC",
+  "alternate_names": null,
+  "notes": "Foundation networking for GCP. Global resource (subnets are regional). Provides firewall rules, Private Google Access, VPC Service Controls.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/vpc"},
+    {"type": "docs", "url": "https://cloud.google.com/vpc/docs/overview", "note": "VPC overview"},
+    {"type": "docs", "url": "https://cloud.google.com/vpc/docs/firewalls", "note": "Firewall rules documentation"},
+    {"type": "docs", "url": "https://cloud.google.com/vpc/docs/best-practices", "note": "VPC best practices"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^firewall-rules$"],
+      "description": "Stateful traffic filtering with priority-based rules",
+      "weight": 100,
+      "data": {
+        "description": "Stateful firewall rules applied at the VM instance level. Priority-based (0-65535, lower number = higher priority). Each rule specifies direction (ingress/egress), action (allow/deny), target (all instances, target tags, or target service accounts), and traffic characteristics (protocol, ports, source/destination ranges).",
+        "options": [
+          {"setting": "Priority", "range": "0-65535", "description": "Lower number = higher priority. First matching rule wins. Default rules at 65534-65535."},
+          {"setting": "Direction", "values": ["INGRESS", "EGRESS"]},
+          {"setting": "Action", "values": ["allow", "deny"]},
+          {"setting": "Target", "values": ["All instances", "Target tags", "Target service accounts"], "description": "Which instances the rule applies to"},
+          {"setting": "Logging", "type": "boolean", "description": "Optional per-rule logging of connections"}
+        ],
+        "default": {
+          "value": "Implied deny all ingress (priority 65535), implied allow all egress (priority 65535). Pre-populated allow rules: allow-internal (10.128.0.0/9 TCP/UDP/ICMP), allow-ssh (0.0.0.0/0 TCP:22), allow-rdp (0.0.0.0/0 TCP:3389), allow-icmp (0.0.0.0/0 ICMP).",
+          "note": "Pre-populated rules exist only in the default VPC network. Custom VPCs start with only the implied deny ingress and allow egress rules."
+        },
+        "vendor_recommendation": "Use service account-based targeting instead of network tags for better security (service accounts cannot be changed by instance users). Use hierarchical firewall policies for organization-wide baselines. Delete overly permissive pre-populated rules in the default network.",
+        "audit": {
+          "cli": "gcloud compute firewall-rules list",
+          "cli_detail": "gcloud compute firewall-rules describe {rule}",
+          "api": "GET https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls",
+          "console": "Cloud Console → VPC network → Firewall"
+        },
+        "configure": {
+          "cli": "gcloud compute firewall-rules create {rule} --network {network} --allow tcp:443 --source-ranges 0.0.0.0/0 --target-tags {tag} --priority 1000",
+          "api": "POST https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls",
+          "terraform": "google_compute_firewall",
+          "note": "Use gcloud compute firewall-rules update to modify existing rules"
+        },
+        "source": "https://cloud.google.com/vpc/docs/firewalls"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^firewall-policies$", "(?i)^hierarchical-firewall-policies$"],
+      "description": "Hierarchical firewall policies at org/folder level",
+      "weight": 100,
+      "data": {
+        "description": "Organization-level and folder-level firewall policies that apply across all VPCs in the scope. Evaluated before VPC firewall rules. Support goto_next action to delegate to lower-level policies/VPC rules. Used for enforcing organization-wide network security baselines.",
+        "options": [
+          {"action": "allow", "description": "Allow the traffic"},
+          {"action": "deny", "description": "Block the traffic"},
+          {"action": "goto_next", "description": "Delegate to the next level (folder policy, network policy, or VPC firewall rules)"},
+          {"action": "apply_security_profile_group", "description": "Inspect traffic with Cloud NGFW (layer 7 inspection)"}
+        ],
+        "vendor_recommendation": "Use hierarchical firewall policies to enforce organization-wide rules (e.g., deny known-bad IPs, allow required Google service traffic). Use goto_next to delegate non-baseline decisions to project-level VPC firewall rules.",
+        "audit": {
+          "cli": "gcloud compute firewall-policies list --organization={org-id}",
+          "cli_folder": "gcloud compute firewall-policies list --folder={folder-id}",
+          "cli_rules": "gcloud compute firewall-policies rules list --firewall-policy={policy}",
+          "console": "Cloud Console → VPC network → Firewall policies"
+        },
+        "configure": {
+          "cli_create": "gcloud compute firewall-policies create --organization={org-id} --short-name={name}",
+          "cli_rule": "gcloud compute firewall-policies rules create {priority} --firewall-policy={policy} --action=deny --direction=INGRESS --src-ip-ranges=0.0.0.0/0 --layer4-configs=tcp:22",
+          "cli_associate": "gcloud compute firewall-policies associations create --firewall-policy={policy} --organization={org-id}",
+          "terraform": "google_compute_firewall_policy, google_compute_firewall_policy_rule"
+        },
+        "source": "https://cloud.google.com/vpc/docs/firewall-policies-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-flow-logs$", "(?i)^flow-logs$"],
+      "description": "Capture network flow data from VPC subnets",
+      "weight": 100,
+      "data": {
+        "description": "Capture a sample of network flows sent from and received by VM instances, including GKE nodes. Configured per subnet. Records include source/destination IPs, ports, protocol, bytes, packets, start/end time, and GKE-specific metadata. Published to Cloud Logging.",
+        "options": [
+          {"setting": "Aggregation interval", "values": ["5-sec", "30-sec", "1-min", "5-min", "10-min", "15-min"], "default": "5-sec", "description": "How often flow data is aggregated"},
+          {"setting": "Sample rate", "range": "0.0-1.0", "default": 0.5, "description": "Fraction of flows to log (0.5 = 50%). Lower values reduce cost."},
+          {"setting": "Metadata", "values": ["include-all", "exclude-all", "custom"], "description": "Include VM and VPC metadata annotations"},
+          {"setting": "Filter expression", "description": "CEL expression to filter which flows to log (e.g., only denied traffic)"}
+        ],
+        "default": {"value": null, "note": "Flow logs are not enabled by default. Must be enabled per subnet."},
+        "vendor_recommendation": "Enable VPC flow logs for all subnets. Use sampling rate and filter expressions to control costs. Export to BigQuery for long-term analysis and threat detection.",
+        "audit": {
+          "cli": "gcloud compute networks subnets describe {subnet} --region={region} --format='get(logConfig)'",
+          "cli_list": "gcloud compute networks subnets list --filter='logConfig.enable=true'",
+          "console": "Cloud Console → VPC network → VPC networks → {network} → Subnets → {subnet}"
+        },
+        "configure": {
+          "cli_enable": "gcloud compute networks subnets update {subnet} --region={region} --enable-flow-logs --logging-aggregation-interval=interval-5-sec --logging-flow-sampling=0.5",
+          "cli_disable": "gcloud compute networks subnets update {subnet} --region={region} --no-enable-flow-logs",
+          "terraform": "log_config block on google_compute_subnetwork"
+        },
+        "source": "https://cloud.google.com/vpc/docs/using-flow-logs"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-google-access$"],
+      "description": "Allow VMs without external IPs to reach Google APIs",
+      "weight": 80,
+      "data": {
+        "description": "Per-subnet setting that allows VM instances with only internal IP addresses to reach Google APIs and services (e.g., Cloud Storage, BigQuery, Artifact Registry) using their internal IPs. Without this, VMs without external IPs cannot reach Google APIs.",
+        "default": {"value": false, "note": "Disabled by default. Must be enabled per subnet."},
+        "vendor_recommendation": "Enable Private Google Access on all subnets containing VMs that need to access Google APIs but should not have external IP addresses.",
+        "audit": {
+          "cli": "gcloud compute networks subnets describe {subnet} --region={region} --format='get(privateIpGoogleAccess)'",
+          "cli_list": "gcloud compute networks subnets list --filter='privateIpGoogleAccess=true'",
+          "console": "Cloud Console → VPC network → VPC networks → {network} → Subnets → {subnet}"
+        },
+        "configure": {
+          "cli": "gcloud compute networks subnets update {subnet} --region={region} --enable-private-ip-google-access",
+          "terraform": "private_ip_google_access on google_compute_subnetwork"
+        },
+        "source": "https://cloud.google.com/vpc/docs/configure-private-google-access"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-service-controls$"],
+      "description": "Security perimeters around Google Cloud resources",
+      "weight": 100,
+      "data": {
+        "description": "Define security perimeters around Google Cloud resources to control data movement. Prevents data exfiltration by restricting which projects and services can communicate. Controls API access — even authorized users cannot access resources across perimeter boundaries unless explicitly allowed via ingress/egress policies. Protects against compromised credentials and misconfigured IAM policies.",
+        "options": [
+          {"component": "Service perimeter", "description": "Boundary around a set of projects and services. Resources inside the perimeter can communicate; access from outside is blocked."},
+          {"component": "Access levels", "description": "Conditions under which external access is allowed (IP range, device policy, identity)"},
+          {"component": "Ingress policies", "description": "Allow specific external identities/resources to access services inside the perimeter"},
+          {"component": "Egress policies", "description": "Allow resources inside the perimeter to access specific external services/resources"},
+          {"component": "Perimeter bridges", "description": "Allow two perimeters to share resources bidirectionally"}
+        ],
+        "vendor_recommendation": "Use VPC Service Controls for all projects containing sensitive data. Start in dry-run mode to identify access patterns before enforcing. Define ingress/egress policies for legitimate cross-perimeter access needs.",
+        "audit": {
+          "cli": "gcloud access-context-manager perimeters list --policy={policy}",
+          "cli_describe": "gcloud access-context-manager perimeters describe {perimeter} --policy={policy}",
+          "console": "Cloud Console → Security → VPC Service Controls"
+        },
+        "configure": {
+          "cli": "gcloud access-context-manager perimeters create {perimeter} --policy={policy} --title={title} --resources=projects/{project-number} --restricted-services=storage.googleapis.com,bigquery.googleapis.com",
+          "terraform": "google_access_context_manager_service_perimeter"
+        },
+        "source": "https://cloud.google.com/vpc-service-controls/docs/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-service-connect$"],
+      "description": "Private connectivity to Google services and third-party services",
+      "weight": 80,
+      "data": {
+        "description": "Private connectivity to Google APIs, supported Google services, and third-party producer services using an internal IP address in your VPC. Similar to AWS PrivateLink. Provides a private endpoint (forwarding rule with an internal IP) that routes traffic over the Google network.",
+        "vendor_recommendation": "Use Private Service Connect for connecting to Google APIs from private environments. Preferred over Private Google Access for more control over endpoint IPs and DNS.",
+        "audit": {
+          "cli": "gcloud compute forwarding-rules list --filter='target~pscEndpoint'",
+          "cli_endpoints": "gcloud compute service-attachments list",
+          "console": "Cloud Console → Private Service Connect"
+        },
+        "configure": {
+          "cli": "gcloud compute addresses create {address} --region={region} --subnet={subnet} --addresses={ip}",
+          "cli_rule": "gcloud compute forwarding-rules create {rule} --region={region} --network={network} --address={address} --target-google-apis-bundle=all-apis",
+          "terraform": "google_compute_global_forwarding_rule, google_compute_service_attachment"
+        },
+        "source": "https://cloud.google.com/vpc/docs/private-service-connect"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-peering$"],
+      "description": "Connect VPCs for cross-VPC traffic",
+      "weight": 80,
+      "data": {
+        "description": "Network peering connection between two VPC networks for internal IP communication. Traffic stays on the Google network. Non-transitive. Works across projects and organizations. Each VPC network can have up to 25 peering connections.",
+        "audit": {
+          "cli": "gcloud compute networks peerings list --network={network}",
+          "cli_detail": "gcloud compute networks peerings list --network={network} --format='table(name,network,peerNetwork,state)'",
+          "console": "Cloud Console → VPC network → VPC network peering"
+        },
+        "configure": {
+          "cli": "gcloud compute networks peerings create {peering-name} --network={network} --peer-network=projects/{peer-project}/global/networks/{peer-network}",
+          "terraform": "google_compute_network_peering",
+          "note": "Peering must be created from both sides (each VPC must create a peering to the other)"
+        },
+        "source": "https://cloud.google.com/vpc/docs/vpc-peering"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^shared-vpc$"],
+      "description": "Share VPC across multiple projects",
+      "weight": 80,
+      "data": {
+        "description": "Centralized network management where a host project owns the VPC network and service projects use its subnets. Enables network administrators to manage the network centrally while allowing project teams to deploy resources. Requires organization-level permissions to set up.",
+        "vendor_recommendation": "Use Shared VPC for multi-project deployments to centralize network management, firewall rules, and subnet allocation. Reduces network administration overhead and enforces consistent network policies.",
+        "audit": {
+          "cli": "gcloud compute shared-vpc get-host-project {project}",
+          "cli_associated": "gcloud compute shared-vpc list-associated-resources {host-project}",
+          "console": "Cloud Console → VPC network → Shared VPC"
+        },
+        "configure": {
+          "cli_enable": "gcloud compute shared-vpc enable {host-project}",
+          "cli_associate": "gcloud compute shared-vpc associated-projects add {service-project} --host-project={host-project}",
+          "terraform": "google_compute_shared_vpc_host_project, google_compute_shared_vpc_service_project"
+        },
+        "source": "https://cloud.google.com/vpc/docs/shared-vpc"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cloud-nat$"],
+      "description": "Outbound internet access for VMs without external IPs",
+      "weight": 80,
+      "data": {
+        "description": "Managed network address translation service. Allows VMs without external IP addresses to access the internet for outbound connections (software updates, API calls). Does not allow unsolicited inbound connections. Configured per Cloud Router, per region.",
+        "vendor_recommendation": "Use Cloud NAT for private VMs that need outbound internet access. Configure endpoint-independent mapping for consistent source IP when needed for allowlisting. Monitor with Cloud NAT metrics in Cloud Monitoring.",
+        "audit": {
+          "cli": "gcloud compute routers nats list --router={router} --region={region}",
+          "cli_detail": "gcloud compute routers nats describe {nat} --router={router} --region={region}",
+          "console": "Cloud Console → Network services → Cloud NAT"
+        },
+        "configure": {
+          "cli": "gcloud compute routers nats create {nat} --router={router} --region={region} --nat-all-subnet-ip-ranges --auto-allocate-nat-external-ips",
+          "terraform": "google_compute_router_nat"
+        },
+        "source": "https://cloud.google.com/nat/docs/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cloud-armor$"],
+      "description": "DDoS protection and WAF",
+      "weight": 80,
+      "data": {
+        "description": "Edge-level DDoS protection and web application firewall (WAF). Protects applications behind external Application Load Balancers, external proxy Network Load Balancers, and Cloud CDN. Rules-based traffic filtering with preconfigured WAF rules (OWASP Top 10), custom rules (CEL expressions), rate limiting, and bot management.",
+        "options": [
+          {"tier": "Cloud Armor Standard", "description": "Pay-per-policy pricing. Custom rules, preconfigured WAF rules, rate limiting."},
+          {"tier": "Cloud Armor Enterprise", "description": "Annual subscription. Adds Adaptive Protection (ML-based threat detection), DDoS bill protection, named IP lists, threat intelligence."}
+        ],
+        "vendor_recommendation": "Enable Cloud Armor for all internet-facing load balancers. Use preconfigured WAF rules for OWASP Top 10 protection. Enable Adaptive Protection for ML-based anomaly detection. Use rate limiting to prevent abuse.",
+        "audit": {
+          "cli": "gcloud compute security-policies list",
+          "cli_describe": "gcloud compute security-policies describe {policy}",
+          "cli_rules": "gcloud compute security-policies rules list {policy}",
+          "console": "Cloud Console → Network Security → Cloud Armor policies"
+        },
+        "configure": {
+          "cli_create": "gcloud compute security-policies create {policy}",
+          "cli_rule": "gcloud compute security-policies rules create {priority} --security-policy={policy} --action=deny-403 --src-ip-ranges={ranges}",
+          "cli_waf": "gcloud compute security-policies rules create {priority} --security-policy={policy} --action=deny-403 --expression='evaluatePreconfiguredExpr(\"xss-v33-stable\")'",
+          "terraform": "google_compute_security_policy"
+        },
+        "source": "https://cloud.google.com/armor/docs/cloud-armor-overview"
+      }
+    }
+  ]
+}

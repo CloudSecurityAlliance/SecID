@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/vpc",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS VPC documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
+
+  "official_name": "Amazon Virtual Private Cloud",
+  "common_name": "VPC",
+  "alternate_names": null,
+  "notes": "Foundation networking service. Provides network isolation, traffic filtering, and private connectivity for all AWS compute resources.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/vpc/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/vpc/latest/userguide/", "note": "VPC User Guide"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html", "note": "VPC Security Best Practices"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/", "note": "EC2 API Reference (VPC operations)"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security-groups$"],
+      "description": "Stateful virtual firewall for resources",
+      "weight": 100,
+      "data": {
+        "description": "Stateful firewall rules at the instance/ENI level. Rules define allowed inbound and outbound traffic by protocol, port range, and source/destination (CIDR, security group, or prefix list). Stateful means return traffic is automatically allowed. Up to 5 security groups per ENI.",
+        "options": [
+          {"setting": "Inbound rules", "description": "Allow traffic by protocol/port/source. Evaluated as union (any rule match allows)."},
+          {"setting": "Outbound rules", "description": "Allow traffic by protocol/port/destination. Evaluated as union."},
+          {"setting": "Source/destination types", "values": ["CIDR block", "Security group ID", "Prefix list ID"], "description": "Security group references enable dynamic membership-based rules"}
+        ],
+        "default": {"value": "Deny all inbound, allow all outbound", "note": "New security groups deny all inbound traffic and allow all outbound traffic by default."},
+        "vendor_recommendation": "Follow least-privilege — open only required ports to required sources. Use security group references instead of CIDR blocks where possible for dynamic, maintenance-free rules.",
+        "audit": {
+          "cli": "aws ec2 describe-security-groups",
+          "cli_detail": "aws ec2 describe-security-groups --group-ids {sg-id}",
+          "api": "DescribeSecurityGroups",
+          "console": "VPC → Security Groups"
+        },
+        "configure": {
+          "cli_ingress": "aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 443 --cidr 0.0.0.0/0",
+          "cli_egress": "aws ec2 authorize-security-group-egress --group-id {sg-id} --protocol tcp --port 443 --cidr 0.0.0.0/0",
+          "api": "AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress",
+          "terraform": "aws_security_group, aws_security_group_rule",
+          "cloudformation": "AWS::EC2::SecurityGroup"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^network-acls$", "(?i)^nacls$"],
+      "description": "Stateless subnet-level traffic filtering",
+      "weight": 100,
+      "data": {
+        "description": "Stateless firewall rules at the subnet level. Rules are evaluated by priority number (lowest first). Both inbound and outbound rules must explicitly allow traffic (stateless — return traffic is not automatically allowed). Each subnet is associated with exactly one NACL.",
+        "options": [
+          {"setting": "Rule number", "range": "1-32766", "description": "Lower number = higher priority. First matching rule wins."},
+          {"setting": "Action", "values": ["ALLOW", "DENY"], "description": "Explicit allow or deny per rule"},
+          {"setting": "Protocol", "description": "TCP, UDP, ICMP, or protocol number"},
+          {"setting": "Ephemeral ports", "description": "Must explicitly allow ephemeral port range (1024-65535) for return traffic due to stateless nature"}
+        ],
+        "default": {"value": "Allow all inbound and outbound", "note": "Default NACL allows all traffic. Custom NACLs deny all traffic by default."},
+        "vendor_recommendation": "Use NACLs as a secondary layer of defense alongside security groups. NACLs are most useful for explicitly denying specific IP ranges (e.g., known malicious IPs).",
+        "audit": {
+          "cli": "aws ec2 describe-network-acls",
+          "cli_detail": "aws ec2 describe-network-acls --network-acl-ids {acl-id}",
+          "api": "DescribeNetworkAcls",
+          "console": "VPC → Network ACLs"
+        },
+        "configure": {
+          "cli": "aws ec2 create-network-acl-entry --network-acl-id {acl-id} --rule-number 100 --protocol tcp --port-range From=443,To=443 --cidr-block 0.0.0.0/0 --rule-action allow --ingress",
+          "api": "CreateNetworkAclEntry, ReplaceNetworkAclEntry",
+          "terraform": "aws_network_acl, aws_network_acl_rule",
+          "cloudformation": "AWS::EC2::NetworkAcl, AWS::EC2::NetworkAclEntry"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^flow-logs$"],
+      "description": "Capture IP traffic to/from network interfaces",
+      "weight": 100,
+      "data": {
+        "description": "Capture information about IP traffic going to and from network interfaces. Can be applied at VPC level (all ENIs), subnet level, or individual ENI level. Captures metadata (source/dest IP, ports, protocol, packets, bytes, action) — not packet contents.",
+        "options": [
+          {"setting": "Scope", "values": ["VPC", "Subnet", "Network Interface"], "description": "Level at which traffic is captured"},
+          {"setting": "Destination", "values": ["CloudWatch Logs", "S3", "Kinesis Data Firehose"], "description": "Where flow log records are published"},
+          {"setting": "Traffic type", "values": ["ACCEPT", "REJECT", "ALL"], "description": "Which traffic to log"},
+          {"setting": "Custom format", "description": "Select specific fields to include in log records for cost optimization"}
+        ],
+        "default": {"value": null, "note": "Flow logs are not enabled by default. Must be explicitly created."},
+        "vendor_recommendation": "Enable VPC flow logs for all VPCs. Use S3 for cost-effective long-term storage. Use CloudWatch Logs for real-time monitoring and alerting. Use custom log format to capture only needed fields.",
+        "audit": {
+          "cli": "aws ec2 describe-flow-logs",
+          "cli_vpc": "aws ec2 describe-flow-logs --filter Name=resource-id,Values={vpc-id}",
+          "api": "DescribeFlowLogs",
+          "console": "VPC → Your VPCs → {VPC} → Flow logs"
+        },
+        "configure": {
+          "cli": "aws ec2 create-flow-logs --resource-type VPC --resource-ids {vpc-id} --traffic-type ALL --log-destination-type s3 --log-destination {s3-arn}",
+          "api": "CreateFlowLogs",
+          "terraform": "aws_flow_log",
+          "cloudformation": "AWS::EC2::FlowLog"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-endpoints$", "(?i)^privatelink$"],
+      "description": "Private connectivity to AWS services without internet",
+      "weight": 100,
+      "data": {
+        "description": "Enable private connectivity between your VPC and supported AWS services without requiring an internet gateway, NAT gateway, VPN connection, or Direct Connect. Traffic stays on the Amazon network.",
+        "options": [
+          {"type": "Gateway endpoint", "description": "Route-table based. S3 and DynamoDB only. Free. No ENI created.", "services": ["S3", "DynamoDB"]},
+          {"type": "Interface endpoint (PrivateLink)", "description": "ENI with private IP in your subnet. Most AWS services. Hourly + per-GB charges.", "services": "Most AWS services, third-party services"}
+        ],
+        "vendor_recommendation": "Use gateway endpoints for S3 and DynamoDB (free, no configuration overhead). Use interface endpoints for other services when resources are in private subnets. Apply endpoint policies to restrict which operations are allowed through the endpoint.",
+        "audit": {
+          "cli": "aws ec2 describe-vpc-endpoints",
+          "cli_detail": "aws ec2 describe-vpc-endpoints --vpc-endpoint-ids {vpce-id}",
+          "api": "DescribeVpcEndpoints",
+          "console": "VPC → Endpoints"
+        },
+        "configure": {
+          "cli_gateway": "aws ec2 create-vpc-endpoint --vpc-id {vpc-id} --service-name com.amazonaws.{region}.s3 --route-table-ids {rtb-id}",
+          "cli_interface": "aws ec2 create-vpc-endpoint --vpc-id {vpc-id} --vpc-endpoint-type Interface --service-name com.amazonaws.{region}.{service} --subnet-ids {subnet-id}",
+          "api": "CreateVpcEndpoint",
+          "terraform": "aws_vpc_endpoint",
+          "cloudformation": "AWS::EC2::VPCEndpoint"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-subnets$"],
+      "description": "Subnets without internet gateway route",
+      "weight": 80,
+      "data": {
+        "description": "Subnets whose route table has no route to an internet gateway. Resources in private subnets have no direct inbound or outbound internet access. Outbound internet access can be provided via NAT gateway if needed.",
+        "vendor_recommendation": "Put sensitive workloads in private subnets. Use private subnets as the default for databases, application servers, and internal services. Only place resources in public subnets when they must be directly internet-accessible (load balancers, bastion hosts).",
+        "audit": {
+          "cli": "aws ec2 describe-subnets --filters Name=vpc-id,Values={vpc-id}",
+          "cli_routes": "aws ec2 describe-route-tables --filters Name=association.subnet-id,Values={subnet-id}",
+          "note": "A subnet is 'private' if its associated route table has no route to an internet gateway (igw-*)."
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^nat-gateway$"],
+      "description": "Allow private subnet resources to reach internet for outbound only",
+      "weight": 80,
+      "data": {
+        "description": "Managed NAT service that enables resources in private subnets to initiate outbound connections to the internet while preventing unsolicited inbound connections from the internet.",
+        "options": [
+          {"type": "Public NAT gateway", "description": "Provides internet access to private subnets via an Elastic IP. Placed in a public subnet."},
+          {"type": "Private NAT gateway", "description": "Enables communication between VPCs or on-premises networks without internet access. No Elastic IP."}
+        ],
+        "vendor_recommendation": "Use NAT gateways for private subnet internet access instead of NAT instances. Deploy in multiple AZs for high availability. Monitor with CloudWatch metrics (BytesOut, ConnectionAttemptCount, ErrorPortAllocation).",
+        "audit": {
+          "cli": "aws ec2 describe-nat-gateways",
+          "cli_detail": "aws ec2 describe-nat-gateways --nat-gateway-ids {nat-id}",
+          "api": "DescribeNatGateways",
+          "console": "VPC → NAT gateways"
+        },
+        "configure": {
+          "cli": "aws ec2 create-nat-gateway --subnet-id {public-subnet-id} --allocation-id {eip-alloc-id}",
+          "api": "CreateNatGateway",
+          "terraform": "aws_nat_gateway",
+          "cloudformation": "AWS::EC2::NatGateway"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^internet-gateway$", "(?i)^igw$"],
+      "description": "Enable internet access for VPC",
+      "weight": 80,
+      "data": {
+        "description": "Horizontally scaled, redundant, highly available VPC component that allows communication between your VPC and the internet. One internet gateway per VPC. Provides NAT for instances with public IPv4 addresses.",
+        "vendor_recommendation": "Use only for public-facing resources. Pair with security groups and NACLs to control traffic. Most workloads should be in private subnets behind a NAT gateway or load balancer, not directly exposed via an internet gateway.",
+        "audit": {
+          "cli": "aws ec2 describe-internet-gateways",
+          "cli_vpc": "aws ec2 describe-internet-gateways --filters Name=attachment.vpc-id,Values={vpc-id}",
+          "api": "DescribeInternetGateways",
+          "console": "VPC → Internet gateways"
+        },
+        "configure": {
+          "cli_create": "aws ec2 create-internet-gateway",
+          "cli_attach": "aws ec2 attach-internet-gateway --internet-gateway-id {igw-id} --vpc-id {vpc-id}",
+          "api": "CreateInternetGateway, AttachInternetGateway",
+          "terraform": "aws_internet_gateway",
+          "cloudformation": "AWS::EC2::InternetGateway"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-peering$"],
+      "description": "Route traffic between two VPCs",
+      "weight": 80,
+      "data": {
+        "description": "Networking connection between two VPCs that enables routing traffic between them using private IPv4/IPv6 addresses. Non-transitive — VPC A peered with VPC B and VPC B peered with VPC C does not mean VPC A can reach VPC C. Works cross-account and cross-region.",
+        "audit": {
+          "cli": "aws ec2 describe-vpc-peering-connections",
+          "cli_detail": "aws ec2 describe-vpc-peering-connections --vpc-peering-connection-ids {pcx-id}",
+          "api": "DescribeVpcPeeringConnections",
+          "console": "VPC → Peering connections"
+        },
+        "configure": {
+          "cli_create": "aws ec2 create-vpc-peering-connection --vpc-id {vpc-id} --peer-vpc-id {peer-vpc-id}",
+          "cli_accept": "aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id {pcx-id}",
+          "api": "CreateVpcPeeringConnection, AcceptVpcPeeringConnection",
+          "terraform": "aws_vpc_peering_connection, aws_vpc_peering_connection_accepter",
+          "cloudformation": "AWS::EC2::VPCPeeringConnection"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^transit-gateway$", "(?i)^tgw$"],
+      "description": "Central hub for VPC, VPN, Direct Connect routing",
+      "weight": 80,
+      "data": {
+        "description": "Regional network transit hub that interconnects VPCs, VPN connections, and Direct Connect gateways. Transitive routing — any attached network can communicate with any other. Scales to thousands of VPCs. Supports route tables for network segmentation.",
+        "vendor_recommendation": "Use transit gateway instead of mesh VPC peering for complex network topologies. Use route table segmentation to isolate workloads (e.g., production vs development, shared services vs application VPCs).",
+        "audit": {
+          "cli": "aws ec2 describe-transit-gateways",
+          "cli_attachments": "aws ec2 describe-transit-gateway-attachments --filters Name=transit-gateway-id,Values={tgw-id}",
+          "cli_routes": "aws ec2 search-transit-gateway-routes --transit-gateway-route-table-id {rtb-id} --filters Name=type,Values=static,propagated",
+          "api": "DescribeTransitGateways, DescribeTransitGatewayAttachments",
+          "console": "VPC → Transit gateways"
+        },
+        "configure": {
+          "cli": "aws ec2 create-transit-gateway",
+          "cli_attach": "aws ec2 create-transit-gateway-vpc-attachment --transit-gateway-id {tgw-id} --vpc-id {vpc-id} --subnet-ids {subnet-ids}",
+          "api": "CreateTransitGateway, CreateTransitGatewayVpcAttachment",
+          "terraform": "aws_ec2_transit_gateway, aws_ec2_transit_gateway_vpc_attachment",
+          "cloudformation": "AWS::EC2::TransitGateway"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dns-settings$"],
+      "description": "VPC DNS resolution and hostname settings",
+      "weight": 60,
+      "data": {
+        "description": "Controls whether the VPC supports DNS resolution and DNS hostnames. enableDnsSupport enables the Amazon-provided DNS server (AmazonProvidedDNS at VPC CIDR + 2). enableDnsHostnames assigns public DNS hostnames to instances with public IPs.",
+        "options": [
+          {"setting": "enableDnsSupport", "type": "boolean", "default": true, "description": "Enables DNS resolution via the Amazon-provided DNS server"},
+          {"setting": "enableDnsHostnames", "type": "boolean", "default": "true for default VPC, false for non-default VPCs", "description": "Assigns public DNS hostnames to instances with public IPs"}
+        ],
+        "vendor_recommendation": "Keep enableDnsSupport enabled. Enable enableDnsHostnames if using VPC endpoints (required for interface endpoints to work with private DNS). Use Route 53 Resolver for hybrid DNS resolution.",
+        "audit": {
+          "cli": "aws ec2 describe-vpc-attribute --vpc-id {vpc-id} --attribute enableDnsSupport",
+          "cli_hostnames": "aws ec2 describe-vpc-attribute --vpc-id {vpc-id} --attribute enableDnsHostnames",
+          "api": "DescribeVpcAttribute"
+        },
+        "configure": {
+          "cli": "aws ec2 modify-vpc-attribute --vpc-id {vpc-id} --enable-dns-support",
+          "cli_hostnames": "aws ec2 modify-vpc-attribute --vpc-id {vpc-id} --enable-dns-hostnames",
+          "api": "ModifyVpcAttribute",
+          "terraform": "enable_dns_support, enable_dns_hostnames on aws_vpc"
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^default-security-group$"],
+      "description": "Auto-created security group in every VPC",
+      "weight": 80,
+      "data": {
+        "description": "Every VPC has a default security group that cannot be deleted. Instances launched without specifying a security group are assigned to the default security group. Default rules allow all inbound traffic from instances assigned to the same default security group and allow all outbound traffic.",
+        "default": {"value": "Allow all inbound from same group, allow all outbound", "note": "Default rules are permissive within the group."},
+        "vendor_recommendation": "Restrict default security group rules — many compliance benchmarks (CIS AWS Foundations) require that the default security group has no inbound or outbound rules, ensuring instances must be explicitly assigned to a purpose-built security group.",
+        "audit": {
+          "cli": "aws ec2 describe-security-groups --filters Name=group-name,Values=default Name=vpc-id,Values={vpc-id}",
+          "api": "DescribeSecurityGroups",
+          "console": "VPC → Security Groups → filter by 'default'"
+        },
+        "configure": {
+          "cli_revoke_ingress": "aws ec2 revoke-security-group-ingress --group-id {sg-id} --source-group {sg-id} --protocol all",
+          "cli_revoke_egress": "aws ec2 revoke-security-group-egress --group-id {sg-id} --protocol all --cidr 0.0.0.0/0",
+          "note": "Cannot delete the default security group — can only modify its rules to be restrictive."
+        },
+        "source": "https://docs.aws.amazon.com/vpc/latest/userguide/default-security-group.html"
+      }
+    }
+  ]
+}

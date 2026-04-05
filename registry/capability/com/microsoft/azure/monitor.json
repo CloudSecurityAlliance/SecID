@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/monitor",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure Monitor documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure Monitor",
+  "common_name": "Azure Monitor",
+  "alternate_names": null,
+  "notes": "Foundation monitoring and logging service. Includes Activity Log (control plane), Diagnostic Settings, Log Analytics, and Alerts.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/monitor"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/", "note": "Azure Monitor documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices", "note": "Azure Monitor best practices"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/", "note": "Azure Monitor reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^activity-log$"],
+      "description": "Control plane operations log",
+      "weight": 100,
+      "data": {
+        "description": "Subscription-level log that records all Azure Resource Manager operations (control plane). Records who did what, when, and the result for resource creation, modification, deletion, and role assignments. Automatically collected for all Azure subscriptions. Retained for 90 days (free). Must be exported via diagnostic settings for longer retention or advanced analysis.",
+        "options": [
+          {"category": "Administrative", "description": "Resource Manager CRUD operations (create, update, delete, action)"},
+          {"category": "Security", "description": "Microsoft Defender for Cloud alerts and recommendations"},
+          {"category": "Service Health", "description": "Azure service health incidents, maintenance, and advisories"},
+          {"category": "Alert", "description": "Azure Monitor alert activations"},
+          {"category": "Recommendation", "description": "Azure Advisor recommendations"},
+          {"category": "Policy", "description": "Azure Policy evaluation results"},
+          {"category": "Autoscale", "description": "Autoscale engine events"},
+          {"category": "Resource Health", "description": "Resource availability changes"}
+        ],
+        "default": {"value": "Always collected", "note": "Activity Log is automatically collected for 90 days. No configuration needed for basic access. Diagnostic settings required for export."},
+        "vendor_recommendation": "Export Activity Log to a Log Analytics workspace for long-term retention and KQL-based querying. Set up alerts for critical operations (role assignments, resource deletions, policy changes).",
+        "audit": {
+          "cli": "az monitor activity-log list --start-time {start} --end-time {end}",
+          "cli_recent": "az monitor activity-log list --offset 1h",
+          "api": "GET https://management.azure.com/subscriptions/{sub}/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01",
+          "console": "Azure Portal → Monitor → Activity log"
+        },
+        "configure": {
+          "cli_export": "az monitor diagnostic-settings subscription create --name {name} --subscription {sub} --workspace {workspace-id} --logs '[{\"category\":\"Administrative\",\"enabled\":true},{\"category\":\"Security\",\"enabled\":true}]'",
+          "note": "Activity Log is always on. 'Configure' means setting up export via diagnostic settings for retention beyond 90 days."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^diagnostic-settings$"],
+      "description": "Route platform logs and metrics to destinations",
+      "weight": 100,
+      "data": {
+        "description": "Configure where Azure platform logs and metrics are sent. Each Azure resource can have multiple diagnostic settings routing different log categories to different destinations. Required for persisting resource logs beyond their default retention period.",
+        "options": [
+          {"destination": "Log Analytics workspace", "description": "Enables KQL queries, alerts, workbooks, and cross-resource analysis. Most common destination."},
+          {"destination": "Storage Account", "description": "Cost-effective archival. Logs stored as JSON blobs."},
+          {"destination": "Event Hub", "description": "Stream to external SIEM or custom processing pipeline."},
+          {"destination": "Partner solution", "description": "Send to integrated partner monitoring solutions (Datadog, Elastic, etc.)"}
+        ],
+        "default": {"value": null, "note": "No diagnostic settings configured by default. Resource logs are not persisted unless diagnostic settings are created."},
+        "vendor_recommendation": "Create diagnostic settings for all Azure resources that produce security-relevant logs. Send to a centralized Log Analytics workspace. Use Azure Policy to enforce diagnostic settings at scale.",
+        "audit": {
+          "cli": "az monitor diagnostic-settings list --resource {resource-id}",
+          "cli_sub": "az monitor diagnostic-settings subscription list",
+          "api": "GET https://management.azure.com/{resource-id}/providers/Microsoft.Insights/diagnosticSettings?api-version=2021-05-01-preview",
+          "console": "Azure Portal → {resource} → Diagnostic settings"
+        },
+        "configure": {
+          "cli": "az monitor diagnostic-settings create --name {name} --resource {resource-id} --workspace {workspace-id} --logs '[{\"category\":\"AuditEvent\",\"enabled\":true}]' --metrics '[{\"category\":\"AllMetrics\",\"enabled\":true}]'",
+          "api": "PUT .../diagnosticSettings/{name}",
+          "terraform": "azurerm_monitor_diagnostic_setting"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^log-analytics$"],
+      "description": "Centralized log aggregation and query",
+      "weight": 100,
+      "data": {
+        "description": "Centralized log aggregation and analysis service. Uses Kusto Query Language (KQL) for powerful querying across all collected data. Data sources include Azure platform logs, Azure Monitor Agent (VM logs), Application Insights, and custom sources. Supports cross-workspace and cross-resource queries.",
+        "options": [
+          {"setting": "Retention", "range": "30-730 days", "default": "30 days (free)", "description": "How long data is retained in the workspace"},
+          {"setting": "Commitment tier", "values": ["Pay-as-you-go", "100 GB/day", "200 GB/day", "300 GB/day", "400 GB/day", "500 GB/day", "1000 GB/day", "2000 GB/day", "5000 GB/day"], "description": "Volume discount pricing tiers"},
+          {"setting": "Data collection rules", "description": "Filter and transform data before ingestion to reduce costs"}
+        ],
+        "vendor_recommendation": "Create a centralized Log Analytics workspace for security logs. Use data collection rules to filter out noise before ingestion. Set appropriate retention periods per table. Use basic logs tier for high-volume, infrequently queried data.",
+        "audit": {
+          "cli": "az monitor log-analytics workspace list",
+          "cli_detail": "az monitor log-analytics workspace show --workspace-name {workspace} --resource-group {rg}",
+          "console": "Azure Portal → Log Analytics workspaces"
+        },
+        "configure": {
+          "cli": "az monitor log-analytics workspace create --workspace-name {name} --resource-group {rg} --retention-time 90",
+          "terraform": "azurerm_log_analytics_workspace"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^alerts$"],
+      "description": "Automated alerting on metrics and logs",
+      "weight": 100,
+      "data": {
+        "description": "Automated alerting system that fires notifications and actions based on conditions in metrics, logs, or activity log events. Alerts use action groups to define what happens when triggered (email, SMS, webhook, Logic App, ITSM, Azure Function, Event Hub).",
+        "options": [
+          {"type": "Metric alerts", "description": "Fire when a metric crosses a threshold. Near real-time (1-5 min). Examples: CPU > 90%, request latency > 500ms."},
+          {"type": "Log alerts", "description": "Fire when a KQL query against Log Analytics returns results. Configurable frequency. Examples: more than 5 failed sign-ins, unauthorized API calls."},
+          {"type": "Activity log alerts", "description": "Fire on specific Activity Log events. Real-time. Examples: resource deleted, role assigned, service health incident."},
+          {"type": "Smart detection", "description": "ML-based anomaly detection on Application Insights data. Automatic, no configuration needed."}
+        ],
+        "vendor_recommendation": "Create activity log alerts for critical operations (role assignments to Global Administrator, resource group deletions). Create log alerts for security events (failed sign-ins, suspicious activity). Use action groups to route to your ITSM and on-call systems.",
+        "audit": {
+          "cli": "az monitor metrics alert list --resource-group {rg}",
+          "cli_activity": "az monitor activity-log alert list --resource-group {rg}",
+          "cli_log": "az monitor scheduled-query list --resource-group {rg}",
+          "console": "Azure Portal → Monitor → Alerts"
+        },
+        "configure": {
+          "cli_metric": "az monitor metrics alert create --name {name} --resource-group {rg} --scopes {resource-id} --condition 'avg Percentage CPU > 90' --action {action-group-id}",
+          "cli_activity": "az monitor activity-log alert create --name {name} --resource-group {rg} --condition category=Administrative and operationName=Microsoft.Authorization/roleAssignments/write --action-group {action-group-id}",
+          "terraform": "azurerm_monitor_metric_alert, azurerm_monitor_activity_log_alert, azurerm_monitor_scheduled_query_rules_alert_v2"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^microsoft-defender-for-cloud$", "(?i)^defender-for-cloud$"],
+      "description": "Cloud security posture management and threat protection",
+      "weight": 100,
+      "data": {
+        "description": "Cloud security posture management (CSPM) and cloud workload protection platform (CWPP). Finds misconfigurations, provides security recommendations, detects threats, and protects workloads. Free tier provides basic CSPM (security recommendations, Secure Score). Paid Defender plans provide per-resource advanced threat detection and protection.",
+        "options": [
+          {"tier": "Free (Foundational CSPM)", "description": "Security recommendations, Secure Score, Azure security benchmark assessment. Always available."},
+          {"tier": "Defender CSPM", "description": "Advanced CSPM: attack path analysis, cloud security graph, agentless scanning, governance rules."},
+          {"tier": "Defender for Servers", "description": "Threat detection for VMs, vulnerability assessment, just-in-time VM access, adaptive application controls."},
+          {"tier": "Defender for Storage", "description": "Detect unusual access patterns, malware uploads, sensitive data exposure."},
+          {"tier": "Defender for SQL/Databases", "description": "SQL threat detection, vulnerability assessment for databases."},
+          {"tier": "Defender for Key Vault", "description": "Detect unusual Key Vault access patterns."},
+          {"tier": "Defender for Containers", "description": "Runtime threat detection, vulnerability assessment for container images."}
+        ],
+        "vendor_recommendation": "Enable at minimum the free tier for all subscriptions. Enable Defender plans for production workloads. Review Secure Score regularly and remediate high-severity recommendations.",
+        "audit": {
+          "cli": "az security pricing list",
+          "cli_recommendations": "az security assessment list",
+          "cli_alerts": "az security alert list",
+          "console": "Azure Portal → Microsoft Defender for Cloud"
+        },
+        "configure": {
+          "cli": "az security pricing create --name VirtualMachines --tier Standard",
+          "console": "Azure Portal → Microsoft Defender for Cloud → Environment settings → {subscription} → Defender plans",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^microsoft-sentinel$", "(?i)^sentinel$"],
+      "description": "Cloud-native SIEM and SOAR",
+      "weight": 80,
+      "data": {
+        "description": "Cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). Built on Log Analytics. Collects data from Azure services, on-premises, and multi-cloud via data connectors. Provides threat detection via analytics rules, automated investigation and response via playbooks (Logic Apps), and hunting via KQL queries and notebooks.",
+        "options": [
+          {"capability": "Data connectors", "description": "200+ connectors for Azure, Microsoft 365, AWS, GCP, third-party services"},
+          {"capability": "Analytics rules", "description": "Scheduled and near-real-time rules for threat detection"},
+          {"capability": "Incidents", "description": "Correlated alerts grouped into incidents for investigation"},
+          {"capability": "Playbooks", "description": "Automated response workflows using Logic Apps"},
+          {"capability": "Hunting", "description": "Proactive threat hunting with KQL queries, bookmarks, and Jupyter notebooks"},
+          {"capability": "Workbooks", "description": "Interactive dashboards and reports for security data visualization"}
+        ],
+        "vendor_recommendation": "Deploy Microsoft Sentinel for organizations requiring SIEM capabilities. Connect all Azure and Microsoft 365 data sources. Start with built-in analytics rules and customize for your environment. Use automation rules and playbooks for common incident response actions.",
+        "audit": {
+          "cli": "az sentinel alert-rule list --workspace-name {workspace} --resource-group {rg}",
+          "cli_incidents": "az sentinel incident list --workspace-name {workspace} --resource-group {rg}",
+          "console": "Azure Portal → Microsoft Sentinel"
+        },
+        "configure": {
+          "cli_onboard": "az sentinel onboard --workspace-name {workspace} --resource-group {rg}",
+          "console": "Azure Portal → Microsoft Sentinel → {workspace} → Data connectors",
+          "terraform": "azurerm_sentinel_log_analytics_workspace_onboarding"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/sentinel/overview"
+      }
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/virtual-network",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure Virtual Network documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure Virtual Network",
+  "common_name": "VNet",
+  "alternate_names": null,
+  "notes": "Foundation networking for Azure. Provides network isolation, traffic filtering via NSGs, private connectivity via Private Link, and DDoS protection.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/virtual-network"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-network/", "note": "Virtual Network documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm", "note": "VNet planning and design"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices", "note": "VNet best practices"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^network-security-groups$", "(?i)^nsgs?$"],
+      "description": "Stateful traffic filtering with 5-tuple rules",
+      "weight": 100,
+      "data": {
+        "description": "Stateful firewall rules that filter inbound and outbound traffic using 5-tuple matching (source IP, source port, destination IP, destination port, protocol). Applied to subnets or individual NICs. Rules have priority numbers (100-4096, lower = higher priority). Includes default rules that cannot be deleted but can be overridden by higher-priority rules.",
+        "options": [
+          {"setting": "Priority", "range": "100-4096", "description": "Lower number = higher priority. First matching rule wins."},
+          {"setting": "Action", "values": ["Allow", "Deny"]},
+          {"setting": "Direction", "values": ["Inbound", "Outbound"]},
+          {"setting": "Source/Destination", "values": ["IP address/CIDR", "Service tag", "Application security group"], "description": "Service tags (e.g., Internet, VirtualNetwork, AzureLoadBalancer) simplify rule management"}
+        ],
+        "default": {
+          "value": "Default rules: allow VNet-to-VNet inbound, allow Azure Load Balancer inbound, deny all other inbound. Outbound: allow VNet-to-VNet, allow internet outbound, deny all other.",
+          "note": "Default rules have priority 65000-65500 and cannot be deleted."
+        },
+        "vendor_recommendation": "Apply NSGs to every subnet. Use service tags instead of raw IP addresses for Azure service traffic. Use application security groups to group VMs logically for rule application.",
+        "audit": {
+          "cli": "az network nsg list",
+          "cli_rules": "az network nsg rule list --nsg-name {nsg} --resource-group {rg}",
+          "api": "GET https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/networkSecurityGroups/{nsg}?api-version=2023-11-01",
+          "console": "Azure Portal → Network security groups"
+        },
+        "configure": {
+          "cli": "az network nsg rule create --nsg-name {nsg} --resource-group {rg} --name {rule} --priority 100 --direction Inbound --access Allow --protocol Tcp --destination-port-ranges 443",
+          "api": "PUT .../securityRules/{rule}",
+          "terraform": "azurerm_network_security_group, azurerm_network_security_rule",
+          "note": "Use az network nsg create to create the NSG, then az network vnet subnet update --network-security-group to associate"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^application-security-groups$", "(?i)^asgs?$"],
+      "description": "Group VMs for policy application without managing IPs",
+      "weight": 80,
+      "data": {
+        "description": "Logical grouping of VMs by workload, enabling NSG rules that reference application security groups instead of explicit IP addresses. VMs are assigned to ASGs, and NSG rules use ASGs as source or destination. Eliminates the need to manage IP-based rules as VMs scale.",
+        "vendor_recommendation": "Use ASGs to simplify NSG rules for multi-tier applications. Group VMs by application tier (web, app, database) and write rules between ASGs.",
+        "audit": {
+          "cli": "az network asg list --resource-group {rg}",
+          "console": "Azure Portal → Application security groups"
+        },
+        "configure": {
+          "cli_create": "az network asg create --name {asg} --resource-group {rg}",
+          "cli_assign": "az network nic ip-config update --nic-name {nic} --resource-group {rg} --name {config} --application-security-groups {asg-id}",
+          "terraform": "azurerm_application_security_group"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-admin-rules$"],
+      "description": "Global network security rules from Azure Virtual Network Manager",
+      "weight": 80,
+      "data": {
+        "description": "Organization-level network security rules applied via Azure Virtual Network Manager. Higher priority than NSGs — evaluated first. Three actions: Allow (evaluated then passes to NSGs), Always Allow (bypasses NSGs entirely), Deny (terminates evaluation, blocks traffic). Used for enforcing organization-wide security baselines that cannot be overridden by individual NSG rules.",
+        "options": [
+          {"action": "Allow", "description": "Allows traffic, then NSG rules are evaluated"},
+          {"action": "Always Allow", "description": "Allows traffic and bypasses NSG evaluation entirely"},
+          {"action": "Deny", "description": "Blocks traffic, terminates evaluation — cannot be overridden by NSGs"}
+        ],
+        "vendor_recommendation": "Use security admin rules to enforce organization-wide network security baselines. Use Deny rules for traffic that must never be allowed regardless of NSG configuration.",
+        "audit": {
+          "cli": "az network manager security-admin-config list --network-manager-name {manager} --resource-group {rg}",
+          "console": "Azure Portal → Virtual Network Manager → Security admin configurations"
+        },
+        "configure": {
+          "cli": "az network manager security-admin-config rule-collection rule create --configuration-name {config} --network-manager-name {manager} --resource-group {rg} --rule-collection-name {collection} --rule-name {rule}",
+          "terraform": "azurerm_network_manager_security_admin_configuration"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-link$", "(?i)^private-endpoints?$"],
+      "description": "Private connectivity to Azure services over private IP",
+      "weight": 100,
+      "data": {
+        "description": "Private connectivity to Azure PaaS services, Microsoft partner services, and your own services over a private endpoint (private IP address in your VNet). Eliminates public internet exposure for service traffic. Traffic stays on the Microsoft backbone network.",
+        "vendor_recommendation": "Use Private Link for all supported Azure PaaS services to eliminate public internet exposure. Disable public access on the service after configuring Private Link. Configure DNS to resolve service endpoints to private IP addresses.",
+        "audit": {
+          "cli": "az network private-endpoint list --resource-group {rg}",
+          "cli_all": "az network private-endpoint list",
+          "api": "GET https://management.azure.com/subscriptions/{sub}/providers/Microsoft.Network/privateEndpoints?api-version=2023-11-01",
+          "console": "Azure Portal → Private Link Center → Private endpoints"
+        },
+        "configure": {
+          "cli": "az network private-endpoint create --name {pe} --resource-group {rg} --vnet-name {vnet} --subnet {subnet} --private-connection-resource-id {resource-id} --group-id {group} --connection-name {conn}",
+          "terraform": "azurerm_private_endpoint",
+          "note": "Requires DNS configuration (Private DNS Zone or custom DNS) to resolve service hostname to private IP"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/private-link/private-link-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^service-endpoints$"],
+      "description": "Extends VNet identity to Azure services for simplified access control",
+      "weight": 80,
+      "data": {
+        "description": "Extends VNet identity to Azure services, enabling service-level firewall rules to allow traffic only from specific VNets/subnets. Traffic still goes to the service's public IP but is identified as coming from the VNet. Free. Less isolation than Private Link (traffic still uses public endpoint).",
+        "vendor_recommendation": "Use Private Link instead of service endpoints for sensitive workloads (Private Link provides stronger isolation). Use service endpoints for cost-sensitive scenarios where full private connectivity is not required.",
+        "audit": {
+          "cli": "az network vnet subnet show --name {subnet} --vnet-name {vnet} --resource-group {rg} --query serviceEndpoints",
+          "console": "Azure Portal → Virtual networks → {VNet} → Subnets → {Subnet} → Service endpoints"
+        },
+        "configure": {
+          "cli": "az network vnet subnet update --name {subnet} --vnet-name {vnet} --resource-group {rg} --service-endpoints Microsoft.Storage Microsoft.Sql",
+          "terraform": "service_endpoints on azurerm_subnet"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vnet-peering$"],
+      "description": "Connect VNets for cross-VNet traffic",
+      "weight": 80,
+      "data": {
+        "description": "Connect two VNets for seamless connectivity using private IP addresses. Traffic uses the Microsoft backbone, not the public internet. Supports same-region and global (cross-region) peering. Non-transitive by default — use Azure Virtual Network Manager or hub-and-spoke topology for transitive routing.",
+        "audit": {
+          "cli": "az network vnet peering list --vnet-name {vnet} --resource-group {rg}",
+          "api": "GET .../virtualNetworks/{vnet}/virtualNetworkPeerings",
+          "console": "Azure Portal → Virtual networks → {VNet} → Peerings"
+        },
+        "configure": {
+          "cli": "az network vnet peering create --name {peering} --vnet-name {vnet} --resource-group {rg} --remote-vnet {remote-vnet-id} --allow-vnet-access",
+          "terraform": "azurerm_virtual_network_peering",
+          "note": "Peering must be created in both directions (from each VNet to the other)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ddos-protection$"],
+      "description": "Azure DDoS Protection",
+      "weight": 80,
+      "data": {
+        "description": "DDoS mitigation at the Azure network edge. Two tiers: DDoS Network Protection (per-VNet, advanced mitigation with telemetry, alerting, cost protection, and DDoS Rapid Response support) and DDoS IP Protection (per-IP, core mitigation without DRR support or cost protection).",
+        "options": [
+          {"tier": "DDoS Network Protection", "description": "Full protection for all resources in enabled VNets. Includes telemetry, alerting, cost protection guarantee, DDoS Rapid Response (DRR) support."},
+          {"tier": "DDoS IP Protection", "description": "Per-public-IP protection. Core mitigation without DRR support or cost protection guarantee. Lower cost."}
+        ],
+        "default": {"value": "Azure DDoS infrastructure protection (basic)", "note": "Basic protection is always on and free — protects all Azure services. DDoS Network/IP Protection are paid upgrades."},
+        "audit": {
+          "cli": "az network ddos-protection list",
+          "cli_plan": "az network ddos-protection show --name {plan} --resource-group {rg}",
+          "console": "Azure Portal → DDoS protection plans"
+        },
+        "configure": {
+          "cli_plan": "az network ddos-protection create --name {plan} --resource-group {rg}",
+          "cli_enable": "az network vnet update --name {vnet} --resource-group {rg} --ddos-protection-plan {plan-id} --ddos-protection true",
+          "terraform": "azurerm_network_ddos_protection_plan"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^azure-firewall$"],
+      "description": "Managed cloud firewall with threat intelligence",
+      "weight": 80,
+      "data": {
+        "description": "Fully managed, stateful firewall as a service. Supports application FQDN filtering, network traffic filtering, threat intelligence-based filtering, and DNAT/SNAT. Three SKUs: Basic (small workloads), Standard (L3-L7 filtering + threat intelligence), Premium (adds TLS inspection, IDPS, URL filtering, web categories).",
+        "options": [
+          {"tier": "Basic", "description": "For SMB customers. L3-L4 filtering, threat intelligence alerts."},
+          {"tier": "Standard", "description": "L3-L7 filtering, threat intelligence filtering (alert or deny), FQDN filtering, DNAT/SNAT."},
+          {"tier": "Premium", "description": "Standard features plus TLS inspection, IDPS (signature-based), URL filtering, web categories."}
+        ],
+        "audit": {
+          "cli": "az network firewall list",
+          "cli_detail": "az network firewall show --name {firewall} --resource-group {rg}",
+          "console": "Azure Portal → Firewalls"
+        },
+        "configure": {
+          "cli": "az network firewall create --name {firewall} --resource-group {rg} --vnet-name {vnet} --sku AZFW_VNet --tier Standard",
+          "terraform": "azurerm_firewall, azurerm_firewall_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/firewall/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^network-watcher$"],
+      "description": "Network diagnostic and monitoring tool",
+      "weight": 80,
+      "data": {
+        "description": "Suite of network diagnostic and monitoring tools. Includes connection monitor (continuous reachability and latency monitoring), NSG diagnostics (evaluate effective NSG rules), packet capture (capture packets on VMs), IP flow verify (check if traffic is allowed/denied), next hop (determine routing path), topology (visualize network resources).",
+        "options": [
+          {"tool": "Connection monitor", "description": "Continuous monitoring of reachability and latency between endpoints"},
+          {"tool": "NSG diagnostics", "description": "Evaluate effective NSG rules for a given traffic flow"},
+          {"tool": "Packet capture", "description": "Capture network packets on VM network interfaces"},
+          {"tool": "IP flow verify", "description": "Check if a specific traffic flow is allowed or denied by NSGs"},
+          {"tool": "Next hop", "description": "Determine the next hop for a given destination"},
+          {"tool": "VNet flow logs", "description": "Log traffic metadata at the VNet level"}
+        ],
+        "audit": {
+          "cli": "az network watcher list",
+          "cli_check": "az network watcher show --resource-group NetworkWatcherRG --name NetworkWatcher_{region}",
+          "console": "Azure Portal → Network Watcher"
+        },
+        "configure": {
+          "cli": "az network watcher configure --resource-group NetworkWatcherRG --locations {region} --enabled true",
+          "note": "Network Watcher is automatically enabled for each region when you create or update a VNet. Uses NetworkWatcherRG resource group."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^flow-logs$", "(?i)^vnet-flow-logs$"],
+      "description": "VNet flow logs for traffic metadata capture",
+      "weight": 100,
+      "data": {
+        "description": "VNet flow logs (replacing NSG flow logs, which retire September 2027). Capture traffic metadata at the VNet level — records source/destination IPs, ports, protocol, direction, action (allow/deny), flow state, encryption, and bytes/packets. Logged per network interface.",
+        "options": [
+          {"setting": "Scope", "values": ["VNet", "Subnet", "NIC"], "description": "Level at which traffic is captured"},
+          {"setting": "Destination", "values": ["Storage Account", "Log Analytics workspace"], "description": "Where flow log records are stored"},
+          {"setting": "Traffic Analytics", "description": "Optional enrichment that provides traffic patterns, top talkers, security insights. Requires Log Analytics workspace."}
+        ],
+        "default": {"value": null, "note": "Flow logs are not enabled by default. Must be explicitly created."},
+        "vendor_recommendation": "Enable VNet flow logs for all VNets. Enable Traffic Analytics for actionable insights. Migrate from NSG flow logs to VNet flow logs before September 2027.",
+        "audit": {
+          "cli": "az network watcher flow-log list --location {region}",
+          "cli_detail": "az network watcher flow-log show --name {flow-log} --location {region}",
+          "console": "Azure Portal → Network Watcher → Flow logs"
+        },
+        "configure": {
+          "cli": "az network watcher flow-log create --name {name} --location {region} --resource {vnet-id} --storage-account {storage-id} --enabled true",
+          "terraform": "azurerm_network_watcher_flow_log"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview"
+      }
+    }
+  ]
+}
