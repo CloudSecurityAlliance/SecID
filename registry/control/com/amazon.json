@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Amazon Web Services",
+  "common_name": "AWS",
+  "alternate_names": null,
+  "notes": "AWS publishes security guidance through the Well-Architected Framework, Security Best Practices whitepapers, and service-specific security documentation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/security/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^well-architected$"],
+      "description": "AWS Well-Architected Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "AWS Well-Architected Framework",
+        "common_name": "Well-Architected",
+        "alternate_names": ["WAF"],
+        "description": "AWS Well-Architected Framework — cloud architecture best practices across 6 pillars.",
+        "notes": "Six pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability. The Security pillar covers IAM, detection, infrastructure protection, data protection, and incident response. Provides specific best practices and design principles for building secure, high-performing, resilient, and efficient infrastructure on AWS.",
+        "urls": [
+          {"type": "website", "url": "https://aws.amazon.com/architecture/well-architected/"},
+          {"type": "docs", "url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html", "note": "Security pillar"}
+        ],
+        "version_required": false,
+        "examples": ["security", "reliability", "operational-excellence"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-best-practices$"],
+      "description": "AWS Security Best Practices",
+      "weight": 100,
+      "data": {
+        "official_name": "AWS Security Best Practices",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "AWS Security Best Practices — comprehensive security guidance for AWS.",
+        "notes": "Whitepapers and guidance documents covering account security, network security, data protection, logging and monitoring, incident response. Updated regularly. Part of the broader AWS security documentation and reference architecture library.",
+        "urls": [
+          {"type": "website", "url": "https://aws.amazon.com/architecture/security-identity-compliance/"},
+          {"type": "docs", "url": "https://docs.aws.amazon.com/security/"}
+        ],
+        "version_required": false,
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-hub-standards$"],
+      "description": "AWS Security Hub Standards",
+      "weight": 100,
+      "data": {
+        "official_name": "AWS Security Hub Standards",
+        "common_name": "Security Hub",
+        "alternate_names": null,
+        "description": "AWS Security Hub automated security standards and checks.",
+        "notes": "Automated security checks based on AWS Foundational Security Best Practices, CIS AWS Foundations Benchmark, and PCI DSS. Provides automated compliance checking across AWS accounts. Each standard contains individual controls that evaluate specific resource configurations.",
+        "urls": [
+          {"type": "website", "url": "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html"}
+        ],
+        "version_required": false,
+        "examples": []
+      }
+    }
+  ]
+}

@@ -5,15 +5,16 @@
   "status": "draft",
   "status_notes": null,
 
-  "official_name": "Google",
+  "official_name": "Google LLC",
   "common_name": "Google",
   "alternate_names": null,
-  "notes": "Google publishes AI safety frameworks through both Google proper (SAIF) and DeepMind (Frontier Safety Framework).",
+  "notes": "Google publishes AI safety frameworks through both Google proper (SAIF) and DeepMind (Frontier Safety Framework). Also publishes cloud security guidance through the Google Cloud Architecture Framework and service-specific documentation.",
   "wikidata": null,
   "wikipedia": null,
 
   "urls": [
-    {"type": "website", "url": "https://safety.google"}
+    {"type": "website", "url": "https://safety.google"},
+    {"type": "website", "url": "https://cloud.google.com/security", "note": "Google Cloud security home"}
   ],
 
   "match_nodes": [
@@ -56,6 +57,44 @@
           {"version": "2.0", "release_date": "2024-01-01", "status": "current", "note": "Updated framework. Critical Capability Levels, safety cases, if-then commitments."}
         ],
         "examples": ["critical-capability-levels", "evaluation-protocols"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cloud-architecture-framework$"],
+      "description": "Google Cloud Architecture Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "Google Cloud Architecture Framework",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Google Cloud Architecture Framework — best practices including security pillar.",
+        "notes": "Comprehensive architecture guidance with a dedicated security pillar covering identity and access management, computing and container security, network security, data security, security logging and detective controls, and security operations. Prescriptive guidance for building secure workloads on Google Cloud.",
+        "urls": [
+          {"type": "website", "url": "https://cloud.google.com/architecture/framework"},
+          {"type": "docs", "url": "https://cloud.google.com/architecture/framework/security", "note": "Security pillar"}
+        ],
+        "version_required": false,
+        "examples": ["security", "reliability", "operational-excellence", "performance-optimization", "cost-optimization"]
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-best-practices$"],
+      "description": "Google Cloud Security Best Practices",
+      "weight": 100,
+      "data": {
+        "official_name": "Google Cloud Security Best Practices",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Google Cloud security best practices and foundational guidance.",
+        "notes": "Covers enterprise organization setup, identity, networking, data protection, and security operations for GCP. Includes best practices for enterprise organizations, landing zones, and service-specific security guides.",
+        "urls": [
+          {"type": "website", "url": "https://cloud.google.com/security/best-practices"},
+          {"type": "docs", "url": "https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations", "note": "Enterprise organization best practices"}
+        ],
+        "version_required": false,
+        "examples": []
       }
     }
   ]

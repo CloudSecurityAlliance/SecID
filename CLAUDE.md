@@ -259,13 +259,13 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Advisory | 42 |
 | Weakness | 13 |
 | Ttp | 4 |
-| Control | 30 |
+| Control | 32 |
 | Capability | 0 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **635** |
+| **Total** | **637** |
 
 <!-- REGISTRY-COUNTS-END -->
 

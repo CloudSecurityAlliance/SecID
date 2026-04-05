@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Microsoft Corporation",
+  "common_name": "Microsoft",
+  "alternate_names": null,
+  "notes": "Microsoft publishes security guidance through the Microsoft Cloud Security Benchmark, Microsoft Secure Score, and service-specific security documentation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://learn.microsoft.com/en-us/security/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^azure-security-benchmark$"],
+      "description": "Microsoft Cloud Security Benchmark",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Cloud Security Benchmark",
+        "common_name": "MCSB",
+        "alternate_names": ["Azure Security Benchmark", "ASB"],
+        "description": "Microsoft Cloud Security Benchmark — security controls for Azure services.",
+        "notes": "Formerly Azure Security Benchmark (ASB). Version 3 maps to NIST SP 800-53, CIS Controls v8, and PCI-DSS. Covers network security, identity management, privileged access, data protection, asset management, logging and threat detection, incident response, posture and vulnerability management, endpoint security, backup and recovery, DevOps security, governance and strategy. Provides specific Azure implementation guidance for each control.",
+        "urls": [
+          {"type": "website", "url": "https://learn.microsoft.com/en-us/security/benchmark/azure/overview"},
+          {"type": "docs", "url": "https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-overview", "note": "MCSB overview with control families"}
+        ],
+        "version_required": false,
+        "versions_available": [
+          {"version": "3", "status": "current", "note": "Renamed to Microsoft Cloud Security Benchmark. Maps to NIST SP 800-53, CIS Controls v8, PCI-DSS."},
+          {"version": "2", "status": "superseded", "note": "Azure Security Benchmark v2."},
+          {"version": "1", "status": "superseded", "note": "Initial release as Azure Security Benchmark."}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^secure-score$"],
+      "description": "Microsoft Secure Score",
+      "weight": 100,
+      "data": {
+        "official_name": "Microsoft Secure Score",
+        "common_name": "Secure Score",
+        "alternate_names": null,
+        "description": "Microsoft Secure Score — security posture measurement for Microsoft 365 and Azure.",
+        "notes": "Numerical score representing security posture. Provides improvement actions with priority and impact. Covers identity, devices, apps, data, and infrastructure. Part of Microsoft Defender portal. Helps organizations benchmark and improve their security configuration across Microsoft services.",
+        "urls": [
+          {"type": "website", "url": "https://learn.microsoft.com/en-us/microsoft-365/security/defender/microsoft-secure-score"}
+        ],
+        "version_required": false,
+        "examples": []
+      }
+    }
+  ]
+}
