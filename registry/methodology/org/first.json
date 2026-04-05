@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "namespace": "first.org",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry. Reviewed 2026-04-05.",
+
+  "official_name": "Forum of Incident Response and Security Teams",
+  "urls": [
+    {"type": "website", "url": "https://www.first.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cvss$"],
+      "description": "Common Vulnerability Scoring System (CVSS): methodology for scoring the severity of software vulnerabilities. Produces a numerical score (0.0-10.0) and severity rating from a set of metrics.",
+      "weight": 100,
+      "version_required": true,
+      "version_disambiguation": "CVSS versions differ materially in metric groups and scoring algorithms. v3.1 and v4.0 produce different scores for the same vulnerability. Always specify version.",
+      "data": {
+        "url": "https://www.first.org/cvss/",
+        "examples": ["cvss"]
+      },
+      "children": [
+        {
+          "patterns": ["^4\\.0$"],
+          "description": "CVSS v4.0: released 2023. Adds Supplemental metric group, refines Temporal into Threat, adds granularity to Environmental metrics.",
+          "weight": 100,
+          "data": {
+            "url": "https://www.first.org/cvss/v4.0/specification-document",
+            "examples": [
+              {"input": "4.0", "url": "https://www.first.org/cvss/v4.0/specification-document", "note": "CVSS v4.0 specification"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.1$"],
+          "description": "CVSS v3.1: released 2019. Widely adopted. Base, Temporal, and Environmental metric groups.",
+          "weight": 90,
+          "data": {
+            "url": "https://www.first.org/cvss/v3.1/specification-document",
+            "examples": [
+              {"input": "3.1", "url": "https://www.first.org/cvss/v3.1/specification-document", "note": "CVSS v3.1 specification"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": ["(?i)^epss$"],
+      "description": "Exploit Prediction Scoring System (EPSS): data-driven methodology for estimating the probability that a software vulnerability will be exploited in the wild within 30 days.",
+      "weight": 100,
+      "data": {
+        "url": "https://www.first.org/epss/",
+        "examples": ["epss"]
+      }
+    },
+    {
+      "patterns": ["(?i)^tlp$"],
+      "description": "Traffic Light Protocol (TLP): information sharing classification methodology. Defines four levels (RED, AMBER+STRICT, AMBER, GREEN, CLEAR) for marking sensitivity of shared information.",
+      "weight": 100,
+      "data": {
+        "url": "https://www.first.org/tlp/",
+        "examples": ["tlp"]
+      }
+    }
+  ]
+}
