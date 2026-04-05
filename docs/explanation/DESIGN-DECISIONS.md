@@ -208,6 +208,20 @@ The `disclosure` type is the first type added after the original seven. It was s
 
 **Additional factor: freshness requirements.** Disclosure data goes stale fast — contact emails change, reporting forms move, bug bounty programs open and close. Entity data (product names, descriptions) is relatively stable. The `_checked` / `_updated` metadata fields are especially important for disclosure entries, where a stale email address means a vulnerability report goes undelivered.
 
+### Case Study: The `methodology` Split
+
+The `methodology` type is the third type added after the original seven (following `disclosure` at 8 and `capability` at 9). It was created because all four "When to Split" criteria were met:
+
+1. **Resolution patterns diverge** — Methodology entries resolve to process documents with sub-methodology subpaths (e.g., `#strm`, `#crosswalk`). The resolution tree structure supports independently referenceable sub-processes. Reference entries resolve to documents without this process-component subpath convention.
+
+2. **Consumers diverge** — A GRC analyst asking "which methodology should I use for control mapping?" is a different workflow from a researcher citing a document. Methodology consumers need to discover, compare, and select processes — not just retrieve documents.
+
+3. **Semantics drift** — "Follow this process to produce an output" is a fundamentally different primary purpose from "read this document" or "implement this requirement." The **duck test** — "if someone hands you this document and asks 'what do I DO with it?', is the primary answer 'follow this process'?" — cleanly separates methodologies from references and controls.
+
+4. **Volume** — ~40-60 formally published named methodologies is small but the entries are architecturally critical: they provide process provenance for the entire future relationship layer. Without citable methodology identifiers, every relationship assertion in SecID is ungrounded.
+
+**Additional factor: process provenance.** When the relationship layer ships, every assertion ("CCM IAM-01 maps to NIST CSF PR.AC-1") will carry a methodology reference explaining how the mapping was produced and what evidentiary weight it carries. This is the foundational use case that no existing type can serve.
+
 ---
 
 ## Why No UUIDs?
