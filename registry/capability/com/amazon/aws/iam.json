@@ -4,34 +4,63 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS IAM documentation, 2026-04-05. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live AWS environment).",
-
   "official_name": "AWS Identity and Access Management",
   "common_name": "IAM",
   "alternate_names": null,
   "notes": "Foundation service — every AWS service depends on IAM for authentication and authorization. IAM is global (not regional). No charge for IAM itself. Security surface includes: user/role management, MFA, password policies, access keys, policies (7 types), Access Analyzer, permissions boundaries, SCPs/RCPs, and credential reporting.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/iam/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/security.html", "note": "IAM Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html", "note": "IAM Security Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/IAM/latest/APIReference/", "note": "IAM API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/iam/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/security.html",
+      "note": "IAM Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+      "note": "IAM Security Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/IAM/latest/APIReference/",
+      "note": "IAM API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^mfa$"],
+      "patterns": [
+        "(?i)^mfa$"
+      ],
       "description": "Multi-factor authentication for IAM users and root account",
       "weight": 100,
       "data": {
         "description": "Requires a second authentication factor beyond password for console sign-in and API operations. Supports passkeys/security keys (FIDO2, phishing-resistant), virtual authenticator apps (TOTP), and hardware TOTP tokens.",
         "options": [
-          {"value": "passkey", "name": "Passkeys and Security Keys", "description": "FIDO2 phishing-resistant MFA — physical keys (YubiKey) or synced passkeys (Google, Apple, 1Password, etc.)"},
-          {"value": "virtual", "name": "Virtual Authenticator App", "description": "TOTP-based software token (RFC 6238) on phone/device"},
-          {"value": "hardware-totp", "name": "Hardware TOTP Token", "description": "Physical device generating 6-digit TOTP codes. Must be AWS-approved."}
+          {
+            "value": "passkey",
+            "name": "Passkeys and Security Keys",
+            "description": "FIDO2 phishing-resistant MFA — physical keys (YubiKey) or synced passkeys (Google, Apple, 1Password, etc.)"
+          },
+          {
+            "value": "virtual",
+            "name": "Virtual Authenticator App",
+            "description": "TOTP-based software token (RFC 6238) on phone/device"
+          },
+          {
+            "value": "hardware-totp",
+            "name": "Hardware TOTP Token",
+            "description": "Physical device generating 6-digit TOTP codes. Must be AWS-approved."
+          }
         ],
-        "default": {"value": null, "note": "MFA is not enabled by default. AWS strongly recommends enabling MFA for all users, especially the root account."},
+        "default": {
+          "value": null,
+          "note": "MFA is not enabled by default. AWS strongly recommends enabling MFA for all users, especially the root account."
+        },
         "vendor_recommendation": "Use phishing-resistant MFA (passkeys or security keys) as the primary method. Register up to 8 MFA devices per user for redundancy.",
         "limits": "Maximum 8 MFA devices per principal (any combination of types). Only 1 device required to sign in.",
         "recent_changes": "SMS-based MFA has been deprecated. Users must migrate to passkeys, virtual MFA, or hardware tokens.",
@@ -47,26 +76,71 @@
           "console": "IAM → Users → {user} → Security credentials → Assign MFA device",
           "note": "FIDO security keys can only be registered via console, not CLI/API"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^password-policy$"],
+      "patterns": [
+        "(?i)^password-policy$"
+      ],
       "description": "Account-level password policy for IAM users",
       "weight": 100,
       "data": {
         "description": "Configures password requirements for IAM user console passwords. Applies account-wide to all IAM users.",
         "options": [
-          {"setting": "MinimumPasswordLength", "range": "6-128", "default": 8},
-          {"setting": "RequireUppercaseCharacters", "type": "boolean", "default": true, "note": "Default requires 3 of 4 character types"},
-          {"setting": "RequireLowercaseCharacters", "type": "boolean", "default": true},
-          {"setting": "RequireNumbers", "type": "boolean", "default": true},
-          {"setting": "RequireSymbols", "type": "boolean", "default": false},
-          {"setting": "MaxPasswordAge", "range": "1-1095 days or disabled", "default": "disabled (never expires)"},
-          {"setting": "PasswordReusePrevention", "range": "1-24 previous passwords or disabled", "default": "disabled"},
-          {"setting": "HardExpiry", "type": "boolean", "default": false, "note": "If true, expired passwords require admin reset"},
-          {"setting": "AllowUsersToChangePassword", "type": "boolean", "default": true}
+          {
+            "setting": "MinimumPasswordLength",
+            "range": "6-128",
+            "default": 8
+          },
+          {
+            "setting": "RequireUppercaseCharacters",
+            "type": "boolean",
+            "default": true,
+            "note": "Default requires 3 of 4 character types"
+          },
+          {
+            "setting": "RequireLowercaseCharacters",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "setting": "RequireNumbers",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "setting": "RequireSymbols",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "setting": "MaxPasswordAge",
+            "range": "1-1095 days or disabled",
+            "default": "disabled (never expires)"
+          },
+          {
+            "setting": "PasswordReusePrevention",
+            "range": "1-24 previous passwords or disabled",
+            "default": "disabled"
+          },
+          {
+            "setting": "HardExpiry",
+            "type": "boolean",
+            "default": false,
+            "note": "If true, expired passwords require admin reset"
+          },
+          {
+            "setting": "AllowUsersToChangePassword",
+            "type": "boolean",
+            "default": true
+          }
         ],
         "vendor_recommendation": "Combine a strong password policy with MFA. Consider federation with an identity provider instead of IAM user passwords.",
         "audit": {
@@ -81,21 +155,42 @@
           "terraform": "aws_iam_account_password_policy",
           "cloudformation": "AWS::IAM::AccountPasswordPolicy (custom resource)"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-keys$"],
+      "patterns": [
+        "(?i)^access-keys$"
+      ],
       "description": "Long-term credentials for programmatic AWS access",
       "weight": 100,
       "data": {
         "description": "Access key ID + secret access key pairs for CLI/SDK/API access. Long-term credentials that persist until explicitly rotated or deleted.",
         "options": [
-          {"setting": "Status", "values": ["Active", "Inactive"], "note": "Keys can be deactivated without deletion"},
-          {"setting": "Maximum per user", "value": 2, "note": "Allows rotation: create new, migrate, delete old"}
+          {
+            "setting": "Status",
+            "values": [
+              "Active",
+              "Inactive"
+            ],
+            "note": "Keys can be deactivated without deletion"
+          },
+          {
+            "setting": "Maximum per user",
+            "value": 2,
+            "note": "Allows rotation: create new, migrate, delete old"
+          }
         ],
-        "default": {"value": null, "note": "No access keys created by default. Must be explicitly created."},
+        "default": {
+          "value": null,
+          "note": "No access keys created by default. Must be explicitly created."
+        },
         "vendor_recommendation": "Prefer IAM roles with temporary credentials over access keys. If access keys are required: rotate regularly, never embed in code, use IAM Access Last Used to identify stale keys, deactivate before deletion.",
         "audit": {
           "cli": "aws iam list-access-keys --user-name {user}",
@@ -110,12 +205,19 @@
           "cli_delete": "aws iam delete-access-key --user-name {user} --access-key-id {key}",
           "api": "CreateAccessKey, UpdateAccessKey, DeleteAccessKey"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^root-account-security$"],
+      "patterns": [
+        "(?i)^root-account-security$"
+      ],
       "description": "Root account credential protection",
       "weight": 100,
       "data": {
@@ -130,20 +232,36 @@
           "console": "Root user → My Security Credentials → MFA → Assign MFA device",
           "note": "Root MFA can only be configured via console"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^identity-based-policies$"],
+      "patterns": [
+        "(?i)^identity-based-policies$"
+      ],
       "description": "JSON policies attached to users, groups, and roles that grant permissions",
       "weight": 100,
       "data": {
         "description": "Primary mechanism for granting permissions. Three subtypes: AWS managed policies (pre-built by AWS), customer managed policies (you create), and inline policies (directly attached to a single identity). Policies define allowed/denied actions on specific resources under specific conditions.",
         "options": [
-          {"type": "AWS managed", "description": "Pre-built by AWS for common use cases. Cannot modify. Updated by AWS."},
-          {"type": "Customer managed", "description": "You create and maintain. Reusable across identities. Full control."},
-          {"type": "Inline", "description": "Embedded directly in a user/group/role. One-to-one. Deleted with identity."}
+          {
+            "type": "AWS managed",
+            "description": "Pre-built by AWS for common use cases. Cannot modify. Updated by AWS."
+          },
+          {
+            "type": "Customer managed",
+            "description": "You create and maintain. Reusable across identities. Full control."
+          },
+          {
+            "type": "Inline",
+            "description": "Embedded directly in a user/group/role. One-to-one. Deleted with identity."
+          }
         ],
         "vendor_recommendation": "Start with AWS managed policies, then create customer managed policies for least privilege. Avoid inline policies for most use cases. Use IAM Access Analyzer to generate least-privilege policies from actual usage.",
         "audit": {
@@ -158,12 +276,19 @@
           "terraform": "aws_iam_policy, aws_iam_user_policy_attachment, aws_iam_role_policy_attachment",
           "cloudformation": "AWS::IAM::Policy, AWS::IAM::ManagedPolicy"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^permissions-boundaries$"],
+      "patterns": [
+        "(?i)^permissions-boundaries$"
+      ],
       "description": "Maximum permission limits for IAM users and roles",
       "weight": 100,
       "data": {
@@ -179,18 +304,27 @@
           "cli_role": "aws iam put-role-permissions-boundary --role-name {role} --permissions-boundary {policy-arn}",
           "terraform": "permissions_boundary argument on aws_iam_user, aws_iam_role"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^service-control-policies$"],
+      "patterns": [
+        "(?i)^service-control-policies$"
+      ],
       "description": "Organization-wide maximum permission guardrails (SCPs)",
       "weight": 100,
       "data": {
         "description": "JSON policies that set maximum permissions for all IAM users and roles in an AWS Organization account or OU. Do not grant permissions — only limit them. Affect the root user. Require AWS Organizations with all features enabled.",
         "vendor_recommendation": "Use SCPs to establish permission guardrails across multiple accounts. Pair with identity-based policies to grant specific permissions within those guardrails.",
-        "cross_references": ["secid:capability/amazon.com/aws/organizations"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/organizations"
+        ],
         "audit": {
           "cli": "aws organizations list-policies --filter SERVICE_CONTROL_POLICY",
           "cli_target": "aws organizations list-policies-for-target --target-id {account-or-ou-id} --filter SERVICE_CONTROL_POLICY",
@@ -201,12 +335,19 @@
           "cli_attach": "aws organizations attach-policy --policy-id {id} --target-id {account-or-ou-id}",
           "terraform": "aws_organizations_policy (type SERVICE_CONTROL_POLICY)"
         },
-        "source": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^resource-control-policies$"],
+      "patterns": [
+        "(?i)^resource-control-policies$"
+      ],
       "description": "Organization-wide maximum permission guardrails for resources (RCPs)",
       "weight": 80,
       "data": {
@@ -215,22 +356,44 @@
           "cli": "aws organizations list-policies --filter RESOURCE_CONTROL_POLICY",
           "api": "ListPolicies"
         },
-        "source": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-analyzer$"],
+      "patterns": [
+        "(?i)^access-analyzer$"
+      ],
       "description": "IAM Access Analyzer — identify unintended access and unused permissions",
       "weight": 100,
       "data": {
         "description": "Service that analyzes resource policies and IAM configurations to identify: external access (resources accessible from outside your account/org), unused access (permissions, roles, access keys not used within a tracking period), and policy issues (validates policies against best practices).",
         "options": [
-          {"feature": "External access analysis", "description": "Identifies resources accessible from outside your zone of trust"},
-          {"feature": "Unused access analysis", "description": "Identifies unused permissions, roles, and access keys"},
-          {"feature": "Policy generation", "description": "Generates least-privilege policies from CloudTrail access activity"},
-          {"feature": "Policy validation", "description": "100+ checks against IAM JSON policy language and best practices"},
-          {"feature": "Custom policy checks", "description": "Validate policies against custom rules"}
+          {
+            "feature": "External access analysis",
+            "description": "Identifies resources accessible from outside your zone of trust"
+          },
+          {
+            "feature": "Unused access analysis",
+            "description": "Identifies unused permissions, roles, and access keys"
+          },
+          {
+            "feature": "Policy generation",
+            "description": "Generates least-privilege policies from CloudTrail access activity"
+          },
+          {
+            "feature": "Policy validation",
+            "description": "100+ checks against IAM JSON policy language and best practices"
+          },
+          {
+            "feature": "Custom policy checks",
+            "description": "Validate policies against custom rules"
+          }
         ],
         "vendor_recommendation": "Enable Access Analyzer in every region. Review findings regularly. Use policy generation to create least-privilege policies based on actual usage.",
         "audit": {
@@ -244,12 +407,19 @@
           "terraform": "aws_accessanalyzer_analyzer",
           "cloudformation": "AWS::AccessAnalyzer::Analyzer"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^credential-report$"],
+      "patterns": [
+        "(?i)^credential-report$"
+      ],
       "description": "Account-level report of all IAM users and their credential status",
       "weight": 80,
       "data": {
@@ -260,12 +430,19 @@
           "console": "IAM → Credential report → Download report"
         },
         "note": "Report includes: user, ARN, creation time, password enabled/last used/last changed/next rotation, MFA active, access key 1&2 active/last rotated/last used/region/service.",
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^roles$"],
+      "patterns": [
+        "(?i)^roles$"
+      ],
       "description": "IAM roles for temporary credential-based access",
       "weight": 100,
       "data": {
@@ -282,52 +459,115 @@
           "terraform": "aws_iam_role",
           "cloudformation": "AWS::IAM::Role"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^federation$"],
+      "patterns": [
+        "(?i)^federation$"
+      ],
       "description": "Identity federation with external identity providers",
       "weight": 100,
       "data": {
         "description": "Allow users from external identity providers (corporate AD, Google, Facebook, SAML 2.0, OIDC) to access AWS resources without creating IAM users. Users assume roles and get temporary credentials.",
         "options": [
-          {"type": "IAM Identity Center", "description": "Recommended. Centralized access management with built-in IdP or external SAML/OIDC."},
-          {"type": "SAML 2.0", "description": "Direct federation with SAML identity providers"},
-          {"type": "OIDC", "description": "Web identity federation with OpenID Connect providers (Google, Facebook, Amazon Cognito)"},
-          {"type": "IAM Roles Anywhere", "description": "For workloads outside AWS that need temporary credentials using X.509 certificates"},
-          {"type": "Custom identity broker", "description": "For environments that don't support SAML/OIDC"}
+          {
+            "type": "IAM Identity Center",
+            "description": "Recommended. Centralized access management with built-in IdP or external SAML/OIDC."
+          },
+          {
+            "type": "SAML 2.0",
+            "description": "Direct federation with SAML identity providers"
+          },
+          {
+            "type": "OIDC",
+            "description": "Web identity federation with OpenID Connect providers (Google, Facebook, Amazon Cognito)"
+          },
+          {
+            "type": "IAM Roles Anywhere",
+            "description": "For workloads outside AWS that need temporary credentials using X.509 certificates"
+          },
+          {
+            "type": "Custom identity broker",
+            "description": "For environments that don't support SAML/OIDC"
+          }
         ],
         "vendor_recommendation": "Require human users to use federation with an identity provider instead of IAM users with long-term credentials. Use IAM Identity Center as the primary federation mechanism.",
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^policy-conditions$"],
+      "patterns": [
+        "(?i)^policy-conditions$"
+      ],
       "description": "Condition keys for fine-grained policy control",
       "weight": 80,
       "data": {
         "description": "Policy conditions restrict when a policy applies. Global condition keys work across all services. Service-specific condition keys add granular control. Common security conditions: require MFA, restrict by IP/VPC, require encryption, enforce tagging.",
         "options": [
-          {"condition": "aws:MultiFactorAuthPresent", "description": "Require MFA for the operation"},
-          {"condition": "aws:SourceIp", "description": "Restrict by source IP address or CIDR range"},
-          {"condition": "aws:SourceVpc", "description": "Restrict to specific VPC"},
-          {"condition": "aws:SourceVpce", "description": "Restrict to specific VPC endpoint"},
-          {"condition": "aws:SecureTransport", "description": "Require HTTPS (TLS)"},
-          {"condition": "aws:RequestedRegion", "description": "Restrict to specific AWS regions"},
-          {"condition": "aws:PrincipalOrgID", "description": "Restrict to members of an AWS Organization"},
-          {"condition": "aws:ResourceTag/*", "description": "Restrict based on resource tags"},
-          {"condition": "aws:PrincipalTag/*", "description": "Restrict based on principal tags (ABAC)"}
+          {
+            "condition": "aws:MultiFactorAuthPresent",
+            "description": "Require MFA for the operation"
+          },
+          {
+            "condition": "aws:SourceIp",
+            "description": "Restrict by source IP address or CIDR range"
+          },
+          {
+            "condition": "aws:SourceVpc",
+            "description": "Restrict to specific VPC"
+          },
+          {
+            "condition": "aws:SourceVpce",
+            "description": "Restrict to specific VPC endpoint"
+          },
+          {
+            "condition": "aws:SecureTransport",
+            "description": "Require HTTPS (TLS)"
+          },
+          {
+            "condition": "aws:RequestedRegion",
+            "description": "Restrict to specific AWS regions"
+          },
+          {
+            "condition": "aws:PrincipalOrgID",
+            "description": "Restrict to members of an AWS Organization"
+          },
+          {
+            "condition": "aws:ResourceTag/*",
+            "description": "Restrict based on resource tags"
+          },
+          {
+            "condition": "aws:PrincipalTag/*",
+            "description": "Restrict based on principal tags (ABAC)"
+          }
         ],
         "vendor_recommendation": "Use conditions to further restrict access. Require TLS for all requests. Restrict by VPC/IP when possible. Use ABAC (attribute-based access control) with tag conditions for scalable permissions.",
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-last-used$"],
+      "patterns": [
+        "(?i)^access-last-used$"
+      ],
       "description": "Information about when IAM resources were last used",
       "weight": 80,
       "data": {
@@ -339,26 +579,46 @@
           "cli_service": "aws iam generate-service-last-accessed-details --arn {arn}",
           "api": "GetUser, GetRole, GenerateServiceLastAccessedDetails, GetServiceLastAccessedDetails"
         },
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^session-policies$"],
+      "patterns": [
+        "(?i)^session-policies$"
+      ],
       "description": "Temporary permission limits passed when assuming roles or federating",
       "weight": 60,
       "data": {
         "description": "Advanced JSON policies passed as parameters when creating temporary sessions. Limit permissions for that session only — intersection of role policies and session policies. Used via AssumeRole, AssumeRoleWithSAML, AssumeRoleWithWebIdentity, GetFederationToken.",
         "options": [
-          {"type": "Inline session policy", "description": "Single JSON policy via Policy parameter"},
-          {"type": "Managed session policies", "description": "Up to 10 managed policy ARNs via PolicyArns parameter"}
+          {
+            "type": "Inline session policy",
+            "description": "Single JSON policy via Policy parameter"
+          },
+          {
+            "type": "Managed session policies",
+            "description": "Up to 10 managed policy ARNs via PolicyArns parameter"
+          }
         ],
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^resource-based-policies$"],
+      "patterns": [
+        "(?i)^resource-based-policies$"
+      ],
       "description": "JSON policies attached to resources that grant cross-account access",
       "weight": 80,
       "data": {
@@ -368,19 +628,32 @@
           "secid:capability/amazon.com/aws/s3#bucket-policies",
           "secid:capability/amazon.com/aws/kms#key-policies"
         ],
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^acls$"],
+      "patterns": [
+        "(?i)^acls$"
+      ],
       "description": "Access Control Lists for cross-account resource access",
       "weight": 40,
       "data": {
         "description": "Legacy access control mechanism used by S3, WAF, and VPC. Not JSON format. Cross-account only — cannot grant permissions to same-account principals. Less flexible than resource-based policies.",
         "vendor_recommendation": "Use resource-based policies instead of ACLs where possible. S3 recommends disabling ACLs (Object Ownership = BucketOwnerEnforced).",
         "note": "ACLs are being phased out in favor of resource-based policies and bucket ownership controls.",
-        "source": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_acl"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_acl",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]
