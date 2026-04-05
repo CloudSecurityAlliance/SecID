@@ -504,18 +504,54 @@ The `notes` field provides free-form context that doesn't fit into structured fi
 - Enrichment data (severity, affected products, authors)
 - Relationship data that should be machine-readable (belongs in the relationship layer)
 
-#### URLs (top-level)
+#### URLs
 
-Top-level `urls[]` array for the namespace/organization. Same structure as source-level URLs:
+Two URL mechanisms exist in the registry:
+
+**1. `urls` array** — used at top-level, in source-level `data`, and optionally on child nodes. For documentation, reference links, API endpoints, downloads — any URL that provides context.
 
 ```json
 "urls": [
   {"type": "website", "url": "https://www.mitre.org"},
-  {"type": "website", "url": "https://www.cve.org", "note": "CVE Program site"}
+  {"type": "docs", "url": "https://docs.aws.amazon.com/...", "note": "Security chapter"},
+  {"type": "bulk_data", "url": "https://example.com/data.zip", "format": "zip"},
+  {"type": "docs", "url": "https://eur-lex.europa.eu/...", "lang": "fr", "note": "French text"}
 ]
 ```
 
-See source-level URLs section for full field definitions.
+**2. `data.url` string** — on child match_nodes only. THE resolution URL template with `{id}` variable substitution. One per child. For multiple resolution URLs (e.g., HTML page + JSON API), use multiple children matching the same pattern with different weights.
+
+```json
+"children": [
+  {"patterns": ["^CVE-\\d{4}-\\d{4,}$"], "weight": 100, "data": {"url": "https://www.cve.org/CVERecord?id={id}"}},
+  {"patterns": ["^CVE-\\d{4}-\\d{4,}$"], "weight": 50, "data": {"url": "https://api.example.com/{id}", "content_type": "application/json"}}
+]
+```
+
+**URL entry fields:**
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `url` | Yes | The actual URL |
+| `type` | Yes | Category (see below) |
+| `note` | No | Human/AI readable context explaining what this URL is for |
+| `lang` | No | ISO 639-1 language code (e.g., "en", "fr", "de") |
+| `format` | No | Expected content format: "html", "json", "pdf", "xml", "csv", "zip" |
+
+**Common `type` values** (not a strict enum — use descriptive `note` for specifics):
+
+| Type | Usage |
+|------|-------|
+| `website` | Main website or product page |
+| `docs` | Documentation, guides, reference pages |
+| `api` | API endpoint or API reference |
+| `bulk_data` | Downloadable dataset (ZIP, JSON, XML, CSV) |
+| `lookup` | Search/lookup URL for finding specific items |
+| `security` | Security-specific page |
+| `security_txt` | RFC 9116 security.txt file |
+| `paper` | Research paper or publication |
+
+Other type values are acceptable. The `note` field carries the real context for AI consumption — don't over-enumerate types.
 
 ### Match Nodes (Pattern Tree)
 
