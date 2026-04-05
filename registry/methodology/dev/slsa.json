@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "slsa.dev",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Supply-chain Levels for Software Artifacts",
+  "urls": [
+    {"type": "website", "url": "https://slsa.dev/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^slsa$"],
+      "description": "Supply-chain Levels for Software Artifacts (SLSA): graduated methodology for improving software supply chain security. Defines four levels of increasing assurance, with requirements for source, build, provenance, and common practices at each level. An OpenSSF project, originally created at Google.",
+      "weight": 100,
+      "data": {
+        "url": "https://slsa.dev/spec/v1.0/",
+        "examples": ["slsa"]
+      }
+    }
+  ]
+}
