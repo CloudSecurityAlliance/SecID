@@ -8,7 +8,7 @@
   "official_name": "Institute of Electrical and Electronics Engineers",
   "common_name": "IEEE",
   "alternate_names": null,
-  "notes": "IEEE produces ethical AI standards including the 7000 series and Ethically Aligned Design framework.",
+  "notes": "IEEE produces ethical AI and technology governance standards including the 7000 series, Ethically Aligned Design framework, and standards addressing AI trustworthiness, bias, and privacy. IEEE standards are paywalled — access requires purchase from IEEE Xplore or the IEEE Standards Association.",
   "wikidata": null,
   "wikipedia": null,
 
@@ -78,6 +78,86 @@
         "official_name": "IEEE 7010 - Well-being Metrics for AI",
         "versions_available": [
           {"version": "2020", "release_date": "2020-01-01", "status": "current", "note": "IEEE 7010-2020 standard for well-being metrics for AI."}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^7011$"],
+      "description": "IEEE 7011 - Process of Identifying and Rating the Trustworthiness of News Sources",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 7011 - Standard for the Process of Identifying and Rating the Trustworthiness of News Sources",
+        "notes": "Paywalled. Defines processes for assessing and rating the trustworthiness of news sources. Addresses misinformation and media integrity challenges.",
+        "urls": [
+          {"type": "website", "url": "https://standards.ieee.org/ieee/7011/7582/"}
+        ],
+        "versions_available": [
+          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE 7011-2024 standard for identifying and rating trustworthiness of news sources."}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^7012$"],
+      "description": "IEEE 7012 - Machine Readable Personal Privacy Terms",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 7012 - Standard for Machine Readable Personal Privacy Terms",
+        "notes": "Paywalled. Defines a machine-readable format for personal privacy terms, enabling automated privacy negotiation between individuals and organizations.",
+        "urls": [
+          {"type": "website", "url": "https://standards.ieee.org/ieee/7012/7192/"}
+        ],
+        "versions_available": [
+          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE 7012-2024 standard for machine readable personal privacy terms."}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^24028$"],
+      "description": "IEEE 24028 - Ethical Considerations in AI and Autonomous Systems (Transparency)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 24028 - Standard for Ethical Considerations in AI and Autonomous Systems (Transparency)",
+        "notes": "Paywalled. IEEE adoption of ISO/IEC TR 24028:2020 on trustworthiness in AI. Addresses transparency, explainability, and accountability in AI systems. Note: distinct from but aligned with ISO/IEC TR 24028 — IEEE publishes its own edition.",
+        "urls": [
+          {"type": "website", "url": "https://standards.ieee.org/ieee/24028/10744/"}
+        ],
+        "versions_available": [
+          {"version": "2023", "release_date": "2023-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC TR 24028:2020 on AI trustworthiness."}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^24029-1$"],
+      "description": "IEEE 24029-1 - Assessment of Biases in AI Systems (Part 1)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 24029-1 - Assessment of Biases in AI Systems and Methods for Mitigation (Part 1)",
+        "notes": "Paywalled. IEEE adoption of ISO/IEC TR 24029-1:2021 on robustness assessment of neural networks. Part 1 covers assessment methods. Note: distinct from but aligned with ISO/IEC 24029 — IEEE publishes its own edition.",
+        "urls": [
+          {"type": "website", "url": "https://standards.ieee.org/ieee/24029-1/10750/"}
+        ],
+        "versions_available": [
+          {"version": "2023", "release_date": "2023-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC 24029-1:2021 on neural network robustness assessment."}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^42001$"],
+      "description": "IEEE 42001 - AI Management System",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 42001 - AI Management System",
+        "notes": "Paywalled. IEEE adoption of ISO/IEC 42001:2023. Requirements for establishing, implementing, maintaining and continually improving an AI management system (AIMS). Note: this is the IEEE edition of the same standard also published by ISO (see secid:control/iso.org/42001). Same technical content, different publication channel.",
+        "urls": [
+          {"type": "website", "url": "https://standards.ieee.org/ieee/42001/11228/"}
+        ],
+        "versions_available": [
+          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC 42001:2023. First international AI management system standard."}
         ],
         "examples": []
       }

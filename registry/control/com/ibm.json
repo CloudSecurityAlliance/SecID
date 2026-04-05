@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ibm.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "IBM",
+  "common_name": "IBM",
+  "alternate_names": ["International Business Machines"],
+  "notes": "IBM publishes AI governance frameworks and security guidance.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.ibm.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-controls-framework$"],
+      "description": "IBM Generative AI Controls Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "IBM Generative AI Controls Framework",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Whitepaper-based framework for governing generative AI.",
+        "notes": "Whitepaper-based framework for governing generative AI. Organized into domains and controls with specific requirements. Covers data governance, model lifecycle, operational controls. Published by IBM Institute for Business Value.",
+        "urls": [
+          {"type": "website", "url": "https://www.ibm.com/thought-leadership/institute-business-value/report/generative-ai-controls"}
+        ],
+        "examples": []
+      },
+      "children": [
+        {
+          "patterns": ["^.+$"],
+          "description": "Control identifier within the IBM Generative AI Controls Framework. Exact ID format not yet documented — pattern accepts any non-empty string pending further research.",
+          "weight": 50,
+          "data": {
+            "note": "Control ID format requires further research. The framework is published as a whitepaper; control identifiers may follow a domain-code plus number pattern but this has not been confirmed.",
+            "examples": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pcisecuritystandards.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "PCI Security Standards Council",
+  "common_name": "PCI SSC",
+  "alternate_names": null,
+  "notes": "Payment card industry security standards. PCI DSS is required for any organization that processes, stores, or transmits cardholder data.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.pcisecuritystandards.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pci-dss$"],
+      "description": "Payment Card Industry Data Security Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "Payment Card Industry Data Security Standard",
+        "common_name": "PCI DSS",
+        "alternate_names": ["PCI-DSS", "PCI"],
+        "description": "Security standard for organizations handling payment card data.",
+        "notes": "Version 4.0.1 current (released June 2024, minor revision of 4.0 released March 2022). 12 requirements organized into 6 goals. Required for PCI compliance certification. Compliance is validated by Qualified Security Assessors (QSAs) or via Self-Assessment Questionnaires (SAQs). Requirement numbering uses dotted notation: top-level (1-12), sub-requirement (1.1), and specific controls (1.1.1). The standard document is freely downloadable from the PCI SSC document library.",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "4.0.1", "release_date": "2024-06-01", "status": "current", "note": "Minor revision of v4.0. Clarifications and corrections. 12 requirements, 6 goals."},
+          {"version": "4.0", "release_date": "2022-03-31", "status": "superseded", "note": "Major revision from v3.2.1. Added customized approach option alongside defined approach."},
+          {"version": "3.2.1", "release_date": "2018-05-01", "status": "superseded", "note": "Previous version. Retired March 2024."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.pcisecuritystandards.org/standards/pci-dss/"},
+          {"type": "docs", "url": "https://www.pcisecuritystandards.org/document_library/", "note": "PCI SSC document library — standard is freely downloadable"}
+        ],
+        "examples": ["1.1.1", "3.4", "8.3.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}$"],
+          "description": "PCI DSS top-level requirement (1-12). Each is a major security goal area.",
+          "weight": 50,
+          "data": {
+            "type": "requirement",
+            "note": "12 top-level requirements grouped into 6 goals: Build and Maintain a Secure Network (1-2), Protect Account Data (3-4), Maintain a Vulnerability Management Program (5-6), Implement Strong Access Control Measures (7-9), Regularly Monitor and Test Networks (10-11), Maintain an Information Security Policy (12).",
+            "examples": [
+              {"input": "1", "note": "Install and maintain network security controls"},
+              {"input": "8", "note": "Identify users and authenticate access to system components"}
+            ],
+            "known_values": {
+              "1": "Install and Maintain Network Security Controls",
+              "2": "Apply Secure Configurations to All System Components",
+              "3": "Protect Stored Account Data",
+              "4": "Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks",
+              "5": "Protect All Systems and Networks from Malicious Software",
+              "6": "Develop and Maintain Secure Systems and Software",
+              "7": "Restrict Access to System Components and Cardholder Data by Business Need to Know",
+              "8": "Identify Users and Authenticate Access to System Components",
+              "9": "Restrict Physical Access to Cardholder Data",
+              "10": "Log and Monitor All Access to System Components and Cardholder Data",
+              "11": "Test Security of Systems and Networks Regularly",
+              "12": "Support Information Security with Organizational Policies and Programs"
+            }
+          }
+        },
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}$"],
+          "description": "PCI DSS sub-requirement (e.g., 1.1, 3.4). Groups related specific controls.",
+          "weight": 75,
+          "data": {
+            "type": "sub-requirement",
+            "note": "Sub-requirements group related specific controls under a top-level requirement.",
+            "examples": [
+              {"input": "1.1", "note": "Processes and mechanisms for installing and maintaining network security controls"},
+              {"input": "3.4", "note": "Access to displays of full PAN and ability to copy cardholder data are restricted"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "PCI DSS specific control (e.g., 1.1.1, 8.3.1). The actionable control requirement.",
+          "weight": 100,
+          "data": {
+            "type": "control",
+            "note": "Specific control requirements. Each has defined and customized approach options in v4.0+. No per-control web URL — refer to the downloadable standard document.",
+            "examples": [
+              {"input": "1.1.1", "note": "All security policies and operational procedures identified in Requirement 1 are documented, kept up to date, in use, and known to all affected parties"},
+              {"input": "3.4", "note": "Access to displays of full PAN and ability to copy cardholder data are restricted"},
+              {"input": "8.3.1", "note": "All user access to system components for users and administrators is authenticated"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

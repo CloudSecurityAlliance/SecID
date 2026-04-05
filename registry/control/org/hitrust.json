@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hitrust.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "HITRUST Alliance",
+  "common_name": "HITRUST",
+  "alternate_names": null,
+  "notes": "Healthcare-focused security framework. HITRUST CSF integrates requirements from HIPAA, NIST, ISO, PCI, and other frameworks into a single certifiable framework. Widely used in healthcare and financial services.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://hitrustalliance.net"},
+    {"type": "docs", "url": "https://hitrustalliance.net/csf/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csf$"],
+      "description": "HITRUST Common Security Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "HITRUST Common Security Framework",
+        "common_name": "HITRUST CSF",
+        "alternate_names": null,
+        "description": "Certifiable security framework integrating HIPAA, NIST, ISO, PCI requirements.",
+        "notes": "Version 11.x current. Organized by control categories and implementation levels (1-3). Used for HITRUST certification assessments. The framework is not freely available — requires a HITRUST MyCSF subscription to access full control specifications. Three assessment types: e1 (essentials, 1 year), i1 (implemented, 1 year), r2 (risk-based, 2 years).",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "11", "release_date": "2023-01-01", "status": "current", "note": "Version 11.x. Streamlined control selection, updated threat-adaptive controls."},
+          {"version": "9.6", "release_date": null, "status": "superseded", "note": "Previous major version. Still referenced in some compliance documentation."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://hitrustalliance.net/csf/"},
+          {"type": "docs", "url": "https://hitrustalliance.net/product-tool/mycsf-tool/", "note": "MyCSF subscription tool — required for full control access"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

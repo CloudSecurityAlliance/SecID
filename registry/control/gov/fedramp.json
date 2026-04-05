@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fedramp.gov",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Federal Risk and Authorization Management Program",
+  "common_name": "FedRAMP",
+  "alternate_names": null,
+  "notes": "US government program for standardized security assessment of cloud products. Defines security baselines (Low, Moderate, High, LI-SaaS) based on NIST 800-53. Required for cloud services used by federal agencies.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.fedramp.gov"},
+    {"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^baselines$"],
+      "description": "FedRAMP security baselines (Low, Moderate, High, LI-SaaS)",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP Security Baselines",
+        "description": "Security control baselines derived from NIST SP 800-53, tailored for cloud services at different impact levels.",
+        "notes": "FedRAMP baselines select and tailor NIST SP 800-53 controls for cloud environments. Low baseline (~125 controls), Moderate baseline (~325 controls), High baseline (~421 controls), and LI-SaaS (Low Impact Software as a Service) for low-risk SaaS. Baselines are updated when NIST 800-53 is revised. Currently aligned with Rev 5.",
+        "urls": [
+          {"type": "docs", "url": "https://www.fedramp.gov/documents-templates/", "note": "FedRAMP document library including baseline spreadsheets"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^marketplace$"],
+      "description": "FedRAMP marketplace of authorized cloud services",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP Marketplace",
+        "description": "Public directory of cloud service offerings that have achieved FedRAMP authorization.",
+        "notes": "Searchable directory of FedRAMP authorized, in-process, and ready cloud service offerings (CSOs). Includes authorization status, sponsoring agency, impact level, and service model.",
+        "urls": [
+          {"type": "website", "url": "https://marketplace.fedramp.gov"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

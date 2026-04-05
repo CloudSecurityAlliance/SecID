@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "equifax.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Equifax Inc.",
+  "common_name": "Equifax",
+  "alternate_names": null,
+  "notes": "Equifax publishes a proprietary controls framework with mappings to CIS Controls and NIST CSF.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.equifax.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^controls-framework$"],
+      "description": "Equifax Controls Framework with CIS and NIST CSF mappings",
+      "weight": 100,
+      "data": {
+        "official_name": "Equifax Controls Framework",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Equifax's proprietary controls framework with published mappings to CIS Controls and NIST CSF.",
+        "notes": "Equifax's proprietary controls framework with published mappings to CIS Controls and NIST CSF. Available at controlsframework.equifax.com.",
+        "urls": [
+          {"type": "website", "url": "https://controlsframework.equifax.com/compliance"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
