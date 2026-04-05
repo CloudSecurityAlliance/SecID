@@ -8,7 +8,7 @@
   "official_name": "New York State",
   "common_name": "New York",
   "alternate_names": null,
-  "notes": "New York state privacy and cybersecurity laws. Strong enforcement through DFS (Department of Financial Services).",
+  "notes": "New York state privacy, cybersecurity, and AI laws. Strong enforcement through DFS (Department of Financial Services) and NYC Department of Consumer and Worker Protection.",
   "wikidata": null,
   "wikipedia": null,
 
@@ -78,6 +78,23 @@
         "notes": "Applies to businesses that collect biometric identifier information (fingerprints, retina/iris scans, voiceprints, hand geometry). Requires written notice and consent before collection. Prohibits selling, leasing, or trading biometric data. Businesses must implement reasonable safeguards for storage. Primarily targets commercial establishments in New York City. Private right of action with statutory damages.",
         "urls": [
           {"type": "website", "url": "https://www.nysenate.gov/legislation/bills/2019/A8155"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ll144$"],
+      "description": "NYC Local Law 144 (Automated Employment Decision Tools)",
+      "weight": 100,
+      "data": {
+        "official_name": "Local Law 144 of 2021",
+        "common_name": "LL144",
+        "alternate_names": ["NYC AI Hiring Law", "Automated Employment Decision Tools Law"],
+        "description": "New York City law regulating the use of automated employment decision tools (AEDTs) in hiring and promotion.",
+        "notes": "Effective July 5, 2023. Requires employers using AEDTs to: conduct annual independent bias audits, publish audit results, notify candidates of AEDT use, and allow candidates to request alternative selection processes. Enforced by NYC Department of Consumer and Worker Protection (DCWP). Penalties range from $500 to $1,500 per violation. First US law specifically regulating AI in hiring decisions.",
+        "urls": [
+          {"type": "website", "url": "https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page"}
         ],
         "examples": []
       }

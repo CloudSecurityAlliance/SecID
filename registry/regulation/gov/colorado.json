@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "colorado.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Colorado State",
+  "common_name": "Colorado",
+  "alternate_names": null,
+  "notes": "Colorado state AI and privacy laws. Colorado was among the first US states to enact comprehensive AI regulation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://leg.colorado.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-act$"],
+      "description": "Colorado Artificial Intelligence Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Colorado Artificial Intelligence Act",
+        "common_name": "Colorado AI Act",
+        "alternate_names": ["SB 24-205"],
+        "description": "Colorado law regulating the use of high-risk artificial intelligence systems to prevent algorithmic discrimination.",
+        "notes": "Signed into law May 17, 2024. Effective February 1, 2026. Requires developers and deployers of high-risk AI systems to use reasonable care to avoid algorithmic discrimination. Deployers must conduct impact assessments, provide notice to consumers, and implement risk management policies. Developers must provide documentation, known limitations, and usage guidelines. Covers AI systems making consequential decisions in education, employment, financial services, government services, healthcare, housing, insurance, and legal services. Attorney General enforcement with private right of action.",
+        "urls": [
+          {"type": "website", "url": "https://leg.colorado.gov/bills/sb24-205"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

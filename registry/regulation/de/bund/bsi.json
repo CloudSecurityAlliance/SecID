@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bsi.bund.de",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Federal Office for Information Security (BSI)",
+  "common_name": "BSI",
+  "alternate_names": ["Bundesamt fuer Sicherheit in der Informationstechnik"],
+  "notes": "Germany's federal cyber security authority. BSI publishes compliance criteria catalogues for cloud computing and AI systems, used as de facto regulatory requirements for German government procurement and critical infrastructure.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.bsi.bund.de"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-?c4$"],
+      "description": "AI Cloud Computing Compliance Criteria Catalogue",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Cloud Computing Compliance Criteria Catalogue",
+        "common_name": "AIC4",
+        "alternate_names": null,
+        "description": "BSI criteria for AI systems in cloud environments. Structured as general conditions and specific criteria.",
+        "notes": "BSI criteria for auditing the security and trustworthiness of AI-based cloud services. Covers data management, model development, deployment, and operation of AI systems. Designed to complement the C5 catalogue for cloud-specific AI requirements.",
+        "urls": [
+          {"type": "website", "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/AIC4/aic4_node.html"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^c5$"],
+      "description": "Cloud Computing Compliance Criteria Catalogue",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Computing Compliance Criteria Catalogue",
+        "common_name": "C5",
+        "alternate_names": null,
+        "description": "BSI criteria catalogue for cloud service providers. General conditions and criteria for cloud security.",
+        "notes": "Defines minimum security requirements for cloud computing. Used as the basis for cloud security attestation in Germany. Covers organization, physical security, identity management, cryptography, operations security, and more. C5:2020 is the current version. Required for German federal government cloud procurement.",
+        "urls": [
+          {"type": "website", "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

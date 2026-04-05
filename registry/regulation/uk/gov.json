@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.uk",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "United Kingdom Government",
+  "common_name": "UK Government",
+  "alternate_names": ["HM Government"],
+  "notes": "United Kingdom government policy publications. GOV.UK is the single domain for government services and information.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.gov.uk"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-action-plan$"],
+      "description": "AI Opportunities Action Plan",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Opportunities Action Plan",
+        "common_name": "AI Action Plan",
+        "alternate_names": null,
+        "description": "UK government plan for AI adoption and governance.",
+        "notes": "Published January 2025. Policy direction, not binding legislation. Based on Matt Clifford's independent review. Covers AI infrastructure (compute, data), skills and talent, government adoption of AI, and regulatory approach. Emphasizes pro-innovation regulatory framework rather than comprehensive AI legislation.",
+        "urls": [
+          {"type": "website", "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

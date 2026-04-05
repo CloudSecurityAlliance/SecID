@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "congress.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "United States Congress",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "United States Congress legislation. Congress.gov provides official text and status of federal legislation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.congress.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^chips-act$"],
+      "description": "CHIPS and Science Act of 2022",
+      "weight": 100,
+      "data": {
+        "official_name": "CHIPS and Science Act of 2022",
+        "common_name": "CHIPS Act",
+        "alternate_names": ["Public Law 117-167", "H.R. 4346"],
+        "description": "Invests in domestic semiconductor manufacturing and research. Includes cybersecurity provisions for supply chain security.",
+        "notes": "Public Law 117-167. Signed August 9, 2022. Provides $52.7 billion for semiconductor manufacturing incentives and research. Includes guardrails preventing recipients from expanding semiconductor manufacturing in countries of concern. Title III addresses science and innovation including cybersecurity research.",
+        "urls": [
+          {"type": "website", "url": "https://www.congress.gov/bill/117th-congress/house-bill/4346"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

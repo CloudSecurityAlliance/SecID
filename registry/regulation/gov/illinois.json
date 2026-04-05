@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "illinois.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Illinois State",
+  "common_name": "Illinois",
+  "alternate_names": null,
+  "notes": "Illinois state biometric privacy and AI laws. Illinois BIPA is the strongest biometric privacy law in the US with a private right of action.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.ilga.gov"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^bipa$"],
+      "description": "Biometric Information Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Biometric Information Privacy Act",
+        "common_name": "BIPA",
+        "alternate_names": ["740 ILCS 14"],
+        "description": "Illinois law regulating the collection, use, storage, and destruction of biometric identifiers and information.",
+        "notes": "Effective 2008. The most significant US biometric privacy law due to its private right of action. Requires informed written consent before collection of biometric identifiers (fingerprints, retina/iris scans, voiceprints, hand/face geometry). Mandates retention schedule and destruction guidelines. Prohibits sale or profit from biometric data. Private right of action with statutory damages: $1,000 per negligent violation, $5,000 per intentional/reckless violation. Has generated extensive litigation, particularly against tech companies and employers using biometric time clocks.",
+        "urls": [
+          {"type": "website", "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3004"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

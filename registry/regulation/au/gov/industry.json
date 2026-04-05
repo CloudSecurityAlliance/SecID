@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "industry.gov.au",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Australian Government Department of Industry",
+  "common_name": null,
+  "alternate_names": ["Department of Industry, Science and Resources"],
+  "notes": "Australian federal government department responsible for industry policy, science, and technology. Publishes national AI strategy and action plans.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.industry.gov.au"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-action-plan$"],
+      "description": "Australia's Artificial Intelligence Action Plan",
+      "weight": 100,
+      "data": {
+        "official_name": "Australia's Artificial Intelligence Action Plan",
+        "common_name": "AI Action Plan",
+        "alternate_names": null,
+        "description": "Australian government strategy for AI adoption and governance.",
+        "notes": "Government policy direction for AI adoption, not binding legislation. Outlines investment in AI capabilities, support for responsible AI practices, and plans for international AI governance engagement. Complements Australia's broader National AI Centre and AI Ethics Framework.",
+        "urls": [
+          {"type": "website", "url": "https://www.industry.gov.au/publications/australias-artificial-intelligence-action-plan"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

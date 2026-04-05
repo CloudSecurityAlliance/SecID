@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "parl.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Parliament of Canada",
+  "common_name": null,
+  "alternate_names": ["Parlement du Canada"],
+  "notes": "Parliament of Canada legislation. LEGISinfo provides status and text of federal bills.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.parl.ca"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^aida$"],
+      "description": "Artificial Intelligence and Data Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Artificial Intelligence and Data Act",
+        "common_name": "AIDA",
+        "alternate_names": ["Part 3 of Bill C-27"],
+        "description": "Proposed Canadian federal AI regulation. Part of Bill C-27 (Digital Charter Implementation Act, 2022).",
+        "notes": "Part of Bill C-27 (Digital Charter Implementation Act). Proposes regulation of AI systems in Canada. Includes high-impact AI system requirements: risk assessments, mitigation measures, transparency, record-keeping. Establishes the AI and Data Commissioner. Bill C-27 died on the order paper when Parliament was dissolved in January 2025. May be reintroduced in a future session.",
+        "urls": [
+          {"type": "website", "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-27"},
+          {"type": "source", "url": "https://www.parl.ca/Content/Bills/441/Government/C-27/C-27_1/C-27_E.xml"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

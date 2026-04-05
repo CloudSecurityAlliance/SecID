@@ -8,7 +8,7 @@
   "official_name": "California State",
   "common_name": "California",
   "alternate_names": null,
-  "notes": "California state privacy and security laws. California often sets the US privacy standard. California Privacy Protection Agency (CPPA) enforces.",
+  "notes": "California state privacy, security, and AI laws. California often sets the US regulatory standard. California Privacy Protection Agency (CPPA) enforces privacy laws.",
   "wikidata": null,
   "wikipedia": null,
 
@@ -108,6 +108,23 @@
           }
         }
       ]
+    },
+
+    {
+      "patterns": ["(?i)^sb-53$"],
+      "description": "California SB-53 (Frontier AI Transparency Act)",
+      "weight": 100,
+      "data": {
+        "official_name": "Frontier Artificial Intelligence Models Act",
+        "common_name": "SB-53",
+        "alternate_names": ["Senate Bill 53", "Frontier AI Transparency Act"],
+        "description": "California legislation requiring transparency and safety measures for frontier AI models.",
+        "notes": "Introduced in the 2025 legislative session. Requires developers of frontier AI models to implement safety protocols, publish transparency reports, and maintain shutdown capabilities. Applies to models exceeding specified compute thresholds. Successor to the vetoed SB-1047.",
+        "urls": [
+          {"type": "website", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
