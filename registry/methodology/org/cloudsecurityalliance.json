@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cloudsecurityalliance.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Cloud Security Alliance",
+  "urls": [
+    {"type": "website", "url": "https://cloudsecurityalliance.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ccm-mapping-methodology$"],
+      "description": "CSA CCM Mapping Methodology: process for mapping the Cloud Controls Matrix to other security frameworks and standards. Defines how CCM controls relate to controls in frameworks like NIST 800-53, ISO 27001, and others.",
+      "weight": 100,
+      "data": {
+        "url": "https://cloudsecurityalliance.org/blog/2023/11/22/optimizing-your-security-posture-harnessing-the-cloud-controls-matrix-ccm-for-comprehensive-framework-mapping",
+        "examples": ["ccm-mapping-methodology"]
+      }
+    },
+    {
+      "patterns": ["(?i)^incident-to-control$"],
+      "description": "CSA Incident-to-Control Mapping Methodology: process for analyzing security incidents to identify which controls would have prevented or detected them. Draft methodology — namespace claimed for future development.",
+      "weight": 100,
+      "status_notes": "Draft — methodology under development",
+      "data": {
+        "examples": ["incident-to-control"]
+      }
+    },
+    {
+      "patterns": ["(?i)^control-to-capability$"],
+      "description": "CSA Control-to-Capability Mapping Methodology: process for mapping abstract control requirements to concrete product security capabilities. Bridges the gap between 'what must be done' (controls) and 'what can be done' (capabilities). Draft methodology — namespace claimed for future development.",
+      "weight": 100,
+      "status_notes": "Draft — methodology under development",
+      "data": {
+        "examples": ["control-to-capability"]
+      }
+    }
+  ]
+}
