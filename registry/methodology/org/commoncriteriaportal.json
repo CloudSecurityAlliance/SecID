@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "commoncriteriaportal.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Common Criteria Recognition Arrangement",
+  "urls": [
+    {"type": "website", "url": "https://www.commoncriteriaportal.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cem$"],
+      "description": "Common Evaluation Methodology (CEM): methodology for evaluating IT products against the Common Criteria (ISO/IEC 15408). Defines evaluation activities, verdicts, and reporting requirements for each assurance level. Published as ISO/IEC 18045.",
+      "weight": 100,
+      "data": {
+        "url": "https://www.commoncriteriaportal.org/cc/",
+        "examples": ["cem"]
+      }
+    }
+  ]
+}
