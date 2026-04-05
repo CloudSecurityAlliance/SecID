@@ -40,7 +40,7 @@ secid:advisory/github.com/advisories/ghsa#GHSA-1234-5678-abcd
 | Step | Component | How to Parse |
 |------|-----------|--------------|
 | 1 | scheme | Literal `secid:` |
-| 2 | type | Match against 7 known values |
+| 2 | type | Match against 10 known values |
 | 3 | namespace | **Shortest-to-longest matching** against registry. Namespaces can contain `/` (e.g., `github.com/advisories`). See [SPEC.md](../../SPEC.md) Section 4.3. |
 | 4 | name | Match remaining path against name-level pattern nodes in `match_nodes` |
 | 5 | version | If `@` present after name, match against version-level children |
@@ -375,7 +375,7 @@ See [TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md) for full rationale, 
 |-------|------|-------------|
 | `schema_version` | string | JSON schema version for this file |
 | `namespace` | string | Organization identifier — domain name (used in SecIDs). See namespace validation below. |
-| `type` | string | SecID type: advisory, weakness, ttp, control, capability, disclosure, regulation, entity, reference |
+| `type` | string | SecID type: advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, entity, reference |
 | `status` | string | Registry entry status (see below) |
 | `status_notes` | string \| null | Optional context about status (blockers, gaps, guidance for contributors) |
 | `notes` | string \| null | Free-form context for AI and human readers (see Notes Fields below) |

@@ -33,6 +33,7 @@ Each type has:
 | `control` | Security requirements and specifications | Prescriptive benchmarks, documentation standards |
 | `capability` | Product security features with configuration, audit, remediation | Cloud provider security settings (AWS, Azure, GCP) |
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels | |
+| `methodology` | Scoring systems, risk assessment, mapping frameworks | CVSS, SSVC, IR 8477 |
 | `regulation` | Laws and binding legal requirements | |
 | `entity` | Organizations, products, services, platforms | |
 | `reference` | Documents, publications, research | |

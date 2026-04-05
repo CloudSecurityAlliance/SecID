@@ -115,7 +115,7 @@ secid:advisory/totallyinvented.com/whatever
 
 secid:frobnicate/mitre.org/cve#CVE-2024-1234
 → Status: not_found
-→ Detail: "'frobnicate' is not a valid type. Valid types: advisory, weakness, ttp, control, disclosure, regulation, entity, reference."
+→ Detail: "'frobnicate' is not a valid type. Valid types: advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, entity, reference."
 ```
 
 Even "not found" should be helpful — tell them what went wrong and what the valid options are.

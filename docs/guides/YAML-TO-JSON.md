@@ -12,7 +12,7 @@ Not every registry file needs a JSON counterpart yet. Create one when:
 - You need to validate the JSON schema against real data
 - The namespace is a pilot for the v1.0 format
 
-All 121 namespaces have been converted to JSON (100% coverage):
+All namespaces have been converted to JSON (100% coverage):
 
 | Type | Count |
 |------|-------|
@@ -29,7 +29,7 @@ All 121 namespaces have been converted to JSON (100% coverage):
 ```
 draft .md → active .md → create .json mirror → validate → .json becomes authoritative (v1.0+)
                                   ▲
-                          we are here (v0.9)
+                          we are here (v1.0)
 ```
 
 During transition, the `.md` file remains authoritative. The `.json` is a derived mirror. The flip to ".json becomes authoritative" has not happened yet — that is a v1.0+ milestone.

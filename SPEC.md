@@ -1,7 +1,7 @@
 # SecID Specification
 
-Version: 0.9
-Status: Public Draft - Open for Comment
+Version: 1.0
+Status: 1.0 Release
 
 > **This is a draft specification.** We welcome feedback, questions, and suggestions. Please open an issue at [github.com/CloudSecurityAlliance/SecID/issues](https://github.com/CloudSecurityAlliance/SecID/issues) or submit a pull request.
 

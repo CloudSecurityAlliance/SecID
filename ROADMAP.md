@@ -1,6 +1,6 @@
 # SecID Implementation Roadmap
 
-**Current Version: 0.9 (Public Draft)**
+**Current Version: 1.0**
 
 This document describes what we're building, in what order, and why.
 
@@ -381,21 +381,21 @@ This learning feeds back into spec refinement and overlay priorities.
 
 ## Concrete Deliverables
 
-### Version 0.9: Public Draft (Current)
+### Version 0.9: Public Draft (Complete)
 
 | Deliverable | Status | Notes |
 |-------------|--------|-------|
 | Specification (SPEC.md) | Complete | Open for public comment |
-| Registry structure | Complete | 121 namespace definitions (YAML + JSON) |
-| Type documentation | Complete | All 8 types documented |
+| Registry structure | Complete | 700+ namespace definitions (YAML + JSON) |
+| Type documentation | Complete | All 10 types documented |
 | Design documentation | Complete | RATIONALE, DESIGN-DECISIONS, STRATEGY |
 | Namespace documentation | Complete | _index.md files for advisory namespaces |
 
-### Version 1.0: URL Resolution
+### Version 1.0: URL Resolution (Current)
 
 | Deliverable | Status | Success Criteria |
 |-------------|--------|------------------|
-| Registry data (500+ namespaces) | In progress (121 done) | Every namespace has URL resolution rules + description |
+| Registry data (500+ namespaces) | Done (700+ namespaces) | Every namespace has URL resolution rules + description |
 | REST API + MCP server | **Live** | [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) — MCP server shipped first, REST API followed |
 | Compliance test suite | Not started | Canonical test cases built during API development; doubles as conformance spec for third-party implementations |
 | Python library (`secid`) | Not started | `pip install secid` enables parsing and resolution |

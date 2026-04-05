@@ -41,7 +41,7 @@ MITRE · NIST · OWASP · Red Hat · ISO · GitHub · ...
 ↓
 
 **SecID Registry**
-`advisory` · `weakness` · `ttp` · `control` · `regulation` · `entity` · `reference`
+`advisory` · `weakness` · `ttp` · `control` · `capability` · `methodology` · `disclosure` · `regulation` · `entity` · `reference`
 *namespace (DNS) + patterns + URLs*
 
 ↓
