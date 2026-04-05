@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
-TYPES="advisory weakness ttp control capability disclosure regulation entity reference"
+TYPES="advisory weakness ttp control capability methodology disclosure regulation entity reference"
 
 # Count JSON files per type, build table
 total=0
@@ -59,5 +59,5 @@ for file in CLAUDE.md README.md; do
 
   rm -f "$tmpdata"
   mv "${file}.tmp" "$file"
-  echo "Updated $file: $total namespaces across 8 types"
+  echo "Updated $file: $total namespaces across 10 types"
 done
