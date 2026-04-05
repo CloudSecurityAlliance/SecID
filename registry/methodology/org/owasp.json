@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "owasp.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Open Worldwide Application Security Project",
+  "urls": [
+    {"type": "website", "url": "https://owasp.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^testing-guide$"],
+      "description": "OWASP Testing Guide: comprehensive web application security testing methodology. Defines a framework for testing web applications across 11 categories (information gathering, configuration management, identity management, authentication, authorization, session management, input validation, error handling, cryptography, business logic, client-side).",
+      "weight": 100,
+      "data": {
+        "url": "https://owasp.org/www-project-web-security-testing-guide/",
+        "examples": ["testing-guide"]
+      }
+    }
+  ]
+}
