@@ -125,9 +125,9 @@ secid/
 
 ## Registry File Format
 
-**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all 124 namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
+**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
 
-One file per namespace containing all sources from that organization. Use `registry/advisory/_template.md`, `registry/disclosure/_template.md`, or `registry/reference/_template.md` as a starting point for new files.
+One file per namespace containing all sources from that organization. Use the appropriate template as a starting point for new files: `registry/advisory/_template.md`, `registry/capability/_template.md`, `registry/disclosure/_template.md`, or `registry/reference/_template.md`.
 
 ### Status Values
 
@@ -260,12 +260,12 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
-| Capability | 0 |
+| Capability | 1 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **637** |
+| **Total** | **638** |
 
 <!-- REGISTRY-COUNTS-END -->
 
@@ -298,6 +298,20 @@ See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Ty
 
 Some sources appear in multiple types. For example, a security tool might be both an `entity` (the product) and a `control` (its capabilities). A weakness taxonomy like OWASP AI Exchange defines both `weakness` entries and `control` entries. Each type gets its own registry file — see `registry/README.md` for the dual-documentation pattern.
 
+## Claude Code Skills
+
+The `skills/` directory contains workflow skills for common registry tasks. Use the appropriate skill for the task at hand:
+
+| Skill | Status | When to Use |
+|-------|--------|-------------|
+| `registry-research` | Stub | Researching a new source and creating a `.md` registry entry |
+| `registry-formalization` | Stub | Converting `.md` to production `.json` format |
+| `registry-validation` | **Active (v0.1)** | Validating `.json` and `.md` files for structural/safety/consistency errors |
+| `compliance-testing` | Stub | Testing a resolver implementation against the canonical test suite |
+| `secid-user` | Stub | End-user SecID lookups and referencing |
+
+**Typical new-namespace workflow:** research → formalize → validate. Only `registry-validation` is currently built; the others have documentation but no implementation yet.
+
 ## Development Commands
 
 ```bash
@@ -326,11 +340,23 @@ python3 -c "import json,glob; [print(f) for f in sorted(glob.glob('registry/**/*
 markdownlint **/*.md
 ```
 
+### Scripts
+
+```bash
+# Update namespace counts in CLAUDE.md and README.md (run after adding namespaces)
+./scripts/update-counts.sh
+
+# CNA disclosure pipeline (generates disclosure registry entries from CVE CNA partner data)
+./scripts/fetch-cna-pages.sh              # Download CNA partner HTML pages
+node scripts/fetch-cna-details.js         # Extract structured details (or use .py variant)
+python3 scripts/generate-cna-disclosure.py # Generate disclosure/*.json files
+```
+
 This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
 
 ## CI/CD
 
-A GitHub Actions workflow (`.github/workflows/update-registry.yml`) fires on pushes to `main` that touch `registry/**/*.json`. It sends a `repository-dispatch` event to `CloudSecurityAlliance/SecID-Service`, which triggers the service to re-upload the registry data. **This means JSON registry changes merged to main are automatically deployed to the live resolver.**
+**JSON registry changes merged to main are automatically deployed to the live resolver at secid.cloudsecurityalliance.org.** A GitHub Actions workflow (`.github/workflows/update-registry.yml`) fires on pushes to `main` that touch `registry/**/*.json`, sending a `repository-dispatch` event to `CloudSecurityAlliance/SecID-Service` which re-uploads the registry data. Broken patterns or invalid JSON will break live resolution — validate before merging.
 
 ## Commit and PR Style
 
