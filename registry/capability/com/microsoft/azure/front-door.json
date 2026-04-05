@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/front-door",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure Front Door documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure Front Door",
+  "common_name": "Front Door",
+  "alternate_names": ["Azure Front Door Standard", "Azure Front Door Premium"],
+  "notes": "Global load balancer, CDN, and WAF. Security includes DDoS protection, WAF policies, private link to origins, custom domains with managed TLS.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/frontdoor"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/frontdoor/", "note": "Front Door documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-security-headers", "note": "Security headers"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/frontdoor/", "note": "Front Door REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^waf-policies$", "(?i)^waf$"],
+      "description": "Web Application Firewall with managed and custom rules",
+      "weight": 100,
+      "data": {
+        "description": "Web Application Firewall integrated with Front Door. Supports DRS (Default Rule Set) managed rules based on OWASP CRS, custom rules for specific patterns, bot protection, and rate limiting. Two modes: Detection (log only) and Prevention (block).",
+        "options": [
+          {"setting": "Managed rules", "description": "DRS (Default Rule Set) based on OWASP Core Rule Set. Covers SQLi, XSS, LFI, RFI, command injection, protocol violations."},
+          {"setting": "Custom rules", "description": "User-defined rules matching on IP, geo, request size, headers, body, cookies. Priority-based evaluation."},
+          {"setting": "Bot protection", "description": "Bot Manager rule set identifies good bots, bad bots, and unknown bots."},
+          {"setting": "Rate limiting", "description": "Rate limit custom rules to throttle by IP, geo, or other attributes."},
+          {"setting": "Mode", "values": ["Detection", "Prevention"], "description": "Detection logs matches; Prevention blocks matches."}
+        ],
+        "vendor_recommendation": "Start in Detection mode, review logs, tune rules to reduce false positives, then switch to Prevention mode. Use DRS 2.1 for the latest rule coverage. Enable bot protection for public-facing applications.",
+        "audit": {
+          "cli": "az network front-door waf-policy list --resource-group {rg}",
+          "cli_detail": "az network front-door waf-policy show --name {policy} --resource-group {rg}",
+          "console": "Azure Portal → Front Door → WAF policies"
+        },
+        "configure": {
+          "cli": "az network front-door waf-policy create --name {policy} --resource-group {rg} --mode Prevention",
+          "cli_managed_rule": "az network front-door waf-policy managed-rules add --policy-name {policy} --resource-group {rg} --type DefaultRuleSet --version 2.1",
+          "terraform": "azurerm_cdn_frontdoor_firewall_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/web-application-firewall"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ddos-protection$"],
+      "description": "Built-in DDoS protection at edge",
+      "weight": 100,
+      "data": {
+        "description": "Azure Front Door provides built-in DDoS protection at the edge. All Front Door profiles include infrastructure-level DDoS protection (Azure DDoS Infrastructure Protection) at no additional cost. Absorbs volumetric attacks at the edge before they reach origins.",
+        "default": {"value": "Always on", "note": "DDoS infrastructure protection is automatically enabled for all Front Door profiles. No configuration required."},
+        "vendor_recommendation": "Front Door's built-in DDoS protection handles volumetric attacks. For additional protection (adaptive tuning, attack analytics, cost protection), enable Azure DDoS Network Protection on the VNet containing your origins.",
+        "audit": {
+          "note": "DDoS infrastructure protection is always enabled and requires no configuration. Check Azure DDoS Network Protection status on origin VNets for enhanced protection.",
+          "cli": "az network ddos-protection list"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-ddos"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-link-origins$", "(?i)^private-link$"],
+      "description": "Connect to backend origins via Private Link",
+      "weight": 100,
+      "data": {
+        "description": "Connect Front Door Premium to backend origins via Azure Private Link. Origins do not need public IP addresses. Traffic from Front Door to the origin travels over the Microsoft backbone network. Supports App Service, Storage, Application Gateway, and any Private Link service.",
+        "options": [
+          {"origin_type": "App Service", "description": "Connect to web apps without public access"},
+          {"origin_type": "Azure Storage", "description": "Connect to storage accounts without public endpoints"},
+          {"origin_type": "Application Gateway", "description": "Connect to internal Application Gateway"},
+          {"origin_type": "Custom Private Link service", "description": "Connect to any internal service behind a Private Link service"}
+        ],
+        "vendor_recommendation": "Use Private Link origins to eliminate public exposure of backend services. Disable public access on origins after configuring Private Link. Requires Front Door Premium tier.",
+        "audit": {
+          "cli": "az afd origin show --resource-group {rg} --profile-name {profile} --origin-group-name {group} --origin-name {origin} --query 'sharedPrivateLinkResource'",
+          "note": "Non-null sharedPrivateLinkResource indicates Private Link is configured.",
+          "console": "Azure Portal → Front Door → Origin groups → {Origin} → Private link"
+        },
+        "configure": {
+          "cli": "az afd origin create --resource-group {rg} --profile-name {profile} --origin-group-name {group} --origin-name {name} --host-name {origin-host} --origin-host-header {origin-host} --shared-private-link-resource private-link-location={region} groupId={group-id} privateLinkId={resource-id}",
+          "terraform": "azurerm_cdn_frontdoor_origin (private_link block)",
+          "note": "Private Link connection must be approved on the origin resource after creation."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/private-link"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^managed-tls$", "(?i)^managed-certificates$"],
+      "description": "Automatic HTTPS with managed certificates",
+      "weight": 80,
+      "data": {
+        "description": "Front Door provides automatic HTTPS for custom domains with managed certificates. Front Door managed certificates are free, auto-provisioned, and auto-renewed. Custom certificates from Azure Key Vault are also supported for organizations requiring specific CA or extended validation.",
+        "options": [
+          {"type": "Front Door managed", "description": "Free, auto-provisioned, auto-renewed by DigiCert. Domain validation via CNAME."},
+          {"type": "Custom certificate (Key Vault)", "description": "Bring your own certificate stored in Azure Key Vault. Supports specific CA requirements and EV certificates."}
+        ],
+        "default": {"value": "Managed certificate", "note": "Front Door managed certificates are the default for custom domains."},
+        "vendor_recommendation": "Use Front Door managed certificates for simplicity and automatic renewal. Use Key Vault certificates only when specific CA, EV, or wildcard requirements exist. Ensure Key Vault access policies allow Front Door to read certificates.",
+        "audit": {
+          "cli": "az afd custom-domain show --resource-group {rg} --profile-name {profile} --custom-domain-name {domain} --query 'tlsSettings'",
+          "console": "Azure Portal → Front Door → Custom domains → {Domain} → Certificate type"
+        },
+        "configure": {
+          "cli_managed": "az afd custom-domain create --resource-group {rg} --profile-name {profile} --custom-domain-name {name} --host-name {fqdn} --certificate-type ManagedCertificate",
+          "cli_custom": "az afd custom-domain create --resource-group {rg} --profile-name {profile} --custom-domain-name {name} --host-name {fqdn} --certificate-type CustomerCertificate --secret {secret-name}",
+          "terraform": "azurerm_cdn_frontdoor_custom_domain (tls block)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^minimum-tls$", "(?i)^tls-settings$"],
+      "description": "Minimum TLS version for client connections",
+      "weight": 80,
+      "data": {
+        "description": "Configure the minimum TLS protocol version that Front Door accepts for client connections. Supports TLS 1.0, 1.2, and 1.3. TLS 1.2 is recommended as the minimum for security compliance.",
+        "options": [
+          {"version": "1.0", "description": "Legacy. Only for backward compatibility with very old clients."},
+          {"version": "1.2", "description": "Recommended minimum. Required by most compliance frameworks (PCI DSS, HIPAA)."},
+          {"version": "1.3", "description": "Latest version. Best security and performance."}
+        ],
+        "default": {"value": "1.2", "note": "TLS 1.2 is the default minimum version for new Front Door profiles."},
+        "vendor_recommendation": "Set minimum TLS version to 1.2 or higher. TLS 1.0 and 1.1 are considered insecure. Monitor access logs for clients using older TLS versions before removing support.",
+        "audit": {
+          "cli": "az afd custom-domain show --resource-group {rg} --profile-name {profile} --custom-domain-name {domain} --query 'tlsSettings.minimumTlsVersion'",
+          "console": "Azure Portal → Front Door → Custom domains → {Domain} → Minimum TLS version"
+        },
+        "configure": {
+          "cli": "az afd custom-domain update --resource-group {rg} --profile-name {profile} --custom-domain-name {domain} --minimum-tls-version TLS12",
+          "terraform": "azurerm_cdn_frontdoor_custom_domain (tls.minimum_tls_version)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/end-to-end-tls"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^access-restriction$", "(?i)^geo-filtering$", "(?i)^ip-filtering$"],
+      "description": "IP-based and geo-based filtering via WAF custom rules",
+      "weight": 80,
+      "data": {
+        "description": "Restrict access based on client IP address or geographic location using WAF custom rules. IP-based rules match against specific addresses or CIDR ranges. Geo-based rules match against country/region codes. Can be combined with other match conditions.",
+        "options": [
+          {"type": "IP filtering", "description": "Match on RemoteAddr (client IP) or SocketAddr (TCP connection IP). Allow or block specific IPs or ranges."},
+          {"type": "Geo filtering", "description": "Match on GeoLocation country code. Block or allow traffic from specific countries."},
+          {"setting": "Action", "values": ["Allow", "Block", "Log", "Redirect"], "description": "Action to take on matched requests"}
+        ],
+        "vendor_recommendation": "Use geo-filtering for compliance with data sovereignty requirements. Use IP filtering to restrict access to known corporate or partner IP ranges. Combine both for defense in depth.",
+        "audit": {
+          "cli": "az network front-door waf-policy show --name {policy} --resource-group {rg} --query 'customRules'",
+          "note": "Check custom rules for MatchConditions with MatchVariable RemoteAddr or GeoLocation.",
+          "console": "Azure Portal → Front Door → WAF policies → {Policy} → Custom rules"
+        },
+        "configure": {
+          "cli_geo": "az network front-door waf-policy rule create --policy-name {policy} --resource-group {rg} --name BlockCountry --priority 100 --action Block --rule-type MatchRule --match-variable RemoteAddr --operator GeoMatch --values CN RU",
+          "cli_ip": "az network front-door waf-policy rule create --policy-name {policy} --resource-group {rg} --name AllowCorporate --priority 50 --action Allow --rule-type MatchRule --match-variable RemoteAddr --operator IPMatch --values 203.0.113.0/24",
+          "terraform": "azurerm_cdn_frontdoor_firewall_policy (custom_rule block)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-geo-filtering"
+      }
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/api-management",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure API Management documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure API Management",
+  "common_name": "APIM",
+  "alternate_names": null,
+  "notes": "Full-lifecycle API management. Security includes OAuth 2.0, client certificates, subscription keys, IP filtering, rate limiting.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/api-management"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/api-management/", "note": "API Management documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad", "note": "Protect API backend with Entra ID"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/apimanagement/", "note": "API Management REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^oauth2-validation$", "(?i)^jwt-validation$"],
+      "description": "Validate JWT tokens from OAuth 2.0 providers",
+      "weight": 100,
+      "data": {
+        "description": "Validate JWT tokens from Microsoft Entra ID or other OAuth 2.0 providers using the validate-jwt inbound policy. Validates token signature, expiration, issuer, audience, and optionally required claims. Can extract claims into variables for downstream use.",
+        "options": [
+          {"setting": "validate-jwt policy", "description": "Inbound policy that validates JWT tokens in request headers"},
+          {"setting": "openid-config", "description": "URL to OpenID Connect discovery document for automatic key retrieval"},
+          {"setting": "required-claims", "description": "Claims that must be present in the token (e.g., roles, scope)"},
+          {"setting": "output-token-variable-name", "description": "Variable name to store parsed token for downstream policies"}
+        ],
+        "vendor_recommendation": "Use validate-jwt as the primary authentication mechanism for APIs backed by Entra ID. Always validate issuer and audience claims. Use required-claims to enforce role-based access.",
+        "audit": {
+          "cli": "az apim api operation policy show --resource-group {rg} --service-name {apim} --api-id {api} --operation-id {op}",
+          "note": "Check for <validate-jwt> element in inbound policy section.",
+          "console": "Azure Portal → API Management → APIs → {API} → Inbound processing"
+        },
+        "configure": {
+          "policy_xml": "<validate-jwt header-name=\"Authorization\" failed-validation-httpcode=\"401\" failed-validation-error-message=\"Unauthorized\"><openid-config url=\"https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration\" /><required-claims><claim name=\"aud\"><value>{client-id}</value></claim></required-claims></validate-jwt>",
+          "note": "Configure in inbound policy section of API or operation policy.",
+          "terraform": "azurerm_api_management_api_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^client-certificates$", "(?i)^mutual-tls$"],
+      "description": "Mutual TLS authentication with client certificates",
+      "weight": 100,
+      "data": {
+        "description": "Require and validate client certificates for API access. Certificates can be validated in inbound policy by checking thumbprint, subject, issuer, or expiration. Supports certificate uploaded to APIM or certificates in Azure Key Vault.",
+        "options": [
+          {"setting": "Client certificate negotiation", "description": "Must be enabled on the APIM gateway for the gateway to request client certificates"},
+          {"setting": "Policy validation", "values": ["Thumbprint check", "Subject check", "Issuer check", "Expiration check"], "description": "Validate certificate attributes in inbound policy"}
+        ],
+        "vendor_recommendation": "Use client certificates for B2B API integrations requiring strong mutual authentication. Store certificates in Key Vault for centralized management and rotation.",
+        "audit": {
+          "cli": "az apim show --name {apim} --resource-group {rg} --query 'hostnameConfigurations[].negotiateClientCertificate'",
+          "note": "Check that client certificate negotiation is enabled on the gateway hostname.",
+          "console": "Azure Portal → API Management → Custom domains → check Negotiate client certificate"
+        },
+        "configure": {
+          "policy_xml": "<choose><when condition=\"@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != &quot;{thumbprint}&quot;)\"><return-response><set-status code=\"403\" reason=\"Forbidden\" /></return-response></when></choose>",
+          "cli": "az apim update --name {apim} --resource-group {rg} --set hostnameConfigurations[0].negotiateClientCertificate=true",
+          "terraform": "azurerm_api_management (gateway_hostname_configuration with negotiate_client_certificate = true)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates-for-clients"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^subscription-keys$"],
+      "description": "API access keys required by default",
+      "weight": 80,
+      "data": {
+        "description": "API access keys that identify the calling application or subscription. Passed in the Ocp-Apim-Subscription-Key header or as a query parameter. Required by default for all APIs. Each subscription has a primary and secondary key for rotation.",
+        "options": [
+          {"setting": "Header name", "default": "Ocp-Apim-Subscription-Key", "description": "HTTP header containing the subscription key"},
+          {"setting": "Query parameter", "default": "subscription-key", "description": "Alternative to header-based key passing"},
+          {"setting": "Scope", "values": ["All APIs", "Single API", "Product"], "description": "Subscription scope determines which APIs the key can access"}
+        ],
+        "default": {"value": "Required", "note": "Subscription keys are required by default on all APIs. Can be disabled per API."},
+        "vendor_recommendation": "Keep subscription keys enabled for all APIs. Use them for consumer identification and rate limiting. Combine with OAuth 2.0 or client certificates for authentication — subscription keys alone are not sufficient for security.",
+        "audit": {
+          "cli": "az apim api show --resource-group {rg} --service-name {apim} --api-id {api} --query 'subscriptionRequired'",
+          "console": "Azure Portal → API Management → APIs → {API} → Settings → Subscription required"
+        },
+        "configure": {
+          "cli": "az apim api update --resource-group {rg} --service-name {apim} --api-id {api} --subscription-required true",
+          "terraform": "azurerm_api_management_api (subscription_required = true)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/api-management-subscriptions"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ip-filtering$"],
+      "description": "Restrict caller IPs via inbound policy",
+      "weight": 80,
+      "data": {
+        "description": "Use the ip-filter inbound policy to allow or deny requests from specific IP addresses or CIDR ranges. Applied at global, product, API, or operation scope. Evaluated before other policies.",
+        "options": [
+          {"setting": "Action", "values": ["allow", "forbid"], "description": "Allow only listed IPs or deny listed IPs"},
+          {"setting": "Address range", "description": "Individual IPs or CIDR ranges"}
+        ],
+        "vendor_recommendation": "Use IP filtering to restrict management API access to known corporate IPs. For consumer APIs, prefer authentication-based access control over IP filtering alone.",
+        "audit": {
+          "cli": "az apim api policy show --resource-group {rg} --service-name {apim} --api-id {api}",
+          "note": "Check for <ip-filter> element in inbound policy section.",
+          "console": "Azure Portal → API Management → APIs → {API} → Inbound processing"
+        },
+        "configure": {
+          "policy_xml": "<ip-filter action=\"allow\"><address-range from=\"10.0.0.0\" to=\"10.0.0.255\" /></ip-filter>",
+          "terraform": "azurerm_api_management_api_policy (ip-filter in policy XML)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/ip-filter-policy"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^rate-limiting$", "(?i)^throttling$"],
+      "description": "Throttle calls per subscription or per key",
+      "weight": 80,
+      "data": {
+        "description": "Limit the rate and quota of API calls. Two policy types: rate-limit (fixed window per subscription) and rate-limit-by-key (flexible grouping by expression). Prevents API abuse and ensures fair usage across consumers.",
+        "options": [
+          {"setting": "rate-limit", "description": "Fixed rate limit per subscription. Counts calls per subscription key."},
+          {"setting": "rate-limit-by-key", "description": "Flexible rate limit by expression (IP, header, claim, etc.). Uses sliding window."},
+          {"setting": "quota", "description": "Total call volume limit per subscription over a period (day, week, month)"},
+          {"setting": "quota-by-key", "description": "Flexible quota by expression"}
+        ],
+        "vendor_recommendation": "Use rate-limit for per-subscription throttling. Use rate-limit-by-key when you need to throttle by IP address or other request attributes independent of subscription. Start with generous limits and tighten based on observed traffic patterns.",
+        "audit": {
+          "cli": "az apim api policy show --resource-group {rg} --service-name {apim} --api-id {api}",
+          "note": "Check for <rate-limit>, <rate-limit-by-key>, <quota>, <quota-by-key> elements in inbound policy.",
+          "console": "Azure Portal → API Management → APIs → {API} → Inbound processing"
+        },
+        "configure": {
+          "policy_xml_rate_limit": "<rate-limit calls=\"100\" renewal-period=\"60\" />",
+          "policy_xml_by_key": "<rate-limit-by-key calls=\"100\" renewal-period=\"60\" counter-key=\"@(context.Request.IpAddress)\" />",
+          "terraform": "azurerm_api_management_api_policy (rate-limit in policy XML)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-policy"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vnet-integration$"],
+      "description": "Deploy APIM inside a virtual network",
+      "weight": 100,
+      "data": {
+        "description": "Deploy API Management inside an Azure Virtual Network for network isolation. Two modes: External (gateway is public, management plane accessible via internet) and Internal (all endpoints are private, accessible only from within the VNet).",
+        "options": [
+          {"type": "External", "description": "API gateway is accessible from the internet. Management plane is accessible from internet. Backend services accessible via VNet."},
+          {"type": "Internal", "description": "All APIM endpoints (gateway, developer portal, management) are private. Only accessible from within the VNet or peered networks. Requires DNS configuration."}
+        ],
+        "vendor_recommendation": "Use Internal mode for maximum security. Use External mode when you need public API access but want backend services isolated in a VNet. Ensure NSG rules allow required APIM management traffic.",
+        "audit": {
+          "cli": "az apim show --name {apim} --resource-group {rg} --query 'virtualNetworkType'",
+          "note": "Value is 'None', 'External', or 'Internal'.",
+          "console": "Azure Portal → API Management → Network → Virtual network"
+        },
+        "configure": {
+          "cli": "az apim update --name {apim} --resource-group {rg} --virtual-network-type Internal",
+          "terraform": "azurerm_api_management (virtual_network_type, virtual_network_configuration)",
+          "note": "Requires Premium or Developer tier. Standard tier does not support VNet integration."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/virtual-network-concepts"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^backend-authentication$"],
+      "description": "Authenticate to backend services",
+      "weight": 80,
+      "data": {
+        "description": "Configure how APIM authenticates when forwarding requests to backend services. Supports client certificates, managed identity, and basic authentication. Prevents unauthorized access to backend APIs.",
+        "options": [
+          {"type": "Client certificate", "description": "Present a client certificate to the backend. Certificate stored in APIM or Key Vault."},
+          {"type": "Managed identity", "description": "Use APIM's system-assigned or user-assigned managed identity to authenticate to backend (via authentication-managed-identity policy)."},
+          {"type": "Basic auth", "description": "Send username/password via authentication-basic policy. Credentials stored in named values."},
+          {"type": "Header/query forwarding", "description": "Forward authentication tokens from the client to the backend via set-header or set-query-parameter policies."}
+        ],
+        "vendor_recommendation": "Use managed identity for Azure-hosted backends (eliminates credential management). Use client certificates for non-Azure backends requiring mutual TLS. Never hardcode credentials in policy — use named values backed by Key Vault.",
+        "audit": {
+          "cli": "az apim api policy show --resource-group {rg} --service-name {apim} --api-id {api}",
+          "note": "Check for <authentication-certificate>, <authentication-managed-identity>, or <authentication-basic> elements in outbound or backend policy.",
+          "console": "Azure Portal → API Management → APIs → {API} → Backend"
+        },
+        "configure": {
+          "policy_xml_managed_identity": "<authentication-managed-identity resource=\"https://{backend-app-id}\" />",
+          "policy_xml_certificate": "<authentication-certificate thumbprint=\"{thumbprint}\" />",
+          "terraform": "azurerm_api_management_api_policy (authentication elements in policy XML)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/api-management/authentication-managed-identity-policy"
+      }
+    }
+  ]
+}

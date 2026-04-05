@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/cloudfront",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS CloudFront documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
+
+  "official_name": "Amazon CloudFront",
+  "common_name": "CloudFront",
+  "alternate_names": null,
+  "notes": "CDN and edge service. Security includes HTTPS, OAC, WAF integration, signed URLs, field-level encryption, geo-restriction.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/cloudfront/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/", "note": "CloudFront Developer Guide"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/security.html", "note": "CloudFront Security"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/", "note": "CloudFront API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^https-enforcement$", "(?i)^viewer-protocol-policy$"],
+      "description": "Viewer and origin protocol policies for HTTPS",
+      "weight": 100,
+      "data": {
+        "description": "Control whether viewers (clients) and origin connections use HTTPS. Viewer protocol policy determines how clients connect to CloudFront. Origin protocol policy determines how CloudFront connects to the origin.",
+        "options": [
+          {"setting": "Viewer Protocol Policy", "values": ["HTTP and HTTPS", "Redirect HTTP to HTTPS", "HTTPS Only"], "description": "How clients connect to CloudFront edge"},
+          {"setting": "Origin Protocol Policy", "values": ["HTTP Only", "HTTPS Only", "Match Viewer"], "description": "How CloudFront connects to the origin"}
+        ],
+        "default": {"value": "HTTP and HTTPS (viewer), HTTP Only (custom origin)", "note": "S3 origins use the S3 REST API endpoint which supports HTTPS."},
+        "vendor_recommendation": "Use 'Redirect HTTP to HTTPS' for viewer protocol policy to ensure all client connections are encrypted. Use 'HTTPS Only' for origin protocol policy when origin supports HTTPS.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.DefaultCacheBehavior.ViewerProtocolPolicy'",
+          "cli_origin": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.Origins.Items[].CustomOriginConfig.OriginProtocolPolicy'",
+          "api": "GetDistribution",
+          "console": "CloudFront → Distributions → {Distribution} → Behaviors"
+        },
+        "configure": {
+          "cli": "aws cloudfront update-distribution --id {id} --default-cache-behavior ViewerProtocolPolicy=redirect-to-https",
+          "terraform": "aws_cloudfront_distribution (default_cache_behavior.viewer_protocol_policy = \"redirect-to-https\")",
+          "cloudformation": "AWS::CloudFront::Distribution (DefaultCacheBehavior.ViewerProtocolPolicy)"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^origin-access-control$", "(?i)^oac$"],
+      "description": "OAC for S3 origins — replaces legacy OAI",
+      "weight": 100,
+      "data": {
+        "description": "Origin Access Control (OAC) ensures only CloudFront can access S3 bucket content. CloudFront signs requests to S3 using Sigv4. Replaces legacy Origin Access Identity (OAI). Supports S3, Lambda function URLs, MediaStore, and other AWS origins.",
+        "options": [
+          {"setting": "Signing protocol", "value": "sigv4", "description": "CloudFront signs requests using AWS Signature Version 4"},
+          {"setting": "Signing behavior", "values": ["always", "never", "no-override"], "description": "When CloudFront signs origin requests"},
+          {"setting": "Origin type", "values": ["S3", "Lambda function URL", "MediaStore", "MediaPackage v2"], "description": "Supported origin types for OAC"}
+        ],
+        "vendor_recommendation": "Use OAC, not OAI. OAC supports all S3 features (SSE-KMS, S3 Object Lambda) and additional origin types. OAI is legacy and has limitations. Update the S3 bucket policy to allow the CloudFront distribution principal.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.Origins.Items[].OriginAccessControlId'",
+          "cli_oac_detail": "aws cloudfront get-origin-access-control --id {oac-id}",
+          "api": "GetDistribution, GetOriginAccessControl",
+          "console": "CloudFront → Distributions → {Distribution} → Origins → {Origin} → Origin access"
+        },
+        "configure": {
+          "cli_create": "aws cloudfront create-origin-access-control --origin-access-control-config Name={name},SigningProtocol=sigv4,SigningBehavior=always,OriginAccessControlOriginType=s3",
+          "terraform": "aws_cloudfront_origin_access_control",
+          "cloudformation": "AWS::CloudFront::OriginAccessControl"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^waf-integration$"],
+      "description": "Attach AWS WAF web ACL to CloudFront distribution",
+      "weight": 80,
+      "data": {
+        "description": "Associate an AWS WAF web ACL with a CloudFront distribution to filter requests at edge locations worldwide. WAF rules are evaluated before CloudFront forwards requests to the origin. Protects against common web exploits, bot traffic, and allows IP-based filtering.",
+        "cross_reference": "secid:capability/amazon.com/aws/waf",
+        "vendor_recommendation": "Enable WAF on all public-facing CloudFront distributions. Use AWS managed rule groups (Core Rule Set, SQL injection, Known Bad Inputs) as a baseline. CloudFront WAF operates at edge locations for lowest latency filtering.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.WebACLId'",
+          "note": "Empty string means no WAF is associated.",
+          "api": "GetDistribution",
+          "console": "CloudFront → Distributions → {Distribution} → Security → AWS WAF"
+        },
+        "configure": {
+          "cli": "aws wafv2 associate-web-acl --web-acl-arn {webacl-arn} --resource-arn arn:aws:cloudfront::{account-id}:distribution/{dist-id}",
+          "note": "WAF web ACLs for CloudFront must be created in us-east-1.",
+          "terraform": "aws_cloudfront_distribution (web_acl_id)",
+          "cloudformation": "AWS::CloudFront::Distribution (DistributionConfig.WebACLId)"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^signed-urls-cookies$", "(?i)^signed-urls$", "(?i)^signed-cookies$"],
+      "description": "Time-limited access to private content",
+      "weight": 100,
+      "data": {
+        "description": "Restrict access to content by requiring viewers to use signed URLs or signed cookies. Signed URLs provide access to individual files. Signed cookies provide access to multiple files (e.g., all files in an HLS video stream). Uses RSA key pairs managed in CloudFront key groups.",
+        "options": [
+          {"type": "Signed URLs", "description": "Access to a single file. URL contains policy, expiration, and signature. Best for individual file downloads."},
+          {"type": "Signed Cookies", "description": "Access to multiple restricted files. Cookies contain policy, expiration, and signature. Best for streaming or multi-file access."},
+          {"setting": "Policy type", "values": ["Canned policy (single URL, expiration only)", "Custom policy (IP restriction, date range, wildcard path)"], "description": "Canned is simpler; custom allows more restrictions"}
+        ],
+        "vendor_recommendation": "Use signed URLs for individual file access. Use signed cookies for multi-file access (streaming, subscriber content). Use custom policies when you need IP-based restrictions. Rotate key pairs regularly using key groups.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.DefaultCacheBehavior.TrustedKeyGroups'",
+          "cli_legacy": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.DefaultCacheBehavior.TrustedSigners'",
+          "note": "TrustedKeyGroups (preferred) or TrustedSigners (legacy) being non-empty means the behavior requires signed URLs/cookies.",
+          "console": "CloudFront → Distributions → {Distribution} → Behaviors → Restrict viewer access"
+        },
+        "configure": {
+          "cli_key_group": "aws cloudfront create-key-group --key-group-config Name={name},Items={public-key-id}",
+          "terraform": "aws_cloudfront_key_group, aws_cloudfront_public_key",
+          "cloudformation": "AWS::CloudFront::KeyGroup"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^field-level-encryption$"],
+      "description": "Encrypt specific POST form fields at edge",
+      "weight": 80,
+      "data": {
+        "description": "Encrypt specific fields in POST requests at CloudFront edge locations using asymmetric encryption. Only the application with the private key can decrypt the data. Provides end-to-end encryption for sensitive form fields even if intermediate systems (origin, CDN cache) are compromised.",
+        "options": [
+          {"setting": "Field patterns", "description": "Specify which POST body fields to encrypt by field name"},
+          {"setting": "Public key", "description": "RSA public key used to encrypt fields at edge"},
+          {"setting": "Provider ID", "description": "Identifier included in encrypted value for key management"}
+        ],
+        "vendor_recommendation": "Use field-level encryption for sensitive data in POST forms (credit card numbers, SSNs) that must remain encrypted through the entire request path. Ensure only the application endpoint has the corresponding private key.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.DefaultCacheBehavior.FieldLevelEncryptionId'",
+          "cli_config": "aws cloudfront get-field-level-encryption-config --id {fle-id}",
+          "console": "CloudFront → Distributions → {Distribution} → Behaviors → Field-level encryption"
+        },
+        "configure": {
+          "cli_create": "aws cloudfront create-field-level-encryption-config --field-level-encryption-config file://fle-config.json",
+          "terraform": "aws_cloudfront_field_level_encryption_config, aws_cloudfront_field_level_encryption_profile",
+          "cloudformation": "AWS::CloudFront::FieldLevelEncryptionConfig"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^geo-restriction$", "(?i)^geo-blocking$"],
+      "description": "Allow or block viewers by country",
+      "weight": 60,
+      "data": {
+        "description": "Restrict content delivery based on the viewer's geographic location (country). Uses CloudFront-Viewer-Country header derived from the viewer's IP address. Two modes: allowlist (only specified countries can access) and denylist (specified countries are blocked).",
+        "options": [
+          {"type": "Allowlist", "description": "Only viewers in specified countries can access the content"},
+          {"type": "Denylist", "description": "Viewers in specified countries are blocked; all others can access"}
+        ],
+        "default": {"value": "No restriction", "note": "Geo restriction is disabled by default."},
+        "vendor_recommendation": "Use geo restriction for compliance with content licensing or export regulations. For more granular geo-based access control, use WAF geo-match conditions which support additional actions beyond block/allow.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.Restrictions.GeoRestriction'",
+          "api": "GetDistribution",
+          "console": "CloudFront → Distributions → {Distribution} → Security → CloudFront geographic restrictions"
+        },
+        "configure": {
+          "cli": "aws cloudfront update-distribution --id {id} --restrictions GeoRestriction={RestrictionType=whitelist,Quantity=2,Items=[US,CA]}",
+          "terraform": "aws_cloudfront_distribution (restrictions.geo_restriction)",
+          "cloudformation": "AWS::CloudFront::Distribution (Restrictions.GeoRestriction)"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^tls-settings$", "(?i)^minimum-tls$"],
+      "description": "Minimum TLS version and security policy",
+      "weight": 80,
+      "data": {
+        "description": "Configure the minimum TLS protocol version and cipher suites that CloudFront uses for HTTPS connections with viewers. Security policies bundle a minimum TLS version with supported cipher suites.",
+        "options": [
+          {"policy": "TLSv1.2_2021", "description": "TLS 1.2 only, modern cipher suites. Recommended for most use cases."},
+          {"policy": "TLSv1.2_2019", "description": "TLS 1.2 only, broader cipher suite support."},
+          {"policy": "TLSv1.2_2018", "description": "TLS 1.2 only, legacy cipher support."},
+          {"policy": "TLSv1.1_2016", "description": "TLS 1.1+. Only use if clients require TLS 1.1."},
+          {"policy": "TLSv1_2016", "description": "TLS 1.0+. Only for legacy client compatibility."}
+        ],
+        "default": {"value": "TLSv1 (default CloudFront certificate)", "note": "Custom SSL certificates allow selecting a security policy. The default CloudFront certificate (*.cloudfront.net) supports TLS 1.0+."},
+        "vendor_recommendation": "Use TLSv1.2_2021 security policy. Requires a custom SSL certificate (ACM or imported). Monitor access logs for clients using older TLS versions before upgrading.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.ViewerCertificate.MinimumProtocolVersion'",
+          "api": "GetDistribution",
+          "console": "CloudFront → Distributions → {Distribution} → General → Settings → Security policy"
+        },
+        "configure": {
+          "cli": "aws cloudfront update-distribution --id {id} --viewer-certificate ACMCertificateArn={cert-arn},SSLSupportMethod=sni-only,MinimumProtocolVersion=TLSv1.2_2021",
+          "terraform": "aws_cloudfront_distribution (viewer_certificate.minimum_protocol_version = \"TLSv1.2_2021\")",
+          "cloudformation": "AWS::CloudFront::Distribution (ViewerCertificate.MinimumProtocolVersion)"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^response-headers-policy$", "(?i)^security-headers$"],
+      "description": "Add security headers at edge",
+      "weight": 80,
+      "data": {
+        "description": "Add, remove, or override HTTP response headers at CloudFront edge locations. Includes managed security headers policies and custom header configurations. Security headers protect against clickjacking, XSS, MIME sniffing, and enforce HTTPS.",
+        "options": [
+          {"header": "Strict-Transport-Security (HSTS)", "description": "Force HTTPS connections. Configurable max-age, includeSubDomains, preload."},
+          {"header": "X-Content-Type-Options", "value": "nosniff", "description": "Prevent MIME type sniffing"},
+          {"header": "X-Frame-Options", "values": ["DENY", "SAMEORIGIN"], "description": "Prevent clickjacking via framing"},
+          {"header": "X-XSS-Protection", "description": "Legacy XSS filter (modern browsers use CSP instead)"},
+          {"header": "Content-Security-Policy", "description": "Comprehensive content restriction policy"},
+          {"header": "Referrer-Policy", "description": "Control referrer information sent with requests"}
+        ],
+        "default": {"value": "No response headers policy", "note": "CloudFront does not add security headers by default. Must be configured via a response headers policy."},
+        "vendor_recommendation": "Attach a response headers policy to all cache behaviors. Use the managed SecurityHeadersPolicy as a starting point. Customize Content-Security-Policy for your application. Enable HSTS with a long max-age.",
+        "audit": {
+          "cli": "aws cloudfront get-distribution --id {id} --query 'Distribution.DistributionConfig.DefaultCacheBehavior.ResponseHeadersPolicyId'",
+          "cli_policy": "aws cloudfront get-response-headers-policy --id {policy-id}",
+          "console": "CloudFront → Policies → Response headers"
+        },
+        "configure": {
+          "cli_managed": "aws cloudfront update-distribution --id {id} --default-cache-behavior ResponseHeadersPolicyId=67f7725c-6f97-4210-82d7-5512b31e9d03",
+          "note": "67f7725c-6f97-4210-82d7-5512b31e9d03 is the managed SecurityHeadersPolicy ID.",
+          "terraform": "aws_cloudfront_response_headers_policy",
+          "cloudformation": "AWS::CloudFront::ResponseHeadersPolicy"
+        },
+        "source": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html"
+      }
+    }
+  ]
+}

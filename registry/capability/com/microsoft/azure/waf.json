@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/waf",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure WAF and Azure DNS documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure Web Application Firewall and DNS",
+  "common_name": "Azure WAF",
+  "alternate_names": null,
+  "notes": "WAF available on Application Gateway, Front Door, and CDN. Azure DNS provides hosted zones with DNSSEC.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/web-application-firewall"},
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/dns"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/", "note": "Azure WAF documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/dns/", "note": "Azure DNS documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-waf-faq", "note": "WAF FAQ"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^drs-managed-rules$", "(?i)^managed-rules$"],
+      "description": "Default Rule Set (OWASP-based) managed rules",
+      "weight": 100,
+      "data": {
+        "description": "Default Rule Set (DRS) based on OWASP Core Rule Set (CRS). Provides protection against common web vulnerabilities including SQL injection, XSS, local file inclusion, remote file inclusion, command injection, session fixation, protocol violations, and more.",
+        "options": [
+          {"version": "DRS 2.1", "description": "Latest version. Improved detection accuracy and reduced false positives. Based on OWASP CRS 3.2."},
+          {"version": "DRS 1.0", "description": "Legacy version. Based on OWASP CRS 3.0."},
+          {"setting": "Rule group overrides", "description": "Disable or change action for specific rules or rule groups to reduce false positives"},
+          {"setting": "Exclusions", "description": "Exclude specific request attributes (headers, cookies, query params) from rule evaluation"}
+        ],
+        "vendor_recommendation": "Use DRS 2.1 for the latest protection. Start in Detection mode, review logs, create exclusions for false positives, then switch to Prevention mode. Review rule group overrides periodically after DRS version updates.",
+        "audit": {
+          "cli_app_gw": "az network application-gateway waf-policy managed-rule set list --policy-name {policy} --resource-group {rg}",
+          "cli_front_door": "az network front-door waf-policy managed-rules list --policy-name {policy} --resource-group {rg}",
+          "console": "Azure Portal → WAF policies → {Policy} → Managed rules"
+        },
+        "configure": {
+          "cli_app_gw": "az network application-gateway waf-policy managed-rule set add --policy-name {policy} --resource-group {rg} --rule-set-type OWASP --rule-set-version 3.2",
+          "cli_front_door": "az network front-door waf-policy managed-rules add --policy-name {policy} --resource-group {rg} --type DefaultRuleSet --version 2.1",
+          "terraform": "azurerm_web_application_firewall_policy (managed_rules block)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^custom-rules$"],
+      "description": "Custom match and action rules",
+      "weight": 100,
+      "data": {
+        "description": "User-defined rules matching on request attributes. Match conditions include IP address, geographic location, request URI, headers, body, cookies, and query strings. Actions include Allow, Block, Log, and Rate Limit. Rules are evaluated by priority (lower number = higher priority).",
+        "options": [
+          {"match_variable": "RemoteAddr", "description": "Client IP address"},
+          {"match_variable": "RequestUri", "description": "Request URI path"},
+          {"match_variable": "RequestHeaders", "description": "HTTP request headers (specify selector for header name)"},
+          {"match_variable": "RequestBody", "description": "POST request body"},
+          {"match_variable": "QueryString", "description": "URL query string"},
+          {"match_variable": "RequestMethod", "description": "HTTP method (GET, POST, etc.)"},
+          {"setting": "Actions", "values": ["Allow", "Block", "Log", "Rate Limit"], "description": "Action to take when rule matches"},
+          {"setting": "Priority", "range": "1-100", "description": "Lower number = higher priority. Custom rules are evaluated before managed rules."}
+        ],
+        "vendor_recommendation": "Use custom rules for application-specific logic that managed rules do not cover. Place allowlist rules (Allow action) at highest priority. Use Log action for testing before Block. Custom rules are evaluated before managed rules.",
+        "audit": {
+          "cli": "az network application-gateway waf-policy custom-rule list --policy-name {policy} --resource-group {rg}",
+          "console": "Azure Portal → WAF policies → {Policy} → Custom rules"
+        },
+        "configure": {
+          "cli": "az network application-gateway waf-policy custom-rule create --policy-name {policy} --resource-group {rg} --name {rule} --priority 10 --action Block --rule-type MatchRule",
+          "terraform": "azurerm_web_application_firewall_policy (custom_rules block)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/custom-waf-rules-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^bot-protection$"],
+      "description": "Bot Manager rule set",
+      "weight": 80,
+      "data": {
+        "description": "Bot Manager rule set identifies and categorizes bot traffic. Classifies bots as good (search engines, link checkers), bad (scrapers, vulnerability scanners), and unknown. Available for Application Gateway WAF v2 and Front Door WAF.",
+        "options": [
+          {"category": "GoodBots", "description": "Verified search engine crawlers, link checkers, site monitoring bots"},
+          {"category": "BadBots", "description": "Known malicious bots, scrapers, vulnerability scanners, spam bots"},
+          {"category": "UnknownBots", "description": "Unclassified automated traffic"}
+        ],
+        "vendor_recommendation": "Enable bot protection for all public-facing web applications. Allow good bots and monitor unknown bots before blocking. Combine with rate limiting custom rules for comprehensive bot management.",
+        "audit": {
+          "cli_app_gw": "az network application-gateway waf-policy managed-rule set list --policy-name {policy} --resource-group {rg}",
+          "note": "Check for BotProtection rule set type in managed rules.",
+          "console": "Azure Portal → WAF policies → {Policy} → Managed rules → Bot protection"
+        },
+        "configure": {
+          "cli_app_gw": "az network application-gateway waf-policy managed-rule set add --policy-name {policy} --resource-group {rg} --rule-set-type Microsoft_BotManagerRuleSet --rule-set-version 1.0",
+          "terraform": "azurerm_web_application_firewall_policy (managed_rules with Microsoft_BotManagerRuleSet)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/bot-protection-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^waf-modes$"],
+      "description": "Detection vs Prevention modes",
+      "weight": 80,
+      "data": {
+        "description": "WAF operates in one of two modes. Detection mode logs all rule matches without blocking traffic. Prevention mode blocks requests that match rules (based on rule action). Mode can be changed at any time without downtime.",
+        "options": [
+          {"mode": "Detection", "description": "Log all rule matches. No traffic is blocked. Use for initial deployment and tuning."},
+          {"mode": "Prevention", "description": "Block requests matching rules with Block action. Log all matches. Use after tuning."}
+        ],
+        "default": {"value": "Detection", "note": "New WAF policies default to Detection mode."},
+        "vendor_recommendation": "Start in Detection, move to Prevention after tuning. Review WAF logs (Application Gateway diagnostics or Front Door diagnostics) to identify false positives. Create exclusions for legitimate traffic before switching to Prevention.",
+        "audit": {
+          "cli_app_gw": "az network application-gateway waf-config show --gateway-name {gw} --resource-group {rg} --query 'firewallMode'",
+          "cli_front_door": "az network front-door waf-policy show --name {policy} --resource-group {rg} --query 'policySettings.mode'",
+          "console": "Azure Portal → WAF policies → {Policy} → Policy settings → Mode"
+        },
+        "configure": {
+          "cli_app_gw": "az network application-gateway waf-config set --gateway-name {gw} --resource-group {rg} --firewall-mode Prevention --enabled true",
+          "cli_front_door": "az network front-door waf-policy update --name {policy} --resource-group {rg} --mode Prevention",
+          "terraform": "azurerm_web_application_firewall_policy (policy_settings.mode)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview#waf-modes"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dns-zones$"],
+      "description": "Azure DNS hosted zones",
+      "weight": 60,
+      "data": {
+        "description": "Azure DNS provides hosting for DNS domains. Public zones resolve names from the internet. Private zones resolve names within virtual networks. Supports alias records for Azure resources (Traffic Manager, Front Door, public IP, CDN endpoint).",
+        "options": [
+          {"type": "Public DNS zone", "description": "Resolves DNS queries from the internet. Requires NS record delegation from domain registrar."},
+          {"type": "Private DNS zone", "description": "Resolves DNS queries within linked VNets. No internet exposure. Auto-registration of VM hostnames."},
+          {"setting": "Alias records", "description": "Point directly to Azure resources. Auto-update when resource IP changes. No stale DNS entries."}
+        ],
+        "vendor_recommendation": "Use Azure DNS for all Azure-hosted domains. Use private DNS zones for internal service discovery. Use alias records instead of CNAME for zone apex records and to auto-track Azure resource IP changes.",
+        "audit": {
+          "cli_public": "az network dns zone list",
+          "cli_private": "az network private-dns zone list",
+          "cli_records": "az network dns record-set list --zone-name {zone} --resource-group {rg}",
+          "console": "Azure Portal → DNS zones"
+        },
+        "configure": {
+          "cli_public": "az network dns zone create --name {zone} --resource-group {rg}",
+          "cli_private": "az network private-dns zone create --name {zone} --resource-group {rg}",
+          "cli_link": "az network private-dns link vnet create --zone-name {zone} --resource-group {rg} --virtual-network {vnet} --name {link-name} --registration-enabled true",
+          "terraform": "azurerm_dns_zone, azurerm_private_dns_zone, azurerm_private_dns_zone_virtual_network_link"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dnssec$"],
+      "description": "DNSSEC signing for Azure DNS zones",
+      "weight": 60,
+      "data": {
+        "description": "DNSSEC signing for Azure DNS public zones. Protects against DNS spoofing and cache poisoning by cryptographically signing DNS records. Azure manages the zone signing keys (ZSK) automatically. DS record must be configured at the domain registrar.",
+        "options": [
+          {"setting": "Zone signing", "description": "Enable DNSSEC signing on a public DNS zone. Azure manages ZSK rotation."},
+          {"setting": "DS record", "description": "Delegation Signer record must be added at the domain registrar to complete the chain of trust."},
+          {"setting": "Key management", "description": "Azure automatically manages ZSK and KSK lifecycle."}
+        ],
+        "default": {"value": "DNSSEC disabled", "note": "DNSSEC signing is not enabled by default on DNS zones."},
+        "vendor_recommendation": "Enable DNSSEC for all public DNS zones. Ensure the DS record is properly configured at the domain registrar. Monitor DNSSEC validation using external tools (DNSViz, Verisign DNSSEC Analyzer).",
+        "audit": {
+          "cli": "az network dns dnssec-config show --zone-name {zone} --resource-group {rg}",
+          "console": "Azure Portal → DNS zones → {Zone} → DNSSEC"
+        },
+        "configure": {
+          "cli": "az network dns dnssec-config create --zone-name {zone} --resource-group {rg}",
+          "note": "After enabling DNSSEC, retrieve the DS record details and add them at your domain registrar.",
+          "terraform": "azurerm_dns_zone_dnssec"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/dns/dnssec"
+      }
+    }
+  ]
+}

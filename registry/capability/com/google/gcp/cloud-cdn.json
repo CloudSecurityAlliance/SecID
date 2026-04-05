@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/cloud-cdn",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Google Cloud CDN and Load Balancing documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
+
+  "official_name": "Google Cloud CDN and Load Balancing",
+  "common_name": "Cloud CDN",
+  "alternate_names": ["Google Cloud Load Balancing"],
+  "notes": "CDN with integrated load balancing. Security includes SSL policies, Cloud Armor integration, signed URLs/cookies, IAP.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/cdn"},
+    {"type": "docs", "url": "https://cloud.google.com/cdn/docs", "note": "Cloud CDN documentation"},
+    {"type": "docs", "url": "https://cloud.google.com/load-balancing/docs", "note": "Cloud Load Balancing documentation"},
+    {"type": "docs", "url": "https://cloud.google.com/cdn/docs/best-practices", "note": "Cloud CDN best practices"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ssl-policies$", "(?i)^tls-policies$"],
+      "description": "TLS version and cipher suite control",
+      "weight": 100,
+      "data": {
+        "description": "SSL policies control the minimum TLS version and cipher suites that the load balancer accepts for HTTPS connections. Applied to target HTTPS proxies. Three predefined profiles plus custom configuration.",
+        "options": [
+          {"profile": "COMPATIBLE", "description": "Broadest compatibility. TLS 1.0+, wide cipher suite selection. For clients with outdated TLS libraries."},
+          {"profile": "MODERN", "description": "TLS 1.2+, modern cipher suites. Recommended for most use cases."},
+          {"profile": "RESTRICTED", "description": "TLS 1.2 only, limited cipher suites. For compliance requirements demanding strongest encryption."},
+          {"profile": "CUSTOM", "description": "Choose specific minimum TLS version and individual cipher suites."}
+        ],
+        "default": {"value": "COMPATIBLE (TLS 1.0+)", "note": "Default SSL policy if none is explicitly attached to the target HTTPS proxy."},
+        "vendor_recommendation": "Use MODERN profile for most workloads (TLS 1.2+, modern ciphers). Use RESTRICTED for compliance-sensitive workloads. Avoid COMPATIBLE unless legacy client support is required. Monitor SSL policy usage via Cloud Logging.",
+        "audit": {
+          "cli": "gcloud compute ssl-policies describe {policy}",
+          "cli_list": "gcloud compute ssl-policies list",
+          "cli_proxy": "gcloud compute target-https-proxies describe {proxy} --format='value(sslPolicy)'",
+          "console": "Google Cloud Console → Network services → Load balancing → {LB} → Frontend → SSL policy"
+        },
+        "configure": {
+          "cli_create": "gcloud compute ssl-policies create {policy} --profile MODERN --min-tls-version 1.2",
+          "cli_attach": "gcloud compute target-https-proxies update {proxy} --ssl-policy {policy}",
+          "terraform": "google_compute_ssl_policy"
+        },
+        "source": "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cloud-armor$", "(?i)^waf$"],
+      "description": "WAF and DDoS protection at edge",
+      "weight": 100,
+      "data": {
+        "description": "Google Cloud Armor provides WAF and DDoS protection for applications behind external Application Load Balancers. Supports preconfigured WAF rules (OWASP CRS), custom CEL-based rules, rate limiting, bot management, and adaptive protection (ML-based DDoS detection).",
+        "cross_reference": "secid:capability/google.com/gcp/waf",
+        "vendor_recommendation": "Enable Cloud Armor on all public-facing load balancers. Use preconfigured WAF rules as a baseline. Enable adaptive protection (Premium tier) for ML-based DDoS detection. Start with preview mode to evaluate rule impact before enforcement.",
+        "audit": {
+          "cli": "gcloud compute backend-services describe {backend} --format='value(securityPolicy)'",
+          "cli_policy": "gcloud compute security-policies describe {policy}",
+          "console": "Google Cloud Console → Network security → Cloud Armor policies"
+        },
+        "configure": {
+          "cli_create": "gcloud compute security-policies create {policy}",
+          "cli_attach": "gcloud compute backend-services update {backend} --security-policy {policy}",
+          "terraform": "google_compute_security_policy, google_compute_backend_service (security_policy)"
+        },
+        "source": "https://cloud.google.com/armor/docs/cloud-armor-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^signed-urls-cookies$", "(?i)^signed-urls$", "(?i)^signed-cookies$"],
+      "description": "Time-limited access to cached content",
+      "weight": 80,
+      "data": {
+        "description": "Restrict access to Cloud CDN cached content using signed URLs or signed cookies. Signed URLs provide time-limited access with a signature based on a shared key. Signed cookies allow access to multiple URLs matching a prefix.",
+        "options": [
+          {"type": "Signed URLs", "description": "Time-limited access to a specific URL. Includes expiration, key name, and signature in query parameters."},
+          {"type": "Signed cookies", "description": "Time-limited access to URLs matching a URL prefix. Set via Cloud-CDN-Cookie response header."},
+          {"setting": "Signing keys", "description": "HMAC keys stored in backend service or bucket configuration. Up to 3 keys for rotation."}
+        ],
+        "vendor_recommendation": "Use signed URLs for individual file access (downloads, assets). Use signed cookies for multi-resource access (video streaming). Rotate signing keys regularly using the key rotation mechanism (maintain 2 active keys during rotation).",
+        "audit": {
+          "cli_backend": "gcloud compute backend-services describe {backend} --format='value(cdnPolicy.signedUrlKeyNames)'",
+          "cli_bucket": "gcloud compute backend-buckets describe {bucket} --format='value(cdnPolicy.signedUrlKeyNames)'",
+          "note": "Non-empty signedUrlKeyNames indicates signed URLs/cookies are configured.",
+          "console": "Google Cloud Console → Network services → Load balancing → {LB} → Backend → CDN policy"
+        },
+        "configure": {
+          "cli_add_key": "gcloud compute backend-services add-signed-url-key {backend} --key-name {key-name} --key-file {key-file}",
+          "cli_require": "gcloud compute backend-services update {backend} --signed-url-cache-max-age=3600",
+          "terraform": "google_compute_backend_service (cdn_policy.signed_url_cache_max_age)"
+        },
+        "source": "https://cloud.google.com/cdn/docs/using-signed-urls"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^iap-integration$", "(?i)^identity-aware-proxy$"],
+      "description": "Identity-Aware Proxy for authenticated access to backends",
+      "weight": 100,
+      "data": {
+        "description": "Identity-Aware Proxy (IAP) provides application-level access control for backends behind load balancers. IAP verifies user identity and context before allowing access. Supports Google accounts, workforce identity federation, and BeyondCorp context-aware access.",
+        "cross_reference": "secid:capability/google.com/gcp/compute-engine#iap-tunnel",
+        "options": [
+          {"setting": "User authentication", "description": "Google sign-in, workforce identity, or external identity providers"},
+          {"setting": "Context-aware access", "description": "Access levels based on device attributes, IP, user identity (BeyondCorp)"},
+          {"setting": "Programmatic access", "description": "Service accounts can access IAP-protected resources with OIDC tokens"}
+        ],
+        "vendor_recommendation": "Use IAP for internal applications that should not be publicly accessible without authentication. IAP works at the application layer (L7) — ensure backends also validate the IAP JWT header to prevent bypass via direct access.",
+        "audit": {
+          "cli": "gcloud compute backend-services describe {backend} --format='value(iap)'",
+          "note": "Check iap.enabled field. True means IAP is enabled for the backend.",
+          "console": "Google Cloud Console → Security → Identity-Aware Proxy"
+        },
+        "configure": {
+          "cli": "gcloud compute backend-services update {backend} --iap=enabled,oauth2-client-id={client-id},oauth2-client-secret={secret}",
+          "terraform": "google_compute_backend_service (iap block), google_iap_web_backend_service_iam_member"
+        },
+        "source": "https://cloud.google.com/iap/docs/concepts-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^managed-certificates$", "(?i)^ssl-certificates$"],
+      "description": "Google-managed SSL certificates",
+      "weight": 80,
+      "data": {
+        "description": "Google-managed SSL certificates are auto-provisioned and auto-renewed by Google. Support domain validation (DV) certificates. Can be used with external Application Load Balancers. Certificate Manager provides advanced features for certificate lifecycle management.",
+        "options": [
+          {"type": "Google-managed (classic)", "description": "Auto-provisioned DV certificate. Domain validation via DNS or HTTP challenge."},
+          {"type": "Certificate Manager", "description": "Advanced certificate management. DNS authorization, certificate maps, wildcard support."},
+          {"type": "Self-managed", "description": "Upload your own certificate and private key."}
+        ],
+        "default": {"value": "No certificate", "note": "Certificates must be explicitly created and attached to the target HTTPS proxy."},
+        "vendor_recommendation": "Use Google-managed certificates for simplicity. Use Certificate Manager for advanced features (DNS authorization for faster provisioning, certificate maps, wildcard certificates). Self-managed certificates only when a specific CA is required.",
+        "audit": {
+          "cli": "gcloud compute ssl-certificates list",
+          "cli_detail": "gcloud compute ssl-certificates describe {cert}",
+          "cli_cert_manager": "gcloud certificate-manager certificates list",
+          "console": "Google Cloud Console → Security → Certificate Manager"
+        },
+        "configure": {
+          "cli_classic": "gcloud compute ssl-certificates create {cert} --domains={domain} --global",
+          "cli_cert_manager": "gcloud certificate-manager certificates create {cert} --domains={domain}",
+          "terraform": "google_compute_managed_ssl_certificate, google_certificate_manager_certificate"
+        },
+        "source": "https://cloud.google.com/load-balancing/docs/ssl-certificates-concepts"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^backend-security$"],
+      "description": "Backend service security settings",
+      "weight": 80,
+      "data": {
+        "description": "Security settings for backend services behind the load balancer. Includes Cloud Armor security policy attachment, request logging, connection draining, health checks, and outlier detection. Controls how the load balancer interacts with backend instances.",
+        "options": [
+          {"setting": "Security policy", "description": "Attach a Cloud Armor policy for WAF and DDoS protection"},
+          {"setting": "Logging", "description": "Enable request logging for the backend service. Configurable sample rate."},
+          {"setting": "Connection draining", "description": "Graceful handling of in-flight requests when backends are removed. Configurable timeout."},
+          {"setting": "Health checks", "description": "Monitor backend instance health. Options: HTTP, HTTPS, TCP, SSL, HTTP/2, gRPC."},
+          {"setting": "Outlier detection", "description": "Automatically eject unhealthy backends based on error rates."}
+        ],
+        "vendor_recommendation": "Always attach a Cloud Armor security policy to public-facing backend services. Enable logging for security monitoring and incident response. Configure health checks appropriate to the backend protocol.",
+        "audit": {
+          "cli": "gcloud compute backend-services describe {backend}",
+          "cli_health": "gcloud compute health-checks describe {health-check}",
+          "console": "Google Cloud Console → Network services → Load balancing → {LB} → Backend services"
+        },
+        "configure": {
+          "cli_logging": "gcloud compute backend-services update {backend} --enable-logging --logging-sample-rate=1.0",
+          "cli_draining": "gcloud compute backend-services update {backend} --connection-draining-timeout=300",
+          "terraform": "google_compute_backend_service (log_config, security_policy, connection_draining_timeout_sec)"
+        },
+        "source": "https://cloud.google.com/load-balancing/docs/backend-service"
+      }
+    }
+  ]
+}
