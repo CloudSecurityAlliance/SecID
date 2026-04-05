@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/redshift",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS Redshift documentation, 2026-04-04. Needs cross-reference and live environment validation.",
+
+  "official_name": "Amazon Redshift",
+  "common_name": "Redshift",
+  "alternate_names": null,
+  "notes": "Data warehouse. Security includes encryption, VPC isolation, audit logging, row/column level security.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/redshift/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/iam-redshift-user-mgmt.html", "note": "Redshift security chapter"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/security-best-practices.html", "note": "Redshift security best practices"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/redshift/latest/APIReference/", "note": "Redshift API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^encryption$"],
+      "description": "Cluster encryption at rest with KMS or CloudHSM",
+      "weight": 100,
+      "data": {
+        "description": "Cluster-level encryption at rest. Encrypts data blocks, system metadata, and snapshots. Options: AWS KMS (managed or customer key) or CloudHSM. Cannot be changed after cluster creation for provisioned clusters. Redshift Serverless is always encrypted.",
+        "options": [
+          {"value": "kms-aws-managed", "name": "AWS Managed KMS Key", "description": "Default AWS managed key for Redshift. No additional cost."},
+          {"value": "kms-customer-managed", "name": "Customer Managed KMS Key", "description": "Customer managed KMS key. Full audit trail and key rotation control."},
+          {"value": "cloudhsm", "name": "CloudHSM", "description": "Hardware security module for key management. Highest level of control."}
+        ],
+        "default": {"value": "not encrypted", "note": "Provisioned clusters are not encrypted by default (legacy). Redshift Serverless is always encrypted."},
+        "vendor_recommendation": "Enable encryption for all clusters. Use customer managed KMS keys for audit trail.",
+        "audit": {
+          "cli": "aws redshift describe-clusters --query 'Clusters[*].{Id:ClusterIdentifier,Encrypted:Encrypted}'",
+          "api": "DescribeClusters",
+          "console": "Redshift -> Clusters -> {cluster} -> Properties -> Database configurations -> Encryption"
+        },
+        "configure": {
+          "cli": "aws redshift create-cluster --cluster-identifier {cluster} --encrypted --kms-key-id {key-id}",
+          "terraform": "aws_redshift_cluster.encrypted",
+          "cloudformation": "AWS::Redshift::Cluster Encrypted",
+          "note": "For existing unencrypted provisioned clusters, use snapshot-and-restore with encryption enabled."
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "source": "https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-isolation$"],
+      "description": "Deploy Redshift clusters in VPC with security groups",
+      "weight": 100,
+      "data": {
+        "description": "Deploy Redshift clusters in a VPC with security groups controlling network access. Clusters should be in private subnets with security groups restricting inbound access to specific CIDR ranges or security groups.",
+        "vendor_recommendation": "Deploy all clusters in a VPC with private subnets. Restrict security group ingress to application tier only.",
+        "audit": {
+          "cli": "aws redshift describe-clusters --query 'Clusters[*].{Id:ClusterIdentifier,VpcId:VpcId,SGs:VpcSecurityGroups}'",
+          "api": "DescribeClusters",
+          "console": "Redshift -> Clusters -> {cluster} -> Properties -> Network and security"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/vpc#security-groups"],
+        "source": "https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^audit-logging$"],
+      "description": "Log connections, queries, and user activity",
+      "weight": 100,
+      "data": {
+        "description": "Log connections, user activity, and all SQL statements. Destinations: S3 bucket or CloudWatch Logs. Three log types: connection log, user log, user activity log.",
+        "options": [
+          {"value": "s3", "name": "S3 Destination", "description": "Deliver audit logs to an S3 bucket."},
+          {"value": "cloudwatch", "name": "CloudWatch Logs", "description": "Deliver audit logs to CloudWatch Logs for centralized analysis."}
+        ],
+        "default": {"value": "disabled", "note": "Audit logging is not enabled by default."},
+        "vendor_recommendation": "Enable all three log types (connection, user, user activity) for production clusters.",
+        "audit": {
+          "cli": "aws redshift describe-logging-status --cluster-identifier {cluster}",
+          "api": "DescribeLoggingStatus",
+          "console": "Redshift -> Clusters -> {cluster} -> Properties -> Audit logging"
+        },
+        "configure": {
+          "cli": "aws redshift enable-logging --cluster-identifier {cluster} --log-destination-type cloudwatch --log-exports connectionlog,userlog,useractivitylog",
+          "terraform": "aws_redshift_logging",
+          "cloudformation": "AWS::Redshift::Cluster LoggingProperties"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/cloudwatch"],
+        "source": "https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ssl-connections$"],
+      "description": "Require SSL for client connections",
+      "weight": 100,
+      "data": {
+        "description": "Require SSL/TLS for all client connections to the Redshift cluster. Configured via the require_ssl parameter in the cluster parameter group.",
+        "default": {"value": "optional", "note": "SSL is supported but not required by default."},
+        "vendor_recommendation": "Set require_ssl to true in the parameter group for all production clusters.",
+        "audit": {
+          "cli": "aws redshift describe-cluster-parameters --parameter-group-name {param-group} --query 'Parameters[?ParameterName==`require_ssl`]'",
+          "api": "DescribeClusterParameters",
+          "console": "Redshift -> Configurations -> Parameter groups -> {group} -> require_ssl"
+        },
+        "configure": {
+          "cli": "aws redshift modify-cluster-parameter-group --parameter-group-name {param-group} --parameters ParameterName=require_ssl,ParameterValue=true,ApplyType=static",
+          "terraform": "aws_redshift_parameter_group"
+        },
+        "source": "https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-ssl-support.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^row-level-security$"],
+      "description": "Restrict which rows users can see",
+      "weight": 90,
+      "data": {
+        "description": "Row-level security (RLS) restricts which rows a user can see based on SQL policies. Policies are attached to tables and evaluated at query time. Users with the sys:secadmin role manage RLS policies.",
+        "vendor_recommendation": "Use row-level security for multi-tenant workloads and when different users should see different subsets of data.",
+        "configure": {
+          "sql": "CREATE RLS POLICY {policy_name} WITH ({predicate}) ON {table};",
+          "note": "Attach policies to tables with ATTACH RLS POLICY. Enable RLS on the table with ALTER TABLE {table} ROW LEVEL SECURITY ON."
+        },
+        "source": "https://docs.aws.amazon.com/redshift/latest/dg/t_rls.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^column-level-access$"],
+      "description": "Grant/revoke per-column permissions",
+      "weight": 90,
+      "data": {
+        "description": "Column-level access control via SQL GRANT and REVOKE statements. Restrict which columns specific users or groups can SELECT. Provides fine-grained control over sensitive columns without creating views.",
+        "vendor_recommendation": "Use column-level grants to restrict access to sensitive columns (PII, financial data) to authorized users only.",
+        "configure": {
+          "sql": "GRANT SELECT (col1, col2) ON {table} TO {user};",
+          "note": "REVOKE SELECT (sensitive_col) ON {table} FROM {group}; to remove access to specific columns."
+        },
+        "source": "https://docs.aws.amazon.com/redshift/latest/dg/r_GRANT.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^enhanced-vpc-routing$"],
+      "description": "Force all COPY/UNLOAD traffic through VPC",
+      "weight": 90,
+      "data": {
+        "description": "Force all COPY and UNLOAD traffic between Redshift and data repositories (S3, DynamoDB, etc.) through the VPC. Enables VPC flow logs for data movement, VPC endpoints, and network ACLs to control data transfer.",
+        "default": {"value": "disabled", "note": "Enhanced VPC routing is disabled by default. Traffic routes through the internet."},
+        "vendor_recommendation": "Enable enhanced VPC routing for all production clusters to ensure data movement stays within the VPC and is auditable.",
+        "audit": {
+          "cli": "aws redshift describe-clusters --query 'Clusters[*].{Id:ClusterIdentifier,EnhancedVpcRouting:EnhancedVpcRouting}'",
+          "api": "DescribeClusters",
+          "console": "Redshift -> Clusters -> {cluster} -> Properties -> Network and security -> Enhanced VPC routing"
+        },
+        "configure": {
+          "cli": "aws redshift modify-cluster --cluster-identifier {cluster} --enhanced-vpc-routing",
+          "terraform": "aws_redshift_cluster.enhanced_vpc_routing",
+          "cloudformation": "AWS::Redshift::Cluster EnhancedVpcRouting"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/vpc"],
+        "source": "https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html"
+      }
+    }
+  ]
+}

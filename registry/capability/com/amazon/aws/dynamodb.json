@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/dynamodb",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS DynamoDB documentation, 2026-04-04. Needs cross-reference and live environment validation.",
+
+  "official_name": "Amazon DynamoDB",
+  "common_name": "DynamoDB",
+  "alternate_names": null,
+  "notes": "Managed NoSQL key-value and document database. Serverless, fully managed. Security includes encryption, IAM fine-grained access, VPC endpoints.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/dynamodb/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/security.html", "note": "DynamoDB Security chapter"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices-security.html", "note": "DynamoDB Security Best Practices"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/", "note": "DynamoDB API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^encryption-at-rest$"],
+      "description": "Encryption at rest for DynamoDB tables",
+      "weight": 100,
+      "data": {
+        "description": "All DynamoDB tables are encrypted at rest. Three key management options available. Cannot be disabled once a table is created.",
+        "options": [
+          {"value": "aws-owned", "name": "AWS Owned Key", "description": "Default. AWS owns and manages the key. No additional cost. No CloudTrail logging of key usage."},
+          {"value": "aws-managed", "name": "AWS Managed Key (aws/dynamodb)", "description": "AWS managed KMS key. CloudTrail logging available. No additional KMS cost."},
+          {"value": "customer-managed", "name": "Customer Managed Key", "description": "Customer managed KMS key. Full audit trail, key rotation control, and ability to revoke access. KMS API costs apply."}
+        ],
+        "default": {"value": "aws-owned", "note": "Default encryption uses an AWS owned key at no additional cost."},
+        "vendor_recommendation": "Use a customer managed key for sensitive workloads requiring audit trail and key rotation control.",
+        "audit": {
+          "cli": "aws dynamodb describe-table --table-name {table} --query Table.SSEDescription",
+          "api": "DescribeTable",
+          "console": "DynamoDB -> Tables -> {table} -> Additional settings -> Encryption"
+        },
+        "configure": {
+          "cli": "aws dynamodb update-table --table-name {table} --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId={key-id}",
+          "terraform": "aws_dynamodb_table.server_side_encryption",
+          "cloudformation": "AWS::DynamoDB::Table SSESpecification"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^fine-grained-access$"],
+      "description": "IAM conditions for item-level and attribute-level access control",
+      "weight": 100,
+      "data": {
+        "description": "Use IAM policy conditions for item-level and attribute-level access control. Restrict access based on partition key values (leading keys) and limit which attributes a user can read or write. No database-level access control — all access is through IAM.",
+        "vendor_recommendation": "Use IAM condition keys (dynamodb:LeadingKeys, dynamodb:Attributes) to implement least-privilege access at the item and attribute level.",
+        "audit": {
+          "note": "Review IAM policies attached to roles/users that access DynamoDB. Check for condition keys dynamodb:LeadingKeys and dynamodb:Attributes."
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/iam"],
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-endpoints$"],
+      "description": "Gateway endpoint for private DynamoDB access from VPC",
+      "weight": 100,
+      "data": {
+        "description": "Gateway endpoint for private DynamoDB access from within a VPC. Traffic stays within the AWS network. No internet gateway or NAT device required. Gateway endpoints are free.",
+        "default": {"value": "not configured", "note": "VPC endpoints must be explicitly created."},
+        "vendor_recommendation": "Create a gateway endpoint for DynamoDB in every VPC that has workloads accessing DynamoDB.",
+        "audit": {
+          "cli": "aws ec2 describe-vpc-endpoints --filters Name=service-name,Values=com.amazonaws.{region}.dynamodb",
+          "api": "DescribeVpcEndpoints",
+          "console": "VPC -> Endpoints -> filter by DynamoDB"
+        },
+        "configure": {
+          "cli": "aws ec2 create-vpc-endpoint --vpc-id {vpc-id} --service-name com.amazonaws.{region}.dynamodb --route-table-ids {rtb-id}",
+          "terraform": "aws_vpc_endpoint",
+          "cloudformation": "AWS::EC2::VPCEndpoint"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/vpc#vpc-endpoints"],
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/vpc-endpoints-dynamodb.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^point-in-time-recovery$"],
+      "description": "Continuous backups with 35-day restore window",
+      "weight": 90,
+      "data": {
+        "description": "Continuous backups with point-in-time recovery. Allows restoring to any point in the last 35 days. Creates a new table on restore (does not overwrite existing).",
+        "default": {"value": "disabled", "note": "Point-in-time recovery is disabled by default."},
+        "vendor_recommendation": "Enable point-in-time recovery on all production tables.",
+        "audit": {
+          "cli": "aws dynamodb describe-continuous-backups --table-name {table}",
+          "api": "DescribeContinuousBackups",
+          "console": "DynamoDB -> Tables -> {table} -> Backups -> Point-in-time recovery"
+        },
+        "configure": {
+          "cli": "aws dynamodb update-continuous-backups --table-name {table} --point-in-time-recovery-specification PointInTimeRecoveryEnabled=true",
+          "terraform": "aws_dynamodb_table.point_in_time_recovery",
+          "cloudformation": "AWS::DynamoDB::Table PointInTimeRecoverySpecification"
+        },
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^deletion-protection$"],
+      "description": "Prevent accidental table deletion",
+      "weight": 90,
+      "data": {
+        "description": "Prevent accidental table deletion. When enabled, the table cannot be deleted until deletion protection is explicitly disabled.",
+        "default": {"value": "disabled", "note": "Deletion protection is disabled by default."},
+        "vendor_recommendation": "Enable deletion protection on all production tables.",
+        "audit": {
+          "cli": "aws dynamodb describe-table --table-name {table} --query Table.DeletionProtectionEnabled",
+          "api": "DescribeTable",
+          "console": "DynamoDB -> Tables -> {table} -> Additional settings -> Deletion protection"
+        },
+        "configure": {
+          "cli": "aws dynamodb update-table --table-name {table} --deletion-protection-enabled",
+          "terraform": "aws_dynamodb_table.deletion_protection_enabled",
+          "cloudformation": "AWS::DynamoDB::Table DeletionProtectionEnabled"
+        },
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^contributor-insights$"],
+      "description": "Identify most accessed keys and throttled items",
+      "weight": 80,
+      "data": {
+        "description": "Identify the most frequently accessed and throttled keys in a DynamoDB table. Security relevant for detecting abuse patterns, identifying hot partitions, and investigating unusual access patterns.",
+        "default": {"value": "disabled", "note": "Contributor Insights is disabled by default."},
+        "vendor_recommendation": "Enable Contributor Insights on production tables to detect access anomalies and abuse patterns.",
+        "audit": {
+          "cli": "aws dynamodb describe-contributor-insights --table-name {table}",
+          "api": "DescribeContributorInsights",
+          "console": "DynamoDB -> Tables -> {table} -> Contributor Insights"
+        },
+        "configure": {
+          "cli": "aws dynamodb update-contributor-insights --table-name {table} --contributor-insights-action ENABLE",
+          "terraform": "aws_dynamodb_contributor_insights",
+          "cloudformation": "AWS::DynamoDB::Table ContributorInsightsSpecification"
+        },
+        "source": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights.html"
+      }
+    }
+  ]
+}

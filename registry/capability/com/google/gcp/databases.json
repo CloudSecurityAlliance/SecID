@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/databases",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Google Cloud Firestore and Bigtable documentation, 2026-04-04. Needs cross-reference and live environment validation.",
+
+  "official_name": "Google Cloud NoSQL Databases",
+  "common_name": "Firestore/Bigtable",
+  "alternate_names": null,
+  "notes": "Covers Firestore (document DB) and Cloud Bigtable (wide-column). Security includes encryption, IAM, VPC Service Controls.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/firestore"},
+    {"type": "website", "url": "https://cloud.google.com/bigtable"},
+    {"type": "docs", "url": "https://cloud.google.com/firestore/docs/security/overview", "note": "Firestore security overview"},
+    {"type": "docs", "url": "https://cloud.google.com/bigtable/docs/security", "note": "Bigtable security overview"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^encryption$"],
+      "description": "Encryption at rest for Firestore and Bigtable data",
+      "weight": 100,
+      "data": {
+        "description": "All data encrypted at rest with Google-managed keys by default. CMEK available for Bigtable (all instances) and Firestore (Datastore mode). CMEK uses Cloud KMS keys.",
+        "options": [
+          {"value": "google-managed", "name": "Google-Managed Keys", "description": "Default. Google manages encryption keys. No additional configuration."},
+          {"value": "cmek", "name": "Customer-Managed Keys (CMEK)", "description": "Customer manages keys in Cloud KMS. Available for Bigtable and Firestore in Datastore mode."}
+        ],
+        "default": {"value": "google-managed", "note": "All data encrypted at rest with Google-managed keys by default."},
+        "vendor_recommendation": "Use CMEK for regulatory compliance. For Bigtable, CMEK must be configured at cluster creation time.",
+        "cross_references": ["secid:capability/google.com/gcp/kms"],
+        "source": "https://cloud.google.com/bigtable/docs/cmek"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^iam-access-control$"],
+      "description": "IAM roles for database-level access control",
+      "weight": 100,
+      "data": {
+        "description": "IAM roles control access at the project and database level. Firestore has roles like Datastore User, Datastore Viewer. Bigtable has roles like Bigtable Reader, Bigtable User, Bigtable Administrator. Firestore also supports Security Rules for client-side access control.",
+        "vendor_recommendation": "Use predefined roles with least-privilege principles. For Firestore mobile/web apps, combine IAM with Security Rules.",
+        "audit": {
+          "cli": "gcloud projects get-iam-policy {project} --flatten='bindings[].members' --filter='bindings.role:roles/datastore.*'",
+          "note": "Review IAM bindings for Firestore/Bigtable roles at project level."
+        },
+        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "source": "https://cloud.google.com/firestore/docs/security/iam"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^firestore-security-rules$"],
+      "description": "Client-side rules engine for Firestore in Native mode",
+      "weight": 100,
+      "data": {
+        "description": "Security Rules for Firestore in Native mode control read/write access per document path from mobile and web clients. Rules are evaluated server-side but designed for client-side access patterns. Not used for server-side (admin SDK) access.",
+        "default": {"value": "deny-all", "note": "Default rules deny all reads and writes. Must be explicitly configured."},
+        "vendor_recommendation": "Never deploy with open rules (allow read, write: if true) in production. Write rules that validate data structure and user authentication.",
+        "audit": {
+          "cli": "gcloud firestore databases describe --database={db}",
+          "console": "Firestore -> Rules"
+        },
+        "configure": {
+          "note": "Deploy rules via Firebase CLI: firebase deploy --only firestore:rules. Rules are defined in firestore.rules file."
+        },
+        "source": "https://cloud.google.com/firestore/docs/security/get-started"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-service-controls$"],
+      "description": "Restrict data exfiltration with VPC Service Controls",
+      "weight": 100,
+      "data": {
+        "description": "VPC Service Controls create a security perimeter around Firestore and Bigtable APIs. Prevents data exfiltration by restricting which networks and identities can access the APIs. Blocks access from outside the perimeter even with valid credentials.",
+        "vendor_recommendation": "Configure VPC Service Controls perimeters for production workloads containing sensitive data.",
+        "audit": {
+          "cli": "gcloud access-context-manager perimeters list",
+          "console": "Security -> VPC Service Controls"
+        },
+        "cross_references": ["secid:capability/google.com/gcp/vpc#vpc-service-controls"],
+        "source": "https://cloud.google.com/vpc-service-controls/docs/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^backup-and-recovery$"],
+      "description": "Backup and restore capabilities for Firestore and Bigtable",
+      "weight": 90,
+      "data": {
+        "description": "Firestore supports point-in-time recovery (PITR) with 7-day window and scheduled exports. Bigtable supports managed backups with configurable retention and restore to a new table.",
+        "options": [
+          {"value": "firestore-pitr", "name": "Firestore PITR", "description": "Point-in-time recovery for Firestore. 7-day window. Restore to any timestamp within the window."},
+          {"value": "firestore-export", "name": "Firestore Export", "description": "Export data to Cloud Storage. Can be scheduled via Cloud Functions or Cloud Scheduler."},
+          {"value": "bigtable-backup", "name": "Bigtable Backup", "description": "Managed backups with configurable retention. Restore to a new table in the same instance or cluster."}
+        ],
+        "vendor_recommendation": "Enable PITR for Firestore production databases. Schedule regular Bigtable backups with sufficient retention.",
+        "audit": {
+          "cli_firestore": "gcloud firestore databases describe --database={db} --format='value(pointInTimeRecoveryEnablement)'",
+          "cli_bigtable": "gcloud bigtable backups list --instance={instance} --cluster={cluster}"
+        },
+        "source": "https://cloud.google.com/firestore/docs/backups"
+      }
+    }
+  ]
+}

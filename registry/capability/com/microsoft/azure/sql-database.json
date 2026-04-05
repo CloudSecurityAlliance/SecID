@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/sql-database",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure SQL Database documentation, 2026-04-04. Needs cross-reference and live environment validation.",
+
+  "official_name": "Azure SQL Database",
+  "common_name": "Azure SQL",
+  "alternate_names": null,
+  "notes": "Managed SQL Server. Security includes TDE, Always Encrypted, auditing, threat detection, private endpoints, managed identity.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/azure-sql/database/"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/security-overview", "note": "Azure SQL Database security overview"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/security-best-practice", "note": "Security best practices"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/sql/", "note": "Azure SQL REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^transparent-data-encryption$"],
+      "description": "Transparent Data Encryption (TDE) for data at rest",
+      "weight": 100,
+      "data": {
+        "description": "TDE encrypts data at rest at the page level. Encrypts the storage of an entire database by using a symmetric key called the database encryption key. Always enabled for Azure SQL Database.",
+        "options": [
+          {"value": "service-managed-key", "name": "Service-Managed Key", "description": "Microsoft manages the encryption key. Default. No additional configuration required."},
+          {"value": "customer-managed-key", "name": "Customer-Managed Key (BYOK)", "description": "Customer manages the key in Azure Key Vault. Provides key rotation control and the ability to revoke access."}
+        ],
+        "default": {"value": "service-managed-key", "note": "TDE is enabled by default with a service-managed key for all new databases."},
+        "vendor_recommendation": "Use customer-managed keys for regulatory compliance and to maintain control over encryption key lifecycle.",
+        "audit": {
+          "cli": "az sql db tde show --database {db} --server {server} --resource-group {rg}",
+          "api": "TransparentDataEncryptions - Get",
+          "console": "SQL databases -> {db} -> Security -> Transparent data encryption"
+        },
+        "configure": {
+          "cli": "az sql db tde set --database {db} --server {server} --resource-group {rg} --status Enabled",
+          "terraform": "azurerm_mssql_database_transparent_data_encryption"
+        },
+        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^always-encrypted$"],
+      "description": "Client-side column-level encryption",
+      "weight": 100,
+      "data": {
+        "description": "Client-side column-level encryption where keys are never exposed to the database engine. Data is encrypted in the client application before being sent to the database. Ideal for highly sensitive data (SSN, credit card numbers, health records).",
+        "options": [
+          {"value": "deterministic", "name": "Deterministic Encryption", "description": "Always generates the same encrypted value for a given plaintext. Supports equality comparisons, joins, grouping."},
+          {"value": "randomized", "name": "Randomized Encryption", "description": "Uses random elements to encrypt. More secure but does not support any query operations on encrypted columns."}
+        ],
+        "vendor_recommendation": "Use Always Encrypted for columns containing highly sensitive data that should not be visible to database administrators.",
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-landing"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^auditing$"],
+      "description": "Track database events and write to audit logs",
+      "weight": 100,
+      "data": {
+        "description": "Track database events and write them to an audit log. Destinations include Azure Storage account, Log Analytics workspace, or Event Hub. Can be configured at server level (applies to all databases) or database level.",
+        "options": [
+          {"value": "storage-account", "name": "Azure Storage", "description": "Write audit logs to a storage account."},
+          {"value": "log-analytics", "name": "Log Analytics", "description": "Send to Log Analytics workspace for querying with KQL."},
+          {"value": "event-hub", "name": "Event Hub", "description": "Stream to Event Hub for SIEM integration."}
+        ],
+        "default": {"value": "disabled", "note": "Auditing is not enabled by default."},
+        "vendor_recommendation": "Enable auditing at the server level to cover all databases. Send logs to Log Analytics for centralized analysis.",
+        "audit": {
+          "cli": "az sql db audit-policy show --database {db} --server {server} --resource-group {rg}",
+          "api": "DatabaseBlobAuditingPolicies - Get",
+          "console": "SQL databases -> {db} -> Security -> Auditing"
+        },
+        "configure": {
+          "cli": "az sql db audit-policy update --database {db} --server {server} --resource-group {rg} --state Enabled --storage-account {storage}",
+          "terraform": "azurerm_mssql_database_extended_auditing_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/auditing-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^advanced-threat-protection$"],
+      "description": "Detect anomalous database activities and potential threats",
+      "weight": 100,
+      "data": {
+        "description": "Detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Detects SQL injection, unusual access patterns, brute force attacks, and anomalous queries. Part of Microsoft Defender for SQL.",
+        "default": {"value": "disabled", "note": "Defender for SQL must be explicitly enabled."},
+        "vendor_recommendation": "Enable Microsoft Defender for SQL on all production databases.",
+        "audit": {
+          "cli": "az sql db threat-policy show --database {db} --server {server} --resource-group {rg}",
+          "api": "DatabaseAdvancedThreatProtectionSettings - Get",
+          "console": "SQL databases -> {db} -> Security -> Microsoft Defender for SQL"
+        },
+        "configure": {
+          "cli": "az sql db threat-policy update --database {db} --server {server} --resource-group {rg} --state Enabled",
+          "terraform": "azurerm_mssql_database_security_alert_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^firewall-rules$"],
+      "description": "IP-based access control at server level",
+      "weight": 100,
+      "data": {
+        "description": "IP-based access control at the server level. Default denies all connections. Rules specify IP address ranges that are allowed to connect. Can also allow Azure services access.",
+        "default": {"value": "deny-all", "note": "Default denies all connections. No firewall rules are configured initially."},
+        "vendor_recommendation": "Restrict firewall rules to specific IP addresses. Avoid allowing all Azure services unless necessary. Prefer private endpoints over firewall rules.",
+        "audit": {
+          "cli": "az sql server firewall-rule list --server {server} --resource-group {rg}",
+          "api": "FirewallRules - ListByServer",
+          "console": "SQL servers -> {server} -> Security -> Networking -> Firewall rules"
+        },
+        "configure": {
+          "cli": "az sql server firewall-rule create --server {server} --resource-group {rg} --name {rule-name} --start-ip-address {start} --end-ip-address {end}",
+          "terraform": "azurerm_mssql_firewall_rule"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/firewall-configure"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-endpoints$"],
+      "description": "Access via Azure Private Link without public IP exposure",
+      "weight": 100,
+      "data": {
+        "description": "Access Azure SQL Database via Azure Private Link. Assigns a private IP address from your VNet. No public IP exposure. Traffic stays within the Microsoft network.",
+        "vendor_recommendation": "Use private endpoints for all production databases. Disable public network access after configuring private endpoints.",
+        "audit": {
+          "cli": "az sql server show --name {server} --resource-group {rg} --query privateEndpointConnections",
+          "api": "PrivateEndpointConnections - ListByServer",
+          "console": "SQL servers -> {server} -> Security -> Networking -> Private access"
+        },
+        "configure": {
+          "cli": "az network private-endpoint create --name {ep-name} --resource-group {rg} --vnet-name {vnet} --subnet {subnet} --private-connection-resource-id {server-id} --group-id sqlServer --connection-name {conn-name}",
+          "terraform": "azurerm_private_endpoint"
+        },
+        "cross_references": ["secid:capability/microsoft.com/azure/virtual-network"],
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/private-endpoint-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^entra-id-authentication$"],
+      "description": "Use Microsoft Entra ID for database authentication",
+      "weight": 100,
+      "data": {
+        "description": "Use Microsoft Entra ID (formerly Azure Active Directory) for database authentication. Supports Entra-only mode (disable SQL auth) or mixed mode (Entra + SQL auth). Enables centralized identity management, MFA, and conditional access.",
+        "options": [
+          {"value": "entra-only", "name": "Entra ID Only", "description": "Disable SQL authentication. All users must authenticate with Entra ID."},
+          {"value": "entra-and-sql", "name": "Entra ID + SQL Auth", "description": "Both Entra ID and SQL authentication are allowed."}
+        ],
+        "vendor_recommendation": "Use Entra-only authentication to eliminate SQL passwords and enforce MFA.",
+        "audit": {
+          "cli": "az sql server ad-admin list --server {server} --resource-group {rg}",
+          "api": "ServerAzureADAdministrators - ListByServer",
+          "console": "SQL servers -> {server} -> Settings -> Microsoft Entra ID"
+        },
+        "configure": {
+          "cli": "az sql server ad-admin create --server {server} --resource-group {rg} --display-name {admin-name} --object-id {object-id}",
+          "terraform": "azurerm_mssql_server.azuread_administrator"
+        },
+        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dynamic-data-masking$"],
+      "description": "Mask sensitive data in query results for non-privileged users",
+      "weight": 90,
+      "data": {
+        "description": "Mask sensitive data in query results for non-privileged users. Privileged users (db_owner, sysadmin) and users explicitly granted UNMASK see unmasked data. Applied at the database level.",
+        "options": [
+          {"value": "default", "name": "Default Masking", "description": "Full masking according to data type (XXXX for strings, 0 for numbers)."},
+          {"value": "email", "name": "Email Masking", "description": "Exposes first letter and .com suffix (aXXX@XXXX.com)."},
+          {"value": "random", "name": "Random Number", "description": "Replaces numeric values with a random value in a specified range."},
+          {"value": "custom-string", "name": "Custom String", "description": "Exposes first and last characters with a custom padding string."}
+        ],
+        "vendor_recommendation": "Apply dynamic data masking to columns containing PII to limit exposure to non-privileged users.",
+        "audit": {
+          "cli": "az sql db show --name {db} --server {server} --resource-group {rg}",
+          "console": "SQL databases -> {db} -> Security -> Dynamic Data Masking"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vulnerability-assessment$"],
+      "description": "Scan for database misconfigurations and vulnerabilities",
+      "weight": 90,
+      "data": {
+        "description": "Scan for misconfigurations and vulnerabilities. Checks for issues like excessive permissions, unprotected sensitive data, and database misconfigurations. Part of Microsoft Defender for SQL.",
+        "default": {"value": "disabled", "note": "Requires Microsoft Defender for SQL to be enabled."},
+        "vendor_recommendation": "Enable vulnerability assessment and review findings regularly. Set up periodic recurring scans.",
+        "audit": {
+          "cli": "az sql db va list --database {db} --server {server} --resource-group {rg}",
+          "api": "DatabaseVulnerabilityAssessments - ListByDatabase",
+          "console": "SQL databases -> {db} -> Security -> Microsoft Defender for SQL -> Vulnerability Assessment"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^geo-replication$"],
+      "description": "Active geo-replication for disaster recovery",
+      "weight": 80,
+      "data": {
+        "description": "Active geo-replication creates a readable secondary database in a different Azure region. Provides disaster recovery, geographic read scaling, and data residency compliance. Asynchronous replication with configurable lag tolerance.",
+        "vendor_recommendation": "Configure geo-replication for production databases to enable disaster recovery. Test failover procedures regularly.",
+        "audit": {
+          "cli": "az sql db replica list-links --database {db} --server {server} --resource-group {rg}",
+          "api": "ReplicationLinks - ListByDatabase",
+          "console": "SQL databases -> {db} -> Settings -> Geo-Replication"
+        },
+        "configure": {
+          "cli": "az sql db replica create --database {db} --server {server} --resource-group {rg} --partner-server {partner-server} --partner-resource-group {partner-rg}",
+          "terraform": "azurerm_mssql_database (create_mode = Secondary)"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview"
+      }
+    }
+  ]
+}
