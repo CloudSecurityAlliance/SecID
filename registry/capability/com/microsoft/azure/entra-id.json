@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/entra-id",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Microsoft Entra documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Microsoft Entra ID",
+  "common_name": "Entra ID (formerly Azure AD)",
+  "alternate_names": ["Azure Active Directory", "Azure AD"],
+  "notes": "Foundation identity service for Azure and Microsoft 365. Formerly Azure Active Directory (Azure AD), renamed to Microsoft Entra ID in 2023. Provides authentication, authorization, MFA, conditional access, identity protection, and privileged access management.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/entra/fundamentals/", "note": "Entra ID fundamentals"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/", "note": "Authentication methods documentation"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^security-defaults$"],
+      "description": "Pre-configured security baseline for Entra ID tenants",
+      "weight": 100,
+      "data": {
+        "description": "One-click security baseline for organizations. Requires MFA registration for all users, MFA for admins on every sign-in, MFA for all users when needed, blocks legacy authentication protocols, and protects privileged activities (Azure portal, PowerShell, CLI).",
+        "default": {"value": "enabled", "note": "Enabled by default on tenants created after October 22, 2019. Disabled automatically if Conditional Access policies are configured."},
+        "vendor_recommendation": "Use for organizations without complex requirements. Upgrade to Conditional Access for advanced scenarios that need granular policy control.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Overview → Properties → Manage security defaults",
+          "api": "GET https://graph.microsoft.com/v1.0/policies/identitySecurityDefaultsEnforcementPolicy",
+          "powershell": "Get-MgPolicyIdentitySecurityDefaultEnforcementPolicy"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Overview → Properties → Manage security defaults → toggle on/off",
+          "api": "PATCH https://graph.microsoft.com/v1.0/policies/identitySecurityDefaultsEnforcementPolicy",
+          "note": "Requires Conditional Access Administrator or Security Administrator role"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^mfa$"],
+      "description": "Multi-factor authentication methods and policies",
+      "weight": 100,
+      "data": {
+        "description": "Second factor authentication supporting 15+ methods. Managed through Authentication methods policies. Methods range from phishing-resistant (passkeys, certificate-based) to legacy (SMS, voice call).",
+        "options": [
+          {"value": "passkeys-fido2", "name": "Passkeys (FIDO2)", "description": "Phishing-resistant passwordless auth using FIDO2 security keys or synced passkeys"},
+          {"value": "windows-hello", "name": "Windows Hello for Business", "description": "Phishing-resistant biometric/PIN auth tied to Windows device"},
+          {"value": "platform-credential-macos", "name": "Platform Credential for macOS", "description": "Phishing-resistant auth using macOS Secure Enclave"},
+          {"value": "authenticator-passwordless", "name": "Microsoft Authenticator (passwordless)", "description": "Phone sign-in with number matching, no password required"},
+          {"value": "authenticator-push", "name": "Microsoft Authenticator (push notification)", "description": "Push notification with number matching for MFA"},
+          {"value": "authenticator-totp", "name": "Microsoft Authenticator (TOTP)", "description": "Software OATH token generating 6-digit codes"},
+          {"value": "authenticator-lite", "name": "Authenticator Lite (in Outlook)", "description": "MFA capability embedded in Outlook mobile app"},
+          {"value": "hardware-oath", "name": "Hardware OATH tokens", "description": "Physical devices generating TOTP codes"},
+          {"value": "software-oath", "name": "Third-party software OATH tokens", "description": "Any TOTP-compatible authenticator app"},
+          {"value": "certificate-based", "name": "Certificate-based authentication", "description": "Phishing-resistant auth using X.509 certificates on smartcards or devices"},
+          {"value": "external-mfa", "name": "External authentication methods", "description": "Third-party MFA providers integrated via API"},
+          {"value": "temporary-access-pass", "name": "Temporary Access Pass (TAP)", "description": "Time-limited passcode for onboarding or recovery scenarios"},
+          {"value": "sms", "name": "SMS", "description": "One-time code sent via text message"},
+          {"value": "voice", "name": "Voice call", "description": "Automated phone call for verification"},
+          {"value": "qr-code", "name": "QR code sign-in", "description": "QR code-based authentication for frontline workers"},
+          {"value": "email-otp", "name": "Email one-time passcode", "description": "OTP sent to email, primarily for B2B guest users"}
+        ],
+        "vendor_recommendation": "Use phishing-resistant methods: passkeys (FIDO2), Windows Hello for Business, certificate-based authentication. Microsoft recommends moving away from SMS and voice call methods.",
+        "recent_changes": "SMS-based MFA still supported but Microsoft actively recommends migration to phishing-resistant alternatives. Number matching now enforced for Authenticator push notifications.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Authentication methods",
+          "api": "GET https://graph.microsoft.com/v1.0/policies/authenticationMethodsPolicy",
+          "powershell": "Get-MgPolicyAuthenticationMethodPolicy"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Authentication methods → Policies",
+          "api": "PATCH https://graph.microsoft.com/v1.0/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{method}",
+          "powershell": "Update-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^conditional-access$"],
+      "description": "Context-aware access policies (if-then rules)",
+      "weight": 100,
+      "data": {
+        "description": "Policy engine that evaluates sign-in conditions (signals) and enforces access controls. Evaluates: user/group membership, cloud app, location (named/trusted), device platform, device state/compliance, client app type, sign-in risk level, user risk level. Enforces: block access, grant with conditions (require MFA, require compliant device, require app protection policy, require password change), session controls (sign-in frequency, persistent browser, app-enforced restrictions). Requires Entra ID P1 license.",
+        "options": [
+          {"signal": "User/group assignment", "description": "Target specific users, groups, roles, or all users"},
+          {"signal": "Cloud apps", "description": "Target specific applications or all cloud apps"},
+          {"signal": "Location", "description": "Named locations, trusted IPs, country-based filtering"},
+          {"signal": "Device platform", "description": "Windows, macOS, iOS, Android, Linux"},
+          {"signal": "Device state", "description": "Compliant, Hybrid Azure AD joined, or unmanaged"},
+          {"signal": "Client app", "description": "Browser, mobile app, desktop client, legacy auth clients"},
+          {"signal": "Sign-in risk", "description": "Real-time risk: low, medium, high (requires P2)"},
+          {"signal": "User risk", "description": "Cumulative risk: low, medium, high (requires P2)"},
+          {"control": "Block access", "description": "Deny the sign-in entirely"},
+          {"control": "Require MFA", "description": "Require multi-factor authentication"},
+          {"control": "Require compliant device", "description": "Device must be Intune-compliant"},
+          {"control": "Require approved app", "description": "Must use an approved client application"},
+          {"control": "Session controls", "description": "Sign-in frequency, persistent browser, app-enforced restrictions"}
+        ],
+        "vendor_recommendation": "Replace security defaults with Conditional Access for organizations with P1+ licenses. Use policy templates for common scenarios. Start in report-only mode before enforcing. Always exclude break-glass emergency access accounts.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Conditional Access",
+          "cli": "az ad conditionalaccess policy list",
+          "api": "GET https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies",
+          "powershell": "Get-MgIdentityConditionalAccessPolicy"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Conditional Access → New policy",
+          "api": "POST https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies",
+          "powershell": "New-MgIdentityConditionalAccessPolicy",
+          "terraform": "azurerm_conditional_access_policy"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^identity-protection$"],
+      "description": "Risk-based identity security with automated detection and remediation",
+      "weight": 100,
+      "data": {
+        "description": "Automated detection and remediation of identity-based risks. Detects risky sign-ins (unfamiliar locations, anonymous IP addresses, malware-linked IPs, atypical travel, token anomalies, password spray, credential stuffing) and risky users (leaked credentials, suspicious activity patterns, anomalous user behavior). Integrates with Conditional Access for automated remediation. Requires Entra ID P2 license.",
+        "options": [
+          {"risk_type": "Sign-in risk", "detections": "Anonymous IP, atypical travel, malware-linked IP, unfamiliar sign-in properties, password spray, credential stuffing, anomalous token, suspicious browser"},
+          {"risk_type": "User risk", "detections": "Leaked credentials, anomalous user activity, possible attempt to access PRT, suspicious API traffic"}
+        ],
+        "vendor_recommendation": "Enable user risk and sign-in risk policies to auto-remediate detected risks. Configure user risk policy to require password change at medium+ risk. Configure sign-in risk policy to require MFA at medium+ risk.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Identity Protection",
+          "api": "GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers",
+          "api_sign_ins": "GET https://graph.microsoft.com/v1.0/identityProtection/riskyServicePrincipals",
+          "powershell": "Get-MgRiskyUser"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Identity Protection → User risk policy / Sign-in risk policy",
+          "note": "Risk policies are configured as Conditional Access policies using sign-in risk and user risk conditions"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/id-protection/overview-identity-protection"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^privileged-identity-management$", "(?i)^pim$"],
+      "description": "Just-in-time privileged access management",
+      "weight": 100,
+      "data": {
+        "description": "Time-limited, approval-based activation of privileged roles. Provides just-in-time access to Entra ID and Azure resources. Features: eligible vs active role assignments, time-bound activation (configurable duration), approval workflows, MFA enforcement on activation, justification requirements, notification on activation, and full audit trail. Requires Entra ID P2 license.",
+        "options": [
+          {"setting": "Eligible assignment", "description": "User is eligible but must activate the role before using it"},
+          {"setting": "Active assignment", "description": "User has the role permanently (time-bound or permanent)"},
+          {"setting": "Activation duration", "range": "0.5-24 hours", "default": "8 hours"},
+          {"setting": "Require approval", "type": "boolean", "description": "Designated approvers must approve activation"},
+          {"setting": "Require MFA", "type": "boolean", "description": "MFA required on role activation"},
+          {"setting": "Require justification", "type": "boolean", "description": "User must provide reason for activation"},
+          {"setting": "Require ticket info", "type": "boolean", "description": "User must provide ticket number for activation"}
+        ],
+        "vendor_recommendation": "Use PIM for all privileged roles. Require approval and MFA for activation of high-impact roles (Global Administrator, Privileged Role Administrator). Set maximum activation duration. Review eligible assignments periodically.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Identity Governance → Privileged Identity Management",
+          "api": "GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleInstances",
+          "powershell": "Get-MgRoleManagementDirectoryRoleAssignmentScheduleInstance"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Identity Governance → Privileged Identity Management → Entra ID roles → Settings",
+          "api": "POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests",
+          "powershell": "New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^access-reviews$"],
+      "description": "Periodic access recertification",
+      "weight": 80,
+      "data": {
+        "description": "Scheduled reviews of user access to groups, applications, and roles. Reviewers (managers, resource owners, self-reviewers, or designated reviewers) confirm or deny continued access. Supports auto-apply of results and removal of access for non-responded reviews. Requires Entra ID P2 license.",
+        "options": [
+          {"review_target": "Group memberships", "description": "Review who belongs to security or Microsoft 365 groups"},
+          {"review_target": "Application assignments", "description": "Review who has access to enterprise applications"},
+          {"review_target": "Entra ID roles", "description": "Review privileged role assignments (integrates with PIM)"},
+          {"review_target": "Azure resource roles", "description": "Review Azure RBAC role assignments"},
+          {"review_target": "Access packages", "description": "Review entitlement management access package assignments"}
+        ],
+        "vendor_recommendation": "Create recurring access reviews for privileged roles and sensitive group memberships. Enable auto-apply to automatically remove access when reviewers deny or don't respond.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Identity Governance → Access reviews",
+          "api": "GET https://graph.microsoft.com/v1.0/identityGovernance/accessReviews/definitions",
+          "powershell": "Get-MgIdentityGovernanceAccessReviewDefinition"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Identity Governance → Access reviews → New access review",
+          "api": "POST https://graph.microsoft.com/v1.0/identityGovernance/accessReviews/definitions"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^password-protection$"],
+      "description": "Password policy and banned password enforcement",
+      "weight": 80,
+      "data": {
+        "description": "Custom banned password lists and smart lockout. Blocks common/weak passwords and their variations using a global banned password list (maintained by Microsoft from real telemetry) plus a custom banned password list (up to 1000 entries). Smart lockout tracks failed sign-in attempts and locks accounts after a threshold. Extends to on-premises Active Directory via password protection agents.",
+        "options": [
+          {"setting": "Custom banned password list", "description": "Up to 1000 custom terms that are blocked along with variations", "default": "disabled"},
+          {"setting": "Smart lockout threshold", "description": "Number of failed sign-ins before lockout", "default": 10},
+          {"setting": "Smart lockout duration (seconds)", "description": "Duration of first lockout, increases with subsequent lockouts", "default": 60},
+          {"setting": "Enable on-premises", "description": "Deploy password protection agents to Active Directory domain controllers", "default": "not deployed"}
+        ],
+        "vendor_recommendation": "Enable the custom banned password list with organization-specific terms (company name, products, locations). Deploy password protection to on-premises AD if using hybrid identity.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Authentication methods → Password protection",
+          "api": "GET https://graph.microsoft.com/v1.0/settings (directory settings)",
+          "powershell": "Get-MgDirectorySetting"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Security → Authentication methods → Password protection → Edit",
+          "note": "On-premises deployment requires installing Azure AD Password Protection Proxy and DC Agent"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^roles$"],
+      "description": "Built-in and custom Entra ID roles for administrative access control",
+      "weight": 100,
+      "data": {
+        "description": "Role-based access control for Entra ID administration and Azure resource management. 70+ built-in roles ranging from Global Administrator (full access) to narrow roles like Authentication Administrator or Groups Administrator. Custom roles available with P1+ license for fine-grained permission combinations.",
+        "options": [
+          {"role": "Global Administrator", "description": "Full access to all Entra ID features. Limit to fewer than 5 users."},
+          {"role": "Security Administrator", "description": "Read security info and reports, manage Entra ID and Office 365 security configuration"},
+          {"role": "Conditional Access Administrator", "description": "Manage Conditional Access policies"},
+          {"role": "User Administrator", "description": "Manage users and groups, including password resets"},
+          {"role": "Privileged Role Administrator", "description": "Manage role assignments and PIM settings"},
+          {"role": "Application Administrator", "description": "Manage app registrations and enterprise apps"},
+          {"role": "Authentication Administrator", "description": "Manage authentication methods for non-admin users"},
+          {"role": "Custom roles", "description": "User-defined roles with specific permission selections (P1+ license)"}
+        ],
+        "vendor_recommendation": "Use least-privilege roles. Limit Global Administrator assignments to fewer than 5. Use PIM for just-in-time activation of privileged roles. Prefer narrow built-in roles over Global Administrator.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Roles and administrators",
+          "cli": "az role assignment list",
+          "api": "GET https://graph.microsoft.com/v1.0/directoryRoles",
+          "powershell": "Get-MgDirectoryRole"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Roles and administrators → {role} → Add assignments",
+          "api": "POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments",
+          "powershell": "New-MgRoleManagementDirectoryRoleAssignment"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^service-principals$", "(?i)^workload-identities$"],
+      "description": "Application and workload identities (non-human identities)",
+      "weight": 100,
+      "data": {
+        "description": "Non-human identities for applications, automation, and services. Includes app registrations (multi-tenant or single-tenant application objects), managed identities (Azure-managed, no secrets to handle), and federated credentials (workload identity federation with external identity providers like GitHub Actions, Kubernetes, AWS, GCP).",
+        "options": [
+          {"type": "System-assigned managed identity", "description": "Auto-managed identity tied to an Azure resource lifecycle. Created and deleted with the resource. No secrets to manage."},
+          {"type": "User-assigned managed identity", "description": "Standalone managed identity that can be assigned to multiple Azure resources. Independent lifecycle."},
+          {"type": "App registration with client secret", "description": "Application with a secret string for authentication. Secrets have expiration dates."},
+          {"type": "App registration with certificate", "description": "Application authenticating with X.509 certificate. More secure than client secrets."},
+          {"type": "Federated identity credential", "description": "No secrets. External identity provider (GitHub, Kubernetes, AWS, GCP) authenticates directly. Uses OIDC token exchange."}
+        ],
+        "vendor_recommendation": "Use managed identities where possible (no secrets to manage). Use workload identity federation for external workloads (GitHub Actions, other clouds). Avoid client secrets — prefer certificates or federated credentials. Set short expiration on any secrets that must be used.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → App registrations / Enterprise applications",
+          "cli": "az ad app list / az ad sp list",
+          "api": "GET https://graph.microsoft.com/v1.0/applications / GET https://graph.microsoft.com/v1.0/servicePrincipals",
+          "powershell": "Get-MgApplication / Get-MgServicePrincipal"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → App registrations → New registration",
+          "cli_managed_identity": "az identity create --name {name} --resource-group {rg}",
+          "cli_federation": "az ad app federated-credential create --id {app-id} --parameters credential.json",
+          "terraform": "azurerm_user_assigned_identity, azuread_application, azuread_application_federated_identity_credential"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^admin-consent-workflow$", "(?i)^app-consent$"],
+      "description": "Application consent governance and admin approval workflow",
+      "weight": 60,
+      "data": {
+        "description": "Controls how users can grant permissions to applications. By default, users can consent to apps requesting low-risk permissions. Admin consent workflow allows users to request access to apps requiring admin-level permissions, routing requests to designated approvers. Prevents unauthorized permission grants that could lead to data exfiltration.",
+        "options": [
+          {"setting": "User consent for applications", "values": ["Allow user consent for apps from verified publishers, for selected permissions", "Allow user consent for all apps", "Do not allow user consent"], "default": "Allow user consent for apps from verified publishers, for selected permissions"},
+          {"setting": "Admin consent workflow", "type": "boolean", "description": "Enable workflow for users to request admin consent", "default": "disabled"},
+          {"setting": "Consent reviewers", "description": "Users or groups who review admin consent requests"}
+        ],
+        "vendor_recommendation": "Restrict user consent to verified publishers and low-risk permissions. Enable admin consent workflow so users can request access rather than being blocked. Review consent requests promptly.",
+        "audit": {
+          "console": "Azure Portal → Microsoft Entra ID → Enterprise applications → Consent and permissions",
+          "api": "GET https://graph.microsoft.com/v1.0/policies/authorizationPolicy",
+          "powershell": "Get-MgPolicyAuthorizationPolicy"
+        },
+        "configure": {
+          "console": "Azure Portal → Microsoft Entra ID → Enterprise applications → Consent and permissions → User consent settings / Admin consent requests",
+          "api": "PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow"
+      }
+    }
+  ]
+}
