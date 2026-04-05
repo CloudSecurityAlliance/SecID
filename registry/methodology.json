@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "type": "methodology",
+  "official_name": "Methodology",
+  "description": "Formal processes with defined inputs, steps, and outputs — named, published methodologies for producing security analysis, scores, mappings, decisions, classifications, and reports.",
+  "purpose": "Track and reference the processes used to produce security knowledge. Each methodology defines how to systematically produce a specific type of output (score, mapping, decision, classification, report). Sub-methodologies are independently referenceable via subpath.",
+  "format": "secid:methodology/<namespace>/<name>[@version][#<subpath>]",
+  "examples": [
+    "secid:methodology/nist.gov/ir-8477",
+    "secid:methodology/nist.gov/ir-8477#strm",
+    "secid:methodology/first.org/cvss@4.0",
+    "secid:methodology/cmu.edu/ssvc@2.0",
+    "secid:methodology/iso.org/27005@2022"
+  ],
+  "notes": "The methodology type is the smallest by volume (~40-60 entries) but provides critical process provenance for the relationship layer. Classification criterion: 'Is process the primary purpose of this document?' (the duck test). Tools implementing methodologies go in entity type.",
+  "namespace_count": 0,
+  "namespaces": []
+}
