@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry for STRIDE threat modeling methodology. Reviewed 2026-04-05.",
+
+  "official_name": "Microsoft",
+  "urls": [
+    {"type": "website", "url": "https://www.microsoft.com/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^stride$"],
+      "description": "STRIDE: threat modeling methodology categorizing threats into six categories — Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege. Originally developed at Microsoft by Loren Kohnfelder and Praerit Garg. Widely adopted as a standard approach to systematic threat enumeration.",
+      "weight": 100,
+      "data": {
+        "url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats",
+        "examples": ["stride"]
+      }
+    }
+  ]
+}
