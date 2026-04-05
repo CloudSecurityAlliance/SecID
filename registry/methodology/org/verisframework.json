@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "namespace": "verisframework.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Verizon RISK Team",
+  "urls": [
+    {"type": "website", "url": "https://verisframework.org/"},
+    {"type": "docs", "url": "https://github.com/vz-risk/veris"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^veris$"],
+      "description": "Vocabulary for Event Recording and Incident Sharing (VERIS): incident classification methodology. Provides a structured framework for describing security incidents using a common language. Developed by Verizon's RISK Team, used in the annual Data Breach Investigations Report (DBIR).",
+      "weight": 100,
+      "data": {
+        "url": "https://verisframework.org/",
+        "examples": ["veris"]
+      }
+    }
+  ]
+}
