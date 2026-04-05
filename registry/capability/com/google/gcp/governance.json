@@ -4,37 +4,80 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud Organization Policy and Asset Inventory documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud Governance (Organization Policy + Asset Inventory)",
   "common_name": "Org Policy",
-  "alternate_names": ["Organization Policy Service", "Cloud Asset Inventory", "Resource Manager"],
+  "alternate_names": [
+    "Organization Policy Service",
+    "Cloud Asset Inventory",
+    "Resource Manager"
+  ],
   "notes": "Organization-wide constraints and asset management. Organization Policy for enforcement, Cloud Asset Inventory for visibility.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"},
-    {"type": "docs", "url": "https://cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints", "note": "Organization Policy constraints reference"},
-    {"type": "docs", "url": "https://cloud.google.com/asset-inventory/docs/overview", "note": "Cloud Asset Inventory overview"},
-    {"type": "docs", "url": "https://cloud.google.com/resource-manager/reference/rest", "note": "Resource Manager API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints",
+      "note": "Organization Policy constraints reference"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/asset-inventory/docs/overview",
+      "note": "Cloud Asset Inventory overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/resource-manager/reference/rest",
+      "note": "Resource Manager API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^organization-policies$", "(?i)^org-policies$"],
+      "patterns": [
+        "(?i)^organization-policies$",
+        "(?i)^org-policies$"
+      ],
       "description": "Constraints on resource configuration across the organization",
       "weight": 100,
       "data": {
         "description": "Organization policy constraints restrict how Google Cloud resources can be configured. Applied at organization, folder, or project level with inheritance. Two constraint types: boolean constraints (enforce/don't enforce) and list constraints (allow/deny specific values). 50+ built-in constraints cover common security requirements. Policies inherit down the resource hierarchy and can be overridden at lower levels.",
         "options": [
-          {"type": "Boolean constraints", "description": "Enable or disable a behavior. Examples: constraints/compute.disableSerialPortAccess, constraints/iam.disableServiceAccountKeyCreation."},
-          {"type": "List constraints", "description": "Allow or deny specific values. Examples: constraints/compute.trustedImageProjects (restrict VM images), constraints/gcp.resourceLocations (restrict regions)."},
-          {"constraint": "compute.disableSerialPortAccess", "description": "Disable serial port access to VMs"},
-          {"constraint": "iam.disableServiceAccountKeyCreation", "description": "Prevent creation of service account keys"},
-          {"constraint": "compute.trustedImageProjects", "description": "Restrict which image projects can be used for VM creation"},
-          {"constraint": "gcp.resourceLocations", "description": "Restrict which regions resources can be created in"},
-          {"constraint": "compute.requireShieldedVm", "description": "Require Shielded VM features for new instances"},
-          {"constraint": "storage.uniformBucketLevelAccess", "description": "Require uniform bucket-level access on Cloud Storage buckets"}
+          {
+            "type": "Boolean constraints",
+            "description": "Enable or disable a behavior. Examples: constraints/compute.disableSerialPortAccess, constraints/iam.disableServiceAccountKeyCreation."
+          },
+          {
+            "type": "List constraints",
+            "description": "Allow or deny specific values. Examples: constraints/compute.trustedImageProjects (restrict VM images), constraints/gcp.resourceLocations (restrict regions)."
+          },
+          {
+            "constraint": "compute.disableSerialPortAccess",
+            "description": "Disable serial port access to VMs"
+          },
+          {
+            "constraint": "iam.disableServiceAccountKeyCreation",
+            "description": "Prevent creation of service account keys"
+          },
+          {
+            "constraint": "compute.trustedImageProjects",
+            "description": "Restrict which image projects can be used for VM creation"
+          },
+          {
+            "constraint": "gcp.resourceLocations",
+            "description": "Restrict which regions resources can be created in"
+          },
+          {
+            "constraint": "compute.requireShieldedVm",
+            "description": "Require Shielded VM features for new instances"
+          },
+          {
+            "constraint": "storage.uniformBucketLevelAccess",
+            "description": "Require uniform bucket-level access on Cloud Storage buckets"
+          }
         ],
         "vendor_recommendation": "Apply organization policies at the organization level for consistent enforcement. Start with common security constraints: disable serial port access, disable service account key creation, require shielded VMs, restrict resource locations. Use folder-level overrides for exceptions.",
         "audit": {
@@ -48,20 +91,36 @@
           "cli_boolean": "gcloud org-policies enable-enforce {constraint} --organization={org-id}",
           "terraform": "google_org_policy_policy"
         },
-        "source": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^custom-constraints$"],
+      "patterns": [
+        "(?i)^custom-constraints$"
+      ],
       "description": "User-defined organization policy constraints with CEL",
       "weight": 80,
       "data": {
         "description": "User-defined organization policy constraints using Common Expression Language (CEL). Allow creating custom constraints that evaluate resource attributes during creation or update. CEL provides a flexible expression language for evaluating resource fields, labels, and properties against custom conditions.",
         "options": [
-          {"method_type": "CREATE", "description": "Constraint evaluated when a resource is created"},
-          {"method_type": "UPDATE", "description": "Constraint evaluated when a resource is updated"},
-          {"method_type": "CREATE_AND_UPDATE", "description": "Constraint evaluated on both create and update"}
+          {
+            "method_type": "CREATE",
+            "description": "Constraint evaluated when a resource is created"
+          },
+          {
+            "method_type": "UPDATE",
+            "description": "Constraint evaluated when a resource is updated"
+          },
+          {
+            "method_type": "CREATE_AND_UPDATE",
+            "description": "Constraint evaluated on both create and update"
+          }
         ],
         "vendor_recommendation": "Use custom constraints for organization-specific requirements not covered by built-in constraints. Test constraints thoroughly before applying at the organization level. Use meaningful display names and descriptions for audit trail.",
         "audit": {
@@ -73,22 +132,45 @@
           "cli": "gcloud org-policies create-custom-constraint constraint.yaml --organization={org-id}",
           "terraform": "google_org_policy_custom_constraint"
         },
-        "source": "https://cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^cloud-asset-inventory$", "(?i)^cai$"],
+      "patterns": [
+        "(?i)^cloud-asset-inventory$",
+        "(?i)^cai$"
+      ],
       "description": "Real-time inventory of all Google Cloud resources and IAM policies",
       "weight": 100,
       "data": {
         "description": "Real-time inventory of all Google Cloud resources, IAM policies, and organization policies across the entire organization. Supports search (find resources by name, type, label, IP, etc.), export (to BigQuery or Cloud Storage), feed (real-time change notifications via Pub/Sub), and history (view resource state at any point in time).",
         "options": [
-          {"feature": "Search", "description": "Search all resources across the organization by name, type, labels, network tags, IP addresses, and more."},
-          {"feature": "Export", "description": "Export full asset inventory to BigQuery or Cloud Storage for analysis."},
-          {"feature": "Feed", "description": "Real-time notifications of resource changes via Pub/Sub."},
-          {"feature": "History", "description": "View resource configuration at any point in the past 35 days."},
-          {"feature": "Analyze", "description": "Analyze IAM policies to determine who has access to what resources."}
+          {
+            "feature": "Search",
+            "description": "Search all resources across the organization by name, type, labels, network tags, IP addresses, and more."
+          },
+          {
+            "feature": "Export",
+            "description": "Export full asset inventory to BigQuery or Cloud Storage for analysis."
+          },
+          {
+            "feature": "Feed",
+            "description": "Real-time notifications of resource changes via Pub/Sub."
+          },
+          {
+            "feature": "History",
+            "description": "View resource configuration at any point in the past 35 days."
+          },
+          {
+            "feature": "Analyze",
+            "description": "Analyze IAM policies to determine who has access to what resources."
+          }
         ],
         "vendor_recommendation": "Use Cloud Asset Inventory for organization-wide visibility. Set up feeds for real-time change detection on security-sensitive resources. Export to BigQuery for compliance reporting and trend analysis.",
         "audit": {
@@ -101,21 +183,40 @@
           "cli_feed": "gcloud asset feeds create {feed-id} --organization={org-id} --content-type=resource --asset-types={type} --pubsub-topic=projects/{project}/topics/{topic}",
           "terraform": "google_cloud_asset_organization_feed, google_cloud_asset_project_feed"
         },
-        "source": "https://cloud.google.com/asset-inventory/docs/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/asset-inventory/docs/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^resource-manager$"],
+      "patterns": [
+        "(?i)^resource-manager$"
+      ],
       "description": "Resource hierarchy: Organization, Folders, Projects",
       "weight": 80,
       "data": {
         "description": "Manages the Google Cloud resource hierarchy: Organization (root) → Folders (grouping) → Projects (resource containers). IAM policies, organization policies, and billing inherit down the hierarchy. Folders enable organizational grouping by department, team, environment, or application. Tags enable attribute-based access control (ABAC) across the hierarchy.",
         "options": [
-          {"level": "Organization", "description": "Root node. Tied to a Google Workspace or Cloud Identity domain. All resources belong to this organization."},
-          {"level": "Folders", "description": "Grouping mechanism. Can be nested up to 10 levels. Used for departmental, environmental, or application-based grouping."},
-          {"level": "Projects", "description": "Container for resources. All Google Cloud resources exist within a project. Billing is at the project level."},
-          {"feature": "Tags", "description": "Key-value pairs that can be attached to organizations, folders, and projects. Used for ABAC and organization policy conditions."}
+          {
+            "level": "Organization",
+            "description": "Root node. Tied to a Google Workspace or Cloud Identity domain. All resources belong to this organization."
+          },
+          {
+            "level": "Folders",
+            "description": "Grouping mechanism. Can be nested up to 10 levels. Used for departmental, environmental, or application-based grouping."
+          },
+          {
+            "level": "Projects",
+            "description": "Container for resources. All Google Cloud resources exist within a project. Billing is at the project level."
+          },
+          {
+            "feature": "Tags",
+            "description": "Key-value pairs that can be attached to organizations, folders, and projects. Used for ABAC and organization policy conditions."
+          }
         ],
         "vendor_recommendation": "Design a folder hierarchy that reflects your organizational structure. Use separate projects for different environments (dev, staging, prod). Apply IAM and organization policies at the highest appropriate level. Use tags for cross-cutting access control.",
         "audit": {
@@ -129,23 +230,48 @@
           "cli_project": "gcloud projects create {project-id} --folder={folder-id}",
           "terraform": "google_folder, google_project"
         },
-        "source": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^essential-contacts$"],
+      "patterns": [
+        "(?i)^essential-contacts$"
+      ],
       "description": "Designated contacts for security and operational notifications",
       "weight": 60,
       "data": {
         "description": "Designate specific contacts to receive notifications from Google Cloud for different categories: Security, Technical, Billing, Legal, Product updates, and All. Contacts can be set at organization, folder, or project level and inherit down the hierarchy. Ensures critical notifications reach the right people.",
         "options": [
-          {"category": "SECURITY", "description": "Security advisories, vulnerability notifications, and incident reports"},
-          {"category": "TECHNICAL", "description": "Technical issues, maintenance notifications"},
-          {"category": "BILLING", "description": "Billing alerts and notifications"},
-          {"category": "LEGAL", "description": "Legal notices and compliance notifications"},
-          {"category": "PRODUCT_UPDATES", "description": "Product changes, deprecations, and new features"},
-          {"category": "ALL", "description": "All notification categories"}
+          {
+            "category": "SECURITY",
+            "description": "Security advisories, vulnerability notifications, and incident reports"
+          },
+          {
+            "category": "TECHNICAL",
+            "description": "Technical issues, maintenance notifications"
+          },
+          {
+            "category": "BILLING",
+            "description": "Billing alerts and notifications"
+          },
+          {
+            "category": "LEGAL",
+            "description": "Legal notices and compliance notifications"
+          },
+          {
+            "category": "PRODUCT_UPDATES",
+            "description": "Product changes, deprecations, and new features"
+          },
+          {
+            "category": "ALL",
+            "description": "All notification categories"
+          }
         ],
         "vendor_recommendation": "Configure essential contacts at the organization level at minimum. Set separate contacts for security, technical, and billing categories. Ensure security contacts include your security operations team.",
         "audit": {
@@ -157,17 +283,27 @@
           "cli": "gcloud essential-contacts create --email={email} --notification-categories=SECURITY,TECHNICAL --organization={org-id}",
           "terraform": "google_essential_contacts_contact"
         },
-        "source": "https://cloud.google.com/resource-manager/docs/managing-notification-contacts"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/resource-manager/docs/managing-notification-contacts",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-approval$"],
+      "patterns": [
+        "(?i)^access-approval$"
+      ],
       "description": "Require explicit approval before Google support accesses your data",
       "weight": 80,
       "data": {
         "description": "Requires explicit approval from your organization before Google Cloud support personnel can access your data or resources. When a Google support agent needs access for troubleshooting, an approval request is generated. Designated approvers can approve or deny the request. All access attempts are logged. Provides control over when and how Google accesses your environment.",
-        "default": {"value": "Not enabled by default", "note": "Must be explicitly enabled and configured at the organization, folder, or project level."},
+        "default": {
+          "value": "Not enabled by default",
+          "note": "Must be explicitly enabled and configured at the organization, folder, or project level."
+        },
         "vendor_recommendation": "Enable Access Approval for production environments containing sensitive data. Designate multiple approvers for availability. Review access approval logs regularly. Consider Access Transparency (separate feature) for visibility into all Google access.",
         "audit": {
           "cli": "gcloud access-approval settings get --organization={org-id}",
@@ -178,7 +314,13 @@
           "cli": "gcloud access-approval settings update --notification-emails={email} --organization={org-id}",
           "terraform": "google_organization_access_approval_settings, google_project_access_approval_settings"
         },
-        "source": "https://cloud.google.com/access-approval/docs/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/access-approval/docs/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

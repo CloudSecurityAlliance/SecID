@@ -4,31 +4,53 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS ECS/EKS documentation, 2026-04-04. Needs cross-reference pass and human review with live AWS environment.",
-
   "official_name": "Amazon Container Services (ECS/EKS)",
   "common_name": "ECS/EKS",
-  "alternate_names": ["Elastic Container Service", "Elastic Kubernetes Service"],
+  "alternate_names": [
+    "Elastic Container Service",
+    "Elastic Kubernetes Service"
+  ],
   "notes": "Container orchestration. ECS (managed) and EKS (Kubernetes). Security focus: task/pod execution roles, secrets, network modes, image scanning.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/ecs/"},
-    {"type": "website", "url": "https://aws.amazon.com/eks/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security.html", "note": "ECS Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/eks/latest/userguide/security.html", "note": "EKS Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/eks/latest/best-practices/security.html", "note": "EKS Security Best Practices"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/ecs/"
+    },
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/eks/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security.html",
+      "note": "ECS Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/security.html",
+      "note": "EKS Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/eks/latest/best-practices/security.html",
+      "note": "EKS Security Best Practices"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^task-execution-role$"],
+      "patterns": [
+        "(?i)^task-execution-role$"
+      ],
       "description": "IAM role for ECS agent to pull images and write logs",
       "weight": 100,
       "data": {
         "description": "The task execution role is used by the ECS container agent to pull container images from ECR, write logs to CloudWatch, and retrieve secrets from Secrets Manager or SSM Parameter Store. This is separate from the task role (which the container application uses at runtime).",
         "vendor_recommendation": "Use the AWS managed policy AmazonECSTaskExecutionRolePolicy as a starting point. Add additional permissions only for secrets and ECR access as needed. Do not confuse with the task role.",
-        "cross_references": ["secid:capability/amazon.com/aws/iam#roles"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#roles"
+        ],
         "audit": {
           "cli": "aws ecs describe-task-definition --task-definition {td} --query taskDefinition.executionRoleArn",
           "api": "DescribeTaskDefinition (executionRoleArn)"
@@ -37,18 +59,27 @@
           "cli": "aws ecs register-task-definition --execution-role-arn arn:aws:iam::{account}:role/{role} ...",
           "terraform": "execution_role_arn on aws_ecs_task_definition"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^task-role$"],
+      "patterns": [
+        "(?i)^task-role$"
+      ],
       "description": "IAM role assumed by the container at runtime for AWS API access",
       "weight": 100,
       "data": {
         "description": "The task role is the IAM role assumed by the containers in an ECS task at runtime. Applications use this role's temporary credentials to access AWS services (S3, DynamoDB, SQS, etc.). Separate from the execution role which is used by the ECS agent.",
         "vendor_recommendation": "One task role per service, least privilege. Never share task roles across unrelated services. Use IAM Access Analyzer to right-size permissions based on actual API calls.",
-        "cross_references": ["secid:capability/amazon.com/aws/iam#roles"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#roles"
+        ],
         "audit": {
           "cli": "aws ecs describe-task-definition --task-definition {td} --query taskDefinition.taskRoleArn",
           "api": "DescribeTaskDefinition (taskRoleArn)"
@@ -57,38 +88,68 @@
           "cli": "aws ecs register-task-definition --task-role-arn arn:aws:iam::{account}:role/{role} ...",
           "terraform": "task_role_arn on aws_ecs_task_definition"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^fargate$"],
+      "patterns": [
+        "(?i)^fargate$"
+      ],
       "description": "Serverless container execution — isolated per-task environments",
       "weight": 80,
       "data": {
         "description": "AWS Fargate runs containers without managing EC2 instances. Each Fargate task runs in its own kernel-level isolated environment (Firecracker microVM). No shared kernel between tasks. No SSH access to the underlying infrastructure.",
         "options": [
-          {"value": "fargate", "name": "Fargate", "description": "Serverless. No EC2 management. Per-task isolation via Firecracker microVMs."},
-          {"value": "ec2", "name": "EC2 launch type", "description": "You manage EC2 instances. Multiple tasks share host. More control, more responsibility."}
+          {
+            "value": "fargate",
+            "name": "Fargate",
+            "description": "Serverless. No EC2 management. Per-task isolation via Firecracker microVMs."
+          },
+          {
+            "value": "ec2",
+            "name": "EC2 launch type",
+            "description": "You manage EC2 instances. Multiple tasks share host. More control, more responsibility."
+          }
         ],
         "vendor_recommendation": "Use Fargate for workloads that benefit from per-task isolation and reduced operational burden. Use EC2 launch type when you need GPU, specific instance types, or host-level customization.",
         "audit": {
           "cli_ecs": "aws ecs describe-services --cluster {cluster} --services {service} --query services[0].launchType",
           "api": "DescribeServices (launchType)"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ecr-image-scanning$"],
+      "patterns": [
+        "(?i)^ecr-image-scanning$"
+      ],
       "description": "Container image vulnerability scanning in ECR",
       "weight": 100,
       "data": {
         "description": "Amazon ECR provides image scanning to identify software vulnerabilities. Basic scanning uses the open-source Clair project. Enhanced scanning uses Amazon Inspector for continuous monitoring with a richer vulnerability database.",
         "options": [
-          {"value": "basic", "name": "Basic scanning", "description": "On-push scanning using Clair. Free. Scans OS packages only."},
-          {"value": "enhanced", "name": "Enhanced scanning", "description": "Amazon Inspector. Continuous monitoring. Scans OS packages and programming language libraries. Additional cost."}
+          {
+            "value": "basic",
+            "name": "Basic scanning",
+            "description": "On-push scanning using Clair. Free. Scans OS packages only."
+          },
+          {
+            "value": "enhanced",
+            "name": "Enhanced scanning",
+            "description": "Amazon Inspector. Continuous monitoring. Scans OS packages and programming language libraries. Additional cost."
+          }
         ],
         "vendor_recommendation": "Enable enhanced scanning (Inspector) for production repositories. Configure scan-on-push. Review findings regularly and prioritize critical/high vulnerabilities.",
         "audit": {
@@ -101,18 +162,27 @@
           "cli_enhanced": "aws ecr put-registry-scanning-configuration --scan-type ENHANCED --rules '[{\"scanFrequency\":\"CONTINUOUS_SCAN\",\"repositoryFilters\":[{\"filter\":\"*\",\"filterType\":\"WILDCARD\"}]}]'",
           "terraform": "aws_ecr_registry_scanning_configuration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^secrets-management$"],
+      "patterns": [
+        "(?i)^secrets-management$"
+      ],
       "description": "Inject secrets from Secrets Manager or SSM Parameter Store into containers",
       "weight": 100,
       "data": {
         "description": "ECS can inject secrets from AWS Secrets Manager or SSM Parameter Store as environment variables or mount them as files in the container. Secrets are fetched at task launch by the ECS agent using the task execution role.",
         "vendor_recommendation": "Never put secrets in task definitions or environment variables directly. Use Secrets Manager for credentials and API keys. Use SSM Parameter Store for non-sensitive configuration.",
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
         "audit": {
           "cli": "aws ecs describe-task-definition --task-definition {td} --query 'taskDefinition.containerDefinitions[*].secrets'",
           "api": "DescribeTaskDefinition (containerDefinitions.secrets)"
@@ -121,42 +191,87 @@
           "note": "Add secrets block to container definition in task definition JSON: {\"name\":\"DB_PASSWORD\",\"valueFrom\":\"arn:aws:secretsmanager:{region}:{account}:secret:{name}\"}",
           "terraform": "secrets block in container_definitions on aws_ecs_task_definition"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^network-mode$"],
+      "patterns": [
+        "(?i)^network-mode$"
+      ],
       "description": "Container networking mode — controls isolation and security group assignment",
       "weight": 80,
       "data": {
         "description": "ECS supports multiple network modes that determine how containers communicate. The awsvpc mode gives each task its own elastic network interface (ENI), enabling per-task security groups and VPC flow logs.",
         "options": [
-          {"value": "awsvpc", "name": "awsvpc", "description": "Recommended. Each task gets its own ENI. Per-task security groups. Required for Fargate."},
-          {"value": "bridge", "name": "bridge", "description": "Docker bridge networking. Tasks share host network via port mapping. EC2 launch type only."},
-          {"value": "host", "name": "host", "description": "Container shares host network stack. No port mapping. EC2 launch type only."},
-          {"value": "none", "name": "none", "description": "Container has no external network connectivity."}
+          {
+            "value": "awsvpc",
+            "name": "awsvpc",
+            "description": "Recommended. Each task gets its own ENI. Per-task security groups. Required for Fargate."
+          },
+          {
+            "value": "bridge",
+            "name": "bridge",
+            "description": "Docker bridge networking. Tasks share host network via port mapping. EC2 launch type only."
+          },
+          {
+            "value": "host",
+            "name": "host",
+            "description": "Container shares host network stack. No port mapping. EC2 launch type only."
+          },
+          {
+            "value": "none",
+            "name": "none",
+            "description": "Container has no external network connectivity."
+          }
         ],
-        "default": {"value": "bridge", "note": "Bridge mode is default for EC2 launch type. Fargate always uses awsvpc."},
+        "default": {
+          "value": "bridge",
+          "note": "Bridge mode is default for EC2 launch type. Fargate always uses awsvpc."
+        },
         "vendor_recommendation": "Use awsvpc for security group per-task isolation. Required for Fargate. Enables VPC Flow Logs per task.",
         "audit": {
           "cli": "aws ecs describe-task-definition --task-definition {td} --query taskDefinition.networkMode",
           "api": "DescribeTaskDefinition (networkMode)"
         },
-        "source": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^eks-pod-security$"],
+      "patterns": [
+        "(?i)^eks-pod-security$"
+      ],
       "description": "Kubernetes pod security standards and admission control on EKS",
       "weight": 80,
       "data": {
         "description": "EKS supports Kubernetes Pod Security Standards (PSS) enforced by the Pod Security Admission (PSA) controller. Three profiles: Privileged (unrestricted), Baseline (minimally restrictive), and Restricted (hardened). Applied at the namespace level.",
         "options": [
-          {"value": "privileged", "name": "Privileged", "description": "Unrestricted. For system-level workloads."},
-          {"value": "baseline", "name": "Baseline", "description": "Prevents known privilege escalations. Allows most workloads."},
-          {"value": "restricted", "name": "Restricted", "description": "Heavily restricted. Follows pod hardening best practices."}
+          {
+            "value": "privileged",
+            "name": "Privileged",
+            "description": "Unrestricted. For system-level workloads."
+          },
+          {
+            "value": "baseline",
+            "name": "Baseline",
+            "description": "Prevents known privilege escalations. Allows most workloads."
+          },
+          {
+            "value": "restricted",
+            "name": "Restricted",
+            "description": "Heavily restricted. Follows pod hardening best practices."
+          }
         ],
         "vendor_recommendation": "Apply Restricted profile for application workloads. Use Baseline for shared namespaces. Reserve Privileged for system namespaces only. Enforce at namespace level.",
         "audit": {
@@ -165,18 +280,27 @@
         "configure": {
           "note": "Set via namespace labels: kubectl label namespace {ns} pod-security.kubernetes.io/enforce=restricted pod-security.kubernetes.io/warn=restricted"
         },
-        "source": "https://docs.aws.amazon.com/eks/latest/userguide/pod-security-policy.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/eks/latest/userguide/pod-security-policy.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^eks-irsa$"],
+      "patterns": [
+        "(?i)^eks-irsa$"
+      ],
       "description": "IAM Roles for Service Accounts — map K8s service accounts to IAM roles",
       "weight": 100,
       "data": {
         "description": "IRSA (IAM Roles for Service Accounts) allows Kubernetes pods to assume IAM roles by annotating Kubernetes service accounts. Uses OIDC federation between EKS and IAM. Provides pod-level IAM permissions instead of node-level instance profile permissions.",
         "vendor_recommendation": "Use IRSA instead of node-level instance profiles. Each application should have its own Kubernetes service account mapped to a least-privilege IAM role. Newer alternative: EKS Pod Identity (simpler setup).",
-        "cross_references": ["secid:capability/amazon.com/aws/iam#federation"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#federation"
+        ],
         "audit": {
           "cli_oidc": "aws eks describe-cluster --name {cluster} --query cluster.identity.oidc",
           "note": "Check service account annotations: kubectl get sa {sa} -n {ns} -o yaml | grep eks.amazonaws.com/role-arn"
@@ -185,18 +309,27 @@
           "cli_associate": "eksctl create iamserviceaccount --name {sa} --namespace {ns} --cluster {cluster} --role-name {role} --attach-policy-arn {policy-arn} --approve",
           "terraform": "aws_eks_identity_provider_config, annotation on kubernetes_service_account"
         },
-        "source": "https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^eks-secrets-encryption$"],
+      "patterns": [
+        "(?i)^eks-secrets-encryption$"
+      ],
       "description": "Encrypt Kubernetes secrets at rest with KMS",
       "weight": 80,
       "data": {
         "description": "EKS can encrypt Kubernetes secrets stored in etcd using a KMS key. Without this, secrets are base64-encoded but not encrypted in etcd. Encryption is applied via the Kubernetes KMS provider.",
         "vendor_recommendation": "Enable secrets encryption for all EKS clusters. Use a dedicated KMS key. This protects secrets at rest in the etcd datastore.",
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
         "audit": {
           "cli": "aws eks describe-cluster --name {cluster} --query cluster.encryptionConfig",
           "api": "DescribeCluster (encryptionConfig)"
@@ -205,22 +338,44 @@
           "cli": "aws eks associate-encryption-config --cluster-name {cluster} --encryption-config '[{\"resources\":[\"secrets\"],\"provider\":{\"keyArn\":\"arn:aws:kms:{region}:{account}:key/{key-id}\"}}]'",
           "terraform": "encryption_config block on aws_eks_cluster"
         },
-        "source": "https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-cluster$"],
+      "patterns": [
+        "(?i)^private-cluster$"
+      ],
       "description": "EKS API server private endpoint configuration",
       "weight": 100,
       "data": {
         "description": "EKS cluster API server endpoint access controls. By default, the API server is publicly accessible. Can be configured for private-only access (API server only reachable from within the VPC) or public+private (authorized networks).",
         "options": [
-          {"value": "public", "name": "Public endpoint", "description": "Default. API server accessible from internet. Can restrict by CIDR."},
-          {"value": "public-private", "name": "Public and private endpoints", "description": "Both public and private access. Node-to-API traffic stays in VPC."},
-          {"value": "private", "name": "Private endpoint only", "description": "API server only accessible from within the VPC. Most secure."}
+          {
+            "value": "public",
+            "name": "Public endpoint",
+            "description": "Default. API server accessible from internet. Can restrict by CIDR."
+          },
+          {
+            "value": "public-private",
+            "name": "Public and private endpoints",
+            "description": "Both public and private access. Node-to-API traffic stays in VPC."
+          },
+          {
+            "value": "private",
+            "name": "Private endpoint only",
+            "description": "API server only accessible from within the VPC. Most secure."
+          }
         ],
-        "default": {"value": "public", "note": "Public endpoint enabled by default."},
+        "default": {
+          "value": "public",
+          "note": "Public endpoint enabled by default."
+        },
         "vendor_recommendation": "Use private endpoint for production clusters. If public is needed, restrict with authorized CIDR blocks. At minimum enable private endpoint so node traffic stays in VPC.",
         "audit": {
           "cli": "aws eks describe-cluster --name {cluster} --query cluster.resourcesVpcConfig",
@@ -230,7 +385,13 @@
           "cli": "aws eks update-cluster-config --name {cluster} --resources-vpc-config endpointPublicAccess=false,endpointPrivateAccess=true",
           "terraform": "vpc_config block on aws_eks_cluster"
         },
-        "source": "https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

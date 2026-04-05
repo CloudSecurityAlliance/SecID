@@ -4,32 +4,54 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud IAM documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud Identity and Access Management",
   "common_name": "Cloud IAM",
   "alternate_names": null,
   "notes": "Foundation identity and access management for Google Cloud. Provides role-based access control, IAM conditions (ABAC), deny policies, principal access boundary policies, service accounts, workload identity federation, organization policies, and audit logging. IAM policies (allow, deny, PAB) work together to determine effective access.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/iam"},
-    {"type": "docs", "url": "https://cloud.google.com/iam/docs", "note": "IAM documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/iam/docs/overview", "note": "IAM overview and concepts"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/iam"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/iam/docs",
+      "note": "IAM documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/iam/docs/overview",
+      "note": "IAM overview and concepts"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^allow-policies$"],
+      "patterns": [
+        "(?i)^allow-policies$"
+      ],
       "description": "Standard IAM allow policies granting access to resources",
       "weight": 100,
       "data": {
         "description": "JSON/YAML policies attached to resources that bind principals (users, groups, service accounts, domains) to roles. Primary mechanism for granting access in Google Cloud. Policies are inherited down the resource hierarchy (organization → folder → project → resource). Each binding associates a set of principals with a role and optional conditions.",
         "options": [
-          {"component": "Principal", "description": "Who: user, serviceAccount, group, domain, allUsers, allAuthenticatedUsers"},
-          {"component": "Role", "description": "What permissions: basic, predefined, or custom role"},
-          {"component": "Condition", "description": "When: optional CEL expression restricting when the binding applies"},
-          {"component": "Resource", "description": "Where: the resource the policy is attached to (project, folder, org, or specific resource)"}
+          {
+            "component": "Principal",
+            "description": "Who: user, serviceAccount, group, domain, allUsers, allAuthenticatedUsers"
+          },
+          {
+            "component": "Role",
+            "description": "What permissions: basic, predefined, or custom role"
+          },
+          {
+            "component": "Condition",
+            "description": "When: optional CEL expression restricting when the binding applies"
+          },
+          {
+            "component": "Resource",
+            "description": "Where: the resource the policy is attached to (project, folder, org, or specific resource)"
+          }
         ],
         "vendor_recommendation": "Use predefined roles for least privilege. Apply policies at the narrowest scope possible. Use conditions to further restrict access. Audit inherited policies via Policy Analyzer.",
         "audit": {
@@ -44,21 +66,40 @@
           "cli_set": "gcloud projects set-iam-policy {project} policy.json",
           "terraform": "google_project_iam_policy, google_project_iam_binding, google_project_iam_member"
         },
-        "source": "https://cloud.google.com/iam/docs/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^deny-policies$"],
+      "patterns": [
+        "(?i)^deny-policies$"
+      ],
       "description": "Explicit deny rules overriding allow policies",
       "weight": 100,
       "data": {
         "description": "Policies that prevent principals from using specific permissions, regardless of allow policies. Evaluated before allow policies — deny always wins. Useful for setting hard guardrails that cannot be overridden by allow policy changes. Supports exception principals (identities exempted from the deny rule). Attached to organizations, folders, or projects.",
         "options": [
-          {"component": "Denied principals", "description": "Who is denied: principals the deny rule applies to"},
-          {"component": "Exception principals", "description": "Who is exempted: principals excluded from this deny rule"},
-          {"component": "Denied permissions", "description": "What is denied: specific permissions to deny"},
-          {"component": "Denial condition", "description": "When: optional CEL condition for conditional deny"}
+          {
+            "component": "Denied principals",
+            "description": "Who is denied: principals the deny rule applies to"
+          },
+          {
+            "component": "Exception principals",
+            "description": "Who is exempted: principals excluded from this deny rule"
+          },
+          {
+            "component": "Denied permissions",
+            "description": "What is denied: specific permissions to deny"
+          },
+          {
+            "component": "Denial condition",
+            "description": "When: optional CEL condition for conditional deny"
+          }
         ],
         "vendor_recommendation": "Use deny policies for hard security guardrails that should not be overridden. Examples: prevent external sharing, block certain API calls, restrict access to sensitive projects.",
         "audit": {
@@ -70,12 +111,20 @@
           "cli": "gcloud iam policies create {policy-id} --attachment-point=cloudresourcemanager.googleapis.com/projects/{project} --kind=denypolicies --policy-file=deny.json",
           "terraform": "google_iam_deny_policy"
         },
-        "source": "https://cloud.google.com/iam/docs/deny-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/deny-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^principal-access-boundary$", "(?i)^pab$"],
+      "patterns": [
+        "(?i)^principal-access-boundary$",
+        "(?i)^pab$"
+      ],
       "description": "Maximum resource access limits for principals",
       "weight": 80,
       "data": {
@@ -89,20 +138,39 @@
           "cli": "gcloud iam principal-access-boundary-policies create {policy-id} --organization={org-id} --location=global --policy-file=pab.json",
           "terraform": "google_iam_principal_access_boundary_policy"
         },
-        "source": "https://cloud.google.com/iam/docs/principal-access-boundary-policies"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/principal-access-boundary-policies",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^roles$"],
+      "patterns": [
+        "(?i)^roles$"
+      ],
       "description": "Predefined, basic, and custom roles for access control",
       "weight": 100,
       "data": {
         "description": "Role-based access control with three tiers. Basic roles (Owner, Editor, Viewer) provide broad access across all services — legacy, not recommended for production. Predefined roles (1000+) are managed by Google and provide service-specific least-privilege access. Custom roles allow selecting specific permissions for organization-specific needs.",
         "options": [
-          {"tier": "Basic roles", "count": 3, "roles": "Owner, Editor, Viewer", "description": "Broad access across all services. Owner includes Editor plus IAM management and billing. Legacy — avoid in production."},
-          {"tier": "Predefined roles", "count": "1000+", "description": "Google-managed, service-specific roles. Updated by Google as services evolve. Examples: roles/compute.admin, roles/storage.objectViewer, roles/bigquery.dataEditor."},
-          {"tier": "Custom roles", "description": "User-defined roles selecting specific permissions. Created at org or project level. Max 300 per org, 300 per project."}
+          {
+            "tier": "Basic roles",
+            "count": 3,
+            "roles": "Owner, Editor, Viewer",
+            "description": "Broad access across all services. Owner includes Editor plus IAM management and billing. Legacy — avoid in production."
+          },
+          {
+            "tier": "Predefined roles",
+            "count": "1000+",
+            "description": "Google-managed, service-specific roles. Updated by Google as services evolve. Examples: roles/compute.admin, roles/storage.objectViewer, roles/bigquery.dataEditor."
+          },
+          {
+            "tier": "Custom roles",
+            "description": "User-defined roles selecting specific permissions. Created at org or project level. Max 300 per org, 300 per project."
+          }
         ],
         "vendor_recommendation": "Use predefined roles for least privilege. Avoid basic roles (Owner/Editor/Viewer) in production — they grant far more access than needed. Create custom roles only when predefined roles are too broad. Use IAM Recommender to right-size roles based on actual usage.",
         "audit": {
@@ -116,24 +184,52 @@
           "cli_update": "gcloud iam roles update {role-id} --project={project} --add-permissions={perms}",
           "terraform": "google_project_iam_custom_role, google_organization_iam_custom_role"
         },
-        "source": "https://cloud.google.com/iam/docs/understanding-roles"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/understanding-roles",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^conditions$"],
+      "patterns": [
+        "(?i)^conditions$"
+      ],
       "description": "Attribute-based access control using CEL expressions",
       "weight": 80,
       "data": {
         "description": "Conditional role bindings using Common Expression Language (CEL). Restrict when an allow policy binding applies based on attributes of the request and resource. Supports: resource attributes (type, name, service, tags), request attributes (time, IP/access level via Access Context Manager), and principal attributes (tags). Conditions are evaluated at request time.",
         "options": [
-          {"attribute": "resource.type", "description": "Resource type (e.g., storage.googleapis.com/Bucket)"},
-          {"attribute": "resource.name", "description": "Resource name, supports startsWith/endsWith for prefix matching"},
-          {"attribute": "resource.service", "description": "Google Cloud service (e.g., compute.googleapis.com)"},
-          {"attribute": "resource.tags", "description": "Resource tag key-value pairs"},
-          {"attribute": "request.time", "description": "Timestamp of the request, for time-based access"},
-          {"attribute": "request.path/host", "description": "URL path and host, for API-level restrictions"},
-          {"attribute": "access levels", "description": "Access Context Manager access levels (IP ranges, device policy)"}
+          {
+            "attribute": "resource.type",
+            "description": "Resource type (e.g., storage.googleapis.com/Bucket)"
+          },
+          {
+            "attribute": "resource.name",
+            "description": "Resource name, supports startsWith/endsWith for prefix matching"
+          },
+          {
+            "attribute": "resource.service",
+            "description": "Google Cloud service (e.g., compute.googleapis.com)"
+          },
+          {
+            "attribute": "resource.tags",
+            "description": "Resource tag key-value pairs"
+          },
+          {
+            "attribute": "request.time",
+            "description": "Timestamp of the request, for time-based access"
+          },
+          {
+            "attribute": "request.path/host",
+            "description": "URL path and host, for API-level restrictions"
+          },
+          {
+            "attribute": "access levels",
+            "description": "Access Context Manager access levels (IP ranges, device policy)"
+          }
         ],
         "vendor_recommendation": "Use conditions to restrict time-based access (temporary grants), resource-based access (specific buckets or instances), and tag-based access (ABAC). Test conditions in report-only mode first.",
         "audit": {
@@ -144,22 +240,44 @@
           "cli": "gcloud projects add-iam-policy-binding {project} --member={member} --role={role} --condition=expression={cel-expression},title={title}",
           "terraform": "condition block in google_project_iam_member / google_project_iam_binding"
         },
-        "source": "https://cloud.google.com/iam/docs/conditions-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/conditions-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^service-accounts$"],
+      "patterns": [
+        "(?i)^service-accounts$"
+      ],
       "description": "Machine identities for workloads and automation",
       "weight": 100,
       "data": {
         "description": "Non-human identities for applications and services. Can be attached to GCE instances, GKE pods, Cloud Functions, Cloud Run, App Engine, Dataflow, etc. Support key-based authentication (JSON/P12 key files — discouraged) and keyless authentication (attached service accounts, workload identity, impersonation). Each project can have up to 100 service accounts.",
         "options": [
-          {"type": "Attached service account", "description": "Service account attached to a compute resource (GCE, GKE, Cloud Functions). No keys needed — metadata server provides tokens."},
-          {"type": "Service account key (JSON)", "description": "Downloaded JSON key file for authentication outside GCP. Long-term credential — security risk if leaked."},
-          {"type": "Service account key (P12)", "description": "PKCS12 key format. Legacy — prefer JSON or keyless alternatives."},
-          {"type": "Service account impersonation", "description": "One identity temporarily acts as a service account via generateAccessToken. Auditable, no key management."},
-          {"type": "Short-lived credentials", "description": "Generate short-lived tokens (access tokens, ID tokens, JWTs) via IAM Credentials API."}
+          {
+            "type": "Attached service account",
+            "description": "Service account attached to a compute resource (GCE, GKE, Cloud Functions). No keys needed — metadata server provides tokens."
+          },
+          {
+            "type": "Service account key (JSON)",
+            "description": "Downloaded JSON key file for authentication outside GCP. Long-term credential — security risk if leaked."
+          },
+          {
+            "type": "Service account key (P12)",
+            "description": "PKCS12 key format. Legacy — prefer JSON or keyless alternatives."
+          },
+          {
+            "type": "Service account impersonation",
+            "description": "One identity temporarily acts as a service account via generateAccessToken. Auditable, no key management."
+          },
+          {
+            "type": "Short-lived credentials",
+            "description": "Generate short-lived tokens (access tokens, ID tokens, JWTs) via IAM Credentials API."
+          }
         ],
         "vendor_recommendation": "Avoid service account keys — they are long-term credentials that pose significant risk if leaked. Use attached service accounts for workloads on GCP. Use workload identity federation for external workloads. Use impersonation for admin/CI tasks. Disable unused service accounts before deleting (30-day undelete window).",
         "audit": {
@@ -174,24 +292,52 @@
           "cli_disable": "gcloud iam service-accounts disable {sa-email}",
           "terraform": "google_service_account, google_service_account_key"
         },
-        "source": "https://cloud.google.com/iam/docs/service-account-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/service-account-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^workload-identity-federation$"],
+      "patterns": [
+        "(?i)^workload-identity-federation$"
+      ],
       "description": "External workload authentication without service account keys",
       "weight": 100,
       "data": {
         "description": "Authenticate external workloads (AWS, Azure, GitHub Actions, GitLab CI, Kubernetes, OIDC providers, SAML providers) without service account keys. Uses workload identity pools and providers to establish trust with external identity providers. External workload presents a token from its provider, which is exchanged for a short-lived GCP access token.",
         "options": [
-          {"provider_type": "AWS", "description": "AWS EC2/ECS/Lambda workloads authenticate using AWS STS credentials"},
-          {"provider_type": "Azure", "description": "Azure workloads authenticate using managed identity tokens"},
-          {"provider_type": "GitHub Actions", "description": "GitHub Actions workflows authenticate using OIDC tokens"},
-          {"provider_type": "GitLab CI", "description": "GitLab CI jobs authenticate using OIDC tokens"},
-          {"provider_type": "Kubernetes", "description": "External Kubernetes workloads authenticate using service account tokens"},
-          {"provider_type": "OIDC", "description": "Any OIDC-compliant identity provider"},
-          {"provider_type": "SAML 2.0", "description": "SAML identity providers"}
+          {
+            "provider_type": "AWS",
+            "description": "AWS EC2/ECS/Lambda workloads authenticate using AWS STS credentials"
+          },
+          {
+            "provider_type": "Azure",
+            "description": "Azure workloads authenticate using managed identity tokens"
+          },
+          {
+            "provider_type": "GitHub Actions",
+            "description": "GitHub Actions workflows authenticate using OIDC tokens"
+          },
+          {
+            "provider_type": "GitLab CI",
+            "description": "GitLab CI jobs authenticate using OIDC tokens"
+          },
+          {
+            "provider_type": "Kubernetes",
+            "description": "External Kubernetes workloads authenticate using service account tokens"
+          },
+          {
+            "provider_type": "OIDC",
+            "description": "Any OIDC-compliant identity provider"
+          },
+          {
+            "provider_type": "SAML 2.0",
+            "description": "SAML identity providers"
+          }
         ],
         "vendor_recommendation": "Use workload identity federation instead of service account keys for all external workloads. Configure attribute mappings and conditions to restrict which external identities can authenticate.",
         "audit": {
@@ -204,24 +350,53 @@
           "cli_provider": "gcloud iam workload-identity-pools providers create-oidc {provider-id} --workload-identity-pool={pool} --location=global --issuer-uri={issuer} --attribute-mapping={mapping}",
           "terraform": "google_iam_workload_identity_pool, google_iam_workload_identity_pool_provider"
         },
-        "source": "https://cloud.google.com/iam/docs/workload-identity-federation"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/workload-identity-federation",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^organization-policies$", "(?i)^org-policies$"],
+      "patterns": [
+        "(?i)^organization-policies$",
+        "(?i)^org-policies$"
+      ],
       "description": "Organization-level constraints on Google Cloud resources",
       "weight": 100,
       "data": {
         "description": "Constraints on Google Cloud resources at organization, folder, or project level. Controls resource configuration and behavior across the resource hierarchy. Examples: restrict service account key creation, limit VM external IPs, enforce uniform bucket-level access, restrict resource locations, disable service account creation, block external sharing.",
         "options": [
-          {"constraint": "iam.disableServiceAccountKeyCreation", "description": "Prevent creation of service account keys"},
-          {"constraint": "iam.disableServiceAccountCreation", "description": "Prevent creation of new service accounts"},
-          {"constraint": "iam.allowedPolicyMemberDomains", "description": "Restrict IAM policy members to specific domains"},
-          {"constraint": "compute.vmExternalIpAccess", "description": "Restrict which VMs can have external IP addresses"},
-          {"constraint": "gcp.resourceLocations", "description": "Restrict where resources can be created (regions/zones)"},
-          {"constraint": "storage.uniformBucketLevelAccess", "description": "Require uniform bucket-level access (disable object ACLs)"},
-          {"constraint": "compute.requireShieldedVm", "description": "Require Shielded VM features on compute instances"}
+          {
+            "constraint": "iam.disableServiceAccountKeyCreation",
+            "description": "Prevent creation of service account keys"
+          },
+          {
+            "constraint": "iam.disableServiceAccountCreation",
+            "description": "Prevent creation of new service accounts"
+          },
+          {
+            "constraint": "iam.allowedPolicyMemberDomains",
+            "description": "Restrict IAM policy members to specific domains"
+          },
+          {
+            "constraint": "compute.vmExternalIpAccess",
+            "description": "Restrict which VMs can have external IP addresses"
+          },
+          {
+            "constraint": "gcp.resourceLocations",
+            "description": "Restrict where resources can be created (regions/zones)"
+          },
+          {
+            "constraint": "storage.uniformBucketLevelAccess",
+            "description": "Require uniform bucket-level access (disable object ACLs)"
+          },
+          {
+            "constraint": "compute.requireShieldedVm",
+            "description": "Require Shielded VM features on compute instances"
+          }
         ],
         "vendor_recommendation": "Use organization policies to enforce security baselines. Disable service account key creation where possible. Restrict resource locations to approved regions. Limit IAM policy members to your organization's domains.",
         "audit": {
@@ -235,22 +410,45 @@
           "cli_project": "gcloud org-policies set-policy policy.yaml --project={project}",
           "terraform": "google_org_policy_policy"
         },
-        "source": "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/resource-manager/docs/organization-policy/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^audit-logging$", "(?i)^cloud-audit-logs$"],
+      "patterns": [
+        "(?i)^audit-logging$",
+        "(?i)^cloud-audit-logs$"
+      ],
       "description": "IAM activity audit trail via Cloud Audit Logs",
       "weight": 80,
       "data": {
         "description": "Cloud Audit Logs for IAM and all Google Cloud operations. Three log types: Admin Activity (always on, cannot be disabled, free — records IAM policy changes, resource creation/deletion), Data Access (configurable, chargeable — records resource reads/writes), and System Event (always on, free — records Google-initiated system actions). Integrates with Cloud Logging, BigQuery, Pub/Sub, and SIEM tools.",
         "options": [
-          {"log_type": "Admin Activity", "description": "IAM policy changes, resource modifications. Always enabled, cannot be disabled, no charge.", "default": "always on"},
-          {"log_type": "Data Access", "description": "Resource reads (ADMIN_READ, DATA_READ) and writes (DATA_WRITE). Configurable per service.", "default": "disabled (except BigQuery)"},
-          {"log_type": "System Event", "description": "Google-initiated system operations. Always enabled, no charge.", "default": "always on"}
+          {
+            "log_type": "Admin Activity",
+            "description": "IAM policy changes, resource modifications. Always enabled, cannot be disabled, no charge.",
+            "default": "always on"
+          },
+          {
+            "log_type": "Data Access",
+            "description": "Resource reads (ADMIN_READ, DATA_READ) and writes (DATA_WRITE). Configurable per service.",
+            "default": "disabled (except BigQuery)"
+          },
+          {
+            "log_type": "System Event",
+            "description": "Google-initiated system operations. Always enabled, no charge.",
+            "default": "always on"
+          }
         ],
-        "default": {"value": "Admin Activity and System Event logs are always enabled and cannot be disabled.", "note": "Data Access logs must be explicitly enabled per service and can generate high volume."},
+        "default": {
+          "value": "Admin Activity and System Event logs are always enabled and cannot be disabled.",
+          "note": "Data Access logs must be explicitly enabled per service and can generate high volume."
+        },
         "vendor_recommendation": "Enable Data Access logs for security-sensitive services (IAM, Cloud Storage, BigQuery, Compute Engine). Export audit logs to a centralized logging project or SIEM. Set up log-based alerts for critical IAM changes.",
         "audit": {
           "cli": "gcloud logging read 'logName:\"cloudaudit.googleapis.com\"' --project={project} --limit=10",
@@ -262,21 +460,43 @@
           "note": "Data Access audit logs are configured via the auditConfigs section of the project IAM policy",
           "terraform": "google_project_iam_audit_config"
         },
-        "source": "https://cloud.google.com/logging/docs/audit"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/logging/docs/audit",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^privileged-access-manager$", "(?i)^pam$"],
+      "patterns": [
+        "(?i)^privileged-access-manager$",
+        "(?i)^pam$"
+      ],
       "description": "Just-in-time temporary elevated access with approval workflows",
       "weight": 80,
       "data": {
         "description": "Time-bound, approval-based temporary elevated access. Provides just-in-time privileged access with: entitlements (pre-defined role grants that can be requested), approval workflows (designated approvers), justification requirements, automatic revocation after time limit, and full audit trail. Available for project, folder, and organization-level roles.",
         "options": [
-          {"setting": "Entitlement", "description": "Pre-configured eligible role grant with max duration and approval settings"},
-          {"setting": "Max request duration", "description": "Maximum time a grant can be active"},
-          {"setting": "Require approval", "type": "boolean", "description": "Whether activation requires approval from designated approvers"},
-          {"setting": "Require justification", "type": "boolean", "description": "Whether requester must provide a justification"}
+          {
+            "setting": "Entitlement",
+            "description": "Pre-configured eligible role grant with max duration and approval settings"
+          },
+          {
+            "setting": "Max request duration",
+            "description": "Maximum time a grant can be active"
+          },
+          {
+            "setting": "Require approval",
+            "type": "boolean",
+            "description": "Whether activation requires approval from designated approvers"
+          },
+          {
+            "setting": "Require justification",
+            "type": "boolean",
+            "description": "Whether requester must provide a justification"
+          }
         ],
         "vendor_recommendation": "Use Privileged Access Manager for all elevated access grants. Define entitlements for commonly needed privileged roles. Require approval for high-impact roles. Set short maximum durations.",
         "audit": {
@@ -288,7 +508,13 @@
           "cli": "gcloud pam entitlements create {entitlement-id} --location=global --parent=projects/{project} --entitlement-file=entitlement.yaml",
           "terraform": "google_privileged_access_manager_entitlement"
         },
-        "source": "https://cloud.google.com/iam/docs/pam-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/iam/docs/pam-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

@@ -4,36 +4,71 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Azure Policy documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment).",
-
   "official_name": "Azure Policy",
   "common_name": "Azure Policy",
   "alternate_names": null,
   "notes": "Policy-as-code for Azure resource governance. Enforce standards, assess compliance, remediate at scale.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/azure-policy"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview", "note": "Azure Policy overview"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/governance/policy/samples/", "note": "Azure Policy built-in definitions"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/policy/", "note": "Azure Policy REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://azure.microsoft.com/en-us/products/azure-policy"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "note": "Azure Policy overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/samples/",
+      "note": "Azure Policy built-in definitions"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/rest/api/policy/",
+      "note": "Azure Policy REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^policy-definitions$"],
+      "patterns": [
+        "(?i)^policy-definitions$"
+      ],
       "description": "Individual policy rules with effects",
       "weight": 100,
       "data": {
         "description": "Individual policy rules that define conditions and effects for Azure resources. Built-in definitions (900+ maintained by Microsoft) cover common compliance scenarios. Custom definitions can be authored in JSON. Each policy has an effect that determines what happens when conditions are met.",
         "options": [
-          {"effect": "Audit", "description": "Generate a compliance event but don't block the operation. Resource is flagged as non-compliant."},
-          {"effect": "Deny", "description": "Block the resource operation. Prevents creation or modification that violates the policy."},
-          {"effect": "Append", "description": "Add additional fields to the resource during creation or update (e.g., add tags, require HTTPS)."},
-          {"effect": "Modify", "description": "Add, update, or remove properties on a resource (e.g., add tags, enforce settings)."},
-          {"effect": "DeployIfNotExists", "description": "Deploy a related resource if it doesn't exist (e.g., deploy diagnostic settings, deploy monitoring agents)."},
-          {"effect": "AuditIfNotExists", "description": "Audit if a related resource doesn't exist (e.g., check if diagnostic settings are configured)."},
-          {"effect": "Disabled", "description": "Policy is not evaluated. Used to temporarily disable without removing assignment."}
+          {
+            "effect": "Audit",
+            "description": "Generate a compliance event but don't block the operation. Resource is flagged as non-compliant."
+          },
+          {
+            "effect": "Deny",
+            "description": "Block the resource operation. Prevents creation or modification that violates the policy."
+          },
+          {
+            "effect": "Append",
+            "description": "Add additional fields to the resource during creation or update (e.g., add tags, require HTTPS)."
+          },
+          {
+            "effect": "Modify",
+            "description": "Add, update, or remove properties on a resource (e.g., add tags, enforce settings)."
+          },
+          {
+            "effect": "DeployIfNotExists",
+            "description": "Deploy a related resource if it doesn't exist (e.g., deploy diagnostic settings, deploy monitoring agents)."
+          },
+          {
+            "effect": "AuditIfNotExists",
+            "description": "Audit if a related resource doesn't exist (e.g., check if diagnostic settings are configured)."
+          },
+          {
+            "effect": "Disabled",
+            "description": "Policy is not evaluated. Used to temporarily disable without removing assignment."
+          }
         ],
         "vendor_recommendation": "Start with Audit effect to assess impact before enabling Deny. Use built-in definitions when possible. Create custom definitions for organization-specific requirements.",
         "audit": {
@@ -47,21 +82,44 @@
           "terraform": "azurerm_policy_definition",
           "cloudformation_equivalent": "N/A (Azure-specific)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^policy-assignments$"],
+      "patterns": [
+        "(?i)^policy-assignments$"
+      ],
       "description": "Apply policies to scopes (management group, subscription, resource group)",
       "weight": 100,
       "data": {
         "description": "Bind policy definitions or initiatives to a scope (management group, subscription, or resource group). Assignments determine which resources are evaluated. Supports exclusions for specific child scopes. Parameters can be customized per assignment. Enforcement mode controls whether the policy actively enforces or only audits.",
         "options": [
-          {"scope": "Management group", "description": "Applies to all subscriptions and resource groups within the management group"},
-          {"scope": "Subscription", "description": "Applies to all resource groups within the subscription"},
-          {"scope": "Resource group", "description": "Applies to all resources within the resource group"},
-          {"setting": "Enforcement mode", "values": ["Default (enabled)", "DoNotEnforce"], "description": "DoNotEnforce allows compliance assessment without blocking operations"}
+          {
+            "scope": "Management group",
+            "description": "Applies to all subscriptions and resource groups within the management group"
+          },
+          {
+            "scope": "Subscription",
+            "description": "Applies to all resource groups within the subscription"
+          },
+          {
+            "scope": "Resource group",
+            "description": "Applies to all resources within the resource group"
+          },
+          {
+            "setting": "Enforcement mode",
+            "values": [
+              "Default (enabled)",
+              "DoNotEnforce"
+            ],
+            "description": "DoNotEnforce allows compliance assessment without blocking operations"
+          }
         ],
         "vendor_recommendation": "Assign policies at the highest applicable scope (management group for organization-wide policies). Use DoNotEnforce mode to test impact before enabling enforcement. Use exclusions sparingly.",
         "audit": {
@@ -75,23 +133,49 @@
           "cli_initiative": "az policy assignment create --name {name} --policy-set-definition {initiative-name} --scope /subscriptions/{sub}",
           "terraform": "azurerm_policy_assignment, azurerm_management_group_policy_assignment, azurerm_subscription_policy_assignment, azurerm_resource_group_policy_assignment"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^initiatives$", "(?i)^policy-set-definitions$"],
+      "patterns": [
+        "(?i)^initiatives$",
+        "(?i)^policy-set-definitions$"
+      ],
       "description": "Groups of policy definitions for compliance frameworks",
       "weight": 100,
       "data": {
         "description": "Collections of related policy definitions grouped together for a specific compliance goal. Also called policy set definitions. Built-in initiatives include major compliance frameworks. Custom initiatives can be created to group organization-specific policies. Assigned as a single unit to simplify management.",
         "options": [
-          {"initiative": "Azure Security Benchmark", "description": "Microsoft's security best practices aligned with common compliance frameworks"},
-          {"initiative": "CIS Microsoft Azure Foundations Benchmark", "description": "Center for Internet Security benchmark for Azure"},
-          {"initiative": "NIST SP 800-53 Rev. 5", "description": "US government security and privacy controls"},
-          {"initiative": "ISO 27001:2013", "description": "International information security management standard"},
-          {"initiative": "PCI DSS v4", "description": "Payment Card Industry Data Security Standard"},
-          {"initiative": "Custom", "description": "Group your own policy definitions into a custom initiative"}
+          {
+            "initiative": "Azure Security Benchmark",
+            "description": "Microsoft's security best practices aligned with common compliance frameworks"
+          },
+          {
+            "initiative": "CIS Microsoft Azure Foundations Benchmark",
+            "description": "Center for Internet Security benchmark for Azure"
+          },
+          {
+            "initiative": "NIST SP 800-53 Rev. 5",
+            "description": "US government security and privacy controls"
+          },
+          {
+            "initiative": "ISO 27001:2013",
+            "description": "International information security management standard"
+          },
+          {
+            "initiative": "PCI DSS v4",
+            "description": "Payment Card Industry Data Security Standard"
+          },
+          {
+            "initiative": "Custom",
+            "description": "Group your own policy definitions into a custom initiative"
+          }
         ],
         "vendor_recommendation": "Use built-in initiatives for standard compliance frameworks. Create custom initiatives for organization-specific requirements. Assign initiatives rather than individual policies for manageability.",
         "audit": {
@@ -104,22 +188,45 @@
           "cli": "az policy set-definition create --name {name} --definitions file://definitions.json",
           "terraform": "azurerm_policy_set_definition"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/initiative-definition-structure"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/initiative-definition-structure",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^compliance-assessment$", "(?i)^compliance-state$"],
+      "patterns": [
+        "(?i)^compliance-assessment$",
+        "(?i)^compliance-state$"
+      ],
       "description": "Evaluate resources against assigned policies",
       "weight": 80,
       "data": {
         "description": "Continuous evaluation of resources against assigned policies. Resources are evaluated on creation, update, policy assignment changes, and periodic re-evaluation (default every 24 hours). Compliance states: Compliant, Non-compliant, Exempt, Conflicting, Not started. Compliance data is available at resource, policy, subscription, and management group levels.",
         "options": [
-          {"state": "Compliant", "description": "Resource meets all applicable policy conditions"},
-          {"state": "Non-compliant", "description": "Resource violates one or more policy conditions"},
-          {"state": "Exempt", "description": "Resource has an active exemption from the policy"},
-          {"state": "Conflicting", "description": "Two or more policies with conflicting rules apply to the resource"},
-          {"state": "Not started", "description": "Evaluation has not yet occurred for this resource"}
+          {
+            "state": "Compliant",
+            "description": "Resource meets all applicable policy conditions"
+          },
+          {
+            "state": "Non-compliant",
+            "description": "Resource violates one or more policy conditions"
+          },
+          {
+            "state": "Exempt",
+            "description": "Resource has an active exemption from the policy"
+          },
+          {
+            "state": "Conflicting",
+            "description": "Two or more policies with conflicting rules apply to the resource"
+          },
+          {
+            "state": "Not started",
+            "description": "Evaluation has not yet occurred for this resource"
+          }
         ],
         "vendor_recommendation": "Monitor compliance state regularly. Set up alerts for non-compliance. Use compliance data to prioritize remediation. Export compliance data for audit reporting.",
         "audit": {
@@ -132,21 +239,37 @@
           "cli_trigger": "az policy state trigger-scan",
           "note": "Compliance evaluation is automatic. Manual trigger-scan forces immediate re-evaluation."
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^remediation-tasks$"],
+      "patterns": [
+        "(?i)^remediation-tasks$"
+      ],
       "description": "Auto-remediate non-compliant resources",
       "weight": 80,
       "data": {
         "description": "Remediation tasks bring non-compliant resources into compliance by executing the policy's DeployIfNotExists or Modify effect. Remediation uses a managed identity to make changes to resources. Tasks can target existing non-compliant resources (remediation) or be triggered automatically for new non-compliant resources.",
         "options": [
-          {"mode": "Remediation task", "description": "One-time task to remediate existing non-compliant resources. Manually triggered."},
-          {"mode": "Auto-remediation", "description": "Automatically create remediation tasks when non-compliance is detected. Configured in policy assignment."}
+          {
+            "mode": "Remediation task",
+            "description": "One-time task to remediate existing non-compliant resources. Manually triggered."
+          },
+          {
+            "mode": "Auto-remediation",
+            "description": "Automatically create remediation tasks when non-compliance is detected. Configured in policy assignment."
+          }
         ],
-        "default": {"value": "Not enabled by default", "note": "Remediation tasks must be explicitly created. Auto-remediation must be enabled per policy assignment."},
+        "default": {
+          "value": "Not enabled by default",
+          "note": "Remediation tasks must be explicitly created. Auto-remediation must be enabled per policy assignment."
+        },
         "vendor_recommendation": "Use remediation tasks for DeployIfNotExists policies (e.g., deploy diagnostic settings). Configure auto-remediation for well-tested policies. Ensure the managed identity has sufficient permissions.",
         "audit": {
           "cli": "az policy remediation list",
@@ -158,19 +281,32 @@
           "cli": "az policy remediation create --name {name} --policy-assignment {assignment-id}",
           "terraform": "azurerm_policy_remediation, azurerm_subscription_policy_remediation, azurerm_resource_group_policy_remediation"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^exemptions$"],
+      "patterns": [
+        "(?i)^exemptions$"
+      ],
       "description": "Temporarily or permanently exempt resources from policy evaluation",
       "weight": 60,
       "data": {
         "description": "Exempt specific resources or scopes from policy evaluation. Two categories: Waiver (non-compliant but approved exception — resource is still tracked as non-compliant for reporting) and Mitigated (compliance achieved through alternative means — resource is counted as compliant). Exemptions can be time-limited with expiration dates.",
         "options": [
-          {"category": "Waiver", "description": "Resource is non-compliant but exception is approved. Still reported as non-compliant in compliance data."},
-          {"category": "Mitigated", "description": "Compliance is achieved through alternative means. Counted as compliant in compliance data."}
+          {
+            "category": "Waiver",
+            "description": "Resource is non-compliant but exception is approved. Still reported as non-compliant in compliance data."
+          },
+          {
+            "category": "Mitigated",
+            "description": "Compliance is achieved through alternative means. Counted as compliant in compliance data."
+          }
         ],
         "vendor_recommendation": "Use exemptions sparingly and with documented justification. Set expiration dates for temporary exemptions. Review active exemptions regularly. Use Mitigated only when alternative controls are genuinely in place.",
         "audit": {
@@ -182,7 +318,13 @@
           "cli": "az policy exemption create --name {name} --policy-assignment {assignment-id} --exemption-category Waiver --expires-on {date}",
           "terraform": "azurerm_policy_exemption, azurerm_subscription_policy_exemption, azurerm_resource_group_policy_exemption, azurerm_management_group_policy_exemption"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     }
   ]

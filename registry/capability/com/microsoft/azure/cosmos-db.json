@@ -4,51 +4,88 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Azure Cosmos DB documentation, 2026-04-04. Needs cross-reference and live environment validation.",
-
   "official_name": "Azure Cosmos DB",
   "common_name": "Cosmos DB",
   "alternate_names": null,
   "notes": "Globally distributed multi-model NoSQL database. Security includes encryption, firewall, RBAC, private endpoints.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/cosmos-db/"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/security", "note": "Cosmos DB security overview"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/security-best-practices", "note": "Security best practices"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/cosmos-db/", "note": "Cosmos DB REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://azure.microsoft.com/en-us/products/cosmos-db/"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/security",
+      "note": "Cosmos DB security overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/security-best-practices",
+      "note": "Security best practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/rest/api/cosmos-db/",
+      "note": "Cosmos DB REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Encryption at rest for all Cosmos DB data",
       "weight": 100,
       "data": {
         "description": "All data in Cosmos DB is encrypted at rest. Always on and cannot be disabled. Service-managed keys by default; customer-managed keys available via Azure Key Vault for additional control.",
         "options": [
-          {"value": "service-managed", "name": "Service-Managed Keys", "description": "Default. Microsoft manages the encryption keys. No additional configuration."},
-          {"value": "customer-managed", "name": "Customer-Managed Keys", "description": "Customer manages keys in Azure Key Vault. Provides key rotation control and ability to revoke access."}
+          {
+            "value": "service-managed",
+            "name": "Service-Managed Keys",
+            "description": "Default. Microsoft manages the encryption keys. No additional configuration."
+          },
+          {
+            "value": "customer-managed",
+            "name": "Customer-Managed Keys",
+            "description": "Customer manages keys in Azure Key Vault. Provides key rotation control and ability to revoke access."
+          }
         ],
-        "default": {"value": "service-managed", "note": "All data encrypted at rest with service-managed keys. Always on, cannot be disabled."},
+        "default": {
+          "value": "service-managed",
+          "note": "All data encrypted at rest with service-managed keys. Always on, cannot be disabled."
+        },
         "vendor_recommendation": "Use customer-managed keys for regulatory compliance requirements.",
         "audit": {
           "cli": "az cosmosdb show --name {acct} --resource-group {rg} --query keyVaultKeyUri",
           "api": "DatabaseAccounts - Get",
           "console": "Cosmos DB -> {account} -> Settings -> Encryption"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/key-vault"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ip-firewall$"],
+      "patterns": [
+        "(?i)^ip-firewall$"
+      ],
       "description": "IP-based access control for Cosmos DB accounts",
       "weight": 100,
       "data": {
         "description": "IP-based access control. When no firewall rules are configured, the account accepts connections from all IP addresses. Adding any rule switches to deny-by-default for unlisted IPs.",
-        "default": {"value": "accept-all", "note": "When no IP rules are configured, connections from all IPs are accepted."},
+        "default": {
+          "value": "accept-all",
+          "note": "When no IP rules are configured, connections from all IPs are accepted."
+        },
         "vendor_recommendation": "Configure firewall rules to restrict access. Prefer private endpoints over IP firewall rules for production workloads.",
         "audit": {
           "cli": "az cosmosdb show --name {acct} --resource-group {rg} --query ipRules",
@@ -59,12 +96,19 @@
           "cli": "az cosmosdb update --name {acct} --resource-group {rg} --ip-range-filter {cidr1},{cidr2}",
           "terraform": "azurerm_cosmosdb_account.ip_range_filter"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^rbac-data-plane$"],
+      "patterns": [
+        "(?i)^rbac-data-plane$"
+      ],
       "description": "Entra ID RBAC for data plane operations",
       "weight": 100,
       "data": {
@@ -79,13 +123,22 @@
           "cli": "az cosmosdb sql role assignment create --account-name {acct} --resource-group {rg} --role-definition-id {role-id} --principal-id {principal-id} --scope /",
           "terraform": "azurerm_cosmosdb_sql_role_assignment"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/role-based-access-control"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/entra-id"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/role-based-access-control",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-endpoints$"],
+      "patterns": [
+        "(?i)^private-endpoints$"
+      ],
       "description": "Access via Azure Private Link",
       "weight": 100,
       "data": {
@@ -100,18 +153,30 @@
           "cli": "az network private-endpoint create --name {ep-name} --resource-group {rg} --vnet-name {vnet} --subnet {subnet} --private-connection-resource-id {acct-id} --group-id Sql --connection-name {conn-name}",
           "terraform": "azurerm_private_endpoint"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/virtual-network"],
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/virtual-network"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^disable-key-access$"],
+      "patterns": [
+        "(?i)^disable-key-access$"
+      ],
       "description": "Disable primary/secondary key authentication to force Entra ID",
       "weight": 100,
       "data": {
         "description": "Disable primary and secondary key-based authentication. Forces all clients to use Entra ID RBAC. Prevents use of connection strings with account keys.",
-        "default": {"value": "key-access-enabled", "note": "Key-based authentication is enabled by default."},
+        "default": {
+          "value": "key-access-enabled",
+          "note": "Key-based authentication is enabled by default."
+        },
         "vendor_recommendation": "Disable key-based authentication after configuring Entra ID RBAC for all clients.",
         "audit": {
           "cli": "az cosmosdb show --name {acct} --resource-group {rg} --query disableLocalAuth",
@@ -122,21 +187,39 @@
           "cli": "az cosmosdb update --name {acct} --resource-group {rg} --disable-key-based-metadata-write-access true",
           "terraform": "azurerm_cosmosdb_account.local_authentication_disabled"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^continuous-backup$"],
+      "patterns": [
+        "(?i)^continuous-backup$"
+      ],
       "description": "Point-in-time restore with continuous backup",
       "weight": 90,
       "data": {
         "description": "Continuous backup mode with point-in-time restore. Two tiers: 7-day retention (free for most) and 30-day retention. Restores create a new account.",
         "options": [
-          {"value": "7-day", "name": "7-Day Continuous", "description": "Point-in-time restore with 7-day retention window."},
-          {"value": "30-day", "name": "30-Day Continuous", "description": "Point-in-time restore with 30-day retention window."}
+          {
+            "value": "7-day",
+            "name": "7-Day Continuous",
+            "description": "Point-in-time restore with 7-day retention window."
+          },
+          {
+            "value": "30-day",
+            "name": "30-Day Continuous",
+            "description": "Point-in-time restore with 30-day retention window."
+          }
         ],
-        "default": {"value": "periodic", "note": "Default is periodic backup mode (not continuous). Must be changed at account creation or migrated."},
+        "default": {
+          "value": "periodic",
+          "note": "Default is periodic backup mode (not continuous). Must be changed at account creation or migrated."
+        },
         "vendor_recommendation": "Use continuous backup mode for production workloads to enable point-in-time restore.",
         "audit": {
           "cli": "az cosmosdb show --name {acct} --resource-group {rg} --query backupPolicy",
@@ -147,12 +230,19 @@
           "cli": "az cosmosdb create --name {acct} --resource-group {rg} --backup-policy-type Continuous --continuous-tier Continuous7Days",
           "terraform": "azurerm_cosmosdb_account.backup"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^virtual-network-rules$"],
+      "patterns": [
+        "(?i)^virtual-network-rules$"
+      ],
       "description": "Restrict access to specific VNet subnets",
       "weight": 90,
       "data": {
@@ -167,8 +257,16 @@
           "cli": "az cosmosdb network-rule add --name {acct} --resource-group {rg} --virtual-network {vnet} --subnet {subnet}",
           "terraform": "azurerm_cosmosdb_account.virtual_network_rule"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/virtual-network"],
-        "source": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-vnet-service-endpoint"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/virtual-network"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     }
   ]

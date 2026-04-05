@@ -4,34 +4,60 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS CloudTrail documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
-
   "official_name": "AWS CloudTrail",
   "common_name": "CloudTrail",
   "alternate_names": null,
   "notes": "Foundation audit logging service. Records AWS API calls as events. Required for governance, compliance, and security monitoring.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/cloudtrail/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/", "note": "CloudTrail User Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html", "note": "CloudTrail Security Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/", "note": "CloudTrail API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/cloudtrail/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/",
+      "note": "CloudTrail User Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html",
+      "note": "CloudTrail Security Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/",
+      "note": "CloudTrail API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^trails$"],
+      "patterns": [
+        "(?i)^trails$"
+      ],
       "description": "CloudTrail trail configuration",
       "weight": 100,
       "data": {
         "description": "A trail enables CloudTrail to deliver log files to an S3 bucket. Options include single-region trails (log events in one region), multi-region trails (log events in all regions — recommended), and organization trails (log events for all accounts in an AWS Organization). Event history provides 90 days of management events without a trail, but a trail is required for long-term retention and data events.",
         "options": [
-          {"type": "Single-region trail", "description": "Records events in one AWS region only"},
-          {"type": "Multi-region trail", "description": "Records events in all AWS regions. Recommended for complete coverage."},
-          {"type": "Organization trail", "description": "Records events for all accounts in an AWS Organization. Created by management account."}
+          {
+            "type": "Single-region trail",
+            "description": "Records events in one AWS region only"
+          },
+          {
+            "type": "Multi-region trail",
+            "description": "Records events in all AWS regions. Recommended for complete coverage."
+          },
+          {
+            "type": "Organization trail",
+            "description": "Records events for all accounts in an AWS Organization. Created by management account."
+          }
         ],
-        "default": {"value": null, "note": "Event history (90 days of management events) is available without a trail. A trail must be created for long-term storage, data events, and Insights events."},
+        "default": {
+          "value": null,
+          "note": "Event history (90 days of management events) is available without a trail. A trail must be created for long-term storage, data events, and Insights events."
+        },
         "vendor_recommendation": "Create at least one multi-region trail in every account. For AWS Organizations, create an organization trail for centralized logging. Store logs in a dedicated logging account's S3 bucket with restricted access.",
         "audit": {
           "cli": "aws cloudtrail describe-trails",
@@ -46,17 +72,27 @@
           "terraform": "aws_cloudtrail",
           "cloudformation": "AWS::CloudTrail::Trail"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-file-validation$"],
+      "patterns": [
+        "(?i)^log-file-validation$"
+      ],
       "description": "Integrity validation of log files using SHA-256 hash chains",
       "weight": 100,
       "data": {
         "description": "Log file integrity validation uses SHA-256 hashing and RSA digital signatures to verify that log files have not been modified, deleted, or forged after delivery. CloudTrail delivers a digest file every hour containing hashes of all log files delivered during that period. The digest files form a chain — each references the previous digest.",
-        "default": {"value": "Enabled when creating trail via console", "note": "Disabled by default when creating via CLI/API unless --enable-log-file-validation is specified."},
+        "default": {
+          "value": "Enabled when creating trail via console",
+          "note": "Disabled by default when creating via CLI/API unless --enable-log-file-validation is specified."
+        },
         "vendor_recommendation": "Always enable log file validation. Use aws cloudtrail validate-logs to periodically verify log integrity. Required for compliance frameworks that mandate tamper-evident audit logs.",
         "audit": {
           "cli": "aws cloudtrail describe-trails --query 'trailList[*].{Name:Name,Validation:LogFileValidationEnabled}'",
@@ -68,23 +104,41 @@
           "api": "UpdateTrail",
           "terraform": "enable_log_file_validation on aws_cloudtrail"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Encrypt log files with KMS",
       "weight": 100,
       "data": {
         "description": "CloudTrail log files are encrypted at rest. Default encryption uses SSE-S3 (S3 server-side encryption with Amazon-managed keys). Optional SSE-KMS encryption uses a customer-managed KMS key for additional control (key policy restricts who can read logs, KMS key usage is logged in CloudTrail).",
         "options": [
-          {"type": "SSE-S3", "description": "Default. Amazon-managed encryption keys. No additional configuration."},
-          {"type": "SSE-KMS", "description": "Customer-managed KMS key. Additional access control via key policy. KMS operations logged in CloudTrail."}
+          {
+            "type": "SSE-S3",
+            "description": "Default. Amazon-managed encryption keys. No additional configuration."
+          },
+          {
+            "type": "SSE-KMS",
+            "description": "Customer-managed KMS key. Additional access control via key policy. KMS operations logged in CloudTrail."
+          }
         ],
-        "default": {"value": "SSE-S3", "note": "Log files are always encrypted. SSE-S3 is the default; SSE-KMS is optional."},
+        "default": {
+          "value": "SSE-S3",
+          "note": "Log files are always encrypted. SSE-S3 is the default; SSE-KMS is optional."
+        },
         "vendor_recommendation": "Use SSE-KMS for sensitive environments where you need to control who can decrypt log files. The KMS key policy provides an additional authorization layer beyond S3 bucket policies.",
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
         "audit": {
           "cli": "aws cloudtrail describe-trails --query 'trailList[*].{Name:Name,KmsKeyId:KmsKeyId}'",
           "api": "DescribeTrails (check KmsKeyId field — null means SSE-S3)"
@@ -94,20 +148,39 @@
           "api": "UpdateTrail",
           "terraform": "kms_key_id on aws_cloudtrail"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^event-selectors$"],
+      "patterns": [
+        "(?i)^event-selectors$"
+      ],
       "description": "Control which events are logged",
       "weight": 100,
       "data": {
         "description": "Configure which categories of events a trail logs. Management events (control plane operations like CreateBucket, RunInstances) are logged by default. Data events (data plane operations like S3 GetObject, Lambda Invoke) must be explicitly enabled. Insights events detect unusual API activity patterns.",
         "options": [
-          {"type": "Management events", "description": "AWS API calls that manage resources (create, modify, delete). Default: enabled for read and write.", "default": "enabled"},
-          {"type": "Data events", "description": "Resource-level operations (S3 object access, Lambda invocations, DynamoDB item-level operations). High volume.", "default": "disabled"},
-          {"type": "Insights events", "description": "Detect unusual patterns in management event API call rates or error rates.", "default": "disabled"}
+          {
+            "type": "Management events",
+            "description": "AWS API calls that manage resources (create, modify, delete). Default: enabled for read and write.",
+            "default": "enabled"
+          },
+          {
+            "type": "Data events",
+            "description": "Resource-level operations (S3 object access, Lambda invocations, DynamoDB item-level operations). High volume.",
+            "default": "disabled"
+          },
+          {
+            "type": "Insights events",
+            "description": "Detect unusual patterns in management event API call rates or error rates.",
+            "default": "disabled"
+          }
         ],
         "vendor_recommendation": "Enable data events for security-sensitive resources (S3 buckets containing sensitive data, Lambda functions, DynamoDB tables). Use advanced event selectors for fine-grained filtering to control costs. Enable Insights for anomaly detection.",
         "audit": {
@@ -120,33 +193,59 @@
           "api": "PutEventSelectors",
           "terraform": "event_selector or advanced_event_selector on aws_cloudtrail"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-delivery$"],
+      "patterns": [
+        "(?i)^log-delivery$"
+      ],
       "description": "Where logs are stored and delivered",
       "weight": 80,
       "data": {
         "description": "CloudTrail delivers log files to configured destinations. S3 bucket is required and serves as the primary storage. Optional integrations include CloudWatch Logs (enables real-time metric filters and alarms) and Amazon EventBridge (event-driven processing for every API event).",
         "options": [
-          {"destination": "S3 bucket", "description": "Required. Primary log file storage. Logs delivered as gzipped JSON files.", "required": true},
-          {"destination": "CloudWatch Logs", "description": "Optional. Enables real-time monitoring, metric filters, and alarms on CloudTrail events."},
-          {"destination": "Amazon EventBridge", "description": "All management events are automatically sent to EventBridge. Enables event-driven processing."}
+          {
+            "destination": "S3 bucket",
+            "description": "Required. Primary log file storage. Logs delivered as gzipped JSON files.",
+            "required": true
+          },
+          {
+            "destination": "CloudWatch Logs",
+            "description": "Optional. Enables real-time monitoring, metric filters, and alarms on CloudTrail events."
+          },
+          {
+            "destination": "Amazon EventBridge",
+            "description": "All management events are automatically sent to EventBridge. Enables event-driven processing."
+          }
         ],
         "vendor_recommendation": "Store logs in a dedicated logging account S3 bucket with versioning and Object Lock (WORM) for tamper resistance. Enable CloudWatch Logs integration for real-time alerting on critical events (root login, IAM changes, security group changes).",
-        "cross_references": ["secid:capability/amazon.com/aws/cloudwatch#logs"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/cloudwatch#logs"
+        ],
         "audit": {
           "cli": "aws cloudtrail describe-trails --query 'trailList[*].{Name:Name,S3Bucket:S3BucketName,CloudWatch:CloudWatchLogsLogGroupArn}'",
           "api": "DescribeTrails"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^organization-trail$"],
+      "patterns": [
+        "(?i)^organization-trail$"
+      ],
       "description": "Single trail for all accounts in AWS Organization",
       "weight": 80,
       "data": {
@@ -162,21 +261,37 @@
           "terraform": "aws_cloudtrail with is_organization_trail = true",
           "note": "Must be created from the management account or a delegated administrator account"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^insights$"],
+      "patterns": [
+        "(?i)^insights$"
+      ],
       "description": "Detect unusual API activity",
       "weight": 80,
       "data": {
         "description": "CloudTrail Insights automatically analyzes management event patterns to detect unusual activity. Establishes baselines of normal API call volume and error rates, then generates Insights events when significant deviations occur.",
         "options": [
-          {"type": "ApiCallRateInsight", "description": "Detects unusual increases or decreases in API call volume compared to baseline"},
-          {"type": "ApiErrorRateInsight", "description": "Detects unusual increases in API error rates (AccessDenied, etc.)"}
+          {
+            "type": "ApiCallRateInsight",
+            "description": "Detects unusual increases or decreases in API call volume compared to baseline"
+          },
+          {
+            "type": "ApiErrorRateInsight",
+            "description": "Detects unusual increases in API error rates (AccessDenied, etc.)"
+          }
         ],
-        "default": {"value": "Disabled", "note": "Must be explicitly enabled via insight selectors on a trail."},
+        "default": {
+          "value": "Disabled",
+          "note": "Must be explicitly enabled via insight selectors on a trail."
+        },
         "vendor_recommendation": "Enable both ApiCallRateInsight and ApiErrorRateInsight. Monitor Insights events for signs of compromised credentials (sudden spike in API calls) or reconnaissance (spike in AccessDenied errors).",
         "audit": {
           "cli": "aws cloudtrail get-insight-selectors --trail-name {trail}",
@@ -187,7 +302,13 @@
           "api": "PutInsightSelectors",
           "terraform": "insight_selector on aws_cloudtrail"
         },
-        "source": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

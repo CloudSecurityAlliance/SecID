@@ -4,31 +4,52 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS API Gateway documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
-
   "official_name": "Amazon API Gateway",
   "common_name": "API Gateway",
   "alternate_names": null,
   "notes": "Managed API service (REST, HTTP, WebSocket). Security includes authentication, authorization, throttling, WAF integration, TLS.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/api-gateway/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/", "note": "API Gateway Developer Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/security.html", "note": "API Gateway Security"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/apigateway/latest/api/", "note": "API Gateway REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/api-gateway/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/",
+      "note": "API Gateway Developer Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/security.html",
+      "note": "API Gateway Security"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/api/",
+      "note": "API Gateway REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^iam-authorization$"],
+      "patterns": [
+        "(?i)^iam-authorization$"
+      ],
       "description": "IAM-based API access control",
       "weight": 100,
       "data": {
         "description": "Use AWS IAM policies and Signature Version 4 (Sigv4) signed requests to control access to API methods. Callers must have execute-api:Invoke permission. Supports IAM users, roles, and cross-account access via resource policies.",
         "options": [
-          {"setting": "Authorization type", "value": "AWS_IAM", "description": "Set on each method to require IAM authentication"},
-          {"setting": "Sigv4 signing", "description": "Requests must be signed with valid AWS credentials"}
+          {
+            "setting": "Authorization type",
+            "value": "AWS_IAM",
+            "description": "Set on each method to require IAM authentication"
+          },
+          {
+            "setting": "Sigv4 signing",
+            "description": "Requests must be signed with valid AWS credentials"
+          }
         ],
         "vendor_recommendation": "Use IAM authorization for service-to-service API calls where callers already have AWS credentials. Combine with resource policies for cross-account access.",
         "audit": {
@@ -41,20 +62,38 @@
           "terraform": "aws_api_gateway_method (authorization = \"AWS_IAM\")",
           "cloudformation": "AWS::ApiGateway::Method (AuthorizationType: AWS_IAM)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^cognito-authorizer$"],
+      "patterns": [
+        "(?i)^cognito-authorizer$"
+      ],
       "description": "Amazon Cognito user pool authorization for API methods",
       "weight": 100,
       "data": {
         "description": "Use Amazon Cognito user pools as an authorizer for API methods. Clients authenticate with Cognito, receive a JWT token, and pass it in the Authorization header. API Gateway validates the token against the specified user pool.",
         "options": [
-          {"setting": "Authorizer type", "value": "COGNITO_USER_POOLS", "description": "Validates JWT tokens from a Cognito user pool"},
-          {"setting": "Token source", "default": "Authorization header", "description": "HTTP header containing the identity or access token"},
-          {"setting": "Authorization scopes", "description": "OAuth 2.0 scopes to require on the access token"}
+          {
+            "setting": "Authorizer type",
+            "value": "COGNITO_USER_POOLS",
+            "description": "Validates JWT tokens from a Cognito user pool"
+          },
+          {
+            "setting": "Token source",
+            "default": "Authorization header",
+            "description": "HTTP header containing the identity or access token"
+          },
+          {
+            "setting": "Authorization scopes",
+            "description": "OAuth 2.0 scopes to require on the access token"
+          }
         ],
         "vendor_recommendation": "Use Cognito authorizers for user-facing APIs where you need sign-up, sign-in, and token management. Configure authorization scopes for fine-grained access control.",
         "audit": {
@@ -67,19 +106,33 @@
           "terraform": "aws_api_gateway_authorizer (type = \"COGNITO_USER_POOLS\")",
           "cloudformation": "AWS::ApiGateway::Authorizer (Type: COGNITO_USER_POOLS)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^lambda-authorizer$", "(?i)^custom-authorizer$"],
+      "patterns": [
+        "(?i)^lambda-authorizer$",
+        "(?i)^custom-authorizer$"
+      ],
       "description": "Custom authorization logic via Lambda function",
       "weight": 100,
       "data": {
         "description": "Use an AWS Lambda function to implement custom authorization logic. The Lambda function receives the caller's identity (token or request parameters) and returns an IAM policy document that determines access. Supports token-based (JWT, OAuth) and request-based (headers, query strings, stage variables) authorizers.",
         "options": [
-          {"type": "Token-based", "description": "Lambda receives the token from a specified header. Supports token validation caching."},
-          {"type": "Request-based", "description": "Lambda receives the full request context (headers, query strings, path parameters, stage variables)."}
+          {
+            "type": "Token-based",
+            "description": "Lambda receives the token from a specified header. Supports token validation caching."
+          },
+          {
+            "type": "Request-based",
+            "description": "Lambda receives the full request context (headers, query strings, path parameters, stage variables)."
+          }
         ],
         "vendor_recommendation": "Use Lambda authorizers for custom auth schemes (third-party tokens, SAML, custom logic). Enable authorization caching to reduce Lambda invocations and latency. Set appropriate TTL based on token expiry.",
         "audit": {
@@ -92,21 +145,41 @@
           "terraform": "aws_api_gateway_authorizer (type = \"TOKEN\" or \"REQUEST\")",
           "cloudformation": "AWS::ApiGateway::Authorizer (Type: TOKEN or REQUEST)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^api-keys$"],
+      "patterns": [
+        "(?i)^api-keys$"
+      ],
       "description": "Usage plan API keys for throttling and metering",
       "weight": 80,
       "data": {
         "description": "Alphanumeric string tokens distributed to API consumers for usage tracking and throttling via usage plans. API keys identify the caller and associate them with a usage plan that defines throttle and quota limits. API keys are NOT a security mechanism by themselves.",
         "options": [
-          {"setting": "Usage plan", "description": "Associates API keys with throttle rate, burst limit, and quota"},
-          {"setting": "API key source", "values": ["HEADER (x-api-key)", "AUTHORIZER"], "description": "Where to look for the API key"}
+          {
+            "setting": "Usage plan",
+            "description": "Associates API keys with throttle rate, burst limit, and quota"
+          },
+          {
+            "setting": "API key source",
+            "values": [
+              "HEADER (x-api-key)",
+              "AUTHORIZER"
+            ],
+            "description": "Where to look for the API key"
+          }
         ],
-        "default": {"value": "API key requirement disabled", "note": "Methods do not require API keys unless apiKeyRequired is set to true."},
+        "default": {
+          "value": "API key requirement disabled",
+          "note": "Methods do not require API keys unless apiKeyRequired is set to true."
+        },
         "vendor_recommendation": "API keys are for throttling, not security. Always use API keys together with an authorizer (IAM, Cognito, or Lambda) for actual authentication and authorization.",
         "audit": {
           "cli": "aws apigateway get-api-keys",
@@ -119,19 +192,33 @@
           "terraform": "aws_api_gateway_api_key, aws_api_gateway_usage_plan, aws_api_gateway_usage_plan_key",
           "cloudformation": "AWS::ApiGateway::ApiKey, AWS::ApiGateway::UsagePlan"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^mutual-tls$", "(?i)^mtls$"],
+      "patterns": [
+        "(?i)^mutual-tls$",
+        "(?i)^mtls$"
+      ],
       "description": "Client certificate authentication",
       "weight": 100,
       "data": {
         "description": "Mutual TLS authentication requires clients to present a valid X.509 certificate. API Gateway validates the client certificate against a truststore (PEM file in S3). Requires a custom domain name. Available for REST and HTTP APIs.",
         "options": [
-          {"setting": "Truststore URI", "description": "S3 URI pointing to the PEM file containing trusted CA certificates"},
-          {"setting": "Truststore version", "description": "S3 object version for the truststore file"}
+          {
+            "setting": "Truststore URI",
+            "description": "S3 URI pointing to the PEM file containing trusted CA certificates"
+          },
+          {
+            "setting": "Truststore version",
+            "description": "S3 object version for the truststore file"
+          }
         ],
         "vendor_recommendation": "Use mutual TLS for high-security API access, especially for B2B integrations. Combine with other authorization mechanisms for defense in depth. Requires a custom domain name — cannot use the default execute-api endpoint.",
         "audit": {
@@ -144,19 +231,37 @@
           "terraform": "aws_api_gateway_domain_name (mutual_tls_authentication block)",
           "cloudformation": "AWS::ApiGateway::DomainName (MutualTlsAuthentication)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^resource-policies$"],
+      "patterns": [
+        "(?i)^resource-policies$"
+      ],
       "description": "Resource-based policies controlling API invocation",
       "weight": 100,
       "data": {
         "description": "JSON resource policies attached to an API that control whether a specified principal (AWS account, IAM user/role, IP address, VPC endpoint) can invoke the API. Similar to S3 bucket policies. Evaluated together with IAM policies for the final authorization decision.",
         "options": [
-          {"setting": "Principal", "description": "AWS account, IAM entity, or * (with conditions)"},
-          {"setting": "Condition keys", "values": ["aws:SourceIp", "aws:SourceVpce", "aws:SourceVpc"], "description": "Restrict by IP address, VPC endpoint, or VPC"}
+          {
+            "setting": "Principal",
+            "description": "AWS account, IAM entity, or * (with conditions)"
+          },
+          {
+            "setting": "Condition keys",
+            "values": [
+              "aws:SourceIp",
+              "aws:SourceVpce",
+              "aws:SourceVpc"
+            ],
+            "description": "Restrict by IP address, VPC endpoint, or VPC"
+          }
         ],
         "vendor_recommendation": "Use resource policies to restrict API access by IP range or VPC endpoint. Essential for private APIs (accessible only from within a VPC). Combine with IAM or Lambda authorizers for layered security.",
         "audit": {
@@ -169,23 +274,47 @@
           "terraform": "aws_api_gateway_rest_api_policy",
           "cloudformation": "AWS::ApiGateway::RestApi (Policy)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^throttling$", "(?i)^rate-limiting$"],
+      "patterns": [
+        "(?i)^throttling$",
+        "(?i)^rate-limiting$"
+      ],
       "description": "Rate limiting at account, stage, and method levels",
       "weight": 80,
       "data": {
         "description": "API Gateway throttles requests to protect backend services. Throttling is applied at multiple levels: account-level (shared across all APIs), stage-level (per deployment stage), and method-level (per resource and HTTP method). Uses token bucket algorithm.",
         "options": [
-          {"setting": "Account-level", "default": "10,000 requests/second, 5,000 burst", "description": "Shared limit across all APIs in a region"},
-          {"setting": "Stage-level", "description": "Override account defaults for a specific stage"},
-          {"setting": "Method-level", "description": "Fine-grained throttle per resource and HTTP method"},
-          {"setting": "Usage plan throttle", "description": "Per-client throttle via API keys and usage plans"}
+          {
+            "setting": "Account-level",
+            "default": "10,000 requests/second, 5,000 burst",
+            "description": "Shared limit across all APIs in a region"
+          },
+          {
+            "setting": "Stage-level",
+            "description": "Override account defaults for a specific stage"
+          },
+          {
+            "setting": "Method-level",
+            "description": "Fine-grained throttle per resource and HTTP method"
+          },
+          {
+            "setting": "Usage plan throttle",
+            "description": "Per-client throttle via API keys and usage plans"
+          }
         ],
-        "default": {"value": "10,000 requests/second steady-state, 5,000 burst", "note": "Account-level defaults. Can be increased via service quota request."},
+        "default": {
+          "value": "10,000 requests/second steady-state, 5,000 burst",
+          "note": "Account-level defaults. Can be increased via service quota request."
+        },
         "vendor_recommendation": "Configure method-level throttling for expensive or sensitive endpoints. Use usage plans for per-client rate limiting. Monitor with CloudWatch 429 error metrics.",
         "audit": {
           "cli_stage": "aws apigateway get-stage --rest-api-id {api-id} --stage-name {stage}",
@@ -198,12 +327,19 @@
           "terraform": "aws_api_gateway_method_settings (throttling_rate_limit, throttling_burst_limit)",
           "cloudformation": "AWS::ApiGateway::Stage (MethodSettings)"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^waf-integration$"],
+      "patterns": [
+        "(?i)^waf-integration$"
+      ],
       "description": "Attach AWS WAF web ACL to API stage",
       "weight": 80,
       "data": {
@@ -220,7 +356,13 @@
           "terraform": "aws_wafv2_web_acl_association",
           "cloudformation": "AWS::WAFv2::WebACLAssociation"
         },
-        "source": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-aws-waf.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-aws-waf.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

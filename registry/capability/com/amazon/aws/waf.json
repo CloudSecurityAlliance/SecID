@@ -4,37 +4,77 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS WAF and Route 53 documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
-
   "official_name": "AWS WAF and Route 53",
   "common_name": "WAF",
-  "alternate_names": ["AWS WAFv2"],
+  "alternate_names": [
+    "AWS WAFv2"
+  ],
   "notes": "Web application firewall and DNS. WAF protects CloudFront, ALB, API Gateway, AppSync. Route 53 provides DNS with DNSSEC.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/waf/"},
-    {"type": "website", "url": "https://aws.amazon.com/route53/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/waf/latest/developerguide/", "note": "AWS WAF Developer Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/", "note": "Route 53 Developer Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/waf/latest/APIReference/", "note": "AWS WAF API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/waf/"
+    },
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/route53/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/waf/latest/developerguide/",
+      "note": "AWS WAF Developer Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/",
+      "note": "Route 53 Developer Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/waf/latest/APIReference/",
+      "note": "AWS WAF API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^managed-rules$"],
+      "patterns": [
+        "(?i)^managed-rules$"
+      ],
       "description": "AWS and Marketplace managed rule groups",
       "weight": 100,
       "data": {
         "description": "Pre-built rule groups maintained by AWS and AWS Marketplace sellers. AWS managed rules cover common threats. Rule groups include Core Rule Set (CRS), SQL injection, XSS, known bad inputs, anonymous IP list, bot control, and account takeover prevention.",
         "options": [
-          {"rule_group": "AWSManagedRulesCommonRuleSet", "description": "Core protection against common web exploits. Includes OWASP Top 10 coverage."},
-          {"rule_group": "AWSManagedRulesSQLiRuleSet", "description": "SQL injection attack patterns."},
-          {"rule_group": "AWSManagedRulesKnownBadInputsRuleSet", "description": "Request patterns known to be malicious (Log4j, path traversal, etc.)."},
-          {"rule_group": "AWSManagedRulesAnonymousIpList", "description": "IPs from VPNs, proxies, Tor exit nodes, hosting providers."},
-          {"rule_group": "AWSManagedRulesBotControlRuleSet", "description": "Bot detection and management. Common (basic bots) and Targeted (sophisticated bots) levels."},
-          {"rule_group": "AWSManagedRulesATPRuleSet", "description": "Account Takeover Prevention. Detects credential stuffing and brute force."},
-          {"rule_group": "AWSManagedRulesACFPRuleSet", "description": "Account Creation Fraud Prevention. Detects fake account creation."}
+          {
+            "rule_group": "AWSManagedRulesCommonRuleSet",
+            "description": "Core protection against common web exploits. Includes OWASP Top 10 coverage."
+          },
+          {
+            "rule_group": "AWSManagedRulesSQLiRuleSet",
+            "description": "SQL injection attack patterns."
+          },
+          {
+            "rule_group": "AWSManagedRulesKnownBadInputsRuleSet",
+            "description": "Request patterns known to be malicious (Log4j, path traversal, etc.)."
+          },
+          {
+            "rule_group": "AWSManagedRulesAnonymousIpList",
+            "description": "IPs from VPNs, proxies, Tor exit nodes, hosting providers."
+          },
+          {
+            "rule_group": "AWSManagedRulesBotControlRuleSet",
+            "description": "Bot detection and management. Common (basic bots) and Targeted (sophisticated bots) levels."
+          },
+          {
+            "rule_group": "AWSManagedRulesATPRuleSet",
+            "description": "Account Takeover Prevention. Detects credential stuffing and brute force."
+          },
+          {
+            "rule_group": "AWSManagedRulesACFPRuleSet",
+            "description": "Account Creation Fraud Prevention. Detects fake account creation."
+          }
         ],
         "vendor_recommendation": "Start with AWSManagedRulesCommonRuleSet and AWSManagedRulesKnownBadInputsRuleSet as a baseline. Add SQLi and XSS rule sets for applications with form inputs. Use Bot Control for APIs and applications with bot concerns.",
         "audit": {
@@ -48,29 +88,72 @@
           "terraform": "aws_wafv2_web_acl (rule block with managed_rule_group_statement)",
           "cloudformation": "AWS::WAFv2::WebACL (Rules with ManagedRuleGroupStatement)"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^custom-rules$"],
+      "patterns": [
+        "(?i)^custom-rules$"
+      ],
       "description": "Custom match conditions and actions",
       "weight": 100,
       "data": {
         "description": "User-defined rules that match on request attributes. Match conditions include IP address, geographic location, request size, regex patterns, SQL injection detection, XSS detection, and label matching. Actions include Allow, Block, Count, CAPTCHA, and Challenge.",
         "options": [
-          {"match_type": "IP set", "description": "Match against named IP sets"},
-          {"match_type": "Geo match", "description": "Match by country code"},
-          {"match_type": "Size constraint", "description": "Match by request component size"},
-          {"match_type": "Regex pattern set", "description": "Match by regex patterns"},
-          {"match_type": "SQLi detection", "description": "Built-in SQL injection detection on specified fields"},
-          {"match_type": "XSS detection", "description": "Built-in XSS detection on specified fields"},
-          {"match_type": "Label match", "description": "Match labels added by other rules for complex logic"},
-          {"action": "Allow", "description": "Allow the request"},
-          {"action": "Block", "description": "Block the request with configurable response code"},
-          {"action": "Count", "description": "Count but do not block (for testing)"},
-          {"action": "CAPTCHA", "description": "Require CAPTCHA completion"},
-          {"action": "Challenge", "description": "Require silent browser challenge (JavaScript)"}
+          {
+            "match_type": "IP set",
+            "description": "Match against named IP sets"
+          },
+          {
+            "match_type": "Geo match",
+            "description": "Match by country code"
+          },
+          {
+            "match_type": "Size constraint",
+            "description": "Match by request component size"
+          },
+          {
+            "match_type": "Regex pattern set",
+            "description": "Match by regex patterns"
+          },
+          {
+            "match_type": "SQLi detection",
+            "description": "Built-in SQL injection detection on specified fields"
+          },
+          {
+            "match_type": "XSS detection",
+            "description": "Built-in XSS detection on specified fields"
+          },
+          {
+            "match_type": "Label match",
+            "description": "Match labels added by other rules for complex logic"
+          },
+          {
+            "action": "Allow",
+            "description": "Allow the request"
+          },
+          {
+            "action": "Block",
+            "description": "Block the request with configurable response code"
+          },
+          {
+            "action": "Count",
+            "description": "Count but do not block (for testing)"
+          },
+          {
+            "action": "CAPTCHA",
+            "description": "Require CAPTCHA completion"
+          },
+          {
+            "action": "Challenge",
+            "description": "Require silent browser challenge (JavaScript)"
+          }
         ],
         "vendor_recommendation": "Use Count action when testing new rules before switching to Block. Use labels for complex multi-rule logic. Combine geo-match with other conditions for nuanced policies.",
         "audit": {
@@ -82,20 +165,43 @@
           "terraform": "aws_wafv2_web_acl (rule block with statement)",
           "cloudformation": "AWS::WAFv2::WebACL (Rules with Statement)"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rules.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rules.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^rate-based-rules$", "(?i)^rate-limiting$"],
+      "patterns": [
+        "(?i)^rate-based-rules$",
+        "(?i)^rate-limiting$"
+      ],
       "description": "Automatic rate limiting per IP",
       "weight": 100,
       "data": {
         "description": "Automatically rate-limit requests based on configurable thresholds. Tracks request count per IP address (or other key) over a 5-minute evaluation window. When threshold is exceeded, the source is blocked until the request rate drops below the threshold.",
         "options": [
-          {"setting": "Rate limit", "range": "100-20,000,000", "description": "Maximum requests per 5-minute window per aggregation key"},
-          {"setting": "Aggregation key", "values": ["IP", "Forwarded IP", "Custom keys (header, query, label, etc.)"], "description": "How to group requests for counting"},
-          {"setting": "Scope-down statement", "description": "Optional additional match conditions to narrow which requests are counted"}
+          {
+            "setting": "Rate limit",
+            "range": "100-20,000,000",
+            "description": "Maximum requests per 5-minute window per aggregation key"
+          },
+          {
+            "setting": "Aggregation key",
+            "values": [
+              "IP",
+              "Forwarded IP",
+              "Custom keys (header, query, label, etc.)"
+            ],
+            "description": "How to group requests for counting"
+          },
+          {
+            "setting": "Scope-down statement",
+            "description": "Optional additional match conditions to narrow which requests are counted"
+          }
         ],
         "vendor_recommendation": "Use rate-based rules as a first line of defense against DDoS and brute-force attacks. Set thresholds based on expected legitimate traffic patterns. Use scope-down statements to protect specific endpoints (login pages, APIs).",
         "audit": {
@@ -107,19 +213,35 @@
           "terraform": "aws_wafv2_web_acl (rule with rate_based_statement)",
           "cloudformation": "AWS::WAFv2::WebACL (Rules with RateBasedStatement)"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ip-sets$"],
+      "patterns": [
+        "(?i)^ip-sets$"
+      ],
       "description": "Named lists of IPs for allow/deny",
       "weight": 80,
       "data": {
         "description": "Named, reusable collections of IP addresses and CIDR ranges. IP sets can be referenced in multiple rules across multiple web ACLs. Support IPv4 and IPv6. Maximum 10,000 addresses per IP set.",
         "options": [
-          {"setting": "IP version", "values": ["IPV4", "IPV6"]},
-          {"setting": "Addresses", "description": "List of IPs or CIDR ranges. Max 10,000 per set."}
+          {
+            "setting": "IP version",
+            "values": [
+              "IPV4",
+              "IPV6"
+            ]
+          },
+          {
+            "setting": "Addresses",
+            "description": "List of IPs or CIDR ranges. Max 10,000 per set."
+          }
         ],
         "vendor_recommendation": "Use IP sets for frequently updated lists (known malicious IPs, corporate allowlists). Centralize IP management in IP sets rather than hardcoding in rules. Use AWS Firewall Manager to share IP sets across accounts.",
         "audit": {
@@ -132,22 +254,41 @@
           "terraform": "aws_wafv2_ip_set",
           "cloudformation": "AWS::WAFv2::IPSet"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-ip-set-managing.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-ip-set-managing.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^logging$"],
+      "patterns": [
+        "(?i)^logging$"
+      ],
       "description": "Full request logging for WAF",
       "weight": 80,
       "data": {
         "description": "Log all requests inspected by the web ACL, including match details, rule actions, and request metadata. Logging destinations include S3, CloudWatch Logs, and Kinesis Data Firehose. Essential for security monitoring, incident investigation, and rule tuning.",
         "options": [
-          {"destination": "Amazon S3", "description": "Cost-effective long-term storage. Bucket name must start with aws-waf-logs-."},
-          {"destination": "CloudWatch Logs", "description": "Real-time monitoring and alerting. Log group name must start with aws-waf-logs-."},
-          {"destination": "Kinesis Data Firehose", "description": "Real-time streaming to analytics services. Delivery stream name must start with aws-waf-logs-."}
+          {
+            "destination": "Amazon S3",
+            "description": "Cost-effective long-term storage. Bucket name must start with aws-waf-logs-."
+          },
+          {
+            "destination": "CloudWatch Logs",
+            "description": "Real-time monitoring and alerting. Log group name must start with aws-waf-logs-."
+          },
+          {
+            "destination": "Kinesis Data Firehose",
+            "description": "Real-time streaming to analytics services. Delivery stream name must start with aws-waf-logs-."
+          }
         ],
-        "default": {"value": "Logging disabled", "note": "WAF logging is not enabled by default. Must be explicitly configured."},
+        "default": {
+          "value": "Logging disabled",
+          "note": "WAF logging is not enabled by default. Must be explicitly configured."
+        },
         "vendor_recommendation": "Enable logging on all web ACLs. Use S3 for long-term storage and CloudWatch Logs for real-time alerting. Configure log filters to reduce volume if needed (e.g., log only blocked requests). Analyze logs regularly to tune rules.",
         "audit": {
           "cli": "aws wafv2 get-logging-configuration --resource-arn {webacl-arn}",
@@ -159,19 +300,32 @@
           "terraform": "aws_wafv2_web_acl_logging_configuration",
           "cloudformation": "AWS::WAFv2::LoggingConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/logging.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/logging.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^bot-control$"],
+      "patterns": [
+        "(?i)^bot-control$"
+      ],
       "description": "AWS managed bot detection and management",
       "weight": 80,
       "data": {
         "description": "AWS Bot Control managed rule group for detecting and managing bot traffic. Two protection levels: Common (detects self-identifying bots, basic scraping) and Targeted (detects sophisticated bots that attempt to evade detection). Provides bot labels for custom rule logic.",
         "options": [
-          {"level": "Common", "description": "Detects common bots using request patterns. Included in WAF base pricing."},
-          {"level": "Targeted", "description": "ML-based detection of sophisticated bots. Additional per-request charges. Detects credential stuffing, scraping bots that mimic browsers."}
+          {
+            "level": "Common",
+            "description": "Detects common bots using request patterns. Included in WAF base pricing."
+          },
+          {
+            "level": "Targeted",
+            "description": "ML-based detection of sophisticated bots. Additional per-request charges. Detects credential stuffing, scraping bots that mimic browsers."
+          }
         ],
         "vendor_recommendation": "Start with Common bot control to identify bot traffic. Use bot labels in custom rules for nuanced handling (e.g., allow verified search engine bots, challenge unverified bots, block known bad bots). Add Targeted level for high-value applications.",
         "audit": {
@@ -183,22 +337,42 @@
           "terraform": "aws_wafv2_web_acl (rule with managed_rule_group_statement, name = AWSManagedRulesBotControlRuleSet)",
           "cloudformation": "AWS::WAFv2::WebACL (ManagedRuleGroupStatement with AWSManagedRulesBotControlRuleSet)"
         },
-        "source": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^route53-dnssec$", "(?i)^dnssec$"],
+      "patterns": [
+        "(?i)^route53-dnssec$",
+        "(?i)^dnssec$"
+      ],
       "description": "DNSSEC signing for Route 53 hosted zones",
       "weight": 80,
       "data": {
         "description": "DNSSEC signing for Route 53 public hosted zones. Protects against DNS spoofing and cache poisoning by cryptographically signing DNS records. Route 53 manages KSK (Key Signing Key) in AWS KMS and automatically manages ZSK (Zone Signing Key) rotation.",
         "options": [
-          {"setting": "KSK (Key Signing Key)", "description": "Customer-managed key in KMS. Used to sign the DNSKEY record set."},
-          {"setting": "ZSK (Zone Signing Key)", "description": "AWS-managed. Used to sign all other record sets. Auto-rotated."},
-          {"setting": "DS record", "description": "Must be added to parent zone (domain registrar) to complete the chain of trust."}
+          {
+            "setting": "KSK (Key Signing Key)",
+            "description": "Customer-managed key in KMS. Used to sign the DNSKEY record set."
+          },
+          {
+            "setting": "ZSK (Zone Signing Key)",
+            "description": "AWS-managed. Used to sign all other record sets. Auto-rotated."
+          },
+          {
+            "setting": "DS record",
+            "description": "Must be added to parent zone (domain registrar) to complete the chain of trust."
+          }
         ],
-        "default": {"value": "DNSSEC disabled", "note": "DNSSEC signing is not enabled by default on hosted zones."},
+        "default": {
+          "value": "DNSSEC disabled",
+          "note": "DNSSEC signing is not enabled by default on hosted zones."
+        },
         "vendor_recommendation": "Enable DNSSEC for all public hosted zones, especially those serving critical applications. Ensure the DS record is properly configured at the domain registrar. Monitor DNSSEC status with Route 53 health checks.",
         "audit": {
           "cli": "aws route53 get-dnssec --hosted-zone-id {id}",
@@ -211,21 +385,41 @@
           "terraform": "aws_route53_hosted_zone_dnssec, aws_route53_key_signing_key",
           "cloudformation": "AWS::Route53::DNSSEC, AWS::Route53::KeySigningKey"
         },
-        "source": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^route53-health-checks$", "(?i)^health-checks$"],
+      "patterns": [
+        "(?i)^route53-health-checks$",
+        "(?i)^health-checks$"
+      ],
       "description": "Monitor endpoint health and DNS failover",
       "weight": 60,
       "data": {
         "description": "Route 53 health checks monitor the health of endpoints and trigger DNS failover. Health checks can monitor HTTP/HTTPS endpoints, TCP connections, CloudWatch alarms, or calculated status from other health checks. Used with failover routing for high availability.",
         "options": [
-          {"type": "HTTP/HTTPS", "description": "Check endpoint availability. Configurable path, port, search string, request interval."},
-          {"type": "TCP", "description": "TCP connection check to endpoint."},
-          {"type": "Calculated", "description": "Combine multiple health checks with AND/OR logic."},
-          {"type": "CloudWatch alarm", "description": "Health status based on CloudWatch alarm state."}
+          {
+            "type": "HTTP/HTTPS",
+            "description": "Check endpoint availability. Configurable path, port, search string, request interval."
+          },
+          {
+            "type": "TCP",
+            "description": "TCP connection check to endpoint."
+          },
+          {
+            "type": "Calculated",
+            "description": "Combine multiple health checks with AND/OR logic."
+          },
+          {
+            "type": "CloudWatch alarm",
+            "description": "Health status based on CloudWatch alarm state."
+          }
         ],
         "vendor_recommendation": "Use health checks with failover routing for critical services. Configure health checks to check application health (not just connectivity) by verifying response body content. Set appropriate thresholds for failure detection.",
         "audit": {
@@ -239,7 +433,13 @@
           "terraform": "aws_route53_health_check",
           "cloudformation": "AWS::Route53::HealthCheck"
         },
-        "source": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

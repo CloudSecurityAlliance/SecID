@@ -4,72 +4,127 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS RDS documentation, 2026-04-04. Needs cross-reference and live environment validation.",
-
   "official_name": "Amazon Relational Database Service",
   "common_name": "RDS",
   "alternate_names": null,
   "notes": "Managed relational databases (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora). Security includes encryption, network isolation, authentication, automated backups.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/rds/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html", "note": "RDS Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.html", "note": "RDS Security Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/", "note": "RDS API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/rds/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html",
+      "note": "RDS Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.html",
+      "note": "RDS Security Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/",
+      "note": "RDS API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption-at-rest$"],
+      "patterns": [
+        "(?i)^encryption-at-rest$"
+      ],
       "description": "Encrypt DB instance storage and snapshots with KMS",
       "weight": 100,
       "data": {
         "description": "Encrypt DB instance and snapshots with KMS. Must be enabled at creation (cannot encrypt existing unencrypted instance). Options: AWS managed key, customer managed key. Default: Enabled for new instances.",
         "options": [
-          {"value": "aws-managed-key", "name": "AWS Managed Key", "description": "Default aws/rds KMS key. No additional cost."},
-          {"value": "customer-managed-key", "name": "Customer Managed Key", "description": "Customer-managed KMS key. Provides audit trail and key rotation control."}
+          {
+            "value": "aws-managed-key",
+            "name": "AWS Managed Key",
+            "description": "Default aws/rds KMS key. No additional cost."
+          },
+          {
+            "value": "customer-managed-key",
+            "name": "Customer Managed Key",
+            "description": "Customer-managed KMS key. Provides audit trail and key rotation control."
+          }
         ],
-        "default": {"value": "enabled", "note": "Encryption at rest is enabled by default for new DB instances."},
+        "default": {
+          "value": "enabled",
+          "note": "Encryption at rest is enabled by default for new DB instances."
+        },
         "vendor_recommendation": "Use a customer managed KMS key for audit trail and key rotation control. Encryption must be enabled at instance creation time.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,Encrypted:StorageEncrypted}'",
           "api": "DescribeDBInstances",
           "console": "RDS -> Databases -> {instance} -> Configuration -> Encryption"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^encryption-in-transit$"],
+      "patterns": [
+        "(?i)^encryption-in-transit$"
+      ],
       "description": "TLS/SSL connections to RDS instances",
       "weight": 100,
       "data": {
         "description": "TLS/SSL connections to RDS instances. Options: require SSL via parameter group (rds.force_ssl=1 for PostgreSQL, require_secure_transport=ON for MySQL). Each engine has its own parameter.",
         "options": [
-          {"value": "rds.force_ssl", "name": "Force SSL (PostgreSQL)", "description": "Set rds.force_ssl=1 in parameter group to require SSL for PostgreSQL."},
-          {"value": "require_secure_transport", "name": "Require Secure Transport (MySQL)", "description": "Set require_secure_transport=ON in parameter group to require SSL for MySQL."}
+          {
+            "value": "rds.force_ssl",
+            "name": "Force SSL (PostgreSQL)",
+            "description": "Set rds.force_ssl=1 in parameter group to require SSL for PostgreSQL."
+          },
+          {
+            "value": "require_secure_transport",
+            "name": "Require Secure Transport (MySQL)",
+            "description": "Set require_secure_transport=ON in parameter group to require SSL for MySQL."
+          }
         ],
-        "default": {"value": "optional", "note": "SSL/TLS is supported but not required by default. Clients can connect without encryption."},
+        "default": {
+          "value": "optional",
+          "note": "SSL/TLS is supported but not required by default. Clients can connect without encryption."
+        },
         "vendor_recommendation": "Require SSL for all database connections by setting the appropriate parameter group value for your engine.",
         "audit": {
           "cli": "aws rds describe-db-parameters --db-parameter-group-name {param-group} --query 'Parameters[?ParameterName==`rds.force_ssl`]'",
           "api": "DescribeDBParameters",
           "console": "RDS -> Parameter groups -> {group} -> rds.force_ssl / require_secure_transport"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^iam-authentication$"],
+      "patterns": [
+        "(?i)^iam-authentication$"
+      ],
       "description": "Use IAM credentials instead of database passwords",
       "weight": 100,
       "data": {
         "description": "Use IAM credentials instead of database passwords. Generates temporary authentication tokens. Supported for MySQL, PostgreSQL, and Aurora. Tokens are valid for 15 minutes.",
-        "default": {"value": "disabled", "note": "IAM database authentication is disabled by default."},
+        "default": {
+          "value": "disabled",
+          "note": "IAM database authentication is disabled by default."
+        },
         "vendor_recommendation": "Enable IAM authentication to eliminate long-lived database passwords and leverage IAM policies for access control.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,IAMAuth:IAMDatabaseAuthenticationEnabled}'",
@@ -81,13 +136,22 @@
           "terraform": "aws_db_instance.iam_database_authentication_enabled",
           "cloudformation": "AWS::RDS::DBInstance EnableIAMDatabaseAuthentication"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/iam"],
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vpc-security-groups$"],
+      "patterns": [
+        "(?i)^vpc-security-groups$"
+      ],
       "description": "Control network access to RDS instances via VPC security groups",
       "weight": 100,
       "data": {
@@ -98,22 +162,40 @@
           "api": "DescribeDBInstances",
           "console": "RDS -> Databases -> {instance} -> Connectivity & security -> Security groups"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/vpc#security-groups"],
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/vpc#security-groups"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^public-accessibility$"],
+      "patterns": [
+        "(?i)^public-accessibility$"
+      ],
       "description": "Whether RDS instance has a public IP address",
       "weight": 100,
       "data": {
         "description": "Whether the DB instance has a public IP address. When set to Yes, the instance is assigned a public IP and is reachable from the internet (subject to security group rules).",
         "options": [
-          {"value": "Yes", "description": "Instance has a public IP. Reachable from the internet."},
-          {"value": "No", "description": "Instance has no public IP. Only reachable from within VPC."}
+          {
+            "value": "Yes",
+            "description": "Instance has a public IP. Reachable from the internet."
+          },
+          {
+            "value": "No",
+            "description": "Instance has no public IP. Only reachable from within VPC."
+          }
         ],
-        "default": {"value": "No", "note": "Default for new instances is No (not publicly accessible)."},
+        "default": {
+          "value": "No",
+          "note": "Default for new instances is No (not publicly accessible)."
+        },
         "vendor_recommendation": "Always set to No. RDS instances should never be publicly accessible in production.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,Public:PubliclyAccessible}'",
@@ -125,17 +207,27 @@
           "terraform": "aws_db_instance.publicly_accessible",
           "cloudformation": "AWS::RDS::DBInstance PubliclyAccessible"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^automated-backups$"],
+      "patterns": [
+        "(?i)^automated-backups$"
+      ],
       "description": "Point-in-time recovery with automated backups",
       "weight": 90,
       "data": {
         "description": "Point-in-time recovery via automated backups. Retention period configurable from 0 to 35 days. Setting to 0 disables automated backups.",
-        "default": {"value": "7 days", "note": "Default backup retention period is 7 days."},
+        "default": {
+          "value": "7 days",
+          "note": "Default backup retention period is 7 days."
+        },
         "vendor_recommendation": "Set backup retention to at least 7 days. Consider 35 days for production databases with compliance requirements.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,BackupRetention:BackupRetentionPeriod}'",
@@ -147,39 +239,68 @@
           "terraform": "aws_db_instance.backup_retention_period",
           "cloudformation": "AWS::RDS::DBInstance BackupRetentionPeriod"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^snapshot-permissions$"],
+      "patterns": [
+        "(?i)^snapshot-permissions$"
+      ],
       "description": "Control who can restore DB snapshots",
       "weight": 90,
       "data": {
         "description": "Control who can restore DB snapshots. Snapshots can be private (default), shared with specific AWS accounts, or made public (dangerous — exposes data to any AWS account).",
         "options": [
-          {"value": "private", "description": "Default. Only the owning account can restore."},
-          {"value": "shared", "description": "Shared with specific AWS account IDs."},
-          {"value": "public", "description": "Any AWS account can restore. Dangerous — exposes data to anyone."}
+          {
+            "value": "private",
+            "description": "Default. Only the owning account can restore."
+          },
+          {
+            "value": "shared",
+            "description": "Shared with specific AWS account IDs."
+          },
+          {
+            "value": "public",
+            "description": "Any AWS account can restore. Dangerous — exposes data to anyone."
+          }
         ],
-        "default": {"value": "private", "note": "Snapshots are private by default."},
+        "default": {
+          "value": "private",
+          "note": "Snapshots are private by default."
+        },
         "vendor_recommendation": "Never make snapshots public. Review shared snapshot permissions regularly.",
         "audit": {
           "cli": "aws rds describe-db-snapshot-attributes --db-snapshot-identifier {snap}",
           "api": "DescribeDBSnapshotAttributes",
           "console": "RDS -> Snapshots -> {snapshot} -> Snapshot permissions"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^deletion-protection$"],
+      "patterns": [
+        "(?i)^deletion-protection$"
+      ],
       "description": "Prevent accidental deletion of RDS instances",
       "weight": 90,
       "data": {
         "description": "Prevent accidental deletion of DB instances. When enabled, the instance cannot be deleted until deletion protection is explicitly disabled.",
-        "default": {"value": "disabled", "note": "Deletion protection is disabled by default."},
+        "default": {
+          "value": "disabled",
+          "note": "Deletion protection is disabled by default."
+        },
         "vendor_recommendation": "Enable for all production instances.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,DeletionProtection:DeletionProtection}'",
@@ -191,26 +312,57 @@
           "terraform": "aws_db_instance.deletion_protection",
           "cloudformation": "AWS::RDS::DBInstance DeletionProtection"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^enhanced-monitoring$"],
+      "patterns": [
+        "(?i)^enhanced-monitoring$"
+      ],
       "description": "OS-level metrics for RDS instances",
       "weight": 80,
       "data": {
         "description": "OS-level metrics at configurable intervals. Provides CPU, memory, file system, and disk I/O metrics from the underlying operating system. Requires an IAM role for CloudWatch Logs.",
         "options": [
-          {"value": "disabled", "description": "No enhanced monitoring."},
-          {"value": "1", "description": "Metrics every 1 second."},
-          {"value": "5", "description": "Metrics every 5 seconds."},
-          {"value": "10", "description": "Metrics every 10 seconds."},
-          {"value": "15", "description": "Metrics every 15 seconds."},
-          {"value": "30", "description": "Metrics every 30 seconds."},
-          {"value": "60", "description": "Metrics every 60 seconds."}
+          {
+            "value": "disabled",
+            "description": "No enhanced monitoring."
+          },
+          {
+            "value": "1",
+            "description": "Metrics every 1 second."
+          },
+          {
+            "value": "5",
+            "description": "Metrics every 5 seconds."
+          },
+          {
+            "value": "10",
+            "description": "Metrics every 10 seconds."
+          },
+          {
+            "value": "15",
+            "description": "Metrics every 15 seconds."
+          },
+          {
+            "value": "30",
+            "description": "Metrics every 30 seconds."
+          },
+          {
+            "value": "60",
+            "description": "Metrics every 60 seconds."
+          }
         ],
-        "default": {"value": "disabled", "note": "Enhanced Monitoring is disabled by default."},
+        "default": {
+          "value": "disabled",
+          "note": "Enhanced Monitoring is disabled by default."
+        },
         "vendor_recommendation": "Enable with at least 60-second granularity for production workloads to aid in troubleshooting and security incident analysis.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,MonitoringInterval:MonitoringInterval}'",
@@ -222,21 +374,39 @@
           "terraform": "aws_db_instance.monitoring_interval",
           "cloudformation": "AWS::RDS::DBInstance MonitoringInterval"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^performance-insights$"],
+      "patterns": [
+        "(?i)^performance-insights$"
+      ],
       "description": "Database performance monitoring and analysis",
       "weight": 80,
       "data": {
         "description": "Database performance monitoring that visualizes database load and identifies bottlenecks. Analyzes wait events, SQL queries, and host metrics. Free tier includes 7-day retention.",
         "options": [
-          {"value": "7-day", "name": "Free Tier", "description": "7-day data retention at no additional cost."},
-          {"value": "2-year", "name": "Long-term Retention", "description": "Up to 2 years of data retention. Paid feature."}
+          {
+            "value": "7-day",
+            "name": "Free Tier",
+            "description": "7-day data retention at no additional cost."
+          },
+          {
+            "value": "2-year",
+            "name": "Long-term Retention",
+            "description": "Up to 2 years of data retention. Paid feature."
+          }
         ],
-        "default": {"value": "disabled", "note": "Performance Insights is disabled by default."},
+        "default": {
+          "value": "disabled",
+          "note": "Performance Insights is disabled by default."
+        },
         "vendor_recommendation": "Enable Performance Insights for all production instances to aid in query performance analysis and security investigation.",
         "audit": {
           "cli": "aws rds describe-db-instances --query 'DBInstances[*].{Id:DBInstanceIdentifier,PerfInsights:PerformanceInsightsEnabled}'",
@@ -248,7 +418,13 @@
           "terraform": "aws_db_instance.performance_insights_enabled",
           "cloudformation": "AWS::RDS::DBInstance EnablePerformanceInsights"
         },
-        "source": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

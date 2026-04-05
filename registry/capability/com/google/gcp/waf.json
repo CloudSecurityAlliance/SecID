@@ -4,39 +4,85 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud Armor and Cloud DNS documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud Armor and Cloud DNS",
   "common_name": "Cloud Armor",
   "alternate_names": null,
   "notes": "WAF and DDoS protection at edge. Cloud DNS provides managed DNS with DNSSEC.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/armor"},
-    {"type": "website", "url": "https://cloud.google.com/dns"},
-    {"type": "docs", "url": "https://cloud.google.com/armor/docs", "note": "Cloud Armor documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/dns/docs", "note": "Cloud DNS documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/armor/docs/cloud-armor-overview", "note": "Cloud Armor overview"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/armor"
+    },
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/dns"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/armor/docs",
+      "note": "Cloud Armor documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/dns/docs",
+      "note": "Cloud DNS documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/armor/docs/cloud-armor-overview",
+      "note": "Cloud Armor overview"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^preconfigured-rules$", "(?i)^managed-rules$"],
+      "patterns": [
+        "(?i)^preconfigured-rules$",
+        "(?i)^managed-rules$"
+      ],
       "description": "ModSecurity Core Rule Set (CRS) based rules",
       "weight": 100,
       "data": {
         "description": "Preconfigured WAF rules based on the OWASP ModSecurity Core Rule Set (CRS). Cover common web application vulnerabilities including SQL injection, cross-site scripting, local file inclusion, remote code execution, session fixation, and protocol attacks. Configurable sensitivity levels.",
         "options": [
-          {"rule_set": "sqli", "description": "SQL injection detection. Sensitivity levels 0-4."},
-          {"rule_set": "xss", "description": "Cross-site scripting detection. Sensitivity levels 0-4."},
-          {"rule_set": "lfi", "description": "Local file inclusion detection. Sensitivity levels 0-4."},
-          {"rule_set": "rce", "description": "Remote code execution detection. Sensitivity levels 0-4."},
-          {"rule_set": "rfi", "description": "Remote file inclusion detection. Sensitivity levels 0-4."},
-          {"rule_set": "sessionfixation", "description": "Session fixation detection. Sensitivity levels 0-4."},
-          {"rule_set": "scannerdetection", "description": "Scanner and crawler detection. Sensitivity levels 0-4."},
-          {"rule_set": "protocolattack", "description": "Protocol violation detection. Sensitivity levels 0-4."},
-          {"setting": "Sensitivity levels", "range": "0-4", "description": "0 = no rules, 1 = least sensitive (high-confidence), 4 = most sensitive (may have false positives)"}
+          {
+            "rule_set": "sqli",
+            "description": "SQL injection detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "xss",
+            "description": "Cross-site scripting detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "lfi",
+            "description": "Local file inclusion detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "rce",
+            "description": "Remote code execution detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "rfi",
+            "description": "Remote file inclusion detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "sessionfixation",
+            "description": "Session fixation detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "scannerdetection",
+            "description": "Scanner and crawler detection. Sensitivity levels 0-4."
+          },
+          {
+            "rule_set": "protocolattack",
+            "description": "Protocol violation detection. Sensitivity levels 0-4."
+          },
+          {
+            "setting": "Sensitivity levels",
+            "range": "0-4",
+            "description": "0 = no rules, 1 = least sensitive (high-confidence), 4 = most sensitive (may have false positives)"
+          }
         ],
         "vendor_recommendation": "Start with sensitivity level 1 (high confidence, fewest false positives). Increase sensitivity gradually while monitoring logs. Use preview mode to evaluate rule impact before enforcement. Apply at sensitivity level 2 or higher for comprehensive protection.",
         "audit": {
@@ -48,24 +94,59 @@
           "cli": "gcloud compute security-policies rules create 1000 --security-policy {policy} --expression \"evaluatePreconfiguredExpr('sqli-v33-stable', ['owasp-crs-v030301-id942251-sqli'])\" --action deny-403",
           "terraform": "google_compute_security_policy (rule with preconfigured_expr)"
         },
-        "source": "https://cloud.google.com/armor/docs/waf-rules"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/armor/docs/waf-rules",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^custom-rules$"],
+      "patterns": [
+        "(?i)^custom-rules$"
+      ],
       "description": "CEL-based rules on request attributes",
       "weight": 100,
       "data": {
         "description": "Custom rules using Common Expression Language (CEL) for matching on request attributes. Match on IP address, geographic location, HTTP headers, cookies, request body, URL path, and more. Actions include allow, deny, rate-limit, redirect, and throttle.",
         "options": [
-          {"attribute": "origin.ip", "description": "Client IP address"},
-          {"attribute": "origin.region_code", "description": "ISO 3166-1 alpha-2 country code"},
-          {"attribute": "request.headers", "description": "HTTP request headers (map access)"},
-          {"attribute": "request.path", "description": "URL path"},
-          {"attribute": "request.query", "description": "URL query string"},
-          {"attribute": "request.method", "description": "HTTP method"},
-          {"setting": "Actions", "values": ["allow", "deny(status)", "rate_based_ban", "redirect", "throttle"], "description": "Action on match. deny accepts status code (403, 404, 502)."}
+          {
+            "attribute": "origin.ip",
+            "description": "Client IP address"
+          },
+          {
+            "attribute": "origin.region_code",
+            "description": "ISO 3166-1 alpha-2 country code"
+          },
+          {
+            "attribute": "request.headers",
+            "description": "HTTP request headers (map access)"
+          },
+          {
+            "attribute": "request.path",
+            "description": "URL path"
+          },
+          {
+            "attribute": "request.query",
+            "description": "URL query string"
+          },
+          {
+            "attribute": "request.method",
+            "description": "HTTP method"
+          },
+          {
+            "setting": "Actions",
+            "values": [
+              "allow",
+              "deny(status)",
+              "rate_based_ban",
+              "redirect",
+              "throttle"
+            ],
+            "description": "Action on match. deny accepts status code (403, 404, 502)."
+          }
         ],
         "vendor_recommendation": "Use custom rules for application-specific protection. Place allow rules at higher priority (lower number) than deny rules. Use preview mode to test rules. Combine IP-based and header-based conditions for precise control.",
         "audit": {
@@ -78,22 +159,41 @@
           "cli_ip": "gcloud compute security-policies rules create 1500 --security-policy {policy} --src-ip-ranges '203.0.113.0/24' --action allow",
           "terraform": "google_compute_security_policy (rule with match.expr)"
         },
-        "source": "https://cloud.google.com/armor/docs/rules-language-reference"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/armor/docs/rules-language-reference",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^adaptive-protection$"],
+      "patterns": [
+        "(?i)^adaptive-protection$"
+      ],
       "description": "ML-based DDoS detection",
       "weight": 100,
       "data": {
         "description": "Machine learning-based Layer 7 DDoS detection. Analyzes traffic patterns and automatically generates suggested Cloud Armor rules when attacks are detected. Models learn normal traffic baselines and alert on anomalies. Requires Cloud Armor Enterprise (Premium) tier.",
         "options": [
-          {"setting": "Auto-deploy", "description": "Automatically deploy suggested rules when attacks are detected. Optional — can be review-only."},
-          {"setting": "Alert threshold", "description": "Configurable confidence threshold for generating alerts."},
-          {"setting": "Training period", "description": "Models need approximately 1 hour of traffic to establish baseline."}
+          {
+            "setting": "Auto-deploy",
+            "description": "Automatically deploy suggested rules when attacks are detected. Optional — can be review-only."
+          },
+          {
+            "setting": "Alert threshold",
+            "description": "Configurable confidence threshold for generating alerts."
+          },
+          {
+            "setting": "Training period",
+            "description": "Models need approximately 1 hour of traffic to establish baseline."
+          }
         ],
-        "default": {"value": "Disabled", "note": "Adaptive protection must be explicitly enabled on a security policy. Requires Cloud Armor Enterprise tier."},
+        "default": {
+          "value": "Disabled",
+          "note": "Adaptive protection must be explicitly enabled on a security policy. Requires Cloud Armor Enterprise tier."
+        },
         "vendor_recommendation": "Enable adaptive protection on all public-facing security policies. Start in alert-only mode to review suggested rules before enabling auto-deploy. Requires Cloud Armor Enterprise (formerly Premium) tier — evaluate cost-benefit for each workload.",
         "audit": {
           "cli": "gcloud compute security-policies describe {policy} --format='value(adaptiveProtectionConfig)'",
@@ -105,22 +205,51 @@
           "cli_auto_deploy": "gcloud compute security-policies update {policy} --enable-layer7-ddos-defense --layer7-ddos-defense-auto-deploy",
           "terraform": "google_compute_security_policy (adaptive_protection_config block)"
         },
-        "source": "https://cloud.google.com/armor/docs/adaptive-protection-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/armor/docs/adaptive-protection-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^rate-limiting$"],
+      "patterns": [
+        "(?i)^rate-limiting$"
+      ],
       "description": "Per-client rate limiting",
       "weight": 80,
       "data": {
         "description": "Rate limiting in Cloud Armor throttles or bans clients exceeding configured thresholds. Clients can be identified by IP address, HTTP header, XFF header, or cookie. Supports both throttle (return 429) and rate-based ban (block for a duration) actions.",
         "options": [
-          {"action": "throttle", "description": "Return 429 Too Many Requests when threshold exceeded. Configurable conform and exceed actions."},
-          {"action": "rate_based_ban", "description": "Ban the client for a configurable duration when threshold exceeded."},
-          {"setting": "Enforce on key", "values": ["IP", "ALL", "HTTP-HEADER:{name}", "XFF-IP", "HTTP-COOKIE:{name}"], "description": "How to identify unique clients for rate counting"},
-          {"setting": "Rate limit threshold", "description": "Count and interval (e.g., 100 requests per 60 seconds)"},
-          {"setting": "Ban duration", "description": "How long to block after threshold exceeded (for rate_based_ban)"}
+          {
+            "action": "throttle",
+            "description": "Return 429 Too Many Requests when threshold exceeded. Configurable conform and exceed actions."
+          },
+          {
+            "action": "rate_based_ban",
+            "description": "Ban the client for a configurable duration when threshold exceeded."
+          },
+          {
+            "setting": "Enforce on key",
+            "values": [
+              "IP",
+              "ALL",
+              "HTTP-HEADER:{name}",
+              "XFF-IP",
+              "HTTP-COOKIE:{name}"
+            ],
+            "description": "How to identify unique clients for rate counting"
+          },
+          {
+            "setting": "Rate limit threshold",
+            "description": "Count and interval (e.g., 100 requests per 60 seconds)"
+          },
+          {
+            "setting": "Ban duration",
+            "description": "How long to block after threshold exceeded (for rate_based_ban)"
+          }
         ],
         "vendor_recommendation": "Use rate limiting to protect login pages, APIs, and form submission endpoints. Start with generous thresholds and tighten based on observed traffic. Use rate_based_ban for persistent abusers. Use XFF-IP when behind a CDN or proxy.",
         "audit": {
@@ -132,22 +261,44 @@
           "cli": "gcloud compute security-policies rules create 3000 --security-policy {policy} --expression \"true\" --action throttle --rate-limit-threshold-count 100 --rate-limit-threshold-interval-sec 60 --conform-action allow --exceed-action deny-429 --enforce-on-key IP",
           "terraform": "google_compute_security_policy (rule with rate_limit_options)"
         },
-        "source": "https://cloud.google.com/armor/docs/rate-limiting-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/armor/docs/rate-limiting-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^cloud-dns$"],
+      "patterns": [
+        "(?i)^cloud-dns$"
+      ],
       "description": "Managed DNS service",
       "weight": 60,
       "data": {
         "description": "Google Cloud DNS provides managed, authoritative DNS hosting. Supports public zones (internet-facing), private zones (VPC-internal), and split-horizon (same zone name, different answers for public vs private). Integrated with GKE, Compute Engine, and other GCP services.",
         "options": [
-          {"type": "Public zone", "description": "Resolves DNS queries from the internet. Requires NS delegation from domain registrar."},
-          {"type": "Private zone", "description": "Resolves DNS queries within authorized VPC networks. Not visible from internet."},
-          {"type": "Split-horizon", "description": "Same zone name with different records for public and private queries."},
-          {"setting": "DNS forwarding", "description": "Forward queries to on-premises DNS servers for hybrid DNS resolution."},
-          {"setting": "DNS peering", "description": "Forward queries to another VPC's private zone without VPC peering."}
+          {
+            "type": "Public zone",
+            "description": "Resolves DNS queries from the internet. Requires NS delegation from domain registrar."
+          },
+          {
+            "type": "Private zone",
+            "description": "Resolves DNS queries within authorized VPC networks. Not visible from internet."
+          },
+          {
+            "type": "Split-horizon",
+            "description": "Same zone name with different records for public and private queries."
+          },
+          {
+            "setting": "DNS forwarding",
+            "description": "Forward queries to on-premises DNS servers for hybrid DNS resolution."
+          },
+          {
+            "setting": "DNS peering",
+            "description": "Forward queries to another VPC's private zone without VPC peering."
+          }
         ],
         "vendor_recommendation": "Use private zones for internal service discovery. Use DNS forwarding for hybrid cloud DNS resolution. Use split-horizon for services that need different DNS responses inside vs outside the VPC.",
         "audit": {
@@ -161,22 +312,52 @@
           "cli_private": "gcloud dns managed-zones create {zone} --dns-name={domain} --visibility=private --networks={vpc}",
           "terraform": "google_dns_managed_zone"
         },
-        "source": "https://cloud.google.com/dns/docs/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/dns/docs/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^dnssec$"],
+      "patterns": [
+        "(?i)^dnssec$"
+      ],
       "description": "DNSSEC signing and validation",
       "weight": 60,
       "data": {
         "description": "DNSSEC signing for Cloud DNS public zones. Protects against DNS spoofing and cache poisoning. Google manages key generation and rotation. DS record must be configured at the domain registrar to complete the chain of trust.",
         "options": [
-          {"setting": "State", "values": ["on", "off", "transfer"], "description": "DNSSEC signing state. Transfer is for migrating signed zones."},
-          {"setting": "Key algorithm", "values": ["rsasha256", "rsasha512", "ecdsap256sha256", "ecdsap384sha384"], "description": "Algorithm for zone signing keys"},
-          {"setting": "DS record", "description": "Must be added at domain registrar after enabling DNSSEC"}
+          {
+            "setting": "State",
+            "values": [
+              "on",
+              "off",
+              "transfer"
+            ],
+            "description": "DNSSEC signing state. Transfer is for migrating signed zones."
+          },
+          {
+            "setting": "Key algorithm",
+            "values": [
+              "rsasha256",
+              "rsasha512",
+              "ecdsap256sha256",
+              "ecdsap384sha384"
+            ],
+            "description": "Algorithm for zone signing keys"
+          },
+          {
+            "setting": "DS record",
+            "description": "Must be added at domain registrar after enabling DNSSEC"
+          }
         ],
-        "default": {"value": "DNSSEC off", "note": "DNSSEC signing is not enabled by default on DNS zones."},
+        "default": {
+          "value": "DNSSEC off",
+          "note": "DNSSEC signing is not enabled by default on DNS zones."
+        },
         "vendor_recommendation": "Enable DNSSEC for all public DNS zones. Use ECDSA algorithms (ecdsap256sha256) for smaller signatures and better performance. Ensure DS record is properly configured at the registrar. Monitor with external DNSSEC validation tools.",
         "audit": {
           "cli": "gcloud dns managed-zones describe {zone} --format='value(dnssecConfig)'",
@@ -189,7 +370,13 @@
           "note": "After enabling, retrieve the DS record details from dns-keys and add them at your domain registrar.",
           "terraform": "google_dns_managed_zone (dnssec_config block)"
         },
-        "source": "https://cloud.google.com/dns/docs/dnssec"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/dns/docs/dnssec",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

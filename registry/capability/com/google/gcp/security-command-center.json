@@ -4,33 +4,60 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud Security Command Center documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment). Note: brief summary also exists in logging.json.",
-
   "official_name": "Google Cloud Security Command Center",
   "common_name": "SCC",
-  "alternate_names": ["Security Command Center", "Cloud SCC"],
+  "alternate_names": [
+    "Security Command Center",
+    "Cloud SCC"
+  ],
   "notes": "Centralized security and risk management. Standard tier (free) and Premium/Enterprise tiers. Vulnerability scanning, threat detection, compliance monitoring.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/security-command-center"},
-    {"type": "docs", "url": "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview", "note": "SCC overview"},
-    {"type": "docs", "url": "https://cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics", "note": "Security Health Analytics"},
-    {"type": "docs", "url": "https://cloud.google.com/security-command-center/docs/reference/rest", "note": "SCC REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/security-command-center"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview",
+      "note": "SCC overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics",
+      "note": "Security Health Analytics"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/security-command-center/docs/reference/rest",
+      "note": "SCC REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^security-health-analytics$", "(?i)^sha$"],
+      "patterns": [
+        "(?i)^security-health-analytics$",
+        "(?i)^sha$"
+      ],
       "description": "Automated vulnerability detection for misconfigurations",
       "weight": 100,
       "data": {
         "description": "Automated vulnerability detection that scans Google Cloud resources for misconfigurations. Standard tier covers basic checks: public IPs, open firewall rules, unencrypted storage, misconfigured IAM. Premium tier adds 100+ additional detectors covering CIS, PCI-DSS, NIST, and ISO benchmarks. Findings are generated for each detected misconfiguration with severity, resource details, and remediation guidance.",
         "options": [
-          {"tier": "Standard (Free)", "description": "Basic misconfiguration detection. Covers: public IP addresses, open firewall rules, public buckets, MFA enforcement, logging configuration."},
-          {"tier": "Premium", "description": "100+ additional detectors. Full CIS Google Cloud Foundations Benchmark coverage, PCI-DSS, NIST 800-53, ISO 27001 mappings."}
+          {
+            "tier": "Standard (Free)",
+            "description": "Basic misconfiguration detection. Covers: public IP addresses, open firewall rules, public buckets, MFA enforcement, logging configuration."
+          },
+          {
+            "tier": "Premium",
+            "description": "100+ additional detectors. Full CIS Google Cloud Foundations Benchmark coverage, PCI-DSS, NIST 800-53, ISO 27001 mappings."
+          }
         ],
-        "default": {"value": "Standard tier available at no cost", "note": "Standard tier detectors run automatically when SCC is activated. Premium detectors require Premium or Enterprise tier."},
+        "default": {
+          "value": "Standard tier available at no cost",
+          "note": "Standard tier detectors run automatically when SCC is activated. Premium detectors require Premium or Enterprise tier."
+        },
         "vendor_recommendation": "Activate SCC at the organization level for comprehensive coverage. Use Premium tier for production environments. Review and remediate high-severity findings regularly. Export findings to BigQuery for trend analysis.",
         "audit": {
           "cli": "gcloud scc findings list {org-id} --source=organizations/{org-id}/sources/{sha-source-id}",
@@ -42,25 +69,54 @@
           "note": "Security Health Analytics is configured at the organization level. Individual detector modules can be enabled or disabled in Premium tier.",
           "terraform": "google_scc_organization_custom_module"
         },
-        "source": "https://cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^event-threat-detection$", "(?i)^etd$"],
+      "patterns": [
+        "(?i)^event-threat-detection$",
+        "(?i)^etd$"
+      ],
       "description": "Log-based threat detection from audit and network logs",
       "weight": 100,
       "data": {
         "description": "Log-based threat detection that monitors Cloud Audit Logs, VPC Flow Logs, and DNS logs for suspicious activity. Detects cryptocurrency mining, malware, brute force attacks, data exfiltration, IAM anomalies, and other threats. Uses built-in detection rules and threat intelligence. Requires Premium or Enterprise tier.",
         "options": [
-          {"detection": "Cryptocurrency mining", "description": "DNS requests to known mining pools, suspicious compute usage patterns"},
-          {"detection": "Malware", "description": "Known malicious domains, suspicious network connections, bad IP reputation"},
-          {"detection": "Brute force", "description": "SSH brute force, repeated failed authentication attempts"},
-          {"detection": "Data exfiltration", "description": "Unusual data transfer patterns, large volume downloads"},
-          {"detection": "IAM anomalies", "description": "Unusual IAM grants, service account key creation, policy changes from suspicious sources"},
-          {"detection": "Persistence", "description": "Addition of SSH keys, startup scripts, or other persistence mechanisms"}
+          {
+            "detection": "Cryptocurrency mining",
+            "description": "DNS requests to known mining pools, suspicious compute usage patterns"
+          },
+          {
+            "detection": "Malware",
+            "description": "Known malicious domains, suspicious network connections, bad IP reputation"
+          },
+          {
+            "detection": "Brute force",
+            "description": "SSH brute force, repeated failed authentication attempts"
+          },
+          {
+            "detection": "Data exfiltration",
+            "description": "Unusual data transfer patterns, large volume downloads"
+          },
+          {
+            "detection": "IAM anomalies",
+            "description": "Unusual IAM grants, service account key creation, policy changes from suspicious sources"
+          },
+          {
+            "detection": "Persistence",
+            "description": "Addition of SSH keys, startup scripts, or other persistence mechanisms"
+          }
         ],
-        "default": {"value": "Enabled with Premium tier", "note": "Requires SCC Premium or Enterprise tier at the organization level."},
+        "default": {
+          "value": "Enabled with Premium tier",
+          "note": "Requires SCC Premium or Enterprise tier at the organization level."
+        },
         "vendor_recommendation": "Enable Event Threat Detection at the organization level. Ensure Cloud Audit Logs (Admin Activity and Data Access) are enabled for comprehensive coverage. Route findings to your SIEM for correlation.",
         "audit": {
           "cli": "gcloud scc findings list {org-id} --source=organizations/{org-id}/sources/{etd-source-id}",
@@ -70,23 +126,45 @@
           "console": "Cloud Console → Security → Security Command Center → Settings → Event Threat Detection",
           "note": "Event Threat Detection is enabled by default when Premium tier is activated. Custom detection modules can be configured."
         },
-        "source": "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^container-threat-detection$"],
+      "patterns": [
+        "(?i)^container-threat-detection$"
+      ],
       "description": "Runtime threat detection for GKE clusters",
       "weight": 100,
       "data": {
         "description": "Runtime threat detection for Google Kubernetes Engine (GKE) clusters. Detects suspicious binary execution, reverse shells, suspicious library loading, and malicious scripts at the container runtime level. Uses a lightweight DaemonSet agent deployed to GKE nodes. Requires Premium or Enterprise tier.",
         "options": [
-          {"detection": "Suspicious binary execution", "description": "Execution of known malicious binaries or binaries from unexpected locations"},
-          {"detection": "Reverse shells", "description": "Network connections initiated from a container that redirect stdin/stdout to a remote socket"},
-          {"detection": "Suspicious libraries", "description": "Loading of libraries that indicate exploitation attempts or malicious activity"},
-          {"detection": "Malicious scripts", "description": "Execution of known malicious scripts or scripting patterns associated with attacks"}
+          {
+            "detection": "Suspicious binary execution",
+            "description": "Execution of known malicious binaries or binaries from unexpected locations"
+          },
+          {
+            "detection": "Reverse shells",
+            "description": "Network connections initiated from a container that redirect stdin/stdout to a remote socket"
+          },
+          {
+            "detection": "Suspicious libraries",
+            "description": "Loading of libraries that indicate exploitation attempts or malicious activity"
+          },
+          {
+            "detection": "Malicious scripts",
+            "description": "Execution of known malicious scripts or scripting patterns associated with attacks"
+          }
         ],
-        "default": {"value": "Enabled with Premium tier", "note": "Requires GKE clusters with Container Threat Detection agent deployed."},
+        "default": {
+          "value": "Enabled with Premium tier",
+          "note": "Requires GKE clusters with Container Threat Detection agent deployed."
+        },
         "vendor_recommendation": "Enable Container Threat Detection for all production GKE clusters. Ensure the agent is deployed to all node pools. Review findings promptly as runtime detections indicate active threats.",
         "audit": {
           "cli": "gcloud scc findings list {org-id} --source=organizations/{org-id}/sources/{ctd-source-id}",
@@ -96,19 +174,32 @@
           "console": "Cloud Console → Security → Security Command Center → Settings → Container Threat Detection",
           "note": "Container Threat Detection requires the Container Threat Detection agent to be deployed to GKE clusters. This is managed automatically when enabled."
         },
-        "source": "https://cloud.google.com/security-command-center/docs/concepts-container-threat-detection-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/concepts-container-threat-detection-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^web-security-scanner$"],
+      "patterns": [
+        "(?i)^web-security-scanner$"
+      ],
       "description": "Automated vulnerability scanning for web applications",
       "weight": 80,
       "data": {
         "description": "Automated vulnerability scanning for web applications running on App Engine, GKE, and Compute Engine. Scans for common web vulnerabilities including XSS, SQL injection, mixed content, outdated libraries, and insecure configuration. Standard tier provides manual-only scanning. Premium tier adds managed scanning (automatic, scheduled).",
         "options": [
-          {"tier": "Standard (Free)", "description": "Manual scans only. User-initiated. Basic vulnerability detection."},
-          {"tier": "Premium", "description": "Managed scans (automatic). Scheduled scanning. Additional vulnerability detectors."}
+          {
+            "tier": "Standard (Free)",
+            "description": "Manual scans only. User-initiated. Basic vulnerability detection."
+          },
+          {
+            "tier": "Premium",
+            "description": "Managed scans (automatic). Scheduled scanning. Additional vulnerability detectors."
+          }
         ],
         "vendor_recommendation": "Configure scans for all internet-facing web applications. Use managed scans (Premium) for continuous assessment. Remediate high and medium findings before production deployment.",
         "audit": {
@@ -120,17 +211,28 @@
           "cli": "gcloud web-security-scanner scan-configs create --display-name={name} --starting-urls={url} --project={project}",
           "terraform": "google_security_scanner_scan_config"
         },
-        "source": "https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vulnerability-scanning$", "(?i)^vm-threat-detection$"],
+      "patterns": [
+        "(?i)^vulnerability-scanning$",
+        "(?i)^vm-threat-detection$"
+      ],
       "description": "OS vulnerability scanning for Compute Engine VMs",
       "weight": 80,
       "data": {
         "description": "OS vulnerability scanning for Compute Engine virtual machines. Uses the OS Config agent to inventory installed packages and detect known vulnerabilities (CVEs). Requires VM Manager (OS Config) to be enabled. Findings are surfaced in Security Command Center with CVE details and remediation guidance.",
-        "default": {"value": "Requires VM Manager enablement", "note": "OS Config agent must be installed and VM Manager enabled at the project level."},
+        "default": {
+          "value": "Requires VM Manager enablement",
+          "note": "OS Config agent must be installed and VM Manager enabled at the project level."
+        },
         "vendor_recommendation": "Enable VM Manager for all projects with Compute Engine instances. Ensure the OS Config agent is installed on all VMs. Review and patch high-severity vulnerabilities promptly.",
         "audit": {
           "cli": "gcloud compute os-config patch-jobs list --project={project}",
@@ -142,43 +244,84 @@
           "terraform": "google_compute_project_metadata (enable-osconfig)",
           "note": "Vulnerability scanning depends on VM Manager (OS Config). Enable the agent on instances via metadata or startup scripts."
         },
-        "source": "https://cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^compliance$"],
+      "patterns": [
+        "(?i)^compliance$"
+      ],
       "description": "Compliance reports against regulatory standards",
       "weight": 80,
       "data": {
         "description": "Compliance monitoring and reporting against industry standards and regulatory frameworks. Maps Security Health Analytics findings to compliance controls. Supported standards include CIS Google Cloud Foundations Benchmark, PCI-DSS, NIST SP 800-53, ISO 27001, and SOC 2. Requires Premium or Enterprise tier.",
         "options": [
-          {"standard": "CIS Google Cloud Foundations Benchmark", "description": "Center for Internet Security benchmark for Google Cloud"},
-          {"standard": "PCI-DSS", "description": "Payment Card Industry Data Security Standard"},
-          {"standard": "NIST SP 800-53", "description": "US government security controls framework"},
-          {"standard": "ISO 27001", "description": "International information security management standard"},
-          {"standard": "SOC 2", "description": "Service organization controls"}
+          {
+            "standard": "CIS Google Cloud Foundations Benchmark",
+            "description": "Center for Internet Security benchmark for Google Cloud"
+          },
+          {
+            "standard": "PCI-DSS",
+            "description": "Payment Card Industry Data Security Standard"
+          },
+          {
+            "standard": "NIST SP 800-53",
+            "description": "US government security controls framework"
+          },
+          {
+            "standard": "ISO 27001",
+            "description": "International information security management standard"
+          },
+          {
+            "standard": "SOC 2",
+            "description": "Service organization controls"
+          }
         ],
         "vendor_recommendation": "Use compliance reports for continuous compliance monitoring. Export compliance data for audit evidence. Address non-compliant findings prioritized by severity and standard relevance.",
         "audit": {
           "console": "Cloud Console → Security → Security Command Center → Compliance",
           "note": "Compliance dashboard is available in the SCC console. Findings can be filtered by compliance standard."
         },
-        "source": "https://cloud.google.com/security-command-center/docs/how-to-use-compliance"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/how-to-use-compliance",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^security-posture$"],
+      "patterns": [
+        "(?i)^security-posture$"
+      ],
       "description": "Organization-level security posture policies",
       "weight": 80,
       "data": {
         "description": "Define and enforce organization-level security posture through posture configurations. Security postures are collections of policy constraints and Security Health Analytics detector settings that can be applied to organizations, folders, or projects. Enables consistent security policy deployment across the environment. Supports posture drift detection and remediation.",
         "options": [
-          {"feature": "Posture deployment", "description": "Apply security posture configurations to organizational units"},
-          {"feature": "Drift detection", "description": "Detect when resources deviate from the defined security posture"},
-          {"feature": "Predefined postures", "description": "Google-provided posture templates for common compliance frameworks"},
-          {"feature": "Custom postures", "description": "Define custom security posture configurations"}
+          {
+            "feature": "Posture deployment",
+            "description": "Apply security posture configurations to organizational units"
+          },
+          {
+            "feature": "Drift detection",
+            "description": "Detect when resources deviate from the defined security posture"
+          },
+          {
+            "feature": "Predefined postures",
+            "description": "Google-provided posture templates for common compliance frameworks"
+          },
+          {
+            "feature": "Custom postures",
+            "description": "Define custom security posture configurations"
+          }
         ],
         "vendor_recommendation": "Define a baseline security posture for your organization. Deploy postures to enforce consistent security policies. Monitor for posture drift and remediate deviations promptly.",
         "audit": {
@@ -190,7 +333,13 @@
           "cli": "gcloud scc postures create {posture-id} --organization={org-id} --posture-from-file=posture.yaml",
           "cli_deploy": "gcloud scc posture-deployments create {deployment-id} --organization={org-id} --posture={posture-id} --target-resource=organizations/{org-id}"
         },
-        "source": "https://cloud.google.com/security-command-center/docs/security-posture-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/security-posture-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

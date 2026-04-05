@@ -4,35 +4,65 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from GCP Cloud Functions documentation, 2026-04-04. Needs cross-reference pass and human review with live GCP environment.",
-
   "official_name": "Google Cloud Functions",
   "common_name": "Cloud Functions",
-  "alternate_names": ["GCF"],
+  "alternate_names": [
+    "GCF"
+  ],
   "notes": "Serverless compute for GCP. Security focus: IAM invocation control, VPC connector, secret management, ingress settings.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/functions"},
-    {"type": "docs", "url": "https://cloud.google.com/functions/docs/securing", "note": "Cloud Functions Security"},
-    {"type": "docs", "url": "https://cloud.google.com/functions/docs", "note": "Cloud Functions documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/functions/docs/reference/rest", "note": "Cloud Functions REST API"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/functions"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/functions/docs/securing",
+      "note": "Cloud Functions Security"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/functions/docs",
+      "note": "Cloud Functions documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/functions/docs/reference/rest",
+      "note": "Cloud Functions REST API"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^invoker-permissions$"],
+      "patterns": [
+        "(?i)^invoker-permissions$"
+      ],
       "description": "IAM controls for who can trigger the function",
       "weight": 100,
       "data": {
         "description": "IAM permissions control which principals can invoke a Cloud Function. For HTTP-triggered functions, the roles/cloudfunctions.invoker role (Gen1) or roles/run.invoker role (Gen2) must be granted. Granting to allUsers makes the function public.",
         "options": [
-          {"value": "allUsers", "name": "Public (allUsers)", "description": "Anyone on the internet can invoke. No authentication required."},
-          {"value": "allAuthenticatedUsers", "name": "All authenticated users", "description": "Any Google account can invoke. Not recommended — very broad."},
-          {"value": "specific", "name": "Specific principals", "description": "Named users, service accounts, or groups. Least-privilege."}
+          {
+            "value": "allUsers",
+            "name": "Public (allUsers)",
+            "description": "Anyone on the internet can invoke. No authentication required."
+          },
+          {
+            "value": "allAuthenticatedUsers",
+            "name": "All authenticated users",
+            "description": "Any Google account can invoke. Not recommended — very broad."
+          },
+          {
+            "value": "specific",
+            "name": "Specific principals",
+            "description": "Named users, service accounts, or groups. Least-privilege."
+          }
         ],
         "vendor_recommendation": "Require authentication for all production functions. Never grant allUsers or allAuthenticatedUsers unless the function is intentionally public. Use specific service accounts for service-to-service invocation.",
-        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/iam"
+        ],
         "audit": {
           "cli_gen1": "gcloud functions get-iam-policy {fn} --region {region}",
           "cli_gen2": "gcloud functions describe {fn} --region {region} --gen2 --format='value(serviceConfig.uri)'",
@@ -43,12 +73,19 @@
           "cli_remove_public": "gcloud functions remove-iam-policy-binding {fn} --region {region} --member='allUsers' --role='roles/cloudfunctions.invoker'",
           "terraform": "google_cloudfunctions_function_iam_member"
         },
-        "source": "https://cloud.google.com/functions/docs/securing/authenticating"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/securing/authenticating",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vpc-connector$"],
+      "patterns": [
+        "(?i)^vpc-connector$"
+      ],
       "description": "Connect to VPC for private resource access",
       "weight": 80,
       "data": {
@@ -64,22 +101,44 @@
           "cli_attach": "gcloud functions deploy {fn} --vpc-connector {connector} --egress-settings all-traffic",
           "terraform": "vpc_connector on google_cloudfunctions_function"
         },
-        "source": "https://cloud.google.com/functions/docs/networking/connecting-vpc"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/networking/connecting-vpc",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ingress-settings$"],
+      "patterns": [
+        "(?i)^ingress-settings$"
+      ],
       "description": "Control where requests can originate from",
       "weight": 100,
       "data": {
         "description": "Ingress settings restrict the network origin of requests that can reach the function. Controls whether the function accepts traffic from the public internet, only from within the Google Cloud network, or only through a load balancer.",
         "options": [
-          {"value": "ALLOW_ALL", "name": "Allow all traffic", "description": "Default. Function accepts requests from any source."},
-          {"value": "ALLOW_INTERNAL_ONLY", "name": "Allow internal only", "description": "Only traffic from VPC networks in the same project or VPC SC perimeter."},
-          {"value": "ALLOW_INTERNAL_AND_GCLB", "name": "Allow internal and GCLB", "description": "Internal traffic plus traffic through Google Cloud Load Balancing."}
+          {
+            "value": "ALLOW_ALL",
+            "name": "Allow all traffic",
+            "description": "Default. Function accepts requests from any source."
+          },
+          {
+            "value": "ALLOW_INTERNAL_ONLY",
+            "name": "Allow internal only",
+            "description": "Only traffic from VPC networks in the same project or VPC SC perimeter."
+          },
+          {
+            "value": "ALLOW_INTERNAL_AND_GCLB",
+            "name": "Allow internal and GCLB",
+            "description": "Internal traffic plus traffic through Google Cloud Load Balancing."
+          }
         ],
-        "default": {"value": "ALLOW_ALL", "note": "Functions accept all traffic by default."},
+        "default": {
+          "value": "ALLOW_ALL",
+          "note": "Functions accept all traffic by default."
+        },
         "vendor_recommendation": "Use ALLOW_INTERNAL_ONLY or ALLOW_INTERNAL_AND_GCLB for production functions. Only use ALLOW_ALL for intentionally public functions.",
         "audit": {
           "cli": "gcloud functions describe {fn} --format='value(ingressSettings)'",
@@ -89,18 +148,27 @@
           "cli": "gcloud functions deploy {fn} --ingress-settings internal-only",
           "terraform": "ingress_settings on google_cloudfunctions_function"
         },
-        "source": "https://cloud.google.com/functions/docs/networking/network-settings#ingress_settings"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/networking/network-settings#ingress_settings",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^secret-manager-integration$"],
+      "patterns": [
+        "(?i)^secret-manager-integration$"
+      ],
       "description": "Mount secrets as environment variables or volumes",
       "weight": 80,
       "data": {
         "description": "Cloud Functions can access secrets from Secret Manager directly. Secrets are mounted as environment variables or file system volumes at function startup. The function's service account must have the secretmanager.secretAccessor role on the secret.",
         "vendor_recommendation": "Use Secret Manager for all sensitive configuration values. Never hardcode secrets in function code or environment variables. Grant secret access to the function's dedicated service account only.",
-        "cross_references": ["secid:capability/google.com/gcp/secret-manager"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/secret-manager"
+        ],
         "audit": {
           "cli": "gcloud functions describe {fn} --format='value(secretEnvironmentVariables,secretVolumes)'",
           "api": "projects.locations.functions.get (secretEnvironmentVariables, secretVolumes)"
@@ -110,22 +178,39 @@
           "cli_volume": "gcloud functions deploy {fn} --set-secrets '/mount/path=projects/{project}/secrets/{secret}:latest'",
           "terraform": "secret_environment_variables, secret_volumes on google_cloudfunctions2_function"
         },
-        "source": "https://cloud.google.com/functions/docs/configuring/secrets"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/configuring/secrets",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^service-account$"],
+      "patterns": [
+        "(?i)^service-account$"
+      ],
       "description": "Runtime identity for the function",
       "weight": 100,
       "data": {
         "description": "Every Cloud Function runs as a service account. This identity determines what Google Cloud APIs and resources the function can access. By default, Gen1 functions use the App Engine default service account and Gen2 functions use the default compute service account — both have broad permissions.",
         "options": [
-          {"value": "default", "name": "Default service account", "description": "Broad Editor-level permissions. Discouraged for production."},
-          {"value": "custom", "name": "Custom service account", "description": "User-created with specific, least-privilege IAM roles."}
+          {
+            "value": "default",
+            "name": "Default service account",
+            "description": "Broad Editor-level permissions. Discouraged for production."
+          },
+          {
+            "value": "custom",
+            "name": "Custom service account",
+            "description": "User-created with specific, least-privilege IAM roles."
+          }
         ],
         "vendor_recommendation": "Use a dedicated service account with minimal permissions for each function. Never use the default compute or App Engine service account in production.",
-        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/iam"
+        ],
         "audit": {
           "cli": "gcloud functions describe {fn} --format='value(serviceAccountEmail)'",
           "api": "projects.locations.functions.get (serviceAccountEmail)"
@@ -134,18 +219,27 @@
           "cli": "gcloud functions deploy {fn} --service-account {sa-email}",
           "terraform": "service_account_email on google_cloudfunctions_function"
         },
-        "source": "https://cloud.google.com/functions/docs/securing/function-identity"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/securing/function-identity",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^cmek$"],
+      "patterns": [
+        "(?i)^cmek$"
+      ],
       "description": "Customer-managed encryption keys for function code and config",
       "weight": 60,
       "data": {
         "description": "Customer-managed encryption keys (CMEK) allow you to use Cloud KMS keys to encrypt function source code, build artifacts, and configuration data at rest. Without CMEK, Google manages the encryption keys.",
         "vendor_recommendation": "Use CMEK for functions processing sensitive data where your organization requires key management control. Ensure key access is not accidentally revoked, which would break function deployment.",
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
         "audit": {
           "cli": "gcloud functions describe {fn} --format='value(kmsKeyName)'",
           "api": "projects.locations.functions.get (kmsKeyName)"
@@ -154,7 +248,13 @@
           "cli": "gcloud functions deploy {fn} --kms-key projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}",
           "terraform": "kms_key_name on google_cloudfunctions2_function"
         },
-        "source": "https://cloud.google.com/functions/docs/securing/cmek"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/functions/docs/securing/cmek",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

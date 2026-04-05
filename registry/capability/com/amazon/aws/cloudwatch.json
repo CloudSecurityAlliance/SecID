@@ -4,35 +4,72 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS CloudWatch documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
-
   "official_name": "Amazon CloudWatch",
   "common_name": "CloudWatch",
   "alternate_names": null,
   "notes": "Foundation monitoring service. Metrics, logs, alarms, dashboards for all AWS services.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/cloudwatch/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/", "note": "CloudWatch User Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/", "note": "CloudWatch Logs User Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/", "note": "CloudWatch API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/cloudwatch/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/",
+      "note": "CloudWatch User Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/",
+      "note": "CloudWatch Logs User Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/",
+      "note": "CloudWatch API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^metrics$"],
+      "patterns": [
+        "(?i)^metrics$"
+      ],
       "description": "Built-in and custom metrics for all AWS services",
       "weight": 100,
       "data": {
         "description": "Time-series data points published by AWS services and custom applications. AWS services automatically publish metrics (EC2 CPU utilization, S3 request counts, RDS connections, etc.). Custom metrics can be published via PutMetricData API. Metrics are organized by namespace, metric name, and dimensions.",
         "options": [
-          {"setting": "Basic monitoring", "resolution": "5 minutes", "cost": "Free", "description": "Default for most AWS services"},
-          {"setting": "Detailed monitoring", "resolution": "1 minute", "cost": "Paid", "description": "Available for EC2, RDS, and other services"},
-          {"setting": "Custom metrics", "resolution": "1 second to 1 minute", "cost": "Paid", "description": "Application-published metrics via PutMetricData API"},
-          {"setting": "High-resolution metrics", "resolution": "1 second", "cost": "Paid", "description": "Custom metrics with sub-minute granularity"}
+          {
+            "setting": "Basic monitoring",
+            "resolution": "5 minutes",
+            "cost": "Free",
+            "description": "Default for most AWS services"
+          },
+          {
+            "setting": "Detailed monitoring",
+            "resolution": "1 minute",
+            "cost": "Paid",
+            "description": "Available for EC2, RDS, and other services"
+          },
+          {
+            "setting": "Custom metrics",
+            "resolution": "1 second to 1 minute",
+            "cost": "Paid",
+            "description": "Application-published metrics via PutMetricData API"
+          },
+          {
+            "setting": "High-resolution metrics",
+            "resolution": "1 second",
+            "cost": "Paid",
+            "description": "Custom metrics with sub-minute granularity"
+          }
         ],
-        "default": {"value": "Basic monitoring (5-minute resolution)", "note": "Most AWS services publish basic metrics at no additional charge. Detailed monitoring requires explicit enablement."},
+        "default": {
+          "value": "Basic monitoring (5-minute resolution)",
+          "note": "Most AWS services publish basic metrics at no additional charge. Detailed monitoring requires explicit enablement."
+        },
         "vendor_recommendation": "Enable detailed monitoring for production EC2 instances and RDS databases. Use custom metrics for application-specific monitoring. Use metric math for derived metrics without publishing redundant data.",
         "audit": {
           "cli": "aws cloudwatch list-metrics",
@@ -41,20 +78,36 @@
           "api": "ListMetrics, GetMetricData, GetMetricStatistics",
           "console": "CloudWatch → Metrics → All metrics"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^alarms$"],
+      "patterns": [
+        "(?i)^alarms$"
+      ],
       "description": "Automated actions on metric thresholds",
       "weight": 100,
       "data": {
         "description": "Monitor metrics and trigger actions when thresholds are crossed. Three states: OK (metric within threshold), ALARM (metric crossed threshold), INSUFFICIENT_DATA (not enough data). Actions include SNS notifications, Auto Scaling policies, EC2 actions (stop, terminate, reboot, recover), and Systems Manager OpsItems.",
         "options": [
-          {"type": "Standard alarm", "description": "Single metric threshold with configurable evaluation periods"},
-          {"type": "Composite alarm", "description": "Combines multiple alarms with AND/OR logic to reduce alarm noise"},
-          {"type": "Anomaly detection alarm", "description": "ML-based expected value band — alarms when metric deviates from learned pattern"}
+          {
+            "type": "Standard alarm",
+            "description": "Single metric threshold with configurable evaluation periods"
+          },
+          {
+            "type": "Composite alarm",
+            "description": "Combines multiple alarms with AND/OR logic to reduce alarm noise"
+          },
+          {
+            "type": "Anomaly detection alarm",
+            "description": "ML-based expected value band — alarms when metric deviates from learned pattern"
+          }
         ],
         "vendor_recommendation": "Create alarms for all critical security and operational metrics. Use composite alarms to reduce noise. Set up SNS topics to route to email, Slack, PagerDuty, or incident management systems.",
         "audit": {
@@ -69,21 +122,66 @@
           "terraform": "aws_cloudwatch_metric_alarm",
           "cloudformation": "AWS::CloudWatch::Alarm"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^logs$"],
+      "patterns": [
+        "(?i)^logs$"
+      ],
       "description": "Centralized log aggregation",
       "weight": 100,
       "data": {
         "description": "Centralized log management service. Logs are organized into log groups (retention container) and log streams (sequence of events from one source). Supports ingestion from AWS services (CloudTrail, VPC Flow Logs, Lambda, ECS), EC2 instances (via CloudWatch Agent), and custom applications.",
         "options": [
-          {"setting": "Retention", "values": ["1 day", "3 days", "5 days", "1 week", "2 weeks", "1 month", "2 months", "3 months", "4 months", "5 months", "6 months", "1 year", "13 months", "18 months", "2 years", "3 years", "5 years", "6 years", "7 years", "8 years", "9 years", "10 years", "Never expire"], "default": "Never expire"},
-          {"setting": "Log class", "values": ["Standard", "Infrequent Access"], "description": "Infrequent Access is lower cost for logs queried infrequently"}
+          {
+            "setting": "Retention",
+            "values": [
+              "1 day",
+              "3 days",
+              "5 days",
+              "1 week",
+              "2 weeks",
+              "1 month",
+              "2 months",
+              "3 months",
+              "4 months",
+              "5 months",
+              "6 months",
+              "1 year",
+              "13 months",
+              "18 months",
+              "2 years",
+              "3 years",
+              "5 years",
+              "6 years",
+              "7 years",
+              "8 years",
+              "9 years",
+              "10 years",
+              "Never expire"
+            ],
+            "default": "Never expire"
+          },
+          {
+            "setting": "Log class",
+            "values": [
+              "Standard",
+              "Infrequent Access"
+            ],
+            "description": "Infrequent Access is lower cost for logs queried infrequently"
+          }
         ],
-        "default": {"value": "Never expire", "note": "Log groups retain logs indefinitely by default. Set retention policies to control costs."},
+        "default": {
+          "value": "Never expire",
+          "note": "Log groups retain logs indefinitely by default. Set retention policies to control costs."
+        },
         "vendor_recommendation": "Set explicit retention policies on all log groups to control costs. Use Infrequent Access log class for high-volume logs that are rarely queried. Route security-critical logs to S3 for long-term archival.",
         "audit": {
           "cli": "aws logs describe-log-groups",
@@ -98,12 +196,20 @@
           "terraform": "aws_cloudwatch_log_group",
           "cloudformation": "AWS::Logs::LogGroup"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-metric-filters$", "(?i)^metric-filters$"],
+      "patterns": [
+        "(?i)^log-metric-filters$",
+        "(?i)^metric-filters$"
+      ],
       "description": "Create metrics from log patterns",
       "weight": 100,
       "data": {
@@ -120,24 +226,52 @@
           "terraform": "aws_cloudwatch_log_metric_filter",
           "cloudformation": "AWS::Logs::MetricFilter"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^dashboards$"],
+      "patterns": [
+        "(?i)^dashboards$"
+      ],
       "description": "Custom visualization of metrics and logs",
       "weight": 60,
       "data": {
         "description": "Customizable web pages in the CloudWatch console for monitoring resources. Support multiple widget types (line graphs, stacked area, number, text, logs, alarms). Cross-account and cross-region dashboards enable centralized monitoring. Dashboards can be shared via direct links or embedded in other applications.",
         "options": [
-          {"widget": "Line", "description": "Time-series metric visualization"},
-          {"widget": "Stacked area", "description": "Multiple metrics shown as stacked areas"},
-          {"widget": "Number", "description": "Single metric value display"},
-          {"widget": "Gauge", "description": "Metric value shown as a gauge"},
-          {"widget": "Text", "description": "Markdown text for documentation"},
-          {"widget": "Logs", "description": "Log Insights query results"},
-          {"widget": "Alarm", "description": "Alarm status display"}
+          {
+            "widget": "Line",
+            "description": "Time-series metric visualization"
+          },
+          {
+            "widget": "Stacked area",
+            "description": "Multiple metrics shown as stacked areas"
+          },
+          {
+            "widget": "Number",
+            "description": "Single metric value display"
+          },
+          {
+            "widget": "Gauge",
+            "description": "Metric value shown as a gauge"
+          },
+          {
+            "widget": "Text",
+            "description": "Markdown text for documentation"
+          },
+          {
+            "widget": "Logs",
+            "description": "Log Insights query results"
+          },
+          {
+            "widget": "Alarm",
+            "description": "Alarm status display"
+          }
         ],
         "audit": {
           "cli": "aws cloudwatch list-dashboards",
@@ -151,12 +285,19 @@
           "terraform": "aws_cloudwatch_dashboard",
           "cloudformation": "AWS::CloudWatch::Dashboard"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^anomaly-detection$"],
+      "patterns": [
+        "(?i)^anomaly-detection$"
+      ],
       "description": "ML-based anomaly detection on metrics",
       "weight": 80,
       "data": {
@@ -172,7 +313,13 @@
           "api": "PutAnomalyDetector",
           "terraform": "aws_cloudwatch_metric_alarm with anomaly_detection_model"
         },
-        "source": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

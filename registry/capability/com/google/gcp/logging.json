@@ -4,35 +4,76 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud Logging and Monitoring documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud Logging and Monitoring",
   "common_name": "Cloud Logging",
-  "alternate_names": ["Stackdriver Logging", "Stackdriver Monitoring"],
+  "alternate_names": [
+    "Stackdriver Logging",
+    "Stackdriver Monitoring"
+  ],
   "notes": "Foundation logging and monitoring. Cloud Logging stores logs, Cloud Monitoring provides metrics and alerting.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/logging"},
-    {"type": "docs", "url": "https://cloud.google.com/logging/docs", "note": "Cloud Logging documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/monitoring/docs", "note": "Cloud Monitoring documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/logging/docs/audit", "note": "Cloud Audit Logs"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/logging"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/logging/docs",
+      "note": "Cloud Logging documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/monitoring/docs",
+      "note": "Cloud Monitoring documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/logging/docs/audit",
+      "note": "Cloud Audit Logs"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^audit-logs$", "(?i)^cloud-audit-logs$"],
+      "patterns": [
+        "(?i)^audit-logs$",
+        "(?i)^cloud-audit-logs$"
+      ],
       "description": "Cloud Audit Logs for API activity tracking",
       "weight": 100,
       "data": {
         "description": "Records API activity across all Google Cloud services. Four log types: Admin Activity (always on, free, 400-day retention in _Required bucket — records resource creation, modification, IAM changes), Data Access (configurable, charged, 30-day default retention — records resource reads and data access), System Event (always on, free — records Google-initiated system actions), Policy Denied (always on, free — records access denied by VPC Service Controls or organization policy).",
         "options": [
-          {"type": "Admin Activity", "description": "API calls that modify resources or metadata. Always enabled, cannot be disabled, no charge.", "retention": "400 days", "default": "always on"},
-          {"type": "Data Access", "description": "API calls that read resource data (DATA_READ), metadata (ADMIN_READ), or write user data (DATA_WRITE). Configurable per service.", "retention": "30 days default", "default": "disabled (except BigQuery)"},
-          {"type": "System Event", "description": "Google-initiated system operations (live migration, maintenance, etc.). Always enabled, no charge.", "retention": "400 days", "default": "always on"},
-          {"type": "Policy Denied", "description": "Access denied by VPC Service Controls or organization policy violations. Always enabled, no charge.", "retention": "30 days default", "default": "always on"}
+          {
+            "type": "Admin Activity",
+            "description": "API calls that modify resources or metadata. Always enabled, cannot be disabled, no charge.",
+            "retention": "400 days",
+            "default": "always on"
+          },
+          {
+            "type": "Data Access",
+            "description": "API calls that read resource data (DATA_READ), metadata (ADMIN_READ), or write user data (DATA_WRITE). Configurable per service.",
+            "retention": "30 days default",
+            "default": "disabled (except BigQuery)"
+          },
+          {
+            "type": "System Event",
+            "description": "Google-initiated system operations (live migration, maintenance, etc.). Always enabled, no charge.",
+            "retention": "400 days",
+            "default": "always on"
+          },
+          {
+            "type": "Policy Denied",
+            "description": "Access denied by VPC Service Controls or organization policy violations. Always enabled, no charge.",
+            "retention": "30 days default",
+            "default": "always on"
+          }
         ],
-        "default": {"value": "Admin Activity, System Event, and Policy Denied logs are always enabled and cannot be disabled.", "note": "Data Access logs must be explicitly enabled per service and can generate high volume and cost."},
+        "default": {
+          "value": "Admin Activity, System Event, and Policy Denied logs are always enabled and cannot be disabled.",
+          "note": "Data Access logs must be explicitly enabled per service and can generate high volume and cost."
+        },
         "vendor_recommendation": "Enable Data Access logs for security-sensitive services (IAM, Cloud Storage, BigQuery, Compute Engine, Cloud KMS). Export audit logs to a centralized logging project or SIEM. Route to BigQuery for long-term forensic analysis.",
         "audit": {
           "cli": "gcloud logging read 'logName:\"cloudaudit.googleapis.com/activity\"' --project={project} --limit=10",
@@ -45,22 +86,45 @@
           "note": "Data Access audit logs are configured via the auditConfigs section of the project IAM policy. Set logType to DATA_READ, DATA_WRITE, or ADMIN_READ per service.",
           "terraform": "google_project_iam_audit_config"
         },
-        "source": "https://cloud.google.com/logging/docs/audit"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/logging/docs/audit",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-sinks$", "(?i)^log-routers?$"],
+      "patterns": [
+        "(?i)^log-sinks$",
+        "(?i)^log-routers?$"
+      ],
       "description": "Route logs to destinations",
       "weight": 100,
       "data": {
         "description": "Route log entries to destinations for storage, analysis, or streaming. Sinks can be created at project, folder, organization, or billing account level. Each sink includes a filter (which logs to route) and a destination. Organization-level aggregated sinks can collect logs from all child projects.",
         "options": [
-          {"destination": "Cloud Storage", "description": "Cost-effective archival. JSON files delivered in batches."},
-          {"destination": "BigQuery", "description": "Structured analysis with SQL. Recommended for long-term security analytics."},
-          {"destination": "Pub/Sub", "description": "Stream logs to external systems (SIEM, custom processing)."},
-          {"destination": "Log Buckets", "description": "Cloud Logging storage with configurable retention."},
-          {"destination": "Splunk", "description": "Direct integration via Dataflow template."}
+          {
+            "destination": "Cloud Storage",
+            "description": "Cost-effective archival. JSON files delivered in batches."
+          },
+          {
+            "destination": "BigQuery",
+            "description": "Structured analysis with SQL. Recommended for long-term security analytics."
+          },
+          {
+            "destination": "Pub/Sub",
+            "description": "Stream logs to external systems (SIEM, custom processing)."
+          },
+          {
+            "destination": "Log Buckets",
+            "description": "Cloud Logging storage with configurable retention."
+          },
+          {
+            "destination": "Splunk",
+            "description": "Direct integration via Dataflow template."
+          }
         ],
         "vendor_recommendation": "Create organization-level aggregated sinks for centralized security logging. Route audit logs to BigQuery for long-term forensic analysis. Route to Pub/Sub for real-time SIEM integration. Use inclusion filters to control costs.",
         "audit": {
@@ -75,20 +139,43 @@
           "cli_org": "gcloud logging sinks create {sink} {destination} --organization={org-id} --include-children --log-filter={filter}",
           "terraform": "google_logging_project_sink, google_logging_organization_sink"
         },
-        "source": "https://cloud.google.com/logging/docs/routing/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/logging/docs/routing/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-retention$"],
+      "patterns": [
+        "(?i)^log-retention$"
+      ],
       "description": "Configurable retention per log bucket",
       "weight": 80,
       "data": {
         "description": "Cloud Logging stores logs in log buckets with configurable retention. Two default buckets: _Required (Admin Activity, System Event — 400 days, not configurable) and _Default (everything else — 30 days, configurable). Custom buckets can be created with specific retention periods.",
         "options": [
-          {"bucket": "_Required", "retention": "400 days", "configurable": false, "description": "Admin Activity and System Event audit logs. Cannot be modified or deleted."},
-          {"bucket": "_Default", "retention": "30 days", "configurable": true, "range": "1-3650 days", "description": "All other logs. Retention can be modified."},
-          {"bucket": "Custom", "retention": "configurable", "range": "1-3650 days", "description": "User-created buckets with custom retention. Can be in different regions."}
+          {
+            "bucket": "_Required",
+            "retention": "400 days",
+            "configurable": false,
+            "description": "Admin Activity and System Event audit logs. Cannot be modified or deleted."
+          },
+          {
+            "bucket": "_Default",
+            "retention": "30 days",
+            "configurable": true,
+            "range": "1-3650 days",
+            "description": "All other logs. Retention can be modified."
+          },
+          {
+            "bucket": "Custom",
+            "retention": "configurable",
+            "range": "1-3650 days",
+            "description": "User-created buckets with custom retention. Can be in different regions."
+          }
         ],
         "vendor_recommendation": "Extend _Default bucket retention for security-relevant logs or route them to custom buckets with longer retention. Use locked retention policies for compliance (cannot be shortened once set).",
         "audit": {
@@ -101,12 +188,19 @@
           "cli_create": "gcloud logging buckets create {bucket} --location={region} --project={project} --retention-days=365",
           "terraform": "google_logging_project_bucket_config"
         },
-        "source": "https://cloud.google.com/logging/docs/buckets"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/logging/docs/buckets",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^log-based-metrics$"],
+      "patterns": [
+        "(?i)^log-based-metrics$"
+      ],
       "description": "Create metrics from log entries for monitoring and alerting",
       "weight": 80,
       "data": {
@@ -121,21 +215,41 @@
           "cli": "gcloud logging metrics create {metric} --description='{description}' --log-filter='{filter}' --project={project}",
           "terraform": "google_logging_metric"
         },
-        "source": "https://cloud.google.com/logging/docs/logs-based-metrics"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/logging/docs/logs-based-metrics",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^monitoring-alerting$", "(?i)^alert-policies$"],
+      "patterns": [
+        "(?i)^monitoring-alerting$",
+        "(?i)^alert-policies$"
+      ],
       "description": "Cloud Monitoring alert policies on metrics",
       "weight": 100,
       "data": {
         "description": "Alert policies that trigger notifications when metrics meet specified conditions. Supports metric threshold alerts (value exceeds limit), metric absence alerts (metric stops reporting), and forecast-based alerts (predicted to cross threshold). Notification channels include email, SMS, Slack, PagerDuty, webhooks, and Pub/Sub.",
         "options": [
-          {"type": "Metric threshold", "description": "Alert when metric value crosses a threshold for a specified duration"},
-          {"type": "Metric absence", "description": "Alert when a metric stops reporting for a specified duration"},
-          {"type": "Forecast", "description": "Alert when metric is predicted to cross a threshold within a specified time window"},
-          {"type": "Log-based", "description": "Alert when a log entry matches a filter (uses log-based alerting, not log-based metrics)"}
+          {
+            "type": "Metric threshold",
+            "description": "Alert when metric value crosses a threshold for a specified duration"
+          },
+          {
+            "type": "Metric absence",
+            "description": "Alert when a metric stops reporting for a specified duration"
+          },
+          {
+            "type": "Forecast",
+            "description": "Alert when metric is predicted to cross a threshold within a specified time window"
+          },
+          {
+            "type": "Log-based",
+            "description": "Alert when a log entry matches a filter (uses log-based alerting, not log-based metrics)"
+          }
         ],
         "vendor_recommendation": "Create alert policies for security metrics: failed SSH attempts, firewall rule changes, IAM modifications, unusual API activity. Configure multiple notification channels for redundancy. Use documentation fields in alerts to include runbook links.",
         "audit": {
@@ -148,21 +262,46 @@
           "cli_channel": "gcloud alpha monitoring channels create --type=email --display-name={name} --channel-labels=email_address={email}",
           "terraform": "google_monitoring_alert_policy, google_monitoring_notification_channel"
         },
-        "source": "https://cloud.google.com/monitoring/alerts"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/monitoring/alerts",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^uptime-checks$"],
+      "patterns": [
+        "(?i)^uptime-checks$"
+      ],
       "description": "External availability monitoring",
       "weight": 60,
       "data": {
         "description": "External probes that check the availability of public URLs, TCP endpoints, or cloud resources from multiple global locations. Checks run every 1, 5, 10, or 15 minutes. Support HTTP, HTTPS, and TCP protocols. Can validate response content, status codes, and SSL certificates.",
         "options": [
-          {"protocol": "HTTP/HTTPS", "description": "Check URL availability, validate response codes, content matching, SSL certificate expiry"},
-          {"protocol": "TCP", "description": "Check TCP port availability"},
-          {"setting": "Check frequency", "values": ["1 min", "5 min", "10 min", "15 min"], "default": "1 min"},
-          {"setting": "Regions", "description": "Select which global regions to check from (defaults to all)"}
+          {
+            "protocol": "HTTP/HTTPS",
+            "description": "Check URL availability, validate response codes, content matching, SSL certificate expiry"
+          },
+          {
+            "protocol": "TCP",
+            "description": "Check TCP port availability"
+          },
+          {
+            "setting": "Check frequency",
+            "values": [
+              "1 min",
+              "5 min",
+              "10 min",
+              "15 min"
+            ],
+            "default": "1 min"
+          },
+          {
+            "setting": "Regions",
+            "description": "Select which global regions to check from (defaults to all)"
+          }
         ],
         "vendor_recommendation": "Configure uptime checks for all internet-facing endpoints. Set up alerting policies on uptime check metrics. Use content matching to detect defacement or unexpected responses.",
         "audit": {
@@ -173,20 +312,37 @@
           "cli": "gcloud monitoring uptime create {name} --project={project} --resource-type=uptime-url --hostname={host} --path={path} --protocol=https --check-every=5m",
           "terraform": "google_monitoring_uptime_check_config"
         },
-        "source": "https://cloud.google.com/monitoring/uptime-checks"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/monitoring/uptime-checks",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^security-command-center$", "(?i)^scc$"],
+      "patterns": [
+        "(?i)^security-command-center$",
+        "(?i)^scc$"
+      ],
       "description": "Google Cloud CSPM and threat detection",
       "weight": 100,
       "data": {
         "description": "Google Cloud's native security and risk management platform. Finds misconfigurations, detects threats, and identifies compliance violations across Google Cloud resources. Two tiers: Standard (free — basic security posture findings, Security Health Analytics with limited detectors) and Premium (full Security Health Analytics, Event Threat Detection, Container Threat Detection, Virtual Machine Threat Detection, Web Security Scanner, compliance reporting).",
         "options": [
-          {"tier": "Standard", "description": "Free. Basic Security Health Analytics, asset inventory, IAM recommendations, Web Security Scanner (manual)."},
-          {"tier": "Premium", "description": "Full Security Health Analytics (100+ detectors), Event Threat Detection, Container Threat Detection, VM Threat Detection, Attack Path Simulation, compliance reporting (CIS, PCI DSS, NIST 800-53)."},
-          {"tier": "Enterprise", "description": "Premium plus Mandiant threat intelligence, AI-powered case management, multi-cloud support (AWS, Azure)."}
+          {
+            "tier": "Standard",
+            "description": "Free. Basic Security Health Analytics, asset inventory, IAM recommendations, Web Security Scanner (manual)."
+          },
+          {
+            "tier": "Premium",
+            "description": "Full Security Health Analytics (100+ detectors), Event Threat Detection, Container Threat Detection, VM Threat Detection, Attack Path Simulation, compliance reporting (CIS, PCI DSS, NIST 800-53)."
+          },
+          {
+            "tier": "Enterprise",
+            "description": "Premium plus Mandiant threat intelligence, AI-powered case management, multi-cloud support (AWS, Azure)."
+          }
         ],
         "vendor_recommendation": "Enable Security Command Center at the organization level for comprehensive coverage. Use Premium or Enterprise tier for production environments. Review and remediate high-severity findings regularly. Export findings to SIEM for correlation with other data sources.",
         "audit": {
@@ -199,7 +355,13 @@
           "note": "Security Command Center is configured at the organization level via the Cloud Console. CLI management available for findings and sources but tier activation is console-only.",
           "terraform": "google_scc_organization_custom_module"
         },
-        "source": "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

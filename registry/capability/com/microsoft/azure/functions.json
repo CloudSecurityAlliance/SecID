@@ -4,35 +4,73 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Azure Functions documentation, 2026-04-04. Needs cross-reference pass and human review with live Azure environment.",
-
   "official_name": "Azure Functions",
   "common_name": "Azure Functions",
   "alternate_names": null,
   "notes": "Serverless compute for Azure. Security focus: authentication, managed identity, network isolation, key management.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/functions/"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts", "note": "Azure Functions Security concepts"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/azure-functions/", "note": "Azure Functions documentation"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/appservice/web-apps", "note": "App Service REST API (Functions share this API)"}
+    {
+      "type": "website",
+      "url": "https://azure.microsoft.com/en-us/products/functions/"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts",
+      "note": "Azure Functions Security concepts"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/",
+      "note": "Azure Functions documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/rest/api/appservice/web-apps",
+      "note": "App Service REST API (Functions share this API)"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^authentication$"],
+      "patterns": [
+        "(?i)^authentication$"
+      ],
       "description": "Built-in authentication (Easy Auth) for function apps",
       "weight": 100,
       "data": {
         "description": "Azure Functions built-in authentication (Easy Auth) provides turn-key authentication and authorization. Runs as middleware before function code executes. Supports multiple identity providers. No code changes required in the function.",
         "options": [
-          {"value": "entra-id", "name": "Microsoft Entra ID", "description": "Recommended for enterprise. Supports single-tenant, multi-tenant, and B2C."},
-          {"value": "google", "name": "Google", "description": "Google OAuth 2.0 authentication."},
-          {"value": "facebook", "name": "Facebook", "description": "Facebook OAuth 2.0 authentication."},
-          {"value": "github", "name": "GitHub", "description": "GitHub OAuth 2.0 authentication."},
-          {"value": "apple", "name": "Apple", "description": "Sign in with Apple."},
-          {"value": "custom", "name": "Custom OpenID Connect", "description": "Any OpenID Connect compliant provider."}
+          {
+            "value": "entra-id",
+            "name": "Microsoft Entra ID",
+            "description": "Recommended for enterprise. Supports single-tenant, multi-tenant, and B2C."
+          },
+          {
+            "value": "google",
+            "name": "Google",
+            "description": "Google OAuth 2.0 authentication."
+          },
+          {
+            "value": "facebook",
+            "name": "Facebook",
+            "description": "Facebook OAuth 2.0 authentication."
+          },
+          {
+            "value": "github",
+            "name": "GitHub",
+            "description": "GitHub OAuth 2.0 authentication."
+          },
+          {
+            "value": "apple",
+            "name": "Apple",
+            "description": "Sign in with Apple."
+          },
+          {
+            "value": "custom",
+            "name": "Custom OpenID Connect",
+            "description": "Any OpenID Connect compliant provider."
+          }
         ],
         "vendor_recommendation": "Use Entra ID for production workloads. Enable authentication at the platform level rather than implementing it in function code. Require authentication for all endpoints unless explicitly public.",
         "audit": {
@@ -45,19 +83,34 @@
           "console": "Azure Portal → Function App → Authentication → Add identity provider",
           "terraform": "auth_settings_v2 block on azurerm_linux_function_app"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#function-app-authentication"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#function-app-authentication",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^managed-identity$"],
+      "patterns": [
+        "(?i)^managed-identity$"
+      ],
       "description": "Microsoft Entra ID identity for Functions — eliminates credential management",
       "weight": 100,
       "data": {
         "description": "Managed identity provides an automatically managed identity in Microsoft Entra ID for the function app. Functions can use this identity to authenticate to Azure services (Key Vault, Storage, SQL, etc.) without storing credentials in code or configuration.",
         "options": [
-          {"value": "system-assigned", "name": "System-assigned", "description": "Identity tied to the function app lifecycle. Created and deleted with the app."},
-          {"value": "user-assigned", "name": "User-assigned", "description": "Standalone identity resource. Can be shared across multiple function apps."}
+          {
+            "value": "system-assigned",
+            "name": "System-assigned",
+            "description": "Identity tied to the function app lifecycle. Created and deleted with the app."
+          },
+          {
+            "value": "user-assigned",
+            "name": "User-assigned",
+            "description": "Standalone identity resource. Can be shared across multiple function apps."
+          }
         ],
         "vendor_recommendation": "Use managed identity for all Azure service connections. Eliminate connection strings with embedded credentials from app settings.",
         "cross_references": [
@@ -73,19 +126,34 @@
           "cli_user": "az functionapp identity assign --name {app} --resource-group {rg} --identities {identity-id}",
           "terraform": "identity block on azurerm_linux_function_app"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#managed-identities"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#managed-identities",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vnet-integration$"],
+      "patterns": [
+        "(?i)^vnet-integration$"
+      ],
       "description": "Run Functions in VNet for private resource access",
       "weight": 80,
       "data": {
         "description": "VNet integration allows function apps to access resources in an Azure virtual network. Outbound traffic from the function can route through the VNet to reach private endpoints, on-premises resources (via VPN/ExpressRoute), and service endpoints.",
         "options": [
-          {"value": "regional", "name": "Regional VNet integration", "description": "Connects to a subnet in the same region. Premium or Dedicated (App Service) plan required."},
-          {"value": "gateway", "name": "Gateway-required VNet integration", "description": "Legacy. Connects via VPN gateway. Supports cross-region. Being superseded by regional."}
+          {
+            "value": "regional",
+            "name": "Regional VNet integration",
+            "description": "Connects to a subnet in the same region. Premium or Dedicated (App Service) plan required."
+          },
+          {
+            "value": "gateway",
+            "name": "Gateway-required VNet integration",
+            "description": "Legacy. Connects via VPN gateway. Supports cross-region. Being superseded by regional."
+          }
         ],
         "vendor_recommendation": "Use regional VNet integration with Premium plan for production workloads that access private resources. Route all outbound traffic through VNet for network-level controls.",
         "audit": {
@@ -96,20 +164,39 @@
           "cli": "az functionapp vnet-integration add --name {app} --resource-group {rg} --vnet {vnet} --subnet {subnet}",
           "terraform": "virtual_network_subnet_id on azurerm_linux_function_app"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-networking-options#virtual-network-integration"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-networking-options#virtual-network-integration",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-keys$"],
+      "patterns": [
+        "(?i)^access-keys$"
+      ],
       "description": "Function-level and host-level authorization keys",
       "weight": 80,
       "data": {
         "description": "Azure Functions uses authorization keys to restrict access to HTTP-triggered functions. Three levels: function keys (per-function), host keys (all functions in the app), and the master key (admin access including runtime APIs). Keys are passed as query parameter or x-functions-key header.",
         "options": [
-          {"value": "function", "name": "Function key", "description": "Scoped to a single function. Multiple keys per function allowed."},
-          {"value": "host", "name": "Host key", "description": "Grants access to all functions in the app. Named keys for different consumers."},
-          {"value": "master", "name": "Master key", "description": "Admin-level access. Includes access to runtime management APIs. Cannot be revoked, only renewed."}
+          {
+            "value": "function",
+            "name": "Function key",
+            "description": "Scoped to a single function. Multiple keys per function allowed."
+          },
+          {
+            "value": "host",
+            "name": "Host key",
+            "description": "Grants access to all functions in the app. Named keys for different consumers."
+          },
+          {
+            "value": "master",
+            "name": "Master key",
+            "description": "Admin-level access. Includes access to runtime management APIs. Cannot be revoked, only renewed."
+          }
         ],
         "vendor_recommendation": "Use Entra ID authentication instead of keys for production. If keys are required: rotate regularly, use function-level keys (not host/master), store keys in Key Vault, never embed in client code.",
         "audit": {
@@ -121,19 +208,34 @@
           "cli_set": "az functionapp keys set --name {app} --resource-group {rg} --key-type functionKeys --key-name {key-name} --key-value {value}",
           "note": "Authorization level is set in function.json or function attribute: anonymous, function, admin."
         },
-        "source": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#authorization-keys"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-functions/security-concepts#authorization-keys",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-endpoints$"],
+      "patterns": [
+        "(?i)^private-endpoints$"
+      ],
       "description": "Restrict function access to private network",
       "weight": 80,
       "data": {
         "description": "Private endpoints provide a private IP address within a VNet for the function app. Inbound traffic reaches the function through the private endpoint instead of the public internet. Used to completely eliminate public access to the function.",
         "options": [
-          {"value": "private-endpoint", "name": "Private endpoint", "description": "Private IP in VNet. Premium or Dedicated plan required."},
-          {"value": "access-restrictions", "name": "Access restrictions", "description": "IP-based or service tag-based restrictions on public endpoint. Available on all plans."}
+          {
+            "value": "private-endpoint",
+            "name": "Private endpoint",
+            "description": "Private IP in VNet. Premium or Dedicated plan required."
+          },
+          {
+            "value": "access-restrictions",
+            "name": "Access restrictions",
+            "description": "IP-based or service tag-based restrictions on public endpoint. Available on all plans."
+          }
         ],
         "vendor_recommendation": "Use private endpoints for functions that should not be accessible from the public internet. Combine with VNet integration for fully private networking (inbound and outbound).",
         "audit": {
@@ -144,18 +246,27 @@
           "cli": "az network private-endpoint create --name {pe-name} --resource-group {rg} --vnet-name {vnet} --subnet {subnet} --connection-name {conn} --private-connection-resource-id {app-id} --group-id sites",
           "terraform": "azurerm_private_endpoint for azurerm_linux_function_app"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-networking-options#private-endpoints"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-networking-options#private-endpoints",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^app-settings-encryption$"],
+      "patterns": [
+        "(?i)^app-settings-encryption$"
+      ],
       "description": "Application settings encrypted at rest with Key Vault references",
       "weight": 80,
       "data": {
         "description": "Function app settings (environment variables) are encrypted at rest by Azure. For secrets, Key Vault references allow app settings to point to Key Vault secrets instead of containing the secret value directly. The function app uses managed identity to access Key Vault at runtime.",
         "vendor_recommendation": "Use Key Vault references for all secrets (connection strings, API keys, certificates). Never store raw secrets in app settings. Use managed identity for Key Vault access.",
-        "cross_references": ["secid:capability/microsoft.com/azure/key-vault#secrets"],
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/key-vault#secrets"
+        ],
         "audit": {
           "cli": "az functionapp config appsettings list --name {app} --resource-group {rg}",
           "note": "Key Vault references appear as @Microsoft.KeyVault(SecretUri={uri}) or @Microsoft.KeyVault(VaultName={vault};SecretName={name})."
@@ -164,7 +275,13 @@
           "cli": "az functionapp config appsettings set --name {app} --resource-group {rg} --settings 'MySecret=@Microsoft.KeyVault(VaultName={vault};SecretName={name})'",
           "terraform": "app_settings with Key Vault reference syntax on azurerm_linux_function_app"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     }
   ]

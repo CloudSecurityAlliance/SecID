@@ -4,32 +4,64 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud API Gateway and Cloud Endpoints documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud API Gateway",
   "common_name": "API Gateway",
-  "alternate_names": ["Cloud Endpoints"],
+  "alternate_names": [
+    "Cloud Endpoints"
+  ],
   "notes": "Managed API gateway for serverless backends. Also covers Cloud Endpoints for GKE/Compute. Security includes API keys, authentication, service control.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/api-gateway"},
-    {"type": "docs", "url": "https://cloud.google.com/api-gateway/docs", "note": "API Gateway documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/endpoints/docs", "note": "Cloud Endpoints documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/api-gateway/docs/authenticate-service-account", "note": "Authentication and authorization"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/api-gateway"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/api-gateway/docs",
+      "note": "API Gateway documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/endpoints/docs",
+      "note": "Cloud Endpoints documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/api-gateway/docs/authenticate-service-account",
+      "note": "Authentication and authorization"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^api-key-restriction$", "(?i)^api-keys$"],
+      "patterns": [
+        "(?i)^api-key-restriction$",
+        "(?i)^api-keys$"
+      ],
       "description": "API keys with application and API restrictions",
       "weight": 80,
       "data": {
         "description": "API keys identify the calling application (not the user). Keys can be restricted by application type (HTTP referrer, IP address, Android/iOS app) and by API (which APIs the key can call). API keys are for identification and quota management, not authentication.",
         "options": [
-          {"setting": "Application restriction", "values": ["HTTP referrers", "IP addresses", "Android apps", "iOS apps"], "description": "Restrict which applications can use the key"},
-          {"setting": "API restriction", "description": "Restrict which APIs the key can call"},
-          {"setting": "Quota", "description": "Per-key quota limits via API config or Service Control"}
+          {
+            "setting": "Application restriction",
+            "values": [
+              "HTTP referrers",
+              "IP addresses",
+              "Android apps",
+              "iOS apps"
+            ],
+            "description": "Restrict which applications can use the key"
+          },
+          {
+            "setting": "API restriction",
+            "description": "Restrict which APIs the key can call"
+          },
+          {
+            "setting": "Quota",
+            "description": "Per-key quota limits via API config or Service Control"
+          }
         ],
         "vendor_recommendation": "Always apply both application restrictions and API restrictions to API keys. API keys identify the calling project for quota and billing — use authentication (JWT) for user identity.",
         "audit": {
@@ -41,22 +73,45 @@
           "cli": "gcloud services api-keys create --display-name={name} --api-target=service={service}",
           "terraform": "google_apikeys_key"
         },
-        "source": "https://cloud.google.com/docs/authentication/api-keys"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/docs/authentication/api-keys",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^authentication$", "(?i)^jwt-validation$"],
+      "patterns": [
+        "(?i)^authentication$",
+        "(?i)^jwt-validation$"
+      ],
       "description": "JWT validation for API consumers",
       "weight": 100,
       "data": {
         "description": "Validate JSON Web Tokens (JWT) from identity providers. Configured in the OpenAPI spec via the securityDefinitions and x-google-audiences fields. Supports Firebase Auth, Google ID tokens, Auth0, Okta, and any custom OIDC provider.",
         "options": [
-          {"provider": "Firebase Auth", "description": "Validate Firebase ID tokens"},
-          {"provider": "Google ID tokens", "description": "Validate Google-signed OIDC tokens (service accounts, Cloud Identity)"},
-          {"provider": "Auth0", "description": "Validate Auth0 JWT tokens via OIDC discovery"},
-          {"provider": "Okta", "description": "Validate Okta JWT tokens via OIDC discovery"},
-          {"provider": "Custom OIDC", "description": "Any provider with a JWKS endpoint"}
+          {
+            "provider": "Firebase Auth",
+            "description": "Validate Firebase ID tokens"
+          },
+          {
+            "provider": "Google ID tokens",
+            "description": "Validate Google-signed OIDC tokens (service accounts, Cloud Identity)"
+          },
+          {
+            "provider": "Auth0",
+            "description": "Validate Auth0 JWT tokens via OIDC discovery"
+          },
+          {
+            "provider": "Okta",
+            "description": "Validate Okta JWT tokens via OIDC discovery"
+          },
+          {
+            "provider": "Custom OIDC",
+            "description": "Any provider with a JWKS endpoint"
+          }
         ],
         "vendor_recommendation": "Always require authentication for production APIs. Configure authentication requirements in the OpenAPI spec securityDefinitions section. Use x-google-audiences to validate the intended audience.",
         "audit": {
@@ -68,20 +123,36 @@
           "openapi_spec": "securityDefinitions:\n  firebase:\n    authorizationUrl: \"\"\n    flow: implicit\n    type: oauth2\n    x-google-issuer: \"https://securetoken.google.com/{project}\"\n    x-google-jwks_uri: \"https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com\"\n    x-google-audiences: \"{project}\"",
           "note": "Authentication is defined in the OpenAPI spec, not via CLI flags."
         },
-        "source": "https://cloud.google.com/api-gateway/docs/authenticating-users-jwt"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/api-gateway/docs/authenticating-users-jwt",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^service-control$"],
+      "patterns": [
+        "(?i)^service-control$"
+      ],
       "description": "Quota management, billing, and logging per API consumer",
       "weight": 80,
       "data": {
         "description": "Google Service Control manages quota, billing, and logging for API consumers. Tracks usage per API key and enforces quota limits defined in the API config. Provides per-consumer usage metrics and logging.",
         "options": [
-          {"setting": "Quota limits", "description": "Define rate limits and daily quotas in the API config"},
-          {"setting": "Billing", "description": "Track API usage for billing purposes per consumer project"},
-          {"setting": "Logging", "description": "Log API requests with consumer identity and status"}
+          {
+            "setting": "Quota limits",
+            "description": "Define rate limits and daily quotas in the API config"
+          },
+          {
+            "setting": "Billing",
+            "description": "Track API usage for billing purposes per consumer project"
+          },
+          {
+            "setting": "Logging",
+            "description": "Log API requests with consumer identity and status"
+          }
         ],
         "vendor_recommendation": "Configure quota limits in the API config to prevent abuse. Monitor usage via Cloud Monitoring dashboards. Use consumer project-based quotas for multi-tenant APIs.",
         "audit": {
@@ -93,20 +164,36 @@
           "note": "Quota limits are defined in the OpenAPI spec via x-google-management section.",
           "openapi_spec": "x-google-management:\n  metrics:\n    - name: read-requests\n      valueType: INT64\n      metricKind: DELTA\n  quota:\n    limits:\n      - name: read-limit\n        metric: read-requests\n        unit: 1/min/{project}\n        values:\n          STANDARD: 100"
         },
-        "source": "https://cloud.google.com/service-infrastructure/docs/service-control/reference/rest"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/service-infrastructure/docs/service-control/reference/rest",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^iam-access$"],
+      "patterns": [
+        "(?i)^iam-access$"
+      ],
       "description": "IAM controls for API and gateway management",
       "weight": 80,
       "data": {
         "description": "IAM roles control who can manage API Gateway resources (APIs, configs, gateways). Separate from consumer authentication — IAM governs the management plane, not the data plane (API calls).",
         "options": [
-          {"role": "roles/apigateway.admin", "description": "Full control over API Gateway resources"},
-          {"role": "roles/apigateway.viewer", "description": "Read-only access to API Gateway resources"},
-          {"role": "roles/servicemanagement.admin", "description": "Manage service configs and rollouts"}
+          {
+            "role": "roles/apigateway.admin",
+            "description": "Full control over API Gateway resources"
+          },
+          {
+            "role": "roles/apigateway.viewer",
+            "description": "Read-only access to API Gateway resources"
+          },
+          {
+            "role": "roles/servicemanagement.admin",
+            "description": "Manage service configs and rollouts"
+          }
         ],
         "vendor_recommendation": "Follow least-privilege for management access. Separate API management roles from API consumer access. Use service accounts with minimal permissions for CI/CD pipelines deploying API configs.",
         "audit": {
@@ -117,21 +204,40 @@
           "cli": "gcloud projects add-iam-policy-binding {project} --member={member} --role=roles/apigateway.admin",
           "terraform": "google_project_iam_member"
         },
-        "source": "https://cloud.google.com/api-gateway/docs/configure-dev-env#configuring_access"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/api-gateway/docs/configure-dev-env#configuring_access",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^espv2-security$"],
+      "patterns": [
+        "(?i)^espv2-security$"
+      ],
       "description": "Extensible Service Proxy v2 security features",
       "weight": 60,
       "data": {
         "description": "Extensible Service Proxy v2 (ESPv2) is the runtime proxy for Cloud Endpoints deployed on GKE, Compute Engine, or Cloud Run. Provides TLS termination, CORS handling, JWT validation, and service control integration. ESPv2 is the underlying proxy for both API Gateway and Cloud Endpoints.",
         "options": [
-          {"setting": "TLS termination", "description": "Terminate TLS at the proxy with custom certificates"},
-          {"setting": "CORS handling", "description": "Configure cross-origin resource sharing policies"},
-          {"setting": "Health checks", "description": "Built-in health check endpoint for load balancer integration"},
-          {"setting": "Transcoding", "description": "gRPC-JSON transcoding for gRPC backends"}
+          {
+            "setting": "TLS termination",
+            "description": "Terminate TLS at the proxy with custom certificates"
+          },
+          {
+            "setting": "CORS handling",
+            "description": "Configure cross-origin resource sharing policies"
+          },
+          {
+            "setting": "Health checks",
+            "description": "Built-in health check endpoint for load balancer integration"
+          },
+          {
+            "setting": "Transcoding",
+            "description": "gRPC-JSON transcoding for gRPC backends"
+          }
         ],
         "vendor_recommendation": "For Cloud Endpoints on GKE/Compute Engine, deploy ESPv2 as a sidecar container. Ensure TLS is configured for the proxy. For API Gateway (fully managed), ESPv2 is managed by Google — no direct configuration needed.",
         "audit": {
@@ -142,7 +248,13 @@
           "note": "ESPv2 is configured via startup flags (--ssl_server_cert_path, --cors_preset, etc.) when deployed as a container for Cloud Endpoints.",
           "docker": "docker run gcr.io/endpoints-release/endpoints-runtime:2 --service={service} --rollout_strategy=managed --ssl_server_cert_path=/etc/certs"
         },
-        "source": "https://cloud.google.com/endpoints/docs/openapi/specify-proxy-startup-options"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/endpoints/docs/openapi/specify-proxy-startup-options",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

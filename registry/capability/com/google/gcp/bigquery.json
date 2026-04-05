@@ -4,33 +4,58 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google BigQuery documentation, 2026-04-04. Needs cross-reference and live environment validation.",
-
   "official_name": "Google BigQuery",
   "common_name": "BigQuery",
   "alternate_names": null,
   "notes": "Serverless data warehouse. Security includes encryption, IAM, column/row-level security, data masking, VPC Service Controls.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/bigquery"},
-    {"type": "docs", "url": "https://cloud.google.com/bigquery/docs/best-practices-security", "note": "BigQuery security best practices"},
-    {"type": "docs", "url": "https://cloud.google.com/bigquery/docs/introduction", "note": "BigQuery documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/bigquery/docs/reference/rest", "note": "BigQuery REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/bigquery"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/bigquery/docs/best-practices-security",
+      "note": "BigQuery security best practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/bigquery/docs/introduction",
+      "note": "BigQuery documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/bigquery/docs/reference/rest",
+      "note": "BigQuery REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Encryption at rest with Google-managed or customer-managed keys",
       "weight": 100,
       "data": {
         "description": "All data in BigQuery is encrypted at rest. Google-managed keys by default. Customer-managed encryption keys (CMEK) available via Cloud KMS at the dataset or table level.",
         "options": [
-          {"value": "google-managed", "name": "Google-Managed Keys", "description": "Default. Google manages encryption keys. No additional configuration."},
-          {"value": "cmek", "name": "Customer-Managed Keys (CMEK)", "description": "Customer manages keys in Cloud KMS. Set at dataset level (default for new tables) or per-table."}
+          {
+            "value": "google-managed",
+            "name": "Google-Managed Keys",
+            "description": "Default. Google manages encryption keys. No additional configuration."
+          },
+          {
+            "value": "cmek",
+            "name": "Customer-Managed Keys (CMEK)",
+            "description": "Customer manages keys in Cloud KMS. Set at dataset level (default for new tables) or per-table."
+          }
         ],
-        "default": {"value": "google-managed", "note": "All data encrypted at rest with Google-managed keys by default."},
+        "default": {
+          "value": "google-managed",
+          "note": "All data encrypted at rest with Google-managed keys by default."
+        },
         "vendor_recommendation": "Use CMEK for regulatory compliance. Configure at dataset level to apply to all new tables.",
         "audit": {
           "cli": "bq show --format=prettyjson {dataset}",
@@ -38,13 +63,22 @@
           "console": "BigQuery -> {dataset} -> Details -> Default encryption",
           "note": "Check defaultEncryptionConfiguration in the dataset response."
         },
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
-        "source": "https://cloud.google.com/bigquery/docs/customer-managed-encryption"
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/customer-managed-encryption",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^iam-access-control$"],
+      "patterns": [
+        "(?i)^iam-access-control$"
+      ],
       "description": "IAM at project, dataset, table, and view level",
       "weight": 100,
       "data": {
@@ -56,13 +90,22 @@
           "console": "BigQuery -> {dataset} -> Sharing -> Permissions",
           "note": "Check the access list in the dataset response."
         },
-        "cross_references": ["secid:capability/google.com/gcp/iam"],
-        "source": "https://cloud.google.com/bigquery/docs/access-control"
+        "cross_references": [
+          "secid:capability/google.com/gcp/iam"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/access-control",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^authorized-views$"],
+      "patterns": [
+        "(?i)^authorized-views$"
+      ],
       "description": "Views that access data across datasets without granting underlying table access",
       "weight": 90,
       "data": {
@@ -73,12 +116,19 @@
           "api": "datasets.update",
           "console": "BigQuery -> {dataset} -> Sharing -> Authorize views"
         },
-        "source": "https://cloud.google.com/bigquery/docs/authorized-views"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/authorized-views",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^column-level-security$"],
+      "patterns": [
+        "(?i)^column-level-security$"
+      ],
       "description": "Policy tags restrict access to specific columns",
       "weight": 100,
       "data": {
@@ -92,12 +142,19 @@
         "configure": {
           "note": "Create taxonomy in Data Catalog, create policy tags, apply to columns via schema update, grant roles/datacatalog.categoryFineGrainedReader to authorized users."
         },
-        "source": "https://cloud.google.com/bigquery/docs/column-level-security"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/column-level-security",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^row-level-security$"],
+      "patterns": [
+        "(?i)^row-level-security$"
+      ],
       "description": "Row access policies filter which rows a user can see",
       "weight": 100,
       "data": {
@@ -107,31 +164,57 @@
           "sql": "CREATE ROW ACCESS POLICY {policy_name} ON {project}.{dataset}.{table} GRANT TO ('user:{email}', 'group:{group}') FILTER USING ({predicate});",
           "note": "Users with bigquery.admin or bigquery.rowAccessPolicies.overrideTimeTravelRestrictions bypass RLS. TRUE filter function grants access to all rows."
         },
-        "source": "https://cloud.google.com/bigquery/docs/row-level-security"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/row-level-security",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^data-masking$"],
+      "patterns": [
+        "(?i)^data-masking$"
+      ],
       "description": "Dynamic data masking with policy tags",
       "weight": 90,
       "data": {
         "description": "Dynamic data masking applied through policy tags in Data Catalog. Users without Fine-Grained Reader role see masked values instead of actual data. Multiple masking rules available.",
         "options": [
-          {"value": "sha256", "name": "SHA-256 Hash", "description": "Replace with SHA-256 hash of the value."},
-          {"value": "default-masking", "name": "Default Masking Value", "description": "Replace with a default value for the data type (empty string, 0, etc.)."},
-          {"value": "nullify", "name": "Nullify", "description": "Replace with NULL."}
+          {
+            "value": "sha256",
+            "name": "SHA-256 Hash",
+            "description": "Replace with SHA-256 hash of the value."
+          },
+          {
+            "value": "default-masking",
+            "name": "Default Masking Value",
+            "description": "Replace with a default value for the data type (empty string, 0, etc.)."
+          },
+          {
+            "value": "nullify",
+            "name": "Nullify",
+            "description": "Replace with NULL."
+          }
         ],
         "vendor_recommendation": "Use data masking with column-level security to provide graduated access. Requires BigQuery Enterprise tier.",
         "audit": {
           "console": "Data Catalog -> Taxonomies -> {taxonomy} -> {policy tag} -> Data masking rule"
         },
-        "source": "https://cloud.google.com/bigquery/docs/column-data-masking"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/column-data-masking",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vpc-service-controls$"],
+      "patterns": [
+        "(?i)^vpc-service-controls$"
+      ],
       "description": "Restrict BigQuery API access to a service perimeter",
       "weight": 100,
       "data": {
@@ -141,8 +224,16 @@
           "cli": "gcloud access-context-manager perimeters list",
           "console": "Security -> VPC Service Controls"
         },
-        "cross_references": ["secid:capability/google.com/gcp/vpc#vpc-service-controls"],
-        "source": "https://cloud.google.com/bigquery/docs/vpc-service-controls"
+        "cross_references": [
+          "secid:capability/google.com/gcp/vpc#vpc-service-controls"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/bigquery/docs/vpc-service-controls",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

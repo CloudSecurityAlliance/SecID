@@ -4,35 +4,64 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Azure Managed Disks documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live Azure environment).",
-
   "official_name": "Azure Managed Disks",
   "common_name": "Managed Disks",
   "alternate_names": null,
   "notes": "Block storage for Azure VMs. Security focus: encryption and private access.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/storage/disks/"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview", "note": "Managed Disks encryption overview"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview", "note": "Managed Disks overview"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/compute/disks", "note": "Managed Disks REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://azure.microsoft.com/en-us/products/storage/disks/"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview",
+      "note": "Managed Disks encryption overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "note": "Managed Disks overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/rest/api/compute/disks",
+      "note": "Managed Disks REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption-at-rest$"],
+      "patterns": [
+        "(?i)^encryption-at-rest$"
+      ],
       "description": "Encryption at rest for Azure Managed Disks",
       "weight": 100,
       "data": {
         "description": "All managed disks are encrypted at rest by default. Multiple encryption options provide different levels of control and compliance.",
         "options": [
-          {"value": "Platform-managed keys (PMK)", "description": "Default. Microsoft manages keys. 256-bit AES encryption. No configuration required."},
-          {"value": "Customer-managed keys (CMK)", "description": "Keys managed in Azure Key Vault. Customer controls key rotation, access, and lifecycle."},
-          {"value": "Double encryption", "description": "Two layers of encryption: platform-managed key at infrastructure level + customer-managed or platform-managed key at service level."},
-          {"value": "Encryption at host", "description": "Data encrypted on the VM host before being written to storage. Covers temp disks and OS/data disk caches."}
+          {
+            "value": "Platform-managed keys (PMK)",
+            "description": "Default. Microsoft manages keys. 256-bit AES encryption. No configuration required."
+          },
+          {
+            "value": "Customer-managed keys (CMK)",
+            "description": "Keys managed in Azure Key Vault. Customer controls key rotation, access, and lifecycle."
+          },
+          {
+            "value": "Double encryption",
+            "description": "Two layers of encryption: platform-managed key at infrastructure level + customer-managed or platform-managed key at service level."
+          },
+          {
+            "value": "Encryption at host",
+            "description": "Data encrypted on the VM host before being written to storage. Covers temp disks and OS/data disk caches."
+          }
         ],
-        "default": {"value": "Platform-managed keys", "note": "All managed disks encrypted by default with platform-managed keys."},
+        "default": {
+          "value": "Platform-managed keys",
+          "note": "All managed disks encrypted by default with platform-managed keys."
+        },
         "vendor_recommendation": "Use customer-managed keys for compliance requirements. Enable encryption at host for end-to-end encryption including temp disks and caches.",
         "audit": {
           "cli": "az disk show --name {disk} --resource-group {rg} --query encryption",
@@ -46,13 +75,22 @@
           "terraform": "azurerm_managed_disk (encryption_settings block, disk_encryption_set_id)",
           "arm": "Microsoft.Compute/disks encryption property"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
-        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/key-vault"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^disk-encryption-sets$"],
+      "patterns": [
+        "(?i)^disk-encryption-sets$"
+      ],
       "description": "Manage customer-managed keys for managed disk encryption",
       "weight": 90,
       "data": {
@@ -68,23 +106,44 @@
           "cli": "az disk-encryption-set create --name {name} --resource-group {rg} --key-url {key-url} --source-vault {vault-id}",
           "terraform": "azurerm_disk_encryption_set"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
-        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#customer-managed-keys"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/key-vault"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#customer-managed-keys",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-access$"],
+      "patterns": [
+        "(?i)^private-access$"
+      ],
       "description": "Disable public access to managed disk export/import",
       "weight": 90,
       "data": {
         "description": "Controls network access policy for managed disk export and import. By default, disks can be exported (downloaded) via a public SAS URI. Restricting to private access ensures disk data can only be exported or imported over a private endpoint.",
         "options": [
-          {"value": "AllowAll", "description": "Default. Public SAS URI access allowed for export/import."},
-          {"value": "AllowPrivate", "description": "Export/import only via private endpoint (Private Link)."},
-          {"value": "DenyAll", "description": "No export allowed."}
+          {
+            "value": "AllowAll",
+            "description": "Default. Public SAS URI access allowed for export/import."
+          },
+          {
+            "value": "AllowPrivate",
+            "description": "Export/import only via private endpoint (Private Link)."
+          },
+          {
+            "value": "DenyAll",
+            "description": "No export allowed."
+          }
         ],
-        "default": {"value": "AllowAll", "note": "Public export access is allowed by default."},
+        "default": {
+          "value": "AllowAll",
+          "note": "Public export access is allowed by default."
+        },
         "vendor_recommendation": "Set network access policy to AllowPrivate or DenyAll for disks containing sensitive data. Prevent unauthorized data exfiltration via disk export.",
         "audit": {
           "cli": "az disk show --name {disk} --resource-group {rg} --query networkAccessPolicy",
@@ -96,22 +155,41 @@
           "cli_private": "az disk update --name {disk} --resource-group {rg} --network-access-policy AllowPrivate --disk-access {disk-access-id}",
           "terraform": "azurerm_managed_disk (network_access_policy = \"DenyAll\")"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^snapshot-access$"],
+      "patterns": [
+        "(?i)^snapshot-access$"
+      ],
       "description": "Control network access for managed disk snapshot export",
       "weight": 90,
       "data": {
         "description": "Controls network access policy for snapshot export, similar to managed disk private access. Prevents public download of snapshot data.",
         "options": [
-          {"value": "AllowAll", "description": "Default. Public SAS URI access allowed."},
-          {"value": "AllowPrivate", "description": "Export only via private endpoint."},
-          {"value": "DenyAll", "description": "No export allowed."}
+          {
+            "value": "AllowAll",
+            "description": "Default. Public SAS URI access allowed."
+          },
+          {
+            "value": "AllowPrivate",
+            "description": "Export only via private endpoint."
+          },
+          {
+            "value": "DenyAll",
+            "description": "No export allowed."
+          }
         ],
-        "default": {"value": "AllowAll", "note": "Public snapshot export is allowed by default."},
+        "default": {
+          "value": "AllowAll",
+          "note": "Public snapshot export is allowed by default."
+        },
         "vendor_recommendation": "Set snapshot network access policy to DenyAll or AllowPrivate for snapshots of sensitive workloads.",
         "audit": {
           "cli": "az snapshot show --name {snap} --resource-group {rg} --query networkAccessPolicy",
@@ -122,7 +200,13 @@
           "cli": "az snapshot update --name {snap} --resource-group {rg} --network-access-policy DenyAll",
           "terraform": "azurerm_snapshot (network_access_policy = \"DenyAll\")"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     }
   ]

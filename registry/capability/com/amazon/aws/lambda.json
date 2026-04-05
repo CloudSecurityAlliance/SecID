@@ -4,30 +4,46 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS Lambda documentation, 2026-04-04. Needs cross-reference pass and human review with live AWS environment.",
-
   "official_name": "AWS Lambda",
   "common_name": "Lambda",
   "alternate_names": null,
   "notes": "Serverless compute. Security focus: execution role permissions, VPC configuration, environment variable encryption, code signing, reserved concurrency.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/lambda/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html", "note": "Lambda Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html", "note": "Lambda Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/lambda/latest/api/", "note": "Lambda API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/lambda/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html",
+      "note": "Lambda Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html",
+      "note": "Lambda Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/lambda/latest/api/",
+      "note": "Lambda API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^execution-role$"],
+      "patterns": [
+        "(?i)^execution-role$"
+      ],
       "description": "IAM role assumed by the function during execution",
       "weight": 100,
       "data": {
         "description": "Every Lambda function has an execution role — an IAM role that grants the function permission to access AWS services and resources. The function assumes this role when invoked. The role's trust policy allows lambda.amazonaws.com to assume it.",
         "vendor_recommendation": "One role per function with least-privilege permissions. Use IAM Access Analyzer to generate policies from actual usage. Never reuse roles across unrelated functions.",
-        "cross_references": ["secid:capability/amazon.com/aws/iam#roles"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#roles"
+        ],
         "audit": {
           "cli": "aws lambda get-function --function-name {fn} --query Configuration.Role",
           "cli_policy": "aws iam list-attached-role-policies --role-name {role}",
@@ -38,21 +54,39 @@
           "terraform": "role argument on aws_lambda_function",
           "cloudformation": "AWS::Lambda::Function Role property"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vpc-configuration$"],
+      "patterns": [
+        "(?i)^vpc-configuration$"
+      ],
       "description": "Run Lambda in VPC for private resource access",
       "weight": 80,
       "data": {
         "description": "Lambda functions can be configured to connect to a VPC, enabling access to private resources (RDS, ElastiCache, internal APIs). When in a VPC, the function loses direct internet access — a NAT gateway is required for outbound internet.",
         "options": [
-          {"value": "no-vpc", "name": "No VPC (default)", "description": "Function has internet access. Cannot access VPC resources."},
-          {"value": "vpc", "name": "VPC-connected", "description": "Function connects to VPC subnets. Can access private resources. Needs NAT for internet."}
+          {
+            "value": "no-vpc",
+            "name": "No VPC (default)",
+            "description": "Function has internet access. Cannot access VPC resources."
+          },
+          {
+            "value": "vpc",
+            "name": "VPC-connected",
+            "description": "Function connects to VPC subnets. Can access private resources. Needs NAT for internet."
+          }
         ],
-        "default": {"value": "no-vpc", "note": "Functions are not VPC-connected by default."},
+        "default": {
+          "value": "no-vpc",
+          "note": "Functions are not VPC-connected by default."
+        },
         "vendor_recommendation": "Only connect to VPC when access to private resources is required. Use multiple subnets across AZs for high availability. Ensure security groups are least-privilege.",
         "audit": {
           "cli": "aws lambda get-function --function-name {fn} --query Configuration.VpcConfig",
@@ -62,23 +96,43 @@
           "cli": "aws lambda update-function-configuration --function-name {fn} --vpc-config SubnetIds={subnet1},{subnet2},SecurityGroupIds={sg}",
           "terraform": "vpc_config block on aws_lambda_function"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^environment-encryption$"],
+      "patterns": [
+        "(?i)^environment-encryption$"
+      ],
       "description": "Encryption of environment variables with KMS",
       "weight": 100,
       "data": {
         "description": "Lambda environment variables are encrypted at rest using a KMS key. By default, AWS uses a Lambda service key. You can specify a customer managed KMS key for additional control. Environment variables are decrypted when the function execution environment is initialized.",
         "options": [
-          {"value": "aws-managed", "name": "AWS managed key", "description": "Default Lambda service key. No additional cost."},
-          {"value": "customer-managed", "name": "Customer managed key", "description": "Your KMS key. Full key policy control, rotation, and audit via CloudTrail."}
+          {
+            "value": "aws-managed",
+            "name": "AWS managed key",
+            "description": "Default Lambda service key. No additional cost."
+          },
+          {
+            "value": "customer-managed",
+            "name": "Customer managed key",
+            "description": "Your KMS key. Full key policy control, rotation, and audit via CloudTrail."
+          }
         ],
-        "default": {"value": "aws-managed", "note": "Environment variables encrypted with AWS managed key by default."},
+        "default": {
+          "value": "aws-managed",
+          "note": "Environment variables encrypted with AWS managed key by default."
+        },
         "vendor_recommendation": "Use customer managed keys for sensitive environment variables. Consider using AWS Secrets Manager or SSM Parameter Store instead of environment variables for highly sensitive values.",
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
         "audit": {
           "cli": "aws lambda get-function --function-name {fn} --query Configuration.KMSKeyArn",
           "api": "GetFunction (Configuration.KMSKeyArn)"
@@ -87,12 +141,19 @@
           "cli": "aws lambda update-function-configuration --function-name {fn} --kms-key-arn arn:aws:kms:{region}:{account}:key/{key-id}",
           "terraform": "kms_key_arn on aws_lambda_function"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^code-signing$"],
+      "patterns": [
+        "(?i)^code-signing$"
+      ],
       "description": "Validate code integrity using AWS Signer",
       "weight": 80,
       "data": {
@@ -108,12 +169,19 @@
           "cli_attach": "aws lambda put-function-code-signing-config --function-name {fn} --code-signing-config-arn {config-arn}",
           "terraform": "aws_lambda_code_signing_config"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^reserved-concurrency$"],
+      "patterns": [
+        "(?i)^reserved-concurrency$"
+      ],
       "description": "Limit concurrent executions to prevent DoS and runaway costs",
       "weight": 80,
       "data": {
@@ -128,18 +196,27 @@
           "cli_remove": "aws lambda delete-function-concurrency --function-name {fn}",
           "terraform": "reserved_concurrent_executions on aws_lambda_function"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^resource-policy$"],
+      "patterns": [
+        "(?i)^resource-policy$"
+      ],
       "description": "Resource-based policy controlling who can invoke the function",
       "weight": 100,
       "data": {
         "description": "Resource-based policies (function policies) define which AWS principals and services can invoke the Lambda function. Required for cross-account invocation and service integrations (API Gateway, S3, SNS, etc.). Each statement grants specific actions to specific principals.",
         "vendor_recommendation": "Review function policies regularly. Avoid granting invoke permissions to overly broad principals. Use conditions (aws:SourceAccount, aws:SourceArn) to restrict service invocations.",
-        "cross_references": ["secid:capability/amazon.com/aws/iam#resource-based-policies"],
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#resource-based-policies"
+        ],
         "audit": {
           "cli": "aws lambda get-policy --function-name {fn}",
           "api": "GetPolicy"
@@ -149,19 +226,34 @@
           "cli_remove": "aws lambda remove-permission --function-name {fn} --statement-id {sid}",
           "terraform": "aws_lambda_permission"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^function-url$"],
+      "patterns": [
+        "(?i)^function-url$"
+      ],
       "description": "Public HTTPS endpoint for Lambda function invocation",
       "weight": 80,
       "data": {
         "description": "Lambda function URLs provide a dedicated HTTPS endpoint for a function. Can be configured with IAM authentication or no authentication (public). Simpler than API Gateway for single-function APIs.",
         "options": [
-          {"value": "AWS_IAM", "name": "IAM authentication", "description": "Callers must sign requests with AWS Signature V4. Only IAM principals with lambda:InvokeFunctionUrl can invoke."},
-          {"value": "NONE", "name": "No authentication", "description": "Public endpoint. Anyone can invoke. Use with caution."}
+          {
+            "value": "AWS_IAM",
+            "name": "IAM authentication",
+            "description": "Callers must sign requests with AWS Signature V4. Only IAM principals with lambda:InvokeFunctionUrl can invoke."
+          },
+          {
+            "value": "NONE",
+            "name": "No authentication",
+            "description": "Public endpoint. Anyone can invoke. Use with caution."
+          }
         ],
         "vendor_recommendation": "Use IAM auth or API Gateway instead of public function URLs. If public access is required, implement application-level authentication and rate limiting within the function.",
         "audit": {
@@ -174,12 +266,19 @@
           "cli_update": "aws lambda update-function-url-config --function-name {fn} --auth-type AWS_IAM",
           "terraform": "aws_lambda_function_url"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^layers$"],
+      "patterns": [
+        "(?i)^layers$"
+      ],
       "description": "Shared code/dependencies — supply chain risk from third-party layers",
       "weight": 60,
       "data": {
@@ -194,7 +293,13 @@
           "cli": "aws lambda update-function-configuration --function-name {fn} --layers arn:aws:lambda:{region}:{account}:layer:{name}:{version}",
           "terraform": "layers argument on aws_lambda_function"
         },
-        "source": "https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

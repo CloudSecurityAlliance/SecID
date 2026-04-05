@@ -4,30 +4,46 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from GCP GKE documentation, 2026-04-04. Needs cross-reference pass and human review with live GCP environment.",
-
   "official_name": "Google Kubernetes Engine",
   "common_name": "GKE",
   "alternate_names": null,
   "notes": "Managed Kubernetes for GCP. Security focus: workload identity, binary authorization, network policies, private cluster, shielded nodes.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/kubernetes-engine"},
-    {"type": "docs", "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/security-overview", "note": "GKE Security overview"},
-    {"type": "docs", "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster", "note": "GKE Hardening guide"},
-    {"type": "docs", "url": "https://cloud.google.com/kubernetes-engine/docs/reference/rest", "note": "GKE REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/kubernetes-engine"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/security-overview",
+      "note": "GKE Security overview"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster",
+      "note": "GKE Hardening guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/kubernetes-engine/docs/reference/rest",
+      "note": "GKE REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^workload-identity$"],
+      "patterns": [
+        "(?i)^workload-identity$"
+      ],
       "description": "Map Kubernetes service accounts to Google IAM service accounts",
       "weight": 100,
       "data": {
         "description": "Workload Identity is the recommended way for GKE workloads to access Google Cloud APIs. It federates Kubernetes service accounts with Google IAM service accounts. Pods authenticate as the mapped IAM service account without using static service account keys or node-level credentials.",
         "vendor_recommendation": "Always use Workload Identity. Never use node service account credentials or download service account keys. Each application should have its own dedicated IAM service account with minimal permissions.",
-        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/iam"
+        ],
         "audit": {
           "cli": "gcloud container clusters describe {cluster} --format='value(workloadIdentityConfig)'",
           "note": "Check service account annotations: kubectl get sa {sa} -n {ns} -o yaml | grep iam.gke.io/gcp-service-account"
@@ -37,12 +53,19 @@
           "cli_bind": "gcloud iam service-accounts add-iam-policy-binding {gsa}@{project}.iam.gserviceaccount.com --role roles/iam.workloadIdentityUser --member 'serviceAccount:{project}.svc.id.goog[{ns}/{ksa}]'",
           "terraform": "workload_identity_config on google_container_cluster, google_service_account_iam_member"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^binary-authorization$"],
+      "patterns": [
+        "(?i)^binary-authorization$"
+      ],
       "description": "Enforce container image signing policies before deployment",
       "weight": 80,
       "data": {
@@ -58,19 +81,34 @@
           "cli_policy": "gcloud container binauthz policy import policy.yaml",
           "terraform": "binary_authorization block on google_container_cluster"
         },
-        "source": "https://cloud.google.com/binary-authorization/docs/overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/binary-authorization/docs/overview",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^network-policies$"],
+      "patterns": [
+        "(?i)^network-policies$"
+      ],
       "description": "Pod-to-pod traffic filtering via Calico or Dataplane V2",
       "weight": 100,
       "data": {
         "description": "GKE network policies control pod-to-pod communication using Kubernetes NetworkPolicy resources. Implemented via Calico (standard) or GKE Dataplane V2 (eBPF-based, newer). Without network policies, all pods in the cluster can communicate freely.",
         "options": [
-          {"value": "calico", "name": "Calico", "description": "Standard network policy enforcement. Must be enabled at cluster creation."},
-          {"value": "dataplane-v2", "name": "Dataplane V2", "description": "eBPF-based. Built-in network policy support. Better performance and observability."}
+          {
+            "value": "calico",
+            "name": "Calico",
+            "description": "Standard network policy enforcement. Must be enabled at cluster creation."
+          },
+          {
+            "value": "dataplane-v2",
+            "name": "Dataplane V2",
+            "description": "eBPF-based. Built-in network policy support. Better performance and observability."
+          }
         ],
         "vendor_recommendation": "Enable network policies for all production clusters. Use Dataplane V2 for new clusters. Start with deny-all default, then allow specific traffic.",
         "audit": {
@@ -83,22 +121,44 @@
           "cli_dpv2": "gcloud container clusters create {cluster} --enable-dataplane-v2 ...",
           "terraform": "network_policy block or datapath_provider on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-cluster$"],
+      "patterns": [
+        "(?i)^private-cluster$"
+      ],
       "description": "Nodes with internal IPs only — API server private or authorized networks",
       "weight": 100,
       "data": {
         "description": "Private GKE clusters give nodes only internal IP addresses. The control plane (API server) can be private or public with authorized networks. Private nodes cannot reach the internet without Cloud NAT. Reduces attack surface by eliminating public node IPs.",
         "options": [
-          {"value": "public", "name": "Public cluster", "description": "Default. Nodes have external IPs. API server is public."},
-          {"value": "private-nodes", "name": "Private nodes", "description": "Nodes have internal IPs only. API server can be public or private."},
-          {"value": "private-endpoint", "name": "Private endpoint", "description": "API server only accessible via internal IP. Most restrictive."}
+          {
+            "value": "public",
+            "name": "Public cluster",
+            "description": "Default. Nodes have external IPs. API server is public."
+          },
+          {
+            "value": "private-nodes",
+            "name": "Private nodes",
+            "description": "Nodes have internal IPs only. API server can be public or private."
+          },
+          {
+            "value": "private-endpoint",
+            "name": "Private endpoint",
+            "description": "API server only accessible via internal IP. Most restrictive."
+          }
         ],
-        "default": {"value": "public", "note": "Public cluster by default."},
+        "default": {
+          "value": "public",
+          "note": "Public cluster by default."
+        },
         "vendor_recommendation": "Use private clusters for production. Enable authorized networks to restrict API server access. Use Cloud NAT for node outbound internet access.",
         "audit": {
           "cli": "gcloud container clusters describe {cluster} --format='value(privateClusterConfig)'",
@@ -109,19 +169,31 @@
           "cli": "gcloud container clusters create {cluster} --enable-private-nodes --enable-private-endpoint --master-ipv4-cidr 172.16.0.0/28 ...",
           "terraform": "private_cluster_config block on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^shielded-nodes$"],
+      "patterns": [
+        "(?i)^shielded-nodes$"
+      ],
       "description": "Shielded VM for GKE nodes — secure boot + integrity monitoring",
       "weight": 80,
       "data": {
         "description": "Shielded GKE nodes use Shielded VM features (secure boot, vTPM, integrity monitoring) for the underlying node VMs. Protects the node boot process from tampering, rootkits, and bootkits. Enabled by default for new clusters.",
-        "default": {"value": "enabled", "note": "Shielded nodes enabled by default for new GKE clusters."},
+        "default": {
+          "value": "enabled",
+          "note": "Shielded nodes enabled by default for new GKE clusters."
+        },
         "vendor_recommendation": "Enable shielded nodes for all clusters. Do not disable. Verify integrity monitoring alerts are routed to your security team.",
-        "cross_references": ["secid:capability/google.com/gcp/compute-engine#shielded-vm"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/compute-engine#shielded-vm"
+        ],
         "audit": {
           "cli": "gcloud container clusters describe {cluster} --format='value(shieldedNodes)'",
           "api": "projects.locations.clusters.get (shieldedNodes)"
@@ -131,18 +203,27 @@
           "cli_update": "gcloud container clusters update {cluster} --enable-shielded-nodes",
           "terraform": "enable_shielded_nodes on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/shielded-gke-nodes",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^secrets-encryption$"],
+      "patterns": [
+        "(?i)^secrets-encryption$"
+      ],
       "description": "Encrypt Kubernetes secrets at rest with Cloud KMS",
       "weight": 80,
       "data": {
         "description": "Application-layer secrets encryption uses a Cloud KMS key to encrypt Kubernetes secrets at rest in the etcd datastore. Without this, secrets are encrypted at the storage layer by Google but not at the application layer — the GKE control plane can read them.",
         "vendor_recommendation": "Enable application-layer secrets encryption for clusters handling sensitive data. Use a dedicated KMS key. Monitor key access in Cloud Audit Logs.",
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
         "audit": {
           "cli": "gcloud container clusters describe {cluster} --format='value(databaseEncryption)'",
           "api": "projects.locations.clusters.get (databaseEncryption)"
@@ -152,12 +233,19 @@
           "cli_update": "gcloud container clusters update {cluster} --database-encryption-key projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}",
           "terraform": "database_encryption block on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^authorized-networks$"],
+      "patterns": [
+        "(?i)^authorized-networks$"
+      ],
       "description": "Restrict API server access to specific CIDRs",
       "weight": 100,
       "data": {
@@ -171,20 +259,36 @@
           "cli": "gcloud container clusters update {cluster} --enable-master-authorized-networks --master-authorized-networks {cidr1},{cidr2}",
           "terraform": "master_authorized_networks_config block on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^security-posture-dashboard$"],
+      "patterns": [
+        "(?i)^security-posture-dashboard$"
+      ],
       "description": "GKE Security Posture — vulnerability and misconfiguration scanning",
       "weight": 60,
       "data": {
         "description": "GKE Security Posture provides a dashboard for security insights across your GKE fleet. Scans workloads for vulnerabilities in container images, Kubernetes misconfigurations (pod security, RBAC), and compliance issues. Integrates with Security Command Center.",
         "options": [
-          {"feature": "Workload vulnerability scanning", "description": "Scans running container images for known CVEs. Continuous monitoring."},
-          {"feature": "Workload configuration auditing", "description": "Checks Kubernetes workload configurations against best practices and CIS benchmarks."},
-          {"feature": "Security bulletin integration", "description": "Correlates GKE security bulletins with your cluster versions."}
+          {
+            "feature": "Workload vulnerability scanning",
+            "description": "Scans running container images for known CVEs. Continuous monitoring."
+          },
+          {
+            "feature": "Workload configuration auditing",
+            "description": "Checks Kubernetes workload configurations against best practices and CIS benchmarks."
+          },
+          {
+            "feature": "Security bulletin integration",
+            "description": "Correlates GKE security bulletins with your cluster versions."
+          }
         ],
         "vendor_recommendation": "Enable security posture for all clusters. Review findings regularly. Prioritize critical vulnerabilities in running workloads.",
         "audit": {
@@ -195,12 +299,19 @@
           "cli": "gcloud container clusters update {cluster} --security-posture standard --workload-vulnerability-scanning standard",
           "terraform": "security_posture_config block on google_container_cluster"
         },
-        "source": "https://cloud.google.com/kubernetes-engine/docs/concepts/about-security-posture-dashboard"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/about-security-posture-dashboard",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^artifact-registry-scanning$"],
+      "patterns": [
+        "(?i)^artifact-registry-scanning$"
+      ],
       "description": "Container image vulnerability scanning in Artifact Registry",
       "weight": 80,
       "data": {
@@ -216,7 +327,13 @@
           "note": "Scanning is automatic for Artifact Registry once the Container Scanning API is enabled. No per-repo configuration needed.",
           "terraform": "google_project_service for containerscanning.googleapis.com"
         },
-        "source": "https://cloud.google.com/artifact-registry/docs/analysis"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/artifact-registry/docs/analysis",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

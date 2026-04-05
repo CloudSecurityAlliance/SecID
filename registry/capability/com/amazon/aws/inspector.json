@@ -4,33 +4,58 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Amazon Inspector documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
-
   "official_name": "Amazon Inspector",
   "common_name": "Inspector",
-  "alternate_names": ["Amazon Inspector v2"],
+  "alternate_names": [
+    "Amazon Inspector v2"
+  ],
   "notes": "Automated vulnerability scanning for EC2, Lambda, and ECR container images.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/inspector/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html", "note": "Amazon Inspector User Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/inspector/latest/user/findings-types.html", "note": "Inspector finding types"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/inspector/v2/APIReference/", "note": "Inspector API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/inspector/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
+      "note": "Amazon Inspector User Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/inspector/latest/user/findings-types.html",
+      "note": "Inspector finding types"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/inspector/v2/APIReference/",
+      "note": "Inspector API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ec2-scanning$"],
+      "patterns": [
+        "(?i)^ec2-scanning$"
+      ],
       "description": "Continuous vulnerability scanning of EC2 instances",
       "weight": 100,
       "data": {
         "description": "Continuous, agent-based vulnerability scanning of Amazon EC2 instances. Uses the SSM Agent (pre-installed on most Amazon AMIs) to inventory installed software and detect known vulnerabilities (CVEs). Also detects network reachability issues (open ports accessible from the internet). Scanning is triggered automatically on new instance launch, package install/uninstall, and new CVE publication.",
         "options": [
-          {"scan_type": "Software vulnerability scanning", "description": "Identifies OS and application package vulnerabilities by comparing installed packages against the Amazon vulnerability database."},
-          {"scan_type": "Network reachability", "description": "Analyzes VPC configuration, security groups, and NACLs to identify EC2 instances with ports reachable from the internet."}
+          {
+            "scan_type": "Software vulnerability scanning",
+            "description": "Identifies OS and application package vulnerabilities by comparing installed packages against the Amazon vulnerability database."
+          },
+          {
+            "scan_type": "Network reachability",
+            "description": "Analyzes VPC configuration, security groups, and NACLs to identify EC2 instances with ports reachable from the internet."
+          }
         ],
-        "default": {"value": "Enabled when Inspector is activated", "note": "EC2 scanning is automatically enabled for the account when Inspector is turned on. Requires SSM Agent on instances."},
+        "default": {
+          "value": "Enabled when Inspector is activated",
+          "note": "EC2 scanning is automatically enabled for the account when Inspector is turned on. Requires SSM Agent on instances."
+        },
         "vendor_recommendation": "Ensure SSM Agent is installed and running on all EC2 instances. Review and remediate high-severity findings promptly. Use Inspector findings to prioritize patching.",
         "audit": {
           "cli": "aws inspector2 list-coverage --filter-criteria '{\"resourceType\":[{\"comparison\":\"EQUALS\",\"value\":\"AWS_EC2_INSTANCE\"}]}'",
@@ -43,19 +68,32 @@
           "terraform": "aws_inspector2_enabler",
           "cloudformation": "AWS::InspectorV2::CisScanConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ecr-scanning$"],
+      "patterns": [
+        "(?i)^ecr-scanning$"
+      ],
       "description": "Container image vulnerability scanning in ECR",
       "weight": 100,
       "data": {
         "description": "Vulnerability scanning of container images stored in Amazon Elastic Container Registry (ECR). Two modes: Basic scanning (free, powered by Clair, on-push only) and Enhanced scanning (powered by Inspector, continuous re-scanning as new CVEs are published). Enhanced scanning covers OS packages and application language packages (Java, Python, Node.js, Go, .NET, Ruby, Rust, PHP).",
         "options": [
-          {"mode": "Basic scanning", "description": "Free. Powered by Clair. Scans on image push only. OS packages only. No continuous re-scanning."},
-          {"mode": "Enhanced scanning", "description": "Powered by Inspector. Continuous re-scanning. OS and language packages. Integrates with Inspector dashboard and EventBridge."}
+          {
+            "mode": "Basic scanning",
+            "description": "Free. Powered by Clair. Scans on image push only. OS packages only. No continuous re-scanning."
+          },
+          {
+            "mode": "Enhanced scanning",
+            "description": "Powered by Inspector. Continuous re-scanning. OS and language packages. Integrates with Inspector dashboard and EventBridge."
+          }
         ],
         "vendor_recommendation": "Use enhanced scanning for production container registries. Configure scan-on-push for all repositories. Review and remediate high-severity findings before deploying images to production.",
         "audit": {
@@ -69,19 +107,32 @@
           "cli_ecr_enhanced": "aws ecr put-registry-scanning-configuration --scan-type ENHANCED --rules '[{\"scanFrequency\":\"CONTINUOUS_SCAN\",\"repositoryFilters\":[{\"filter\":\"*\",\"filterType\":\"WILDCARD\"}]}]'",
           "terraform": "aws_inspector2_enabler, aws_ecr_registry_scanning_configuration"
         },
-        "source": "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^lambda-scanning$"],
+      "patterns": [
+        "(?i)^lambda-scanning$"
+      ],
       "description": "Scan Lambda function code and dependencies for vulnerabilities",
       "weight": 80,
       "data": {
         "description": "Vulnerability scanning of AWS Lambda functions. Two components: Standard scanning (scans function dependencies/libraries for known CVEs) and Code scanning (scans custom application code for security issues like injection flaws, data leaks, hardcoded credentials, insecure cryptography). Code scanning uses automated reasoning and ML.",
         "options": [
-          {"mode": "Standard scanning", "description": "Scan Lambda function package dependencies for known CVEs. Covers application and OS-level dependencies."},
-          {"mode": "Code scanning", "description": "Scan Lambda function custom code for security issues. Detects: injection flaws, data leaks, hardcoded credentials, insecure cryptography, missing encryption."}
+          {
+            "mode": "Standard scanning",
+            "description": "Scan Lambda function package dependencies for known CVEs. Covers application and OS-level dependencies."
+          },
+          {
+            "mode": "Code scanning",
+            "description": "Scan Lambda function custom code for security issues. Detects: injection flaws, data leaks, hardcoded credentials, insecure cryptography, missing encryption."
+          }
         ],
         "vendor_recommendation": "Enable both standard and code scanning for all Lambda functions. Prioritize remediation of findings in functions that process untrusted input or handle sensitive data.",
         "audit": {
@@ -93,19 +144,32 @@
           "cli_enable": "aws inspector2 enable --resource-types LAMBDA LAMBDA_CODE",
           "terraform": "aws_inspector2_enabler"
         },
-        "source": "https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^sbom-export$"],
+      "patterns": [
+        "(?i)^sbom-export$"
+      ],
       "description": "Export Software Bill of Materials for scanned resources",
       "weight": 60,
       "data": {
         "description": "Export Software Bill of Materials (SBOM) for resources scanned by Inspector. Generates a comprehensive inventory of all software components, versions, and associated vulnerabilities. Supports CycloneDX and SPDX formats. SBOMs can be exported for individual resources or across the account. Useful for supply chain security and compliance reporting.",
         "options": [
-          {"format": "CycloneDX 1.4", "description": "OWASP CycloneDX SBOM format. JSON."},
-          {"format": "SPDX 2.3", "description": "Linux Foundation SPDX SBOM format. JSON."}
+          {
+            "format": "CycloneDX 1.4",
+            "description": "OWASP CycloneDX SBOM format. JSON."
+          },
+          {
+            "format": "SPDX 2.3",
+            "description": "Linux Foundation SPDX SBOM format. JSON."
+          }
         ],
         "vendor_recommendation": "Export SBOMs regularly for compliance and supply chain risk management. Include SBOM generation in CI/CD pipelines. Use SBOMs to track software component usage across the organization.",
         "audit": {
@@ -116,12 +180,19 @@
           "cli": "aws inspector2 create-sbom-export --report-format CYCLONEDX_1_4 --s3-destination '{\"bucketName\":\"{bucket}\",\"kmsKeyArn\":\"{key}\",\"keyPrefix\":\"sbom/\"}'",
           "api": "CreateSbomExport"
         },
-        "source": "https://docs.aws.amazon.com/inspector/latest/user/sbom-export.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/sbom-export.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^suppression-rules$"],
+      "patterns": [
+        "(?i)^suppression-rules$"
+      ],
       "description": "Suppress findings that are false positives or accepted risks",
       "weight": 60,
       "data": {
@@ -138,7 +209,13 @@
           "api": "CreateFilter",
           "terraform": "aws_inspector2_filter"
         },
-        "source": "https://docs.aws.amazon.com/inspector/latest/user/findings-suppression.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/findings-suppression.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

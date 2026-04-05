@@ -4,35 +4,68 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS S3 documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live AWS environment).",
-
   "official_name": "Amazon Simple Storage Service",
   "common_name": "S3",
   "alternate_names": null,
   "notes": "Object storage. Most commonly misconfigured AWS service. Security surface includes encryption (4 types), access controls (bucket policies, ACLs, block public access, object ownership), data protection (versioning, object lock, MFA delete), and comprehensive monitoring.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/s3/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security.html", "note": "S3 Security chapter"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html", "note": "S3 Security Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/", "note": "S3 API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/s3/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security.html",
+      "note": "S3 Security chapter"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
+      "note": "S3 Security Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/",
+      "note": "S3 API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^default-encryption$"],
+      "patterns": [
+        "(?i)^default-encryption$"
+      ],
       "description": "Server-side encryption configuration for S3 buckets",
       "weight": 100,
       "data": {
         "description": "Server-side encryption applied automatically to all new objects. Options: SSE-S3 (AES256, default since January 2023), SSE-KMS (AWS KMS key), DSSE-KMS (dual-layer KMS encryption). SSE-C (customer-provided keys) is being phased out and disabled for new buckets from April 2026.",
         "options": [
-          {"value": "SSE-S3", "name": "SSE-S3 (AES256)", "description": "Amazon S3-managed keys. Default since January 2023. No additional cost."},
-          {"value": "SSE-KMS", "name": "SSE-KMS", "description": "AWS KMS customer managed or AWS managed key. Provides audit trail via CloudTrail. KMS API costs apply."},
-          {"value": "DSSE-KMS", "name": "DSSE-KMS", "description": "Dual-layer server-side encryption with KMS keys. Two layers of encryption for compliance requirements."},
-          {"value": "SSE-C", "name": "SSE-C (deprecated for new buckets)", "description": "Customer-provided encryption keys. Being phased out — disabled for new buckets from April 2026."}
+          {
+            "value": "SSE-S3",
+            "name": "SSE-S3 (AES256)",
+            "description": "Amazon S3-managed keys. Default since January 2023. No additional cost."
+          },
+          {
+            "value": "SSE-KMS",
+            "name": "SSE-KMS",
+            "description": "AWS KMS customer managed or AWS managed key. Provides audit trail via CloudTrail. KMS API costs apply."
+          },
+          {
+            "value": "DSSE-KMS",
+            "name": "DSSE-KMS",
+            "description": "Dual-layer server-side encryption with KMS keys. Two layers of encryption for compliance requirements."
+          },
+          {
+            "value": "SSE-C",
+            "name": "SSE-C (deprecated for new buckets)",
+            "description": "Customer-provided encryption keys. Being phased out — disabled for new buckets from April 2026."
+          }
         ],
-        "default": {"value": "SSE-S3", "note": "All new buckets have SSE-S3 (AES256) encryption enabled by default since January 2023."},
+        "default": {
+          "value": "SSE-S3",
+          "note": "All new buckets have SSE-S3 (AES256) encryption enabled by default since January 2023."
+        },
         "vendor_recommendation": "Use SSE-KMS with a customer managed key for audit trail and key rotation control. SSE-S3 is acceptable for basic encryption requirements.",
         "audit": {
           "cli": "aws s3api get-bucket-encryption --bucket {bucket}",
@@ -44,24 +77,56 @@
           "terraform": "aws_s3_bucket_server_side_encryption_configuration",
           "cloudformation": "AWS::S3::Bucket BucketEncryption"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/kms"],
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^block-public-access$"],
+      "patterns": [
+        "(?i)^block-public-access$"
+      ],
       "description": "Account and bucket-level settings preventing public access to S3 resources",
       "weight": 100,
       "data": {
         "description": "Four independent settings that block public access at the account or bucket level. Can be applied at account level (affects all buckets) or per-bucket. Account-level settings override bucket-level settings.",
         "options": [
-          {"setting": "BlockPublicAcls", "type": "boolean", "default": true, "description": "Rejects PUT requests that include public ACLs"},
-          {"setting": "IgnorePublicAcls", "type": "boolean", "default": true, "description": "Ignores all public ACLs on the bucket and its objects"},
-          {"setting": "BlockPublicPolicy", "type": "boolean", "default": true, "description": "Rejects bucket policy changes that would make the bucket public"},
-          {"setting": "RestrictPublicBuckets", "type": "boolean", "default": true, "description": "Restricts access to buckets with public policies to AWS service principals and authorized users only"}
+          {
+            "setting": "BlockPublicAcls",
+            "type": "boolean",
+            "default": true,
+            "description": "Rejects PUT requests that include public ACLs"
+          },
+          {
+            "setting": "IgnorePublicAcls",
+            "type": "boolean",
+            "default": true,
+            "description": "Ignores all public ACLs on the bucket and its objects"
+          },
+          {
+            "setting": "BlockPublicPolicy",
+            "type": "boolean",
+            "default": true,
+            "description": "Rejects bucket policy changes that would make the bucket public"
+          },
+          {
+            "setting": "RestrictPublicBuckets",
+            "type": "boolean",
+            "default": true,
+            "description": "Restricts access to buckets with public policies to AWS service principals and authorized users only"
+          }
         ],
-        "default": {"value": "all enabled", "note": "All four settings enabled by default for new buckets and new accounts."},
+        "default": {
+          "value": "all enabled",
+          "note": "All four settings enabled by default for new buckets and new accounts."
+        },
         "vendor_recommendation": "Enable all 4 settings at the account level. Only disable at the bucket level for specific use cases (static website hosting).",
         "audit": {
           "cli": "aws s3api get-public-access-block --bucket {bucket}",
@@ -75,12 +140,19 @@
           "terraform": "aws_s3_bucket_public_access_block",
           "cloudformation": "AWS::S3::Bucket PublicAccessBlockConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^bucket-policies$"],
+      "patterns": [
+        "(?i)^bucket-policies$"
+      ],
       "description": "JSON resource-based policies on S3 buckets",
       "weight": 100,
       "data": {
@@ -96,23 +168,44 @@
           "api": "PutBucketPolicy",
           "terraform": "aws_s3_bucket_policy"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/iam#resource-based-policies"],
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#resource-based-policies"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^object-ownership$"],
+      "patterns": [
+        "(?i)^object-ownership$"
+      ],
       "description": "Controls ACL usage and object ownership for S3 buckets",
       "weight": 100,
       "data": {
         "description": "Controls whether ACLs can be used and who owns objects uploaded to the bucket. Three settings determine ACL behavior.",
         "options": [
-          {"value": "BucketOwnerEnforced", "description": "ACLs disabled. Bucket owner automatically owns all objects. Recommended setting."},
-          {"value": "BucketOwnerPreferred", "description": "Bucket owner owns objects uploaded with bucket-owner-full-control ACL."},
-          {"value": "ObjectWriter", "description": "Uploading account owns the object. ACLs are active."}
+          {
+            "value": "BucketOwnerEnforced",
+            "description": "ACLs disabled. Bucket owner automatically owns all objects. Recommended setting."
+          },
+          {
+            "value": "BucketOwnerPreferred",
+            "description": "Bucket owner owns objects uploaded with bucket-owner-full-control ACL."
+          },
+          {
+            "value": "ObjectWriter",
+            "description": "Uploading account owns the object. ACLs are active."
+          }
         ],
-        "default": {"value": "BucketOwnerEnforced", "note": "Default for new buckets. ACLs are disabled."},
+        "default": {
+          "value": "BucketOwnerEnforced",
+          "note": "Default for new buckets. ACLs are disabled."
+        },
         "vendor_recommendation": "Use BucketOwnerEnforced to disable ACLs entirely. Manage access through bucket policies and IAM policies instead.",
         "audit": {
           "cli": "aws s3api get-bucket-ownership-controls --bucket {bucket}",
@@ -124,22 +217,41 @@
           "terraform": "aws_s3_bucket_ownership_controls",
           "cloudformation": "AWS::S3::Bucket OwnershipControls"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^versioning$"],
+      "patterns": [
+        "(?i)^versioning$"
+      ],
       "description": "S3 bucket versioning to maintain multiple object versions",
       "weight": 100,
       "data": {
         "description": "Keeps multiple variants of an object in the same bucket. Once enabled, versioning cannot be fully disabled — only suspended. Protects against accidental deletion and overwrites.",
         "options": [
-          {"value": "Disabled", "description": "Default. No versioning."},
-          {"value": "Enabled", "description": "All object versions retained."},
-          {"value": "Suspended", "description": "New versions not created but existing versions retained."}
+          {
+            "value": "Disabled",
+            "description": "Default. No versioning."
+          },
+          {
+            "value": "Enabled",
+            "description": "All object versions retained."
+          },
+          {
+            "value": "Suspended",
+            "description": "New versions not created but existing versions retained."
+          }
         ],
-        "default": {"value": "Disabled", "note": "Versioning is disabled by default. Cannot be turned off once enabled — only suspended."},
+        "default": {
+          "value": "Disabled",
+          "note": "Versioning is disabled by default. Cannot be turned off once enabled — only suspended."
+        },
         "vendor_recommendation": "Enable versioning for data protection. Required for Object Lock and cross-region replication.",
         "audit": {
           "cli": "aws s3api get-bucket-versioning --bucket {bucket}",
@@ -151,21 +263,39 @@
           "terraform": "aws_s3_bucket_versioning",
           "cloudformation": "AWS::S3::Bucket VersioningConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^object-lock$"],
+      "patterns": [
+        "(?i)^object-lock$"
+      ],
       "description": "WORM (Write Once Read Many) protection for S3 objects",
       "weight": 100,
       "data": {
         "description": "Prevents objects from being deleted or overwritten for a fixed amount of time or indefinitely. Two retention modes available. Requires versioning to be enabled. Must be enabled at bucket creation time.",
         "options": [
-          {"value": "Governance", "name": "Governance Mode", "description": "Users with special permissions (s3:BypassGovernanceRetention) can override retention settings or delete objects."},
-          {"value": "Compliance", "name": "Compliance Mode", "description": "No one can delete or overwrite protected objects, including the root account. Retention period cannot be shortened."}
+          {
+            "value": "Governance",
+            "name": "Governance Mode",
+            "description": "Users with special permissions (s3:BypassGovernanceRetention) can override retention settings or delete objects."
+          },
+          {
+            "value": "Compliance",
+            "name": "Compliance Mode",
+            "description": "No one can delete or overwrite protected objects, including the root account. Retention period cannot be shortened."
+          }
         ],
-        "default": {"value": null, "note": "Object Lock is not enabled by default. Must be enabled at bucket creation."},
+        "default": {
+          "value": null,
+          "note": "Object Lock is not enabled by default. Must be enabled at bucket creation."
+        },
         "vendor_recommendation": "Use Compliance mode for regulatory requirements where data must not be deleted. Use Governance mode for testing or when administrative override is needed.",
         "audit": {
           "cli": "aws s3api get-object-lock-configuration --bucket {bucket}",
@@ -177,17 +307,27 @@
           "terraform": "aws_s3_bucket_object_lock_configuration",
           "note": "Object Lock can only be enabled during bucket creation. Use --object-lock-enabled-for-bucket with create-bucket."
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^mfa-delete$"],
+      "patterns": [
+        "(?i)^mfa-delete$"
+      ],
       "description": "Require MFA to permanently delete object versions",
       "weight": 90,
       "data": {
         "description": "Adds an additional layer of protection by requiring MFA authentication to permanently delete object versions or change the versioning state of a bucket. Requires versioning to be enabled. Can only be enabled by the root account.",
-        "default": {"value": "Disabled", "note": "MFA Delete is disabled by default."},
+        "default": {
+          "value": "Disabled",
+          "note": "MFA Delete is disabled by default."
+        },
         "vendor_recommendation": "Enable MFA Delete on critical buckets to prevent accidental or malicious permanent deletion of versioned objects.",
         "limits": "Can only be enabled/disabled by the root account using the CLI or API. Cannot be configured via console.",
         "audit": {
@@ -199,17 +339,27 @@
           "cli": "aws s3api put-bucket-versioning --bucket {bucket} --versioning-configuration Status=Enabled,MFADelete=Enabled --mfa '{serial-number} {code}'",
           "note": "Must be run as root account. Cannot be enabled via console or CloudFormation."
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-logging$"],
+      "patterns": [
+        "(?i)^access-logging$"
+      ],
       "description": "Server access logging for S3 buckets",
       "weight": 80,
       "data": {
         "description": "Records detailed requests made to a bucket and delivers log files to a target S3 bucket. Logs include requester, bucket name, request time, action, response status, and error code. Best-effort delivery (not guaranteed).",
-        "default": {"value": "Disabled", "note": "Server access logging is disabled by default."},
+        "default": {
+          "value": "Disabled",
+          "note": "Server access logging is disabled by default."
+        },
         "vendor_recommendation": "Enable access logging for security auditing and access analysis. Consider CloudTrail data events as an alternative for guaranteed delivery.",
         "audit": {
           "cli": "aws s3api get-bucket-logging --bucket {bucket}",
@@ -221,13 +371,22 @@
           "terraform": "aws_s3_bucket_logging",
           "cloudformation": "AWS::S3::Bucket LoggingConfiguration"
         },
-        "cross_references": ["secid:capability/amazon.com/aws/cloudtrail"],
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/cloudtrail"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^tls-enforcement$"],
+      "patterns": [
+        "(?i)^tls-enforcement$"
+      ],
       "description": "Enforce HTTPS (TLS) for S3 bucket access",
       "weight": 90,
       "data": {
@@ -240,28 +399,52 @@
         "configure": {
           "note": "Add a statement to the bucket policy: {\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":[\"arn:aws:s3:::{bucket}\",\"arn:aws:s3:::{bucket}/*\"],\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}}}"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^vpc-endpoints$"],
+      "patterns": [
+        "(?i)^vpc-endpoints$"
+      ],
       "description": "Private S3 access from VPC without internet gateway",
       "weight": 80,
       "data": {
         "description": "Enable private connectivity from VPC to S3 without requiring an internet gateway or NAT device. Two types: Gateway endpoint (free, route table entry) and Interface endpoint (ENI with private IP, PrivateLink).",
         "options": [
-          {"value": "Gateway", "name": "Gateway Endpoint", "description": "Free. Route table-based. S3 and DynamoDB only. Most common."},
-          {"value": "Interface", "name": "Interface Endpoint (PrivateLink)", "description": "ENI with private IP. Per-hour and per-GB charges. Supports on-premises access via VPN/Direct Connect."}
+          {
+            "value": "Gateway",
+            "name": "Gateway Endpoint",
+            "description": "Free. Route table-based. S3 and DynamoDB only. Most common."
+          },
+          {
+            "value": "Interface",
+            "name": "Interface Endpoint (PrivateLink)",
+            "description": "ENI with private IP. Per-hour and per-GB charges. Supports on-premises access via VPN/Direct Connect."
+          }
         ],
         "vendor_recommendation": "Use Gateway endpoints for most workloads (free). Use Interface endpoints when access from on-premises via VPN/Direct Connect is required.",
-        "cross_references": ["secid:capability/amazon.com/aws/vpc#vpc-endpoints"],
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html"
+        "cross_references": [
+          "secid:capability/amazon.com/aws/vpc#vpc-endpoints"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^access-points$"],
+      "patterns": [
+        "(?i)^access-points$"
+      ],
       "description": "Named network endpoints with dedicated access policies for S3",
       "weight": 80,
       "data": {
@@ -276,19 +459,34 @@
           "terraform": "aws_s3_access_point",
           "cloudformation": "AWS::S3::AccessPoint"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^replication$"],
+      "patterns": [
+        "(?i)^replication$"
+      ],
       "description": "Cross-region and same-region replication for S3 objects",
       "weight": 80,
       "data": {
         "description": "Automatic, asynchronous copying of objects across S3 buckets. Supports cross-region replication (CRR) for disaster recovery and compliance, and same-region replication (SRR) for aggregation and backup. Requires versioning enabled on both source and destination buckets.",
         "options": [
-          {"value": "CRR", "name": "Cross-Region Replication", "description": "Replicates objects to a bucket in a different AWS Region."},
-          {"value": "SRR", "name": "Same-Region Replication", "description": "Replicates objects to a bucket in the same AWS Region."}
+          {
+            "value": "CRR",
+            "name": "Cross-Region Replication",
+            "description": "Replicates objects to a bucket in a different AWS Region."
+          },
+          {
+            "value": "SRR",
+            "name": "Same-Region Replication",
+            "description": "Replicates objects to a bucket in the same AWS Region."
+          }
         ],
         "vendor_recommendation": "Use CRR for disaster recovery and compliance with data residency requirements. Ensure versioning is enabled on both buckets.",
         "audit": {
@@ -301,12 +499,19 @@
           "terraform": "aws_s3_bucket_replication_configuration",
           "cloudformation": "AWS::S3::Bucket ReplicationConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^inventory$"],
+      "patterns": [
+        "(?i)^inventory$"
+      ],
       "description": "S3 Inventory for auditing encryption, replication status across objects",
       "weight": 70,
       "data": {
@@ -321,12 +526,19 @@
           "terraform": "aws_s3_bucket_inventory",
           "cloudformation": "AWS::S3::Bucket InventoryConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^storage-lens$"],
+      "patterns": [
+        "(?i)^storage-lens$"
+      ],
       "description": "Organization-wide S3 storage analytics and best practice recommendations",
       "weight": 70,
       "data": {
@@ -340,12 +552,19 @@
           "cli": "aws s3control put-storage-lens-configuration --account-id {account-id} --config-id {id} --storage-lens-configuration file://lens-config.json",
           "terraform": "aws_s3control_storage_lens_configuration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^lifecycle-rules$"],
+      "patterns": [
+        "(?i)^lifecycle-rules$"
+      ],
       "description": "Automatic object transition, expiration, and cleanup rules",
       "weight": 80,
       "data": {
@@ -361,7 +580,13 @@
           "terraform": "aws_s3_bucket_lifecycle_configuration",
           "cloudformation": "AWS::S3::Bucket LifecycleConfiguration"
         },
-        "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

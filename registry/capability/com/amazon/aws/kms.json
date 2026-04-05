@@ -4,42 +4,103 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from AWS KMS documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live AWS environment).",
-
   "official_name": "AWS Key Management Service",
   "common_name": "KMS",
   "alternate_names": null,
   "notes": "Foundation encryption service — most AWS services use KMS for encryption at rest and in transit. FIPS 140-3 Level 3 validated HSMs. Global service with regional key storage.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://aws.amazon.com/kms/"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html", "note": "KMS Developer Guide"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html", "note": "KMS Best Practices"},
-    {"type": "docs", "url": "https://docs.aws.amazon.com/kms/latest/APIReference/", "note": "KMS API Reference"}
+    {
+      "type": "website",
+      "url": "https://aws.amazon.com/kms/"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
+      "note": "KMS Developer Guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html",
+      "note": "KMS Best Practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://docs.aws.amazon.com/kms/latest/APIReference/",
+      "note": "KMS API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^customer-managed-keys$"],
+      "patterns": [
+        "(?i)^customer-managed-keys$"
+      ],
       "description": "Keys you create, own, and manage",
       "weight": 100,
       "data": {
         "description": "KMS keys you create and control. Full control over lifecycle, policies, rotation, deletion. Monthly fee + per-use fees.",
         "options": [
-          {"value": "SYMMETRIC_DEFAULT", "name": "Symmetric AES-256-GCM", "description": "256-bit AES-GCM symmetric encryption key. Most common. Used for envelope encryption."},
-          {"value": "RSA_2048", "name": "RSA 2048", "description": "Asymmetric RSA 2048-bit key for encryption or signing"},
-          {"value": "RSA_3072", "name": "RSA 3072", "description": "Asymmetric RSA 3072-bit key for encryption or signing"},
-          {"value": "RSA_4096", "name": "RSA 4096", "description": "Asymmetric RSA 4096-bit key for encryption or signing"},
-          {"value": "ECC_NIST_P256", "name": "ECC P-256", "description": "Elliptic curve P-256 key for signing"},
-          {"value": "ECC_NIST_P384", "name": "ECC P-384", "description": "Elliptic curve P-384 key for signing"},
-          {"value": "ECC_NIST_P521", "name": "ECC P-521", "description": "Elliptic curve P-521 key for signing"},
-          {"value": "ECC_SECG_P256K1", "name": "ECC secp256k1", "description": "Elliptic curve secp256k1 key for signing (blockchain compatible)"},
-          {"value": "HMAC_256", "name": "HMAC SHA-256", "description": "HMAC key using SHA-256"},
-          {"value": "HMAC_384", "name": "HMAC SHA-384", "description": "HMAC key using SHA-384"},
-          {"value": "HMAC_512", "name": "HMAC SHA-512", "description": "HMAC key using SHA-512"}
+          {
+            "value": "SYMMETRIC_DEFAULT",
+            "name": "Symmetric AES-256-GCM",
+            "description": "256-bit AES-GCM symmetric encryption key. Most common. Used for envelope encryption."
+          },
+          {
+            "value": "RSA_2048",
+            "name": "RSA 2048",
+            "description": "Asymmetric RSA 2048-bit key for encryption or signing"
+          },
+          {
+            "value": "RSA_3072",
+            "name": "RSA 3072",
+            "description": "Asymmetric RSA 3072-bit key for encryption or signing"
+          },
+          {
+            "value": "RSA_4096",
+            "name": "RSA 4096",
+            "description": "Asymmetric RSA 4096-bit key for encryption or signing"
+          },
+          {
+            "value": "ECC_NIST_P256",
+            "name": "ECC P-256",
+            "description": "Elliptic curve P-256 key for signing"
+          },
+          {
+            "value": "ECC_NIST_P384",
+            "name": "ECC P-384",
+            "description": "Elliptic curve P-384 key for signing"
+          },
+          {
+            "value": "ECC_NIST_P521",
+            "name": "ECC P-521",
+            "description": "Elliptic curve P-521 key for signing"
+          },
+          {
+            "value": "ECC_SECG_P256K1",
+            "name": "ECC secp256k1",
+            "description": "Elliptic curve secp256k1 key for signing (blockchain compatible)"
+          },
+          {
+            "value": "HMAC_256",
+            "name": "HMAC SHA-256",
+            "description": "HMAC key using SHA-256"
+          },
+          {
+            "value": "HMAC_384",
+            "name": "HMAC SHA-384",
+            "description": "HMAC key using SHA-384"
+          },
+          {
+            "value": "HMAC_512",
+            "name": "HMAC SHA-512",
+            "description": "HMAC key using SHA-512"
+          }
         ],
-        "default": {"value": "SYMMETRIC_DEFAULT", "note": "Symmetric AES-256 if key spec not specified."},
+        "default": {
+          "value": "SYMMETRIC_DEFAULT",
+          "note": "Symmetric AES-256 if key spec not specified."
+        },
         "audit": {
           "cli": "aws kms list-keys",
           "cli_detail": "aws kms describe-key --key-id {id}",
@@ -52,12 +113,19 @@
           "terraform": "aws_kms_key",
           "cloudformation": "AWS::KMS::Key"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^aws-managed-keys$"],
+      "patterns": [
+        "(?i)^aws-managed-keys$"
+      ],
       "description": "Keys created by AWS services in your account",
       "weight": 100,
       "data": {
@@ -69,18 +137,30 @@
           "api": "ListKeys, DescribeKey",
           "console": "KMS -> AWS managed keys"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^key-policies$"],
+      "patterns": [
+        "(?i)^key-policies$"
+      ],
       "description": "Resource-based policies on KMS keys",
       "weight": 100,
       "data": {
         "description": "JSON policies attached directly to KMS keys. Primary mechanism for controlling who can use and manage the key. Every KMS key has exactly one key policy.",
-        "default": {"value": "Default key policy", "note": "Default key policy allows the root account full access and enables IAM policies to grant KMS permissions."},
-        "cross_references": ["secid:capability/amazon.com/aws/iam#resource-based-policies"],
+        "default": {
+          "value": "Default key policy",
+          "note": "Default key policy allows the root account full access and enables IAM policies to grant KMS permissions."
+        },
+        "cross_references": [
+          "secid:capability/amazon.com/aws/iam#resource-based-policies"
+        ],
         "audit": {
           "cli": "aws kms get-key-policy --key-id {id} --policy-name default",
           "api": "GetKeyPolicy",
@@ -90,12 +170,19 @@
           "cli": "aws kms put-key-policy --key-id {id} --policy-name default --policy file://policy.json",
           "api": "PutKeyPolicy"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^grants$"],
+      "patterns": [
+        "(?i)^grants$"
+      ],
       "description": "Temporary, delegated key permissions",
       "weight": 100,
       "data": {
@@ -109,17 +196,27 @@
           "cli": "aws kms create-grant --key-id {id} --grantee-principal {arn} --operations Encrypt Decrypt",
           "api": "CreateGrant"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^key-rotation$"],
+      "patterns": [
+        "(?i)^key-rotation$"
+      ],
       "description": "Automatic rotation of key material",
       "weight": 100,
       "data": {
         "description": "Automatic annual rotation of the backing key material. Old key material preserved for decryption. The key ID, ARN, and alias don't change. Only available for symmetric customer managed keys with KMS-generated material.",
-        "default": {"value": "Disabled for customer managed keys", "note": "Enabled (annual, 365 days) for AWS managed keys."},
+        "default": {
+          "value": "Disabled for customer managed keys",
+          "note": "Enabled (annual, 365 days) for AWS managed keys."
+        },
         "vendor_recommendation": "Enable automatic rotation for all customer managed symmetric keys.",
         "audit": {
           "cli": "aws kms get-key-rotation-status --key-id {id}",
@@ -132,33 +229,66 @@
           "terraform": "aws_kms_key with enable_key_rotation = true",
           "cloudformation": "AWS::KMS::Key with EnableKeyRotation: true"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^key-material-origin$"],
+      "patterns": [
+        "(?i)^key-material-origin$"
+      ],
       "description": "Where key material comes from",
       "weight": 100,
       "data": {
         "description": "Controls whether KMS generates key material or you provide it.",
         "options": [
-          {"value": "AWS_KMS", "name": "KMS-generated", "description": "Default. Key material generated by KMS."},
-          {"value": "EXTERNAL", "name": "Imported", "description": "You import key material into a KMS key."},
-          {"value": "AWS_CLOUDHSM", "name": "CloudHSM", "description": "Key material generated in your CloudHSM cluster."},
-          {"value": "EXTERNAL_KEY_STORE", "name": "External key store", "description": "Key material held in your external key manager (XKS)."}
+          {
+            "value": "AWS_KMS",
+            "name": "KMS-generated",
+            "description": "Default. Key material generated by KMS."
+          },
+          {
+            "value": "EXTERNAL",
+            "name": "Imported",
+            "description": "You import key material into a KMS key."
+          },
+          {
+            "value": "AWS_CLOUDHSM",
+            "name": "CloudHSM",
+            "description": "Key material generated in your CloudHSM cluster."
+          },
+          {
+            "value": "EXTERNAL_KEY_STORE",
+            "name": "External key store",
+            "description": "Key material held in your external key manager (XKS)."
+          }
         ],
-        "default": {"value": "AWS_KMS", "note": "Key material generated by KMS unless otherwise specified."},
+        "default": {
+          "value": "AWS_KMS",
+          "note": "Key material generated by KMS unless otherwise specified."
+        },
         "audit": {
           "cli": "aws kms describe-key --key-id {id} (check Origin field)",
           "api": "DescribeKey"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^multi-region-keys$"],
+      "patterns": [
+        "(?i)^multi-region-keys$"
+      ],
       "description": "Keys replicated across AWS regions",
       "weight": 100,
       "data": {
@@ -173,28 +303,45 @@
           "api": "CreateKey, ReplicateKey",
           "terraform": "aws_kms_key with multi_region = true, aws_kms_replica_key"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^encryption-context$"],
+      "patterns": [
+        "(?i)^encryption-context$"
+      ],
       "description": "Additional authenticated data for encrypt/decrypt",
       "weight": 100,
       "data": {
         "description": "Key-value pairs included as additional authenticated data (AAD) in cryptographic operations. Not encrypted but bound to the ciphertext — must provide the same context to decrypt. Logged in CloudTrail.",
         "vendor_recommendation": "Always use encryption context for envelope encryption. Include meaningful context (table name, user ID) to limit ciphertext reuse.",
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^key-deletion$"],
+      "patterns": [
+        "(?i)^key-deletion$"
+      ],
       "description": "Scheduled key destruction with waiting period",
       "weight": 100,
       "data": {
         "description": "Keys cannot be instantly deleted. Deletion requires a waiting period (7-30 days) during which the key is disabled. Can be cancelled during waiting period.",
-        "default": {"value": "30-day waiting period", "note": "Configurable between 7 and 30 days."},
+        "default": {
+          "value": "30-day waiting period",
+          "note": "Configurable between 7 and 30 days."
+        },
         "audit": {
           "cli": "aws kms describe-key --key-id {id} (check KeyState and DeletionDate)",
           "api": "DescribeKey"
@@ -204,12 +351,19 @@
           "cli_cancel": "aws kms cancel-key-deletion --key-id {id}",
           "api": "ScheduleKeyDeletion, CancelKeyDeletion"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^aliases$"],
+      "patterns": [
+        "(?i)^aliases$"
+      ],
       "description": "Friendly names for KMS keys",
       "weight": 100,
       "data": {
@@ -226,7 +380,13 @@
           "api": "CreateAlias, UpdateAlias, DeleteAlias",
           "terraform": "aws_kms_alias"
         },
-        "source": "https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html",
+            "note": "AWS documentation"
+          }
+        ]
       }
     }
   ]

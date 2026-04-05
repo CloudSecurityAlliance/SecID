@@ -4,51 +4,88 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Google Cloud SQL documentation, 2026-04-04. Needs cross-reference and live environment validation.",
-
   "official_name": "Google Cloud SQL",
   "common_name": "Cloud SQL",
   "alternate_names": null,
   "notes": "Managed relational databases (MySQL, PostgreSQL, SQL Server). Security includes encryption, IAM authentication, private IP, automated backups.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/sql"},
-    {"type": "docs", "url": "https://cloud.google.com/sql/docs/mysql/configure-ssl-instance", "note": "Cloud SQL security documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/sql/docs/best-practices", "note": "Cloud SQL best practices"},
-    {"type": "docs", "url": "https://cloud.google.com/sql/docs/mysql/apis", "note": "Cloud SQL API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/sql"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/sql/docs/mysql/configure-ssl-instance",
+      "note": "Cloud SQL security documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/sql/docs/best-practices",
+      "note": "Cloud SQL best practices"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/sql/docs/mysql/apis",
+      "note": "Cloud SQL API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Data encryption at rest with Google-managed or customer-managed keys",
       "weight": 100,
       "data": {
         "description": "Data encrypted at rest with Google-managed keys by default. Customer-managed encryption keys (CMEK) available via Cloud KMS for additional control. CMEK must be configured at instance creation time.",
         "options": [
-          {"value": "google-managed", "name": "Google-Managed Keys", "description": "Default. Google manages encryption keys. No additional configuration."},
-          {"value": "cmek", "name": "Customer-Managed Keys (CMEK)", "description": "Customer manages keys in Cloud KMS. Provides key rotation control and ability to revoke access."}
+          {
+            "value": "google-managed",
+            "name": "Google-Managed Keys",
+            "description": "Default. Google manages encryption keys. No additional configuration."
+          },
+          {
+            "value": "cmek",
+            "name": "Customer-Managed Keys (CMEK)",
+            "description": "Customer manages keys in Cloud KMS. Provides key rotation control and ability to revoke access."
+          }
         ],
-        "default": {"value": "google-managed", "note": "All data is encrypted at rest with Google-managed keys by default."},
+        "default": {
+          "value": "google-managed",
+          "note": "All data is encrypted at rest with Google-managed keys by default."
+        },
         "vendor_recommendation": "Use CMEK for regulatory compliance and to maintain control over encryption key lifecycle.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(diskEncryptionConfiguration)'",
           "api": "sql.instances.get",
           "console": "SQL -> {instance} -> Configuration -> Encryption"
         },
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
-        "source": "https://cloud.google.com/sql/docs/mysql/cmek"
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/cmek",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^iam-authentication$"],
+      "patterns": [
+        "(?i)^iam-authentication$"
+      ],
       "description": "Use IAM for database login with OAuth 2.0 tokens",
       "weight": 100,
       "data": {
         "description": "Use IAM for database login. Generates OAuth 2.0 tokens instead of passwords. Supported for PostgreSQL and MySQL. Enables centralized identity management through Cloud IAM.",
-        "default": {"value": "disabled", "note": "IAM database authentication must be explicitly enabled."},
+        "default": {
+          "value": "disabled",
+          "note": "IAM database authentication must be explicitly enabled."
+        },
         "vendor_recommendation": "Enable IAM authentication to eliminate long-lived database passwords and leverage centralized IAM policies.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(settings.databaseFlags)'",
@@ -59,21 +96,42 @@
           "cli": "gcloud sql instances patch {instance} --database-flags=cloudsql.iam_authentication=on",
           "terraform": "google_sql_database_instance.settings.database_flags"
         },
-        "cross_references": ["secid:capability/google.com/gcp/iam"],
-        "source": "https://cloud.google.com/sql/docs/mysql/iam-authentication"
+        "cross_references": [
+          "secid:capability/google.com/gcp/iam"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/iam-authentication",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-ip$"],
+      "patterns": [
+        "(?i)^private-ip$"
+      ],
       "description": "Instance accessible only via VPC private IP",
       "weight": 100,
       "data": {
         "description": "Instance accessible only via VPC private IP address. Removes public IP exposure. Uses VPC peering to the Google-managed network hosting Cloud SQL instances.",
         "options": [
-          {"value": "private-ip-only", "name": "Private IP Only", "description": "No public IP assigned. Only reachable from VPC. Recommended."},
-          {"value": "public-ip", "name": "Public IP", "description": "Public IP assigned. Reachable from internet (subject to authorized networks)."},
-          {"value": "both", "name": "Both", "description": "Both private and public IP assigned."}
+          {
+            "value": "private-ip-only",
+            "name": "Private IP Only",
+            "description": "No public IP assigned. Only reachable from VPC. Recommended."
+          },
+          {
+            "value": "public-ip",
+            "name": "Public IP",
+            "description": "Public IP assigned. Reachable from internet (subject to authorized networks)."
+          },
+          {
+            "value": "both",
+            "name": "Both",
+            "description": "Both private and public IP assigned."
+          }
         ],
         "vendor_recommendation": "Use private IP only. Do not assign a public IP to production instances.",
         "audit": {
@@ -85,18 +143,30 @@
           "cli": "gcloud sql instances patch {instance} --no-assign-ip --network={vpc-network}",
           "terraform": "google_sql_database_instance.settings.ip_configuration"
         },
-        "cross_references": ["secid:capability/google.com/gcp/vpc"],
-        "source": "https://cloud.google.com/sql/docs/mysql/private-ip"
+        "cross_references": [
+          "secid:capability/google.com/gcp/vpc"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/private-ip",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^authorized-networks$"],
+      "patterns": [
+        "(?i)^authorized-networks$"
+      ],
       "description": "IP allowlist for public IP access",
       "weight": 100,
       "data": {
         "description": "IP allowlist for public IP access. Specifies which external IP addresses or CIDR ranges can connect to the Cloud SQL instance. Only relevant when public IP is enabled.",
-        "default": {"value": "empty", "note": "No IP addresses are allowed by default. Connections are denied until authorized networks are configured."},
+        "default": {
+          "value": "empty",
+          "note": "No IP addresses are allowed by default. Connections are denied until authorized networks are configured."
+        },
         "vendor_recommendation": "Minimize the number of authorized networks. Prefer private IP over authorized networks for production workloads.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(settings.ipConfiguration.authorizedNetworks)'",
@@ -107,21 +177,39 @@
           "cli": "gcloud sql instances patch {instance} --authorized-networks={cidr1},{cidr2}",
           "terraform": "google_sql_database_instance.settings.ip_configuration.authorized_networks"
         },
-        "source": "https://cloud.google.com/sql/docs/mysql/authorize-networks"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/authorize-networks",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^ssl-enforcement$"],
+      "patterns": [
+        "(?i)^ssl-enforcement$"
+      ],
       "description": "Require SSL/TLS connections to Cloud SQL instances",
       "weight": 100,
       "data": {
         "description": "Require SSL/TLS connections. When enabled, unencrypted connections are rejected. Cloud SQL supports server certificates and optional client certificates for mutual TLS.",
         "options": [
-          {"value": "allow-unencrypted", "name": "Allow Unencrypted", "description": "Default. Both encrypted and unencrypted connections accepted."},
-          {"value": "require-ssl", "name": "Require SSL", "description": "Only encrypted connections accepted. Unencrypted connections rejected."}
+          {
+            "value": "allow-unencrypted",
+            "name": "Allow Unencrypted",
+            "description": "Default. Both encrypted and unencrypted connections accepted."
+          },
+          {
+            "value": "require-ssl",
+            "name": "Require SSL",
+            "description": "Only encrypted connections accepted. Unencrypted connections rejected."
+          }
         ],
-        "default": {"value": "allow-unencrypted", "note": "Unencrypted connections are allowed by default."},
+        "default": {
+          "value": "allow-unencrypted",
+          "note": "Unencrypted connections are allowed by default."
+        },
         "vendor_recommendation": "Require SSL for all database connections.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(settings.ipConfiguration.requireSsl)'",
@@ -132,17 +220,27 @@
           "cli": "gcloud sql instances patch {instance} --require-ssl",
           "terraform": "google_sql_database_instance.settings.ip_configuration.require_ssl"
         },
-        "source": "https://cloud.google.com/sql/docs/mysql/configure-ssl-instance"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/configure-ssl-instance",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^automated-backups$"],
+      "patterns": [
+        "(?i)^automated-backups$"
+      ],
       "description": "Point-in-time recovery with automated backups",
       "weight": 90,
       "data": {
         "description": "Point-in-time recovery via automated backups. Retention period configurable from 1 to 365 days. Backups are taken daily during a configurable backup window.",
-        "default": {"value": "7 days", "note": "Default backup retention period is 7 days."},
+        "default": {
+          "value": "7 days",
+          "note": "Default backup retention period is 7 days."
+        },
         "vendor_recommendation": "Enable automated backups with at least 7-day retention. Increase retention for compliance-sensitive workloads.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(settings.backupConfiguration)'",
@@ -153,17 +251,27 @@
           "cli": "gcloud sql instances patch {instance} --backup-start-time=03:00 --retained-backups-count=30 --enable-bin-log",
           "terraform": "google_sql_database_instance.settings.backup_configuration"
         },
-        "source": "https://cloud.google.com/sql/docs/mysql/backup-recovery/backups"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/backup-recovery/backups",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^deletion-protection$"],
+      "patterns": [
+        "(?i)^deletion-protection$"
+      ],
       "description": "Prevent accidental deletion of Cloud SQL instances",
       "weight": 90,
       "data": {
         "description": "Prevent accidental deletion of Cloud SQL instances. When enabled, the instance cannot be deleted until deletion protection is explicitly disabled.",
-        "default": {"value": "disabled", "note": "Deletion protection is not enabled by default."},
+        "default": {
+          "value": "disabled",
+          "note": "Deletion protection is not enabled by default."
+        },
         "vendor_recommendation": "Enable deletion protection for all production instances.",
         "audit": {
           "cli": "gcloud sql instances describe {instance} --format='value(settings.deletionProtection)'",
@@ -174,12 +282,19 @@
           "cli": "gcloud sql instances patch {instance} --deletion-protection",
           "terraform": "google_sql_database_instance.deletion_protection"
         },
-        "source": "https://cloud.google.com/sql/docs/mysql/deletion-protection"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/deletion-protection",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^maintenance-window$"],
+      "patterns": [
+        "(?i)^maintenance-window$"
+      ],
       "description": "Control when patches and maintenance updates are applied",
       "weight": 80,
       "data": {
@@ -194,7 +309,13 @@
           "cli": "gcloud sql instances patch {instance} --maintenance-window-day=SUN --maintenance-window-hour=3",
           "terraform": "google_sql_database_instance.settings.maintenance_window"
         },
-        "source": "https://cloud.google.com/sql/docs/mysql/maintenance"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/sql/docs/mysql/maintenance",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

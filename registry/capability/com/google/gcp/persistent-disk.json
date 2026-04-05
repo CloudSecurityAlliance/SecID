@@ -4,34 +4,65 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from GCP Persistent Disk documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live GCP environment).",
-
   "official_name": "Google Cloud Persistent Disk",
   "common_name": "Persistent Disk",
-  "alternate_names": ["PD"],
+  "alternate_names": [
+    "PD"
+  ],
   "notes": "Block storage for Compute Engine. Security focus: encryption.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloud.google.com/persistent-disk"},
-    {"type": "docs", "url": "https://cloud.google.com/compute/docs/disks", "note": "Persistent Disk documentation"},
-    {"type": "docs", "url": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption", "note": "CMEK encryption for disks"},
-    {"type": "docs", "url": "https://cloud.google.com/compute/docs/reference/rest/v1/disks", "note": "Persistent Disk REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://cloud.google.com/persistent-disk"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/compute/docs/disks",
+      "note": "Persistent Disk documentation"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption",
+      "note": "CMEK encryption for disks"
+    },
+    {
+      "type": "docs",
+      "url": "https://cloud.google.com/compute/docs/reference/rest/v1/disks",
+      "note": "Persistent Disk REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Encryption at rest for Persistent Disk volumes",
       "weight": 100,
       "data": {
         "description": "All persistent disks are encrypted at rest automatically. Data is encrypted at the storage layer before being written to disk. Three key management options available.",
         "options": [
-          {"value": "Google-managed", "name": "Google-managed encryption keys (GMEK)", "description": "Default. Google manages keys with automatic rotation. No configuration required. No additional cost."},
-          {"value": "Customer-managed", "name": "Customer-managed encryption keys (CMEK)", "description": "Keys managed in Cloud KMS. Customer controls key rotation, access, and lifecycle."},
-          {"value": "Customer-supplied", "name": "Customer-supplied encryption keys (CSEK)", "description": "Customer provides a raw or RSA-wrapped key with each request. Google does not store the key. Key loss means data loss."}
+          {
+            "value": "Google-managed",
+            "name": "Google-managed encryption keys (GMEK)",
+            "description": "Default. Google manages keys with automatic rotation. No configuration required. No additional cost."
+          },
+          {
+            "value": "Customer-managed",
+            "name": "Customer-managed encryption keys (CMEK)",
+            "description": "Keys managed in Cloud KMS. Customer controls key rotation, access, and lifecycle."
+          },
+          {
+            "value": "Customer-supplied",
+            "name": "Customer-supplied encryption keys (CSEK)",
+            "description": "Customer provides a raw or RSA-wrapped key with each request. Google does not store the key. Key loss means data loss."
+          }
         ],
-        "default": {"value": "Google-managed", "note": "All persistent disks encrypted by default with Google-managed keys. No opt-out possible."},
+        "default": {
+          "value": "Google-managed",
+          "note": "All persistent disks encrypted by default with Google-managed keys. No opt-out possible."
+        },
         "vendor_recommendation": "Use CMEK with Cloud KMS for regulatory requirements or key lifecycle control. GMEK is sufficient for most workloads. Avoid CSEK unless required — key loss means permanent data loss.",
         "audit": {
           "cli": "gcloud compute disks describe {disk} --zone={zone} --format='value(diskEncryptionKey)'",
@@ -43,13 +74,22 @@
           "terraform": "google_compute_disk (disk_encryption_key block)",
           "note": "CMEK must be specified at disk creation time. Cannot change encryption key after creation."
         },
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
-        "source": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption"
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^snapshot-encryption$"],
+      "patterns": [
+        "(?i)^snapshot-encryption$"
+      ],
       "description": "Encryption for Persistent Disk snapshots",
       "weight": 90,
       "data": {
@@ -64,21 +104,39 @@
           "cli": "gcloud compute snapshots create {snap} --source-disk={disk} --source-disk-zone={zone} --kms-key=projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}",
           "terraform": "google_compute_snapshot (snapshot_encryption_key block)"
         },
-        "cross_references": ["secid:capability/google.com/gcp/kms"],
-        "source": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_snapshot"
+        "cross_references": [
+          "secid:capability/google.com/gcp/kms"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_snapshot",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^confidential-vm-encryption$"],
+      "patterns": [
+        "(?i)^confidential-vm-encryption$"
+      ],
       "description": "Additional encryption for Confidential VM workloads",
       "weight": 80,
       "data": {
         "description": "Confidential VMs provide hardware-based memory encryption using AMD SEV (Secure Encrypted Virtualization) or Intel TDX (Trust Domain Extensions). Disk data is protected by a VM-specific key that is generated and managed by the hardware security processor. Provides defense against cloud operator and physical attack vectors.",
         "options": [
-          {"value": "AMD SEV", "description": "AMD Secure Encrypted Virtualization. Encrypts VM memory with per-VM key. Available on N2D and C2D machine types."},
-          {"value": "AMD SEV-SNP", "description": "AMD SEV with Secure Nested Paging. Adds integrity protection. Stronger isolation guarantees."},
-          {"value": "Intel TDX", "description": "Intel Trust Domain Extensions. Hardware-isolated VM execution environment with encrypted memory."}
+          {
+            "value": "AMD SEV",
+            "description": "AMD Secure Encrypted Virtualization. Encrypts VM memory with per-VM key. Available on N2D and C2D machine types."
+          },
+          {
+            "value": "AMD SEV-SNP",
+            "description": "AMD SEV with Secure Nested Paging. Adds integrity protection. Stronger isolation guarantees."
+          },
+          {
+            "value": "Intel TDX",
+            "description": "Intel Trust Domain Extensions. Hardware-isolated VM execution environment with encrypted memory."
+          }
         ],
         "vendor_recommendation": "Use Confidential VMs for workloads processing highly sensitive data where protection from the cloud operator and side-channel attacks is required.",
         "audit": {
@@ -91,7 +149,13 @@
           "terraform": "google_compute_instance (confidential_instance_config block)",
           "note": "Must be specified at VM creation time. Cannot be enabled on existing VMs."
         },
-        "source": "https://cloud.google.com/confidential-computing/confidential-vm/docs/about-cvm"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://cloud.google.com/confidential-computing/confidential-vm/docs/about-cvm",
+            "note": "Google Cloud documentation"
+          }
+        ]
       }
     }
   ]

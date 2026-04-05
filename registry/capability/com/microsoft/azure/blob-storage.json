@@ -4,34 +4,63 @@
   "type": "capability",
   "status": "draft",
   "status_notes": "Initial research from Azure Blob Storage documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live Azure environment).",
-
   "official_name": "Azure Blob Storage",
   "common_name": "Blob Storage",
   "alternate_names": null,
   "notes": "Object storage for Azure. Part of Azure Storage account. Security includes encryption, RBAC, SAS tokens, soft delete, immutability, private endpoints.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/storage/blobs/"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations", "note": "Blob Storage security recommendations"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-security-guide", "note": "Azure Storage security guide"},
-    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/", "note": "Azure Storage REST API Reference"}
+    {
+      "type": "website",
+      "url": "https://azure.microsoft.com/en-us/products/storage/blobs/"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations",
+      "note": "Blob Storage security recommendations"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-security-guide",
+      "note": "Azure Storage security guide"
+    },
+    {
+      "type": "docs",
+      "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/",
+      "note": "Azure Storage REST API Reference"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^encryption$"],
+      "patterns": [
+        "(?i)^encryption$"
+      ],
       "description": "Azure Storage encryption at rest for blob data",
       "weight": 100,
       "data": {
         "description": "Azure Storage automatically encrypts all data at rest using 256-bit AES encryption. Three key management options available, plus an infrastructure encryption option for double encryption.",
         "options": [
-          {"value": "Microsoft-managed", "name": "Microsoft-managed keys", "description": "Default. Microsoft manages encryption keys. No configuration required."},
-          {"value": "Customer-managed", "name": "Customer-managed keys (CMK)", "description": "Keys stored in Azure Key Vault or Managed HSM. Customer controls key rotation and access."},
-          {"value": "Infrastructure encryption", "name": "Infrastructure encryption (double encryption)", "description": "Second layer of encryption at the infrastructure level using platform-managed keys. Combined with service-level encryption for two layers."}
+          {
+            "value": "Microsoft-managed",
+            "name": "Microsoft-managed keys",
+            "description": "Default. Microsoft manages encryption keys. No configuration required."
+          },
+          {
+            "value": "Customer-managed",
+            "name": "Customer-managed keys (CMK)",
+            "description": "Keys stored in Azure Key Vault or Managed HSM. Customer controls key rotation and access."
+          },
+          {
+            "value": "Infrastructure encryption",
+            "name": "Infrastructure encryption (double encryption)",
+            "description": "Second layer of encryption at the infrastructure level using platform-managed keys. Combined with service-level encryption for two layers."
+          }
         ],
-        "default": {"value": "Microsoft-managed", "note": "All data encrypted by default with Microsoft-managed keys. No opt-out possible."},
+        "default": {
+          "value": "Microsoft-managed",
+          "note": "All data encrypted by default with Microsoft-managed keys. No opt-out possible."
+        },
         "vendor_recommendation": "Use customer-managed keys for full key lifecycle control. Enable infrastructure encryption for compliance scenarios requiring double encryption.",
         "audit": {
           "cli": "az storage account show --name {acct} --query encryption",
@@ -43,23 +72,44 @@
           "terraform": "azurerm_storage_account (customer_managed_key block)",
           "arm": "Microsoft.Storage/storageAccounts encryption property"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/key-vault"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^anonymous-access$"],
+      "patterns": [
+        "(?i)^anonymous-access$"
+      ],
       "description": "Public/anonymous read access to blob containers and data",
       "weight": 100,
       "data": {
         "description": "Controls whether blobs and containers can be accessed without authentication. Can be disabled at the storage account level to prevent any container from being configured for public access.",
         "options": [
-          {"value": "Disabled", "description": "No anonymous access allowed. Recommended setting."},
-          {"value": "Container", "description": "Anonymous read access for container and blob data."},
-          {"value": "Blob", "description": "Anonymous read access for blob data only (must know exact blob name)."}
+          {
+            "value": "Disabled",
+            "description": "No anonymous access allowed. Recommended setting."
+          },
+          {
+            "value": "Container",
+            "description": "Anonymous read access for container and blob data."
+          },
+          {
+            "value": "Blob",
+            "description": "Anonymous read access for blob data only (must know exact blob name)."
+          }
         ],
-        "default": {"value": "Disabled", "note": "Anonymous access is disabled by default for new storage accounts."},
+        "default": {
+          "value": "Disabled",
+          "note": "Anonymous access is disabled by default for new storage accounts."
+        },
         "vendor_recommendation": "Disable anonymous access at the storage account level. Use Entra ID (RBAC) or SAS tokens for authorized access.",
         "audit": {
           "cli": "az storage account show --name {acct} --query allowBlobPublicAccess",
@@ -71,12 +121,19 @@
           "terraform": "azurerm_storage_account (allow_nested_items_to_be_public = false)",
           "arm": "Microsoft.Storage/storageAccounts allowBlobPublicAccess"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^rbac-authorization$"],
+      "patterns": [
+        "(?i)^rbac-authorization$"
+      ],
       "description": "Azure RBAC for data plane access to blob storage",
       "weight": 100,
       "data": {
@@ -92,22 +149,40 @@
           "terraform": "azurerm_storage_account (default_to_oauth_authentication = true)",
           "note": "Assign built-in roles: Storage Blob Data Reader, Storage Blob Data Contributor, Storage Blob Data Owner"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
-        "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/authorize-access-azure-active-directory"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/entra-id"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/authorize-access-azure-active-directory",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^shared-key-authorization$"],
+      "patterns": [
+        "(?i)^shared-key-authorization$"
+      ],
       "description": "Storage account access key authorization",
       "weight": 90,
       "data": {
         "description": "Two 512-bit access keys per storage account that provide full access to all data. Can be disabled to force Entra ID (RBAC) authentication only.",
         "options": [
-          {"value": "Enabled", "description": "Default. Shared key authorization allowed."},
-          {"value": "Disabled", "description": "Shared key authorization blocked. Forces Entra ID (OAuth) authentication."}
+          {
+            "value": "Enabled",
+            "description": "Default. Shared key authorization allowed."
+          },
+          {
+            "value": "Disabled",
+            "description": "Shared key authorization blocked. Forces Entra ID (OAuth) authentication."
+          }
         ],
-        "default": {"value": "Enabled", "note": "Shared key authorization is enabled by default."},
+        "default": {
+          "value": "Enabled",
+          "note": "Shared key authorization is enabled by default."
+        },
         "vendor_recommendation": "Disallow shared key authorization to enforce Entra ID authentication. Rotate access keys regularly if shared key must remain enabled.",
         "audit": {
           "cli": "az storage account show --name {acct} --query allowSharedKeyAccess",
@@ -118,37 +193,69 @@
           "cli": "az storage account update --name {acct} --resource-group {rg} --allow-shared-key-access false",
           "terraform": "azurerm_storage_account (shared_access_key_enabled = false)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^shared-access-signatures$"],
+      "patterns": [
+        "(?i)^shared-access-signatures$"
+      ],
       "description": "Delegated access tokens (SAS) for time-limited blob access",
       "weight": 90,
       "data": {
         "description": "Shared Access Signatures provide delegated, time-limited access to storage resources. Three types with different security properties.",
         "options": [
-          {"value": "User delegation SAS", "description": "Backed by Entra ID credentials. Most secure. Recommended. Only works with Blob and Data Lake storage."},
-          {"value": "Service SAS", "description": "Backed by storage account key. Scoped to a single service (Blob, Queue, Table, File)."},
-          {"value": "Account SAS", "description": "Backed by storage account key. Can delegate access across multiple services."}
+          {
+            "value": "User delegation SAS",
+            "description": "Backed by Entra ID credentials. Most secure. Recommended. Only works with Blob and Data Lake storage."
+          },
+          {
+            "value": "Service SAS",
+            "description": "Backed by storage account key. Scoped to a single service (Blob, Queue, Table, File)."
+          },
+          {
+            "value": "Account SAS",
+            "description": "Backed by storage account key. Can delegate access across multiple services."
+          }
         ],
         "vendor_recommendation": "Use user delegation SAS whenever possible. It is backed by Entra ID credentials and does not require distributing storage account keys.",
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^soft-delete$"],
+      "patterns": [
+        "(?i)^soft-delete$"
+      ],
       "description": "Recoverable deletion for blobs and containers",
       "weight": 100,
       "data": {
         "description": "Maintains deleted data in a recoverable state for a specified retention period. Available for both blobs and containers independently.",
         "options": [
-          {"setting": "Blob soft delete", "description": "Retains deleted blobs and blob versions. Configurable retention 1-365 days."},
-          {"setting": "Container soft delete", "description": "Retains deleted containers. Configurable retention 1-365 days."}
+          {
+            "setting": "Blob soft delete",
+            "description": "Retains deleted blobs and blob versions. Configurable retention 1-365 days."
+          },
+          {
+            "setting": "Container soft delete",
+            "description": "Retains deleted containers. Configurable retention 1-365 days."
+          }
         ],
-        "default": {"value": "7 days", "note": "Blob soft delete and container soft delete are enabled by default with 7-day retention for new storage accounts."},
+        "default": {
+          "value": "7 days",
+          "note": "Blob soft delete and container soft delete are enabled by default with 7-day retention for new storage accounts."
+        },
         "vendor_recommendation": "Enable both blob and container soft delete with a retention period that meets your recovery requirements.",
         "audit": {
           "cli": "az storage account blob-service-properties show --account-name {acct} --query deleteRetentionPolicy",
@@ -160,19 +267,32 @@
           "cli": "az storage account blob-service-properties update --account-name {acct} --resource-group {rg} --enable-delete-retention true --delete-retention-days 30",
           "terraform": "azurerm_storage_account (blob_properties → delete_retention_policy, container_delete_retention_policy)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^immutability-policies$"],
+      "patterns": [
+        "(?i)^immutability-policies$"
+      ],
       "description": "WORM (Write Once Read Many) immutability for blob data",
       "weight": 90,
       "data": {
         "description": "Prevents modification and deletion of blob data. Two policy types: time-based retention (locked for a specified period) and legal hold (locked until explicitly removed). Can be applied at container or version level.",
         "options": [
-          {"value": "Time-based retention", "description": "Objects cannot be modified or deleted for the specified retention period. Policy can be locked (irreversible)."},
-          {"value": "Legal hold", "description": "Objects cannot be modified or deleted until all legal holds are cleared. No retention period — holds are explicit."}
+          {
+            "value": "Time-based retention",
+            "description": "Objects cannot be modified or deleted for the specified retention period. Policy can be locked (irreversible)."
+          },
+          {
+            "value": "Legal hold",
+            "description": "Objects cannot be modified or deleted until all legal holds are cleared. No retention period — holds are explicit."
+          }
         ],
         "vendor_recommendation": "Use immutability policies for regulatory compliance (SEC 17a-4, CFTC 1.31). Lock time-based retention policies to make them irreversible.",
         "audit": {
@@ -185,17 +305,27 @@
           "cli": "az storage container immutability-policy create --account-name {acct} --container-name {container} --period {days}",
           "terraform": "azurerm_storage_container (has no direct immutability resource; use azapi_resource)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^versioning$"],
+      "patterns": [
+        "(?i)^versioning$"
+      ],
       "description": "Blob versioning to maintain previous object versions",
       "weight": 90,
       "data": {
         "description": "Automatically maintains previous versions of a blob when it is modified or deleted. Each version has a unique version ID. Works with soft delete for comprehensive data protection.",
-        "default": {"value": "Disabled", "note": "Blob versioning is disabled by default."},
+        "default": {
+          "value": "Disabled",
+          "note": "Blob versioning is disabled by default."
+        },
         "vendor_recommendation": "Enable versioning for data protection. Combine with soft delete and lifecycle management to control version retention costs.",
         "audit": {
           "cli": "az storage account blob-service-properties show --account-name {acct} --query isVersioningEnabled",
@@ -206,17 +336,27 @@
           "cli": "az storage account blob-service-properties update --account-name {acct} --resource-group {rg} --enable-versioning true",
           "terraform": "azurerm_storage_account (blob_properties → versioning_enabled = true)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^secure-transfer$"],
+      "patterns": [
+        "(?i)^secure-transfer$"
+      ],
       "description": "Require HTTPS for storage account connections",
       "weight": 90,
       "data": {
         "description": "Enforces secure transfer (HTTPS) for all requests to the storage account. Rejects any requests made over HTTP.",
-        "default": {"value": "Enabled", "note": "Secure transfer is enabled by default for new storage accounts."},
+        "default": {
+          "value": "Enabled",
+          "note": "Secure transfer is enabled by default for new storage accounts."
+        },
         "vendor_recommendation": "Keep secure transfer enabled. Never disable it.",
         "audit": {
           "cli": "az storage account show --name {acct} --query enableHttpsTrafficOnly",
@@ -227,22 +367,41 @@
           "cli": "az storage account update --name {acct} --resource-group {rg} --https-only true",
           "terraform": "azurerm_storage_account (enable_https_traffic_only = true)"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^minimum-tls$"],
+      "patterns": [
+        "(?i)^minimum-tls$"
+      ],
       "description": "Minimum TLS version for storage account connections",
       "weight": 90,
       "data": {
         "description": "Sets the minimum version of TLS that clients must use when connecting to the storage account. Requests using older TLS versions are rejected.",
         "options": [
-          {"value": "TLS1_0", "description": "TLS 1.0 minimum. Not recommended."},
-          {"value": "TLS1_1", "description": "TLS 1.1 minimum. Not recommended."},
-          {"value": "TLS1_2", "description": "TLS 1.2 minimum. Recommended."}
+          {
+            "value": "TLS1_0",
+            "description": "TLS 1.0 minimum. Not recommended."
+          },
+          {
+            "value": "TLS1_1",
+            "description": "TLS 1.1 minimum. Not recommended."
+          },
+          {
+            "value": "TLS1_2",
+            "description": "TLS 1.2 minimum. Recommended."
+          }
         ],
-        "default": {"value": "TLS1_2", "note": "TLS 1.2 is the default minimum for new storage accounts."},
+        "default": {
+          "value": "TLS1_2",
+          "note": "TLS 1.2 is the default minimum for new storage accounts."
+        },
         "vendor_recommendation": "Set minimum TLS version to 1.2. TLS 1.0 and 1.1 have known vulnerabilities.",
         "audit": {
           "cli": "az storage account show --name {acct} --query minimumTlsVersion",
@@ -253,12 +412,19 @@
           "cli": "az storage account update --name {acct} --resource-group {rg} --min-tls-version TLS1_2",
           "terraform": "azurerm_storage_account (min_tls_version = \"TLS1_2\")"
         },
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^private-endpoints$"],
+      "patterns": [
+        "(?i)^private-endpoints$"
+      ],
       "description": "Private connectivity to blob storage via Azure Private Link",
       "weight": 80,
       "data": {
@@ -273,21 +439,39 @@
           "cli": "az network private-endpoint create --name {pe-name} --resource-group {rg} --vnet-name {vnet} --subnet {subnet} --private-connection-resource-id {storage-id} --group-id blob --connection-name {conn-name}",
           "terraform": "azurerm_private_endpoint"
         },
-        "cross_references": ["secid:capability/microsoft.com/azure/virtual-network"],
-        "source": "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints"
+        "cross_references": [
+          "secid:capability/microsoft.com/azure/virtual-network"
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     },
-
     {
-      "patterns": ["(?i)^defender-for-storage$"],
+      "patterns": [
+        "(?i)^defender-for-storage$"
+      ],
       "description": "Microsoft Defender threat detection for storage accounts",
       "weight": 80,
       "data": {
         "description": "Security intelligence layer that detects unusual and potentially harmful attempts to access or exploit storage accounts. Detects anomalous access patterns, anonymous access from suspicious IPs, unusual data extraction, and suspicious uploads (malware scanning).",
         "options": [
-          {"feature": "Activity monitoring", "description": "Detects anomalous access patterns, unauthorized access, suspicious data extraction"},
-          {"feature": "Malware scanning", "description": "Scans uploaded blobs for malware using Microsoft Defender Antivirus engine"},
-          {"feature": "Sensitive data threat detection", "description": "Prioritizes alerts for resources containing sensitive data"}
+          {
+            "feature": "Activity monitoring",
+            "description": "Detects anomalous access patterns, unauthorized access, suspicious data extraction"
+          },
+          {
+            "feature": "Malware scanning",
+            "description": "Scans uploaded blobs for malware using Microsoft Defender Antivirus engine"
+          },
+          {
+            "feature": "Sensitive data threat detection",
+            "description": "Prioritizes alerts for resources containing sensitive data"
+          }
         ],
         "vendor_recommendation": "Enable Defender for Storage on all storage accounts, especially those containing sensitive data.",
         "audit": {
@@ -299,7 +483,13 @@
           "terraform": "azurerm_security_center_subscription_pricing (resource_type = \"StorageAccounts\")",
           "note": "Can be enabled at subscription level (all storage accounts) or per-account."
         },
-        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction"
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+            "note": "Microsoft documentation"
+          }
+        ]
       }
     }
   ]
