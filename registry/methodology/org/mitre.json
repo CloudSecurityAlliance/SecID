@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "MITRE Corporation",
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ctid-framework-mapping$"],
+      "description": "CTID Control Framework to ATT&CK Mapping Methodology: systematic process for mapping security control frameworks (NIST 800-53, ISO 27001, etc.) to ATT&CK techniques. Developed by the Center for Threat-Informed Defense (CTID).",
+      "weight": 100,
+      "data": {
+        "url": "https://center-for-threat-informed-defense.github.io/mappings-explorer/about/methodology/nist-methodology/",
+        "examples": ["ctid-framework-mapping"]
+      }
+    },
+    {
+      "patterns": ["(?i)^ctid-platform-mapping$"],
+      "description": "CTID Technology Platform Capability to ATT&CK Methodology: process for mapping security capabilities of technology platforms (Azure, AWS, GCP) to ATT&CK techniques they can detect or mitigate.",
+      "weight": 100,
+      "data": {
+        "url": "https://center-for-threat-informed-defense.github.io/mappings-explorer/about/methodology/",
+        "examples": ["ctid-platform-mapping"]
+      }
+    }
+  ]
+}
