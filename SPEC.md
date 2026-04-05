@@ -48,7 +48,7 @@ SecID:  secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qua
 | PURL Component | SecID Component | Required | SecID Usage |
 |----------------|-----------------|----------|-------------|
 | `pkg:` | `secid:` | Yes | Scheme (constant prefix) |
-| `type` | `type` | Yes | Security domain: `advisory`, `weakness`, `ttp`, `control`, `capability`, `disclosure`, `regulation`, `entity`, `reference` |
+| `type` | `type` | Yes | Security domain: `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`, `regulation`, `entity`, `reference` |
 | `namespace` | `namespace` | Yes | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. A plain domain (`redhat.com`, `cloudsecurityalliance.org`) or a domain with `/`-separated path segments (`github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`). |
 | `name` | `name` | Yes | **Database/framework/standard** they publish (e.g., `cve`, `nvd`, `cwe`, `attack`, `ccm`, `27001`) |
 | `@version` | `@version` | No | Edition or revision (e.g., `@4.0`, `@2022`, `@2.0`) |
@@ -239,7 +239,7 @@ PURL uses `pkg:` to identify packages. SecID uses `secid:` to identify security 
 
 PURL types are package ecosystems: `npm`, `pypi`, `maven`, `cargo`, `nuget`, etc.
 
-SecID types are security domains: `advisory`, `weakness`, `ttp`, `control`, `capability`, `disclosure`, `regulation`, `entity`, `reference`.
+SecID types are security domains: `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`, `regulation`, `entity`, `reference`.
 
 This is semantic, not structural - the grammar is identical, just the vocabulary differs.
 
@@ -347,7 +347,7 @@ secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qualifiers]
 | Component | Required | Description |
 |-----------|----------|-------------|
 | `secid:` | Yes | The URL scheme (constant, like `pkg:` in PURL) |
-| `type` | Yes | The security domain: advisory, weakness, ttp, control, capability, disclosure, regulation, entity, reference |
+| `type` | Yes | The security domain: advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, entity, reference |
 | `namespace` | Yes | The domain name of the organization (mitre.org, nist.gov, owasp.org, etc.), optionally with sub-namespace path segments (github.com/advisories) |
 | `name` | Yes | The database/framework/document they publish (cve, nvd, ccm, attack, etc.) |
 | `@version` | No | Edition or revision of the thing itself |
@@ -376,6 +376,8 @@ secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12
 secid:control/cloudsecurityalliance.org/aicm@1.0#IAM-12/Auditing%20Guidelines
 secid:regulation/europa.eu/gdpr@2016-04-27
 secid:regulation/europa.eu/gdpr#art-32
+secid:methodology/first.org/cvss@4.0
+secid:methodology/nist.gov/ir-8477#strm
 secid:entity/mitre.org/cve
 secid:entity/openai.com/gpt-4
 secid:reference/whitehouse.gov/eo-14110
@@ -384,7 +386,7 @@ secid:reference/arxiv.org/2303.08774
 
 ## 3. Types
 
-SecID defines nine types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution) for the rationale.
+SecID defines ten types. Each answers a different question. Types are intentionally broad - we overload existing types with related concepts (e.g., incidents in `advisory`) and only create new types when real-world usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution) for the rationale.
 
 | Type | What it identifies | Question it answers |
 |------|-------------------|---------------------|
@@ -393,6 +395,7 @@ SecID defines nine types. Each answers a different question. Types are intention
 | `ttp` | Adversary techniques and behaviors | "How do attackers do this?" |
 | `control` | Security requirements, benchmarks, and documentation standards | "How do we prevent/detect/document this?" |
 | `capability` | What concrete security features does a product provide? | Product security features: encryption settings, access controls, logging configurations, audit commands, remediation CLI/API/IaC |
+| `methodology` | Formal processes for producing security analysis | "How do I produce a defensible result?" |
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels | "How do I report a vulnerability?" |
 | `regulation` | Laws and binding legal requirements | "What does the law require?" |
 | `entity` | Vendors, products, services, platforms | "What/who is this?" |
@@ -577,6 +580,21 @@ secid:reference/arxiv.org/2303.08774#appendix-a       # Paper appendix
 ```
 
 **Note:** Document classification (research paper, position paper, etc.) lives in metadata, not in the identifier.
+
+### 3.10 Methodology
+
+Formal processes for producing security analysis, scores, mappings, and decisions. Where `control` says "implement this requirement" and `reference` says "read this document," `methodology` says "follow this process to produce a defensible result."
+
+```
+secid:methodology/first.org/cvss@4.0                          # CVSS vulnerability scoring
+secid:methodology/first.org/cvss@4.0#AV                       # Attack Vector metric
+secid:methodology/nist.gov/ir-8477#strm                        # Security Technical Reference Mapping
+secid:methodology/nist.gov/ir-8477#crosswalk                   # Crosswalk sub-methodology
+secid:methodology/cmu.edu/ssvc@2.0                             # Stakeholder-Specific Vulnerability Categorization
+secid:methodology/microsoft.com/stride                         # STRIDE threat modeling
+```
+
+**The duck test:** If someone hands you this document and asks "what do I DO with it?", is the primary answer "follow this process to produce an output"? If yes, it's a methodology. If the primary answer is "implement this requirement," it's a control. If "read this for background," it's a reference.
 
 ## 4. Namespaces
 
@@ -1139,7 +1157,7 @@ Rather than defining a complex list of banned characters that users must memoriz
 
 **Parsing algorithm:**
 
-1. **Type** - Match against known list: `advisory`, `weakness`, `ttp`, `control`, `capability`, `disclosure`, `regulation`, `entity`, `reference`
+1. **Type** - Match against known list: `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`, `regulation`, `entity`, `reference`
 2. **Namespace** - Try shortest-to-longest namespace matches against the registry (see below)
 3. **Name** - Match remaining path against source names in `registry[type][namespace]`. **Longest match wins.** Names can contain any characters including `#`, `@`, `?`, `:`.
 4. **Source version** - After name match, parse `@...` until `?` or `#`
