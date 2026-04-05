@@ -46,6 +46,24 @@
         "examples": []
       },
       "children": []
+    },
+
+    {
+      "patterns": ["(?i)^epss$"],
+      "description": "EPSS — Exploit Prediction Scoring System",
+      "weight": 100,
+      "data": {
+        "official_name": "Exploit Prediction Scoring System",
+        "common_name": "EPSS",
+        "alternate_names": null,
+        "description": "Data-driven model for estimating the probability that a vulnerability will be exploited in the wild within 30 days.",
+        "notes": "Data-driven model for estimating the probability that a vulnerability will be exploited in the wild within 30 days. Scores range 0-1 (probability). Updated daily. Complements CVSS severity with exploitation likelihood.",
+        "urls": [
+          {"type": "website", "url": "https://www.first.org/epss/"},
+          {"type": "api", "url": "https://api.first.org/data/v1/epss"}
+        ],
+        "examples": []
+      }
     }
   ]
 }

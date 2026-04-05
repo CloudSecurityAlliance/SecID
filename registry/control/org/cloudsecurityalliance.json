@@ -159,6 +159,41 @@
         ],
         "examples": []
       }
+    },
+
+    {
+      "patterns": ["(?i)^ccsk$"],
+      "description": "Certificate of Cloud Security Knowledge",
+      "weight": 100,
+      "data": {
+        "official_name": "Certificate of Cloud Security Knowledge",
+        "common_name": "CCSK",
+        "alternate_names": null,
+        "description": "CSA's foundational cloud security certification covering cloud architecture, governance, compliance, operations, and security.",
+        "notes": "CSA's foundational cloud security certification. Covers cloud architecture, governance, compliance, operations, and security. Based on CSA Security Guidance and CCM.",
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/education/ccsk"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^star$"],
+      "description": "CSA STAR Program — Security Trust Assurance and Risk",
+      "weight": 100,
+      "data": {
+        "official_name": "CSA STAR Program — Security Trust Assurance and Risk",
+        "common_name": "STAR",
+        "alternate_names": ["CSA STAR"],
+        "description": "Registry of cloud provider security assessments with three levels: self-assessment, third-party audit, and continuous monitoring.",
+        "notes": "Registry of cloud provider security assessments. Three levels: Level 1 (self-assessment via CAIQ), Level 2 (third-party audit), Level 3 (continuous monitoring). Publicly searchable at star.watch.",
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/star"},
+          {"type": "lookup", "url": "https://star.watch"}
+        ],
+        "examples": []
+      }
     }
   ]
 }

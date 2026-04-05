@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Google LLC",
+  "common_name": "Google",
+  "alternate_names": null,
+  "notes": "Google publishes AI model cards as transparency documentation. See also: advisory/google.com (security advisories for Chrome, Android, GCP, OSV, Project Zero).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.google.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^model-card$"],
+      "description": "Google AI model cards",
+      "weight": 100,
+      "data": {
+        "official_name": "Google AI Model Cards",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Transparency documentation for Google AI models covering capabilities, limitations, intended use, and evaluation results.",
+        "notes": "Google publishes model cards for its AI models including Gemini, PaLM, and others. Hosted at modelcards.withgoogle.com.",
+        "urls": [
+          {"type": "website", "url": "https://modelcards.withgoogle.com/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

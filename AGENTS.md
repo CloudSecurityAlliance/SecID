@@ -1,44 +1,28 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `registry/` is the source of truth for SecID namespaces and type definitions.
-- `registry/<type>/...` stores namespace entries by reverse-domain path (for example, `registry/advisory/org/mitre.json`).
-- `docs/` contains reference specs, contributor guides, design rationale, and operations documentation.
-- `seed/` contains research CSV inputs only; do not treat these files as authoritative.
-- `.github/workflows/update-registry.yml` dispatches updates to `SecID-Service` when `registry/**/*.json` changes on `main`.
+
+`registry/` is the core dataset. Top-level files such as `registry/advisory.md` define each SecID type, and namespace entries live under reverse-DNS paths like `registry/advisory/org/mitre.md` or `registry/advisory/com/github/advisories.md`. `docs/` holds contributor guides, reference specs, and operations notes. `seed/` contains research CSVs used to discover candidates; it is not authoritative. `slides/` stores presentation assets, and `.github/workflows/` contains automation such as registry update notifications.
 
 ## Build, Test, and Development Commands
-This repository is primarily specification and registry data; there is no local app build.
-- `rg --files registry docs seed` lists tracked content quickly.
-- `python -m json.tool registry/<type>/<...>.json >/dev/null` validates JSON syntax for changed registry files.
-- `rg -n "namespace:|\"namespace\"" registry/` checks namespace consistency and duplicates.
-- `git diff -- registry/ docs/` reviews only relevant changes before opening a PR.
+
+This repository does not ship an application build. The normal workflow is document and registry editing plus targeted validation:
+
+- `rg --files registry docs seed` lists the files relevant to a change.
+- `git diff -- registry docs` reviews exactly what changed before commit.
+- `sed -n '1,160p' registry/<type>/<tld>/<file>.md` spot-checks frontmatter and examples.
+- `git log --pretty=format:'%s' -10` samples recent commit style.
+
+If your change affects regex-driven `match_nodes`, follow [docs/guides/REGEX-WORKFLOW.md](/Volumes/MacMiniData/Users/kurt/GitHub/CloudSecurityAlliance/SecID/docs/guides/REGEX-WORKFLOW.md) and record the analyzer or review method in the PR.
 
 ## Coding Style & Naming Conventions
-- Use Markdown for docs and JSON for active registry namespace files.
-- Keep Markdown concise, heading-driven, and instructional.
-- Preserve existing key naming in JSON (for example, `schema_version`, `match_nodes`, `examples`).
-- Follow reverse-domain path mapping for namespaces (for example, `mitre.org` -> `org/mitre`).
-- Prefer small, focused edits; avoid broad reformatting unrelated to the change.
+
+Write Markdown in short, direct paragraphs with ATX headings. Preserve source terminology and identifier formats exactly: `RHSA-2026:0932`, `T1059.003`, `A.5.1`. Registry namespaces follow reverse-DNS layout and lowercase file paths. Prefer ASCII unless the source name or domain is genuinely Unicode. Keep examples concrete and aligned with existing registry patterns.
 
 ## Testing Guidelines
-- There is no formal test suite in this repo today; validation is file-level and review-driven.
-- For registry changes, verify:
-  - JSON parses cleanly.
-  - Example SecIDs and URL templates are internally consistent.
-  - Regex/pattern updates do not broaden matching unintentionally.
-- Include at least one concrete example in updated documentation when behavior changes.
+
+Testing here is review-driven rather than CI-heavy. For registry changes, verify positive and negative identifier examples, confirm anchored regexes (`^...$`), and check that URLs and variable extraction still match source documentation. Treat `seed/*.csv` as research only; authoritative updates belong in `registry/`.
 
 ## Commit & Pull Request Guidelines
-- Match established commit style from history: imperative, concise subject lines (for example, `Add ...`, `Update ...`, `Convert ...`, `Rename ...`).
-- Keep one logical change per commit and per PR.
-- PRs should include:
-  - What changed and why.
-  - Affected paths/types (for example, `registry/advisory`, `docs/reference`).
-  - Validation notes (commands run and results).
-  - Linked issue/discussion when applicable.
 
-## Security & Configuration Tips
-- Do not commit secrets; this repo should remain content-only.
-- Treat `seed/` as non-authoritative research input and migrate vetted data into `registry/`.
-- If registry semantics change, update both docs and registry examples in the same PR.
+Recent commits use short, imperative subjects such as `Add security.txt validation details to Red Hat entity` and `Document regex safety controls and update contributor guidance`. Keep commits narrowly scoped and use one logical change per PR. Open an issue first for substantial additions, link it in the PR, summarize affected paths, and include regex safety notes for pattern changes. Add screenshots only when updating rendered assets such as slides.

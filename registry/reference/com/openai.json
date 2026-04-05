@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openai.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "OpenAI",
+  "common_name": "OpenAI",
+  "alternate_names": null,
+  "notes": "OpenAI develops GPT-series AI models and publishes system cards and model specifications as safety and transparency documentation.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://openai.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^system-card$"],
+      "description": "OpenAI system cards — safety and capability documentation for GPT models",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenAI System Cards",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Safety and capability documentation for GPT models covering system-level safety evaluations, deployment decisions, and risk assessments.",
+        "notes": "Documents system-level safety evaluations, deployment decisions, and risk assessments. Published for GPT-4, GPT-4o, etc.",
+        "urls": [
+          {"type": "website", "url": "https://openai.com/index/gpt-4o-system-card/"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^model-spec$"],
+      "description": "OpenAI Model Spec — behavioral guidelines for AI models",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenAI Model Spec",
+        "common_name": "Model Spec",
+        "alternate_names": null,
+        "description": "Behavioral guidelines defining how OpenAI models should behave, including safety boundaries and default behaviors.",
+        "urls": [
+          {"type": "website", "url": "https://cdn.openai.com/spec/model-spec-2024-05-08.html"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

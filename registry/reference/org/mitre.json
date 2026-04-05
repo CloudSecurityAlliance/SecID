@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "The MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": null,
+  "notes": "MITRE develops and maintains several foundational security standards and specifications beyond their vulnerability/threat databases. This reference entry covers MITRE-originated specifications and standards. See also: advisory/mitre.org (CVE), weakness/mitre.org (CWE), ttp/mitre.org (ATT&CK, ATLAS, CAPEC), control/mitre.org, entity/mitre.org, disclosure/mitre.org.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cpe$"],
+      "description": "CPE — Common Platform Enumeration",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Platform Enumeration",
+        "common_name": "CPE",
+        "alternate_names": null,
+        "description": "Standardized naming scheme for IT products and platforms.",
+        "notes": "Used in NVD to identify affected products. CPE 2.3 is current. Format: cpe:2.3:part:vendor:product:version:... Maintained as a NIST dictionary.",
+        "urls": [
+          {"type": "website", "url": "https://nvd.nist.gov/products/cpe"},
+          {"type": "docs", "url": "https://csrc.nist.gov/projects/security-content-automation-protocol/scap-specifications/cpe"}
+        ],
+        "examples": ["cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*"]
+      },
+      "children": [
+        {
+          "patterns": ["^cpe:2\\.3:[aho]:[^:]+:[^:]+"],
+          "description": "CPE 2.3 formatted string",
+          "weight": 100,
+          "data": {
+            "url": "https://nvd.nist.gov/products/cpe/search/results?namingFormat=2.3&keyword={id}",
+            "note": "CPE strings use colon-delimited fields. Part types: a (application), h (hardware), o (operating system).",
+            "examples": [
+              {"input": "cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*", "url": "https://nvd.nist.gov/products/cpe/search/results?namingFormat=2.3&keyword=cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^stix$"],
+      "description": "STIX — Structured Threat Information Expression",
+      "weight": 100,
+      "data": {
+        "official_name": "Structured Threat Information Expression",
+        "common_name": "STIX",
+        "alternate_names": null,
+        "description": "Structured language for describing cyber threat intelligence.",
+        "notes": "STIX 2.1 is current. JSON-based format for sharing threat intelligence — indicators, attack patterns, campaigns, threat actors. Now maintained by OASIS. Transported via TAXII protocol.",
+        "urls": [
+          {"type": "website", "url": "https://oasis-open.github.io/cti-documentation/"},
+          {"type": "docs", "url": "https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^taxii$"],
+      "description": "TAXII — Trusted Automated Exchange of Intelligence Information",
+      "weight": 100,
+      "data": {
+        "official_name": "Trusted Automated Exchange of Intelligence Information",
+        "common_name": "TAXII",
+        "alternate_names": null,
+        "description": "Transport protocol for sharing cyber threat intelligence.",
+        "notes": "TAXII 2.1 is current. HTTP-based protocol for exchanging STIX content. Defines collections, channels, and API endpoints. Now maintained by OASIS.",
+        "urls": [
+          {"type": "website", "url": "https://oasis-open.github.io/cti-documentation/"},
+          {"type": "docs", "url": "https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^maec$"],
+      "description": "MAEC — Malware Attribute Enumeration and Characterization",
+      "weight": 100,
+      "data": {
+        "official_name": "Malware Attribute Enumeration and Characterization",
+        "common_name": "MAEC",
+        "alternate_names": null,
+        "description": "Standardized language for encoding and communicating malware attributes.",
+        "notes": "MAEC 5.0 is current. Provides a structured way to describe malware behavior, artifacts, and relationships. Less widely adopted than STIX but useful for malware analysis.",
+        "urls": [
+          {"type": "website", "url": "https://maecproject.github.io/"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^oval$"],
+      "description": "OVAL — Open Vulnerability and Assessment Language",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Vulnerability and Assessment Language",
+        "common_name": "OVAL",
+        "alternate_names": null,
+        "description": "Language for determining vulnerability presence and system configuration.",
+        "notes": "Community standard for assessing and reporting on machine state. Used in SCAP (Security Content Automation Protocol). Defines tests for checking system configurations.",
+        "urls": [
+          {"type": "website", "url": "https://oval.mitre.org/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

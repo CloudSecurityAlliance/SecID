@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "anthropic.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Anthropic",
+  "common_name": "Anthropic",
+  "alternate_names": null,
+  "notes": "Anthropic is an AI safety company that develops the Claude family of AI models. Publishes model cards and safety documentation as transparency measures.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.anthropic.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^model-card$"],
+      "description": "Claude model cards — transparency documentation for Claude AI models",
+      "weight": 100,
+      "data": {
+        "official_name": "Claude Model Cards",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Transparency documentation for Claude AI models covering capabilities, limitations, safety evaluations, and intended use.",
+        "notes": "Documents model capabilities, limitations, safety evaluations, and intended use. Published for each major Claude release.",
+        "urls": [
+          {"type": "website", "url": "https://docs.anthropic.com/en/docs/about-claude/models"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -199,6 +199,80 @@
           }
         }
       ]
+    },
+
+    {
+      "patterns": ["(?i)^fips-140$"],
+      "description": "FIPS 140 — Security Requirements for Cryptographic Modules",
+      "weight": 100,
+      "data": {
+        "official_name": "FIPS 140 — Security Requirements for Cryptographic Modules",
+        "common_name": "FIPS 140",
+        "alternate_names": ["FIPS 140-2", "FIPS 140-3"],
+        "description": "Federal standard defining security requirements and four security levels for cryptographic modules.",
+        "notes": "FIPS 140-2 (2001, still widely referenced) and FIPS 140-3 (2019, current). Defines four security levels for cryptographic modules. Required for US federal systems. Validated modules listed on CMVP website.",
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/projects/cryptographic-module-validation-program"}
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "3", "status": "current"},
+          {"version": "2", "status": "active", "note": "Still widely referenced and tested against"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^fips-199$"],
+      "description": "FIPS 199 — Standards for Security Categorization",
+      "weight": 100,
+      "data": {
+        "official_name": "FIPS 199 — Standards for Security Categorization of Federal Information and Information Systems",
+        "common_name": "FIPS 199",
+        "alternate_names": null,
+        "description": "Defines three security categories (Low, Moderate, High) based on potential impact to confidentiality, integrity, and availability.",
+        "notes": "Defines three security categories (Low, Moderate, High) based on potential impact to confidentiality, integrity, and availability. Foundation for NIST 800-53 control selection.",
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/publications/detail/fips/199/final"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^fips-200$"],
+      "description": "FIPS 200 — Minimum Security Requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "FIPS 200 — Minimum Security Requirements for Federal Information and Information Systems",
+        "common_name": "FIPS 200",
+        "alternate_names": null,
+        "description": "Specifies minimum security requirements for federal systems across 17 security-related areas.",
+        "notes": "Specifies minimum security requirements for federal systems across 17 security-related areas. Works with FIPS 199 categorization to determine required controls.",
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/publications/detail/fips/200/final"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ai-rmf$"],
+      "description": "NIST AI Risk Management Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST AI Risk Management Framework",
+        "common_name": "AI RMF",
+        "alternate_names": ["NIST AI 100-1"],
+        "description": "Framework for managing risks in AI systems. Voluntary, intended to complement existing risk management processes.",
+        "notes": "NIST AI 100-1. Framework for managing risks in AI systems. Voluntary, intended to complement existing risk management processes.",
+        "urls": [
+          {"type": "website", "url": "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
