@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "namespace": "versprite.com",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry for PASTA threat modeling methodology. Reviewed 2026-04-05.",
+
+  "official_name": "VerSprite Security",
+  "urls": [
+    {"type": "website", "url": "https://versprite.com/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pasta$"],
+      "description": "Process for Attack Simulation and Threat Analysis (PASTA): seven-stage, risk-centric threat modeling methodology. Stages: define objectives, define technical scope, application decomposition, threat analysis, vulnerability analysis, attack modeling, risk/impact analysis. Created by Tony UcedaVelez and Marco Morana.",
+      "weight": 100,
+      "data": {
+        "url": "https://versprite.com/tag/pasta-threat-modeling/",
+        "examples": ["pasta"]
+      }
+    }
+  ]
+}
