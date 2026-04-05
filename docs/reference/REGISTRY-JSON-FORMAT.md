@@ -641,6 +641,72 @@ The `data` object at each level contains whatever result information is appropri
 | `variables` | object | Variable extraction for complex URL building (see Variable Extraction) |
 | `examples` | (string \| ExampleObject)[] | Test fixtures with expected outputs (see Examples) |
 
+**Capability-type data** (product security features — `type: capability`):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `options` | array | Configuration options. Each entry has `value`, `name`, `description`, and optionally `setting`, `type`, `range`, `default`. |
+| `default` | object \| string | Default value/configuration. Object with `value`, `since` (date of change), `note`. String for simple defaults. |
+| `vendor_recommendation` | string | What the vendor recommends for this capability. Labeled as the vendor's opinion, not a universal requirement. |
+| `audit` | object | Commands to check current configuration. Keys: `cli` (CLI command), `api` (API operation), `console` (UI path). May have additional keys like `cli_root`, `cli_all` for variations. |
+| `configure` | object | Commands to set/enable the capability. Keys: `cli`, `api`, `console`, `terraform` (resource name), `cloudformation` (resource type). May have additional keys like `cli_create`, `cli_delete`. |
+| `cross_references` | string[] | SecID strings for related capabilities in other services (e.g., `["secid:capability/amazon.com/aws/kms"]`). |
+| `limits` | string | Service limits or quotas relevant to this capability. |
+| `recent_changes` | string | Notable recent changes to defaults or behavior. |
+
+Example:
+
+```json
+{
+  "description": "S3 bucket default server-side encryption",
+  "options": [
+    {"value": "AES256", "name": "SSE-S3", "description": "Amazon S3 managed keys"},
+    {"value": "aws:kms", "name": "SSE-KMS", "description": "AWS KMS managed keys"}
+  ],
+  "default": {"value": "AES256", "since": "2023-01-05", "note": "Enabled by default since January 2023"},
+  "vendor_recommendation": "Use SSE-KMS for sensitive data",
+  "audit": {
+    "cli": "aws s3api get-bucket-encryption --bucket {bucket}",
+    "api": "GetBucketEncryption",
+    "console": "S3 → Bucket → Properties → Default encryption"
+  },
+  "configure": {
+    "cli": "aws s3api put-bucket-encryption --bucket {bucket} --server-side-encryption-configuration ...",
+    "terraform": "aws_s3_bucket_server_side_encryption_configuration",
+    "cloudformation": "AWS::S3::Bucket BucketEncryption"
+  },
+  "urls": [
+    {"type": "docs", "url": "https://docs.aws.amazon.com/...", "note": "AWS documentation"}
+  ]
+}
+```
+
+**Disclosure-type data** (vulnerability reporting — `type: disclosure`):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `scope` | string | What products/projects this disclosure program covers. The key field — answers "does this program cover my product?" |
+| `cve_program_role` | string | Role in the CVE Program (e.g., "CNA", "Root", "CNA-LR", "Top-Level Root", "Secretariat"). |
+| `organization_type` | string | Organization classification (e.g., "Vendor", "Open Source", "CERT", "Bug Bounty Provider"). |
+| `contacts` | array \| null | Reporting contacts. Each entry: `type` ("email", "web", "github_pvr"), `value` (address/URL), `note`, optionally `preferred` (boolean). |
+
+Example:
+
+```json
+{
+  "scope": "Vulnerabilities in open source projects affecting Red Hat software",
+  "cve_program_role": "CNA (reports to Red Hat Root)",
+  "organization_type": "Vendor, Open Source",
+  "contacts": [
+    {"type": "email", "value": "secalert@redhat.com", "note": "CNA contact email"},
+    {"type": "web", "value": "https://access.redhat.com/security/team/contact", "note": "Security contact page"}
+  ],
+  "urls": [
+    {"type": "docs", "url": "https://access.redhat.com/articles/...", "note": "Disclosure policy"}
+  ]
+}
+```
+
 #### Content-Type Verification
 
 The `content_type` field records the MIME type that the URL's HTTP server actually returns in its `Content-Type` header. Values should be verifiable — CI can `HEAD` each URL and compare the header to the registry value.
