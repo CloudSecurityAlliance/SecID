@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisa.gov",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry. Reviewed 2026-04-05.",
+
+  "official_name": "Cybersecurity and Infrastructure Security Agency",
+  "urls": [
+    {"type": "website", "url": "https://www.cisa.gov/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^attck-mapping$"],
+      "description": "CISA Best Practices for MITRE ATT&CK Mapping: methodology for mapping cyber threat intelligence reports to ATT&CK techniques. Published jointly with HSSEDI (Homeland Security Systems Engineering and Development Institute).",
+      "weight": 100,
+      "data": {
+        "url": "https://www.cisa.gov/news-events/news/best-practices-mitre-attckr-mapping",
+        "examples": ["attck-mapping"]
+      }
+    }
+  ]
+}
