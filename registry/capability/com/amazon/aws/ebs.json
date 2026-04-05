@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/ebs",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS EBS documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live AWS environment).",
+
+  "official_name": "Amazon Elastic Block Store",
+  "common_name": "EBS",
+  "alternate_names": null,
+  "notes": "Block storage for EC2. Security focus: encryption at rest and snapshots.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/ebs/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-security.html", "note": "EBS Security chapter"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html", "note": "EBS User Guide"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-ebs.html", "note": "EBS API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^encryption$"],
+      "description": "EBS volume encryption using AWS KMS",
+      "weight": 100,
+      "data": {
+        "description": "Encrypts data at rest on the volume, data in transit between the volume and the instance, all snapshots created from the volume, and all volumes created from those snapshots. Uses AWS KMS keys (either AWS managed aws/ebs key or customer managed key).",
+        "options": [
+          {"value": "aws/ebs", "name": "AWS managed key", "description": "Default KMS key (aws/ebs). Free. No customer key management required."},
+          {"value": "CMK", "name": "Customer managed key", "description": "Customer-created KMS key. Full control over key policy, rotation, and lifecycle. KMS costs apply."}
+        ],
+        "default": {"value": "Disabled per-volume", "note": "Individual volumes are not encrypted by default unless account-level default encryption is enabled."},
+        "vendor_recommendation": "Enable account-level default encryption to ensure all new volumes and snapshots are encrypted automatically.",
+        "audit": {
+          "cli": "aws ec2 describe-volumes --query 'Volumes[*].{Id:VolumeId,Encrypted:Encrypted,KmsKeyId:KmsKeyId}'",
+          "api": "DescribeVolumes",
+          "console": "EC2 → Elastic Block Store → Volumes → Encryption column"
+        },
+        "configure": {
+          "cli": "aws ec2 create-volume --encrypted --kms-key-id {key-id} --availability-zone {az} --size {size}",
+          "terraform": "aws_ebs_volume (encrypted = true, kms_key_id = \"{key-arn}\")",
+          "cloudformation": "AWS::EC2::Volume (Encrypted, KmsKeyId)"
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "source": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^default-encryption$"],
+      "description": "Account-level setting to encrypt all new EBS volumes by default",
+      "weight": 100,
+      "data": {
+        "description": "Account-level, per-region setting that automatically encrypts all newly created EBS volumes and snapshots. Can specify a default KMS key. Applies to volumes created via console, API, CLI, and from unencrypted snapshots.",
+        "options": [
+          {"setting": "Encryption by default", "type": "boolean", "default": false},
+          {"setting": "Default KMS key", "default": "aws/ebs (AWS managed key)", "note": "Can be changed to a customer managed key"}
+        ],
+        "vendor_recommendation": "Enable EBS encryption by default in every region. Set a customer managed KMS key as the default for audit and control.",
+        "audit": {
+          "cli": "aws ec2 get-ebs-encryption-by-default",
+          "cli_key": "aws ec2 get-ebs-default-kms-key-id",
+          "api": "GetEbsEncryptionByDefault, GetEbsDefaultKmsKeyId",
+          "console": "EC2 → Account attributes → EBS encryption"
+        },
+        "configure": {
+          "cli": "aws ec2 enable-ebs-encryption-by-default",
+          "cli_key": "aws ec2 modify-ebs-default-kms-key-id --kms-key-id {key-id}",
+          "note": "This is a per-region setting. Must be enabled in each region separately."
+        },
+        "source": "https://docs.aws.amazon.com/ebs/latest/userguide/encryption-by-default.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^snapshot-permissions$"],
+      "description": "Access control for EBS snapshot sharing",
+      "weight": 100,
+      "data": {
+        "description": "Controls who can access EBS snapshots. Snapshots can be private (default), shared with specific AWS accounts, or made public. Public snapshots are visible to all AWS accounts and are a common source of data leaks.",
+        "options": [
+          {"value": "Private", "description": "Default. Only the snapshot owner account can use it."},
+          {"value": "Shared", "description": "Shared with specific AWS account IDs."},
+          {"value": "Public", "description": "Visible and usable by all AWS accounts. Dangerous — may expose sensitive data."}
+        ],
+        "default": {"value": "Private", "note": "Snapshots are private by default."},
+        "vendor_recommendation": "Never make snapshots public. Use AWS Organizations SCPs to prevent public snapshot sharing. Regularly audit snapshot permissions.",
+        "audit": {
+          "cli": "aws ec2 describe-snapshot-attribute --snapshot-id {id} --attribute createVolumePermission",
+          "cli_public": "aws ec2 describe-snapshots --owner-ids self --query 'Snapshots[?contains(to_string(CreateVolumePermissions), `all`)]'",
+          "api": "DescribeSnapshotAttribute",
+          "console": "EC2 → Elastic Block Store → Snapshots → {snapshot} → Permissions"
+        },
+        "configure": {
+          "cli_share": "aws ec2 modify-snapshot-attribute --snapshot-id {id} --attribute createVolumePermission --operation-type add --user-ids {account-id}",
+          "cli_private": "aws ec2 modify-snapshot-attribute --snapshot-id {id} --attribute createVolumePermission --operation-type remove --group-names all",
+          "note": "Use SCP to block ec2:ModifySnapshotAttribute with public group to prevent public sharing organization-wide."
+        },
+        "source": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^snapshot-encryption$"],
+      "description": "Encryption behavior for EBS snapshots",
+      "weight": 90,
+      "data": {
+        "description": "Snapshots created from encrypted volumes are automatically encrypted with the same KMS key. Cannot create an unencrypted snapshot from an encrypted volume. Unencrypted snapshots can be copied to encrypted snapshots during the copy process.",
+        "vendor_recommendation": "Ensure all snapshots are encrypted by enabling account-level default encryption. Use snapshot copy to encrypt unencrypted legacy snapshots.",
+        "audit": {
+          "cli": "aws ec2 describe-snapshots --owner-ids self --query 'Snapshots[*].{Id:SnapshotId,Encrypted:Encrypted,KmsKeyId:KmsKeyId}'",
+          "api": "DescribeSnapshots"
+        },
+        "configure": {
+          "cli_copy_encrypt": "aws ec2 copy-snapshot --source-region {region} --source-snapshot-id {id} --encrypted --kms-key-id {key-id}",
+          "note": "To encrypt an unencrypted snapshot, copy it with the --encrypted flag."
+        },
+        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "source": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^snapshot-lock$"],
+      "description": "Prevent EBS snapshot deletion using lock policies",
+      "weight": 90,
+      "data": {
+        "description": "Locks EBS snapshots to prevent accidental or malicious deletion. Two modes available, similar to S3 Object Lock. Supports compliance and governance use cases.",
+        "options": [
+          {"value": "Governance", "name": "Governance Mode", "description": "Users with specific IAM permissions (ec2:UnlockSnapshot) can unlock and delete the snapshot."},
+          {"value": "Compliance", "name": "Compliance Mode", "description": "No one can unlock or delete the snapshot until the lock period expires, including the root account."}
+        ],
+        "vendor_recommendation": "Use snapshot lock for critical backups and compliance requirements. Use Compliance mode when deletion must be prevented under all circumstances.",
+        "audit": {
+          "cli": "aws ec2 describe-locked-snapshots",
+          "cli_detail": "aws ec2 describe-locked-snapshots --snapshot-ids {id}",
+          "api": "DescribeLockedSnapshots"
+        },
+        "configure": {
+          "cli": "aws ec2 lock-snapshot --snapshot-id {id} --lock-mode compliance --lock-duration {days}",
+          "api": "LockSnapshot"
+        },
+        "source": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshot-lock.html"
+      }
+    }
+  ]
+}

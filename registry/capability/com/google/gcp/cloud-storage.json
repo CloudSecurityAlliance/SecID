@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/cloud-storage",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from GCP Cloud Storage documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live GCP environment).",
+
+  "official_name": "Google Cloud Storage",
+  "common_name": "Cloud Storage",
+  "alternate_names": ["GCS"],
+  "notes": "Object storage for GCP. Security includes encryption, IAM, uniform bucket-level access, object versioning, retention policies, VPC Service Controls.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/storage"},
+    {"type": "docs", "url": "https://cloud.google.com/storage/docs/best-practices#security", "note": "Cloud Storage security best practices"},
+    {"type": "docs", "url": "https://cloud.google.com/storage/docs", "note": "Cloud Storage documentation"},
+    {"type": "docs", "url": "https://cloud.google.com/storage/docs/json_api/v1", "note": "Cloud Storage JSON API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^encryption$"],
+      "description": "Encryption at rest for Cloud Storage objects",
+      "weight": 100,
+      "data": {
+        "description": "All data stored in Cloud Storage is encrypted at rest by default. Three key management options available.",
+        "options": [
+          {"value": "Google-managed", "name": "Google-managed encryption keys (GMEK)", "description": "Default. Google manages keys with automatic rotation. No configuration required."},
+          {"value": "Customer-managed", "name": "Customer-managed encryption keys (CMEK)", "description": "Keys managed in Cloud KMS. Customer controls key rotation, access, and lifecycle."},
+          {"value": "Customer-supplied", "name": "Customer-supplied encryption keys (CSEK)", "description": "Customer provides encryption key with each request. Google does not store the key. Key loss means data loss."}
+        ],
+        "default": {"value": "Google-managed", "note": "All data encrypted by default with Google-managed keys. No opt-out possible."},
+        "vendor_recommendation": "Use CMEK with Cloud KMS for regulatory requirements or key lifecycle control. GMEK is sufficient for most workloads.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(encryption)'",
+          "api": "storage.buckets.get (encryption field)",
+          "console": "Cloud Storage → {bucket} → Configuration → Encryption type"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --default-encryption-key=projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}",
+          "terraform": "google_storage_bucket (encryption block)",
+          "note": "CSEK must be provided per-request via x-goog-encryption-key header."
+        },
+        "cross_references": ["secid:capability/google.com/gcp/kms"],
+        "source": "https://cloud.google.com/storage/docs/encryption"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^uniform-bucket-access$"],
+      "description": "Uniform bucket-level access disabling ACLs in favor of IAM-only",
+      "weight": 100,
+      "data": {
+        "description": "Disables object ACLs and requires all access to be managed through IAM policies only. Simplifies access management and provides consistent permissions across all objects in a bucket. Once enabled for 90 consecutive days, it becomes permanent and cannot be reverted.",
+        "default": {"value": "Enabled", "note": "Uniform bucket-level access is enabled by default for new buckets."},
+        "vendor_recommendation": "Enable uniform bucket-level access. Manage all access through IAM instead of ACLs.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(iamConfiguration.uniformBucketLevelAccess.enabled)'",
+          "api": "storage.buckets.get (iamConfiguration.uniformBucketLevelAccess.enabled)",
+          "console": "Cloud Storage → {bucket} → Permissions → Access control"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --uniform-bucket-level-access",
+          "terraform": "google_storage_bucket (uniform_bucket_level_access = true)"
+        },
+        "source": "https://cloud.google.com/storage/docs/uniform-bucket-level-access"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^public-access-prevention$"],
+      "description": "Prevent public access at bucket or organization level",
+      "weight": 100,
+      "data": {
+        "description": "Prevents data in Cloud Storage from being exposed to the public internet. Can be set at bucket level or enforced via organization policy across all buckets.",
+        "options": [
+          {"value": "enforced", "description": "Public access is blocked. Existing public permissions become ineffective."},
+          {"value": "inherited", "description": "Public access prevention is inherited from organization policy. If no org policy, public access is allowed."}
+        ],
+        "vendor_recommendation": "Set public access prevention to 'enforced' for all buckets containing non-public data. Use organization policy to enforce across all projects.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(iamConfiguration.publicAccessPrevention)'",
+          "api": "storage.buckets.get (iamConfiguration.publicAccessPrevention)",
+          "console": "Cloud Storage → {bucket} → Permissions → Public access"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --public-access-prevention",
+          "terraform": "google_storage_bucket (public_access_prevention = \"enforced\")",
+          "note": "Organization-level enforcement via organization policy constraint storage.publicAccessPrevention"
+        },
+        "source": "https://cloud.google.com/storage/docs/public-access-prevention"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^iam-policies$"],
+      "description": "Bucket-level IAM policies for access control",
+      "weight": 100,
+      "data": {
+        "description": "IAM policies on buckets define who has what access. When uniform bucket-level access is enabled, IAM is the sole mechanism for controlling access to buckets and objects.",
+        "vendor_recommendation": "Use IAM policies with the principle of least privilege. Prefer predefined roles (Storage Object Viewer, Storage Object Creator, Storage Object Admin) over primitive roles (Owner, Editor, Viewer).",
+        "audit": {
+          "cli": "gcloud storage buckets get-iam-policy gs://{bucket}",
+          "api": "storage.buckets.getIamPolicy",
+          "console": "Cloud Storage → {bucket} → Permissions"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets add-iam-policy-binding gs://{bucket} --member={member} --role={role}",
+          "terraform": "google_storage_bucket_iam_binding, google_storage_bucket_iam_member"
+        },
+        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "source": "https://cloud.google.com/storage/docs/access-control/iam"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^object-versioning$"],
+      "description": "Maintain previous versions of objects in Cloud Storage",
+      "weight": 90,
+      "data": {
+        "description": "Retains a noncurrent version of an object when it is replaced or deleted. Protects against accidental deletion and overwrites. Noncurrent versions can be listed, accessed, and restored.",
+        "default": {"value": "Disabled", "note": "Object versioning is disabled by default."},
+        "vendor_recommendation": "Enable versioning for buckets containing important data. Use lifecycle rules to manage noncurrent version retention and control storage costs.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(versioning.enabled)'",
+          "api": "storage.buckets.get (versioning.enabled)",
+          "console": "Cloud Storage → {bucket} → Protection → Object versioning"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --versioning",
+          "terraform": "google_storage_bucket (versioning { enabled = true })"
+        },
+        "source": "https://cloud.google.com/storage/docs/object-versioning"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^retention-policies$"],
+      "description": "Minimum retention period preventing object deletion",
+      "weight": 90,
+      "data": {
+        "description": "Sets a minimum retention period for objects in a bucket. Objects cannot be deleted or replaced until the retention period expires. Can be locked to make the policy permanent (irreversible). Supports regulatory compliance (SEC 17a-4, CFTC 1.31).",
+        "vendor_recommendation": "Use retention policies for compliance requirements. Lock the policy only when permanent retention enforcement is required — locked policies cannot be removed or shortened.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(retentionPolicy)'",
+          "api": "storage.buckets.get (retentionPolicy)",
+          "console": "Cloud Storage → {bucket} → Protection → Retention policy"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --retention-period={seconds}",
+          "cli_lock": "gcloud storage buckets update gs://{bucket} --lock-retention-period",
+          "terraform": "google_storage_bucket (retention_policy block)",
+          "note": "Locking a retention policy is irreversible. The bucket cannot be deleted until all objects meet the retention period."
+        },
+        "source": "https://cloud.google.com/storage/docs/bucket-lock"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^object-holds$"],
+      "description": "Prevent object deletion using event-based or temporary holds",
+      "weight": 80,
+      "data": {
+        "description": "Holds prevent individual objects from being deleted or replaced. Two types available, independent of retention policies.",
+        "options": [
+          {"value": "Event-based hold", "description": "Applied by default to new objects (if configured on bucket). Released when event-based hold is removed. Starts retention period on release."},
+          {"value": "Temporary hold", "description": "Applied to specific objects. Must be explicitly removed before object can be deleted."}
+        ],
+        "audit": {
+          "cli": "gcloud storage objects describe gs://{bucket}/{object} --format='value(eventBasedHold,temporaryHold)'",
+          "api": "storage.objects.get (eventBasedHold, temporaryHold fields)"
+        },
+        "configure": {
+          "cli_event": "gcloud storage objects update gs://{bucket}/{object} --event-based-hold",
+          "cli_temp": "gcloud storage objects update gs://{bucket}/{object} --temporary-hold",
+          "cli_release": "gcloud storage objects update gs://{bucket}/{object} --no-event-based-hold"
+        },
+        "source": "https://cloud.google.com/storage/docs/object-holds"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^lifecycle-rules$"],
+      "description": "Automatic object management rules for storage class transition and deletion",
+      "weight": 80,
+      "data": {
+        "description": "Rules that automatically manage objects based on conditions like age, storage class, version count. Security-relevant uses: delete noncurrent versions after a period, clean up incomplete uploads, enforce data retention.",
+        "vendor_recommendation": "Configure lifecycle rules to delete noncurrent versions after a defined period, and transition infrequently accessed data to cheaper storage classes.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(lifecycle)'",
+          "api": "storage.buckets.get (lifecycle)",
+          "console": "Cloud Storage → {bucket} → Lifecycle"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --lifecycle-file=lifecycle.json",
+          "terraform": "google_storage_bucket (lifecycle_rule block)"
+        },
+        "source": "https://cloud.google.com/storage/docs/lifecycle"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^access-logging$"],
+      "description": "Usage and storage logs for Cloud Storage buckets",
+      "weight": 70,
+      "data": {
+        "description": "Records detailed information about requests made to a bucket. Usage logs contain request details (requester, operation, object). Storage logs contain storage consumption data. Logs are delivered to a destination bucket as CSV files.",
+        "default": {"value": "Disabled", "note": "Access logging is disabled by default."},
+        "vendor_recommendation": "Enable access logging for security auditing. Consider Cloud Audit Logs as the primary audit mechanism — access logs are supplementary.",
+        "audit": {
+          "cli": "gcloud storage buckets describe gs://{bucket} --format='value(logging)'",
+          "api": "storage.buckets.get (logging field)",
+          "console": "Cloud Storage → {bucket} → Configuration → Logging"
+        },
+        "configure": {
+          "cli": "gcloud storage buckets update gs://{bucket} --log-bucket=gs://{log-bucket} --log-object-prefix={prefix}",
+          "terraform": "google_storage_bucket (logging block)"
+        },
+        "cross_references": ["secid:capability/google.com/gcp/logging"],
+        "source": "https://cloud.google.com/storage/docs/access-logs"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^vpc-service-controls$"],
+      "description": "Restrict Cloud Storage data exfiltration using VPC Service Controls perimeters",
+      "weight": 90,
+      "data": {
+        "description": "VPC Service Controls create security perimeters around Cloud Storage buckets to prevent data exfiltration. Requests to Cloud Storage from outside the perimeter are blocked. Provides defense-in-depth beyond IAM policies.",
+        "vendor_recommendation": "Use VPC Service Controls for buckets containing highly sensitive data. Define service perimeters that include Cloud Storage and related services (BigQuery, Dataflow) to prevent data from leaving the perimeter.",
+        "cross_references": ["secid:capability/google.com/gcp/vpc#vpc-service-controls"],
+        "source": "https://cloud.google.com/vpc-service-controls/docs/overview"
+      }
+    }
+  ]
+}
