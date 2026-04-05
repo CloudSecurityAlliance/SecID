@@ -5,7 +5,7 @@
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
-TYPES="advisory weakness ttp control disclosure regulation entity reference"
+TYPES="advisory weakness ttp control capability disclosure regulation entity reference"
 
 # Count JSON files per type, build table
 total=0

@@ -168,6 +168,7 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 | `weakness` | Abstract flaw patterns (CWE, OWASP Top 10) |
 | `ttp` | Adversary techniques (ATT&CK, ATLAS, CAPEC) |
 | `control` | Security requirements (NIST CSF, ISO 27001, benchmarks) |
+| `capability` | Product security features with configuration, audit, and remediation (AWS S3 encryption, CloudTrail) |
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels |
 | `regulation` | Laws and legal requirements (GDPR, HIPAA) |
 | `entity` | Organizations, products, services |
@@ -202,7 +203,7 @@ Simple cases: `mitre.org` → `registry/<type>/org/mitre.md`, `nist.gov` → `re
 
 ## Adding New Namespaces
 
-1. Determine type (advisory, weakness, ttp, control, disclosure, regulation, entity, reference)
+1. Determine type (advisory, weakness, ttp, control, capability, disclosure, regulation, entity, reference)
 2. Compute the filesystem path using the algorithm above
 3. Check if the file already exists — if so, add a source section to it
 4. If new, copy from `registry/advisory/_template.md` and fill in fields
@@ -259,6 +260,7 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 24 |
+| Capability | 0 |
 | Disclosure | 486 |
 | Regulation | 4 |
 | Entity | 14 |
@@ -309,7 +311,7 @@ rg -n '^namespace:' registry/**/*.md
 rg -l 'namespace: mitre.org' registry/
 
 # Count registry files per type
-for type in advisory weakness ttp control disclosure regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
+for type in advisory weakness ttp control capability disclosure regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
 
 # Validate all JSON registry files parse correctly
 for f in registry/**/*.json; do python3 -c "import json; json.load(open('$f'))" && echo "OK: $f" || echo "FAIL: $f"; done
@@ -342,7 +344,7 @@ Use short, imperative commit subjects (e.g., "Add EUVD advisory namespace", "Upd
 
 | Component | Character Rules |
 |-----------|-----------------|
-| `type` | Fixed list of 8 values |
+| `type` | Fixed list of 9 values |
 | `namespace` | Domain name, optionally with `/`-separated sub-namespace path segments. Per-segment: `a-z`, `0-9`, `-`, `.`, Unicode `\p{L}\p{N}`. |
 | `name` | **Anything** - resolved by registry lookup, longest match wins |
 | `subpath` | Anything (everything after `#`). May include `@item_version` suffix — parsed via pattern tree matching. |

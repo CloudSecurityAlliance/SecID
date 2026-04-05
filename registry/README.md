@@ -30,7 +30,8 @@ Each type has:
 | `advisory` | Publications/records about vulnerabilities | Incident reports (AIID, NHTSA, FDA adverse events) |
 | `weakness` | Abstract flaw patterns | |
 | `ttp` | Adversary techniques and behaviors | |
-| `control` | Security requirements and capabilities | Prescriptive benchmarks, documentation standards |
+| `control` | Security requirements and specifications | Prescriptive benchmarks, documentation standards |
+| `capability` | Product security features with configuration, audit, remediation | Cloud provider security settings (AWS, Azure, GCP) |
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels | |
 | `regulation` | Laws and binding legal requirements | |
 | `entity` | Organizations, products, services, platforms | |
