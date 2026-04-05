@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/config",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS Config documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
+
+  "official_name": "AWS Config",
+  "common_name": "Config",
+  "alternate_names": null,
+  "notes": "Configuration recording, change tracking, and compliance evaluation. Records all resource configurations and changes over time.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/config/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html", "note": "AWS Config Developer Guide"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html", "note": "AWS Config managed rules list"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/config/latest/APIReference/", "note": "AWS Config API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^configuration-recorder$"],
+      "description": "Records resource configurations and changes",
+      "weight": 100,
+      "data": {
+        "description": "Records the configuration of AWS resources in the account. Captures the current state and tracks changes over time. Can record all supported resource types (recommended) or specific resource types only. Creates configuration items for each resource state change. Configuration history is stored for the retention period (default 7 years).",
+        "options": [
+          {"mode": "All resources", "description": "Record all supported resource types. Recommended for comprehensive visibility. Includes future resource types automatically."},
+          {"mode": "Specific resource types", "description": "Record only selected resource types. Reduces cost but may miss security-relevant resources."},
+          {"setting": "Include global resources", "description": "Record global resources (IAM users, groups, roles, policies). Enable in one region only to avoid duplicates."}
+        ],
+        "default": {"value": "Not enabled by default", "note": "Configuration recorder must be explicitly created and started."},
+        "vendor_recommendation": "Enable the configuration recorder for all resource types in all regions. Record global resources in one region only. Ensure the recorder is started and not paused.",
+        "audit": {
+          "cli": "aws configservice describe-configuration-recorders",
+          "cli_status": "aws configservice describe-configuration-recorder-status",
+          "api": "DescribeConfigurationRecorders, DescribeConfigurationRecorderStatus",
+          "console": "AWS Console → Config → Settings"
+        },
+        "configure": {
+          "cli": "aws configservice put-configuration-recorder --configuration-recorder name=default,roleARN={role-arn},recordingGroup={allSupported=true,includeGlobalResourceTypes=true}",
+          "cli_start": "aws configservice start-configuration-recorder --configuration-recorder-name default",
+          "terraform": "aws_config_configuration_recorder, aws_config_configuration_recorder_status",
+          "cloudformation": "AWS::Config::ConfigurationRecorder"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^config-rules$"],
+      "description": "Evaluate resource compliance against rules",
+      "weight": 100,
+      "data": {
+        "description": "Rules that evaluate whether AWS resources comply with desired configurations. Three types: AWS managed rules (300+ pre-built rules maintained by AWS), custom rules (Lambda-based, your logic), and CloudFormation Guard rules (declarative, policy-as-code). Rules are evaluated on configuration changes, on a schedule, or both.",
+        "options": [
+          {"type": "AWS managed rules", "description": "300+ pre-built rules. Examples: s3-bucket-public-read-prohibited, iam-password-policy, encrypted-volumes, multi-region-cloudtrail-enabled."},
+          {"type": "Custom rules (Lambda)", "description": "Your own compliance logic implemented as Lambda functions. Full flexibility."},
+          {"type": "Custom rules (Guard)", "description": "Declarative rules using CloudFormation Guard policy-as-code language. No Lambda required."}
+        ],
+        "vendor_recommendation": "Start with AWS managed rules for common compliance checks. Add custom rules for organization-specific requirements. Use Guard rules for declarative policy-as-code.",
+        "audit": {
+          "cli": "aws configservice describe-config-rules",
+          "cli_compliance": "aws configservice describe-compliance-by-config-rule",
+          "cli_detail": "aws configservice get-compliance-details-by-config-rule --config-rule-name {rule}",
+          "api": "DescribeConfigRules, DescribeComplianceByConfigRule",
+          "console": "AWS Console → Config → Rules"
+        },
+        "configure": {
+          "cli": "aws configservice put-config-rule --config-rule file://rule.json",
+          "terraform": "aws_config_config_rule",
+          "cloudformation": "AWS::Config::ConfigRule"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^conformance-packs$"],
+      "description": "Groups of Config rules deployed together for compliance frameworks",
+      "weight": 100,
+      "data": {
+        "description": "Pre-packaged collections of Config rules and remediation actions that can be deployed as a single unit. AWS provides sample conformance packs aligned with compliance frameworks. Can be deployed to individual accounts or across an organization. Custom conformance packs can be authored in YAML.",
+        "options": [
+          {"pack": "CIS AWS Foundations Benchmark", "description": "Rules aligned with CIS AWS Foundations Benchmark controls"},
+          {"pack": "NIST 800-53", "description": "Rules aligned with NIST SP 800-53 security controls"},
+          {"pack": "PCI DSS", "description": "Rules aligned with PCI Data Security Standard requirements"},
+          {"pack": "AWS Operational Best Practices", "description": "Service-specific best practice rules (S3, IAM, EC2, etc.)"},
+          {"pack": "Custom", "description": "Author your own conformance pack in YAML with rules and remediation"}
+        ],
+        "vendor_recommendation": "Deploy conformance packs aligned with your compliance requirements across the organization. Use organization conformance packs for centralized deployment and compliance tracking.",
+        "audit": {
+          "cli": "aws configservice describe-conformance-packs",
+          "cli_compliance": "aws configservice describe-conformance-pack-compliance --conformance-pack-name {pack}",
+          "api": "DescribeConformancePacks, DescribeConformancePackCompliance",
+          "console": "AWS Console → Config → Conformance packs"
+        },
+        "configure": {
+          "cli": "aws configservice put-conformance-pack --conformance-pack-name {name} --template-body file://pack.yaml",
+          "cli_org": "aws configservice put-organization-conformance-pack --organization-conformance-pack-name {name} --template-body file://pack.yaml",
+          "terraform": "aws_config_conformance_pack",
+          "cloudformation": "AWS::Config::ConformancePack"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^aggregator$"],
+      "description": "Multi-account, multi-region compliance aggregation",
+      "weight": 80,
+      "data": {
+        "description": "Aggregates Config data from multiple accounts and regions into a single view. Provides centralized compliance dashboard across an AWS Organization. Supports source accounts (individual accounts) or organization-wide aggregation. Read-only — does not modify source data.",
+        "default": {"value": "Not configured by default", "note": "Requires explicit creation and authorization from source accounts (or organization access)."},
+        "vendor_recommendation": "Create an organization-wide aggregator in a centralized security account. Use it for cross-account compliance visibility and reporting.",
+        "audit": {
+          "cli": "aws configservice describe-configuration-aggregators",
+          "cli_compliance": "aws configservice describe-aggregate-compliance-by-config-rules --configuration-aggregator-name {aggregator}",
+          "api": "DescribeConfigurationAggregators",
+          "console": "AWS Console → Config → Aggregators"
+        },
+        "configure": {
+          "cli": "aws configservice put-configuration-aggregator --configuration-aggregator-name {name} --organization-aggregation-source RoleArn={role-arn},AllAwsRegions=true",
+          "terraform": "aws_config_configuration_aggregator",
+          "cloudformation": "AWS::Config::ConfigurationAggregator"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^remediation$"],
+      "description": "Automatic remediation via SSM Automation documents",
+      "weight": 80,
+      "data": {
+        "description": "Automatic or manual remediation of non-compliant resources using AWS Systems Manager (SSM) Automation documents. Remediation actions are associated with Config rules. When a rule evaluates a resource as non-compliant, the remediation action can automatically bring it into compliance. Supports auto-remediation (triggered on evaluation) or manual remediation (on-demand).",
+        "options": [
+          {"mode": "Auto-remediation", "description": "Automatically execute remediation when non-compliance is detected. Configurable retry attempts and backoff."},
+          {"mode": "Manual remediation", "description": "On-demand remediation triggered by an administrator from the console or CLI."}
+        ],
+        "vendor_recommendation": "Use auto-remediation for well-understood compliance rules with safe, idempotent remediation actions. Test remediation actions in non-production environments first. Use manual remediation for rules where automatic action could cause disruption.",
+        "audit": {
+          "cli": "aws configservice describe-remediation-configurations --config-rule-names {rule}",
+          "cli_status": "aws configservice describe-remediation-execution-status --config-rule-name {rule}",
+          "api": "DescribeRemediationConfigurations, DescribeRemediationExecutionStatus",
+          "console": "AWS Console → Config → Rules → {rule} → Remediation action"
+        },
+        "configure": {
+          "cli": "aws configservice put-remediation-configurations --remediation-configurations file://remediation.json",
+          "terraform": "aws_config_remediation_configuration",
+          "cloudformation": "AWS::Config::RemediationConfiguration"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^delivery-channel$"],
+      "description": "Where Config sends configuration snapshots and change notifications",
+      "weight": 60,
+      "data": {
+        "description": "Defines where AWS Config delivers configuration snapshots and configuration change notifications. Configuration snapshots are delivered to an S3 bucket. Change notifications can be sent to an SNS topic. Only one delivery channel per account per region.",
+        "options": [
+          {"destination": "S3 bucket", "description": "Configuration snapshots and configuration history files. Required."},
+          {"destination": "SNS topic", "description": "Configuration change notifications and compliance change notifications. Optional."}
+        ],
+        "default": {"value": "Must be configured when setting up Config", "note": "An S3 bucket is required. SNS topic is optional but recommended for real-time notification."},
+        "vendor_recommendation": "Configure an S3 bucket in a centralized logging account. Enable SNS notifications for real-time alerting on configuration changes. Use S3 lifecycle policies for cost management.",
+        "audit": {
+          "cli": "aws configservice describe-delivery-channels",
+          "cli_status": "aws configservice describe-delivery-channel-status",
+          "api": "DescribeDeliveryChannels, DescribeDeliveryChannelStatus",
+          "console": "AWS Console → Config → Settings → Delivery method"
+        },
+        "configure": {
+          "cli": "aws configservice put-delivery-channel --delivery-channel name=default,s3BucketName={bucket},snsTopicARN={topic-arn}",
+          "terraform": "aws_config_delivery_channel",
+          "cloudformation": "AWS::Config::DeliveryChannel"
+        },
+        "source": "https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html"
+      }
+    }
+  ]
+}

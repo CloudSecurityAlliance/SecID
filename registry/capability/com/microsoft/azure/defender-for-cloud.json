@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/defender-for-cloud",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Microsoft Defender for Cloud documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live Azure environment). Note: brief summary also exists in monitor.json.",
+
+  "official_name": "Microsoft Defender for Cloud",
+  "common_name": "Defender for Cloud",
+  "alternate_names": ["Azure Security Center", "Azure Defender"],
+  "notes": "Cloud Security Posture Management (CSPM) and Cloud Workload Protection (CWP). Free tier provides recommendations. Defender plans provide per-resource threat detection.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/defender-for-cloud"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction", "note": "Defender for Cloud overview"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference", "note": "Security recommendations reference"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference", "note": "Security alerts reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cspm$", "(?i)^cloud-security-posture-management$"],
+      "description": "Cloud Security Posture Management — recommendations and Secure Score",
+      "weight": 100,
+      "data": {
+        "description": "Cloud Security Posture Management provides security recommendations based on Azure Security Benchmark. Free Foundational CSPM includes Secure Score, basic recommendations, and Azure Security Benchmark assessment. Defender CSPM (paid) adds attack path analysis, cloud security graph, agentless scanning, governance rules, and data-aware security posture.",
+        "options": [
+          {"tier": "Foundational CSPM (Free)", "description": "Secure Score, security recommendations, Azure Security Benchmark assessment. Always available at no cost."},
+          {"tier": "Defender CSPM (Paid)", "description": "Attack path analysis, cloud security graph, agentless vulnerability scanning, agentless secret scanning, governance rules, data-aware security posture, external attack surface management."}
+        ],
+        "default": {"value": "Foundational CSPM enabled by default", "note": "Foundational CSPM is automatically available for all Azure subscriptions. Defender CSPM must be explicitly enabled."},
+        "vendor_recommendation": "Enable Foundational CSPM for all subscriptions. Enable Defender CSPM for production environments to get attack path analysis and agentless scanning. Review Secure Score regularly and prioritize high-severity recommendations.",
+        "audit": {
+          "cli": "az security assessment list",
+          "cli_score": "az security secure-score list",
+          "cli_controls": "az security secure-score-controls list",
+          "api": "GET https://management.azure.com/subscriptions/{sub}/providers/Microsoft.Security/assessments?api-version=2021-06-01",
+          "console": "Azure Portal → Microsoft Defender for Cloud → Overview → Secure Score"
+        },
+        "configure": {
+          "cli": "az security pricing create --name CloudPosture --tier Standard",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → CSPM",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-servers$"],
+      "description": "Threat detection for virtual machines",
+      "weight": 100,
+      "data": {
+        "description": "Threat detection and advanced security for Azure VMs, on-premises servers, and multi-cloud (AWS, GCP) VMs. Two plans: Plan 1 (basic endpoint detection and response via Defender for Endpoint integration) and Plan 2 (adds vulnerability assessment, file integrity monitoring, just-in-time VM access, adaptive application controls, adaptive network hardening).",
+        "options": [
+          {"plan": "Plan 1", "description": "Defender for Endpoint integration, endpoint detection and response (EDR), attack surface reduction."},
+          {"plan": "Plan 2", "description": "Plan 1 plus: vulnerability assessment (Qualys or Microsoft Defender), file integrity monitoring, just-in-time VM access, adaptive application controls, adaptive network hardening, Docker host hardening."}
+        ],
+        "vendor_recommendation": "Enable Plan 2 for production servers. Use just-in-time VM access to reduce attack surface. Review vulnerability assessment findings regularly. Configure file integrity monitoring for critical system files.",
+        "audit": {
+          "cli": "az security pricing show --name VirtualMachines",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → Servers"
+        },
+        "configure": {
+          "cli": "az security pricing create --name VirtualMachines --tier Standard --subplan P2",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-storage$"],
+      "description": "Threat detection for Azure Storage accounts",
+      "weight": 80,
+      "data": {
+        "description": "Threat detection for Azure Storage accounts (Blob, Files, Data Lake). Detects unusual access patterns, anonymous access from suspicious IPs, malicious file uploads, and sensitive data exposure. Uses activity monitoring (behavioral analysis) and Malware Scanning (hash reputation and on-upload scanning).",
+        "options": [
+          {"feature": "Activity monitoring", "description": "Behavioral analysis of storage access patterns. Detects anomalous access, data exfiltration, unusual anonymous access."},
+          {"feature": "Malware Scanning", "description": "On-upload malware scanning for Blob Storage. Scans uploaded blobs using Microsoft Defender Antivirus engine."},
+          {"feature": "Sensitive data threat detection", "description": "Identifies exposure of sensitive data. Requires Defender CSPM with sensitive data discovery."}
+        ],
+        "vendor_recommendation": "Enable for all storage accounts containing sensitive data. Enable Malware Scanning for storage accounts that accept user uploads.",
+        "audit": {
+          "cli": "az security pricing show --name StorageAccounts",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → Storage"
+        },
+        "configure": {
+          "cli": "az security pricing create --name StorageAccounts --tier Standard",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-sql$", "(?i)^defender-for-databases$"],
+      "description": "Threat detection for SQL databases and other database services",
+      "weight": 80,
+      "data": {
+        "description": "Threat detection for Azure SQL Database, SQL Managed Instance, SQL Server on VMs, open-source relational databases (PostgreSQL, MySQL, MariaDB), and Azure Cosmos DB. Detects SQL injection attempts, brute force attacks, anomalous access patterns, and suspicious database activities.",
+        "options": [
+          {"plan": "Azure SQL Databases", "description": "Threat detection for Azure SQL Database and SQL Managed Instance"},
+          {"plan": "SQL servers on machines", "description": "Threat detection for SQL Server on Azure VMs, on-premises, and multi-cloud"},
+          {"plan": "Open-source relational databases", "description": "Threat detection for Azure Database for PostgreSQL, MySQL, MariaDB"},
+          {"plan": "Azure Cosmos DB", "description": "Threat detection for Azure Cosmos DB accounts"}
+        ],
+        "vendor_recommendation": "Enable for all production databases. Review and remediate SQL vulnerability assessment findings. Configure alerts for SQL injection and brute force detections.",
+        "audit": {
+          "cli": "az security pricing show --name SqlServers",
+          "cli_oss": "az security pricing show --name OpenSourceRelationalDatabases",
+          "cli_cosmosdb": "az security pricing show --name CosmosDbs",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → Databases"
+        },
+        "configure": {
+          "cli": "az security pricing create --name SqlServers --tier Standard",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-sql-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-containers$"],
+      "description": "Container image scanning, runtime threat detection, Kubernetes admission control",
+      "weight": 100,
+      "data": {
+        "description": "Security for containerized environments across AKS, Arc-enabled Kubernetes, and other supported Kubernetes distributions. Provides vulnerability assessment for container images (in ACR and runtime), runtime threat detection for Kubernetes clusters, Kubernetes admission control (Azure Policy for Kubernetes), and agentless discovery of Kubernetes resources.",
+        "options": [
+          {"feature": "Vulnerability assessment", "description": "Scan container images in ACR and running images for OS and language vulnerabilities. Powered by Microsoft Defender Vulnerability Management."},
+          {"feature": "Runtime threat detection", "description": "Detect suspicious activity in Kubernetes clusters: privileged container creation, suspicious process execution, anomalous Kubernetes API calls."},
+          {"feature": "Kubernetes admission control", "description": "Azure Policy for Kubernetes (Gatekeeper). Enforce security baselines on pod creation."},
+          {"feature": "Agentless discovery", "description": "Inventory of Kubernetes resources without deploying agents."}
+        ],
+        "vendor_recommendation": "Enable for all subscriptions with AKS clusters. Ensure the Defender profile/extension is deployed to clusters. Use admission control to prevent privileged containers and enforce image pull policies.",
+        "audit": {
+          "cli": "az security pricing show --name Containers",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → Containers"
+        },
+        "configure": {
+          "cli": "az security pricing create --name Containers --tier Standard",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-key-vault$"],
+      "description": "Detects unusual Key Vault access patterns",
+      "weight": 80,
+      "data": {
+        "description": "Threat detection for Azure Key Vault. Detects unusual and potentially harmful attempts to access or exploit key vaults. Alerts on suspicious access patterns such as access from unusual locations, access from TOR exit nodes, unusual volume of operations, suspicious policy changes, and access from suspicious IP addresses.",
+        "default": {"value": "Not enabled by default", "note": "Must be explicitly enabled as part of the Defender for Key Vault plan."},
+        "vendor_recommendation": "Enable for all subscriptions with key vaults containing production secrets, keys, or certificates. Review alerts for unusual access patterns.",
+        "audit": {
+          "cli": "az security pricing show --name KeyVaults",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Defender plans → Key Vault"
+        },
+        "configure": {
+          "cli": "az security pricing create --name KeyVaults --tier Standard",
+          "terraform": "azurerm_security_center_subscription_pricing"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-key-vault-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^regulatory-compliance$"],
+      "description": "Compliance dashboards against regulatory standards",
+      "weight": 80,
+      "data": {
+        "description": "Compliance dashboards that continuously assess Azure resources against regulatory standards and industry benchmarks. Maps Defender for Cloud recommendations to compliance controls. Built-in standards include Azure Security Benchmark (default), NIST SP 800-53, ISO 27001, PCI DSS, CIS Benchmarks, SOC 2, HIPAA, and more. Custom standards can be added.",
+        "options": [
+          {"standard": "Azure Security Benchmark", "description": "Default. Microsoft's best-practice recommendations based on common compliance frameworks."},
+          {"standard": "NIST SP 800-53", "description": "US government security controls framework"},
+          {"standard": "ISO 27001:2013", "description": "International information security management standard"},
+          {"standard": "PCI DSS v4.0", "description": "Payment card industry data security standard"},
+          {"standard": "CIS Azure Foundations Benchmark", "description": "Center for Internet Security benchmark for Azure"},
+          {"standard": "SOC 2", "description": "Service organization controls for security, availability, processing integrity, confidentiality, privacy"},
+          {"standard": "Custom", "description": "Add custom compliance standards with your own controls"}
+        ],
+        "vendor_recommendation": "Assign regulatory standards relevant to your industry. Use the compliance dashboard to track progress and prioritize remediation. Export compliance reports for auditors.",
+        "audit": {
+          "cli": "az security regulatory-compliance-standards list",
+          "cli_controls": "az security regulatory-compliance-controls list --standard-name {standard}",
+          "cli_assessments": "az security regulatory-compliance-assessments list --standard-name {standard} --control-name {control}",
+          "console": "Azure Portal → Defender for Cloud → Regulatory compliance"
+        },
+        "configure": {
+          "console": "Azure Portal → Defender for Cloud → Environment settings → {subscription} → Security policies",
+          "note": "Regulatory compliance standards are assigned via security policy. Azure Security Benchmark is assigned by default."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/update-regulatory-compliance-packages"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-alerts$"],
+      "description": "Centralized alert management with severity classification",
+      "weight": 100,
+      "data": {
+        "description": "Centralized management for all security alerts generated by Defender for Cloud plans. Alerts are generated when threats are detected in protected resources. Severity levels: High, Medium, Low, and Informational. Alerts can be correlated into security incidents. Integration with Microsoft Sentinel for SIEM/SOAR capabilities. Supports suppression rules, alert automation (workflow automation via Logic Apps), and email notifications.",
+        "options": [
+          {"severity": "High", "description": "High confidence that a resource is compromised. Investigate immediately."},
+          {"severity": "Medium", "description": "Suspicious activity that may indicate a compromise. Investigate promptly."},
+          {"severity": "Low", "description": "Benign positive or blocked attack. Review when possible."},
+          {"severity": "Informational", "description": "Informational finding, no immediate action required."}
+        ],
+        "vendor_recommendation": "Configure email notifications for High severity alerts. Set up workflow automation for common alert types. Integrate with Microsoft Sentinel for advanced investigation and response. Review and tune suppression rules regularly.",
+        "audit": {
+          "cli": "az security alert list",
+          "cli_detail": "az security alert show --name {alert-name} --resource-group {rg}",
+          "api": "GET https://management.azure.com/subscriptions/{sub}/providers/Microsoft.Security/alerts?api-version=2022-01-01",
+          "console": "Azure Portal → Defender for Cloud → Security alerts"
+        },
+        "configure": {
+          "cli_notification": "az security auto-provisioning-setting update --name default --auto-provision On",
+          "console": "Azure Portal → Defender for Cloud → Environment settings → Email notifications",
+          "note": "Alert generation is automatic for enabled Defender plans. Configuration focuses on notification routing and suppression rules."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview"
+      }
+    }
+  ]
+}

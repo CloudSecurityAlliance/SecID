@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/guardduty",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS GuardDuty documentation, 2026-04-04. Pass 1 (service docs). Needs Pass 2 (API), Pass 3 (cross-reference), and Pass 5 (human review with live AWS environment).",
+
+  "official_name": "Amazon GuardDuty",
+  "common_name": "GuardDuty",
+  "alternate_names": null,
+  "notes": "Intelligent threat detection. Analyzes CloudTrail, VPC Flow Logs, DNS logs, EKS audit logs, S3 data events, Lambda network activity. ML-based anomaly detection.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/guardduty/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html", "note": "GuardDuty User Guide"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html", "note": "GuardDuty finding types"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/guardduty/latest/APIReference/", "note": "GuardDuty API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^foundational-detection$"],
+      "description": "Core threat detection from CloudTrail management events and VPC Flow Logs",
+      "weight": 100,
+      "data": {
+        "description": "Core threat detection that is always active when GuardDuty is enabled. Analyzes CloudTrail management events and VPC Flow Logs for compromised instances, reconnaissance, credential compromise, and anomalous API activity. Generates findings for suspicious behavior such as cryptocurrency mining, unauthorized access, privilege escalation, and data exfiltration.",
+        "default": {"value": "Always on when GuardDuty is enabled", "note": "Cannot be disabled independently. Foundational detection is the baseline capability of GuardDuty."},
+        "vendor_recommendation": "Enable GuardDuty in all AWS accounts and regions. Use GuardDuty Findings to trigger automated remediation via EventBridge and Lambda or Step Functions.",
+        "audit": {
+          "cli": "aws guardduty list-detectors",
+          "cli_detail": "aws guardduty get-detector --detector-id {id}",
+          "cli_findings": "aws guardduty list-findings --detector-id {id}",
+          "api": "ListDetectors, GetDetector, ListFindings",
+          "console": "AWS Console → GuardDuty → Summary"
+        },
+        "configure": {
+          "cli": "aws guardduty create-detector --enable",
+          "terraform": "aws_guardduty_detector",
+          "cloudformation": "AWS::GuardDuty::Detector"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^s3-protection$"],
+      "description": "Monitor S3 data events for suspicious access patterns",
+      "weight": 100,
+      "data": {
+        "description": "Monitors S3 data plane events (GetObject, PutObject, DeleteObject, ListObjects) for suspicious access patterns. Detects anomalous data access, unusual API calls from known malicious IPs, and potential data exfiltration. Analyzes CloudTrail S3 data events.",
+        "default": {"value": "Enabled by default for new detectors", "note": "Can be disabled independently from foundational detection."},
+        "vendor_recommendation": "Keep S3 protection enabled in all accounts. Critical for detecting data exfiltration and unauthorized access to sensitive data stored in S3.",
+        "audit": {
+          "cli": "aws guardduty get-detector --detector-id {id} --query 'DataSources.S3Logs'",
+          "api": "GetDetector",
+          "console": "AWS Console → GuardDuty → Settings → S3 Protection"
+        },
+        "configure": {
+          "cli": "aws guardduty update-detector --detector-id {id} --data-sources S3Logs={Enable=true}",
+          "terraform": "aws_guardduty_detector (datasources.s3_logs)",
+          "cloudformation": "AWS::GuardDuty::Detector (DataSources.S3Logs)"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^eks-protection$"],
+      "description": "Monitor EKS audit logs and runtime activity",
+      "weight": 100,
+      "data": {
+        "description": "Monitor Amazon EKS clusters for suspicious activity. Two components: EKS Audit Log Monitoring (analyzes Kubernetes audit logs for suspicious API activity, privilege escalation, anonymous access) and EKS Runtime Monitoring (uses a security agent on EKS nodes to detect runtime threats like reverse shells, suspicious binaries, container escapes).",
+        "options": [
+          {"feature": "EKS Audit Log Monitoring", "description": "Analyze Kubernetes API server audit logs for suspicious activity"},
+          {"feature": "EKS Runtime Monitoring", "description": "Agent-based runtime threat detection on EKS nodes. Detects file access, process execution, network connections."}
+        ],
+        "default": {"value": "Enabled by default for new detectors", "note": "Runtime monitoring requires the GuardDuty security agent deployed to EKS nodes."},
+        "vendor_recommendation": "Enable both EKS Audit Log Monitoring and Runtime Monitoring for all production EKS clusters. Ensure the GuardDuty agent add-on is deployed.",
+        "audit": {
+          "cli": "aws guardduty get-detector --detector-id {id} --query 'Features'",
+          "api": "GetDetector",
+          "console": "AWS Console → GuardDuty → Settings → EKS Protection"
+        },
+        "configure": {
+          "cli": "aws guardduty update-detector --detector-id {id} --features '[{\"Name\":\"EKS_AUDIT_LOGS\",\"Status\":\"ENABLED\"},{\"Name\":\"EKS_RUNTIME_MONITORING\",\"Status\":\"ENABLED\"}]'",
+          "terraform": "aws_guardduty_detector_feature"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^lambda-protection$"],
+      "description": "Monitor Lambda network activity for suspicious communications",
+      "weight": 80,
+      "data": {
+        "description": "Monitors network activity from Lambda functions, including VPC Flow Logs from Lambda functions running in VPCs and DNS queries. Detects suspicious communications such as connections to known malicious IP addresses, cryptocurrency mining domains, and command-and-control servers.",
+        "default": {"value": "Enabled by default for new detectors", "note": "Monitors Lambda functions across the account."},
+        "vendor_recommendation": "Enable Lambda protection in all accounts that use Lambda functions. Particularly important for functions that process untrusted input or interact with external services.",
+        "audit": {
+          "cli": "aws guardduty get-detector --detector-id {id} --query 'Features'",
+          "console": "AWS Console → GuardDuty → Settings → Lambda Protection"
+        },
+        "configure": {
+          "cli": "aws guardduty update-detector --detector-id {id} --features '[{\"Name\":\"LAMBDA_NETWORK_LOGS\",\"Status\":\"ENABLED\"}]'",
+          "terraform": "aws_guardduty_detector_feature"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/lambda-protection.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^malware-protection$"],
+      "description": "Scan EBS volumes for malware when suspicious activity detected",
+      "weight": 100,
+      "data": {
+        "description": "Scans Amazon EBS volumes attached to EC2 instances and container workloads when GuardDuty detects suspicious behavior. Creates a snapshot of the volume and scans it for trojans, worms, crypto miners, rootkits, bots, and other malware. Also supports on-demand malware scans.",
+        "options": [
+          {"feature": "GuardDuty-initiated scan", "description": "Automatic scan triggered when GuardDuty detects suspicious activity on an instance"},
+          {"feature": "On-demand scan", "description": "Manually initiated scan of a specific EC2 instance's EBS volumes"}
+        ],
+        "default": {"value": "Enabled by default for new detectors (GuardDuty-initiated)", "note": "On-demand scans must be explicitly triggered."},
+        "vendor_recommendation": "Enable malware protection for automatic scanning. Use on-demand scans for incident response investigations.",
+        "audit": {
+          "cli": "aws guardduty get-detector --detector-id {id} --query 'Features'",
+          "cli_scans": "aws guardduty describe-malware-scans --detector-id {id}",
+          "console": "AWS Console → GuardDuty → Malware Protection"
+        },
+        "configure": {
+          "cli": "aws guardduty update-detector --detector-id {id} --features '[{\"Name\":\"EBS_MALWARE_PROTECTION\",\"Status\":\"ENABLED\"}]'",
+          "cli_ondemand": "aws guardduty start-malware-scan --resource-arn {instance-arn}",
+          "terraform": "aws_guardduty_detector_feature"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^rds-protection$"],
+      "description": "Monitor RDS login activity for brute force and suspicious access",
+      "weight": 80,
+      "data": {
+        "description": "Monitors login activity for Amazon RDS databases (Aurora MySQL, Aurora PostgreSQL) for potential threats. Detects brute force attempts, suspicious successful logins from unusual locations or IPs, and anomalous login patterns. Uses RDS login event data without requiring changes to database configuration.",
+        "default": {"value": "Enabled by default for new detectors", "note": "Supports Amazon Aurora MySQL-Compatible and Aurora PostgreSQL-Compatible editions."},
+        "vendor_recommendation": "Enable RDS protection for all accounts with Aurora databases. Review findings for anomalous login activity that may indicate compromised credentials.",
+        "audit": {
+          "cli": "aws guardduty get-detector --detector-id {id} --query 'Features'",
+          "console": "AWS Console → GuardDuty → Settings → RDS Protection"
+        },
+        "configure": {
+          "cli": "aws guardduty update-detector --detector-id {id} --features '[{\"Name\":\"RDS_LOGIN_EVENTS\",\"Status\":\"ENABLED\"}]'",
+          "terraform": "aws_guardduty_detector_feature"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/rds-protection.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^multi-account$"],
+      "description": "Manage GuardDuty across organization via delegated administrator",
+      "weight": 80,
+      "data": {
+        "description": "Centralized management of GuardDuty across an AWS Organization. A delegated administrator account manages GuardDuty for all member accounts, including automatic enablement for new accounts. Member account findings are visible in the administrator account. Supports configuring protection plans centrally.",
+        "default": {"value": "Not configured by default", "note": "Requires AWS Organizations and delegated administrator designation."},
+        "vendor_recommendation": "Designate a security-dedicated account as the GuardDuty delegated administrator. Enable auto-enable for new member accounts. Centralize finding review and response.",
+        "audit": {
+          "cli": "aws guardduty list-organization-admin-accounts",
+          "cli_members": "aws guardduty list-members --detector-id {id}",
+          "api": "ListOrganizationAdminAccounts, ListMembers",
+          "console": "AWS Console → GuardDuty → Settings → Accounts"
+        },
+        "configure": {
+          "cli": "aws guardduty enable-organization-admin-account --admin-account-id {account-id}",
+          "cli_auto": "aws guardduty update-organization-configuration --detector-id {id} --auto-enable-organization-members ALL",
+          "terraform": "aws_guardduty_organization_admin_account, aws_guardduty_organization_configuration"
+        },
+        "source": "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html"
+      }
+    }
+  ]
+}
