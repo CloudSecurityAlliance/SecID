@@ -104,7 +104,7 @@ SecID:  secid:type/namespace/name@version?qualifiers#subpath[@item_version][?qua
 | PURL Component | SecID Component | SecID Usage |
 |----------------|-----------------|-------------|
 | `pkg:` | `secid:` | Scheme (constant prefix) |
-| `type` | `type` | Security domain: `advisory`, `weakness`, `ttp`, `control`, `capability`, `disclosure`, `regulation`, `entity`, `reference` |
+| `type` | `type` | Security domain: `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`, `regulation`, `entity`, `reference` |
 | `namespace` | `namespace` | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. Examples: `redhat.com`, `cloudsecurityalliance.org`, `github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`. |
 | `name` | `name` | **Database/framework/standard** they publish (e.g., `cve`, `nvd`, `cwe`, `attack`, `27001`) |
 | `@version` | `@version` | Edition or revision (e.g., `@4.0`, `@2022`, `@2.0`) |
@@ -263,6 +263,8 @@ secid:control/nist.gov/csf@2.0#PR.AC-1               # NIST CSF control
 secid:control/cloudsecurityalliance.org/aicm@1.0#A&A-01                # CSA AICM control
 secid:advisory/redhat.com/errata#RHSA-2024:1234      # Red Hat advisory (colon in ID)
 secid:regulation/europa.eu/gdpr#art-32                  # GDPR Article 32
+secid:methodology/nist.gov/ir-8477#strm                  # NIST mapping methodology
+secid:methodology/first.org/cvss@4.0                     # CVSS vulnerability scoring
 secid:entity/mitre.org/cve                           # CVE program
 secid:reference/whitehouse.gov/eo-14110              # Reference document
 ```
@@ -278,6 +280,7 @@ SecID strings are human-readable - no encoding needed. Subpaths can use `/` for 
 | `ttp` | Adversary techniques and behaviors |
 | `control` | Security requirements and capabilities that implement them |
 | `capability` | Concrete product security features with audit and remediation |
+| `methodology` | Formal processes for producing security analysis |
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels |
 | `regulation` | Laws and binding legal requirements |
 | `entity` | Organizations, products, services, platforms |
@@ -375,7 +378,7 @@ Why this format:
 |------|------------|
 | **SecID** | A complete identifier string starting with `secid:` |
 | **Scheme** | The URL scheme - always `secid:` (like `pkg:` in PURL) |
-| **Type** | The security domain (advisory, weakness, ttp, control, capability, disclosure, regulation, entity, reference) |
+| **Type** | The security domain (advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, entity, reference) |
 | **Namespace** | **Domain name**, or **domain name with path**, of the organization that publishes/maintains. A plain domain (`redhat.com`, `cloudsecurityalliance.org`) or a domain with `/`-separated path segments (`github.com/advisories`, `github.com/ModelContextProtocol-Security/vulnerability-db`). Allowed per segment: `a-z`, `0-9`, `-`, `.`, and Unicode letters/numbers. |
 | **Name** | The database/framework/document they publish (e.g., `cve`, `nvd`, `ccm`, `attack`). Can contain any characters - resolved by registry lookup. |
 | **Version** | Optional `@version` suffix on the name for edition/revision of the source (e.g., `@4.0`, `@2021`, `@2016-04-27`) |
@@ -489,7 +492,7 @@ This specification is open for public comment. We welcome feedback, questions, a
 
 | Component | Status |
 |-----------|--------|
-| Identifier grammar + 9 types | **Done** |
+| Identifier grammar + 10 types | **Done** |
 | Registry namespaces (YAML + JSON) | **Done** — see counts below |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
 | [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, npm, Go, etc.) | In progress |
@@ -508,12 +511,13 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
-| Capability | 28 |
+| Capability | 45 |
+| Methodology | 3 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **665** |
+| **Total** | **685** |
 
 <!-- REGISTRY-COUNTS-END -->
 
