@@ -1,0 +1,318 @@
+openapi: 3.1.0
+info:
+  title: SecID REST API
+  version: 1.0.0
+  description: |
+    SecID provides a grammar and registry for referencing security knowledge.
+    Given a SecID string, this API returns the URL(s) where that resource can be found.
+
+    ## Key concepts
+
+    - **SecID string format:** `secid:type/namespace/name[@version][?qualifiers][#subpath[@item_version][?qualifiers]]`
+    - **# encoding:** The `#` character in SecID subpaths must be percent-encoded as `%23` in the query parameter, otherwise the browser interprets it as the URL fragment.
+    - **Multiple results are normal.** The same identifier often resolves to multiple URLs (e.g., a CVE has pages at cve.org, NVD, Red Hat, etc.). Sort by `weight` descending to get the most authoritative result first.
+    - **Four response outcomes:** Every query returns one of: exact match (`found`), server-corrected match (`corrected`), partial match with related data (`related`), or nothing (`not_found`/`error`).
+    - **No authentication required.** The API is open and free to use.
+    - **CORS enabled.** Cross-origin requests are allowed from any origin.
+
+    ## Examples
+
+    - `secid:advisory/mitre.org/cve%23CVE-2024-1234` — resolve a specific CVE
+    - `secid:advisory/mitre.org/cve` — browse the CVE source (returns registry metadata)
+    - `secid:advisory/mitre.org` — list all advisory sources from MITRE
+    - `secid:advisory/CVE-2024-1234` — cross-source search (find this CVE everywhere)
+
+  contact:
+    name: Cloud Security Alliance
+    url: https://cloudsecurityalliance.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  - url: https://secid.cloudsecurityalliance.org
+    description: Production
+
+paths:
+  /api/v1/resolve:
+    get:
+      operationId: resolve
+      summary: Resolve a SecID string to URLs or registry data
+      description: |
+        The primary resolution endpoint. Accepts a SecID string and returns
+        resolved URLs, registry metadata, or guidance depending on query depth
+        and match quality.
+
+        **Query depth determines response depth:**
+        - Type + namespace + name + subpath → resolved URL(s) with weights
+        - Type + namespace + name → source metadata (description, patterns, URLs)
+        - Type + namespace → list of sources from that namespace
+        - Type only → list of namespaces for that type
+
+        **Cross-source search:** When the name component doesn't match any
+        source name but does match a subpath pattern, the resolver tries it
+        against all sources in scope and returns all matches.
+
+        **Important:** The `#` character in SecID subpaths must be encoded as
+        `%23` in the query parameter. For example:
+        `?secid=secid:advisory/mitre.org/cve%23CVE-2024-1234`
+      parameters:
+        - name: secid
+          in: query
+          required: true
+          description: |
+            SecID string to resolve. The `#` separator must be percent-encoded
+            as `%23` (e.g., `secid:advisory/mitre.org/cve%23CVE-2024-1234`).
+          schema:
+            type: string
+          examples:
+            specific-cve:
+              summary: Resolve a specific CVE
+              value: "secid:advisory/mitre.org/cve%23CVE-2024-1234"
+            browse-source:
+              summary: Browse a source (returns metadata)
+              value: "secid:advisory/mitre.org/cve"
+            cross-source:
+              summary: Cross-source search
+              value: "secid:advisory/CVE-2024-1234"
+            list-namespace:
+              summary: List sources from a namespace
+              value: "secid:advisory/mitre.org"
+      responses:
+        "200":
+          description: Resolution result. Always returns a JSON envelope regardless of match outcome.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResolveResponse"
+              examples:
+                found:
+                  summary: Exact match — CVE resolved to URL
+                  value:
+                    secid_query: "secid:advisory/mitre.org/cve#CVE-2024-1234"
+                    status: found
+                    results:
+                      - secid: "secid:advisory/mitre.org/cve#CVE-2024-1234"
+                        weight: 100
+                        url: "https://www.cve.org/CVERecord?id=CVE-2024-1234"
+                corrected:
+                  summary: Server corrected the input
+                  value:
+                    secid_query: "secid:advisory/redhat.com/RHSA-2026:1234"
+                    status: corrected
+                    results:
+                      - secid: "secid:advisory/redhat.com/errata#RHSA-2026:1234"
+                        weight: 100
+                        url: "https://access.redhat.com/errata/RHSA-2026:1234"
+                not-found:
+                  summary: Nothing matched
+                  value:
+                    secid_query: "secid:advisory/totallyinvented.com/whatever"
+                    status: not_found
+                    results: []
+                    message: "No namespace 'totallyinvented.com' in the advisory registry."
+                error:
+                  summary: Unparseable input
+                  value:
+                    secid_query: ""
+                    status: error
+                    results: []
+                    message: "Empty query. Provide a SecID string (e.g., secid:advisory/mitre.org/cve#CVE-2024-1234)."
+
+  /api/v1/registry.json:
+    get:
+      operationId: getRegistry
+      summary: Download the full registry as JSON
+      description: |
+        Returns the complete SecID registry as a single JSON file.
+        Useful for offline resolution, caching, or building local tools.
+      responses:
+        "200":
+          description: Full registry JSON.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The full registry data structure. Contains all types, namespaces, and match_nodes.
+
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Health check
+      description: Returns a simple status object indicating the service is running.
+      responses:
+        "200":
+          description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - status
+                properties:
+                  status:
+                    type: string
+                    enum: ["ok"]
+              examples:
+                healthy:
+                  value:
+                    status: ok
+
+  /mcp:
+    post:
+      operationId: mcpStreamableHttp
+      summary: MCP Streamable HTTP endpoint (JSON-RPC 2.0)
+      description: |
+        Model Context Protocol endpoint for AI agent integration.
+        Accepts JSON-RPC 2.0 requests via Streamable HTTP transport.
+
+        Three MCP tools are available, all backed by the same resolution logic:
+        - `resolve(secid)` — resolve a SecID string to URLs
+        - `lookup(query)` — cross-source search by identifier
+        - `describe(secid)` — get registry metadata for a SecID
+
+        **Important:** This endpoint uses Streamable HTTP, not SSE.
+        Stateless — GET and DELETE return 405.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: JSON-RPC 2.0 request object.
+              required:
+                - jsonrpc
+                - method
+              properties:
+                jsonrpc:
+                  type: string
+                  const: "2.0"
+                method:
+                  type: string
+                  description: "MCP method name (e.g., 'tools/call', 'tools/list')."
+                params:
+                  type: object
+                  description: Method parameters.
+                id:
+                  description: Request ID for matching responses.
+                  oneOf:
+                    - type: string
+                    - type: integer
+      responses:
+        "200":
+          description: JSON-RPC 2.0 response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    const: "2.0"
+                  result:
+                    type: object
+                    description: Method result (varies by method).
+                  error:
+                    type: object
+                    description: Error object if the request failed.
+                    properties:
+                      code:
+                        type: integer
+                      message:
+                        type: string
+                  id:
+                    description: Echoed request ID.
+                    oneOf:
+                      - type: string
+                      - type: integer
+                      - type: "null"
+        "405":
+          description: Method not allowed. GET and DELETE are not supported on this endpoint.
+
+components:
+  schemas:
+    ResolveResponse:
+      type: object
+      description: |
+        Response envelope for all resolution queries. The `status` field
+        indicates how the query was processed. Compare `secid_query` with
+        `results[].secid` to understand what changed.
+      required:
+        - secid_query
+        - status
+        - results
+      properties:
+        secid_query:
+          type: string
+          description: Exactly what the client sent, echoed back verbatim.
+        status:
+          type: string
+          description: |
+            How the server processed the query:
+            - `found` — parsed and matched as-is
+            - `corrected` — had issues but resolved anyway (compare secid_query with results)
+            - `related` — partially matched; returning what we have
+            - `not_found` — nothing matched
+            - `error` — structurally unparseable
+          enum:
+            - found
+            - corrected
+            - related
+            - not_found
+            - error
+        results:
+          type: array
+          description: Zero or more result objects. May be empty on not_found/error.
+          items:
+            oneOf:
+              - $ref: "#/components/schemas/ResolutionResult"
+              - $ref: "#/components/schemas/RegistryResult"
+        message:
+          type: string
+          description: Human/AI-readable guidance. Present on `not_found` and `error` responses. Absent on `found` and `corrected`.
+
+    ResolutionResult:
+      type: object
+      description: A specific item resolved to a URL. One result = one SecID = one URL.
+      required:
+        - secid
+        - weight
+        - url
+      properties:
+        secid:
+          type: string
+          description: The fully-qualified SecID for this result.
+          examples:
+            - "secid:advisory/mitre.org/cve#CVE-2024-1234"
+        weight:
+          type: integer
+          description: Match quality (100 = authoritative, 50 = indirect). From registry match_node weights. Higher is better.
+          minimum: 0
+          maximum: 200
+        url:
+          type: string
+          description: The resolved URL where this resource can be found.
+          format: uri
+        content_type:
+          type: string
+          description: MIME type of the resource at the URL (e.g., 'text/html', 'application/json').
+        lang:
+          type: string
+          description: ISO 639-1 language code of the resolved resource.
+
+    RegistryResult:
+      type: object
+      description: Registry metadata for browsing/discovery. Returned when the query doesn't resolve to a specific URL (no subpath, or partial match).
+      required:
+        - secid
+        - data
+      properties:
+        secid:
+          type: string
+          description: The SecID this registry data describes.
+          examples:
+            - "secid:advisory/mitre.org/cve"
+        data:
+          type: object
+          description: Registry metadata. Contents vary by query depth — deeper queries return more specific data.
+          additionalProperties: true

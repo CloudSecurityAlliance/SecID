@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://secid.cloudsecurityalliance.org/schemas/registry-namespace.schema.json",
+  "title": "SecID Registry Namespace",
+  "description": "Validates SecID registry namespace JSON files. Each file describes one namespace (organization) within a single SecID type, including identity, resolution URLs, and pattern trees for matching subpath identifiers.",
+  "type": "object",
+  "required": ["schema_version", "namespace", "type", "status", "official_name"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "JSON schema version for this file.",
+      "const": "1.0"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Organization identifier — domain name, optionally with /path segments (e.g., 'mitre.org', 'github.com/advisories').",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "description": "SecID type this namespace belongs to.",
+      "enum": ["advisory", "weakness", "ttp", "control", "capability", "methodology", "disclosure", "regulation", "entity", "reference"]
+    },
+    "status": {
+      "type": "string",
+      "description": "Registry entry status reflecting documentation completeness and review state.",
+      "enum": ["proposed", "draft", "pending", "published"]
+    },
+    "status_notes": {
+      "description": "Optional context about status (blockers, gaps, guidance for contributors).",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "official_name": {
+      "type": "string",
+      "description": "Official/legal name of the organization.",
+      "minLength": 1
+    },
+    "common_name": {
+      "description": "Common short name (e.g., 'MITRE', 'NIST').",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "alternate_names": {
+      "description": "Other names for search/matching.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        { "type": "null" }
+      ]
+    },
+    "notes": {
+      "description": "Free-form context for AI and human readers. Markdown allowed.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "alias_of": {
+      "description": "If present, this is an alias stub — namespace redirects to the target value. No sources needed.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "wikidata": {
+      "description": "Wikidata Q-numbers for entity disambiguation.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        { "type": "null" }
+      ]
+    },
+    "wikipedia": {
+      "description": "Wikipedia article URLs for direct access.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        { "type": "null" }
+      ]
+    },
+    "checked": {
+      "type": "string",
+      "description": "Date someone last verified the entry is still accurate (YYYY-MM-DD).",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Date the entry last materially changed (YYYY-MM-DD).",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "urls": {
+      "description": "Top-level URLs for the organization (website, docs, API, etc.).",
+      "type": "array",
+      "items": { "$ref": "#/$defs/UrlObject" }
+    },
+    "match_nodes": {
+      "description": "Pattern tree for matching SecID name/subpath components. Each node matches a portion of the SecID string and optionally has children for deeper matching.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/MatchNode" }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "UrlObject": {
+      "type": "object",
+      "description": "A URL with type classification and optional metadata.",
+      "required": ["url", "type"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL. May contain {placeholder} templates."
+        },
+        "type": {
+          "type": "string",
+          "description": "URL category: website, docs, api, bulk_data, lookup, security, security_txt, paper, github, search, secid_api, secid_mcp, etc."
+        },
+        "note": {
+          "type": "string",
+          "description": "Human/AI-readable context explaining what this URL is for."
+        },
+        "lang": {
+          "type": "string",
+          "description": "ISO 639-1 language code (e.g., 'en', 'fr', 'de')."
+        },
+        "format": {
+          "type": "string",
+          "description": "Expected content format: html, json, pdf, xml, csv, zip."
+        },
+        "checked": {
+          "type": "string",
+          "description": "Date this URL was last verified (YYYY-MM-DD).",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "updated": {
+          "type": "string",
+          "description": "Date this URL entry last changed (YYYY-MM-DD).",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      },
+      "additionalProperties": true
+    },
+    "MatchNode": {
+      "type": "object",
+      "description": "A pattern tree node. Matches a portion of the SecID string (name, version, subpath, or item_version) via regex patterns. Returns data when matched and optionally recurses into children for the next portion.",
+      "required": ["patterns"],
+      "properties": {
+        "patterns": {
+          "type": "array",
+          "description": "One or more regex patterns (OR alternatives). All share the same children and data. Use (?i) prefix for case-insensitive matching.",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "description": {
+          "type": "string",
+          "description": "Human/AI-readable description of what this node matches."
+        },
+        "weight": {
+          "type": "integer",
+          "description": "Match quality/preference. 0-200, higher is more preferred. Returned with results so consumers can sort.",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "data": {
+          "type": "object",
+          "description": "Result data returned when this node matches. Contents vary by tree depth and SecID type — name-level nodes have source metadata, subpath-level nodes have resolution URLs. Open-ended: different types use different fields.",
+          "additionalProperties": true
+        },
+        "children": {
+          "type": "array",
+          "description": "Child nodes for matching the next portion of the SecID string. Recursive structure.",
+          "items": { "$ref": "#/$defs/MatchNode" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
