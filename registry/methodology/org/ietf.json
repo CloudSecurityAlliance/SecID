@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ietf.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Internet Engineering Task Force",
+  "urls": [
+    {"type": "website", "url": "https://www.ietf.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^rfc-3227$"],
+      "description": "RFC 3227: Guidelines for Evidence Collection and Archiving. Lightweight methodology for collecting and preserving digital evidence, including order of volatility and chain of custody principles. Widely cited in incident response and forensics.",
+      "weight": 100,
+      "data": {
+        "url": "https://www.rfc-editor.org/rfc/rfc3227",
+        "examples": ["rfc-3227"]
+      }
+    }
+  ]
+}
