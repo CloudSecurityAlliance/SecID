@@ -227,6 +227,51 @@
           }
         }
       ]
+    },
+
+    {
+      "patterns": ["(?i)^fight$"],
+      "description": "FiGHT — 5G threat framework modeled after ATT&CK",
+      "weight": 100,
+      "data": {
+        "official_name": "FiGHT (5G Hierarchy of Threats)",
+        "common_name": "FiGHT",
+        "alternate_names": ["FIGHT", "5G Hierarchy of Threats"],
+        "description": "MITRE FiGHT is a framework for understanding threats to 5G networks. Modeled after ATT&CK with tactics, techniques, and sub-techniques specific to 5G telecommunications.",
+        "notes": "FiGHT extends the ATT&CK model for 5G-specific threats. Includes tactics, techniques, sub-techniques, mitigations, and data sources. Technique IDs use the FGT prefix (e.g., FGT1040 for Network Sniffing, FGT5012 for 5G-specific techniques). IDs starting with FGT1xxx often correspond to ATT&CK techniques adapted for 5G, while FGT5xxx IDs are 5G-specific techniques. Sub-techniques use dot notation (e.g., FGT1040.501).\n\nThe FiGHT website (fight.mitre.org) is a client-side rendered single-page application. Technique URLs use client-side routing — they work in browsers but may not resolve on direct server requests.",
+        "urls": [
+          {"type": "website", "url": "https://fight.mitre.org/"},
+          {"type": "source", "url": "https://github.com/mitre/FiGHT", "note": "FiGHT website and data repository"}
+        ],
+        "examples": ["FGT1040", "FGT5012", "FGT1592.501", "FGT1195"]
+      },
+      "children": [
+        {
+          "patterns": ["^FGT\\d{4}$"],
+          "description": "FiGHT technique (e.g., FGT1040 Network Sniffing, FGT5012 5G-specific technique)",
+          "weight": 100,
+          "data": {
+            "url": "https://fight.mitre.org/techniques/{id}/",
+            "note": "FiGHT website is a client-side SPA; URLs work in browsers but may not resolve on direct server requests.",
+            "examples": [
+              {"input": "FGT1040", "url": "https://fight.mitre.org/techniques/FGT1040/", "note": "Network Sniffing (adapted from ATT&CK T1040)"},
+              {"input": "FGT5012", "url": "https://fight.mitre.org/techniques/FGT5012/", "note": "5G-specific technique"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^FGT\\d{4}\\.\\d{3}$"],
+          "description": "FiGHT sub-technique (e.g., FGT1592.501). Sub-technique URLs use the full dotted ID.",
+          "weight": 100,
+          "data": {
+            "url": "https://fight.mitre.org/techniques/{id}/",
+            "examples": [
+              {"input": "FGT1592.501", "url": "https://fight.mitre.org/techniques/FGT1592.501/", "note": "FiGHT sub-technique (5G-specific)"},
+              {"input": "FGT1040.501", "url": "https://fight.mitre.org/techniques/FGT1040.501/", "note": "FiGHT sub-technique"}
+            ]
+          }
+        }
+      ]
     }
   ]
 }

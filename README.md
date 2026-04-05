@@ -505,13 +505,13 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Advisory | 42 |
 | Weakness | 13 |
 | Ttp | 4 |
-| Control | 24 |
+| Control | 30 |
 | Capability | 0 |
 | Disclosure | 486 |
-| Regulation | 4 |
+| Regulation | 12 |
 | Entity | 14 |
-| Reference | 29 |
-| **Total** | **616** |
+| Reference | 30 |
+| **Total** | **631** |
 
 <!-- REGISTRY-COUNTS-END -->
 

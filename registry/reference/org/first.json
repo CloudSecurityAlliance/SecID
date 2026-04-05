@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "first.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Forum of Incident Response and Security Teams",
+  "common_name": "FIRST",
+  "alternate_names": null,
+  "notes": "FIRST coordinates incident response globally. Publishes CVSS (Common Vulnerability Scoring System) and EPSS (Exploit Prediction Scoring System), among other standards and best practices for incident response and security teams.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.first.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cvss$"],
+      "description": "Common Vulnerability Scoring System",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Vulnerability Scoring System",
+        "common_name": "CVSS",
+        "alternate_names": null,
+        "description": "Industry standard for scoring the severity of security vulnerabilities. Provides Base, Temporal/Threat, and Environmental metric groups producing a score from 0.0 to 10.0.",
+        "notes": "CVSS v4.0 is the current version (released November 2023). CVSS v3.1 remains widely used across the industry. Each version has a specification document, user guide, and online calculator. CVSS is maintained by the CVSS Special Interest Group (SIG) within FIRST.\n\nCVSS is a specification/standard, not a database of identifiers — it defines how to score vulnerabilities, not individual vulnerability records. Filed under reference because it is a document/specification that other systems reference.",
+        "version_required": false,
+        "versions_available": [
+          {"version": "4.0", "status": "current", "note": "Current version. Adds Supplemental metric group, renames Temporal to Threat."},
+          {"version": "3.1", "status": "active", "note": "Still widely used. Minor revision of 3.0 with improved guidance."},
+          {"version": "3.0", "status": "superseded", "note": "Superseded by 3.1."},
+          {"version": "2.0", "status": "historical", "note": "Legacy. Still seen in older vulnerability databases."},
+          {"version": "1.0", "status": "historical", "note": "Original version. Rarely referenced."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.first.org/cvss/"},
+          {"type": "docs", "url": "https://www.first.org/cvss/v4-0/specification-document", "note": "CVSS v4.0 specification"},
+          {"type": "docs", "url": "https://www.first.org/cvss/v3-1/specification-document", "note": "CVSS v3.1 specification"},
+          {"type": "tool", "url": "https://www.first.org/cvss/calculator/4.0", "note": "CVSS v4.0 calculator"},
+          {"type": "tool", "url": "https://www.first.org/cvss/calculator/3.1", "note": "CVSS v3.1 calculator"},
+          {"type": "docs", "url": "https://www.first.org/cvss/data-representations", "note": "CVSS JSON and XML schema representations"}
+        ],
+        "examples": []
+      },
+      "children": []
+    }
+  ]
+}

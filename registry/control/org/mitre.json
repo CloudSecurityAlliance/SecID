@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitre.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "MITRE Corporation",
+  "common_name": "MITRE",
+  "alternate_names": ["The MITRE Corporation"],
+  "notes": "MITRE operates D3FEND, a knowledge graph of cybersecurity countermeasure techniques. D3FEND is the defensive counterpart to ATT&CK, cataloging what defenders implement rather than what attackers do.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.mitre.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^d3fend$"],
+      "description": "D3FEND — A knowledge graph of cybersecurity countermeasures",
+      "weight": 100,
+      "data": {
+        "official_name": "D3FEND",
+        "common_name": "D3FEND",
+        "alternate_names": null,
+        "description": "MITRE D3FEND is a knowledge graph of cybersecurity countermeasure techniques. It catalogs defensive techniques organized by tactic (Harden, Detect, Isolate, Deceive, Evict). D3FEND maps defensive techniques to the ATT&CK offensive techniques they counter.",
+        "notes": "D3FEND is the defensive counterpart to ATT&CK. Technique IDs use the D3- prefix followed by 2-5 uppercase letters (e.g., D3-MH for Message Hardening, D3-SCA for System Call Analysis). Organized into 5 tactics: Harden, Detect, Isolate, Deceive, Evict. Maps directly to ATT&CK techniques via counters relationships.\n\nD3FEND technique URLs use CamelCase ontology names (e.g., d3f:MessageHardening), not the D3- shorthand codes. The D3- code cannot be algorithmically converted to the URL — a lookup or search is required. Filed under control (not TTP) because defensive techniques are things defenders implement.",
+        "urls": [
+          {"type": "website", "url": "https://d3fend.mitre.org/"},
+          {"type": "docs", "url": "https://d3fend.mitre.org/resources/"},
+          {"type": "api", "url": "https://d3fend.mitre.org/api/", "note": "D3FEND SPARQL API and ontology data"}
+        ],
+        "examples": ["D3-MH", "D3-SCA", "D3-OAM", "D3-FE", "D3-NTA", "D3-MFA"]
+      },
+      "children": [
+        {
+          "patterns": ["^D3-[A-Z]{2,5}$"],
+          "description": "D3FEND technique identifier (D3- prefix followed by 2-5 uppercase letters)",
+          "weight": 100,
+          "data": {
+            "note": "D3FEND technique URLs use CamelCase ontology names (e.g., d3f:MessageHardening), not the D3- shorthand code. The D3- code cannot be mechanically converted to the URL path — use the D3FEND website search or API to resolve individual technique codes.",
+            "examples": [
+              {"input": "D3-MH", "note": "Message Hardening — Harden tactic"},
+              {"input": "D3-SCA", "note": "System Call Analysis — Detect tactic"},
+              {"input": "D3-NTA", "note": "Network Traffic Analysis — Detect tactic"},
+              {"input": "D3-MFA", "note": "Multi-factor Authentication — Harden tactic"},
+              {"input": "D3-PT", "note": "Process Termination — Evict tactic"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
