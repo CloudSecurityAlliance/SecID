@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "opengroup.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "The Open Group",
+  "urls": [
+    {"type": "website", "url": "https://www.opengroup.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^fair$"],
+      "description": "Open FAIR (Factor Analysis of Information Risk): quantitative risk analysis methodology. Uses a taxonomy of risk factors (threat event frequency, vulnerability, loss magnitude) to produce financial risk estimates. Standardized by The Open Group as O-RA (Risk Analysis) and O-RT (Risk Taxonomy).",
+      "weight": 100,
+      "data": {
+        "url": "https://www.opengroup.org/certifications/openfair",
+        "examples": ["fair"]
+      }
+    }
+  ]
+}
