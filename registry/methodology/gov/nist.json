@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": "Initial entry from NIST IR 8477 publication. Reviewed 2026-04-05.",
+
+  "official_name": "National Institute of Standards and Technology",
+  "urls": [
+    {"type": "website", "url": "https://www.nist.gov/"},
+    {"type": "docs", "url": "https://csrc.nist.gov/", "note": "NIST Computer Security Resource Center"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ir-8477$"],
+      "description": "NIST IR 8477: Mapping Relationships Between Documentary Standards, Regulations, Frameworks, and Guidelines. Defines four mapping styles (crosswalk, supportive, STRM, structural) plus a selection methodology for choosing among them.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+        "examples": ["ir-8477"]
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^crosswalk$"],
+          "description": "Crosswalk mapping: identifies direct equivalence or near-equivalence between elements from two documents. Produces a table of element-to-element correspondences. Simplest mapping style with lowest evidentiary weight.",
+          "weight": 100,
+          "data": {
+            "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+            "examples": [
+              {"input": "crosswalk", "url": "https://csrc.nist.gov/pubs/ir/8477/final", "note": "Crosswalk mapping methodology defined in IR 8477"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^supportive$"],
+          "description": "Supportive relationship mapping: identifies elements that support or contribute to the objectives of elements in another document, without requiring direct equivalence. Captures partial and indirect relationships.",
+          "weight": 100,
+          "data": {
+            "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+            "examples": [
+              {"input": "supportive", "url": "https://csrc.nist.gov/pubs/ir/8477/final", "note": "Supportive relationship mapping methodology defined in IR 8477"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^strm$"],
+          "description": "Set Theory Relationship Mapping (STRM): uses set theory notation to express precise mathematical relationships (subset, superset, intersection, disjoint) between document elements. Highest evidentiary weight among IR 8477 mapping styles.",
+          "weight": 100,
+          "data": {
+            "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+            "examples": [
+              {"input": "strm", "url": "https://csrc.nist.gov/pubs/ir/8477/final", "note": "Set Theory Relationship Mapping (STRM) methodology defined in IR 8477"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^structural$"],
+          "description": "Structural mapping: analyzes the organizational structure and hierarchy of documents to identify structural parallels and alignment between frameworks.",
+          "weight": 100,
+          "data": {
+            "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+            "examples": [
+              {"input": "structural", "url": "https://csrc.nist.gov/pubs/ir/8477/final", "note": "Structural mapping methodology defined in IR 8477"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^selection$"],
+          "description": "Selection methodology: decision process for choosing which mapping style(s) to apply based on the purpose of the mapping, the nature of the documents, and the intended use of the results.",
+          "weight": 100,
+          "data": {
+            "url": "https://csrc.nist.gov/pubs/ir/8477/final",
+            "examples": [
+              {"input": "selection", "url": "https://csrc.nist.gov/pubs/ir/8477/final", "note": "Selection methodology for choosing mapping style(s)"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": ["(?i)^rmf$", "(?i)^800-37$"],
+      "description": "NIST Risk Management Framework (SP 800-37): seven-step process for managing security and privacy risk — prepare, categorize, select, implement, assess, authorize, monitor.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/projects/risk-management/about-rmf",
+        "examples": ["rmf", "800-37"]
+      }
+    },
+    {
+      "patterns": ["(?i)^800-30$"],
+      "description": "NIST SP 800-30: Guide for Conducting Risk Assessments. Methodology for identifying, estimating, and prioritizing information security risks.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+        "examples": ["800-30"]
+      }
+    },
+    {
+      "patterns": ["(?i)^800-61$"],
+      "description": "NIST SP 800-61: Incident Handling Guide. Methodology for detecting, analyzing, containing, eradicating, and recovering from computer security incidents.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+        "examples": ["800-61"]
+      }
+    },
+    {
+      "patterns": ["(?i)^800-115$"],
+      "description": "NIST SP 800-115: Technical Guide to Information Security Testing and Assessment. Methodology for planning, conducting, and analyzing security testing.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
+        "examples": ["800-115"]
+      }
+    },
+    {
+      "patterns": ["(?i)^800-161$"],
+      "description": "NIST SP 800-161: Cybersecurity Supply Chain Risk Management (C-SCRM) Practices. Methodology for identifying, assessing, and mitigating supply chain risks.",
+      "weight": 100,
+      "data": {
+        "url": "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
+        "examples": ["800-161"]
+      }
+    }
+  ]
+}
