@@ -1,3 +1,13 @@
+---
+marp: true
+theme: csa
+paginate: true
+header: 'SecID v1.0'
+footer: 'Cloud Security Alliance · secid.cloudsecurityalliance.org'
+---
+
+<!-- _class: title -->
+
 # SecID: Label It. Find It. Use It.
 
 **A universal identifier for security knowledge**
@@ -266,6 +276,8 @@ Found something missing? `github.com/CloudSecurityAlliance/SecID/issues`
 Adding a source is one JSON file. AI agents can help.
 
 ---
+
+<!-- _class: closing -->
 
 Kurt Seifried · Chief Innovation Officer · Cloud Security Alliance
 kseifried@cloudsecurityalliance.org · github.com/kurtseifried

@@ -1,0 +1,275 @@
+/* @theme csa */
+
+/*
+ * CSA-branded Marp theme for SecID presentations
+ *
+ * Based on CSA Design Reference Report (2026-03-13):
+ * - Colors: Official CSA Color Palette 2023
+ * - Fonts: azo-sans-web (primary), Open Sans (fallback)
+ * - Spacing: 8px base unit
+ *
+ * Usage in Marp markdown:
+ *   ---
+ *   marp: true
+ *   theme: csa
+ *   ---
+ */
+
+@import url('https://use.typekit.net/tpr8qgx.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* ── Base ── */
+
+section {
+  font-family: 'azo-sans-web', 'Open Sans', 'Roboto', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #191929;           /* gray-800 — near-black */
+  background: #FFFFFF;
+  padding: 48px 64px;
+  width: 1280px;
+  height: 720px;
+}
+
+/* ── Typography ── */
+
+h1 {
+  font-family: 'azo-sans-web', 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 2.2em;
+  color: #00549F;           /* blue-500 — CSA primary blue */
+  margin-bottom: 0.3em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'azo-sans-web', 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.6em;
+  color: #00549F;           /* blue-500 */
+  margin-bottom: 0.4em;
+  line-height: 1.2;
+  border-bottom: 3px solid #0072C7;  /* blue-400 — heading underline per CSA pattern */
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-family: 'azo-sans-web', 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #383C4C;           /* gray-600 */
+  margin-bottom: 0.3em;
+}
+
+p {
+  margin-bottom: 0.6em;
+}
+
+strong {
+  font-weight: 700;
+  color: #191929;           /* gray-800 */
+}
+
+/* ── Links ── */
+
+a {
+  color: #00549F;           /* blue-500 — primary link color */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0093FF;           /* blue-300 — link hover */
+  text-decoration: underline;
+}
+
+/* ── Lists ── */
+
+ul, ol {
+  margin-left: 0;
+  padding-left: 1.2em;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+/* ── Code ── */
+
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85em;
+  background: #EEF3F8;     /* gray-25 — light background */
+  color: #383C4C;           /* gray-600 */
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background: #191929;      /* gray-800 — dark code blocks */
+  color: #EEF3F8;           /* gray-25 */
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 0.7em;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ── Tables ── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin: 0.5em 0;
+}
+
+th {
+  background: #383C4C;      /* gray-600 — CSA table header */
+  color: #FFFFFF;
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 12px;
+}
+
+td {
+  padding: 6px 12px;
+  border-bottom: 1px solid #DDE6EF;  /* gray-50 */
+}
+
+tr:nth-child(even) td {
+  background: #EEF3F8;     /* gray-25 — striped rows */
+}
+
+/* ── Blockquotes ── */
+
+blockquote {
+  border-left: 4px solid #F98526;   /* orange-500 — CSA primary accent */
+  margin: 0.5em 0;
+  padding: 0.3em 0 0.3em 1em;
+  color: #59626F;           /* gray-400 */
+  font-style: italic;
+  background: #FFF3DE;      /* orange-25 — subtle orange bg */
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ── Header & Footer ── */
+
+header {
+  font-size: 14px;
+  color: #697A89;           /* gray-300 */
+  position: absolute;
+  top: 16px;
+  left: 64px;
+}
+
+footer {
+  font-size: 12px;
+  color: #899CAC;           /* gray-200 */
+  position: absolute;
+  bottom: 16px;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ── Slide Classes ── */
+
+/* Title slide */
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #102A55 0%, #00549F 50%, #0072C7 100%);  /* blue-700 → blue-500 → blue-400 */
+  color: #FFFFFF;
+}
+
+section.title h1 {
+  color: #FFFFFF;
+  font-size: 2.8em;
+  margin-bottom: 0.2em;
+}
+
+section.title p {
+  color: #C4E6FF;           /* blue-50 */
+  font-size: 0.9em;
+}
+
+section.title strong {
+  color: #FFA600;           /* orange-300 — gold accent on dark bg */
+}
+
+section.title code {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+/* Section divider slide */
+section.divider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #00549F;      /* blue-500 */
+  color: #FFFFFF;
+}
+
+section.divider h2 {
+  color: #FFFFFF;
+  border-bottom-color: #FFA600;  /* orange-300 — gold accent */
+  font-size: 2em;
+}
+
+section.divider p {
+  color: #C4E6FF;           /* blue-50 */
+}
+
+/* Closing slide */
+section.closing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #191929;      /* gray-800 */
+  color: #FFFFFF;
+}
+
+section.closing strong {
+  color: #FFA600;           /* orange-300 — gold accent */
+}
+
+section.closing a {
+  color: #99D4FF;           /* blue-75 */
+}
+
+/* ── Emphasis Colors ── */
+
+/* CSA orange accent for key metrics */
+em {
+  font-style: normal;
+  color: #F98526;           /* orange-500 — CSA primary action color */
+  font-weight: 700;
+}
+
+/* ── Pagination ── */
+
+section::after {
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+  font-size: 12px;
+  color: #899CAC;           /* gray-200 */
+  position: absolute;
+  bottom: 16px;
+  right: 64px;
+}

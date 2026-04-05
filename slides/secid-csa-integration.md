@@ -1,3 +1,13 @@
+---
+marp: true
+theme: csa
+paginate: true
+header: 'SecID + CSA'
+footer: 'Cloud Security Alliance · secid.cloudsecurityalliance.org'
+---
+
+<!-- _class: title -->
+
 # SecID + CSA: Infrastructure for Security Programs
 
 **How SecID powers CCM, AICM, STAR, CCSK, and beyond**
@@ -254,6 +264,8 @@ SecID is the connective tissue. CSA programs are the products. External security
 - SDKs: `github.com/CloudSecurityAlliance/SecID-Client-SDK`
 
 ---
+
+<!-- _class: closing -->
 
 Kurt Seifried · Chief Innovation Officer · Cloud Security Alliance
 kseifried@cloudsecurityalliance.org · github.com/kurtseifried
