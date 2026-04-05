@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "namespace": "amazon.com/aws/ec2",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from AWS EC2 documentation, 2026-04-04. Needs cross-reference pass and human review with live AWS environment.",
+
+  "official_name": "Amazon Elastic Compute Cloud",
+  "common_name": "EC2",
+  "alternate_names": null,
+  "notes": "Virtual machines. Security includes instance metadata service, security groups, key pairs, EBS encryption, Systems Manager, Nitro Enclaves.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://aws.amazon.com/ec2/"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html", "note": "EC2 Security chapter"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html", "note": "EC2 Best Practices"},
+    {"type": "docs", "url": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/", "note": "EC2 API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^imdsv2$"],
+      "description": "Instance Metadata Service v2 — session-oriented, token-based metadata access",
+      "weight": 100,
+      "data": {
+        "description": "Requires session tokens (PUT request before GET) for instance metadata access. Mitigates SSRF attacks that could steal credentials from the metadata endpoint (169.254.169.254).",
+        "options": [
+          {"value": "required", "name": "IMDSv2 required", "description": "Only token-based (PUT+GET) requests accepted. Blocks IMDSv1 GET-only requests."},
+          {"value": "optional", "name": "IMDSv2 optional", "description": "Both IMDSv1 (GET-only) and IMDSv2 (PUT+GET) accepted. Legacy default."}
+        ],
+        "default": {"value": "required", "note": "Required for new instance types (2024+), optional for older. AWS is migrating all instances to IMDSv2-only."},
+        "vendor_recommendation": "Require IMDSv2, disable IMDSv1. Set http-tokens to required and http-put-response-hop-limit to 1 (prevents container credential theft via network hops).",
+        "audit": {
+          "cli": "aws ec2 describe-instances --query 'Reservations[*].Instances[*].{Id:InstanceId,IMDS:MetadataOptions}'",
+          "api": "DescribeInstances (MetadataOptions field)",
+          "console": "EC2 → Instances → {instance} → Actions → Instance settings → Modify instance metadata options"
+        },
+        "configure": {
+          "cli": "aws ec2 modify-instance-metadata-options --instance-id {id} --http-tokens required --http-put-response-hop-limit 1",
+          "api": "ModifyInstanceMetadataOptions",
+          "terraform": "metadata_options block on aws_instance",
+          "cloudformation": "AWS::EC2::Instance MetadataOptions"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^security-groups$"],
+      "description": "Instance-level stateful firewall controlling inbound and outbound traffic",
+      "weight": 100,
+      "data": {
+        "description": "Virtual firewalls for EC2 instances. Stateful — return traffic is automatically allowed. Rules specify protocol, port range, and source/destination (CIDR, security group ID, or prefix list). Default: deny all inbound, allow all outbound.",
+        "vendor_recommendation": "Use least-privilege rules. Avoid 0.0.0.0/0 for inbound SSH/RDP. Use security group references instead of CIDR where possible for service-to-service communication.",
+        "cross_references": ["secid:capability/amazon.com/aws/vpc#security-groups"],
+        "audit": {
+          "cli": "aws ec2 describe-security-groups --group-ids {sg-id}",
+          "cli_instance": "aws ec2 describe-instances --instance-ids {id} --query 'Reservations[*].Instances[*].SecurityGroups'",
+          "api": "DescribeSecurityGroups"
+        },
+        "configure": {
+          "cli_authorize": "aws ec2 authorize-security-group-ingress --group-id {sg-id} --protocol tcp --port 443 --cidr 10.0.0.0/8",
+          "cli_revoke": "aws ec2 revoke-security-group-ingress --group-id {sg-id} --protocol tcp --port 22 --cidr 0.0.0.0/0",
+          "terraform": "aws_security_group, aws_security_group_rule"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^key-pairs$"],
+      "description": "SSH key pairs for Linux instance access",
+      "weight": 80,
+      "data": {
+        "description": "Public/private key pairs for SSH access to Linux instances. Public key stored on instance, private key held by user. Options: RSA (2048/4096-bit) or ED25519.",
+        "options": [
+          {"value": "rsa", "name": "RSA", "description": "RSA 2048 or 4096-bit keys. Widely compatible."},
+          {"value": "ed25519", "name": "ED25519", "description": "Smaller, faster. Not supported on all AMIs."}
+        ],
+        "vendor_recommendation": "Use Systems Manager Session Manager instead of SSH keys where possible. If SSH keys are required, use ED25519, rotate regularly, and never share private keys.",
+        "audit": {
+          "cli": "aws ec2 describe-key-pairs",
+          "cli_instance": "aws ec2 describe-instances --instance-ids {id} --query 'Reservations[*].Instances[*].KeyName'",
+          "api": "DescribeKeyPairs"
+        },
+        "configure": {
+          "cli_create": "aws ec2 create-key-pair --key-name {name} --key-type ed25519",
+          "cli_import": "aws ec2 import-key-pair --key-name {name} --public-key-material fileb://key.pub",
+          "terraform": "aws_key_pair"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ebs-encryption$"],
+      "description": "Encryption for attached EBS volumes",
+      "weight": 100,
+      "data": {
+        "description": "Encrypt data at rest on EBS volumes attached to EC2 instances. Uses AES-256. Encryption happens on the server hosting the instance (data encrypted in transit between instance and volume).",
+        "options": [
+          {"value": "aws-managed", "name": "AWS managed key", "description": "Default aws/ebs KMS key. No additional cost."},
+          {"value": "customer-managed", "name": "Customer managed key", "description": "Your KMS key. Allows key policy control and rotation."}
+        ],
+        "default": {"value": null, "note": "Not encrypted by default unless account-level default encryption is enabled."},
+        "vendor_recommendation": "Enable account-level default EBS encryption. Use customer-managed keys for sensitive workloads.",
+        "cross_references": ["secid:capability/amazon.com/aws/kms"],
+        "audit": {
+          "cli": "aws ec2 get-ebs-encryption-by-default",
+          "cli_volume": "aws ec2 describe-volumes --volume-ids {id} --query 'Volumes[*].{Id:VolumeId,Encrypted:Encrypted,KmsKeyId:KmsKeyId}'",
+          "api": "GetEbsEncryptionByDefault, DescribeVolumes"
+        },
+        "configure": {
+          "cli_default": "aws ec2 enable-ebs-encryption-by-default",
+          "cli_key": "aws ec2 modify-ebs-default-kms-key-id --kms-key-id {key-id}",
+          "terraform": "aws_ebs_encryption_by_default, encrypted argument on aws_ebs_volume"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^instance-profiles$"],
+      "description": "IAM roles attached to EC2 instances providing temporary credentials",
+      "weight": 100,
+      "data": {
+        "description": "Container for an IAM role that passes role information to an EC2 instance at launch. The instance can then use the role's temporary credentials (via IMDS) to call AWS APIs without embedding access keys.",
+        "vendor_recommendation": "Never embed access keys in instances — use instance profiles. One role per instance with least-privilege permissions. Use IAM Access Analyzer to right-size permissions.",
+        "cross_references": ["secid:capability/amazon.com/aws/iam#roles"],
+        "audit": {
+          "cli": "aws ec2 describe-instances --instance-ids {id} --query 'Reservations[*].Instances[*].IamInstanceProfile'",
+          "api": "DescribeInstances (IamInstanceProfile field)"
+        },
+        "configure": {
+          "cli_create": "aws iam create-instance-profile --instance-profile-name {name}",
+          "cli_add_role": "aws iam add-role-to-instance-profile --instance-profile-name {name} --role-name {role}",
+          "cli_attach": "aws ec2 associate-iam-instance-profile --instance-id {id} --iam-instance-profile Name={name}",
+          "terraform": "aws_iam_instance_profile"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^systems-manager$"],
+      "description": "Patch management, remote access without SSH, compliance scanning",
+      "weight": 100,
+      "data": {
+        "description": "AWS Systems Manager provides operational management for EC2 instances. Session Manager provides audited shell access without open inbound ports or SSH keys. Patch Manager automates OS and application patching. Compliance reports on patch and configuration status.",
+        "options": [
+          {"feature": "Session Manager", "description": "Interactive shell, no SSH, no open ports. All sessions logged to CloudTrail/S3/CloudWatch."},
+          {"feature": "Patch Manager", "description": "Automated patching with patch baselines, maintenance windows, and compliance reporting."},
+          {"feature": "State Manager", "description": "Enforce desired state configurations on instances."},
+          {"feature": "Inventory", "description": "Collect metadata about instances: applications, network, OS, services."}
+        ],
+        "vendor_recommendation": "Use Session Manager instead of SSH/RDP for all administrative access. Enable patch compliance scanning. Require SSM Agent on all instances.",
+        "audit": {
+          "cli_managed": "aws ssm describe-instance-information",
+          "cli_compliance": "aws ssm list-compliance-summaries",
+          "api": "DescribeInstanceInformation, ListComplianceSummaries"
+        },
+        "source": "https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^nitro-enclaves$"],
+      "description": "Isolated compute environments for highly sensitive data processing",
+      "weight": 80,
+      "data": {
+        "description": "Isolated virtual machines within an EC2 instance with their own kernel, CPU, and memory. No persistent storage, no interactive access, no external networking. Uses cryptographic attestation. Designed for processing highly sensitive data (PII, financial, healthcare).",
+        "vendor_recommendation": "Use Nitro Enclaves for workloads processing highly sensitive data that require isolation from the parent instance operator.",
+        "audit": {
+          "cli": "aws ec2 describe-instances --instance-ids {id} --query 'Reservations[*].Instances[*].EnclaveOptions'",
+          "api": "DescribeInstances (EnclaveOptions field)"
+        },
+        "configure": {
+          "cli": "aws ec2 run-instances --enclave-options Enabled=true ...",
+          "note": "Must be enabled at launch. Requires Nitro-based instance types."
+        },
+        "source": "https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^serial-console$"],
+      "description": "Troubleshooting access via serial port — disabled by default",
+      "weight": 60,
+      "data": {
+        "description": "Interactive serial console access for troubleshooting boot issues, network misconfigurations, and SSH problems. Text-based, low-bandwidth. Disabled by default at the account level.",
+        "default": {"value": "disabled", "note": "Disabled by default at account level. Must be explicitly enabled."},
+        "vendor_recommendation": "Keep disabled unless actively troubleshooting. Enable temporarily, then disable when done.",
+        "audit": {
+          "cli": "aws ec2 get-serial-console-access-status",
+          "api": "GetSerialConsoleAccessStatus"
+        },
+        "configure": {
+          "cli_enable": "aws ec2 enable-serial-console-access",
+          "cli_disable": "aws ec2 disable-serial-console-access",
+          "api": "EnableSerialConsoleAccess, DisableSerialConsoleAccess"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ami-permissions$"],
+      "description": "Control who can launch instances from your AMIs",
+      "weight": 80,
+      "data": {
+        "description": "Amazon Machine Image sharing controls. AMIs can be private (owner only, default), shared with specific accounts, or public. Public AMIs are visible to all AWS accounts.",
+        "options": [
+          {"value": "private", "name": "Private", "description": "Only the owning account can launch. Default."},
+          {"value": "shared", "name": "Shared", "description": "Specific AWS accounts can launch."},
+          {"value": "public", "name": "Public", "description": "Any AWS account can launch. Security risk if AMI contains sensitive data."}
+        ],
+        "default": {"value": "private", "note": "AMIs are private by default."},
+        "vendor_recommendation": "Keep AMIs private unless sharing is required. Never make AMIs public if they contain credentials, keys, or sensitive configurations. Use AWS RAM for controlled sharing across organizations.",
+        "audit": {
+          "cli": "aws ec2 describe-image-attribute --image-id {id} --attribute launchPermission",
+          "cli_public": "aws ec2 describe-images --owners self --filters Name=is-public,Values=true",
+          "api": "DescribeImageAttribute"
+        },
+        "configure": {
+          "cli_share": "aws ec2 modify-image-attribute --image-id {id} --launch-permission Add=[{UserId={account-id}}]",
+          "cli_revoke": "aws ec2 modify-image-attribute --image-id {id} --launch-permission Remove=[{UserId={account-id}}]"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^placement-groups$"],
+      "description": "Control instance placement for isolation or performance",
+      "weight": 60,
+      "data": {
+        "description": "Influence how instances are placed on underlying hardware. Spread placement groups distribute instances across distinct hardware to reduce correlated failures. Partition groups separate instances into logical partitions on separate racks.",
+        "options": [
+          {"value": "cluster", "name": "Cluster", "description": "Pack instances close together for low-latency networking. Single AZ."},
+          {"value": "spread", "name": "Spread", "description": "Each instance on distinct hardware. Max 7 per AZ. Reduces correlated failure."},
+          {"value": "partition", "name": "Partition", "description": "Instances in logical partitions on separate racks. For large distributed workloads (HDFS, HBase, Cassandra)."}
+        ],
+        "audit": {
+          "cli": "aws ec2 describe-placement-groups",
+          "cli_instance": "aws ec2 describe-instances --instance-ids {id} --query 'Reservations[*].Instances[*].Placement.GroupName'",
+          "api": "DescribePlacementGroups"
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^hibernation-encryption$"],
+      "description": "Encryption of hibernated instance RAM contents",
+      "weight": 60,
+      "data": {
+        "description": "When an EC2 instance hibernates, the contents of RAM are saved to the root EBS volume. This data is encrypted using the EBS volume's encryption key. The root volume must be encrypted for hibernation to be enabled.",
+        "vendor_recommendation": "Ensure root EBS volumes are encrypted before enabling hibernation. Memory contents may contain sensitive data (credentials, keys, application state).",
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-instances.html"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^user-data$"],
+      "description": "Instance initialization scripts — security concern for embedded secrets",
+      "weight": 80,
+      "data": {
+        "description": "Scripts or cloud-init directives executed at instance launch. Accessible via instance metadata (IMDS). Common security concern: developers embed secrets, API keys, or passwords in user data.",
+        "vendor_recommendation": "Never put secrets in user data. Use AWS Secrets Manager or SSM Parameter Store for secrets. User data is accessible to anyone who can access the instance metadata.",
+        "audit": {
+          "cli": "aws ec2 describe-instance-attribute --instance-id {id} --attribute userData",
+          "api": "DescribeInstanceAttribute (userData)",
+          "note": "User data is base64-encoded in the response. Decode to inspect for secrets."
+        },
+        "source": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html"
+      }
+    }
+  ]
+}

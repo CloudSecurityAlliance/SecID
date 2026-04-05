@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/aks",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure AKS documentation, 2026-04-04. Needs cross-reference pass and human review with live Azure environment.",
+
+  "official_name": "Azure Kubernetes Service",
+  "common_name": "AKS",
+  "alternate_names": null,
+  "notes": "Managed Kubernetes for Azure. Security focus: Entra ID integration, network policies, private cluster, pod identity, secrets.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/kubernetes-service/"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/aks/concepts-security", "note": "AKS Security concepts"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/aks/best-practices-security", "note": "AKS Security best practices"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/aks/", "note": "AKS REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^entra-id-integration$"],
+      "description": "Microsoft Entra ID for cluster authentication",
+      "weight": 100,
+      "data": {
+        "description": "Integrates Microsoft Entra ID (formerly Azure AD) as the authentication provider for AKS clusters. Users authenticate with their Entra ID credentials to access the cluster. Supports conditional access policies, MFA enforcement, and group-based access.",
+        "options": [
+          {"value": "aks-managed", "name": "AKS-managed Entra ID", "description": "Recommended. AKS manages the integration. Simpler setup. Supports Azure RBAC for Kubernetes."},
+          {"value": "legacy", "name": "Legacy Azure AD integration", "description": "Older integration method. Requires manual server/client app registrations. Being deprecated."}
+        ],
+        "vendor_recommendation": "Use AKS-managed Entra ID integration for all clusters. Enable conditional access policies. Require MFA for cluster admin access.",
+        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query aadProfile",
+          "api": "ManagedClusters - Get (aadProfile)"
+        },
+        "configure": {
+          "cli_enable": "az aks update --name {cluster} --resource-group {rg} --enable-aad --aad-admin-group-object-ids {group-id}",
+          "terraform": "azure_active_directory_role_based_access_control block on azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/managed-azure-ad"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^azure-rbac-for-kubernetes$"],
+      "description": "Use Azure RBAC for Kubernetes authorization",
+      "weight": 80,
+      "data": {
+        "description": "Azure RBAC for Kubernetes authorization allows using Azure role assignments to control access to Kubernetes resources. Alternative to native Kubernetes RBAC. Provides unified access management across Azure resources and Kubernetes objects from a single control plane.",
+        "vendor_recommendation": "Use Azure RBAC for Kubernetes when you want unified access management with Azure. For teams already using Kubernetes RBAC extensively, both can coexist.",
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query aadProfile.enableAzureRBAC",
+          "api": "ManagedClusters - Get (aadProfile.enableAzureRBAC)"
+        },
+        "configure": {
+          "cli": "az aks update --name {cluster} --resource-group {rg} --enable-azure-rbac",
+          "terraform": "azure_rbac_enabled in azure_active_directory_role_based_access_control block"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^network-policies$"],
+      "description": "Pod-to-pod traffic filtering",
+      "weight": 100,
+      "data": {
+        "description": "Network policies control traffic flow between pods in an AKS cluster. Without network policies, all pods can communicate with all other pods. Network policies act as pod-level firewalls using label selectors.",
+        "options": [
+          {"value": "azure", "name": "Azure Network Policy Manager", "description": "Default network policy engine. Integrates with Azure networking."},
+          {"value": "calico", "name": "Calico", "description": "Open-source. More features (global policies, DNS policies, service account policies). Commonly used in enterprise."},
+          {"value": "cilium", "name": "Cilium", "description": "eBPF-based. Advanced network policies, observability, and encryption."}
+        ],
+        "vendor_recommendation": "Enable network policies for all production clusters. Start with deny-all default, then allow specific traffic. Use Calico or Cilium for advanced policy needs.",
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query networkProfile.networkPolicy",
+          "note": "Check deployed policies: kubectl get networkpolicies --all-namespaces"
+        },
+        "configure": {
+          "cli": "az aks create --name {cluster} --resource-group {rg} --network-policy calico ...",
+          "note": "Network policy engine must be set at cluster creation time. Cannot be changed after.",
+          "terraform": "network_policy in network_profile block on azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/use-network-policies"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-cluster$"],
+      "description": "API server on private endpoint",
+      "weight": 100,
+      "data": {
+        "description": "Private AKS clusters place the API server on a private endpoint within the VNet. The API server is not accessible from the public internet. Cluster management requires VPN, ExpressRoute, or a jump box within the VNet.",
+        "options": [
+          {"value": "public", "name": "Public cluster", "description": "Default. API server has a public FQDN. Can restrict with authorized IP ranges."},
+          {"value": "private", "name": "Private cluster", "description": "API server on private endpoint. No public FQDN. Requires network connectivity to VNet."}
+        ],
+        "default": {"value": "public", "note": "Public cluster by default."},
+        "vendor_recommendation": "Use private clusters for production workloads. If public is required, restrict with authorized IP ranges.",
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query apiServerAccessProfile",
+          "api": "ManagedClusters - Get (apiServerAccessProfile)"
+        },
+        "configure": {
+          "cli_private": "az aks create --name {cluster} --resource-group {rg} --enable-private-cluster ...",
+          "cli_authorized_ips": "az aks update --name {cluster} --resource-group {rg} --api-server-authorized-ip-ranges {cidr1},{cidr2}",
+          "terraform": "private_cluster_enabled on azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/private-clusters"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^workload-identity$"],
+      "description": "Entra ID identity for pods — replaces pod-managed identity",
+      "weight": 100,
+      "data": {
+        "description": "Workload identity allows Kubernetes pods to authenticate to Azure services using Entra ID identity via federated credentials. Maps Kubernetes service accounts to Entra ID managed identities. Replaces the older pod-managed identity (aad-pod-identity) which had security limitations.",
+        "vendor_recommendation": "Use workload identity instead of pod-managed identity for all new deployments. Migrate existing pod-managed identity workloads. Each application should have its own dedicated managed identity with least-privilege permissions.",
+        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query oidcIssuerProfile",
+          "note": "Check service account annotations: kubectl get sa {sa} -n {ns} -o yaml | grep azure.workload.identity/client-id"
+        },
+        "configure": {
+          "cli_enable": "az aks update --name {cluster} --resource-group {rg} --enable-oidc-issuer --enable-workload-identity",
+          "cli_federated": "az identity federated-credential create --name {cred} --identity-name {mi} --resource-group {rg} --issuer {oidc-url} --subject system:serviceaccount:{ns}:{sa}",
+          "terraform": "oidc_issuer_enabled, workload_identity_enabled on azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^secrets-store-csi$"],
+      "description": "Mount Azure Key Vault secrets as volumes via CSI driver",
+      "weight": 80,
+      "data": {
+        "description": "The Secrets Store CSI Driver for AKS mounts secrets, keys, and certificates from Azure Key Vault directly into pods as volumes. Secrets are synchronized to Kubernetes secrets optionally. Uses workload identity or managed identity for Key Vault access.",
+        "vendor_recommendation": "Use the CSI driver with workload identity for Key Vault access. Avoid storing sensitive values in Kubernetes secrets directly. Enable auto-rotation for mounted secrets.",
+        "cross_references": ["secid:capability/microsoft.com/azure/key-vault#secrets"],
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query addonProfiles.azureKeyvaultSecretsProvider",
+          "note": "Check mounted secrets: kubectl get secretproviderclass --all-namespaces"
+        },
+        "configure": {
+          "cli_enable": "az aks enable-addons --addons azure-keyvault-secrets-provider --name {cluster} --resource-group {rg}",
+          "cli_rotation": "az aks update --name {cluster} --resource-group {rg} --enable-secret-rotation --rotation-poll-interval 2m",
+          "terraform": "key_vault_secrets_provider in azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^defender-for-containers$"],
+      "description": "Runtime threat detection, image scanning, and policy enforcement",
+      "weight": 80,
+      "data": {
+        "description": "Microsoft Defender for Containers provides runtime threat detection for AKS clusters, vulnerability scanning for container images in ACR, and Kubernetes policy enforcement via Azure Policy. Detects suspicious activities like crypto mining, reverse shells, and privilege escalation attempts.",
+        "options": [
+          {"feature": "Runtime protection", "description": "Detects threats at the cluster, node, and workload level. Alerts for suspicious activities."},
+          {"feature": "Vulnerability assessment", "description": "Scans container images in Azure Container Registry for OS and language vulnerabilities."},
+          {"feature": "Policy enforcement", "description": "Azure Policy for Kubernetes. Enforce/audit pod security, network policies, image registries."}
+        ],
+        "vendor_recommendation": "Enable Defender for Containers for all production clusters. Review and remediate security alerts. Use policy enforcement to prevent deployment of vulnerable images.",
+        "audit": {
+          "cli": "az security pricing show --name Containers",
+          "console": "Defender for Cloud → Environment settings → Containers"
+        },
+        "configure": {
+          "cli": "az security pricing create --name Containers --tier Standard",
+          "terraform": "azurerm_security_center_subscription_pricing for Containers"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^disk-encryption$"],
+      "description": "Encrypt etcd and node OS disks",
+      "weight": 80,
+      "data": {
+        "description": "AKS supports encryption of node OS disks and the etcd datastore. Node OS disks are encrypted at rest by default with platform-managed keys. Customer-managed keys (CMK) can be used for additional control. Ephemeral OS disks use the host encryption feature.",
+        "options": [
+          {"value": "platform-managed", "name": "Platform-managed keys", "description": "Default. Microsoft manages the encryption keys."},
+          {"value": "customer-managed", "name": "Customer-managed keys", "description": "You manage keys in Azure Key Vault via a disk encryption set."}
+        ],
+        "default": {"value": "platform-managed", "note": "Node OS disks encrypted at rest with platform-managed keys by default."},
+        "vendor_recommendation": "Use customer-managed keys for clusters handling sensitive data. Enable host-based encryption for ephemeral OS disks.",
+        "cross_references": ["secid:capability/microsoft.com/azure/key-vault"],
+        "audit": {
+          "cli": "az aks show --name {cluster} --resource-group {rg} --query diskEncryptionSetID",
+          "api": "ManagedClusters - Get (diskEncryptionSetID)"
+        },
+        "configure": {
+          "cli": "az aks create --name {cluster} --resource-group {rg} --node-osdisk-diskencryptionset-id {des-id} ...",
+          "terraform": "disk_encryption_set_id on azurerm_kubernetes_cluster"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys"
+      }
+    }
+  ]
+}

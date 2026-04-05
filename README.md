@@ -4,6 +4,8 @@
 
 # SecID - Security Identifiers
 
+**A [Cloud Security Alliance](https://cloudsecurityalliance.org) project by Kurt Seifried, Chief Innovation Officer.**
+
 **SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities.**
 
 **Live service: [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/)**
@@ -506,12 +508,12 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
-| Capability | 21 |
+| Capability | 28 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **658** |
+| **Total** | **665** |
 
 <!-- REGISTRY-COUNTS-END -->
 
@@ -523,4 +525,4 @@ This specification is open for public comment. We welcome feedback, questions, a
 
 ---
 
-*A project of the Cloud Security Alliance*
+*A [Cloud Security Alliance](https://cloudsecurityalliance.org) project by Kurt Seifried, Chief Innovation Officer.*

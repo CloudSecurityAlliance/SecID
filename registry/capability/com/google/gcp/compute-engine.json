@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/compute-engine",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from GCP Compute Engine documentation, 2026-04-04. Needs cross-reference pass and human review with live GCP environment.",
+
+  "official_name": "Google Compute Engine",
+  "common_name": "Compute Engine",
+  "alternate_names": ["GCE"],
+  "notes": "Virtual machines for GCP. Security includes shielded VMs, confidential VMs, OS Login, metadata protection, sole-tenant nodes.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/compute"},
+    {"type": "docs", "url": "https://cloud.google.com/compute/docs/security-overview", "note": "Compute Engine Security overview"},
+    {"type": "docs", "url": "https://cloud.google.com/compute/docs/security-best-practices", "note": "Security best practices"},
+    {"type": "docs", "url": "https://cloud.google.com/compute/docs/reference/rest/v1", "note": "Compute Engine REST API"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^shielded-vm$"],
+      "description": "Secure boot + vTPM + integrity monitoring for VM instances",
+      "weight": 100,
+      "data": {
+        "description": "Shielded VMs provide verifiable integrity of VM instances. Secure boot ensures only authenticated software runs during boot. vTPM enables measured boot and provides a virtual Trusted Platform Module. Integrity monitoring compares boot measurements against a known-good baseline.",
+        "options": [
+          {"feature": "Secure boot", "description": "Validates digital signatures of all boot components. Blocks unsigned or tampered boot code."},
+          {"feature": "vTPM", "description": "Virtual TPM 2.0 for measured boot, disk encryption key sealing, and attestation."},
+          {"feature": "Integrity monitoring", "description": "Compares boot measurements against baseline. Alerts via Cloud Monitoring on drift."}
+        ],
+        "default": {"value": "available", "note": "Available for most machine types. Enabled by default for new instances using Shielded VM images."},
+        "vendor_recommendation": "Enable Shielded VM for all production instances. Use Shielded VM images from Google or create custom Shielded images.",
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --zone {zone} --format='value(shieldedInstanceConfig)'",
+          "cli_integrity": "gcloud compute instances get-shielded-identity {instance} --zone {zone}",
+          "api": "instances.get (shieldedInstanceConfig)"
+        },
+        "configure": {
+          "cli": "gcloud compute instances create {instance} --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring ...",
+          "cli_update": "gcloud compute instances update {instance} --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring",
+          "terraform": "shielded_instance_config block on google_compute_instance"
+        },
+        "source": "https://cloud.google.com/compute/docs/instances/shielded-vm-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^confidential-vm$"],
+      "description": "Hardware-based memory encryption using AMD SEV or Intel TDX",
+      "weight": 80,
+      "data": {
+        "description": "Confidential VMs encrypt data in memory using hardware-based encryption keys managed by the processor. The hypervisor and host OS cannot access the VM's memory contents. Provides cryptographic attestation.",
+        "options": [
+          {"value": "amd-sev", "name": "AMD SEV", "description": "AMD Secure Encrypted Virtualization. N2D machine types."},
+          {"value": "amd-sev-snp", "name": "AMD SEV-SNP", "description": "AMD SEV with Secure Nested Paging. Enhanced isolation."},
+          {"value": "intel-tdx", "name": "Intel TDX", "description": "Intel Trust Domain Extensions. C3 machine types."}
+        ],
+        "vendor_recommendation": "Use Confidential VMs for workloads processing highly sensitive data. Combine with CMEK for disk encryption and VPC Service Controls for network isolation.",
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --zone {zone} --format='value(confidentialInstanceConfig)'",
+          "api": "instances.get (confidentialInstanceConfig)"
+        },
+        "configure": {
+          "cli": "gcloud compute instances create {instance} --confidential-compute --machine-type n2d-standard-2 ...",
+          "terraform": "confidential_instance_config block on google_compute_instance"
+        },
+        "source": "https://cloud.google.com/compute/docs/confidential-computing"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^os-login$"],
+      "description": "IAM-based SSH access management replacing SSH key management",
+      "weight": 100,
+      "data": {
+        "description": "OS Login uses Google IAM to manage SSH access to instances. Maps Google identities to Linux user accounts. Eliminates the need to manage SSH keys in project or instance metadata. Supports 2FA requirement.",
+        "options": [
+          {"value": "os-login", "name": "OS Login", "description": "IAM-based SSH access. Roles: roles/compute.osLogin (standard) or roles/compute.osAdminLogin (sudo)."},
+          {"value": "os-login-2fa", "name": "OS Login with 2FA", "description": "Requires second factor for SSH sessions. Uses Google 2-Step Verification."}
+        ],
+        "vendor_recommendation": "Use OS Login instead of managing SSH keys. Enable 2FA for production instances. Disable project-wide SSH keys when using OS Login.",
+        "audit": {
+          "cli_project": "gcloud compute project-info describe --format='value(commonInstanceMetadata.items.enable-oslogin)'",
+          "cli_instance": "gcloud compute instances describe {instance} --format='value(metadata.items.enable-oslogin)'",
+          "api": "projects.get, instances.get (metadata)"
+        },
+        "configure": {
+          "cli_project": "gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE",
+          "cli_2fa": "gcloud compute project-info add-metadata --metadata enable-oslogin-2fa=TRUE",
+          "cli_instance": "gcloud compute instances add-metadata {instance} --metadata enable-oslogin=TRUE",
+          "terraform": "metadata enable-oslogin on google_compute_instance"
+        },
+        "source": "https://cloud.google.com/compute/docs/instances/managing-instance-access"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^metadata-protection$"],
+      "description": "Project and instance metadata access controls",
+      "weight": 80,
+      "data": {
+        "description": "Instance metadata contains sensitive information including service account tokens, SSH keys, and startup scripts. Metadata server (169.254.169.254) is accessible from within the instance. Controls include blocking project-wide SSH keys and restricting metadata access.",
+        "vendor_recommendation": "Block project-wide SSH keys on sensitive instances. Use OS Login instead of metadata-based SSH keys. Restrict metadata access in custom images.",
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --format='value(metadata)'",
+          "cli_project": "gcloud compute project-info describe --format='value(commonInstanceMetadata)'",
+          "api": "instances.get (metadata)"
+        },
+        "configure": {
+          "cli_block_ssh": "gcloud compute instances add-metadata {instance} --metadata block-project-ssh-keys=TRUE",
+          "terraform": "metadata block-project-ssh-keys on google_compute_instance"
+        },
+        "source": "https://cloud.google.com/compute/docs/metadata/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^service-account$"],
+      "description": "IAM identity for VM instances — runtime credential provider",
+      "weight": 100,
+      "data": {
+        "description": "Service accounts provide Google Cloud IAM identity for VM instances. Applications on the VM use the service account's credentials to authenticate to Google Cloud APIs. The default compute service account has broad Editor permissions and is discouraged for production.",
+        "options": [
+          {"value": "default", "name": "Default compute service account", "description": "Automatically created. Has Editor role (broad permissions). Discouraged for production."},
+          {"value": "custom", "name": "Custom service account", "description": "User-created with specific, least-privilege IAM roles."},
+          {"value": "none", "name": "No service account", "description": "Instance has no Google Cloud credentials. Cannot call Google APIs."}
+        ],
+        "vendor_recommendation": "Use custom service accounts with minimal permissions. Never use default compute service account in production. Limit service account scopes.",
+        "cross_references": ["secid:capability/google.com/gcp/iam"],
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --zone {zone} --format='value(serviceAccounts)'",
+          "api": "instances.get (serviceAccounts)"
+        },
+        "configure": {
+          "cli": "gcloud compute instances create {instance} --service-account {sa-email} --scopes cloud-platform ...",
+          "cli_set": "gcloud compute instances set-service-account {instance} --service-account {sa-email} --scopes cloud-platform",
+          "terraform": "service_account block on google_compute_instance"
+        },
+        "source": "https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^firewall-rules$"],
+      "description": "Instance-level network traffic filtering",
+      "weight": 100,
+      "data": {
+        "description": "VPC firewall rules control incoming and outgoing traffic to VM instances. Rules are stateful and can target instances by network tags, service accounts, or all instances in the network. Evaluated by priority (lower number = higher priority).",
+        "vendor_recommendation": "Use least-privilege firewall rules. Prefer service account-based targeting over network tags. Use hierarchical firewall policies for organization-wide rules.",
+        "cross_references": ["secid:capability/google.com/gcp/vpc#firewall-rules"],
+        "audit": {
+          "cli": "gcloud compute firewall-rules list --format='table(name,network,direction,priority,allowed[].map().firewall_rule().list())'",
+          "cli_instance": "gcloud compute instances describe {instance} --format='value(tags.items)'",
+          "api": "firewalls.list"
+        },
+        "configure": {
+          "cli": "gcloud compute firewall-rules create {name} --network {vpc} --allow tcp:443 --source-ranges 10.0.0.0/8 --target-service-accounts {sa}",
+          "terraform": "google_compute_firewall"
+        },
+        "source": "https://cloud.google.com/vpc/docs/firewalls"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^sole-tenant-nodes$"],
+      "description": "Dedicated physical servers for compliance and licensing requirements",
+      "weight": 60,
+      "data": {
+        "description": "Sole-tenant nodes are physical servers dedicated to hosting only your VMs. No other customers share the hardware. Used for compliance requirements (data isolation), licensing (bring-your-own-license), and workloads requiring physical isolation.",
+        "vendor_recommendation": "Use sole-tenant nodes when compliance or licensing requires dedicated hardware. Combine with Shielded VMs and Confidential VMs for maximum isolation.",
+        "audit": {
+          "cli": "gcloud compute sole-tenancy node-groups list",
+          "cli_instance": "gcloud compute instances describe {instance} --format='value(scheduling.nodeAffinities)'",
+          "api": "nodeGroups.list"
+        },
+        "configure": {
+          "cli_template": "gcloud compute sole-tenancy node-templates create {template} --node-type {type} --region {region}",
+          "cli_group": "gcloud compute sole-tenancy node-groups create {group} --node-template {template} --target-size 1 --zone {zone}",
+          "terraform": "google_compute_node_template, google_compute_node_group"
+        },
+        "source": "https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^disk-encryption$"],
+      "description": "Persistent disk encryption at rest",
+      "weight": 100,
+      "data": {
+        "description": "All data written to persistent disks is automatically encrypted at rest. Google manages the encryption keys by default. Options for customer control: Customer-Managed Encryption Keys (CMEK) in Cloud KMS, or Customer-Supplied Encryption Keys (CSEK) that you provide directly.",
+        "options": [
+          {"value": "google-managed", "name": "Google-managed encryption keys", "description": "Default. Google manages keys. AES-256. No configuration needed."},
+          {"value": "cmek", "name": "Customer-managed encryption keys (CMEK)", "description": "You manage keys in Cloud KMS. Control key rotation, access, and destruction."},
+          {"value": "csek", "name": "Customer-supplied encryption keys (CSEK)", "description": "You provide the key directly. Google does not store it. Must supply key for every operation."}
+        ],
+        "default": {"value": "google-managed", "note": "All persistent disks are encrypted at rest by default with Google-managed keys."},
+        "cross_references": ["secid:capability/google.com/gcp/kms"],
+        "audit": {
+          "cli": "gcloud compute disks describe {disk} --zone {zone} --format='value(diskEncryptionKey)'",
+          "api": "disks.get (diskEncryptionKey)"
+        },
+        "configure": {
+          "cli_cmek": "gcloud compute disks create {disk} --kms-key projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}",
+          "terraform": "disk_encryption_key block on google_compute_disk"
+        },
+        "source": "https://cloud.google.com/compute/docs/disks/customer-managed-encryption"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^serial-port-access$"],
+      "description": "Interactive serial console — disabled by default via org policy",
+      "weight": 60,
+      "data": {
+        "description": "Interactive serial console for troubleshooting boot issues and network misconfigurations. Disabled by default at the organization level via the compute.disableSerialPortAccess constraint. Must be explicitly enabled.",
+        "default": {"value": "disabled", "note": "Disabled by default. Organization policy compute.disableSerialPortAccess enforced."},
+        "vendor_recommendation": "Keep serial port access disabled. Enable temporarily for troubleshooting, then disable when done. Use org policy to enforce across all projects.",
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --format='value(metadata.items.serial-port-enable)'",
+          "cli_org_policy": "gcloud resource-manager org-policies describe compute.disableSerialPortAccess --organization {org-id}",
+          "api": "instances.get (metadata serial-port-enable)"
+        },
+        "configure": {
+          "cli_enable": "gcloud compute instances add-metadata {instance} --metadata serial-port-enable=TRUE",
+          "cli_disable": "gcloud compute instances add-metadata {instance} --metadata serial-port-enable=FALSE",
+          "cli_org_policy": "gcloud resource-manager org-policies enable-enforce compute.disableSerialPortAccess --organization {org-id}"
+        },
+        "source": "https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-using-serial-console"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^iap-tunnel$"],
+      "description": "Identity-Aware Proxy for SSH/RDP without external IP",
+      "weight": 100,
+      "data": {
+        "description": "Identity-Aware Proxy (IAP) TCP forwarding allows SSH and RDP connections to instances without external IP addresses. Traffic tunnels through IAP, which verifies the user's identity and IAM permissions before allowing the connection. All connections are logged.",
+        "vendor_recommendation": "Use IAP tunnel instead of external IPs for admin access. Grant roles/iap.tunnelResourceAccessor to authorized users. Combine with OS Login for end-to-end IAM-based access control.",
+        "audit": {
+          "cli": "gcloud compute instances describe {instance} --format='value(networkInterfaces[0].accessConfigs)'",
+          "note": "Instances should have no external IP (accessConfigs empty) when using IAP tunnel exclusively."
+        },
+        "configure": {
+          "cli_ssh": "gcloud compute ssh {instance} --tunnel-through-iap",
+          "cli_rdp": "gcloud compute start-iap-tunnel {instance} 3389 --local-host-port=localhost:3389",
+          "cli_firewall": "gcloud compute firewall-rules create allow-iap-ssh --network {vpc} --allow tcp:22 --source-ranges 35.235.240.0/20",
+          "note": "IAP uses the source range 35.235.240.0/20. Firewall rules must allow this range."
+        },
+        "source": "https://cloud.google.com/iap/docs/using-tcp-forwarding"
+      }
+    }
+  ]
+}

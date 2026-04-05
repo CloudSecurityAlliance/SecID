@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/virtual-machines",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure VM documentation, 2026-04-04. Needs cross-reference pass and human review with live Azure environment.",
+
+  "official_name": "Azure Virtual Machines",
+  "common_name": "Azure VMs",
+  "alternate_names": null,
+  "notes": "Virtual machines for Azure. Security includes disk encryption, Trusted Launch, Confidential VMs, managed identity, update management.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/virtual-machines/"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/security-recommendations", "note": "VM Security recommendations"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/", "note": "Azure VM documentation"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines", "note": "VM REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^disk-encryption$"],
+      "description": "Encrypt OS and data disks at rest",
+      "weight": 100,
+      "data": {
+        "description": "Multiple encryption options for VM disks. Azure Disk Encryption uses BitLocker (Windows) or DM-Crypt (Linux) for volume-level encryption. Server-side encryption (SSE) encrypts data at the storage layer. Encryption at host encrypts data on the VM host itself.",
+        "options": [
+          {"value": "sse-platform", "name": "Server-side encryption with platform-managed keys", "description": "Default. Microsoft manages the encryption keys. AES-256."},
+          {"value": "sse-cmk", "name": "Server-side encryption with customer-managed keys", "description": "You manage keys in Azure Key Vault. Full key lifecycle control."},
+          {"value": "ade", "name": "Azure Disk Encryption (ADE)", "description": "Volume-level encryption using BitLocker (Windows) or DM-Crypt (Linux). Keys stored in Key Vault."},
+          {"value": "encryption-at-host", "name": "Encryption at host", "description": "Encrypts temp disk, OS/data disk caches on the VM host. End-to-end encryption."}
+        ],
+        "default": {"value": "sse-platform", "note": "All managed disks are encrypted at rest with platform-managed keys by default."},
+        "vendor_recommendation": "Use customer-managed keys for sensitive workloads. Enable encryption at host for end-to-end encryption including temp disks and caches.",
+        "audit": {
+          "cli": "az vm encryption show --name {vm} --resource-group {rg}",
+          "cli_disk": "az disk show --name {disk} --resource-group {rg} --query encryption",
+          "api": "VirtualMachines - Get (encryption settings)"
+        },
+        "configure": {
+          "cli_ade": "az vm encryption enable --resource-group {rg} --name {vm} --disk-encryption-keyvault {keyvault}",
+          "cli_host": "az vm create --resource-group {rg} --name {vm} --encryption-at-host true ...",
+          "terraform": "encryption_at_host_enabled on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^trusted-launch$"],
+      "description": "Secure boot + vTPM protecting against bootkits and rootkits",
+      "weight": 100,
+      "data": {
+        "description": "Trusted launch provides foundational security for Gen2 VMs. Secure boot ensures only signed bootloaders and kernels execute. vTPM provides a hardware-backed virtual Trusted Platform Module for measured boot and key storage. Integrity monitoring detects boot chain tampering.",
+        "options": [
+          {"feature": "Secure boot", "description": "Validates bootloader and kernel signatures. Blocks unsigned or tampered boot code."},
+          {"feature": "vTPM", "description": "Virtual TPM 2.0 for measured boot, BitLocker, key storage. Hardware-backed."},
+          {"feature": "Integrity monitoring", "description": "Boot integrity attestation. Alerts on boot chain changes via Microsoft Defender for Cloud."}
+        ],
+        "default": {"value": "available", "note": "Available for Gen2 VMs. Enabled by default for new VMs in many regions."},
+        "vendor_recommendation": "Enable Trusted Launch for all production VMs. Use Gen2 VM images that support Trusted Launch.",
+        "audit": {
+          "cli": "az vm show --name {vm} --resource-group {rg} --query securityProfile",
+          "api": "VirtualMachines - Get (securityProfile)"
+        },
+        "configure": {
+          "cli": "az vm create --resource-group {rg} --name {vm} --security-type TrustedLaunch --enable-secure-boot true --enable-vtpm true ...",
+          "terraform": "secure_boot_enabled, vtpm_enabled on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^confidential-vms$"],
+      "description": "Hardware-based memory encryption using AMD SEV-SNP or Intel TDX",
+      "weight": 80,
+      "data": {
+        "description": "Confidential VMs encrypt memory in use with a hardware-managed key. The hypervisor and host OS cannot read the VM's memory. Uses AMD SEV-SNP or Intel TDX. Provides cryptographic attestation of the VM's trusted execution environment.",
+        "options": [
+          {"value": "amd-sev-snp", "name": "AMD SEV-SNP", "description": "AMD Secure Encrypted Virtualization with Secure Nested Paging. DCasv5/ECasv5 series."},
+          {"value": "intel-tdx", "name": "Intel TDX", "description": "Intel Trust Domain Extensions. DCesv5/ECesv5 series."}
+        ],
+        "vendor_recommendation": "Use for highly sensitive workloads requiring protection from cloud operator access. Combine with confidential OS disk encryption for full stack protection.",
+        "audit": {
+          "cli": "az vm show --name {vm} --resource-group {rg} --query 'securityProfile.securityType'",
+          "api": "VirtualMachines - Get (securityProfile.securityType == ConfidentialVM)"
+        },
+        "configure": {
+          "cli": "az vm create --resource-group {rg} --name {vm} --security-type ConfidentialVM --os-disk-security-encryption-type VMGuestStateOnly ...",
+          "terraform": "security_type = ConfidentialVM on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^managed-identity$"],
+      "description": "Microsoft Entra ID identity for VMs — eliminates credential management",
+      "weight": 100,
+      "data": {
+        "description": "Provides an automatically managed identity in Microsoft Entra ID for the VM. Applications running on the VM can use this identity to obtain tokens for Azure resources without storing credentials.",
+        "options": [
+          {"value": "system-assigned", "name": "System-assigned", "description": "Identity tied to the VM lifecycle. Created and deleted with the VM."},
+          {"value": "user-assigned", "name": "User-assigned", "description": "Standalone identity resource. Can be assigned to multiple VMs. Independent lifecycle."}
+        ],
+        "vendor_recommendation": "Use managed identity instead of stored credentials. Use user-assigned for shared identities across multiple VMs. Apply least-privilege RBAC to the identity.",
+        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
+        "audit": {
+          "cli": "az vm identity show --name {vm} --resource-group {rg}",
+          "api": "VirtualMachines - Get (identity)"
+        },
+        "configure": {
+          "cli_system": "az vm identity assign --name {vm} --resource-group {rg}",
+          "cli_user": "az vm identity assign --name {vm} --resource-group {rg} --identities {identity-id}",
+          "terraform": "identity block on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^nsg-association$"],
+      "description": "Network Security Group association on NIC or subnet",
+      "weight": 100,
+      "data": {
+        "description": "Network Security Groups filter network traffic to and from Azure resources. Can be associated with a VM's network interface (NIC) or the subnet. Rules are stateful, evaluated by priority (lower number = higher priority).",
+        "vendor_recommendation": "Apply NSGs at both subnet and NIC levels for defense in depth. Use application security groups (ASGs) for dynamic grouping. Avoid overly permissive rules.",
+        "cross_references": ["secid:capability/microsoft.com/azure/virtual-network#network-security-groups"],
+        "audit": {
+          "cli_nic": "az network nic show --name {nic} --resource-group {rg} --query networkSecurityGroup",
+          "cli_subnet": "az network vnet subnet show --vnet-name {vnet} --name {subnet} --resource-group {rg} --query networkSecurityGroup",
+          "api": "NetworkInterfaces - Get, Subnets - Get"
+        },
+        "configure": {
+          "cli": "az network nic update --name {nic} --resource-group {rg} --network-security-group {nsg}",
+          "terraform": "azurerm_network_interface_security_group_association"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^update-management$"],
+      "description": "Automated patching and compliance assessment",
+      "weight": 80,
+      "data": {
+        "description": "Automated OS patching for Azure VMs. Azure Update Manager provides a unified view of update compliance. Automatic guest patching downloads and installs patches automatically. Supports both Windows and Linux.",
+        "options": [
+          {"feature": "Azure Update Manager", "description": "Unified patch management. Assess, schedule, and deploy updates. Replaces legacy Update Management."},
+          {"feature": "Automatic guest patching", "description": "Azure-orchestrated patching. Downloads and applies patches during maintenance windows."},
+          {"feature": "Hotpatching", "description": "Apply security patches without reboot (Windows Server Azure Edition only)."}
+        ],
+        "vendor_recommendation": "Enable Azure Update Manager for all VMs. Use automatic guest patching for non-critical workloads. Schedule maintenance windows for production.",
+        "audit": {
+          "cli": "az vm assess-patches --name {vm} --resource-group {rg}",
+          "cli_list": "az vm list --query '[].{Name:name,RG:resourceGroup,PatchMode:osProfile.linuxConfiguration.patchSettings.patchMode}'",
+          "api": "VirtualMachines - AssessPatches"
+        },
+        "configure": {
+          "cli": "az vm update --name {vm} --resource-group {rg} --set osProfile.linuxConfiguration.patchSettings.patchMode=AutomaticByPlatform",
+          "terraform": "patch_mode on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/update-manager/overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^just-in-time-access$"],
+      "description": "Defender for Cloud JIT VM access — time-limited port opening",
+      "weight": 100,
+      "data": {
+        "description": "Just-in-time (JIT) VM access reduces exposure by locking down inbound traffic to management ports (SSH/RDP). When access is needed, a user requests it through Defender for Cloud, which temporarily opens the port for a specified duration and source IP.",
+        "vendor_recommendation": "Enable JIT access for all VMs with management ports. Set maximum request duration. Require justification for access requests.",
+        "audit": {
+          "cli": "az security jit-policy list --resource-group {rg}",
+          "console": "Defender for Cloud → Workload protections → Just-in-time VM access"
+        },
+        "configure": {
+          "console": "Defender for Cloud → Just-in-time VM access → Configure on a VM",
+          "note": "Requires Microsoft Defender for Servers Plan 2."
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^azure-bastion$"],
+      "description": "Managed bastion host for RDP/SSH without public IP",
+      "weight": 80,
+      "data": {
+        "description": "Fully managed PaaS service providing secure RDP/SSH connectivity to VMs directly through the Azure portal over TLS. VMs do not need public IP addresses, agent, or special client software.",
+        "vendor_recommendation": "Use Azure Bastion instead of public IPs for administrative access. Combine with JIT access for defense in depth.",
+        "audit": {
+          "cli": "az network bastion list",
+          "cli_detail": "az network bastion show --name {bastion} --resource-group {rg}",
+          "api": "BastionHosts - List"
+        },
+        "configure": {
+          "cli": "az network bastion create --name {name} --resource-group {rg} --vnet-name {vnet} --public-ip-address {pip}",
+          "terraform": "azurerm_bastion_host"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^boot-diagnostics$"],
+      "description": "Serial console and screenshot for troubleshooting — may contain sensitive output",
+      "weight": 60,
+      "data": {
+        "description": "Captures serial log output and screenshots of the VM during boot. Useful for diagnosing boot failures. Serial console provides interactive text-based access. Boot diagnostic data may contain sensitive information (error messages with paths, usernames, configuration details).",
+        "vendor_recommendation": "Enable for troubleshooting but be aware that serial output may contain sensitive information. Use managed storage account (default) to avoid managing storage access separately.",
+        "audit": {
+          "cli": "az vm boot-diagnostics get-boot-log --name {vm} --resource-group {rg}",
+          "api": "VirtualMachines - RetrieveBootDiagnosticsData"
+        },
+        "configure": {
+          "cli_enable": "az vm boot-diagnostics enable --name {vm} --resource-group {rg}",
+          "cli_disable": "az vm boot-diagnostics disable --name {vm} --resource-group {rg}"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^host-based-encryption$"],
+      "description": "Encrypt temp disk, OS/data disk caches on the VM host",
+      "weight": 80,
+      "data": {
+        "description": "Encryption at host ensures that data stored on the VM host is encrypted at rest. Covers temp disks, OS disk caches, and data disk caches. Complements server-side encryption which covers the managed disk storage. Together they provide end-to-end encryption.",
+        "default": {"value": "disabled", "note": "Not enabled by default. Must be explicitly enabled. Requires subscription-level feature registration."},
+        "vendor_recommendation": "Enable encryption at host for VMs handling sensitive data to ensure temp disks and caches are encrypted.",
+        "audit": {
+          "cli": "az vm show --name {vm} --resource-group {rg} --query securityProfile.encryptionAtHost",
+          "api": "VirtualMachines - Get (securityProfile.encryptionAtHost)"
+        },
+        "configure": {
+          "cli_register": "az feature register --namespace Microsoft.Compute --name EncryptionAtHost",
+          "cli_create": "az vm create --resource-group {rg} --name {vm} --encryption-at-host true ...",
+          "terraform": "encryption_at_host_enabled = true on azurerm_linux_virtual_machine"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption#encryption-at-host"
+      }
+    }
+  ]
+}

@@ -260,12 +260,12 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
-| Capability | 21 |
+| Capability | 28 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **658** |
+| **Total** | **665** |
 
 <!-- REGISTRY-COUNTS-END -->
 
