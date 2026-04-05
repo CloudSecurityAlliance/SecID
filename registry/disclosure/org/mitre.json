@@ -3,37 +3,66 @@
   "namespace": "mitre.org",
   "type": "disclosure",
   "status": "draft",
-  "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
+  "status_notes": "Hand-curated. MITRE operates the CVE Program — Secretariat, Top-Level Root, and CNA of Last Resort.",
   "official_name": "The MITRE Corporation",
   "common_name": "MITRE",
   "alternate_names": null,
-  "notes": "CVE Program partner. Country: USA.",
+  "notes": "MITRE operates the CVE Program. Three roles: Secretariat (runs the program), Top-Level Root (oversees Root organizations), and CNA-LR (CNA of Last Resort — assigns CVE IDs for vulnerabilities not covered by any other CNA). To request a CVE ID for a vulnerability not covered by another CNA, use https://cveform.mitre.org. Country: USA.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {
-      "type": "website",
-      "url": "https://mitre.org"
-    }
+    {"type": "website", "url": "https://mitre.org"},
+    {"type": "website", "url": "https://www.cve.org/", "note": "CVE Program website"},
+    {"type": "docs", "url": "https://cveform.mitre.org/", "note": "CVE ID Request Form — use this to request a CVE ID for vulnerabilities not covered by another CNA"}
   ],
   "match_nodes": [
     {
-      "patterns": [
-        "(?i)^cna\\-secretariat$"
-      ],
-      "description": "Top-Level Root (reports to CVE Board), CNA-LR (reports to MITRE TL-Root), Secretariat (reports to CVE Board)",
-      "weight": 30,
+      "patterns": ["(?i)^cna\\-lr$"],
+      "description": "CNA of Last Resort — request CVE IDs here for vulnerabilities not covered by another CNA",
+      "weight": 80,
       "data": {
-        "scope": "All vulnerabilities, and Open Source software product vulnerabilities, not already covered by a CNA listed on this website.",
-        "cve_program_role": "Top-Level Root (reports to CVE Board), CNA-LR (reports to MITRE TL-Root), Secretariat (reports to CVE Board)",
+        "scope": "All vulnerabilities, and open source software product vulnerabilities, not already covered by a CNA listed on the CVE website. If you found a vulnerability and don't know which CNA covers the affected product, or no CNA exists for that vendor, submit your request here.",
+        "cve_program_role": "CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)",
+        "organization_type": null,
+        "contacts": [
+          {"type": "web", "value": "https://cveform.mitre.org/", "note": "CVE ID Request Form — primary way to request a CVE ID from MITRE"}
+        ],
+        "urls": [
+          {"type": "docs", "url": "https://cveform.mitre.org/", "note": "CVE ID Request Form"},
+          {"type": "website", "url": "https://www.cve.org/ResourcesSupport/ReportRequest/ReportRequestForNonCNAs", "note": "Instructions for reporting to MITRE when no CNA covers the product"},
+          {"type": "website", "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre", "note": "CVE partner page"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^cna\\-tlr$"],
+      "description": "Top-Level Root — oversees Root organizations in the CVE Program hierarchy",
+      "weight": 40,
+      "data": {
+        "scope": "Oversees Root organizations within the CVE Program hierarchy. Not a direct contact for vulnerability reports — use cna-lr instead.",
+        "cve_program_role": "Top-Level Root (reports to CVE Board)",
         "organization_type": null,
         "contacts": null,
         "urls": [
-          {
-            "type": "website",
-            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre",
-            "note": "CVE partner page"
-          }
+          {"type": "website", "url": "https://www.cve.org/ProgramOrganization/Structure", "note": "CVE Program organizational structure"},
+          {"type": "website", "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre", "note": "CVE partner page"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^cna\\-secretariat$"],
+      "description": "CVE Program Secretariat — operates the CVE Program",
+      "weight": 30,
+      "data": {
+        "scope": "Operates the CVE Program: maintains the CVE List, manages CNA onboarding, and governs the CVE ID assignment process. Not a direct contact for vulnerability reports — use cna-lr instead.",
+        "cve_program_role": "Secretariat (reports to CVE Board)",
+        "organization_type": null,
+        "contacts": null,
+        "urls": [
+          {"type": "website", "url": "https://www.cve.org/", "note": "CVE Program website"},
+          {"type": "website", "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre", "note": "CVE partner page"}
         ],
         "examples": []
       }
