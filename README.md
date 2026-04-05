@@ -506,12 +506,12 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
-| Capability | 3 |
+| Capability | 6 |
 | Disclosure | 486 |
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 34 |
-| **Total** | **640** |
+| **Total** | **643** |
 
 <!-- REGISTRY-COUNTS-END -->
 

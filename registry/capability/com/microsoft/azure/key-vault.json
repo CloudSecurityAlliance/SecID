@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "namespace": "microsoft.com/azure/key-vault",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Azure Key Vault documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live Azure environment).",
+
+  "official_name": "Azure Key Vault",
+  "common_name": "Key Vault",
+  "alternate_names": null,
+  "notes": "Centralized secrets, key, and certificate management. Two tiers: Standard (software-protected, FIPS 140 Level 1) and Premium (HSM-protected, FIPS 140-3 Level 3). Also available as Managed HSM for dedicated single-tenant HSM.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://azure.microsoft.com/en-us/products/key-vault"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview", "note": "Key Vault overview"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/best-practices", "note": "Key Vault best practices"},
+    {"type": "docs", "url": "https://learn.microsoft.com/en-us/rest/api/keyvault/", "note": "Key Vault REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^keys$"],
+      "description": "Cryptographic key management",
+      "weight": 100,
+      "data": {
+        "description": "Create and manage encryption keys for data protection. Standard tier uses software protection. Premium tier uses HSM-protected keys (RSA-HSM, EC-HSM, OCT-HSM) that never leave HSM boundary.",
+        "options": [
+          {"value": "Standard", "name": "Software-protected keys", "description": "FIPS 140 Level 1. Keys protected by software. Lower cost."},
+          {"value": "Premium", "name": "HSM-protected keys", "description": "FIPS 140-3 Level 3. Keys generated and used within HSM boundary."},
+          {"value": "Managed HSM", "name": "Dedicated single-tenant HSM", "description": "FIPS 140-3 Level 3. Dedicated HSM pool with customer-controlled security domain."}
+        ],
+        "audit": {
+          "cli": "az keyvault key list --vault-name {vault}",
+          "api": "GET {vaultBaseUrl}/keys?api-version=7.4",
+          "console": "Key Vault -> {vault} -> Keys"
+        },
+        "configure": {
+          "cli": "az keyvault key create --vault-name {vault} --name {key} --kty RSA --size 2048",
+          "api": "POST {vaultBaseUrl}/keys/{key}/create?api-version=7.4",
+          "terraform": "azurerm_key_vault_key",
+          "arm": "Microsoft.KeyVault/vaults/keys"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^secrets$"],
+      "description": "Secure secrets storage",
+      "weight": 100,
+      "data": {
+        "description": "Store and manage tokens, passwords, API keys, connection strings, and other secrets. Accessed via URI with version support.",
+        "audit": {
+          "cli": "az keyvault secret list --vault-name {vault}",
+          "api": "GET {vaultBaseUrl}/secrets?api-version=7.4",
+          "console": "Key Vault -> {vault} -> Secrets"
+        },
+        "configure": {
+          "cli": "az keyvault secret set --vault-name {vault} --name {secret} --value {value}",
+          "api": "PUT {vaultBaseUrl}/secrets/{secret}?api-version=7.4",
+          "terraform": "azurerm_key_vault_secret"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/secrets/about-secrets"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^certificates$"],
+      "description": "TLS/SSL certificate management",
+      "weight": 100,
+      "data": {
+        "description": "Provision, manage, and deploy TLS/SSL certificates. Supports auto-renewal with integrated CAs (DigiCert, GlobalSign). Manages both public and private certificates.",
+        "audit": {
+          "cli": "az keyvault certificate list --vault-name {vault}",
+          "api": "GET {vaultBaseUrl}/certificates?api-version=7.4",
+          "console": "Key Vault -> {vault} -> Certificates"
+        },
+        "configure": {
+          "cli": "az keyvault certificate create --vault-name {vault} --name {cert} --policy @policy.json",
+          "api": "POST {vaultBaseUrl}/certificates/{cert}/create?api-version=7.4",
+          "terraform": "azurerm_key_vault_certificate"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/certificates/about-certificates"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^access-control$"],
+      "description": "Vault access authorization",
+      "weight": 100,
+      "data": {
+        "description": "Two authorization models: Azure RBAC (recommended) and vault access policies (legacy). RBAC provides granular control at management and data plane.",
+        "options": [
+          {"value": "Azure RBAC", "name": "Azure role-based access control", "description": "Recommended. Granular control at management and data plane. Unified with Azure RBAC."},
+          {"value": "Vault access policies", "name": "Vault access policies (legacy)", "description": "Per-principal permissions. Legacy model. Less granular than RBAC."}
+        ],
+        "default": {"value": "Azure RBAC", "note": "Azure RBAC for new vaults."},
+        "vendor_recommendation": "Use Azure RBAC for access control. Migrate from access policies to RBAC.",
+        "cross_references": ["secid:capability/microsoft.com/azure/entra-id"],
+        "audit": {
+          "cli": "az keyvault show --name {vault} (check enableRbacAuthorization)",
+          "console": "Key Vault -> {vault} -> Access configuration"
+        },
+        "configure": {
+          "cli": "az keyvault update --name {vault} --enable-rbac-authorization true",
+          "terraform": "azurerm_key_vault with enable_rbac_authorization = true"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^soft-delete$"],
+      "description": "Recoverable deletion with retention period",
+      "weight": 100,
+      "data": {
+        "description": "Deleted vaults and objects are retained for a configurable period (7-90 days). Objects can be recovered during retention. Enabled by default since Feb 2025 and cannot be disabled.",
+        "default": {"value": "Enabled, 90-day retention", "note": "Cannot be disabled. Soft-delete is mandatory for all key vaults."},
+        "audit": {
+          "cli": "az keyvault show --name {vault} (check enableSoftDelete, softDeleteRetentionInDays)",
+          "console": "Key Vault -> {vault} -> Properties"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^purge-protection$"],
+      "description": "Prevent permanent deletion during retention",
+      "weight": 100,
+      "data": {
+        "description": "When enabled, prevents permanent deletion (purging) of soft-deleted vaults and objects during the retention period. Cannot be disabled once enabled.",
+        "default": {"value": "Disabled (opt-in)", "note": "Once enabled, cannot be turned off."},
+        "vendor_recommendation": "Enable purge protection for production key vaults.",
+        "audit": {
+          "cli": "az keyvault show --name {vault} (check enablePurgeProtection)",
+          "console": "Key Vault -> {vault} -> Properties"
+        },
+        "configure": {
+          "cli": "az keyvault update --name {vault} --enable-purge-protection true",
+          "terraform": "azurerm_key_vault with purge_protection_enabled = true"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#purge-protection"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^private-endpoints$"],
+      "description": "Network-isolated vault access",
+      "weight": 100,
+      "data": {
+        "description": "Access key vault over private IP via Azure Private Link. Eliminates public internet exposure.",
+        "audit": {
+          "cli": "az keyvault show --name {vault} (check networkAcls and privateEndpointConnections)",
+          "console": "Key Vault -> {vault} -> Networking"
+        },
+        "configure": {
+          "cli": "az network private-endpoint create --resource-group {rg} --name {pe-name} --vnet-name {vnet} --subnet {subnet} --private-connection-resource-id {vault-resource-id} --group-id vault --connection-name {connection-name}",
+          "terraform": "azurerm_private_endpoint with subresource_names = [\"vault\"]"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/private-link-service"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^logging$"],
+      "description": "Audit logging for vault operations",
+      "weight": 100,
+      "data": {
+        "description": "Diagnostic logging of all vault operations. Archive to storage account, stream to Event Hub, or send to Azure Monitor / Log Analytics.",
+        "vendor_recommendation": "Enable logging for all production vaults. Monitor for unauthorized access attempts.",
+        "audit": {
+          "cli": "az monitor diagnostic-settings list --resource {vault-resource-id}",
+          "console": "Key Vault -> {vault} -> Monitoring -> Diagnostic settings"
+        },
+        "configure": {
+          "cli": "az monitor diagnostic-settings create --resource {vault-resource-id} --name {setting-name} --logs '[{\"category\": \"AuditEvent\", \"enabled\": true}]' --workspace {log-analytics-workspace-id}",
+          "terraform": "azurerm_monitor_diagnostic_setting"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/general/logging"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^key-rotation$"],
+      "description": "Automatic key rotation",
+      "weight": 100,
+      "data": {
+        "description": "Configure automatic rotation policies for keys. Supports notification before expiry.",
+        "audit": {
+          "cli": "az keyvault key rotation-policy show --vault-name {vault} --name {key}",
+          "console": "Key Vault -> {vault} -> Keys -> {key} -> Rotation policy"
+        },
+        "configure": {
+          "cli": "az keyvault key rotation-policy update --vault-name {vault} --name {key} --value @rotation-policy.json",
+          "terraform": "azurerm_key_vault_key with rotation_policy block"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^managed-hsm$"],
+      "description": "Dedicated single-tenant HSM",
+      "weight": 100,
+      "data": {
+        "description": "Fully managed, single-tenant HSM service. FIPS 140-3 Level 3 validated Marvell LiquidSecurity HSMs. Customer-controlled security domain with quorum-based administration.",
+        "note": "Separate resource from Key Vault. Higher cost, higher assurance.",
+        "audit": {
+          "cli": "az keyvault list --resource-type hsm",
+          "console": "Managed HSMs -> {hsm}"
+        },
+        "configure": {
+          "cli": "az keyvault create --hsm-name {name} --resource-group {rg} --location {loc} --administrators {object-id}",
+          "terraform": "azurerm_key_vault_managed_hardware_security_module"
+        },
+        "source": "https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview"
+      }
+    }
+  ]
+}

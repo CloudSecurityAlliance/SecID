@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "namespace": "google.com/gcp/kms",
+  "type": "capability",
+  "status": "draft",
+  "status_notes": "Initial research from Google Cloud KMS documentation, 2026-04-04. Pass 1 (service docs) and partial Pass 2 (API). Needs Pass 3 (cross-reference) and Pass 5 (human review with live GCP environment).",
+
+  "official_name": "Google Cloud Key Management Service",
+  "common_name": "Cloud KMS",
+  "alternate_names": null,
+  "notes": "Cloud key management with software, HSM, and external key options. Integrates with 30+ Google Cloud services for encryption at rest.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cloud.google.com/kms"},
+    {"type": "docs", "url": "https://cloud.google.com/kms/docs/overview", "note": "Cloud KMS overview"},
+    {"type": "docs", "url": "https://cloud.google.com/kms/docs/reference/rest", "note": "Cloud KMS REST API Reference"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^software-keys$"],
+      "description": "Software-protected encryption keys",
+      "weight": 100,
+      "data": {
+        "description": "Keys generated and used within Cloud KMS software. FIPS 140-2 Level 1. Lowest cost option.",
+        "options": [
+          {"value": "GOOGLE_SYMMETRIC_ENCRYPTION", "name": "Symmetric AES-256-GCM", "description": "256-bit AES-GCM symmetric encryption key. Most common."},
+          {"value": "RSA_DECRYPT_OAEP_2048_SHA256", "name": "RSA 2048 (decrypt)", "description": "Asymmetric RSA 2048-bit key for decryption"},
+          {"value": "RSA_DECRYPT_OAEP_4096_SHA256", "name": "RSA 4096 (decrypt)", "description": "Asymmetric RSA 4096-bit key for decryption"},
+          {"value": "RSA_SIGN_PKCS1_2048_SHA256", "name": "RSA 2048 (sign)", "description": "Asymmetric RSA 2048-bit key for signing"},
+          {"value": "RSA_SIGN_PKCS1_4096_SHA256", "name": "RSA 4096 (sign)", "description": "Asymmetric RSA 4096-bit key for signing"},
+          {"value": "EC_SIGN_P256_SHA256", "name": "EC P-256", "description": "Elliptic curve P-256 key for signing"},
+          {"value": "EC_SIGN_P384_SHA384", "name": "EC P-384", "description": "Elliptic curve P-384 key for signing"},
+          {"value": "HMAC_SHA256", "name": "HMAC SHA-256", "description": "HMAC key using SHA-256"}
+        ],
+        "audit": {
+          "cli": "gcloud kms keys list --keyring={ring} --location={loc}",
+          "api": "projects.locations.keyRings.cryptoKeys.list",
+          "console": "Security -> Key Management -> {keyring}"
+        },
+        "configure": {
+          "cli": "gcloud kms keys create {key} --keyring={ring} --location={loc} --purpose=encryption --protection-level=software",
+          "api": "projects.locations.keyRings.cryptoKeys.create",
+          "terraform": "google_kms_crypto_key with purpose = ENCRYPT_DECRYPT"
+        },
+        "source": "https://cloud.google.com/kms/docs/algorithms"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^hsm-keys$"],
+      "description": "Hardware-protected keys (Cloud HSM)",
+      "weight": 100,
+      "data": {
+        "description": "Keys generated and used within FIPS 140-2 Level 3 validated HSMs. Multi-tenant by default. Single-tenant option available for dedicated HSM partitions with quorum-based admin.",
+        "options": [
+          {"value": "multi-tenant", "name": "Multi-tenant HSM", "description": "Shared HSM pool. Default. Lower cost."},
+          {"value": "single-tenant", "name": "Single-tenant HSM", "description": "Dedicated HSM partitions. Higher assurance."}
+        ],
+        "audit": {
+          "cli": "gcloud kms keys list --keyring={ring} --location={loc} (check protectionLevel=HSM)",
+          "api": "projects.locations.keyRings.cryptoKeys.list"
+        },
+        "configure": {
+          "cli": "gcloud kms keys create {key} --keyring={ring} --location={loc} --purpose=encryption --protection-level=hsm",
+          "terraform": "google_kms_crypto_key with purpose = ENCRYPT_DECRYPT and version_template { protection_level = HSM }"
+        },
+        "source": "https://cloud.google.com/kms/docs/hsm"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^external-keys$"],
+      "description": "External Key Manager (Cloud EKM)",
+      "weight": 100,
+      "data": {
+        "description": "Keys held in your own external key manager, never sent to Google. Connected over internet or VPC. Integrates with 30+ Google Cloud services. Requires compatible third-party EKM.",
+        "options": [
+          {"value": "internet", "name": "EKM over internet", "description": "External key manager connected over public internet."},
+          {"value": "vpc", "name": "EKM over VPC", "description": "External key manager connected over VPC network. Higher security."}
+        ],
+        "vendor_recommendation": "Use EKM over VPC for enhanced security. Coordinate key rotation with your EKM provider.",
+        "audit": {
+          "cli": "gcloud kms keys list --keyring={ring} --location={loc} (check protectionLevel=EXTERNAL or EXTERNAL_VPC)",
+          "api": "projects.locations.keyRings.cryptoKeys.list"
+        },
+        "configure": {
+          "cli": "gcloud kms keys create {key} --keyring={ring} --location={loc} --purpose=encryption --protection-level=external --default-algorithm=external-symmetric-encryption --skip-initial-version-creation --crypto-key-backend={ekm-connection}",
+          "terraform": "google_kms_crypto_key with purpose = ENCRYPT_DECRYPT and version_template { protection_level = EXTERNAL }"
+        },
+        "source": "https://cloud.google.com/kms/docs/ekm"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^key-rotation$"],
+      "description": "Automatic and manual key rotation",
+      "weight": 100,
+      "data": {
+        "description": "Automatic rotation for symmetric keys on a configurable schedule. New key version becomes primary for encryption; old versions kept for decryption. Asymmetric and external keys require manual rotation.",
+        "default": {"value": "No automatic rotation", "note": "Must configure rotation period. No automatic rotation by default."},
+        "audit": {
+          "cli": "gcloud kms keys describe {key} --keyring={ring} --location={loc} (check rotationPeriod, nextRotationTime)",
+          "api": "projects.locations.keyRings.cryptoKeys.get"
+        },
+        "configure": {
+          "cli": "gcloud kms keys update {key} --keyring={ring} --location={loc} --rotation-period=90d --next-rotation-time={timestamp}",
+          "api": "projects.locations.keyRings.cryptoKeys.patch",
+          "terraform": "google_kms_crypto_key with rotation_period"
+        },
+        "source": "https://cloud.google.com/kms/docs/key-rotation"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^key-versions$"],
+      "description": "Version management and destruction",
+      "weight": 100,
+      "data": {
+        "description": "Each key has one or more versions. One version is primary (used for new encryptions). Versions can be enabled, disabled, or destroyed independently. Destroyed versions cannot decrypt existing data (crypto-shredding).",
+        "audit": {
+          "cli": "gcloud kms keys versions list --key={key} --keyring={ring} --location={loc}",
+          "api": "projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list",
+          "console": "Security -> Key Management -> {keyring} -> {key} -> Versions"
+        },
+        "configure": {
+          "cli_destroy": "gcloud kms keys versions destroy {version} --key={key} --keyring={ring} --location={loc}",
+          "cli_disable": "gcloud kms keys versions disable {version} --key={key} --keyring={ring} --location={loc}",
+          "cli_enable": "gcloud kms keys versions enable {version} --key={key} --keyring={ring} --location={loc}",
+          "api": "projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy"
+        },
+        "source": "https://cloud.google.com/kms/docs/destroy-restore"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^key-import$"],
+      "description": "Import existing key material",
+      "weight": 100,
+      "data": {
+        "description": "Import externally generated key material into Cloud KMS. Supports manual wrapping (OpenSSL) and automatic wrapping. Post-import verification available.",
+        "configure": {
+          "cli": "gcloud kms keys versions import --key={key} --keyring={ring} --location={loc} --algorithm={alg} --import-job={job} --target-key-file={file}",
+          "api": "projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import"
+        },
+        "source": "https://cloud.google.com/kms/docs/importing-a-key"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^autokey$"],
+      "description": "Automated key provisioning",
+      "weight": 100,
+      "data": {
+        "description": "Automatically provisions key rings, keys, and service accounts during resource creation. Eliminates manual pre-provisioning. Supports both software and HSM protection levels.",
+        "vendor_recommendation": "Use Autokey for consistent key management without manual provisioning overhead.",
+        "source": "https://cloud.google.com/kms/docs/autokey-overview"
+      }
+    },
+
+    {
+      "patterns": ["(?i)^envelope-encryption$"],
+      "description": "Data key wrapping pattern",
+      "weight": 100,
+      "data": {
+        "description": "Pattern where Cloud KMS wraps a data encryption key (DEK) with a key encryption key (KEK). DEK encrypts data locally; KEK-encrypted DEK stored alongside data. Standard pattern for all Google Cloud services using CMEK.",
+        "source": "https://cloud.google.com/kms/docs/envelope-encryption"
+      }
+    }
+  ]
+}
