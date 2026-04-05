@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "namespace": "isecom.org",
+  "type": "methodology",
+  "status": "draft",
+
+  "official_name": "Institute for Security and Open Methodologies",
+  "urls": [
+    {"type": "website", "url": "https://www.isecom.org/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^osstmm$"],
+      "description": "Open Source Security Testing Methodology Manual (OSSTMM): comprehensive security testing methodology covering five channels — human, physical, wireless, telecommunications, and data networks. Broadest scope among security testing methodologies.",
+      "weight": 100,
+      "data": {
+        "url": "https://www.isecom.org/OSSTMM.3.pdf",
+        "examples": ["osstmm"]
+      }
+    }
+  ]
+}
