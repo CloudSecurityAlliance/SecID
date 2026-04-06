@@ -63,7 +63,17 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 
 ### Inheritance
 
-`profiles` at a match_node level inherits from the namespace level. Child overrides parent per-module.
+`profiles` at a match_node level inherits from the namespace level. **Replace semantics — no deep merge.**
+
+**Inheritance rules:**
+
+| Child `profiles` state | Behavior |
+|------------------------|----------|
+| Module **absent** | Inherit parent's module as-is |
+| Module **present** (object or array) | Child's module **replaces** parent's entirely. No field-level merge, no array append. |
+| Module **`null`** | Explicitly overrides parent — means "does not apply here" |
+
+**Why replace, not merge:** Deep merge creates ambiguity. If parent has `cve.roles: ["root", "cna"]` and child has `cve.roles: ["cna"]`, does the child add to or replace the parent's roles? With replace semantics, the answer is always: child's `cve` object is the complete `cve` for that match_node. If you need the parent's data too, copy it into the child. Simple, predictable, no surprises.
 
 ```json
 {
@@ -96,9 +106,10 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 }
 ```
 
-- MSRC inherits `safe_harbor` and `disclosure_policy` from the namespace, adds `bug_bounty` and `cve`
-- Xbox inherits `safe_harbor` and `disclosure_policy`, adds its own `bug_bounty`, explicitly sets `cve` to `null` (Xbox doesn't assign CVEs)
-- Resolver walks: merge namespace-level profiles with match_node-level profiles, child overrides parent
+- MSRC inherits `safe_harbor` and `disclosure_policy` from namespace (absent in its profiles), adds `bug_bounty` and `cve`
+- Xbox inherits `safe_harbor` and `disclosure_policy`, has its own `bug_bounty` (replaces, not appends), explicitly sets `cve` to `null` (Xbox doesn't assign CVEs)
+
+**Resolver implementation note:** Inheritance is an optimization, not a prerequisite. Phase 1 can ship profiles without resolver inheritance — the data is still valuable when returned at whatever level it's found. Inheritance support is a separate resolver enhancement (Phase 2). A client that needs the full resolved profile can walk up itself: check match_node profiles, then check namespace profiles for any absent modules.
 
 ### Null vs Absent Convention
 
@@ -150,7 +161,8 @@ For non-CNA organizations that cooperate with CVE but don't have a formal role:
 | Value | Meaning |
 |-------|---------|
 | `requests` | Will request CVE from upstream on reporter's behalf |
-| `none` | Does not participate in CVE program |
+
+**No `none` value.** If an organization does not participate in the CVE program, set `profiles.cve` to `null` (researched, no participation). The `roles` array only contains positive roles — `["cna", "none"]` would be nonsensical. The three states are: `null` (no participation), absent (not yet researched), or object with `roles` array (participates).
 
 ### `safe_harbor`
 
@@ -230,16 +242,17 @@ No `type` vocabulary (coordinated / responsible / full) — the industry uses th
 
 The `profiles` wrapper is not limited to disclosure. Modules can be reused across types where they make sense, and each type can define its own modules.
 
+**This proposal defines only the five disclosure modules listed above.** These are the modules being implemented now:
+
 | Module | Types where it applies | Notes |
 |--------|----------------------|-------|
-| `cve` | `disclosure`, `advisory` | A CNA's advisory entry also benefits from CVE program data |
+| `cve` | `disclosure`, potentially `advisory` | A CNA's advisory entry may also benefit from CVE program data |
 | `safe_harbor` | `disclosure` | Disclosure-specific |
 | `bug_bounty` | `disclosure` | Disclosure-specific |
 | `security_txt` | `disclosure` | Disclosure-specific |
 | `disclosure_policy` | `disclosure` | Disclosure-specific |
-| `audit` | `capability` (future) | Audit commands, expected values |
-| `remediation` | `capability` (future) | CLI/API/IaC remediation commands |
-| `output_type` | `methodology` (future) | What the methodology produces |
+
+**Aspirational (not part of this proposal):** Other types may define their own profile modules in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal with the same level of schema definition. The `profiles` wrapper accommodates this without schema changes, but the modules themselves are not being defined or committed to here. Any future modules must individually pass the registry/data-layer boundary test — some may belong in the data layer rather than the registry.
 
 New modules are added to the schema documentation as types mature. The `profiles` wrapper doesn't need to change — just the set of defined modules grows.
 
@@ -305,18 +318,24 @@ A fully populated disclosure entry:
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
 
-The existing `cve_program_role` free-text field in `data` objects maps to the new `profiles.cve` structured module. Migration is mechanical:
+The existing `cve_program_role` free-text field in `data` objects maps to the new `profiles.cve` structured module. Migration is mechanical. The parenthetical "(reports to X)" maps to `profiles.cve.root`.
 
-| Existing `cve_program_role` | New `profiles.cve.roles` |
-|-----------------------------|--------------------------|
-| `"CNA"` | `["cna"]` |
-| `"Root"` | `["root"]` |
-| `"Root (reports to MITRE Top-Level Root)"` | `["root"]` |
-| `"CNA-LR (reports to Red Hat Root)"` | `["cna-lr"]` |
-| `"Root, CNA-LR (reports to CISA ICS Root)"` | `["root", "cna-lr"]` |
-| `"Top-Level Root (reports to CVE Board)"` | `["tlr"]` |
-| `"ADP (Authorized Data Publisher)"` | `["adp"]` |
-| `"Secretariat (reports to CVE Board)"` | `["secretariat"]` |
+**Complete mapping of all observed values** (from current registry data):
+
+| Existing `cve_program_role` | Count | `profiles.cve.roles` | `profiles.cve.root` |
+|-----------------------------|-------|----------------------|----------------------|
+| `"CNA"` | 498 | `["cna"]` | (from CNA data) |
+| `"Root"` | 6 | `["root"]` | `"mitre.org"` |
+| `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
+| `"Root (reports to MITRE Top-Level Root)"` | 1 | `["root"]` | `"mitre.org"` |
+| `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat.com"` |
+| `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat.com"` |
+| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre.org"` |
+| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"cisa.gov"` |
+| `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
+| `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
+
+**Parsing rule:** Split on comma for multi-role entries. Extract the parenthetical "reports to X" as the `root` value, mapping the org name to its domain. Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role, not duplicated in a note).
 
 The `last_assigned` field can be populated from CVE list data (find the most recent CVE assigned by each CNA).
 
@@ -334,7 +353,7 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. Should there be a `_checked` date?
 
-4. **Inheritance in the resolver** — does the SecID-Service resolver currently support field inheritance between namespace and match_node levels? If not, this needs implementation work.
+4. **Inheritance in the resolver** — the resolver does not currently support profile inheritance. This is decoupled from the schema change: Phase 1 ships profiles without inheritance (data is returned at whatever level it's found; clients can walk up). Phase 2 adds resolver-side inheritance as a separate enhancement.
 
 5. **Per-field metadata** — the existing `_checked` / `_updated` convention from REGISTRY-JSON-FORMAT.md applies here. Should these new fields use it from the start?
 
