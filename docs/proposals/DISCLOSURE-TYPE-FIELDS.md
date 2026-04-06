@@ -109,7 +109,11 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 - MSRC inherits `safe_harbor` and `disclosure_policy` from namespace (absent in its profiles), adds `bug_bounty` and `cve`
 - Xbox inherits `safe_harbor` and `disclosure_policy`, has its own `bug_bounty` (replaces, not appends), explicitly sets `cve` to `null` (Xbox doesn't assign CVEs)
 
-**Resolver implementation note:** Inheritance is an optimization, not a prerequisite. Phase 1 can ship profiles without resolver inheritance — the data is still valuable when returned at whatever level it's found. Inheritance support is a separate resolver enhancement (Phase 2). A client that needs the full resolved profile can walk up itself: check match_node profiles, then check namespace profiles for any absent modules.
+**Resolver implementation note:** Inheritance is an optimization, not a prerequisite.
+
+**Phase 1 API contract:** The resolver returns `profiles` from the matched level only — no inheritance, no merging. What you see is what's on that node. If a match_node has no `profiles` key, the response has no profiles for that match. Clients that want the full picture check the namespace-level response separately. This is simple, predictable, and matches current resolver behavior (return what's there).
+
+**Phase 2:** Resolver adds inheritance — merges namespace-level profiles with match_node-level profiles using replace semantics before returning. This is a backward-compatible enhancement (responses get richer, never lose data).
 
 ### Null vs Absent Convention
 
@@ -121,36 +125,9 @@ Consistent with existing SecID convention:
 
 No redundant `"exists": true` booleans.
 
-### Data Provenance Convention
+### Metadata Convention
 
-**This convention applies registry-wide, not just to profiles.** Every piece of data in the registry should be traceable to its source, the process that produced it, when it was verified, and by whom.
-
-**Provenance fields** (prefixed with `_`, consistent with existing `_checked` / `_updated` convention):
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_source` | `string` | URL or reference where the raw data was obtained |
-| `_process` | `string` | Script, tool, or method used to extract/transform the data. A path like `scripts/generate-cna-disclosure.py` so someone can find and re-run it. |
-| `_checked` | `string` (date) | When this data was last verified |
-| `_checked_by` | `string` | Who verified it. Controlled vocabulary: |
-
-**`_checked_by` values:**
-
-| Value | Meaning |
-|-------|---------|
-| `csa/automated` | CSA-maintained script scraped or verified it |
-| `csa/manual` | A human at CSA researched and confirmed it |
-| `vendor` | The vendor/namespace owner submitted or confirmed it |
-| `community` | A community contributor submitted it |
-
-**Why this matters:**
-
-1. **Trust signal** — CNA roles verified against cve.org by an automated scraper are high confidence. A safe harbor URL submitted by an anonymous contributor is lower confidence until someone checks it.
-2. **Reproducibility** — `_process` points to the exact script, so anyone can re-run it against `_source` to verify or refresh the data.
-3. **Staleness detection** — `_checked` tells you how fresh the data is. A `_checked` date from 2 years ago on a bug bounty URL is a signal to re-verify.
-4. **Vendor self-maintenance (future)** — when vendors maintain their own namespace, `_checked_by: "vendor"` means they are the authority on their own data.
-
-**Provenance can appear at any level:** on the whole `profiles` object, on individual profile modules, or on individual fields within a module. Use the most specific level that makes sense:
+Profile modules use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects; `field_checked`, `field_updated`, `field_note` as suffixes for scalar fields.
 
 ```json
 "profiles": {
@@ -158,21 +135,19 @@ No redundant `"exists": true` booleans.
     "roles": ["cna"],
     "scope": "All Example Corp products",
     "cna_short_name": "example",
-    "_source": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example",
-    "_process": "scripts/generate-cna-disclosure.py",
-    "_checked": "2026-04-05",
-    "_checked_by": "csa/automated"
+    "checked": "2026-04-05",
+    "note": "Verified against cve.org partner list"
   },
   "safe_harbor": {
     "url": "https://example.com/security/safe-harbor",
-    "_source": "https://example.com/.well-known/security.txt",
-    "_checked": "2026-04-05",
-    "_checked_by": "csa/manual"
+    "checked": "2026-04-05"
   }
 }
 ```
 
-**V1 vs V2 pattern:** In V1, profile modules are pointers (URLs) with provenance metadata. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content. The provenance fields tell you when the pointer was last verified, and when V2 arrives, when the cached copy was last refreshed.
+**Extended provenance fields** (`source`, `process`, `checked_by`) are a useful addition but are a **registry-wide concern, not disclosure-specific**. These will be proposed separately as an extension to REGISTRY-JSON-FORMAT.md's per-field metadata convention. This proposal does not depend on them — the existing `checked`/`updated`/`note` fields are sufficient for V1.
+
+**V1 vs V2 pattern:** In V1, profile modules are pointers (URLs) with timestamps. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content.
 
 ## Disclosure Profile Modules
 
@@ -194,10 +169,10 @@ CVE program participation.
 | Field | Type | Description |
 |-------|------|-------------|
 | `roles` | `string[]` | CVE Program roles. Controlled vocabulary from CVE Program terminology. |
-| `cna_short_name` | `string` | CNA slug/short name as used on cve.org and in CVE records (e.g., `redhat`, `Google`, `microsoft`). This is the identifier used in CVE JSON as the assigner. |
+| `cna_short_name` | `string` | CNA slug/short name as used on cve.org and in CVE records (e.g., `redhat`, `Google`, `microsoft`). This is the identifier used in CVE JSON as the assigner. **Preserve source case** — the CVE Program uses mixed case in their slugs; store as-is per SecID's "never normalize lossily" principle. |
 | `cna_partner_url` | `string` | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | What products/services the CNA covers (from CVE Program data). |
-| `root` | `string` | Domain of the Root CNA this org reports to. |
+| `root` | `string` | CNA short name of the Root this org reports to (e.g., `"mitre"`, `"redhat"`). Uses the CVE partner slug, not a domain name, to avoid lossy name-to-domain mapping. |
 | `last_assigned` | `string` (date) | Date of most recent CVE assignment. Staleness indicator. Computed from CVE list data. |
 
 **`roles` controlled vocabulary** (from CVE Program — their terminology, not ours):
@@ -275,6 +250,8 @@ RFC 9116 machine-readable security contact file.
 |-------|------|-------------|
 | `url` | `string` | URL of the security.txt file. |
 
+**Migration note:** Some existing disclosure entries already have a `security_txt` scalar field in their `data` object (e.g., `"security_txt": "https://..."`). The `profiles.security_txt` module replaces this. During migration, move the scalar value into `profiles.security_txt.url` and remove it from `data`. Do not maintain both — `profiles.security_txt` is the canonical location.
+
 ### `disclosure_policy`
 
 Vulnerability disclosure policy.
@@ -333,33 +310,27 @@ A fully populated disclosure entry:
       "scope": "Red Hat products and the open source community",
       "cna_short_name": "redhat",
       "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-      "root": "mitre.org",
+      "root": "mitre",
       "last_assigned": "2026-04-04",
-      "_source": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-      "_process": "scripts/generate-cna-disclosure.py",
-      "_checked": "2026-04-05",
-      "_checked_by": "csa/automated"
+      "checked": "2026-04-05",
+      "note": "Verified against cve.org partner list via scripts/generate-cna-disclosure.py"
     },
     "safe_harbor": null,
     "bug_bounty": [
       {
         "url": "https://hackerone.com/redhat",
         "paid": true,
-        "_checked": "2026-04-05",
-        "_checked_by": "csa/manual"
+        "checked": "2026-04-05"
       }
     ],
     "security_txt": {
       "url": "https://www.redhat.com/.well-known/security.txt",
-      "_checked": "2026-04-05",
-      "_checked_by": "csa/automated"
+      "checked": "2026-04-05"
     },
     "disclosure_policy": {
       "url": "https://access.redhat.com/articles/2939351",
       "stated_timeline": "coordinated disclosure",
-      "_source": "https://access.redhat.com/articles/2939351",
-      "_checked": "2026-04-05",
-      "_checked_by": "csa/manual"
+      "checked": "2026-04-05"
     }
   },
 
@@ -379,11 +350,12 @@ A fully populated disclosure entry:
 
 ## Migration Plan
 
-### Phase 1: Schema
+### Phase 1: Schema (hard dependency — must complete before any data migration)
 
+- **Update JSON Schema** (`schemas/registry-namespace.schema.json`) to allow `profiles` at both top-level and inside MatchNode objects. Current MatchNode has `additionalProperties: false`, which blocks `profiles` in match_nodes until updated. This is a hard dependency.
 - Add `profiles` wrapper definition to REGISTRY-JSON-FORMAT.md
 - Define initial disclosure modules (cve, safe_harbor, bug_bounty, security_txt, disclosure_policy)
-- Document inheritance behavior
+- Document Phase 1 API behavior (no inheritance, return matched level only)
 - Update disclosure type description (`registry/disclosure.md`)
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
@@ -394,18 +366,18 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 
 | Existing `cve_program_role` | Count | `profiles.cve.roles` | `profiles.cve.root` |
 |-----------------------------|-------|----------------------|----------------------|
-| `"CNA"` | 498 | `["cna"]` | (from CNA data) |
-| `"Root"` | 6 | `["root"]` | `"mitre.org"` |
+| `"CNA"` | 498 | `["cna"]` | (from CNA partner data) |
+| `"Root"` | 6 | `["root"]` | `"mitre"` |
 | `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
-| `"Root (reports to MITRE Top-Level Root)"` | 1 | `["root"]` | `"mitre.org"` |
-| `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat.com"` |
-| `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat.com"` |
-| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre.org"` |
-| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"cisa.gov"` |
+| `"Root (reports to MITRE Top-Level Root)"` | 1 | `["root"]` | `"mitre"` |
+| `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat"` |
+| `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat"` |
+| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre"` |
+| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"icscert"` |
 | `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
 | `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
 
-**Parsing rule:** Split on comma for multi-role entries. Extract the parenthetical "reports to X" as the `root` value, mapping the org name to its domain. Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role, not duplicated in a note).
+**Parsing rule:** Split on comma for multi-role entries. Extract the parenthetical "reports to X" as the `root` value, mapping the org name to its CNA short name/slug from the CVE partner list (e.g., "MITRE Top-Level Root" → `"mitre"`, "Red Hat Root" → `"redhat"`, "CISA ICS Root" → `"icscert"`). Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role, not duplicated in a note).
 
 The `last_assigned` field can be populated from CVE list data (find the most recent CVE assigned by each CNA).
 
@@ -425,9 +397,11 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 4. **Inheritance in the resolver** — the resolver does not currently support profile inheritance. This is decoupled from the schema change: Phase 1 ships profiles without inheritance (data is returned at whatever level it's found; clients can walk up). Phase 2 adds resolver-side inheritance as a separate enhancement.
 
-5. **Per-field metadata** — the existing `_checked` / `_updated` convention from REGISTRY-JSON-FORMAT.md applies here. Should these new fields use it from the start?
+5. **Per-field metadata** — this proposal uses the existing `checked`/`updated`/`note` convention from REGISTRY-JSON-FORMAT.md. Extended provenance fields (`source`, `process`, `checked_by`) are deferred to a separate registry-wide proposal.
 
 6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. A CERT's disclosure entry would use the same profile modules as any other org. If needed later, a `csirt` profile module could be added to the entity type.
+
+7. **Existing `security_txt` scalar fields** — some disclosure entries already have `security_txt` in their `data` object. Migration must move these into `profiles.security_txt.url` and remove from `data`. Do not maintain both.
 
 ---
 
