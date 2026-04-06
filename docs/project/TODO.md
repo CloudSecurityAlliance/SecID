@@ -1,137 +1,180 @@
 # TODO
 
-Tracking deferred work items for SecID.
+Tracking work items for SecID. Updated 2026-04-05 (v1.0 release).
 
-## Deferred (Registry in Flux)
+## Active — Next Up
+
+### Training Course Content
+**Status:** Planned
+**Priority:** High
+
+Develop training content for CSA's education platform (Skilljar/training.cloudsecurityalliance.org):
+- "Using SecID" self-paced module — resolve CVEs, look up controls, find CNAs
+- Lab exercises using the live resolver and MCP server
+- Integration with CCSK curriculum (SecID as the lookup tool for CCM controls)
+- Integration with AI security training (SecID for AI weaknesses, ATLAS techniques, AICM controls)
+
+**Depends on:** Slide decks (overview + CSA integration done), live service (done)
+
+### Technical Deep Dive Slide Deck
+**Status:** Planned
+**Priority:** High
+
+Developer/integrator deck covering:
+- API contract (one endpoint, encoding gotcha, response envelope)
+- MCP server setup and tool descriptions
+- SDK examples (Python, TypeScript, Go)
+- JSON Schema for registry validation
+- OpenAPI spec for code generation
+- Resolution depth and cross-source search
+- Building a client from the prompt template
+
+**File:** `slides/secid-technical.md`
+
+### Contributing Slide Deck
+**Status:** Planned
+**Priority:** Medium
+
+Community contribution deck covering:
+- Registry file format and templates
+- Namespace-to-filesystem algorithm
+- Research workflow (for capabilities: vendor docs → API scan → cross-reference)
+- PR process and review
+- How AI agents help with research
+
+**File:** `slides/secid-contributing.md`
+
+### CIS Benchmarks as Control Entries
+**Status:** Research needed
+**Priority:** High
+
+CIS Benchmarks contain per-check specifications for AWS/Azure/GCP. Each check maps to capabilities and abstract controls.
+
+**Blockers:**
+- License check needed — can we redistribute per-check data? CIS Terms of Use unclear on this.
+- Need to determine: registry entries only (identifier + description + URL) or V2 data (full check content)?
+- If license permits, extract from CIS benchmark PDFs into per-check JSON
+
+**Namespaces:** `control/cisecurity.org/aws-benchmark`, `control/cisecurity.org/azure-benchmark`, `control/cisecurity.org/gcp-benchmark`
+
+### Prowler Checks as Control Entries
+**Status:** Research needed
+**Priority:** Medium
+
+Prowler has 938 structured checks (Apache 2.0 licensed). Each check is a prescriptive specification.
+
+**Questions:**
+- Namespace: `control/prowler.com/aws`, `control/prowler.com/azure`, `control/prowler.com/gcp`, `control/prowler.com/kubernetes`?
+- Granularity: one match_node per check (938 children) or grouped by service?
+- Relationship to capabilities: each Prowler check verifies a capability
+- Similar tools: ScoutSuite, Steampipe, CloudCustodian — same pattern?
+
+**License:** Apache 2.0 — no redistribution concerns for registry entries
+
+### DISA STIGs as Control Entries
+**Status:** Planned
+**Priority:** Medium
+
+DISA STIGs are US government work (public domain). Structured XCCDF XML.
+
+**Namespaces:** `control/disa.mil/aws-stig`, `control/disa.mil/rhel9-stig`, etc.
+**Data source:** https://www.cyber.mil/stigs/downloads/
+**Format:** XCCDF XML → per-check JSON extraction
+
+### V2 Data Repositories
+**Status:** Design complete, not started
+**Priority:** Medium
+
+Per DATA-HOSTING-RULES.md, create type-specific data repos:
+- `CloudSecurityAlliance-DataSets/SecID-weakness/` — CWE per-record, OWASP per-item
+- `CloudSecurityAlliance-DataSets/SecID-control/` — CCM/AICM per-control, NIST per-control
+- `CloudSecurityAlliance-DataSets/SecID-regulation/` — GDPR per-article, AI Act per-article
+
+**Depends on:** Existing processed data in `dataset-public-laws-regulations-standards` repo
+
+### Capability Wave 6 — Remaining Cloud Services
+**Status:** Planned
+**Priority:** Low
+
+~200 remaining AWS services, plus Azure/GCP services not yet covered. Most will be stub entries ("reviewed, no service-specific security beyond IAM"). Includes DigitalOcean, OpenShift, and other non-Big-Three providers.
+
+### Relationship Layer Design
+**Status:** Research/speculation (see docs/future/RELATIONSHIPS.md)
+**Priority:** Low (V2)
+
+Cross-type connections: CVE→CWE→ATT&CK→control→capability. The relationship data model, storage format, and query API.
+
+## Completed (v1.0)
 
 ### JSON Schema for Registry Validation
-**Status:** Deferred until registry format stabilizes
+**Status:** Done (v1.0)
+Created `schemas/registry-namespace.schema.json` — validates all 719 registry files.
 
-Registry files use YAML frontmatter + Markdown. A formal JSON Schema would enable:
-- Automated validation of registry files
-- IDE autocompletion for contributors
-- CI/CD checks for PRs
+### OpenAPI Spec for REST API
+**Status:** Done (v1.0)
+Created `schemas/openapi.yaml` — documents resolve, registry download, health, MCP endpoints.
 
-Deferring because:
-- Registry format is still evolving
-- Current state documented in DESIGN-DECISIONS.md
-- Manual review sufficient for now
+### Capability Type (9th → 10th type)
+**Status:** Done (v1.0)
+54 capability namespaces, 428 individual capabilities across AWS/Azure/GCP.
 
-**When to revisit:** After v1.0 registry format is stable.
+### Disclosure Type + CNA Data
+**Status:** Done (v1.0)
+486 disclosure namespaces covering 502 CVE Program partners with scope, contacts, policies.
+
+### URL Normalization
+**Status:** Done (v1.0)
+All `data.source` fields converted to `urls[]` arrays. Two URL mechanisms: `data.url` (resolution template) and `urls[]` (everything else).
+
+### Slide Decks
+**Status:** Partially done
+- Overview deck (17 slides) — Done
+- CSA Integration deck (14 slides) — Done
+- Technical deck — Planned
+- Contributing deck — Planned
+
+### MCP Server Enhancements
+**Status:** Done (v1.0)
+CNA vulnerability reporting workflow, feedback resource, capability type descriptions, all 10 types.
+
+## Deferred
 
 ### Resolver and Regex Test Fixture Strategy
-**Status:** Planned - start during SecID-Service API development
+**Status:** Deferred until CI gates needed
 
-Current coverage is split across docs:
-- `docs/reference/REGISTRY-JSON-FORMAT.md` defines resolver behavior and fields (`match_nodes`, `version_required`, `unversioned_behavior`, `examples`)
-- `docs/guides/REGEX-WORKFLOW.md` defines regex authoring and manual testing workflow
-- `skills/compliance-testing/` describes compliance-test direction
-
-Current gap:
-- ~~`data.examples` are input samples only (not executable input/output fixtures)~~ **Partially addressed:** Structured ExampleObject entries now exist in all 15 JSON registry files (input, variables, url, note fields). These serve as positive test fixtures for resolver conformance. See `REGISTRY-JSON-FORMAT.md` "Examples" section for the schema.
-- No canonical fixture set yet for negative/rejection tests or multi-resolution behavior tests
-- No fixture extraction tooling yet (to pull structured examples from registry JSON into a test runner)
-
-Need to add:
-- Fixture extraction script to collect all structured examples from registry JSON files into a test corpus
-- Negative test fixtures (invalid inputs that should be rejected) — these are API-level, not registry-level
-- Regex compile checks in resolver runtime (not just generic regex lint)
-- Overlap detection checks for sibling patterns (with explicit allow/tie policy)
-- Deterministic ordering tests for multiple matches (weight + stable tie-break)
-- Version-behavior tests (`version_required`, `current_with_history`, `all_with_guidance`)
-- Placeholder/variable expansion tests (`{id}`, `{year}`, custom `variables`)
-
-Open decisions (must be explicit before enforcing CI gates):
-- Overlap policy: fail by default vs allow with documented justification
-- API result policy: return all matches vs single primary match
-- Tie-break policy when weights are equal
-- Regex dialect policy for runtime compatibility
-- URL health checks: blocking vs non-blocking in CI
-
-**When to revisit:** Before enabling strict resolver conformance gates in CI.
-
-### URL Template Variable Sanitization Guidance
-**Status:** Resolved — no code changes needed
-
-Registry URL templates use `{id}` variable substitution (e.g., `https://bugzilla.redhat.com/show_bug.cgi?id={id}`). The `{id}` values come from user input (the subpath portion of the SecID string).
-
-**Analysis:** The registry's regex patterns are the primary defense. Every child `match_node` requires the subpath to match a pattern before URL substitution occurs. These patterns are strict (e.g., `^\d+$` for Bugzilla IDs, `^CVE-\d{4}-\d{4,}$` for CVEs) and reject inputs containing URL-control characters (`&`, `=`, `?`, `#`, `<`, `>`). No registry pattern matches these characters.
-
-Percent-encoding all variables was considered and rejected because it mangles vendor URLs — e.g., Red Hat's `RHSA-2024:1234` would become `RHSA-2024%3A1234`, violating the "follow the source" principle. The generated URLs must match what vendors actually use.
-
-For display safety: the website uses `textContent` (not `innerHTML`), which auto-escapes `<>`. The API returns JSON, where `<>` are inert. Custom extracted variables (`{year}`, `{num}`) are numeric-only by regex construction.
-
-**Conclusion:** Regex validation at the registry layer provides defense in depth. Resolver implementations should document that patterns must reject injection characters, but no URL-encoding of template variables is needed.
+Need: fixture extraction script, negative test fixtures, regex compile checks, overlap detection, deterministic ordering tests.
 
 ### Resolution Instructions for Non-Deterministic Systems
-**Status:** Deferred - design decision needed
+**Status:** Deferred until needed
 
-ROADMAP.md mentions "search instructions" for resources without stable URLs:
-```yaml
-resolution:
-  type: search
-  instructions: "Search the vendor's security portal for the advisory ID"
-  search_url: "https://example.com/security/search?q={id}"
-```
+Search-based resolution for systems without stable URLs.
 
-Need to:
-- Identify namespaces that need this pattern
-- Settle on YAML format
-- Add examples to registry
+### MCP Interaction Logging
+**Status:** Deferred
 
-**When to revisit:** When adding a namespace that requires search-based resolution.
+Log every MCP interaction to KV with TTL for usage analytics.
 
-### CI/CD Secrets for KV Registry Upload
-**Status:** Deferred — local dev uses `wrangler login`, CI/CD needs secrets configured
+### Periodic CNA Data Refresh
+**Status:** Deferred
 
-The SecID-Service has GitHub Actions workflows for automated KV registry upload:
-- `SecID/.github/workflows/update-registry.yml` — triggers on registry JSON changes, fires `repository_dispatch`
-- `SecID-Service/.github/workflows/registry-kv-upload.yml` — responds to dispatch, uploads to KV, deploys Worker
+Re-scrape cve.org/PartnerInformation/ListofPartners periodically. Scripts exist in `scripts/fetch-cna-list.py` and `scripts/fetch-cna-details.py`.
 
-Secrets needed:
-- `CloudSecurityAlliance/SecID-Service` repo: `CLOUDFLARE_API_TOKEN` (Workers KV Read/Write + Workers Scripts Edit permissions)
-- `CloudSecurityAlliance/SecID` repo: `SERVICE_REPO_TOKEN` (GitHub PAT with `repo` scope to trigger dispatches to SecID-Service)
+### Capability Freshness Monitoring
+**Status:** Deferred
 
-**When to revisit:** When ready to automate registry updates end-to-end.
+Monitor cloud provider release notes for new security features. Update capability entries when services change.
+
+### CI/CD for Slide Generation
+**Status:** Deferred
+
+Auto-generate PDF/HTML from Marp markdown on push to slides/.
+
+### llms.txt for AI Discoverability
+**Status:** Deferred
+
+Implement llms.txt standard on the website for AI-friendly content discovery.
 
 ### Standalone SecID Plugin
-**Status:** Planned
+**Status:** Deferred
 
-Create a standalone plugin (Claude Code plugin, VS Code extension, etc.) that bundles the SecID MCP server for users who want a local/installable option rather than pointing at the remote MCP server. The remote server at `https://secid.cloudsecurityalliance.org/mcp` works for most users, but a plugin provides:
-- Offline access
-- Bundled tool descriptions and resources
-- Integration with IDE-specific features (e.g., hover-to-resolve SecID strings)
-- A presence in plugin marketplaces for discoverability
-
-**When to revisit:** After MCP tool descriptions are enriched and SecID-Client-SDK reference implementations are published.
-
-### SecID-Client-SDK Reference Implementations and Package Publishing
-**Status:** Planned
-
-Publish reference SecID client libraries to PyPI (`pip install secid`) and npm (`npm install secid`) for SEO and discoverability. These are thin wrappers around the one-endpoint API — the real value is that people searching "secid" on PyPI/npm find something. The packages should:
-- Be single-file, zero-external-dep implementations
-- Include CLI mode
-- Link back to the MCP server as the primary integration path
-- Live in the SecID-Client-SDK repo alongside AI-consumable instructions
-
-**When to revisit:** After MCP server improvements are deployed.
-
-## Proposed
-
-### Metadata Fields for Registry Data (`_checked` / `_updated` / `_note`)
-**Status:** Proposed — see [docs/proposals/TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md)
-
-Per-field `_checked`, `_updated`, and `_note` metadata for verifiable data (URLs, emails, policy text, null findings). Enables freshness assessment and records verification observations without relying solely on git history.
-
-**Depends on:** Approval of proposal
-**Blocks:** `disclosure` type namespace entries (which rely heavily on data freshness)
-**When to implement:** After proposal review, before disclosure namespace entries are populated
-
-## Completed
-
-- [x] Registry architecture refactoring (one file per namespace)
-- [x] ISO 27001/27002 control entry
-- [x] CONCERNS.md updates
-- [x] CLAUDE.md contributor guidance updates
-- [x] Cross-source search index for KV (`child_index` in TypeIndex — 1 read + N matched namespace reads)
-- [x] KV registry migration (SecID-Service reads from Cloudflare KV, bundled fallback for local dev)
+Claude Code plugin for SecID operations.
