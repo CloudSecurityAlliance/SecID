@@ -121,6 +121,59 @@ Consistent with existing SecID convention:
 
 No redundant `"exists": true` booleans.
 
+### Data Provenance Convention
+
+**This convention applies registry-wide, not just to profiles.** Every piece of data in the registry should be traceable to its source, the process that produced it, when it was verified, and by whom.
+
+**Provenance fields** (prefixed with `_`, consistent with existing `_checked` / `_updated` convention):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_source` | `string` | URL or reference where the raw data was obtained |
+| `_process` | `string` | Script, tool, or method used to extract/transform the data. A path like `scripts/generate-cna-disclosure.py` so someone can find and re-run it. |
+| `_checked` | `string` (date) | When this data was last verified |
+| `_checked_by` | `string` | Who verified it. Controlled vocabulary: |
+
+**`_checked_by` values:**
+
+| Value | Meaning |
+|-------|---------|
+| `csa/automated` | CSA-maintained script scraped or verified it |
+| `csa/manual` | A human at CSA researched and confirmed it |
+| `vendor` | The vendor/namespace owner submitted or confirmed it |
+| `community` | A community contributor submitted it |
+
+**Why this matters:**
+
+1. **Trust signal** — CNA roles verified against cve.org by an automated scraper are high confidence. A safe harbor URL submitted by an anonymous contributor is lower confidence until someone checks it.
+2. **Reproducibility** — `_process` points to the exact script, so anyone can re-run it against `_source` to verify or refresh the data.
+3. **Staleness detection** — `_checked` tells you how fresh the data is. A `_checked` date from 2 years ago on a bug bounty URL is a signal to re-verify.
+4. **Vendor self-maintenance (future)** — when vendors maintain their own namespace, `_checked_by: "vendor"` means they are the authority on their own data.
+
+**Provenance can appear at any level:** on the whole `profiles` object, on individual profile modules, or on individual fields within a module. Use the most specific level that makes sense:
+
+```json
+"profiles": {
+  "cve": {
+    "roles": ["cna"],
+    "scope": "All Example Corp products",
+    "cna_short_name": "example",
+    "_source": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example",
+    "_process": "scripts/generate-cna-disclosure.py",
+    "_checked": "2026-04-05",
+    "_checked_by": "csa/automated"
+  },
+  "safe_harbor": {
+    "url": "https://example.com/security/safe-harbor",
+    "_source": "https://example.com/.well-known/security.txt",
+    "_checked": "2026-04-05",
+    "_checked_by": "csa/manual"
+  }
+}
+```
+
+**V1 vs V2 pattern:** In V1, profile modules are pointers (URLs) with provenance metadata. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content. The provenance fields tell you when the pointer was last verified, and when V2 arrives, when the cached copy was last refreshed.
+
 ## Disclosure Profile Modules
 
 ### `cve`
@@ -130,20 +183,22 @@ CVE program participation.
 ```json
 "cve": {
   "roles": ["cna"],
+  "cna_short_name": "example",
+  "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example",
   "scope": "All Example Corp products and services",
   "root": "mitre.org",
-  "last_assigned": "2026-03-28",
-  "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example"
+  "last_assigned": "2026-03-28"
 }
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `roles` | `string[]` | CVE Program roles. Controlled vocabulary from CVE Program terminology. |
+| `cna_short_name` | `string` | CNA slug/short name as used on cve.org and in CVE records (e.g., `redhat`, `Google`, `microsoft`). This is the identifier used in CVE JSON as the assigner. |
+| `cna_partner_url` | `string` | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | What products/services the CNA covers (from CVE Program data). |
 | `root` | `string` | Domain of the Root CNA this org reports to. |
-| `last_assigned` | `string` (date) | Date of most recent CVE assignment. Staleness indicator. |
-| `url` | `string` | Link to CVE Partner listing or equivalent. |
+| `last_assigned` | `string` (date) | Date of most recent CVE assignment. Staleness indicator. Computed from CVE list data. |
 
 **`roles` controlled vocabulary** (from CVE Program — their terminology, not ours):
 
@@ -276,20 +331,35 @@ A fully populated disclosure entry:
     "cve": {
       "roles": ["root", "cna"],
       "scope": "Red Hat products and the open source community",
+      "cna_short_name": "redhat",
+      "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
       "root": "mitre.org",
       "last_assigned": "2026-04-04",
-      "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Red%20Hat"
+      "_source": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+      "_process": "scripts/generate-cna-disclosure.py",
+      "_checked": "2026-04-05",
+      "_checked_by": "csa/automated"
     },
     "safe_harbor": null,
     "bug_bounty": [
-      {"url": "https://hackerone.com/redhat", "paid": true}
+      {
+        "url": "https://hackerone.com/redhat",
+        "paid": true,
+        "_checked": "2026-04-05",
+        "_checked_by": "csa/manual"
+      }
     ],
     "security_txt": {
-      "url": "https://www.redhat.com/.well-known/security.txt"
+      "url": "https://www.redhat.com/.well-known/security.txt",
+      "_checked": "2026-04-05",
+      "_checked_by": "csa/automated"
     },
     "disclosure_policy": {
       "url": "https://access.redhat.com/articles/2939351",
-      "stated_timeline": "coordinated disclosure"
+      "stated_timeline": "coordinated disclosure",
+      "_source": "https://access.redhat.com/articles/2939351",
+      "_checked": "2026-04-05",
+      "_checked_by": "csa/manual"
     }
   },
 
