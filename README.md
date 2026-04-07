@@ -465,7 +465,7 @@ We're designing three ways for organizations to participate in SecID. **This mod
 | Phase | How it works | Status |
 |-------|-------------|--------|
 | **Pull requests** | Fork, edit, submit PR — CSA reviews and merges | **Live** — how contributions work today |
-| **Self-service** | Vendors prove domain ownership, get write access to their own namespace files via CODEOWNERS | Proposed |
+| **Self-service** | An entity proves ownership of the security process for a namespace, gets write access to their own namespace files via CODEOWNERS | Proposed |
 | **Federation** | Organizations run their own SecID resolver, registered in the namespace entry. Supports private/internal data. | Proposed |
 
 Today, all contributions go through pull requests. As the project matures, vendors will be able to maintain their own namespace data directly, and eventually run their own resolvers that supplement the public registry.
