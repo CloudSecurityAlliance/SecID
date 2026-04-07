@@ -471,6 +471,8 @@ We're designing three ways for organizations to participate in SecID. **This mod
 
 Today, all contributions go through pull requests. As the project matures, entities will be able to maintain their own namespace data directly, run public resolvers that federate with the CSA registry, and run private resolvers for internal security data.
 
+**We're pragmatic about access models.** We'd love every SecID resolver to be public and open. But reality includes customer-only portals, internal security teams, and data that can't be shared publicly. SecID is designed to work across all of these — fully public, authenticated public, and fully private resolvers all use the same protocol and can interoperate where access allows.
+
 ## Governance
 
 SecID is a Cloud Security Alliance project with a lightweight governance model during early development and an explicit path toward broader community governance. See [GOVERNANCE.md](GOVERNANCE.md) for the current operating model and [STRATEGY.md](docs/future/STRATEGY.md) for long-term governance philosophy.
