@@ -91,7 +91,7 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
       "description": "Microsoft Security Response Center",
       "profiles": {
         "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }],
-        "cve": { "roles": ["cna"], "scope": "Microsoft products" }
+        "cve": { "roles": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
       }
     },
     {
@@ -125,6 +125,15 @@ Consistent with existing SecID convention:
 
 No redundant `"exists": true` booleans.
 
+### Boundary: `profiles` vs `data`
+
+Profiles and the existing `data` object coexist on the same node. They serve different purposes:
+
+- **`profiles`** — structured modules with defined schemas and controlled vocabulary (cve, safe_harbor, bug_bounty, etc.). Each module has a documented field table. Typed and machine-queryable.
+- **`data`** — operational freeform details (contacts, urls, examples, organization_type). Existing field, unchanged by this proposal.
+
+After migration, `cve_program_role` and `scope` move from `data` into `profiles.cve`. `contacts`, `organization_type`, `urls`, and `examples` stay in `data`.
+
 ### Metadata Convention
 
 Profile modules use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects; `field_checked`, `field_updated`, `field_note` as suffixes for scalar fields.
@@ -133,8 +142,9 @@ Profile modules use the **existing per-field metadata convention** from [REGISTR
 "profiles": {
   "cve": {
     "roles": ["cna"],
+    "assignerShortName": "example",
+    "assignerOrgId": "a1b2c3d4-...",
     "scope": "All Example Corp products",
-    "cna_short_name": "example",
     "checked": "2026-04-05",
     "note": "Verified against cve.org partner list"
   },
@@ -153,27 +163,38 @@ Profile modules use the **existing per-field metadata convention** from [REGISTR
 
 ### `cve`
 
-CVE program participation.
+CVE program participation. Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) so the mapping to CVE JSON records is obvious.
 
 ```json
 "cve": {
   "roles": ["cna"],
-  "cna_short_name": "example",
+  "assignerShortName": "example",
+  "assignerOrgId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example",
   "scope": "All Example Corp products and services",
-  "root": "mitre.org",
-  "last_assigned": "2026-03-28"
+  "root": {
+    "assignerShortName": "mitre",
+    "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
+  },
+  "last_assigned_cve": "CVE-2026-1234",
+  "last_assigned_date": "2026-03-28"
 }
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `roles` | `string[]` | CVE Program roles. Controlled vocabulary from CVE Program terminology. |
-| `cna_short_name` | `string` | CNA slug/short name as used on cve.org and in CVE records (e.g., `redhat`, `Google`, `microsoft`). This is the identifier used in CVE JSON as the assigner. **Preserve source case** — the CVE Program uses mixed case in their slugs; store as-is per SecID's "never normalize lossily" principle. |
+| `assignerShortName` | `string` | CNA short name as used in CVE JSON records and on cve.org (e.g., `redhat`, `Google`, `microsoft`). Same field name as CVE 5.0 `cveMetadata.assignerShortName`. **Preserve source case** — the CVE Program uses mixed case; store as-is per SecID's "never normalize lossily" principle. |
+| `assignerOrgId` | `string` (UUID) | CVE Program organization UUID. Same field name as CVE 5.0 `cveMetadata.assignerOrgId`. Stable — survives renames and rebrands. |
 | `cna_partner_url` | `string` | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | What products/services the CNA covers (from CVE Program data). |
-| `root` | `string` | CNA short name of the Root this org reports to (e.g., `"mitre"`, `"redhat"`). Uses the CVE partner slug, not a domain name, to avoid lossy name-to-domain mapping. |
-| `last_assigned` | `string` (date) | Date of most recent CVE assignment. Staleness indicator. Computed from CVE list data. |
+| `root` | `object` | The Root CNA this org reports to, identified by the same CVE field names. |
+| `root.assignerShortName` | `string` | Root CNA's short name (e.g., `"mitre"`, `"redhat"`, `"icscert"`). |
+| `root.assignerOrgId` | `string` (UUID) | Root CNA's organization UUID. |
+| `last_assigned_cve` | `string` | Most recent CVE ID assigned by this CNA (e.g., `"CVE-2026-3184"`). Staleness indicator — a CNA whose last assignment was years ago may be inactive. |
+| `last_assigned_date` | `string` (date) | Date of that CVE's publication. |
+
+**Data source:** `assignerShortName` and `assignerOrgId` come from CVE JSON records (`cveMetadata` fields). A pre-extracted dataset is available at `~/GitHub/cveproject/cvelistV5/latest_cve_per_cna.csv` with 457 CNAs including org IDs, last CVE, and dates.
 
 **`roles` controlled vocabulary** (from CVE Program — their terminology, not ours):
 
@@ -307,13 +328,18 @@ A fully populated disclosure entry:
   "profiles": {
     "cve": {
       "roles": ["root", "cna"],
-      "scope": "Red Hat products and the open source community",
-      "cna_short_name": "redhat",
+      "assignerShortName": "redhat",
+      "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
       "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-      "root": "mitre",
-      "last_assigned": "2026-04-04",
+      "scope": "Red Hat products and the open source community",
+      "root": {
+        "assignerShortName": "mitre",
+        "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
+      },
+      "last_assigned_cve": "CVE-2026-3184",
+      "last_assigned_date": "2026-04-03",
       "checked": "2026-04-05",
-      "note": "Verified against cve.org partner list via scripts/generate-cna-disclosure.py"
+      "note": "Verified against cve.org partner list and cvelistV5 data"
     },
     "safe_harbor": null,
     "bug_bounty": [
@@ -364,8 +390,8 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 
 **Complete mapping of all observed values** (from current registry data):
 
-| Existing `cve_program_role` | Count | `profiles.cve.roles` | `profiles.cve.root` |
-|-----------------------------|-------|----------------------|----------------------|
+| Existing `cve_program_role` | Count | `profiles.cve.roles` | `profiles.cve.root.assignerShortName` |
+|-----------------------------|-------|----------------------|---------------------------------------|
 | `"CNA"` | 498 | `["cna"]` | (from CNA partner data) |
 | `"Root"` | 6 | `["root"]` | `"mitre"` |
 | `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
@@ -377,9 +403,14 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 | `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
 | `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
 
-**Parsing rule:** Split on comma for multi-role entries. Extract the parenthetical "reports to X" as the `root` value, mapping the org name to its CNA short name/slug from the CVE partner list (e.g., "MITRE Top-Level Root" → `"mitre"`, "Red Hat Root" → `"redhat"`, "CISA ICS Root" → `"icscert"`). Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role, not duplicated in a note).
+**Parsing rules:**
+- Split on comma for multi-role entries
+- Extract the parenthetical "reports to X" → `root.assignerShortName`, mapping org name to CVE partner slug
+- Look up `assignerOrgId` and `root.assignerOrgId` from `~/GitHub/cveproject/cvelistV5/latest_cve_per_cna.csv` (457 CNAs with UUIDs)
+- Extract `last_assigned_cve` and `last_assigned_date` from the same CSV
+- Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role)
 
-The `last_assigned` field can be populated from CVE list data (find the most recent CVE assigned by each CNA).
+**After migration, remove from `data`:** `cve_program_role`, `scope` (now in `profiles.cve`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
 
 ### Phase 3: Populate other fields (new research)
 
@@ -389,7 +420,7 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 ## Open Questions
 
-1. **Should `cve.last_assigned` be auto-updated?** It could be populated from CVE list data on a schedule. If so, does it need a `_checked` timestamp?
+1. **Should `last_assigned_cve` / `last_assigned_date` be auto-updated?** The data comes from the CVE list and could be refreshed on a schedule. A `checked` timestamp on the `cve` module would indicate when it was last refreshed.
 
 2. **`security_txt` automation** — should we build a script to check all disclosure namespace domains for security.txt? Easy to do, high coverage quickly.
 
@@ -402,6 +433,12 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. A CERT's disclosure entry would use the same profile modules as any other org. If needed later, a `csirt` profile module could be added to the entity type.
 
 7. **Existing `security_txt` scalar fields** — some disclosure entries already have `security_txt` in their `data` object. Migration must move these into `profiles.security_txt.url` and remove from `data`. Do not maintain both.
+
+8. **`requests` role verifiability** — all other CVE roles come from the CVE partner list (authoritative). The `requests` value is our addition for orgs that cooperate but aren't formally in the program. This is based on research/experience, not an authoritative source. Worth noting the lower confidence level.
+
+9. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve.scope` is the overall scope. Match_node-level `profiles.cve` can override with role-specific scope via replace semantics.
+
+10. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
 
 ---
 
