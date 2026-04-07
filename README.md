@@ -458,6 +458,18 @@ Being explicit about scope helps set expectations. SecID is deliberately limited
 
 **Why these boundaries matter:** Scope creep kills standards. By being explicit about what SecID won't do, we can focus on doing the identifier and resolution job well. Organizations considering adoption can evaluate SecID for what it is, not what it might become.
 
+## Participation (Proposed)
+
+We're designing three ways for organizations to participate in SecID. **This model is under discussion — not finalized.** See the [full proposal](docs/proposals/PARTICIPATION-MODEL.md).
+
+| Phase | How it works | Status |
+|-------|-------------|--------|
+| **Pull requests** | Fork, edit, submit PR — CSA reviews and merges | **Live** — how contributions work today |
+| **Self-service** | Vendors prove domain ownership, get write access to their own namespace files via CODEOWNERS | Proposed |
+| **Federation** | Organizations run their own SecID resolver, registered in the namespace entry. Supports private/internal data. | Proposed |
+
+Today, all contributions go through pull requests. As the project matures, vendors will be able to maintain their own namespace data directly, and eventually run their own resolvers that supplement the public registry.
+
 ## Governance
 
 SecID is a Cloud Security Alliance project with a lightweight governance model during early development and an explicit path toward broader community governance. See [GOVERNANCE.md](GOVERNANCE.md) for the current operating model and [STRATEGY.md](docs/future/STRATEGY.md) for long-term governance philosophy.
