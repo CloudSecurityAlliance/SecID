@@ -133,6 +133,11 @@ When querying `secid:disclosure/redhat.com/cna`, the response includes:
 
 This means "absent at match_node level" is unambiguously "not set here" — the client can see the namespace-level value right in the same response.
 
+**Scope of `namespace_profiles`:**
+- **Which types:** Disclosure only for now. Extends to other types as they adopt profiles.
+- **Which response statuses:** Included on `found`, `corrected`, and `related` (wherever a namespace was successfully matched). Not included on `not_found` or `error` (no namespace was identified to pull profiles from).
+- **Match_node profiles:** Returned inside `results[].profiles` on the matched result object, not separately.
+
 **Phase 2:** Resolver adds inheritance — merges namespace-level profiles with match_node-level profiles using replace semantics before returning. This is a backward-compatible enhancement (responses get richer; tolerant JSON consumers will not break, though strict-schema consumers should anticipate new fields).
 
 ### Null vs Absent Convention
@@ -223,9 +228,9 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `role` | `string` | Only for CVE Program participants | CVE Program role. Protected vocabulary — only present for formal program participants. When present, `assignerShortName` and `assignerOrgId` are required. |
+| `role` | `string` | Only for CVE Program participants | CVE Program role. Protected vocabulary — only present for formal program participants. When present, `assignerShortName` is required. |
 | `assignerShortName` | `string` | When `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** |
-| `assignerOrgId` | `string` (UUID) | When `role` is present | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. |
+| `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up" — consistent with null/absent convention. |
 | `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | No | What products/services the CNA covers (from CVE Program data). |
 | `root` | `object` | No | The Root CNA this org reports to. |
@@ -291,7 +296,7 @@ Bug bounty program(s). **Array** — organizations may run multiple programs on 
 | Field | Type | Description |
 |-------|------|-------------|
 | `url` | `string` | Link to the bug bounty program page. |
-| `paid` | `boolean` | Whether the program pays monetary rewards. |
+| `paid` | `boolean` (optional) | Whether the program pays monetary rewards. `true` = pays bounties. `false` = VDP, no payment. Absent = unknown. |
 
 `null` means "researched, no bug bounty program found."
 
@@ -469,7 +474,7 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 | `"ADP (Authorized Data Publisher)"` | 1 | `"adp"` | — |
 | `"Secretariat (reports to CVE Board)"` | 1 | `"secretariat"` | — |
 
-**Note on multi-role orgs:** The "Root, CNA-LR" entry has two roles. Since `role` is now a single string, use the primary role (`"root"`) at the namespace level, with additional roles at the match_node level via separate match_nodes for each role (which is how the current entries already work — Red Hat has separate match_nodes for its Root, CNA-LR, and CNA roles).
+**Note on multi-role orgs:** The "Root, CNA-LR" entry has two roles. Since `role` is a single string, select the **highest-authority role** for the namespace level using this precedence: `tlr` > `secretariat` > `root` > `cna-lr` > `cna` > `adp`. Additional roles go at the match_node level via separate match_nodes for each role (which is how the current entries already work — Red Hat has separate match_nodes for its Root, CNA-LR, and CNA roles). There is only one multi-role namespace in the current data ("Root, CNA-LR"), so this is a rare edge case.
 
 **Parsing rules:**
 - Use the primary role for the namespace-level `profiles.cve.role`
@@ -514,6 +519,11 @@ Issues raised by review feedback and resolved in this revision:
 | `requests` mixed into CVE Program roles | Fixed — `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
 | Local file path not reproducible | Fixed — references cvelistV5 GitHub repo, extraction script goes in `scripts/` |
 | Backward compat claim too broad | Added caveat — tolerant consumers OK, strict-schema consumers should anticipate new fields |
+| Primary role underspecified for multi-role | Defined precedence: tlr > secretariat > root > cna-lr > cna > adp |
+| assignerOrgId too strict as required | Relaxed — strongly recommended but absent means "not yet looked up" |
+| namespace_profiles scope undefined | Specified: disclosure only, on found/corrected/related, not on not_found/error |
+| bug_bounty.paid forces false certainty | Made optional — absent means unknown |
+| No formal schema | Deferred as follow-on; light schema for role enum + UUID/date formats recommended |
 
 ---
 
