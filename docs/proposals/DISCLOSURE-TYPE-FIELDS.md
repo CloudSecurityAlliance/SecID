@@ -92,7 +92,7 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
       "description": "Microsoft Security Response Center",
       "profiles": {
         "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }],
-        "cve": { "role": "cna", "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
+        "cve": { "role": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
       }
     },
     {
@@ -112,7 +112,7 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 
 ### Phase 1 API Behavior
 
-**Phase 1:** The resolver always includes namespace-level profiles in every response, even for deep queries. This eliminates ambiguity — the client sees exactly what exists at each level without a second request.
+**Phase 1:** When a namespace is successfully matched (`found`, `corrected`, or `related` status), the resolver includes namespace-level profiles in the response. This eliminates ambiguity — the client sees exactly what exists at each level without a second request.
 
 When querying `secid:disclosure/redhat.com/cna`, the response includes:
 - The match_node result for `cna` (with its own `profiles` if present)
@@ -124,7 +124,7 @@ When querying `secid:disclosure/redhat.com/cna`, the response includes:
   "status": "found",
   "results": [...],
   "namespace_profiles": {
-    "cve": { "role": "cna", "assignerShortName": "redhat", ... },
+    "cve": { "role": ["cna"], "assignerShortName": "redhat", ... },
     "safe_harbor": null,
     "bug_bounty": [{ "url": "https://hackerone.com/redhat", "paid": true }]
   }
@@ -189,7 +189,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 ```json
 "cve": {
-  "role": "cna",
+  "role": ["cna"],
   "assignerShortName": "redhat",
   "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
   "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
@@ -228,7 +228,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `role` | `string` | Only for CVE Program participants | CVE Program role. Protected vocabulary — only present for formal program participants. When present, `assignerShortName` is required. |
+| `role` | `string[]` | Only for CVE Program participants | CVE Program role(s). Protected vocabulary — only present for formal program participants. Array because some orgs hold multiple roles (e.g., Root + CNA-LR). When present, `assignerShortName` is required. |
 | `assignerShortName` | `string` | When `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** |
 | `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up" — consistent with null/absent convention. |
 | `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
@@ -255,6 +255,8 @@ Protected terms from the CVE Program — their terminology, not ours:
 | `secretariat` | CVE Secretariat |
 
 **`role` is present only for CVE Program participants.** If an org is not in the program, `role` is absent. The org's CVE posture (cooperates, ignores, hostile) is captured in `note` as free text — no informal vocabulary mixed into the protected `role` field.
+
+`role` is an array because some organizations hold multiple formal roles simultaneously (e.g., `["root", "cna-lr"]`). This avoids lossy single-role selection.
 
 #### Data Source
 
@@ -370,7 +372,7 @@ A fully populated disclosure entry for a CVE Program participant:
 
   "profiles": {
     "cve": {
-      "role": "cna",
+      "role": ["root", "cna"],
       "assignerShortName": "redhat",
       "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
       "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
@@ -463,24 +465,26 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 
 | Existing `cve_program_role` | Count | `profiles.cve.role` | `profiles.cve.root.assignerShortName` |
 |-----------------------------|-------|---------------------|---------------------------------------|
-| `"CNA"` | 498 | `"cna"` | (from CNA partner data) |
-| `"Root"` | 6 | `"root"` | `"mitre"` |
-| `"Top-Level Root (reports to CVE Board)"` | 2 | `"tlr"` | — |
-| `"Root (reports to MITRE Top-Level Root)"` | 1 | `"root"` | `"mitre"` |
-| `"CNA (reports to Red Hat Root)"` | 1 | `"cna"` | `"redhat"` |
-| `"CNA-LR (reports to Red Hat Root)"` | 1 | `"cna-lr"` | `"redhat"` |
-| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `"cna-lr"` | `"mitre"` |
-| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `"root"` | `"icscert"` |
-| `"ADP (Authorized Data Publisher)"` | 1 | `"adp"` | — |
-| `"Secretariat (reports to CVE Board)"` | 1 | `"secretariat"` | — |
+| `"CNA"` | 498 | `["cna"]` | (from CNA partner data) |
+| `"Root"` | 6 | `["root"]` | `"mitre"` |
+| `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
+| `"Root (reports to MITRE Top-Level Root)"` | 1 | `["root"]` | `"mitre"` |
+| `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat"` |
+| `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat"` |
+| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre"` |
+| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"icscert"` |
+| `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
+| `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
 
-**Note on multi-role orgs:** The "Root, CNA-LR" entry has two roles. Since `role` is a single string, select the **highest-authority role** for the namespace level using this precedence: `tlr` > `secretariat` > `root` > `cna-lr` > `cna` > `adp`. Additional roles go at the match_node level via separate match_nodes for each role (which is how the current entries already work — Red Hat has separate match_nodes for its Root, CNA-LR, and CNA roles). There is only one multi-role namespace in the current data ("Root, CNA-LR"), so this is a rare edge case.
+**Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["root", "cna-lr"]` — no information loss. Individual match_nodes can carry role-specific scope overrides (which is how Red Hat's three roles are already structured).
 
 **Parsing rules:**
-- Use the primary role for the namespace-level `profiles.cve.role`
+- For multi-role entries, split on comma **only at the top level** — commas appear inside parenthetical explanatory text (e.g., "CNA of Last Resort, reports to MITRE"). The `partner-details.json` `Program Role` field is already an array, so prefer using that structured source over string splitting.
 - Extract the parenthetical "reports to X" → `root.assignerShortName`, mapping org name to CVE partner slug
 - Look up `assignerOrgId` and `root.assignerOrgId` from [cvelistV5](https://github.com/CVEProject/cvelistV5) extracted data (457 CNAs with UUIDs). Extraction script should be added to `SecID/scripts/` for reproducibility.
 - Extract `last_assigned_cve` and `last_assigned_date` from the same data
+
+**Migration should emit a warning list** for entries where `role` is present but `assignerOrgId` could not be found — these need manual follow-up against the CVE list data.
 
 **After migration, remove from `data`:** `cve_program_role`, `scope` (now in `profiles.cve`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
 
@@ -498,7 +502,7 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. Should there be a `checked` date? (Probably yes — added to the examples.)
 
-4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve` carries the primary role. Match_node-level `profiles.cve` overrides with role-specific scope via replace semantics (which is how the existing entries are already structured).
+4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve.role` carries all roles as an array. Match_node-level `profiles.cve` can override with role-specific scope via replace semantics (which is how the existing entries are already structured).
 
 5. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
 
@@ -519,11 +523,19 @@ Issues raised by review feedback and resolved in this revision:
 | `requests` mixed into CVE Program roles | Fixed — `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
 | Local file path not reproducible | Fixed — references cvelistV5 GitHub repo, extraction script goes in `scripts/` |
 | Backward compat claim too broad | Added caveat — tolerant consumers OK, strict-schema consumers should anticipate new fields |
-| Primary role underspecified for multi-role | Defined precedence: tlr > secretariat > root > cna-lr > cna > adp |
+| Multi-role lossy with single role | Restored `role` as array — no information loss, no precedence needed |
 | assignerOrgId too strict as required | Relaxed — strongly recommended but absent means "not yet looked up" |
 | namespace_profiles scope undefined | Specified: disclosure only, on found/corrected/related, not on not_found/error |
 | bug_bounty.paid forces false certainty | Made optional — absent means unknown |
-| No formal schema | Deferred as follow-on; light schema for role enum + UUID/date formats recommended |
+| Naive comma splitting in parsing | Added safety note: split only at top level, prefer structured source data |
+| Missing UUID migration handling | Added: migration emits warning list for manual follow-up |
+
+**Deferred (not blocking this proposal):**
+
+| Issue | Plan |
+|-------|------|
+| Formal JSON Schema for modules | Define when implementing — light schema for `role` enum + UUID/date formats recommended as follow-on |
+| Extended provenance fields (source, process, checked_by) | Separate registry-wide proposal |
 
 ---
 
