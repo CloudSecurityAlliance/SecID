@@ -2,6 +2,7 @@
 
 Status: Draft / discussion
 Date: 2026-04-05
+Updated: 2026-04-07
 
 ## Summary
 
@@ -73,7 +74,7 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 | Module **present** (object or array) | Child's module **replaces** parent's entirely. No field-level merge, no array append. |
 | Module **`null`** | Explicitly overrides parent — means "does not apply here" |
 
-**Why replace, not merge:** Deep merge creates ambiguity. If parent has `cve.roles: ["root", "cna"]` and child has `cve.roles: ["cna"]`, does the child add to or replace the parent's roles? With replace semantics, the answer is always: child's `cve` object is the complete `cve` for that match_node. If you need the parent's data too, copy it into the child. Simple, predictable, no surprises.
+**Why replace, not merge:** Deep merge creates ambiguity. If parent has `cve.role: "root"` and child has `cve.role: "cna"`, does the child add to or replace the parent's role? With replace semantics, the answer is always: child's `cve` object is the complete `cve` for that match_node. If you need the parent's data too, copy it into the child. Simple, predictable, no surprises.
 
 ```json
 {
@@ -91,7 +92,7 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
       "description": "Microsoft Security Response Center",
       "profiles": {
         "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }],
-        "cve": { "roles": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
+        "cve": { "role": "cna", "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
       }
     },
     {
@@ -109,11 +110,30 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 - MSRC inherits `safe_harbor` and `disclosure_policy` from namespace (absent in its profiles), adds `bug_bounty` and `cve`
 - Xbox inherits `safe_harbor` and `disclosure_policy`, has its own `bug_bounty` (replaces, not appends), explicitly sets `cve` to `null` (Xbox doesn't assign CVEs)
 
-**Resolver implementation note:** Inheritance is an optimization, not a prerequisite.
+### Phase 1 API Behavior
 
-**Phase 1 API contract:** The resolver returns `profiles` from the matched level only — no inheritance, no merging. What you see is what's on that node. If a match_node has no `profiles` key, the response has no profiles for that match. Clients that want the full picture check the namespace-level response separately. This is simple, predictable, and matches current resolver behavior (return what's there).
+**Phase 1:** The resolver always includes namespace-level profiles in every response, even for deep queries. This eliminates ambiguity — the client sees exactly what exists at each level without a second request.
 
-**Phase 2:** Resolver adds inheritance — merges namespace-level profiles with match_node-level profiles using replace semantics before returning. This is a backward-compatible enhancement (responses get richer, never lose data).
+When querying `secid:disclosure/redhat.com/cna`, the response includes:
+- The match_node result for `cna` (with its own `profiles` if present)
+- The namespace-level `profiles` as `namespace_profiles` on the envelope
+
+```json
+{
+  "secid_query": "secid:disclosure/redhat.com/cna",
+  "status": "found",
+  "results": [...],
+  "namespace_profiles": {
+    "cve": { "role": "cna", "assignerShortName": "redhat", ... },
+    "safe_harbor": null,
+    "bug_bounty": [{ "url": "https://hackerone.com/redhat", "paid": true }]
+  }
+}
+```
+
+This means "absent at match_node level" is unambiguously "not set here" — the client can see the namespace-level value right in the same response.
+
+**Phase 2:** Resolver adds inheritance — merges namespace-level profiles with match_node-level profiles using replace semantics before returning. This is a backward-compatible enhancement (responses get richer; tolerant JSON consumers will not break, though strict-schema consumers should anticipate new fields).
 
 ### Null vs Absent Convention
 
@@ -134,26 +154,16 @@ Profiles and the existing `data` object coexist on the same node. They serve dif
 
 After migration, `cve_program_role` and `scope` move from `data` into `profiles.cve`. `contacts`, `organization_type`, `urls`, and `examples` stay in `data`.
 
+### Field Naming Policy
+
+- **Preserve source names** for fields sourced directly from external data: `assignerShortName`, `assignerOrgId` (from CVE 5.0 JSON `cveMetadata`). These are camelCase because that's what CVE uses.
+- **Use snake_case** for SecID-defined fields: `cna_partner_url`, `last_assigned_cve`, `last_assigned_date`, `stated_timeline`, `statement_url`.
+
+This is consistent with SecID's "follow the source" principle — CVE's naming is CVE's naming, we don't normalize it.
+
 ### Metadata Convention
 
 Profile modules use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects; `field_checked`, `field_updated`, `field_note` as suffixes for scalar fields.
-
-```json
-"profiles": {
-  "cve": {
-    "roles": ["cna"],
-    "assignerShortName": "example",
-    "assignerOrgId": "a1b2c3d4-...",
-    "scope": "All Example Corp products",
-    "checked": "2026-04-05",
-    "note": "Verified against cve.org partner list"
-  },
-  "safe_harbor": {
-    "url": "https://example.com/security/safe-harbor",
-    "checked": "2026-04-05"
-  }
-}
-```
 
 **Extended provenance fields** (`source`, `process`, `checked_by`) are a useful addition but are a **registry-wide concern, not disclosure-specific**. These will be proposed separately as an extension to REGISTRY-JSON-FORMAT.md's per-field metadata convention. This proposal does not depend on them — the existing `checked`/`updated`/`note` fields are sufficient for V1.
 
@@ -163,40 +173,72 @@ Profile modules use the **existing per-field metadata convention** from [REGISTR
 
 ### `cve`
 
-CVE program participation. Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) so the mapping to CVE JSON records is obvious.
+CVE program participation and posture. Serves two audiences:
+
+- **For CVE Program participants** (CNAs, Roots, etc.): authoritative data from the CVE partner list with `role`, `assignerShortName`, `assignerOrgId`.
+- **For everyone else**: what the org has said about how they handle CVE requests — captured as `note` with optional `statement_url`.
+
+Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) so the mapping to CVE JSON records is obvious. SecID-defined fields use snake_case.
+
+**CVE Program participant (CNA):**
 
 ```json
 "cve": {
-  "roles": ["cna"],
-  "assignerShortName": "example",
-  "assignerOrgId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/example",
-  "scope": "All Example Corp products and services",
+  "role": "cna",
+  "assignerShortName": "redhat",
+  "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
+  "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+  "scope": "Red Hat products and open source community",
   "root": {
     "assignerShortName": "mitre",
     "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
   },
-  "last_assigned_cve": "CVE-2026-1234",
-  "last_assigned_date": "2026-03-28"
+  "last_assigned_cve": "CVE-2026-3184",
+  "last_assigned_date": "2026-04-03"
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `roles` | `string[]` | CVE Program roles. Controlled vocabulary from CVE Program terminology. |
-| `assignerShortName` | `string` | CNA short name as used in CVE JSON records and on cve.org (e.g., `redhat`, `Google`, `microsoft`). Same field name as CVE 5.0 `cveMetadata.assignerShortName`. **Preserve source case** — the CVE Program uses mixed case; store as-is per SecID's "never normalize lossily" principle. |
-| `assignerOrgId` | `string` (UUID) | CVE Program organization UUID. Same field name as CVE 5.0 `cveMetadata.assignerOrgId`. Stable — survives renames and rebrands. |
-| `cna_partner_url` | `string` | URL to this org's CVE Partner page on cve.org. |
-| `scope` | `string` | What products/services the CNA covers (from CVE Program data). |
-| `root` | `object` | The Root CNA this org reports to, identified by the same CVE field names. |
-| `root.assignerShortName` | `string` | Root CNA's short name (e.g., `"mitre"`, `"redhat"`, `"icscert"`). |
-| `root.assignerOrgId` | `string` (UUID) | Root CNA's organization UUID. |
-| `last_assigned_cve` | `string` | Most recent CVE ID assigned by this CNA (e.g., `"CVE-2026-3184"`). Staleness indicator — a CNA whose last assignment was years ago may be inactive. |
-| `last_assigned_date` | `string` (date) | Date of that CVE's publication. |
+**Non-participant that cooperates:**
 
-**Data source:** `assignerShortName` and `assignerOrgId` come from CVE JSON records (`cveMetadata` fields). A pre-extracted dataset is available at `~/GitHub/cveproject/cvelistV5/latest_cve_per_cna.csv` with 457 CNAs including org IDs, last CVE, and dates.
+```json
+"cve": {
+  "note": "Will request CVE from MITRE on reporter's behalf",
+  "statement_url": "https://example.com/security/cve-policy"
+}
+```
 
-**`roles` controlled vocabulary** (from CVE Program — their terminology, not ours):
+**Non-participant that doesn't engage:**
+
+```json
+"cve": {
+  "note": "Vendor has publicly stated they do not participate in CVE",
+  "statement_url": "https://example.com/blog/no-cve"
+}
+```
+
+**Not researched:** `cve` field absent.
+**Researched, nothing found:** `"cve": null`
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `role` | `string` | Only for CVE Program participants | CVE Program role. Protected vocabulary — only present for formal program participants. When present, `assignerShortName` and `assignerOrgId` are required. |
+| `assignerShortName` | `string` | When `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** |
+| `assignerOrgId` | `string` (UUID) | When `role` is present | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. |
+| `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
+| `scope` | `string` | No | What products/services the CNA covers (from CVE Program data). |
+| `root` | `object` | No | The Root CNA this org reports to. |
+| `root.assignerShortName` | `string` | When `root` present | Root CNA's short name. |
+| `root.assignerOrgId` | `string` (UUID) | When `root` present | Root CNA's organization UUID. |
+| `last_assigned_cve` | `string` | No | Most recent CVE ID assigned by this CNA. Staleness indicator. |
+| `last_assigned_date` | `string` (date) | No | Date of that CVE's publication. |
+| `note` | `string` | No | Free text — the org's stated position on CVE participation. Especially useful for non-participants. |
+| `statement_url` | `string` | No | URL to the org's public statement about their CVE posture. |
+
+#### `role` Vocabulary
+
+Protected terms from the CVE Program — their terminology, not ours:
 
 | Value | Meaning |
 |-------|---------|
@@ -207,13 +249,11 @@ CVE program participation. Field names use CVE Program terminology (`assignerSho
 | `adp` | Authorized Data Publisher |
 | `secretariat` | CVE Secretariat |
 
-For non-CNA organizations that cooperate with CVE but don't have a formal role:
+**`role` is present only for CVE Program participants.** If an org is not in the program, `role` is absent. The org's CVE posture (cooperates, ignores, hostile) is captured in `note` as free text — no informal vocabulary mixed into the protected `role` field.
 
-| Value | Meaning |
-|-------|---------|
-| `requests` | Will request CVE from upstream on reporter's behalf |
+#### Data Source
 
-**No `none` value.** If an organization does not participate in the CVE program, set `profiles.cve` to `null` (researched, no participation). The `roles` array only contains positive roles — `["cna", "none"]` would be nonsensical. The three states are: `null` (no participation), absent (not yet researched), or object with `roles` array (participates).
+`assignerShortName` and `assignerOrgId` come from CVE JSON records (`cveMetadata` fields). Pre-extracted data with 457 CNAs (org IDs, last CVE, dates) is available from the [cvelistV5 repository](https://github.com/CVEProject/cvelistV5). The extraction script should be added to `SecID/scripts/` for reproducibility.
 
 ### `safe_harbor`
 
@@ -271,7 +311,7 @@ RFC 9116 machine-readable security contact file.
 |-------|------|-------------|
 | `url` | `string` | URL of the security.txt file. |
 
-**Migration note:** Some existing disclosure entries already have a `security_txt` scalar field in their `data` object (e.g., `"security_txt": "https://..."`). The `profiles.security_txt` module replaces this. During migration, move the scalar value into `profiles.security_txt.url` and remove it from `data`. Do not maintain both — `profiles.security_txt` is the canonical location.
+`profiles.security_txt` is the canonical location for this data. One existing entry uses `urls[].type="security_txt"` as a general URL entry — that can coexist, but `profiles.security_txt` is the structured, queryable representation.
 
 ### `disclosure_policy`
 
@@ -307,11 +347,9 @@ The `profiles` wrapper is not limited to disclosure. Modules can be reused acros
 
 **Aspirational (not part of this proposal):** Other types may define their own profile modules in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal with the same level of schema definition. The `profiles` wrapper accommodates this without schema changes, but the modules themselves are not being defined or committed to here. Any future modules must individually pass the registry/data-layer boundary test — some may belong in the data layer rather than the registry.
 
-New modules are added to the schema documentation as types mature. The `profiles` wrapper doesn't need to change — just the set of defined modules grows.
-
 ## Complete Example
 
-A fully populated disclosure entry:
+A fully populated disclosure entry for a CVE Program participant:
 
 ```json
 {
@@ -327,7 +365,7 @@ A fully populated disclosure entry:
 
   "profiles": {
     "cve": {
-      "roles": ["root", "cna"],
+      "role": "cna",
       "assignerShortName": "redhat",
       "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
       "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
@@ -339,7 +377,7 @@ A fully populated disclosure entry:
       "last_assigned_cve": "CVE-2026-3184",
       "last_assigned_date": "2026-04-03",
       "checked": "2026-04-05",
-      "note": "Verified against cve.org partner list and cvelistV5 data"
+      "note": "Red Hat is both a Root CNA and a CNA. Root scope covers open source community."
     },
     "safe_harbor": null,
     "bug_bounty": [
@@ -374,14 +412,42 @@ A fully populated disclosure entry:
 }
 ```
 
+A disclosure entry for a non-CNA with a stated CVE position:
+
+```json
+{
+  "schema_version": "1.0",
+  "namespace": "smallvendor.com",
+  "type": "disclosure",
+  "status": "published",
+  "official_name": "Small Vendor Inc.",
+
+  "profiles": {
+    "cve": {
+      "note": "Will request CVE from MITRE on reporter's behalf. Typical turnaround 2-4 weeks.",
+      "statement_url": "https://smallvendor.com/security/cve-policy"
+    },
+    "safe_harbor": {
+      "url": "https://smallvendor.com/security/safe-harbor"
+    },
+    "bug_bounty": null,
+    "security_txt": {
+      "url": "https://smallvendor.com/.well-known/security.txt"
+    }
+  },
+
+  "match_nodes": [...]
+}
+```
+
 ## Migration Plan
 
 ### Phase 1: Schema (hard dependency — must complete before any data migration)
 
-- **Update JSON Schema** (`schemas/registry-namespace.schema.json`) to allow `profiles` at both top-level and inside MatchNode objects. Current MatchNode has `additionalProperties: false`, which blocks `profiles` in match_nodes until updated. This is a hard dependency.
+- **Update JSON Schema** (`schemas/registry-namespace.schema.json`): add `profiles` to MatchNode properties. Top-level already allows additional properties (`additionalProperties: true` at line 113). MatchNode has `additionalProperties: false` (line 185) — this is the only hard blocker.
 - Add `profiles` wrapper definition to REGISTRY-JSON-FORMAT.md
 - Define initial disclosure modules (cve, safe_harbor, bug_bounty, security_txt, disclosure_policy)
-- Document Phase 1 API behavior (no inheritance, return matched level only)
+- Document Phase 1 API behavior (namespace_profiles in every response)
 - Update disclosure type description (`registry/disclosure.md`)
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
@@ -390,25 +456,26 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 
 **Complete mapping of all observed values** (from current registry data):
 
-| Existing `cve_program_role` | Count | `profiles.cve.roles` | `profiles.cve.root.assignerShortName` |
-|-----------------------------|-------|----------------------|---------------------------------------|
-| `"CNA"` | 498 | `["cna"]` | (from CNA partner data) |
-| `"Root"` | 6 | `["root"]` | `"mitre"` |
-| `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
-| `"Root (reports to MITRE Top-Level Root)"` | 1 | `["root"]` | `"mitre"` |
-| `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat"` |
-| `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat"` |
-| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre"` |
-| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"icscert"` |
-| `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
-| `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
+| Existing `cve_program_role` | Count | `profiles.cve.role` | `profiles.cve.root.assignerShortName` |
+|-----------------------------|-------|---------------------|---------------------------------------|
+| `"CNA"` | 498 | `"cna"` | (from CNA partner data) |
+| `"Root"` | 6 | `"root"` | `"mitre"` |
+| `"Top-Level Root (reports to CVE Board)"` | 2 | `"tlr"` | — |
+| `"Root (reports to MITRE Top-Level Root)"` | 1 | `"root"` | `"mitre"` |
+| `"CNA (reports to Red Hat Root)"` | 1 | `"cna"` | `"redhat"` |
+| `"CNA-LR (reports to Red Hat Root)"` | 1 | `"cna-lr"` | `"redhat"` |
+| `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `"cna-lr"` | `"mitre"` |
+| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `"root"` | `"icscert"` |
+| `"ADP (Authorized Data Publisher)"` | 1 | `"adp"` | — |
+| `"Secretariat (reports to CVE Board)"` | 1 | `"secretariat"` | — |
+
+**Note on multi-role orgs:** The "Root, CNA-LR" entry has two roles. Since `role` is now a single string, use the primary role (`"root"`) at the namespace level, with additional roles at the match_node level via separate match_nodes for each role (which is how the current entries already work — Red Hat has separate match_nodes for its Root, CNA-LR, and CNA roles).
 
 **Parsing rules:**
-- Split on comma for multi-role entries
+- Use the primary role for the namespace-level `profiles.cve.role`
 - Extract the parenthetical "reports to X" → `root.assignerShortName`, mapping org name to CVE partner slug
-- Look up `assignerOrgId` and `root.assignerOrgId` from `~/GitHub/cveproject/cvelistV5/latest_cve_per_cna.csv` (457 CNAs with UUIDs)
-- Extract `last_assigned_cve` and `last_assigned_date` from the same CSV
-- Discard explanatory text in parentheses (e.g., "CNA of Last Resort" is captured by the `cna-lr` role)
+- Look up `assignerOrgId` and `root.assignerOrgId` from [cvelistV5](https://github.com/CVEProject/cvelistV5) extracted data (457 CNAs with UUIDs). Extraction script should be added to `SecID/scripts/` for reproducibility.
+- Extract `last_assigned_cve` and `last_assigned_date` from the same data
 
 **After migration, remove from `data`:** `cve_program_role`, `scope` (now in `profiles.cve`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
 
@@ -424,21 +491,29 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 2. **`security_txt` automation** — should we build a script to check all disclosure namespace domains for security.txt? Easy to do, high coverage quickly.
 
-3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. Should there be a `_checked` date?
+3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. Should there be a `checked` date? (Probably yes — added to the examples.)
 
-4. **Inheritance in the resolver** — the resolver does not currently support profile inheritance. This is decoupled from the schema change: Phase 1 ships profiles without inheritance (data is returned at whatever level it's found; clients can walk up). Phase 2 adds resolver-side inheritance as a separate enhancement.
+4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve` carries the primary role. Match_node-level `profiles.cve` overrides with role-specific scope via replace semantics (which is how the existing entries are already structured).
 
-5. **Per-field metadata** — this proposal uses the existing `checked`/`updated`/`note` convention from REGISTRY-JSON-FORMAT.md. Extended provenance fields (`source`, `process`, `checked_by`) are deferred to a separate registry-wide proposal.
+5. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
 
 6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. A CERT's disclosure entry would use the same profile modules as any other org. If needed later, a `csirt` profile module could be added to the entity type.
 
-7. **Existing `security_txt` scalar fields** — some disclosure entries already have `security_txt` in their `data` object. Migration must move these into `profiles.security_txt.url` and remove from `data`. Do not maintain both.
+7. **Formal JSON Schema for modules** — field tables are documented here. Formal JSON Schema constraints (for roles vocabulary, UUID format, date format) will be defined when we implement and discover what validation is needed in practice. Premature schema rigidity risks not matching real-world data patterns.
 
-8. **`requests` role verifiability** — all other CVE roles come from the CVE partner list (authoritative). The `requests` value is our addition for orgs that cooperate but aren't formally in the program. This is based on research/experience, not an authoritative source. Worth noting the lower confidence level.
+## Resolved Issues
 
-9. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve.scope` is the overall scope. Match_node-level `profiles.cve` can override with role-specific scope via replace semantics.
+Issues raised by review feedback and resolved in this revision:
 
-10. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
+| Issue | Resolution |
+|-------|-----------|
+| Schema dependency misstated (top-level already open) | Fixed — only MatchNode `additionalProperties: false` is the blocker |
+| security_txt migration note described non-existent data | Removed — no scalar `security_txt` fields exist in current disclosure entries |
+| Phase 1 inheritance ambiguity | Fixed — Phase 1 includes `namespace_profiles` in every response |
+| Mixed camelCase/snake_case naming | Codified — CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
+| `requests` mixed into CVE Program roles | Fixed — `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
+| Local file path not reproducible | Fixed — references cvelistV5 GitHub repo, extraction script goes in `scripts/` |
+| Backward compat claim too broad | Added caveat — tolerant consumers OK, strict-schema consumers should anticipate new fields |
 
 ---
 
