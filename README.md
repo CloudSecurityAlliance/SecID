@@ -462,13 +462,14 @@ Being explicit about scope helps set expectations. SecID is deliberately limited
 
 We're designing three ways for organizations to participate in SecID. **This model is under discussion — not finalized.** See the [full proposal](docs/proposals/PARTICIPATION-MODEL.md).
 
-| Phase | How it works | Status |
-|-------|-------------|--------|
+| Option | How it works | Status |
+|--------|-------------|--------|
 | **Pull requests** | Fork, edit, submit PR — CSA reviews and merges | **Live** — how contributions work today |
 | **Self-service** | An entity proves ownership of the security process for a namespace, gets write access to their own namespace files via CODEOWNERS | Proposed |
-| **Federation** | Organizations run their own SecID resolver, registered in the namespace entry. Supports private/internal data. | Proposed |
+| **Federation** | Organizations run their own public-facing SecID resolver, registered in the namespace entry so other resolvers and clients can discover it. May optionally require authentication. | Proposed |
+| **Private resolvers** | Organizations run internal SecID resolvers (e.g., `secid.internal.example.org`) configured in their client/plugin/SDK — not registered publicly. Supplements public data with private information (draft advisories, internal controls). May require authentication. | Proposed |
 
-Today, all contributions go through pull requests. As the project matures, vendors will be able to maintain their own namespace data directly, and eventually run their own resolvers that supplement the public registry.
+Today, all contributions go through pull requests. As the project matures, entities will be able to maintain their own namespace data directly, run public resolvers that federate with the CSA registry, and run private resolvers for internal security data.
 
 ## Governance
 
