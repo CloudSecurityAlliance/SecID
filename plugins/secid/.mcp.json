@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "secid": {
-      "url": "https://secid.cloudsecurityalliance.org/mcp"
+      "command": "python3",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server.py"]
     }
   }
 }
