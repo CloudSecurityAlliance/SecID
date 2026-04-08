@@ -4,27 +4,52 @@
   "type": "disclosure",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Cloud Security Alliance",
   "common_name": "CSA",
   "alternate_names": null,
   "notes": "CSA's product security program covers websites and services (cloudsecurityalliance.org, csachapter.io, star.watch, webfinger.io), software in CSA-managed GitHub organizations (CloudSecurityAlliance, CloudSecurityAlliance-Chatbots, CloudSecurityAlliance-DataSets, modelcontextprotocol-security, RiskRubric), and AI prompts and instructions published by CSA. The full program is documented in the csa-product-security repository. CSA does not run a bug bounty. Safe harbor applies to good-faith reporters. SLA: acknowledge within 5 business days, status updates every 30 days, remediation or disclosure within 90 days.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://cloudsecurityalliance.org"},
-    {"type": "website", "url": "https://cloudsecurityalliance.org/security", "note": "CSA security page"},
-    {"type": "security_txt", "url": "https://cloudsecurityalliance.org/.well-known/security.txt"},
-    {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security", "note": "Authoritative product security program repository"},
-    {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md", "note": "Vulnerability disclosure policy"},
-    {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/severity-classification.md", "note": "Severity classification (CVSS/AIVSS)"},
-    {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/sla-commitments.md", "note": "SLA commitments"}
+    {
+      "type": "website",
+      "url": "https://cloudsecurityalliance.org"
+    },
+    {
+      "type": "website",
+      "url": "https://cloudsecurityalliance.org/security",
+      "note": "CSA security page"
+    },
+    {
+      "type": "security_txt",
+      "url": "https://cloudsecurityalliance.org/.well-known/security.txt"
+    },
+    {
+      "type": "docs",
+      "url": "https://github.com/CloudSecurityAlliance/csa-product-security",
+      "note": "Authoritative product security program repository"
+    },
+    {
+      "type": "docs",
+      "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md",
+      "note": "Vulnerability disclosure policy"
+    },
+    {
+      "type": "docs",
+      "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/severity-classification.md",
+      "note": "Severity classification (CVSS/AIVSS)"
+    },
+    {
+      "type": "docs",
+      "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/sla-commitments.md",
+      "note": "SLA commitments"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^security-txt$"],
+      "patterns": [
+        "(?i)^security-txt$"
+      ],
       "description": "CSA's security.txt file (RFC 9116)",
       "weight": 60,
       "data": {
@@ -34,14 +59,27 @@
         "description": "Machine-readable security contact and disclosure information per RFC 9116.",
         "notes": "Standard location at /.well-known/security.txt. Contains contact information, preferred languages, disclosure policy link, and expiration date.",
         "urls": [
-          {"type": "security_txt", "url": "https://cloudsecurityalliance.org/.well-known/security.txt"},
-          {"type": "standard", "url": "https://www.rfc-editor.org/rfc/rfc9116", "note": "RFC 9116 — security.txt specification"}
+          {
+            "type": "security_txt",
+            "url": "https://cloudsecurityalliance.org/.well-known/security.txt"
+          },
+          {
+            "type": "standard",
+            "url": "https://www.rfc-editor.org/rfc/rfc9116",
+            "note": "RFC 9116 — security.txt specification"
+          }
         ],
-        "examples": []
+        "examples": [],
+        "security_txt": {
+          "url": "https://cloudsecurityalliance.org/.well-known/security.txt",
+          "checked": "2026-04-08"
+        }
       }
     },
     {
-      "patterns": ["(?i)^responsible-disclosure$"],
+      "patterns": [
+        "(?i)^responsible-disclosure$"
+      ],
       "description": "CSA's vulnerability disclosure program — coordinated disclosure with safe harbor",
       "weight": 100,
       "data": {
@@ -51,15 +89,40 @@
         "description": "Primary channel for reporting security vulnerabilities in CSA websites, services, software, and AI artifacts.",
         "notes": "Two reporting channels: (1) GitHub Private Vulnerability Reporting (PVR) — preferred for software and repo-hosted AI artifacts; open the repo's Security tab and select Report a vulnerability. (2) Email security@cloudsecurityalliance.org — for websites, services, or non-repo AI artifacts; supports anonymous/pseudonymous submissions and PGP. CSA follows coordinated disclosure: acknowledge within 5 business days, status updates every 30 days, remediation or disclosure within 90 days. No bug bounty. Safe harbor for good-faith reporters.",
         "urls": [
-          {"type": "website", "url": "https://cloudsecurityalliance.org/security"},
-          {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/SECURITY.md", "note": "SECURITY.md — summary for reporters"},
-          {"type": "docs", "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md", "note": "Full disclosure policy"}
+          {
+            "type": "website",
+            "url": "https://cloudsecurityalliance.org/security"
+          },
+          {
+            "type": "docs",
+            "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/SECURITY.md",
+            "note": "SECURITY.md — summary for reporters"
+          },
+          {
+            "type": "docs",
+            "url": "https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md",
+            "note": "Full disclosure policy"
+          }
         ],
         "contacts": [
-          {"type": "github_pvr", "value": "https://github.com/CloudSecurityAlliance", "preferred": true, "note": "GitHub Private Vulnerability Reporting — preferred for software and repo-hosted AI artifacts"},
-          {"type": "email", "value": "security@cloudsecurityalliance.org", "preferred": false, "note": "For websites, services, or non-repo AI artifacts. Supports anonymous/pseudonymous and PGP."}
+          {
+            "type": "github_pvr",
+            "value": "https://github.com/CloudSecurityAlliance",
+            "preferred": true,
+            "note": "GitHub Private Vulnerability Reporting — preferred for software and repo-hosted AI artifacts"
+          },
+          {
+            "type": "email",
+            "value": "security@cloudsecurityalliance.org",
+            "preferred": false,
+            "note": "For websites, services, or non-repo AI artifacts. Supports anonymous/pseudonymous and PGP."
+          }
         ],
-        "examples": []
+        "examples": [],
+        "security_txt": {
+          "url": "https://cloudsecurityalliance.org/.well-known/security.txt",
+          "checked": "2026-04-08"
+        }
       }
     }
   ]
