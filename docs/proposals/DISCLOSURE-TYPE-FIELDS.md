@@ -139,8 +139,8 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `role` | `string[]` | Only for CVE Program participants | CVE Program role(s). Protected vocabulary — only present for formal program participants. Array because some orgs hold multiple roles (e.g., Root + CNA-LR). When present, `assignerShortName` is required. |
-| `assignerShortName` | `string` | When `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** |
+| `role` | `string[]` | Only for CVE Program participants | CVE Program role(s). Protected vocabulary — only present for formal program participants. Array because some orgs hold multiple roles (e.g., Root + CNA-LR). When present, `assignerShortName` is expected (entries where it could not be resolved are flagged for manual follow-up). |
+| `assignerShortName` | `string` | Expected when `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** May be absent if the CNA slug could not be resolved during migration — these entries are logged as warnings. |
 | `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up." |
 | `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | No | What products/services the CNA covers (from CVE Program data). |
