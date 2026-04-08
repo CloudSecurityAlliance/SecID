@@ -8,7 +8,7 @@ Updated: 2026-04-08
 
 Add structured fields to disclosure registry entries' `data` objects that capture the information security researchers need when reporting vulnerabilities. Five new fields: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
 
-These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. They appear in all responses immediately.
+These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. The CSA-hosted service returns them in all responses immediately (AI-first). Self-hosted servers may optionally filter to schema-defined fields only.
 
 ## The Problem
 
@@ -45,7 +45,7 @@ Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchan
 
 **The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no API changes.
 
-**Data that falls within a documented schema must conform to it.** The five fields defined in this proposal have specified types, required fields, and vocabulary constraints (e.g., `cve.role` values). Data in these fields must follow the schema. But `data` remains open — anyone can add fields beyond the schema, and the resolver returns everything.
+**Data that uses a documented field name should follow its specification.** The five fields defined in this proposal have documented types, expected fields, and vocabulary constraints (e.g., `cve.role` values). Data in these fields should follow the specification in this proposal. Formal JSON Schema enforcement is deferred until implementation. But `data` remains open — anyone can add fields beyond the documented ones, and the resolver returns everything.
 
 **Client expectations:**
 - **AI clients (MCP, agents):** SHOULD handle all fields, including undocumented ones. This is the primary use case — SecID is AI-first.
@@ -92,7 +92,7 @@ The new fields use the **existing per-field metadata convention** from [REGISTRY
 CVE program participation and posture. Serves two audiences:
 
 - **For CVE Program participants** (CNAs, Roots, etc.): authoritative data from the CVE partner list with `role`, `assignerShortName`, `assignerOrgId`.
-- **For everyone else**: what the org has said about how they handle CVE requests — captured as `note` with optional `statement_url`.
+- **For everyone else**: what the org has said about how they handle CVE requests — captured as `posture` with optional `statement_url`.
 
 Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) so the mapping to CVE JSON records is obvious. SecID-defined fields use snake_case.
 
@@ -435,7 +435,7 @@ Issues raised across eight rounds of review feedback:
 | Backward compat concern | Not applicable — resolver doesn't change, fields are in `data`, returned as-is |
 | `cve.note` conflicts with metadata `note` convention | Renamed to `posture` — `note` stays metadata-only, `posture` is domain data |
 | Phase 1 response shape ambiguous | Removed all response shape discussion — resolver doesn't change |
-| Strict/full mode distraction | Removed from proposal entirely — a separate concern for self-hosted servers |
+| Strict/full mode as dependency | Not a dependency of this proposal. Strict filtering is a self-hosted server option, mentioned for completeness but not required for implementation. |
 | `role` and `posture` interaction | Documented: can coexist, but `posture` most useful for non-participants |
 | `role` array normalization missing | Added: unique, lowercase, sorted alphabetically |
 | bug_bounty.paid forces false certainty | Made optional — absent means unknown |
