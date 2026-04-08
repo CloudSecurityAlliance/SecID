@@ -422,14 +422,14 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 - 0 JSON validation errors
 - `cve_program_role` and `scope` removed from all `data` objects
 - Structured `cve` object added with: `role` (array), `assignerShortName`, `assignerOrgId`, `cna_partner_url`, `scope`, `root` reference, `last_assigned_cve`, `last_assigned_date`
-- 122 warnings logged:
-  - 101 entries missing `assignerOrgId` (CNA slug found but not in cvelistV5 CSV — inactive CNAs that never assigned a CVE)
-  - 21 entries missing slug mapping (could not map namespace domain to CNA partner slug)
-- Live resolver updated — structured CVE data is serving at secid.cloudsecurityalliance.org
+- 22 nodes with `role` but no resolved CNA slug (manual follow-up needed)
+- Live resolver updated — structured CVE data serving at secid.cloudsecurityalliance.org
+
+**Bug fix (2026-04-08):** Initial migration mapped all nodes in a namespace to the same CNA slug. For multi-CNA namespaces (Google with 6 CNAs, Broadcom with 4, Cisco with 2, etc.) this produced incorrect `assignerShortName` and `assignerOrgId` on most nodes. Fixed with per-node slug resolution using a reverse map from the generate script's `make_node_name()` logic, plus namespace-specific overrides for generic node names.
 
 **Commits:**
-- `a7535a0` — Migration script
-- `b2be2e1` — Migrated data (485 files, +6316/-2037 lines)
+- `b757b1d` — Fixed migration script (per-node CNA slug resolution)
+- `a8e3603` — Re-migrated data with correct per-node slugs
 
 ### Phase 3: Other fields — not started
 
