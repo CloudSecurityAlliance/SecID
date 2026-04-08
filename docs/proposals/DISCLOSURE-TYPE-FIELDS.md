@@ -43,22 +43,9 @@ Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchan
 
 ### Response Behavior
 
-**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no namespace-level merging, no mode parameter.
+**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no mode parameter, no API changes.
 
-The CSA-hosted service (secid.cloudsecurityalliance.org) is **AI-first** — MCP, website, and REST API all return the full `data` object including new fields. AI agents and humans handle extra fields gracefully.
-
-### Strict Mode (Self-Hosted Only)
-
-Self-hosted servers (SecID-Server-API) may optionally support a **strict mode** for traditional REST API clients with rigid JSON parsers. Strict mode applies the JSON schema as a post-processing filter — the resolver produces the full response, then strips any field not defined in the schema before returning.
-
-```
-GET /api/v1/resolve?secid=...              → full response (default, same as CSA hosted)
-GET /api/v1/resolve?secid=...&mode=strict  → schema-filtered response (self-hosted option)
-```
-
-**This is not implemented in the CSA-hosted service.** It's an option for enterprises running their own SecID server that need to serve dumb integrations. The schema defines "what's stable" — adding a new field to `data` is free, promoting it to the strict schema is a one-line change.
-
-**This proposal does not depend on strict mode.** Fields go into `data`, the resolver returns them, done.
+The CSA-hosted service is **AI-first** — MCP, website, and REST API all return the full `data` object including new fields. AI agents and humans handle extra fields gracefully. Clients that don't recognize a field ignore it.
 
 ### Reserved Field Names
 
@@ -176,6 +163,8 @@ Protected terms from the CVE Program — their terminology, not ours:
 `role` is an array because some organizations hold multiple formal roles simultaneously (e.g., `["cna-lr", "root"]`). This avoids lossy single-role selection.
 
 **Normalization:** Values must be unique, lowercase, and sorted alphabetically. This ensures deterministic diffs and downstream matching.
+
+**`role` and `posture` can coexist.** A CNA might have `role: ["cna"]` and `posture: "We only assign CVEs for our own products. For third-party components, contact MITRE directly."` The role says what they are in the program; posture adds operational context. However, `posture` is most useful when `role` is absent (non-participants).
 
 #### Data Source
 
@@ -384,11 +373,11 @@ The existing `cve_program_role` free-text field in `data` maps to the new struct
 | `"CNA (reports to Red Hat Root)"` | 1 | `["cna"]` | `"redhat"` |
 | `"CNA-LR (reports to Red Hat Root)"` | 1 | `["cna-lr"]` | `"redhat"` |
 | `"CNA-LR (CNA of Last Resort, reports to MITRE Top-Level Root)"` | 1 | `["cna-lr"]` | `"mitre"` |
-| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["root", "cna-lr"]` | `"icscert"` |
+| `"Root, CNA-LR (reports to CISA ICS Root)"` | 1 | `["cna-lr", "root"]` | `"icscert"` |
 | `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
 | `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
 
-**Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["root", "cna-lr"]` — no information loss.
+**Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["cna-lr", "root"]` (alphabetically sorted) — no information loss.
 
 **Parsing rules:**
 - For multi-role entries, split on comma **only at the top level** — commas appear inside parenthetical explanatory text. The `partner-details.json` `Program Role` field is already an array, so prefer using that structured source over string splitting.
@@ -428,7 +417,7 @@ Issues raised across five rounds of review feedback:
 | Phase 1/Phase 2 response shape complexity | Dropped — no special envelope. Fields are in `data`, resolver returns `data` normally. Strict/full mode handles visibility. |
 | `profiles` wrapper adds unnecessary complexity | Dropped — fields go directly in `data` |
 | Mixed camelCase/snake_case naming | Policy: CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
-| `requests` mixed into CVE Program roles | `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
+| `requests` mixed into CVE Program roles | `role` is strictly CVE Program vocabulary; non-participant posture goes in `posture` |
 | Multi-role lossy with single role | `role` is an array — no information loss |
 | Naive comma splitting in parsing | Prefer structured source data from partner-details.json |
 | Missing UUID migration handling | Migration emits warning list for manual follow-up |
@@ -436,10 +425,11 @@ Issues raised across five rounds of review feedback:
 | Module boundary / key collision risk | Reserved field names list documented |
 | Inheritance wording confusion | Dropped inheritance language — resolver returns data at matched level |
 | Local file path not reproducible | References cvelistV5 GitHub repo |
-| Backward compat claim too broad | CSA hosted is always full; strict mode is self-hosted option only |
-| `cve.note` conflicts with metadata `note` convention | Renamed to `posture` — `note` stays metadata, `posture` is domain data |
-| Phase 1 response shape ambiguous | Removed — resolver doesn't change, fields are in `data`, returned normally |
-| Strict/full mode was hard dependency | Removed as dependency — proposal works without it; strict is self-hosted option |
+| Backward compat concern | Not applicable — resolver doesn't change, fields are in `data`, returned as-is |
+| `cve.note` conflicts with metadata `note` convention | Renamed to `posture` — `note` stays metadata-only, `posture` is domain data |
+| Phase 1 response shape ambiguous | Removed all response shape discussion — resolver doesn't change |
+| Strict/full mode distraction | Removed from proposal entirely — a separate concern for self-hosted servers |
+| `role` and `posture` interaction | Documented: can coexist, but `posture` most useful for non-participants |
 | `role` array normalization missing | Added: unique, lowercase, sorted alphabetically |
 | bug_bounty.paid forces false certainty | Made optional — absent means unknown |
 
@@ -449,8 +439,8 @@ Issues raised across five rounds of review feedback:
 |-------|------|
 | Formal JSON Schema for new fields | Define when implementing — light schema for `role` enum + UUID/date formats recommended |
 | Extended provenance fields (source, process, checked_by) | Separate registry-wide proposal |
-| Strict/full API mode specification | Separate update to API-RESPONSE-FORMAT.md |
+| Schema-based filtering for traditional API clients | Potential self-hosted server feature, separate from this proposal |
 
 ---
 
-*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Five rounds of review feedback incorporated.*
+*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Seven rounds of review feedback incorporated.*
