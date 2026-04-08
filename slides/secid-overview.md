@@ -94,22 +94,22 @@ Also applies to: regulations in different languages, frameworks across versions,
 
 ## v1.0 — "Who Do I Report This To?"
 
-**502 CVE Program partners, all discoverable**
+**502 CVE Program partners with structured CNA data**
 
 ```
 secid:disclosure/redhat.com/cna
-  → scope: "Open source projects affecting Red Hat software"
+  → cve.role: ["cna"]
+  → cve.cna_id: CNA-2005-0006
+  → cve.assignerOrgId: 53f830b8-...
+  → cve.last_assigned_cve: CVE-2026-3184
+  → disclosure_policy: access.redhat.com/articles/red_hat_cna_vulnerability_disclosure_policy
+  → security_txt: redhat.com/.well-known/security.txt
   → contact: secalert@redhat.com
-  → policy: access.redhat.com/articles/red_hat_cna_vulnerability_disclosure_policy
-
-secid:disclosure/mitre.org/cna-lr
-  → scope: "Everything not covered by another CNA"
-  → contact: cveform.mitre.org (CVE ID Request Form)
 ```
 
-**Workflow:** Found a vulnerability? → Look up the vendor's CNA → Check scope → Use their contact → If no CNA exists → MITRE CNA-LR is the fallback.
+**Structured fields on every CNA:** formal CNA ID, CVE Program org UUID, last assigned CVE (staleness indicator), disclosure policy URL, security.txt status. All machine-queryable.
 
-> Every CNA. Every scope. Every contact. Machine-readable.
+> Am I safe? → Check safe_harbor. Will I get a CVE? → Check cve.role. Is there a bounty? → Check bug_bounty. What's the timeline? → Check disclosure_policy.
 
 ---
 
@@ -145,6 +145,47 @@ secid:capability/amazon.com/aws/s3#default-encryption
 The MCP server gives AI agents 3 tools: `resolve`, `lookup`, `describe`. Responses include context, disambiguation guidance, and cross-references — agents can reason about security knowledge without external documentation.
 
 > One URL. Three tools. Every AI assistant becomes security-aware.
+
+---
+
+## v1.0 — Security Methodologies
+
+**The process behind every mapping, score, and assessment**
+
+```
+secid:methodology/nist.gov/ir-8477#strm
+  → Set Theory Relationship Mapping — highest evidentiary weight
+  → "Was this mapping done via STRM or a simple crosswalk?"
+
+secid:methodology/first.org/cvss@4.0
+  → CVSS v4.0 vulnerability scoring methodology
+
+secid:methodology/cmu.edu/ssvc@2.0
+  → Stakeholder-Specific Vulnerability Categorization
+```
+
+**39 methodologies across 18 namespaces** — scoring (CVSS, SSVC, EPSS), mapping (IR 8477, CTID), risk (ISO 27005, FAIR, NIST RMF), threat modeling (STRIDE, PASTA), testing (OWASP, PTES, OSSTMM), and more.
+
+> When someone says "this control maps to that framework" — the methodology type lets you ask *how* that mapping was established.
+
+---
+
+## v1.0 — Tools Ecosystem
+
+**Four ways to use SecID**
+
+| Option | What | When |
+|--------|------|------|
+| **Remote MCP server** | `https://secid.cloudsecurityalliance.org/mcp` | Simplest — one URL, AI assistants get 3 tools |
+| **Claude Code plugin** | Local MCP server, `--base-url` for internal resolvers | Need local control or private data |
+| **REST API** | `GET /api/v1/resolve?secid=...` | Building apps, scripts, integrations |
+| **Self-hosted server** | SecID-Server-API — Python, TypeScript, Docker | Run your own resolver (private data, air-gapped, low latency) |
+
+**SDKs:** Python · TypeScript · Go — all call the same API
+
+**Self-hosted storage:** in-memory, Redis, memcached, SQLite — pluggable backends, same resolver
+
+> From "paste a URL" to "run your own resolver" — pick the level that fits your needs.
 
 ---
 

@@ -146,7 +146,7 @@ Every mapping claim is versioned, citable, and references the methodology used (
 
 ## Vulnerability Disclosure
 
-**502 CVE Program partners — CSA's own program included**
+**502 CVE Program partners with structured CNA data**
 
 ```
 secid:disclosure/cloudsecurityalliance.org/responsible-disclosure
@@ -155,9 +155,9 @@ secid:disclosure/cloudsecurityalliance.org/responsible-disclosure
   → policy: coordinated disclosure, 90-day timeline, safe harbor
 ```
 
-CSA's product security program is in SecID alongside every other CNA. When someone asks "how do I report a vulnerability in a CSA product?" — the answer is machine-readable.
+Every CNA now has structured fields: formal CNA ID (`CNA-2005-0006`), CVE Program UUID, last assigned CVE (staleness indicator), disclosure policy URL, and security.txt status.
 
-**For members:** look up any vendor's CNA to find who to report vulnerabilities to.
+**For members:** "Who handles CVEs for this vendor?" → one query → CNA role, scope, contacts, policy.
 
 **For CSA security team:** the authoritative reference for CSA's own disclosure process.
 
@@ -259,9 +259,11 @@ SecID is the connective tissue. CSA programs are the products. External security
 - Report gaps: `github.com/CloudSecurityAlliance/SecID/issues`
 
 **For everyone:**
-- Spec: `github.com/CloudSecurityAlliance/SecID`
-- Service: `github.com/CloudSecurityAlliance/SecID-Service`
-- SDKs: `github.com/CloudSecurityAlliance/SecID-Client-SDK`
+- Spec + registry: `github.com/CloudSecurityAlliance/SecID`
+- Hosted service: `github.com/CloudSecurityAlliance/SecID-Service`
+- Self-hosted server: `github.com/CloudSecurityAlliance/SecID-Server-API`
+- Client SDKs: `github.com/CloudSecurityAlliance/SecID-Client-SDK`
+- Claude Code plugin: `plugins/secid/` in the SecID repo
 
 ---
 
