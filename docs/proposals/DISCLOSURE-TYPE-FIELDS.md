@@ -430,6 +430,8 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 **Commits:**
 - `b757b1d` — Fixed migration script (per-node CNA slug resolution)
 - `a8e3603` — Re-migrated data with correct per-node slugs
+- `ac1eb9f` — Fixed Thales slug (THA-PSIRT), relaxed assignerShortName to "expected"
+- `99db3c4` — Fixed 2 assignerShortName case mismatches (hillstone, netgear)
 
 ### Phase 3: Other fields — not started
 
