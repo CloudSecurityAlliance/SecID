@@ -8,7 +8,7 @@ Updated: 2026-04-08
 
 Add structured fields to disclosure registry entries' `data` objects that capture the information security researchers need when reporting vulnerabilities. Five new fields: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
 
-These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. The CSA-hosted service returns them in all responses immediately (AI-first). Self-hosted servers may optionally filter to schema-defined fields only.
+These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. Available in responses once populated in registry data.
 
 ## The Problem
 
@@ -43,14 +43,14 @@ Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchan
 
 ### Response Behavior and Schema Philosophy
 
-**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no API changes.
+**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no changes to the CSA-hosted API.
 
 **Data that uses a documented field name should follow its specification.** The five fields defined in this proposal have documented types, expected fields, and vocabulary constraints (e.g., `cve.role` values). Data in these fields should follow the specification in this proposal. Formal JSON Schema enforcement is deferred until implementation. But `data` remains open — anyone can add fields beyond the documented ones, and the resolver returns everything.
 
 **Client expectations:**
 - **AI clients (MCP, agents):** SHOULD handle all fields, including undocumented ones. This is the primary use case — SecID is AI-first.
 - **Human clients (website):** Display everything, structured fields get rich rendering.
-- **Traditional API clients:** If a client can only handle schema-defined fields, that's a client-side filtering concern. Self-hosted servers (SecID-Server-API) may offer a `?mode=strict` option that filters responses to schema-only fields. **The CSA-hosted service does not offer this — it always returns everything.**
+- **Traditional API clients:** If a client can only handle documented fields, that's a client-side filtering concern. Self-hosted servers (SecID-Server-API) may offer a strict filtering option (implementation details TBD in that repo). **The CSA-hosted service does not filter — it always returns everything.**
 
 The principle is the same as HTTP headers: fields can be added freely, schema-defined fields have guaranteed structure, clients handle what they can.
 
