@@ -44,6 +44,26 @@ Community contribution deck covering:
 
 **File:** `slides/secid-contributing.md`
 
+### Disclosure: Safe Harbor Research
+**Status:** Not started
+**Priority:** Medium
+
+Research and populate `data.safe_harbor` for disclosure entries. No standard URL or authoritative list to scrape — requires manual research per vendor.
+
+**Approach:** Start with top 20 most-reported-to vendors (Microsoft, Google, Apple, Red Hat, Cisco, etc.). Look for safe harbor / legal safe harbor statements on their security pages. Record URL or null.
+
+**Context:** Part of disclosure type-specific fields proposal (`docs/proposals/DISCLOSURE-TYPE-FIELDS.md`). The `cve`, `security_txt`, and `disclosure_policy` fields are already populated.
+
+### Disclosure: Bug Bounty Research
+**Status:** Not started
+**Priority:** Medium
+
+Research and populate `data.bug_bounty` for disclosure entries. Array of `{url, paid}` objects.
+
+**Approach:** Start with top 20 vendors. Check HackerOne, Bugcrowd, Intigriti, and vendor security pages for bounty program URLs. `paid` is optional (absent = unknown).
+
+**Context:** Same proposal as safe harbor. Note that some `disclosure_policy` URLs from CNAsList.json already point to bug bounty platforms (e.g., Adobe's points to HackerOne) — these could be cross-referenced.
+
 ### CIS Benchmarks as Control Entries
 **Status:** Research needed
 **Priority:** High

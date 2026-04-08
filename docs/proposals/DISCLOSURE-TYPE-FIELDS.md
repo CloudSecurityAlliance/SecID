@@ -441,8 +441,8 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 | `security_txt` | **DONE** (2026-04-08) | 170 found (130 valid), 277 null, 39 timeouts. Script: `scripts/check-security-txt.py` |
 | `disclosure_policy` | **DONE** (2026-04-08) | 488 nodes populated from CVE Program CNAsList.json. Script: `scripts/enrich-cna-from-cnalist.py` |
 | `cve.cna_id` | **DONE** (2026-04-08) | 491 nodes enriched with formal CNA ID (e.g., CNA-2005-0006). Same script. |
-| `safe_harbor` | Not started | Manual research per vendor |
-| `bug_bounty` | Not started | Manual research per vendor |
+| `safe_harbor` | Deferred | Manual research per vendor — tracked in TODO.md |
+| `bug_bounty` | Deferred | Manual research per vendor — tracked in TODO.md |
 
 ## Open Questions
 
