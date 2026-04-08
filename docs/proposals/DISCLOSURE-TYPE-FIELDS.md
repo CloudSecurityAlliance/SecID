@@ -419,7 +419,7 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 
 **Results:**
 - 485 files modified, 513 match_nodes migrated
-- 0 JSON validation errors
+- 0 JSON parse errors
 - `cve_program_role` and `scope` removed from all `data` objects
 - Structured `cve` object added with: `role` (array), `assignerShortName`, `assignerOrgId`, `cna_partner_url`, `scope`, `root` reference, `last_assigned_cve`, `last_assigned_date`
 - 22 nodes with `role` but no resolved CNA slug (manual follow-up needed)
