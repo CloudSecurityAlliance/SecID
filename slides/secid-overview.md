@@ -326,4 +326,3 @@ kseifried@cloudsecurityalliance.org · github.com/kurtseifried
 **SecID v1.0** — 10 types · 709+ namespaces · 428 cloud capabilities · 502 CNA partners
 secid.cloudsecurityalliance.org · github.com/CloudSecurityAlliance/SecID
 CC0 (Public Domain)
-
