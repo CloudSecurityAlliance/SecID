@@ -41,25 +41,24 @@ The five new fields are nested objects inside the existing `data` object. The `d
 
 Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchanged. The new fields sit alongside them as structured nested objects.
 
-### Strict vs Full API Mode
+### Response Behavior
 
-New fields appear in **full mode** immediately — this is what the MCP server and website use. The stable **strict mode** (default for REST API clients) only returns fields formally documented in the schema.
+**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no namespace-level merging, no mode parameter.
+
+The CSA-hosted service (secid.cloudsecurityalliance.org) is **AI-first** — MCP, website, and REST API all return the full `data` object including new fields. AI agents and humans handle extra fields gracefully.
+
+### Strict Mode (Self-Hosted Only)
+
+Self-hosted servers (SecID-Server-API) may optionally support a **strict mode** for traditional REST API clients with rigid JSON parsers. Strict mode applies the JSON schema as a post-processing filter — the resolver produces the full response, then strips any field not defined in the schema before returning.
 
 ```
-GET /api/v1/resolve?secid=...              → strict mode (default): schema-defined fields only
-GET /api/v1/resolve?secid=...&mode=full    → full mode: everything, including new/experimental fields
+GET /api/v1/resolve?secid=...              → full response (default, same as CSA hosted)
+GET /api/v1/resolve?secid=...&mode=strict  → schema-filtered response (self-hosted option)
 ```
 
-**How this works:**
-- MCP server and website always operate in full mode (AI agents and humans see everything)
-- REST API defaults to strict mode (SDK clients, integrations, scripts get stable data)
-- REST API clients can opt into full mode with `&mode=full`
-- When a field is stable and documented, it graduates from full-only to strict mode
-- Nobody's parser breaks, but the ecosystem advances
+**This is not implemented in the CSA-hosted service.** It's an option for enterprises running their own SecID server that need to serve dumb integrations. The schema defines "what's stable" — adding a new field to `data` is free, promoting it to the strict schema is a one-line change.
 
-This is the same pattern as HTTP headers — anyone can add fields, the ones that prove useful get standardized. The strict/full boundary is the standardization line.
-
-**The strict/full mode is a general API design decision, not disclosure-specific.** It will be fully specified in [API-RESPONSE-FORMAT.md](../reference/API-RESPONSE-FORMAT.md) as a separate update. This proposal uses it as the deployment mechanism for the disclosure fields.
+**This proposal does not depend on strict mode.** Fields go into `data`, the resolver returns them, done.
 
 ### Reserved Field Names
 
@@ -125,7 +124,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 ```json
 "cve": {
-  "note": "Will request CVE from MITRE on reporter's behalf",
+  "posture": "Will request CVE from MITRE on reporter's behalf",
   "statement_url": "https://example.com/security/cve-policy"
 }
 ```
@@ -134,7 +133,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 
 ```json
 "cve": {
-  "note": "Vendor has publicly stated they do not participate in CVE",
+  "posture": "Vendor has publicly stated they do not participate in CVE",
   "statement_url": "https://example.com/blog/no-cve"
 }
 ```
@@ -156,7 +155,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 | `root.assignerOrgId` | `string` (UUID) | When `root` present | Root CNA's organization UUID. |
 | `last_assigned_cve` | `string` | No | Most recent CVE ID assigned by this CNA. Staleness indicator. |
 | `last_assigned_date` | `string` (date) | No | Date of that CVE's publication. |
-| `note` | `string` | No | Free text — the org's stated position on CVE participation. Especially useful for non-participants. |
+| `posture` | `string` | No | Free text — the org's stated position on CVE participation. Especially useful for non-participants. Separate from the metadata `note` field (which is for verification notes). |
 | `statement_url` | `string` | No | URL to the org's public statement about their CVE posture. |
 
 #### `role` Vocabulary
@@ -172,9 +171,11 @@ Protected terms from the CVE Program — their terminology, not ours:
 | `adp` | Authorized Data Publisher |
 | `secretariat` | CVE Secretariat |
 
-**`role` is present only for CVE Program participants.** If an org is not in the program, `role` is absent. The org's CVE posture (cooperates, ignores, hostile) is captured in `note` as free text — no informal vocabulary mixed into the protected `role` field.
+**`role` is present only for CVE Program participants.** If an org is not in the program, `role` is absent. The org's CVE posture (cooperates, ignores, hostile) is captured in `posture` as free text — no informal vocabulary mixed into the protected `role` field.
 
-`role` is an array because some organizations hold multiple formal roles simultaneously (e.g., `["root", "cna-lr"]`). This avoids lossy single-role selection.
+`role` is an array because some organizations hold multiple formal roles simultaneously (e.g., `["cna-lr", "root"]`). This avoids lossy single-role selection.
+
+**Normalization:** Values must be unique, lowercase, and sorted alphabetically. This ensures deterministic diffs and downstream matching.
 
 #### Data Source
 
@@ -284,7 +285,7 @@ No `type` vocabulary (coordinated / responsible / full) — the industry uses th
         "organization_type": "Vendor, Open Source",
 
         "cve": {
-          "role": ["root", "cna"],
+          "role": ["cna", "root"],
           "assignerShortName": "redhat",
           "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
           "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
@@ -341,7 +342,7 @@ No `type` vocabulary (coordinated / responsible / full) — the industry uses th
         ],
 
         "cve": {
-          "note": "Will request CVE from MITRE on reporter's behalf. Typical turnaround 2-4 weeks.",
+          "posture": "Will request CVE from MITRE on reporter's behalf. Typical turnaround 2-4 weeks.",
           "statement_url": "https://smallvendor.com/security/cve-policy"
         },
         "safe_harbor": {
@@ -435,7 +436,11 @@ Issues raised across five rounds of review feedback:
 | Module boundary / key collision risk | Reserved field names list documented |
 | Inheritance wording confusion | Dropped inheritance language — resolver returns data at matched level |
 | Local file path not reproducible | References cvelistV5 GitHub repo |
-| Backward compat claim too broad | Strict/full mode: strict is stable, full includes everything |
+| Backward compat claim too broad | CSA hosted is always full; strict mode is self-hosted option only |
+| `cve.note` conflicts with metadata `note` convention | Renamed to `posture` — `note` stays metadata, `posture` is domain data |
+| Phase 1 response shape ambiguous | Removed — resolver doesn't change, fields are in `data`, returned normally |
+| Strict/full mode was hard dependency | Removed as dependency — proposal works without it; strict is self-hosted option |
+| `role` array normalization missing | Added: unique, lowercase, sorted alphabetically |
 | bug_bounty.paid forces false certainty | Made optional — absent means unknown |
 
 **Deferred (not blocking this proposal):**
