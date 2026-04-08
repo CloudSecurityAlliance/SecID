@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities found in cybersecurity software solutions developed and maintained by Sec1 as listed on https://sec1.io/, and vulnerabilities identified in software projects or products where Sec1 has a direct and substantial contribution or partnership, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "sec1",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/sec1",
-          "scope": "Vulnerabilities found in cybersecurity software solutions developed and maintained by Sec1 as listed on https://sec1.io/, and vulnerabilities identified in software projects or products where Sec1 has a direct and substantial contribution or partnership, unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

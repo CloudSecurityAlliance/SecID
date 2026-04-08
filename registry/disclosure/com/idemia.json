@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All IDEMIA products (supported products and end-of-life/end-of-service products), as well as vulnerabilities in third-party software discovered by IDEMIA that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "IDEMIA",
-          "assignerOrgId": "a87f365f-9d39-4848-9b3a-58c7cae69cab",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/IDEMIA",
-          "last_assigned_cve": "CVE-2023-33222",
-          "last_assigned_date": "2023-12-15",
-          "scope": "All IDEMIA products (supported products and end-of-life/end-of-service products), as well as vulnerabilities in third-party software discovered by IDEMIA that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

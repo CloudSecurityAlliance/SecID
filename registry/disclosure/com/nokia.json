@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All vulnerabilities in Nokia products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Nokia",
-          "assignerOrgId": "b48c3b8f-639e-4c16-8725-497bc411dad0",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Nokia",
-          "last_assigned_cve": "CVE-2025-10258",
-          "last_assigned_date": "2026-02-05",
-          "scope": "All vulnerabilities in Nokia products."
-        }
+        "examples": []
       }
     }
   ]

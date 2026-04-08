@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Danfoss products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Danfoss",
-          "assignerOrgId": "d7ff35af-cf88-454c-bab9-af60602f10f8",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Danfoss",
-          "last_assigned_cve": "CVE-2025-41452",
-          "last_assigned_date": "2025-08-22",
-          "scope": "Danfoss products only."
-        }
+        "examples": []
       }
     }
   ]

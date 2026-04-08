@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by or reported to OpenSource Security, unless covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "OS-S",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OS-S",
-          "scope": "Vulnerabilities discovered by or reported to OpenSource Security, unless covered by another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

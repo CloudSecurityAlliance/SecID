@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Chrome issues and projects that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Chrome",
-          "assignerOrgId": "ebfee0ef-53dd-4cf3-9e2a-08a5bd7a7e28",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Chrome",
-          "last_assigned_cve": "CVE-2026-5292",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Chrome issues and projects that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     },
     {
@@ -70,6 +61,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities that are (1) reported to ChromeOS Security, (2) affect ChromeOS device software and hardware, including our open source dependencies, and (3) are not covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Bug Bounty Provider",
         "contacts": [
           {
@@ -95,18 +88,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Chrome",
-          "assignerOrgId": "ebfee0ef-53dd-4cf3-9e2a-08a5bd7a7e28",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Chrome",
-          "last_assigned_cve": "CVE-2026-5292",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Vulnerabilities that are (1) reported to ChromeOS Security, (2) affect ChromeOS device software and hardware, including our open source dependencies, and (3) are not covered by another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

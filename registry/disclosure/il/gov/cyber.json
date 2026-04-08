@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "INCD",
-          "assignerOrgId": "a57ee1ae-c9c1-4f40-aa7b-cf10760fde3f",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCD",
-          "last_assigned_cve": "CVE-2025-55065",
-          "last_assigned_date": "2026-01-01",
-          "scope": "Vulnerability assignment related to its vulnerability coordination role."
-        }
+        "examples": []
       }
     }
   ]

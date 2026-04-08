@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Jamf issues and Jamf Open Source.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "Security advisories (GitHub)"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "JAMF",
-          "assignerOrgId": "67325c3f-c596-46c5-a235-e1a1e73abe4e",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/JAMF",
-          "last_assigned_cve": "CVE-2026-1290",
-          "last_assigned_date": "2026-01-21",
-          "scope": "Jamf issues and Jamf Open Source."
-        }
+        "examples": []
       }
     }
   ]

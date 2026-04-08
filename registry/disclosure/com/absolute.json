@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Absolute issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Absolute",
-          "assignerOrgId": "b6533044-ea05-4482-8458-7bddeca0d079",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Absolute",
-          "last_assigned_cve": "CVE-2026-0519",
-          "last_assigned_date": "2026-01-17",
-          "scope": "Absolute issues only."
-        }
+        "examples": []
       }
     }
   ]

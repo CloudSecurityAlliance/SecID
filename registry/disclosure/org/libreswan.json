@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Libreswan software.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "libreswan",
-          "assignerOrgId": "d42dc95b-23f1-4e06-9076-20753a0fb0df",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/libreswan",
-          "last_assigned_cve": "CVE-2024-3652",
-          "last_assigned_date": "2024-04-11",
-          "scope": "Libreswan software."
-        }
+        "examples": []
       }
     }
   ]

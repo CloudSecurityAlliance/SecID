@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "SolarWinds products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "SolarWinds",
-          "assignerOrgId": "49f11609-934d-4621-84e6-e02e032104d6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SolarWinds",
-          "last_assigned_cve": "CVE-2026-28298",
-          "last_assigned_date": "2026-03-26",
-          "scope": "SolarWinds products only."
-        }
+        "examples": []
       }
     }
   ]

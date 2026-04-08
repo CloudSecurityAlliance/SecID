@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Xiaomi issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Xiaomi",
-          "assignerOrgId": "b57733aa-7326-4f07-8e09-0be8e0df1909",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Xiaomi",
-          "last_assigned_cve": "CVE-2024-45347",
-          "last_assigned_date": "2025-06-23",
-          "scope": "Xiaomi issues only."
-        }
+        "examples": []
       }
     }
   ]

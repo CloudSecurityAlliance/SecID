@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Dremio Corporation products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Dremio",
-          "assignerOrgId": "05b98450-cf83-4905-9546-e47a66a8fec2",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Dremio",
-          "last_assigned_cve": "CVE-2025-2298",
-          "last_assigned_date": "2025-04-21",
-          "scope": "All Dremio Corporation products."
-        }
+        "examples": []
       }
     }
   ]

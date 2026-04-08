@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All SAP products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "sap",
-          "assignerOrgId": "e4686d1a-f260-4930-ac4c-2f5c992778dd",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/sap",
-          "last_assigned_cve": "CVE-2026-27689",
-          "last_assigned_date": "2026-03-10",
-          "scope": "All SAP products."
-        }
+        "examples": []
       }
     }
   ]

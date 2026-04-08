@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "OpenNMS issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "OpenNMS",
-          "assignerOrgId": "70b007e9-5235-4ee5-90b5-a71a81beeda0",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenNMS",
-          "last_assigned_cve": "CVE-2025-53122",
-          "last_assigned_date": "2025-06-26",
-          "scope": "OpenNMS issues only."
-        }
+        "examples": []
       }
     }
   ]

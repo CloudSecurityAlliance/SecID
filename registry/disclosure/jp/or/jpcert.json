@@ -24,6 +24,8 @@
       "description": "Root",
       "weight": 60,
       "data": {
+        "scope": "Japan organizations.",
+        "cve_program_role": "Root",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "assignerShortName": "jpcert",
-          "assignerOrgId": "ede6fdc4-6654-4307-a26d-3331c018e2ce",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/jpcert",
-          "last_assigned_cve": "CVE-2026-32929",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Japan organizations."
-        }
+        "examples": []
       }
     },
     {
@@ -75,6 +66,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -105,18 +98,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "jpcert",
-          "assignerOrgId": "ede6fdc4-6654-4307-a26d-3331c018e2ce",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/jpcert",
-          "last_assigned_cve": "CVE-2026-32929",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Vulnerability assignment related to its vulnerability coordination role."
-        }
+        "examples": []
       }
     }
   ]

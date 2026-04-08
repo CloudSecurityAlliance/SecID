@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All supported The Qt Company products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "TQtC",
-          "assignerOrgId": "a59d8014-47c4-4630-ab43-e1b13cbe58e3",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TQtC",
-          "last_assigned_cve": "CVE-2025-12385",
-          "last_assigned_date": "2025-12-03",
-          "scope": "All supported The Qt Company products."
-        }
+        "examples": []
       }
     }
   ]

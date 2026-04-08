@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in the KoreLogic website and other KoreLogic controlled assets, as well as vulnerabilities discovered by or reported to KoreLogic, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "KoreLogic",
-          "assignerOrgId": "bbf0bd87-ece2-41be-b873-96928ee8fab9",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/KoreLogic",
-          "last_assigned_cve": "CVE-2025-15464",
-          "last_assigned_date": "2026-01-08",
-          "scope": "Vulnerabilities in the KoreLogic website and other KoreLogic controlled assets, as well as vulnerabilities discovered by or reported to KoreLogic, unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

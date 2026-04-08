@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Citrix issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Citrix",
-          "assignerOrgId": "e437aed5-38e0-4fa3-a98b-cb73e7acaec6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Citrix",
-          "last_assigned_cve": "CVE-2025-12101",
-          "last_assigned_date": "2025-11-11",
-          "scope": "Citrix issues only."
-        }
+        "examples": []
       }
     }
   ]

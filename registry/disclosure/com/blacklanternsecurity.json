@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in vendor products discovered by BLSOPS, or related parties, while performing vulnerability research or security assessments, unless covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "BLSOPS",
-          "assignerOrgId": "27b6da8a-f51d-48d9-9eef-9b7f3405d20d",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BLSOPS",
-          "last_assigned_cve": "CVE-2026-2103",
-          "last_assigned_date": "2026-02-06",
-          "scope": "Vulnerabilities in vendor products discovered by BLSOPS, or related parties, while performing vulnerability research or security assessments, unless covered by another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

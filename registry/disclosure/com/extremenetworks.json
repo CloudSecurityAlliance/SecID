@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered in Extreme Networks, Inc.’s products and services.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "ExtremeNetworks",
-          "assignerOrgId": "1c053176-eef3-4d6a-ae0b-24728c86587b",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ExtremeNetworks",
-          "last_assigned_cve": "CVE-2026-0689",
-          "last_assigned_date": "2026-03-02",
-          "scope": "Vulnerabilities discovered in Extreme Networks, Inc.’s products and services."
-        }
+        "examples": []
       }
     }
   ]

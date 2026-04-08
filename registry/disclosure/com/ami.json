@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in AMI firmware and software products, as well as vulnerabilities discovered by AMI that are not covered by another CNA scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -59,18 +61,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "AMI",
-          "assignerOrgId": "7e9044f1-7f56-4c38-8864-c0c7302263d6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/AMI",
-          "last_assigned_cve": "CVE-2025-58770",
-          "last_assigned_date": "2025-12-12",
-          "scope": "Vulnerabilities in AMI firmware and software products, as well as vulnerabilities discovered by AMI that are not covered by another CNA scope."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Adobe issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "adobe",
-          "assignerOrgId": "078d4453-3bcd-4900-85e6-15281da43538",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/adobe",
-          "last_assigned_cve": "CVE-2026-27309",
-          "last_assigned_date": "2026-03-27",
-          "scope": "Adobe issues only."
-        }
+        "examples": []
       }
     }
   ]

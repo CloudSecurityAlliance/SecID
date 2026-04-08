@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "End of life open source projects supported by HeroDevs if hosted on HeroDevs.com, or issues in open source projects discovered by or reported to HeroDevs, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "HeroDevs",
-          "assignerOrgId": "36c7be3b-2937-45df-85ea-ca7133ea542c",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/HeroDevs",
-          "last_assigned_cve": "CVE-2026-2818",
-          "last_assigned_date": "2026-02-20",
-          "scope": "End of life open source projects supported by HeroDevs if hosted on HeroDevs.com, or issues in open source projects discovered by or reported to HeroDevs, unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

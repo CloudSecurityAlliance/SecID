@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Primarily FreeBSD issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "freebsd",
-          "assignerOrgId": "63664ac6-956c-4cba-a5d0-f46076e16109",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/freebsd",
-          "last_assigned_cve": "CVE-2026-4748",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Primarily FreeBSD issues only."
-        }
+        "examples": []
       }
     }
   ]

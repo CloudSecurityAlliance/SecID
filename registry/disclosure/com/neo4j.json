@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Neo4j products and Neo4j-maintained projects only, not including end-of-life components or products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Neo4j",
-          "assignerOrgId": "3b236295-4ccd-4a1f-a1c1-a72eecc8d7b6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Neo4j",
-          "last_assigned_cve": "CVE-2026-1471",
-          "last_assigned_date": "2026-03-11",
-          "scope": "Neo4j products and Neo4j-maintained projects only, not including end-of-life components or products."
-        }
+        "examples": []
       }
     }
   ]

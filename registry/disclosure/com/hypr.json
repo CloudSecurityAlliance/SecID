@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All HYPR products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "HYPR",
-          "assignerOrgId": "0dc7baee-4a9f-419f-bd0a-e21ec5dac512",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/HYPR",
-          "last_assigned_cve": "CVE-2026-2414",
-          "last_assigned_date": "2026-03-25",
-          "scope": "All HYPR products only."
-        }
+        "examples": []
       }
     }
   ]

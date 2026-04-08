@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Proofpoint products.",
+        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Proofpoint",
-          "assignerOrgId": "d83a79dd-e128-4b83-8b64-84faf54eed46",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Proofpoint",
-          "last_assigned_cve": "CVE-2025-8558",
-          "last_assigned_date": "2025-11-03",
-          "scope": "All Proofpoint products."
-        }
+        "examples": []
       }
     }
   ]

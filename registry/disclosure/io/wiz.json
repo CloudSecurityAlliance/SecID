@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities identified in Wiz products, and vulnerabilities discovered by, or reported to, Wiz that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Wiz",
-          "assignerOrgId": "9947ef80-c5d5-474a-bbab-97341a59000e",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Wiz",
-          "last_assigned_cve": "CVE-2025-8110",
-          "last_assigned_date": "2025-12-10",
-          "scope": "Vulnerabilities identified in Wiz products, and vulnerabilities discovered by, or reported to, Wiz that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

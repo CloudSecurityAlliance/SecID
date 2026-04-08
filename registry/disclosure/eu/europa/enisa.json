@@ -24,6 +24,8 @@
       "description": "Root",
       "weight": 60,
       "data": {
+        "scope": "European Union (EU) member states/EU authorities, EU CSIRTs network members, and cooperative partners under ENISA’s mandate as well as other CNAs who choose ENISA as their Root.",
+        "cve_program_role": "Root",
         "organization_type": "Consortium",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "assignerShortName": "ENISA",
-          "assignerOrgId": "a6d3dc9e-0591-4a13-bce7-0f5b31ff6158",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ENISA",
-          "last_assigned_cve": "CVE-2026-25601",
-          "last_assigned_date": "2026-04-01",
-          "scope": "European Union (EU) member states/EU authorities, EU CSIRTs network members, and cooperative partners under ENISA’s mandate as well as other CNAs who choose ENISA as their Root."
-        }
+        "examples": []
       }
     },
     {
@@ -75,6 +66,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in information technology (IT) products discovered by European Union (EU) Computer Security Incident Response Teams (CSIRTs) or reported to EU CSIRTs for coordinated disclosure, as long as they do not fall under a CNA with a more specific scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Consortium",
         "contacts": [
           {
@@ -105,18 +98,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "ENISA",
-          "assignerOrgId": "a6d3dc9e-0591-4a13-bce7-0f5b31ff6158",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ENISA",
-          "last_assigned_cve": "CVE-2026-25601",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Vulnerabilities in information technology (IT) products discovered by European Union (EU) Computer Security Incident Response Teams (CSIRTs) or reported to EU CSIRTs for coordinated disclosure, as long as they do not fall under a CNA with a more specific scope."
-        }
+        "examples": []
       }
     }
   ]

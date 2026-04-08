@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Huawei issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "huawei",
-          "assignerOrgId": "25ac1063-e409-4190-8079-24548c77ea2e",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/huawei",
-          "last_assigned_cve": "CVE-2026-28542",
-          "last_assigned_date": "2026-03-05",
-          "scope": "Huawei issues only."
-        }
+        "examples": []
       }
     }
   ]

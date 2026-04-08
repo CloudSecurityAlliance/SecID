@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Baxter’s commercially available products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Baxter",
-          "assignerOrgId": "dba971b9-eb30-4121-91e1-3b45611354aa",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Baxter",
-          "last_assigned_cve": "CVE-2022-26389",
-          "last_assigned_date": "2025-02-07",
-          "scope": "Baxter’s commercially available products only."
-        }
+        "examples": []
       }
     }
   ]

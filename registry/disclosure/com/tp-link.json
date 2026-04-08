@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "TP-Link issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "TPLink",
-          "assignerOrgId": "f23511db-6c3e-4e32-a477-6aa17d310630",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TPLink",
-          "last_assigned_cve": "CVE-2026-34124",
-          "last_assigned_date": "2026-04-02",
-          "scope": "TP-Link issues only."
-        }
+        "examples": []
       }
     }
   ]

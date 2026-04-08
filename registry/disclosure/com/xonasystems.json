@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All software produced as part of the Xona Platform including the CSG (Critical System Gateway) and XCM (Xona Central Manager) and vulnerabilities discovered by or reported to Xona Systems for Xona software or its underlying Operating System or Firmware not covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "XONA",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/XONA",
-          "scope": "All software produced as part of the Xona Platform including the CSG (Critical System Gateway) and XCM (Xona Central Manager) and vulnerabilities discovered by or reported to Xona Systems for Xona software or its underlying Operating System or Firmware not covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

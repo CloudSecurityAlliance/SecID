@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All JFrog products (supported products and end-of-life/end-of-service products); vulnerabilities in third-party software discovered by JFrog that are not in another CNA’s scope; and vulnerabilities in third-party software discovered by external researchers and disclosed to JFrog (includes any embedded devices and their associated mobile applications) that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "JFROG",
-          "assignerOrgId": "48a46f29-ae42-4e1d-90dd-c1676c1e5e6d",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/JFROG",
-          "last_assigned_cve": "CVE-2026-25905",
-          "last_assigned_date": "2026-02-09",
-          "scope": "All JFrog products (supported products and end-of-life/end-of-service products); vulnerabilities in third-party software discovered by JFrog that are not in another CNA’s scope; and vulnerabilities in third-party software discovered by external researchers and disclosed to JFrog (includes any embedded devices and their associated mobile applications) that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

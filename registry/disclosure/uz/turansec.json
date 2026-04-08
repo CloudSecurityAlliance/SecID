@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered through independent research conducted by TuranSec to products and projects that are not CNAs themselves.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "TuranSec",
-          "assignerOrgId": "309f9ea4-e3e9-4c6c-b79d-e8eb01244f2c",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TuranSec",
-          "last_assigned_cve": "CVE-2026-5463",
-          "last_assigned_date": "2026-04-03",
-          "scope": "Vulnerabilities discovered through independent research conducted by TuranSec to products and projects that are not CNAs themselves."
-        }
+        "examples": []
       }
     }
   ]

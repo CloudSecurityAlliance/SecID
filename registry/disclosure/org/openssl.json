@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "OpenSSL software projects only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "openssl",
-          "assignerOrgId": "3a12439a-ef3a-4c79-92e6-6081a721f1e5",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/openssl",
-          "last_assigned_cve": "CVE-2026-2673",
-          "last_assigned_date": "2026-03-13",
-          "scope": "OpenSSL software projects only."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All ISC.org projects.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "isc",
-          "assignerOrgId": "404fd4d2-a609-4245-b543-2c944a302a22",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/isc",
-          "last_assigned_cve": "CVE-2026-3591",
-          "last_assigned_date": "2026-03-25",
-          "scope": "All ISC.org projects."
-        }
+        "examples": []
       }
     }
   ]

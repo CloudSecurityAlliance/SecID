@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Check Point Security Gateways product line only, and any vulnerabilities discovered by Check Point that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "checkpoint",
-          "assignerOrgId": "897c38be-0345-43cd-b6cf-fe179e0c4f45",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/checkpoint",
-          "last_assigned_cve": "CVE-2026-3502",
-          "last_assigned_date": "2026-03-30",
-          "scope": "Check Point Security Gateways product line only, and any vulnerabilities discovered by Check Point that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

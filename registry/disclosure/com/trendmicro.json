@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Trend Micro supported products, including any end-of-life products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "trendmicro",
-          "assignerOrgId": "7f7bd7df-cffe-4fdb-ab6d-859363b89272",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/trendmicro",
-          "last_assigned_cve": "CVE-2025-69260",
-          "last_assigned_date": "2026-01-08",
-          "scope": "Trend Micro supported products, including any end-of-life products."
-        }
+        "examples": []
       }
     }
   ]

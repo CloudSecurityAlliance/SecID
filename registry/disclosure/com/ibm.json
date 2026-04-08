@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All IBM branded products (IBM will confirm support status and notify researcher).",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "ibm",
-          "assignerOrgId": "9a959283-ebb5-44b6-b705-dcc2bbced522",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ibm",
-          "last_assigned_cve": "CVE-2026-1243",
-          "last_assigned_date": "2026-04-02",
-          "scope": "All IBM branded products (IBM will confirm support status and notify researcher)."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All RTI Connext products, including EOL products. See https://www.rti.com/products for more information.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "RTI",
-          "assignerOrgId": "3f572a00-62e2-4423-959a-7ea25eff1638",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/RTI",
-          "last_assigned_cve": "CVE-2026-4374",
-          "last_assigned_date": "2026-04-01",
-          "scope": "All RTI Connext products, including EOL products. See https://www.rti.com/products for more information."
-        }
+        "examples": []
       }
     }
   ]

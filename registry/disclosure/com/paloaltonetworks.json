@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Palo Alto Networks products, and vulnerabilities discovered by Palo Alto Networks that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "palo_alto",
-          "assignerOrgId": "d6c1279f-00f6-4ef7-9217-f89ffe703ec0",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/palo_alto",
-          "last_assigned_cve": "CVE-2026-0231",
-          "last_assigned_date": "2026-03-11",
-          "scope": "All Palo Alto Networks products, and vulnerabilities discovered by Palo Alto Networks that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

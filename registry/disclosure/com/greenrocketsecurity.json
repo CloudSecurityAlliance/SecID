@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Green Rocket Security products including EOL unless covered by another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "GreenRocketSecurity",
-          "assignerOrgId": "6a7d5611-ec52-41f4-b33a-a457deec1320",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GreenRocketSecurity",
-          "last_assigned_cve": "CVE-2023-4951",
-          "last_assigned_date": "2023-09-14",
-          "scope": "Green Rocket Security products including EOL unless covered by another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

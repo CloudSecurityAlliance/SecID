@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "openEuler issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "openEuler",
-          "assignerOrgId": "7e1ac599-2767-43fa-b3ea-f10178cc98f2",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/openEuler",
-          "last_assigned_cve": "CVE-2025-31344",
-          "last_assigned_date": "2025-04-14",
-          "scope": "openEuler issues only."
-        }
+        "examples": []
       }
     }
   ]

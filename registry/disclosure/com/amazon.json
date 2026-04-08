@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Amazon and AWS products (including subsidiaries, supported, and EOL/EOS products), as well as vulnerabilities in third party software discovered by Amazon/AWS that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Bug Bounty Provider, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "AMZN",
-          "assignerOrgId": "ff89ba41-3aa1-4d27-914a-91399e9639e5",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/AMZN",
-          "last_assigned_cve": "CVE-2026-35558",
-          "last_assigned_date": "2026-04-03",
-          "scope": "All Amazon and AWS products (including subsidiaries, supported, and EOL/EOS products), as well as vulnerabilities in third party software discovered by Amazon/AWS that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

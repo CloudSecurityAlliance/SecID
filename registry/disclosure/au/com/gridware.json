@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Gridware software, services, and infrastructure issues, as well as vulnerabilities discovered by or reported to Gridware researchers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Gridware",
-          "assignerOrgId": "b7efe717-a805-47cf-8e9a-921fca0ce0ce",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Gridware",
-          "last_assigned_cve": "CVE-2026-29128",
-          "last_assigned_date": "2026-03-05",
-          "scope": "Gridware software, services, and infrastructure issues, as well as vulnerabilities discovered by or reported to Gridware researchers that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

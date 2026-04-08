@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "ClickHouse-owned products, not including end-of-life components.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "ClickHouse",
-          "assignerOrgId": "cb7ba516-3b07-4c98-b0c2-715220f1a8f6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ClickHouse",
-          "last_assigned_cve": "CVE-2025-1386",
-          "last_assigned_date": "2025-04-11",
-          "scope": "ClickHouse-owned products, not including end-of-life components."
-        }
+        "examples": []
       }
     }
   ]

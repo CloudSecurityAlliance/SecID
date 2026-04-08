@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "MIM software products, platforms, and services as well as vulnerabilities reported to MIM Software in third-party components or libraries used by MIM Software products, platforms, and services not covered by another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "MIM",
-          "assignerOrgId": "f77a3b2e-a86f-4a4e-80d3-3d1378fbb974",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/MIM",
-          "last_assigned_cve": "CVE-2025-1701",
-          "last_assigned_date": "2025-06-04",
-          "scope": "MIM software products, platforms, and services as well as vulnerabilities reported to MIM Software in third-party components or libraries used by MIM Software products, platforms, and services not covered by another CNA."
-        }
+        "examples": []
       }
     }
   ]

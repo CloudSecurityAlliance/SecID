@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Any code repository hosted under gerrit.wikimedia.org, gitlab.wikimedia.org, or github.com/wikimedia that is not labeled as archived or marked as a fork of an upstream project. Please see our disclosure policy for additional exclusions to scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "wikimedia-foundation",
-          "assignerOrgId": "c4f26cc8-17ff-4c99-b5e2-38fc1793eacc",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/wikimedia-foundation",
-          "last_assigned_cve": "CVE-2025-67481",
-          "last_assigned_date": "2026-02-03",
-          "scope": "Any code repository hosted under gerrit.wikimedia.org, gitlab.wikimedia.org, or github.com/wikimedia that is not labeled as archived or marked as a fork of an upstream project. Please see our disclosure policy for additional exclusions to scope."
-        }
+        "examples": []
       }
     }
   ]

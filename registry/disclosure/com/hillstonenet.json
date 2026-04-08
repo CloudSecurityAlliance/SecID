@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in our products listed at https://www.hillstonenet.com/hillstone-networks-product-portfolio and the products we sell only in China listed at https://www.hillstonenet.com.cn/product_service/, not including our websites.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "hillstone",
-          "assignerOrgId": "2b565742-f273-46f9-b583-07c1fcdea31a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/hillstone",
-          "last_assigned_cve": "CVE-2018-10349",
-          "last_assigned_date": "2021-01-22",
-          "scope": "Vulnerabilities in our products listed at https://www.hillstonenet.com/hillstone-networks-product-portfolio and the products we sell only in China listed at https://www.hillstonenet.com.cn/product_service/, not including our websites."
-        }
+        "examples": []
       }
     }
   ]

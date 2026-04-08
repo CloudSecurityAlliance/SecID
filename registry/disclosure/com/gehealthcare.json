@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "GE Healthcare products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "Security advisories"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "GE_Healthcare",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GE_Healthcare",
-          "scope": "GE Healthcare products."
-        }
+        "examples": []
       }
     }
   ]

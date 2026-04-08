@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Apple issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "apple",
-          "assignerOrgId": "286789f9-fbc2-4510-9f9a-43facdede74c",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/apple",
-          "last_assigned_cve": "CVE-2026-28815",
-          "last_assigned_date": "2026-04-03",
-          "scope": "Apple issues only."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in Commvault SaaS and software products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Commvault",
-          "assignerOrgId": "050066fd-a2f9-4f32-ab5d-4c53f48bc333",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Commvault",
-          "last_assigned_cve": "CVE-2025-12776",
-          "last_assigned_date": "2026-01-07",
-          "scope": "Vulnerabilities in Commvault SaaS and software products only."
-        }
+        "examples": []
       }
     }
   ]

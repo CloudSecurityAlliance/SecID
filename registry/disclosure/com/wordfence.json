@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "WordPress Plugins, Themes, and Core Vulnerabilities discovered by, or reported to, the Wordfence/Defiant team.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Wordfence",
-          "assignerOrgId": "b15e7b5b-3da4-40ae-a43c-f7aa60e62599",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Wordfence",
-          "last_assigned_cve": "CVE-2026-3666",
-          "last_assigned_date": "2026-04-04",
-          "scope": "WordPress Plugins, Themes, and Core Vulnerabilities discovered by, or reported to, the Wordfence/Defiant team."
-        }
+        "examples": []
       }
     }
   ]

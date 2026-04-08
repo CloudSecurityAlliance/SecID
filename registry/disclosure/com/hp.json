@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Issues with any HP-branded product, including computing software and hardware, imaging and printing, as well as HyperX, Teradici, Poly, and Plantronics branded devices.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "hp",
-          "assignerOrgId": "74586083-13ce-40fd-b46a-8e5d23cfbcb2",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/hp",
-          "last_assigned_cve": "CVE-2026-2915",
-          "last_assigned_date": "2026-03-03",
-          "scope": "Issues with any HP-branded product, including computing software and hardware, imaging and printing, as well as HyperX, Teradici, Poly, and Plantronics branded devices."
-        }
+        "examples": []
       }
     }
   ]

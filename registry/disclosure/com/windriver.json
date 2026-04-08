@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Wind River branded products as found on windriver.com including vulnerabilities in natively developed or modified product incorporated components, and only product incorporated third-party components not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "WindRiver",
-          "assignerOrgId": "0bf9931a-6ebf-4f48-bd14-39ee5e1d61f8",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/WindRiver",
-          "last_assigned_cve": "CVE-2025-26503",
-          "last_assigned_date": "2025-09-18",
-          "scope": "All Wind River branded products as found on windriver.com including vulnerabilities in natively developed or modified product incorporated components, and only product incorporated third-party components not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

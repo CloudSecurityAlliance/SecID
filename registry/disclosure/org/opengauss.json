@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "openGauss issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "openGauss",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/openGauss",
-          "scope": "openGauss issues only."
-        }
+        "examples": []
       }
     }
   ]

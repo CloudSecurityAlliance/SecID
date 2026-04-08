@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities reported to CSA unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "CSA",
-          "assignerOrgId": "5f57b9bf-260d-4433-bf07-b6a79e9bb7d4",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CSA",
-          "last_assigned_cve": "CVE-2025-52694",
-          "last_assigned_date": "2026-01-12",
-          "scope": "Vulnerabilities reported to CSA unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

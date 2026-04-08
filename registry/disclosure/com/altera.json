@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Altera products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Altera",
-          "assignerOrgId": "04c0172e-9735-4a9d-a92a-fe01fa863447",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Altera",
-          "last_assigned_cve": "CVE-2025-14625",
-          "last_assigned_date": "2026-01-06",
-          "scope": "Altera products only."
-        }
+        "examples": []
       }
     }
   ]

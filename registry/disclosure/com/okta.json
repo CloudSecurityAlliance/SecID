@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Okta issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Okta",
-          "assignerOrgId": "59b22baa-87b2-4371-8e4a-e080df12f74a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Okta",
-          "last_assigned_cve": "CVE-2025-7371",
-          "last_assigned_date": "2025-07-22",
-          "scope": "Okta issues only."
-        }
+        "examples": []
       }
     }
   ]

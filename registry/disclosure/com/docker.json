@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Docker products, including Docker Desktop and Docker Hub, as well as Docker maintained open source projects.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Docker",
-          "assignerOrgId": "686469e6-3ff6-451b-ab8b-cf5b9e89401e",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Docker",
-          "last_assigned_cve": "CVE-2025-15558",
-          "last_assigned_date": "2026-03-04",
-          "scope": "All Docker products, including Docker Desktop and Docker Hub, as well as Docker maintained open source projects."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in Delinea products or services listed on delinea.com, or vulnerabilities in third-party products or services discovered by or reported to Delinea, unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Delinea",
-          "assignerOrgId": "1443cd92-d354-46d2-9290-d812316ca43a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Delinea",
-          "last_assigned_cve": "CVE-2026-2409",
-          "last_assigned_date": "2026-02-19",
-          "scope": "Vulnerabilities in Delinea products or services listed on delinea.com, or vulnerabilities in third-party products or services discovered by or reported to Delinea, unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

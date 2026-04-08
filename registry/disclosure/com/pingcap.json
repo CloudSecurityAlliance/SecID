@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in the following PingCAP maintained products and components: TiDB (code available at https://github.com/pingcap/tidb); TiKV (code available at https://github.com/tikv/tikv); PD (Placement Driver, code available at https://github.com/tikv/pd); TiFlash (code available at https://github.com/pingcap/tiflash); and tidbcloud (PingCAP’s cloud database service). This scope includes vulnerabilities in all supported versions of these products. CVE IDs will not be assigned for vulnerabilities found in unsupported versions or for third-party dependencies not maintained by PingCAP.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Hosted Service",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "PingCAP",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PingCAP",
-          "scope": "Vulnerabilities in the following PingCAP maintained products and components: TiDB (code available at https://github.com/pingcap/tidb); TiKV (code available at https://github.com/tikv/tikv); PD (Placement Driver, code available at https://github.com/tikv/pd); TiFlash (code available at https://github.com/pingcap/tiflash); and tidbcloud (PingCAP’s cloud database service). This scope includes vulnerabilities in all supported versions of these products. CVE IDs will not be assigned for vulnerabilities found in unsupported versions or for third-party dependencies not maintained by PingCAP."
-        }
+        "examples": []
       }
     }
   ]

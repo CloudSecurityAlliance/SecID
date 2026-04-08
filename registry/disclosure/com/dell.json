@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Dell, Dell EMC, and VCE issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "dell",
-          "assignerOrgId": "c550e75a-17ff-4988-97f0-544cde3820fe",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/dell",
-          "last_assigned_cve": "CVE-2026-22768",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Dell, Dell EMC, and VCE issues only."
-        }
+        "examples": []
       }
     }
   ]

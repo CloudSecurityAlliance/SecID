@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in open source projects affecting the Fedora Project, that are not covered by a more specific CNA. CVEs can be assigned to vulnerabilities affecting end-of-life or unsupported releases by the Fedora Project.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": null,
         "urls": [
@@ -43,13 +45,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "scope": "Vulnerabilities in open source projects affecting the Fedora Project, that are not covered by a more specific CNA. CVEs can be assigned to vulnerabilities affecting end-of-life or unsupported releases by the Fedora Project."
-        }
+        "examples": []
       }
     }
   ]

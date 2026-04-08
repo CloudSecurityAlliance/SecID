@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by S21sec that are not within another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "S21sec",
-          "assignerOrgId": "50b5080a-775f-442e-83b5-926b5ca517b6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/S21sec",
-          "last_assigned_cve": "CVE-2026-22539",
-          "last_assigned_date": "2026-01-07",
-          "scope": "Vulnerabilities discovered by S21sec that are not within another CNA’s scope."
-        }
+        "examples": []
       }
     },
     {
@@ -70,6 +61,8 @@
       "description": "Root",
       "weight": 60,
       "data": {
+        "scope": "Products and technologies of subsidiaries of Thales Group.",
+        "cve_program_role": "Root",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -95,18 +88,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "assignerShortName": "S21sec",
-          "assignerOrgId": "50b5080a-775f-442e-83b5-926b5ca517b6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/S21sec",
-          "last_assigned_cve": "CVE-2026-22539",
-          "last_assigned_date": "2026-01-07",
-          "scope": "Products and technologies of subsidiaries of Thales Group."
-        }
+        "examples": []
       }
     },
     {
@@ -116,6 +98,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Thales branded products and technologies, products and technologies of subsidiaries of Thales Group, unless covered by the scope of another CNA as well as vulnerabilities in third-party software discovered by Thales Group and subsidiaries that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -141,18 +125,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "S21sec",
-          "assignerOrgId": "50b5080a-775f-442e-83b5-926b5ca517b6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/S21sec",
-          "last_assigned_cve": "CVE-2026-22539",
-          "last_assigned_date": "2026-01-07",
-          "scope": "Thales branded products and technologies, products and technologies of subsidiaries of Thales Group, unless covered by the scope of another CNA as well as vulnerabilities in third-party software discovered by Thales Group and subsidiaries that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

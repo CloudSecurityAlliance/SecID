@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "certcc",
-          "assignerOrgId": "37e5125f-f79b-445b-8fad-9564f167944b",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/certcc",
-          "last_assigned_cve": "CVE-2026-35467",
-          "last_assigned_date": "2026-04-02",
-          "scope": "Vulnerability assignment related to its vulnerability coordination role."
-        }
+        "examples": []
       }
     }
   ]

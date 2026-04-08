@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Leica Microsystems products as listed on https://www.leica-microsystems.com/products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "LMS",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/LMS",
-          "scope": "Leica Microsystems products as listed on https://www.leica-microsystems.com/products."
-        }
+        "examples": []
       }
     }
   ]

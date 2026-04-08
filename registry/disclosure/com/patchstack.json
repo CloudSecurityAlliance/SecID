@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in third-party products discovered by Patchstack and Patchstack Bug Bounty program unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Hosted Service, Open Source, Researcher, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Patchstack",
-          "assignerOrgId": "21595511-bba5-4825-b968-b78d1f9984a3",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Patchstack",
-          "last_assigned_cve": "CVE-2026-34890",
-          "last_assigned_date": "2026-04-02",
-          "scope": "Vulnerabilities in third-party products discovered by Patchstack and Patchstack Bug Bounty program unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Moxa products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Moxa",
-          "assignerOrgId": "2e0a0ee2-d866-482a-9f5e-ac03d156dbaa",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Moxa",
-          "last_assigned_cve": "CVE-2026-0715",
-          "last_assigned_date": "2026-02-05",
-          "scope": "Moxa products only."
-        }
+        "examples": []
       }
     }
   ]

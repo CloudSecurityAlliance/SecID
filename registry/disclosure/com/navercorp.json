@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Naver products only, except Line products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "naver",
-          "assignerOrgId": "f9629fae-ca2e-4fbf-9785-3ed86476aef6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/naver",
-          "last_assigned_cve": "CVE-2026-1513",
-          "last_assigned_date": "2026-01-28",
-          "scope": "Naver products only, except Line products."
-        }
+        "examples": []
       }
     }
   ]

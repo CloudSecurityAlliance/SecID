@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All dotCMS product services including the vulnerabilities reported in our open source core located at https://github.com/dotCMS/core.",
+        "cve_program_role": "CNA",
         "organization_type": "Hosted Service",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "dotCMS",
-          "assignerOrgId": "5b9d93f2-25c7-46b4-ab60-d201718c9dd8",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/dotCMS",
-          "last_assigned_cve": "CVE-2025-11165",
-          "last_assigned_date": "2026-02-24",
-          "scope": "All dotCMS product services including the vulnerabilities reported in our open source core located at https://github.com/dotCMS/core."
-        }
+        "examples": []
       }
     }
   ]

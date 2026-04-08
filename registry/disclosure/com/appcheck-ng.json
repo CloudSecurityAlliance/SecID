@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by AppCheck that are not within another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "AppCheck",
-          "assignerOrgId": "2c188fdb-58e1-4908-8fce-3e437b94f1ae",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/AppCheck",
-          "last_assigned_cve": "CVE-2024-29833",
-          "last_assigned_date": "2024-03-26",
-          "scope": "Vulnerabilities discovered by AppCheck that are not within another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in Echo products, as well as vulnerabilities discovered by or reported to Echo that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Echo",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Echo",
-          "scope": "Vulnerabilities in Echo products, as well as vulnerabilities discovered by or reported to Echo that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

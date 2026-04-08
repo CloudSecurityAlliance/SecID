@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Mirantis products (supported products and end-of-life/end-of-service products) and open source offerings, as well as vulnerabilities in third-party software discovered by Mirantis that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Mirantis",
-          "assignerOrgId": "ac17a704-eccd-4263-a802-5cee95c1d547",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Mirantis",
-          "last_assigned_cve": "CVE-2022-0484",
-          "last_assigned_date": "2022-02-04",
-          "scope": "All Mirantis products (supported products and end-of-life/end-of-service products) and open source offerings, as well as vulnerabilities in third-party software discovered by Mirantis that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

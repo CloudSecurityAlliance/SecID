@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in software discovered by National Cyber Security Centre SK-CERT, and vulnerabilities reported to National Cyber Security Centre SK-CERT for coordinated disclosure, which are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "SK-CERT",
-          "assignerOrgId": "bc375322-d3d7-4481-b261-e29662236cfd",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SK-CERT",
-          "last_assigned_cve": "CVE-2026-3511",
-          "last_assigned_date": "2026-03-19",
-          "scope": "Vulnerabilities in software discovered by National Cyber Security Centre SK-CERT, and vulnerabilities reported to National Cyber Security Centre SK-CERT for coordinated disclosure, which are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities found in Tanium products and vulnerabilities in third-party software discovered by Tanium that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Tanium",
-          "assignerOrgId": "3938794e-25f5-4123-a1ba-5cbd7f104512",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Tanium",
-          "last_assigned_cve": "CVE-2026-2350",
-          "last_assigned_date": "2026-02-19",
-          "scope": "Vulnerabilities found in Tanium products and vulnerabilities in third-party software discovered by Tanium that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

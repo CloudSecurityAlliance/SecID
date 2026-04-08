@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "NVIDIA issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "nvidia",
-          "assignerOrgId": "9576f279-3576-44b5-a4af-b9a8644b2de6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/nvidia",
-          "last_assigned_cve": "CVE-2026-24165",
-          "last_assigned_date": "2026-03-31",
-          "scope": "NVIDIA issues only."
-        }
+        "examples": []
       }
     }
   ]

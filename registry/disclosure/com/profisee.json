@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities found in software developed by Profisee only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Profisee",
-          "assignerOrgId": "c0ec9282-ea44-45d7-9b32-48d87cb37538",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Profisee",
-          "last_assigned_cve": "CVE-2025-6240",
-          "last_assigned_date": "2025-06-18",
-          "scope": "Vulnerabilities found in software developed by Profisee only."
-        }
+        "examples": []
       }
     }
   ]

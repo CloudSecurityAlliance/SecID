@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by or reported to cirosec researchers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "cirosec",
-          "assignerOrgId": "a341c0d1-ebf7-493f-a84e-38cf86618674",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/cirosec",
-          "last_assigned_cve": "CVE-2025-41459",
-          "last_assigned_date": "2025-07-21",
-          "scope": "Vulnerabilities discovered by or reported to cirosec researchers that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

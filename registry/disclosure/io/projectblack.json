@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by Project Black that are not within another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "PRJBLK",
-          "assignerOrgId": "ab69c47f-b95e-4bf2-b2d9-4b1fd1b24b4a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PRJBLK",
-          "last_assigned_cve": "CVE-2025-15586",
-          "last_assigned_date": "2026-02-19",
-          "scope": "Vulnerabilities discovered by Project Black that are not within another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

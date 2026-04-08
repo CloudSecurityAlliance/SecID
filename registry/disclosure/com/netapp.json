@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All NetApp products as well as projects hosted on https://github.com/netapp.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "netapp",
-          "assignerOrgId": "11fdca00-0482-4c88-a206-37f9c182c87d",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/netapp",
-          "last_assigned_cve": "CVE-2026-22052",
-          "last_assigned_date": "2026-03-04",
-          "scope": "All NetApp products as well as projects hosted on https://github.com/netapp."
-        }
+        "examples": []
       }
     }
   ]

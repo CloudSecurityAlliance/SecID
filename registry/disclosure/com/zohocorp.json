@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "ManageEngine, Zoho, and Zakya branded on-premise products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Zohocorp",
-          "assignerOrgId": "0fc0942c-577d-436f-ae8e-945763c79b02",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Zohocorp",
-          "last_assigned_cve": "CVE-2026-27655",
-          "last_assigned_date": "2026-04-03",
-          "scope": "ManageEngine, Zoho, and Zakya branded on-premise products only."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by researchers in collaboration with Bugcrowd, with approval of Bugcrowd’s clients, and not in the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Vendor, Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Bugcrowd",
-          "assignerOrgId": "4ac701fe-44e9-4bcd-9585-dd6449257611",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Bugcrowd",
-          "last_assigned_cve": "CVE-2025-12792",
-          "last_assigned_date": "2025-11-18",
-          "scope": "Vulnerabilities discovered by researchers in collaboration with Bugcrowd, with approval of Bugcrowd’s clients, and not in the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

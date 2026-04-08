@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Replicated products and services only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Replicated",
-          "assignerOrgId": "7d06583b-61c8-4499-8067-80a92a3b48e1",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Replicated",
-          "last_assigned_cve": "CVE-2021-42718",
-          "last_assigned_date": "2025-01-23",
-          "scope": "Replicated products and services only."
-        }
+        "examples": []
       }
     }
   ]

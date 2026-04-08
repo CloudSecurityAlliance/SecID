@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Fidelis issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Fidelis",
-          "assignerOrgId": "11ea3a0d-87b4-4e67-a1fa-f5a6be5d6676",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Fidelis",
-          "last_assigned_cve": "CVE-2022-0486",
-          "last_assigned_date": "2022-05-17",
-          "scope": "Fidelis issues only."
-        }
+        "examples": []
       }
     }
   ]

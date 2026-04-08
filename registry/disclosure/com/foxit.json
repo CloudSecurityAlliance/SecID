@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Foxit issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Foxit",
-          "assignerOrgId": "14984358-7092-470d-8f34-ade47a7658a2",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Foxit",
-          "last_assigned_cve": "CVE-2026-3774",
-          "last_assigned_date": "2026-04-01",
-          "scope": "Foxit issues only."
-        }
+        "examples": []
       }
     }
   ]

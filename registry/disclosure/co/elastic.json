@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Elasticsearch, Kibana, Beats, Logstash, X-Pack, and Elastic Cloud Enterprise products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "elastic",
-          "assignerOrgId": "271b6943-45a9-4f3a-ab4e-976f3fa05b5a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/elastic",
-          "last_assigned_cve": "CVE-2026-26940",
-          "last_assigned_date": "2026-03-19",
-          "scope": "Elasticsearch, Kibana, Beats, Logstash, X-Pack, and Elastic Cloud Enterprise products only."
-        }
+        "examples": []
       }
     }
   ]

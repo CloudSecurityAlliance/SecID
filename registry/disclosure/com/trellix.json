@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All Trellix Enterprise (formerly McAfee Enterprise and FireEye) products, as well as vulnerabilities in third-party software discovered by Trellix Advanced Research Center (Trellix ACR) that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "trellix",
-          "assignerOrgId": "01626437-bf8f-4d1c-912a-893b5eb04808",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/trellix",
-          "last_assigned_cve": "CVE-2025-14963",
-          "last_assigned_date": "2026-02-24",
-          "scope": "All Trellix Enterprise (formerly McAfee Enterprise and FireEye) products, as well as vulnerabilities in third-party software discovered by Trellix Advanced Research Center (Trellix ACR) that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

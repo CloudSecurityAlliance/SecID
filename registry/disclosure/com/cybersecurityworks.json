@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in third-party software discovered by CSW that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "CSW",
-          "assignerOrgId": "ee1bbb37-1770-46bd-bba8-910037954ee0",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CSW",
-          "last_assigned_cve": "CVE-2022-28291",
-          "last_assigned_date": "2022-10-17",
-          "scope": "Vulnerabilities in third-party software discovered by CSW that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

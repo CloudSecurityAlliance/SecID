@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "openHarmony issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "OpenHarmony",
-          "assignerOrgId": "0cf5dd6e-1214-4398-a481-30441e48fafd",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenHarmony",
-          "last_assigned_cve": "CVE-2025-6969",
-          "last_assigned_date": "2026-03-16",
-          "scope": "openHarmony issues only."
-        }
+        "examples": []
       }
     }
   ]

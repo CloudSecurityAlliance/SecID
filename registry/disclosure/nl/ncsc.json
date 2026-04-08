@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in software discovered by NCSC-NL, and vulnerabilities reported to NCSC-NL for coordinated disclosure, which are not in another CNA's scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -54,18 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "NCSC-NL",
-          "assignerOrgId": "cf4a7ff5-dd38-4ede-a530-ffaa7ea59c39",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/NCSC-NL",
-          "last_assigned_cve": "CVE-2025-59819",
-          "last_assigned_date": "2026-02-20",
-          "scope": "Vulnerabilities in software discovered by NCSC-NL, and vulnerabilities reported to NCSC-NL for coordinated disclosure, which are not in another CNA's scope."
-        }
+        "examples": []
       }
     }
   ]

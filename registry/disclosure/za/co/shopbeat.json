@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in Shop Beat products and services and vulnerabilities discovered by Shop Beat unless covered by the scope of another CNA.",
+        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "ShopBeat",
-          "assignerOrgId": "d3f162d7-5820-4c58-beef-03f43baaf8ad",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ShopBeat",
-          "last_assigned_cve": "CVE-2022-36247",
-          "last_assigned_date": "2023-05-30",
-          "scope": "Vulnerabilities in Shop Beat products and services and vulnerabilities discovered by Shop Beat unless covered by the scope of another CNA."
-        }
+        "examples": []
       }
     }
   ]

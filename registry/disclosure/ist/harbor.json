@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All projects listed under https://www.npmjs.com/~ljharb.",
+        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "harborist",
-          "assignerOrgId": "7ffcee3d-2c14-4c3e-b844-86c6a321a158",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/harborist",
-          "last_assigned_cve": "CVE-2026-2391",
-          "last_assigned_date": "2026-02-12",
-          "scope": "All projects listed under https://www.npmjs.com/~ljharb."
-        }
+        "examples": []
       }
     }
   ]

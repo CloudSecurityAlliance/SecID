@@ -24,6 +24,8 @@
       "description": "Root (reports to MITRE Top-Level Root)",
       "weight": 40,
       "data": {
+        "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
+        "cve_program_role": "Root (reports to MITRE Top-Level Root)",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -64,22 +66,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "assignerShortName": "redhat",
-          "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-          "last_assigned_cve": "CVE-2026-3184",
-          "last_assigned_date": "2026-04-03",
-          "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
-          "root": {
-            "assignerShortName": "mitre",
-            "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
-          }
-        }
+        "examples": []
       }
     },
     {
@@ -89,6 +76,8 @@
       "description": "CNA-LR (reports to Red Hat Root)",
       "weight": 50,
       "data": {
+        "scope": "Vulnerabilities in software developed by a CNA within the Red Hat Root hierarchy.",
+        "cve_program_role": "CNA-LR (reports to Red Hat Root)",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -129,22 +118,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna-lr"
-          ],
-          "assignerShortName": "redhat",
-          "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-          "last_assigned_cve": "CVE-2026-3184",
-          "last_assigned_date": "2026-04-03",
-          "scope": "Vulnerabilities in software developed by a CNA within the Red Hat Root hierarchy.",
-          "root": {
-            "assignerShortName": "redhat",
-            "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749"
-          }
-        }
+        "examples": []
       }
     },
     {
@@ -154,6 +128,8 @@
       "description": "CNA (reports to Red Hat Root)",
       "weight": 80,
       "data": {
+        "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
+        "cve_program_role": "CNA (reports to Red Hat Root)",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -194,22 +170,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "redhat",
-          "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-          "last_assigned_cve": "CVE-2026-3184",
-          "last_assigned_date": "2026-04-03",
-          "scope": "The Red Hat Root’s scope includes the open source community. Any open source organizations that prefer Red Hat as their Root; organizations are free to choose another Root if it suits them better.",
-          "root": {
-            "assignerShortName": "redhat",
-            "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749"
-          }
-        }
+        "examples": []
       }
     }
   ]

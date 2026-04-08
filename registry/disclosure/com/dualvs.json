@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Dual Vipers projects and products (both open and closed source), as well as vulnerabilities in third-party software discovered by Dual Vipers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Open Source, Researcher, Vendor",
         "contacts": [
           {
@@ -49,15 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "DualVS",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DualVS",
-          "scope": "Dual Vipers projects and products (both open and closed source), as well as vulnerabilities in third-party software discovered by Dual Vipers that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

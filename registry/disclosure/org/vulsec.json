@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities discovered by, or reported to, VULSec Labs that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": null,
         "urls": [
@@ -43,18 +45,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "VULSec",
-          "assignerOrgId": "2fdefc65-d750-4b8d-96ee-6e2c0c42dbfe",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/VULSec",
-          "last_assigned_cve": "CVE-2026-30785",
-          "last_assigned_date": "2026-03-05",
-          "scope": "Vulnerabilities discovered by, or reported to, VULSec Labs that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

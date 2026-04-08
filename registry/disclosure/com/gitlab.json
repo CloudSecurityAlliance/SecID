@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "The GitLab application, any project hosted on GitLab.com in a public repository, and any vulnerabilities discovered by GitLab that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "GitLab",
-          "assignerOrgId": "ceab7361-8a18-47b1-92ba-4d7d25f6715a",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GitLab",
-          "last_assigned_cve": "CVE-2026-2370",
-          "last_assigned_date": "2026-03-29",
-          "scope": "The GitLab application, any project hosted on GitLab.com in a public repository, and any vulnerabilities discovered by GitLab that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

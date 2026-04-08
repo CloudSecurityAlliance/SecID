@@ -24,6 +24,8 @@
       "description": "Root",
       "weight": 60,
       "data": {
+        "scope": "Organizations that are cooperative partners of CERT@VDE.",
+        "cve_program_role": "Root",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -49,13 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "scope": "Organizations that are cooperative partners of CERT@VDE."
-        }
+        "examples": []
       }
     },
     {
@@ -65,6 +61,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Products of CERT@VDE cooperative partners and brands listed at https://cert.vde.com/en/cna/. Also, industrial and infrastructure control systems (and its components) of European Union (EU) based vendors unless covered by the scope of another CNA.  Partners and brands include but are not limited to: ADS-TEC Industrial IT, Auma, sipos, Beckhoff, Bender, Bucher Automation, CLAAS, 365FarmNet, Satinfo, Carlo Gavazzi Controls, Codesys, DURAG GROUP, Draeger, Endress+Hauser, Euchner, Festo Didactic, Festo, Frauscher, GEA, HIMA, Harman, Helmholz, Hilscher, K4 DIGITAL, KEB, Krohne, Kuka, Lenze, BHN Services, MB connect line, Miele, Murrelektronik, PHOENIX CONTACT, Etherwan Systems, Innominate, Pepperl+Fuchs, Pilz, SMA, SWARCO, Trumpf, TRUMPF Laser, TRUMPF Werkzeugmaschinen, VARTA Storage, VEGA, WAGO, M&M Software, Weidmueller, Welotec, Wiesemann & Theis, ifm.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -90,13 +88,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "scope": "Products of CERT@VDE cooperative partners and brands listed at https://cert.vde.com/en/cna/. Also, industrial and infrastructure control systems (and its components) of European Union (EU) based vendors unless covered by the scope of another CNA.  Partners and brands include but are not limited to: ADS-TEC Industrial IT, Auma, sipos, Beckhoff, Bender, Bucher Automation, CLAAS, 365FarmNet, Satinfo, Carlo Gavazzi Controls, Codesys, DURAG GROUP, Draeger, Endress+Hauser, Euchner, Festo Didactic, Festo, Frauscher, GEA, HIMA, Harman, Helmholz, Hilscher, K4 DIGITAL, KEB, Krohne, Kuka, Lenze, BHN Services, MB connect line, Miele, Murrelektronik, PHOENIX CONTACT, Etherwan Systems, Innominate, Pepperl+Fuchs, Pilz, SMA, SWARCO, Trumpf, TRUMPF Laser, TRUMPF Werkzeugmaschinen, VARTA Storage, VEGA, WAGO, M&M Software, Weidmueller, Welotec, Wiesemann & Theis, ifm."
-        }
+        "examples": []
       }
     }
   ]

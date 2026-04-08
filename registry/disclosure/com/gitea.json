@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Gitea issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Open Source, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Gitea",
-          "assignerOrgId": "88ee5874-cf24-4952-aea0-31affedb7ff2",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Gitea",
-          "last_assigned_cve": "CVE-2026-20912",
-          "last_assigned_date": "2026-01-22",
-          "scope": "Gitea issues only."
-        }
+        "examples": []
       }
     }
   ]

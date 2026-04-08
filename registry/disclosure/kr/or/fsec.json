@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerability assignment related to FSI’s vulnerability coordination role in the South Korea financial sector that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT, Researcher, Bug Bounty Provider",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "FSI",
-          "assignerOrgId": "09832df1-09c1-45b4-8a85-16c601d30feb",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FSI",
-          "last_assigned_cve": "CVE-2025-15070",
-          "last_assigned_date": "2025-12-29",
-          "scope": "Vulnerability assignment related to FSI’s vulnerability coordination role in the South Korea financial sector that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

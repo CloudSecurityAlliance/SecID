@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in software discovered by NCSC-FI, and vulnerabilities reported to NCSC-FI for coordinated disclosure, which are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -44,18 +46,7 @@
             "note": "Security advisories (vulnerabilities)"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "NCSC-FI",
-          "assignerOrgId": "db4dfee8-a97e-4877-bfae-eba6d14a2166",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/NCSC-FI",
-          "last_assigned_cve": "CVE-2025-15554",
-          "last_assigned_date": "2026-03-16",
-          "scope": "Vulnerabilities in software discovered by NCSC-FI, and vulnerabilities reported to NCSC-FI for coordinated disclosure, which are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

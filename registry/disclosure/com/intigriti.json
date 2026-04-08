@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerabilities in Intigriti products and vulnerabilities discovered by, or reported to, Intigriti that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Hosted Service, Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Intigriti",
-          "assignerOrgId": "3ba556a3-57d7-4c5d-b460-9d6daa180ee1",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Intigriti",
-          "last_assigned_cve": "CVE-2026-3327",
-          "last_assigned_date": "2026-02-27",
-          "scope": "Vulnerabilities in Intigriti products and vulnerabilities discovered by, or reported to, Intigriti that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

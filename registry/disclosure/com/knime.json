@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All vulnerabilities on software products that our company provides, including KNIME Analytics Platform, KNIME Server, and KNIME Hub.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "KNIME",
-          "assignerOrgId": "296541fb-a0e3-4ca7-ab3d-683e666d143e",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/KNIME",
-          "last_assigned_cve": "CVE-2026-4649",
-          "last_assigned_date": "2026-03-24",
-          "scope": "All vulnerabilities on software products that our company provides, including KNIME Analytics Platform, KNIME Server, and KNIME Hub."
-        }
+        "examples": []
       }
     }
   ]

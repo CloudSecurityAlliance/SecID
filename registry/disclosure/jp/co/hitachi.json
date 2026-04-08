@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Hitachi products excluding Hitachi Energy and Hitachi Vantara products.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Hitachi",
-          "assignerOrgId": "50d0f415-c707-4733-9afc-8f6c0e9b3f82",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Hitachi",
-          "last_assigned_cve": "CVE-2026-2072",
-          "last_assigned_date": "2026-03-25",
-          "scope": "Hitachi products excluding Hitachi Energy and Hitachi Vantara products."
-        }
+        "examples": []
       }
     }
   ]

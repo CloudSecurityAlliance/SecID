@@ -24,6 +24,8 @@
       "description": "Root",
       "weight": 60,
       "data": {
+        "scope": "Spain organizations.",
+        "cve_program_role": "Root",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -44,18 +46,7 @@
             "note": "Security advisories (CVE publications)"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "root"
-          ],
-          "assignerShortName": "INCIBE",
-          "assignerOrgId": "0cbda920-cd7f-484a-8e76-bf7f4b7f4516",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCIBE",
-          "last_assigned_cve": "CVE-2026-4400",
-          "last_assigned_date": "2026-03-31",
-          "scope": "Spain organizations."
-        }
+        "examples": []
       }
     },
     {
@@ -65,6 +56,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Vulnerability assignment related to its vulnerability coordination role for Industrial Control Systems (ICS), Information Technologies (IT), and Internet of Things (IoT) systems issues at the national level, and vulnerabilities reported to INCIBE by Spain organizations and researchers that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -85,18 +78,7 @@
             "note": "Security advisories (CVE publications)"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "INCIBE",
-          "assignerOrgId": "0cbda920-cd7f-484a-8e76-bf7f4b7f4516",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/INCIBE",
-          "last_assigned_cve": "CVE-2026-4400",
-          "last_assigned_date": "2026-03-31",
-          "scope": "Vulnerability assignment related to its vulnerability coordination role for Industrial Control Systems (ICS), Information Technologies (IT), and Internet of Things (IoT) systems issues at the national level, and vulnerabilities reported to INCIBE by Spain organizations and researchers that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]

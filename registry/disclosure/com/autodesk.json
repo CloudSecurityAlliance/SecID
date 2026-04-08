@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All currently supported Autodesk Applications and Cloud Services.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "autodesk",
-          "assignerOrgId": "7e40ea87-bc65-4944-9723-dd79dd760601",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/autodesk",
-          "last_assigned_cve": "CVE-2026-0875",
-          "last_assigned_date": "2026-02-18",
-          "scope": "All currently supported Autodesk Applications and Cloud Services."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "StrongDM issues only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "StrongDM",
-          "assignerOrgId": "ebf2cdfb-f390-4894-8ec9-f81bf1c57e6b",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/StrongDM",
-          "last_assigned_cve": "CVE-2025-6183",
-          "last_assigned_date": "2025-08-20",
-          "scope": "StrongDM issues only."
-        }
+        "examples": []
       }
     }
   ]

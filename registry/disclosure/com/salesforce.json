@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Salesforce products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "Salesforce",
-          "assignerOrgId": "c9b25dee-ae6d-4083-ba23-638c500cc364",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Salesforce",
-          "last_assigned_cve": "CVE-2026-2298",
-          "last_assigned_date": "2026-03-23",
-          "scope": "Salesforce products only."
-        }
+        "examples": []
       }
     }
   ]

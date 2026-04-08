@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "Bizerba products only.",
+        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -49,18 +51,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "bizerba",
-          "assignerOrgId": "0beee27a-7d8c-424f-8e46-ac453fa147e6",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/bizerba",
-          "last_assigned_cve": "CVE-2025-12509",
-          "last_assigned_date": "2025-10-31",
-          "scope": "Bizerba products only."
-        }
+        "examples": []
       }
     }
   ]

@@ -24,6 +24,8 @@
       "description": "CNA",
       "weight": 80,
       "data": {
+        "scope": "All FULL products, as well as vulnerabilities in third-party software discovered by FULL that are not in another CNA’s scope.",
+        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Hosted Service, Vendor, Researcher",
         "contacts": [
           {
@@ -54,15 +56,7 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": [],
-        "cve": {
-          "role": [
-            "cna"
-          ],
-          "assignerShortName": "FULL",
-          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FULL",
-          "scope": "All FULL products, as well as vulnerabilities in third-party software discovered by FULL that are not in another CNA’s scope."
-        }
+        "examples": []
       }
     }
   ]
