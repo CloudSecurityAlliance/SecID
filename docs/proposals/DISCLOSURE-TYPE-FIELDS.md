@@ -433,14 +433,14 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 - `ac1eb9f` — Fixed Thales slug (THA-PSIRT), relaxed assignerShortName to "expected"
 - `99db3c4` — Fixed 2 assignerShortName case mismatches (hillstone, netgear)
 
-### Phase 3: Other fields — not started
+### Phase 3: Other fields
 
-| Field | Approach | Effort |
-|-------|----------|--------|
-| `security_txt` | Automate — fetch `/.well-known/security.txt` for all 486 domains | Low — script |
-| `safe_harbor` | Manual research per vendor, starting with top 20 | Medium |
-| `bug_bounty` | Manual research per vendor, starting with top 20 | Medium |
-| `disclosure_policy` | Manual research per vendor, starting with top 20 | Medium |
+| Field | Status | Results |
+|-------|--------|---------|
+| `security_txt` | **DONE** (2026-04-08) | 170 found (130 valid), 277 null, 39 timeouts. Script: `scripts/check-security-txt.py` |
+| `safe_harbor` | Not started | Manual research per vendor, starting with top 20 |
+| `bug_bounty` | Not started | Manual research per vendor, starting with top 20 |
+| `disclosure_policy` | Not started | Manual research per vendor, starting with top 20 |
 
 ## Open Questions
 
