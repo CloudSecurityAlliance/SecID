@@ -142,6 +142,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 | `role` | `string[]` | Only for CVE Program participants | CVE Program role(s). Protected vocabulary — only present for formal program participants. Array because some orgs hold multiple roles (e.g., Root + CNA-LR). When present, `assignerShortName` is expected (entries where it could not be resolved are flagged for manual follow-up). |
 | `assignerShortName` | `string` | Expected when `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** May be absent if the CNA slug could not be resolved during migration — these entries are logged as warnings. |
 | `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up." |
+| `cna_id` | `string` | No | Formal CNA identifier from the CVE Program (e.g., `CNA-2009-0001`). Source: `CNAsList.json` from [cve-website](https://github.com/CVEProject/cve-website). |
 | `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | No | What products/services the CNA covers (from CVE Program data). |
 | `root` | `object` | No | The Root CNA this org reports to. |
@@ -438,9 +439,10 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 | Field | Status | Results |
 |-------|--------|---------|
 | `security_txt` | **DONE** (2026-04-08) | 170 found (130 valid), 277 null, 39 timeouts. Script: `scripts/check-security-txt.py` |
-| `safe_harbor` | Not started | Manual research per vendor, starting with top 20 |
-| `bug_bounty` | Not started | Manual research per vendor, starting with top 20 |
-| `disclosure_policy` | Not started | Manual research per vendor, starting with top 20 |
+| `disclosure_policy` | **DONE** (2026-04-08) | 488 nodes populated from CVE Program CNAsList.json. Script: `scripts/enrich-cna-from-cnalist.py` |
+| `cve.cna_id` | **DONE** (2026-04-08) | 491 nodes enriched with formal CNA ID (e.g., CNA-2005-0006). Same script. |
+| `safe_harbor` | Not started | Manual research per vendor |
+| `bug_bounty` | Not started | Manual research per vendor |
 
 ## Open Questions
 
