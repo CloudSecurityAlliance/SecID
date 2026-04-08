@@ -2,13 +2,13 @@
 
 Status: Draft / discussion
 Date: 2026-04-05
-Updated: 2026-04-07
+Updated: 2026-04-08
 
 ## Summary
 
 Add structured fields to disclosure registry entries' `data` objects that capture the information security researchers need when reporting vulnerabilities. Five new fields: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
 
-These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. They appear immediately in MCP and website responses (full mode), and graduate to the stable API (strict mode) once proven.
+These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. They appear in all responses immediately.
 
 ## The Problem
 
@@ -41,11 +41,18 @@ The five new fields are nested objects inside the existing `data` object. The `d
 
 Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchanged. The new fields sit alongside them as structured nested objects.
 
-### Response Behavior
+### Response Behavior and Schema Philosophy
 
-**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no mode parameter, no API changes.
+**The resolver doesn't change.** It returns `data` at whatever level matched, exactly as it does today. The new structured fields are inside `data`. Clients see them. No special envelope, no API changes.
 
-The CSA-hosted service is **AI-first** — MCP, website, and REST API all return the full `data` object including new fields. AI agents and humans handle extra fields gracefully. Clients that don't recognize a field ignore it.
+**Data that falls within a documented schema must conform to it.** The five fields defined in this proposal have specified types, required fields, and vocabulary constraints (e.g., `cve.role` values). Data in these fields must follow the schema. But `data` remains open — anyone can add fields beyond the schema, and the resolver returns everything.
+
+**Client expectations:**
+- **AI clients (MCP, agents):** SHOULD handle all fields, including undocumented ones. This is the primary use case — SecID is AI-first.
+- **Human clients (website):** Display everything, structured fields get rich rendering.
+- **Traditional API clients:** If a client can only handle schema-defined fields, that's a client-side filtering concern. Self-hosted servers (SecID-Server-API) may offer a `?mode=strict` option that filters responses to schema-only fields. **The CSA-hosted service does not offer this — it always returns everything.**
+
+The principle is the same as HTTP headers: fields can be added freely, schema-defined fields have guaranteed structure, clients handle what they can.
 
 ### Reserved Field Names
 
@@ -356,7 +363,7 @@ No schema changes are required — `data` already allows arbitrary keys. This ph
 - Add field definitions to REGISTRY-JSON-FORMAT.md
 - Add reserved field names list (`cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`)
 - Update disclosure type description (`registry/disclosure.md`)
-- Add strict/full mode to API-RESPONSE-FORMAT.md (separate update)
+- Document schema philosophy (schema-defined fields must conform, open extension allowed) in API-RESPONSE-FORMAT.md
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
 
@@ -409,12 +416,12 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 ## Resolved Issues
 
-Issues raised across five rounds of review feedback:
+Issues raised across eight rounds of review feedback:
 
 | Issue | Resolution |
 |-------|-----------|
 | Schema hard dependency claimed | Removed — `data` already allows arbitrary keys, no schema change needed |
-| Phase 1/Phase 2 response shape complexity | Dropped — no special envelope. Fields are in `data`, resolver returns `data` normally. Strict/full mode handles visibility. |
+| Phase 1/Phase 2 response shape complexity | Dropped — no special envelope. Fields are in `data`, resolver returns `data` normally. |
 | `profiles` wrapper adds unnecessary complexity | Dropped — fields go directly in `data` |
 | Mixed camelCase/snake_case naming | Policy: CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
 | `requests` mixed into CVE Program roles | `role` is strictly CVE Program vocabulary; non-participant posture goes in `posture` |
@@ -443,4 +450,4 @@ Issues raised across five rounds of review feedback:
 
 ---
 
-*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Seven rounds of review feedback incorporated.*
+*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Eight rounds of review feedback incorporated.*
