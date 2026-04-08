@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Payara Platform product distributions (Payara Server, Micro, Embedded) for both Enterprise (commercial) and Community (OSS) distributions.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source, Vendor",
         "contacts": [
           {
@@ -46,7 +44,18 @@
             "note": "Security advisories"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Payara",
+          "assignerOrgId": "769c9ae7-73c3-4e47-ae19-903170fc3eb8",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Payara",
+          "last_assigned_cve": "CVE-2025-14340",
+          "last_assigned_date": "2026-02-18",
+          "scope": "All Payara Platform product distributions (Payara Server, Micro, Embedded) for both Enterprise (commercial) and Community (OSS) distributions."
+        }
       }
     }
   ]

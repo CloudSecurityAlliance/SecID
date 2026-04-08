@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Jenkins and Jenkins plugins distributed by the Jenkins Project (listed on plugins.jenkins.io) only.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "jenkins",
+          "assignerOrgId": "39769cd5-e6e2-4dc8-927e-97b3aa056f5b",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/jenkins",
+          "last_assigned_cve": "CVE-2026-33004",
+          "last_assigned_date": "2026-03-18",
+          "scope": "Jenkins and Jenkins plugins distributed by the Jenkins Project (listed on plugins.jenkins.io) only."
+        }
       }
     }
   ]

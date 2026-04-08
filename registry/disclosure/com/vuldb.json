@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in VulDB products and vulnerabilities discovered by, or reported to, the VulDB vulnerability database that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "VulDB",
+          "assignerOrgId": "1af790b2-7ee1-4545-860a-a788eba489b5",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/VulDB",
+          "last_assigned_cve": "CVE-2026-5622",
+          "last_assigned_date": "2026-04-06",
+          "scope": "Vulnerabilities in VulDB products and vulnerabilities discovered by, or reported to, the VulDB vulnerability database that are not in another CNA’s scope."
+        }
       }
     }
   ]

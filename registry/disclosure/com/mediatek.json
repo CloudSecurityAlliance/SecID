@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "MediaTek product issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "MediaTek",
+          "assignerOrgId": "ee979b05-11f8-4f25-a7e0-a1fa9c190374",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/MediaTek",
+          "last_assigned_cve": "CVE-2026-20416",
+          "last_assigned_date": "2026-03-02",
+          "scope": "MediaTek product issues only."
+        }
       }
     }
   ]

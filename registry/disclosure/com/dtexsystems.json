@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All DTEX products, including DTEX Forwarder for Mac, DTEX Forwarder for Linux, DTEX Forwarder for Windows, and DTEX platform including DTEX Analytics Server.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "DTEX",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DTEX",
+          "scope": "All DTEX products, including DTEX Forwarder for Mac, DTEX Forwarder for Linux, DTEX Forwarder for Windows, and DTEX platform including DTEX Analytics Server."
+        }
       }
     }
   ]

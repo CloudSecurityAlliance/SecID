@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Only supported and end-of-life Django versions available at https://www.djangoproject.com/download/ and projects listed at https://github.com/django (such as Django, channels, and daphne), excluding distributions maintained by third-party redistributors.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "DSF",
+          "assignerOrgId": "6a34fbeb-21d4-45e7-8e0a-62b95bc12c92",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DSF",
+          "last_assigned_cve": "CVE-2026-25674",
+          "last_assigned_date": "2026-03-03",
+          "scope": "Only supported and end-of-life Django versions available at https://www.djangoproject.com/download/ and projects listed at https://github.com/django (such as Django, channels, and daphne), excluding distributions maintained by third-party redistributors."
+        }
       }
     }
   ]

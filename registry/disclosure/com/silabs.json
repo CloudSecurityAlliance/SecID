@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Silicon Labs issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Silabs",
+          "assignerOrgId": "030b2754-1501-44a4-bef8-48be86a33bf4",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Silabs",
+          "last_assigned_cve": "CVE-2025-11571",
+          "last_assigned_date": "2026-03-24",
+          "scope": "Silicon Labs issues only."
+        }
       }
     }
   ]

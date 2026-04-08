@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Samsung TV & Appliance products, Samsung-owned open source projects listed on https://github.com/Samsung/, as well as vulnerabilities in third-party software discovered by Samsung that are not in another CNA’s scope. Vulnerabilities affecting end-of-life/end-of-service products are in scope. The following categories of Samsung Products are in scope: Internet-connected home appliances, B2C product (smart TV, smart monitor, soundbar, and projector), and B2B products (digital signage, interactive display, and kiosk).",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source, Researcher, Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories (TV & appliance bounty)"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "samsung.tv_appliance",
+          "assignerOrgId": "ca193ba2-0cff-4e34-b04e-1ea07103c6fe",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/samsung.tv_appliance",
+          "last_assigned_cve": "CVE-2026-25202",
+          "last_assigned_date": "2026-02-02",
+          "scope": "Samsung TV & Appliance products, Samsung-owned open source projects listed on https://github.com/Samsung/, as well as vulnerabilities in third-party software discovered by Samsung that are not in another CNA’s scope. Vulnerabilities affecting end-of-life/end-of-service products are in scope. The following categories of Samsung Products are in scope: Internet-connected home appliances, B2C product (smart TV, smart monitor, soundbar, and projector), and B2B products (digital signage, interactive display, and kiosk)."
+        }
       }
     },
     {
@@ -61,8 +70,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Samsung Mobile Galaxy products, personal computers, and related services only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -88,7 +95,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Samsung_Mobile",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Samsung_Mobile",
+          "scope": "Samsung Mobile Galaxy products, personal computers, and related services only."
+        }
       }
     }
   ]

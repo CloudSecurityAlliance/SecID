@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "TCL smart TV, smart pad, and mobile phone devices only. Projects listed on https://github.com/TclSecLab/CNA/blob/main/README_EN.md.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -46,7 +44,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "TCL_Smart_Terminal",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TCL_Smart_Terminal",
+          "scope": "TCL smart TV, smart pad, and mobile phone devices only. Projects listed on https://github.com/TclSecLab/CNA/blob/main/README_EN.md."
+        }
       }
     }
   ]

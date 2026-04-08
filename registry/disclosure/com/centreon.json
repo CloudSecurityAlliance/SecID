@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Centreon product issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Centreon",
+          "assignerOrgId": "bd4443e6-1eef-43f3-9886-25fc9ceeaae7",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Centreon",
+          "last_assigned_cve": "CVE-2026-2749",
+          "last_assigned_date": "2026-02-27",
+          "scope": "All Centreon product issues only."
+        }
       }
     }
   ]

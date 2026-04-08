@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Current versions of Netflix Mobile Streaming Application for iOS, Android, and Windows Mobile, plus all Netflix Open Source projects hosted on https://github.com/Netflix/ and https://github.com/spinnaker/.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "netflix",
+          "assignerOrgId": "ea63fd80-a441-4c7b-ba78-e48a8071cae2",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/netflix",
+          "last_assigned_cve": "CVE-2024-9301",
+          "last_assigned_date": "2024-09-27",
+          "scope": "Current versions of Netflix Mobile Streaming Application for iOS, Android, and Windows Mobile, plus all Netflix Open Source projects hosted on https://github.com/Netflix/ and https://github.com/spinnaker/."
+        }
       }
     }
   ]

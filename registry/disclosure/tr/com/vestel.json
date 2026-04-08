@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vestel-owned brands and products only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Vestel",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Vestel",
+          "scope": "Vestel-owned brands and products only."
+        }
       }
     }
   ]

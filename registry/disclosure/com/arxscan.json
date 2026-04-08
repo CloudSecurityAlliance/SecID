@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Arxscan issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": null,
         "urls": [
@@ -45,7 +43,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Arxscan",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Arxscan",
+          "scope": "Arxscan issues only."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Bosch products only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "bosch",
+          "assignerOrgId": "c95f66b2-7e7c-41c5-8f09-6f86ec68659c",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/bosch",
+          "last_assigned_cve": "CVE-2025-60038",
+          "last_assigned_date": "2026-02-18",
+          "scope": "Bosch products only."
+        }
       }
     }
   ]

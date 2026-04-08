@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Schneider Electric products, including Proface, APC, and ProLeiT.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -56,7 +54,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "schneider",
+          "assignerOrgId": "076d1eb6-cfab-4401-b34d-6dfc2a413bdb",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/schneider",
+          "last_assigned_cve": "CVE-2026-2273",
+          "last_assigned_date": "2026-03-10",
+          "scope": "All Schneider Electric products, including Proface, APC, and ProLeiT."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Products, services, and solutions developed by Canon EMEA, Canon USA Inc., and those from IRIS, NT-ware, Onyx Graphics Inc., and Therefore Corporation, which are not under the Canon Brand.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Canon_EMEA",
+          "assignerOrgId": "4586e0a2-224d-4f8a-9cb4-8882b208c0b3",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Canon_EMEA",
+          "last_assigned_cve": "CVE-2025-11843",
+          "last_assigned_date": "2025-10-31",
+          "scope": "Products, services, and solutions developed by Canon EMEA, Canon USA Inc., and those from IRIS, NT-ware, Onyx Graphics Inc., and Therefore Corporation, which are not under the Canon Brand."
+        }
       }
     }
   ]

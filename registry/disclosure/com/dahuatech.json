@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Dahua consumer Internet of Things (IoT) products, excludes End-of-Life products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "dahua",
+          "assignerOrgId": "79ee569e-7d1e-4364-98f0-3a18e2a739ad",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/dahua",
+          "last_assigned_cve": "CVE-2025-31703",
+          "last_assigned_date": "2026-03-18",
+          "scope": "Dahua consumer Internet of Things (IoT) products, excludes End-of-Life products."
+        }
       }
     }
   ]

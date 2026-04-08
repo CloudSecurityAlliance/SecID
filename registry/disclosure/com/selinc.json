@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Schweitzer Engineering Laboratories products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "SEL",
+          "assignerOrgId": "5804bb70-792c-43e0-8596-486cc0efe699",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SEL",
+          "last_assigned_cve": "CVE-2025-48018",
+          "last_assigned_date": "2025-05-20",
+          "scope": "All Schweitzer Engineering Laboratories products."
+        }
       }
     }
   ]

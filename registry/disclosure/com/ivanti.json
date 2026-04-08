@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in supported Ivanti products and infrastructure, excluding third-party components, and meeting severity thresholds defined in Ivanti’s Disclosure Policy found here.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "ivanti",
+          "assignerOrgId": "3c1d8aa1-5a33-4ea4-8992-aadd6440af75",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ivanti",
+          "last_assigned_cve": "CVE-2026-3483",
+          "last_assigned_date": "2026-03-10",
+          "scope": "Vulnerabilities in supported Ivanti products and infrastructure, excluding third-party components, and meeting severity thresholds defined in Ivanti’s Disclosure Policy found here."
+        }
       }
     }
   ]

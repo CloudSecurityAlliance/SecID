@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Tego Cyber issues and vulnerabilities discovered by Tego in third-party products, unless covered under the scope of another CNA.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Tego_Cyber",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Tego_Cyber",
+          "scope": "Tego Cyber issues and vulnerabilities discovered by Tego in third-party products, unless covered under the scope of another CNA."
+        }
       }
     }
   ]

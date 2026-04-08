@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Ciena and Blue Planet branded products and technologies only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Ciena",
+          "assignerOrgId": "7bd90cf1-1651-495e-9ae8-9415fb3c9feb",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Ciena",
+          "last_assigned_cve": "CVE-2024-2005",
+          "last_assigned_date": "2024-03-05",
+          "scope": "Ciena and Blue Planet branded products and technologies only."
+        }
       }
     }
   ]

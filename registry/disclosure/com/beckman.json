@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Beckman Coulter Diagnostics manufactured products and technologies only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "BECDX",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BECDX",
+          "scope": "Beckman Coulter Diagnostics manufactured products and technologies only."
+        }
       }
     },
     {
@@ -61,8 +67,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Beckman Coulter Life Sciences manufactured products and technologies only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -88,7 +92,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "BECLS",
+          "assignerOrgId": "4ad3d9a7-bd20-4af3-8862-46d6b5a570db",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BECLS",
+          "last_assigned_cve": "CVE-2025-0941",
+          "last_assigned_date": "2025-02-26",
+          "scope": "Beckman Coulter Life Sciences manufactured products and technologies only."
+        }
       }
     }
   ]

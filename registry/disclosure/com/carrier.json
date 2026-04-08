@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Carrier Global products only.",
-        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Carrier",
+          "assignerOrgId": "e24e6442-3ae1-4538-a7b8-7ac95586db8f",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Carrier",
+          "last_assigned_cve": "CVE-2025-14295",
+          "last_assigned_date": "2026-01-22",
+          "scope": "Carrier Global products only."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Gallagher security products only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Gallagher",
+          "assignerOrgId": "0c426f27-3ee1-4eff-be88-288d5a1822bc",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Gallagher",
+          "last_assigned_cve": "CVE-2026-20801",
+          "last_assigned_date": "2026-03-03",
+          "scope": "All Gallagher security products only."
+        }
       }
     }
   ]

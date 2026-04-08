@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Illumio issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Illumio",
+          "assignerOrgId": "ea070963-4842-4451-bceb-906a17f8dc69",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Illumio",
+          "last_assigned_cve": "CVE-2023-5183",
+          "last_assigned_date": "2023-09-26",
+          "scope": "Illumio issues only."
+        }
       }
     }
   ]

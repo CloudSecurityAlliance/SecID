@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "The Browser Company of New York branded products and technologies only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Bug Bounty Provider",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "BCNY",
+          "assignerOrgId": "59469e6c-7ea7-446f-8e43-06aa32c115e8",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/BCNY",
+          "last_assigned_cve": "CVE-2026-2378",
+          "last_assigned_date": "2026-03-20",
+          "scope": "The Browser Company of New York branded products and technologies only."
+        }
       }
     }
   ]

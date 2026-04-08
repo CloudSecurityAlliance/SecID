@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "OpenAnolis issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Anolis",
+          "assignerOrgId": "cb8f1db9-b4b1-487b-a760-f65c4f368d8e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Anolis",
+          "last_assigned_cve": "CVE-2025-1390",
+          "last_assigned_date": "2025-02-18",
+          "scope": "OpenAnolis issues only."
+        }
       }
     }
   ]

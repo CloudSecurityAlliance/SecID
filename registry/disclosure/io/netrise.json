@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in third-party Extended Internet of Things (XIoT) devices and firmware NetRise researches that are not covered by another CNA.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "NetRise",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/NetRise",
+          "scope": "Vulnerabilities in third-party Extended Internet of Things (XIoT) devices and firmware NetRise researches that are not covered by another CNA."
+        }
       }
     }
   ]

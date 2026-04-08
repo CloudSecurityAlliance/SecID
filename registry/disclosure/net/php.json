@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in PHP code (code in https://github.com/php/php-src) only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "php",
+          "assignerOrgId": "dd77f84a-d19a-4638-8c3d-a322d820ed2b",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/php",
+          "last_assigned_cve": "CVE-2025-14177",
+          "last_assigned_date": "2025-12-27",
+          "scope": "Vulnerabilities in PHP code (code in https://github.com/php/php-src) only."
+        }
       }
     }
   ]

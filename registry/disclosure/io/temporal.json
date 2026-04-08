@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Temporal Technologies software.",
-        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Temporal",
+          "assignerOrgId": "61241ed8-fa44-4f23-92db-b8c443751968",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Temporal",
+          "last_assigned_cve": "CVE-2026-5199",
+          "last_assigned_date": "2026-04-01",
+          "scope": "All Temporal Technologies software."
+        }
       }
     }
   ]

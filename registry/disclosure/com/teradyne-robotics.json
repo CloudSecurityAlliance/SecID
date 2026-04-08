@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All products released by Teradyne Robotics subsidiaries, Universal Robots (UR) and Mobile Industrial Robots (MiR), including both actively supported and end-of-life/end-of-service products, as well as vulnerabilities in third-party software identified by Teradyne Robotics that are outside the scope of another CNA.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -46,7 +44,18 @@
             "note": "Security advisories"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "TRO",
+          "assignerOrgId": "1b7e193f-2525-49a1-b171-84af8827c9eb",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TRO",
+          "last_assigned_cve": "CVE-2025-13819",
+          "last_assigned_date": "2025-12-01",
+          "scope": "All products released by Teradyne Robotics subsidiaries, Universal Robots (UR) and Mobile Industrial Robots (MiR), including both actively supported and end-of-life/end-of-service products, as well as vulnerabilities in third-party software identified by Teradyne Robotics that are outside the scope of another CNA."
+        }
       }
     }
   ]

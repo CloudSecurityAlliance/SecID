@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "CVEs requested by code owners using the GitHub Security Advisories feature and vulnerabilities affecting open source projects discovered by security researchers at GitHub or Microsoft not covered by another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source, Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "GitHub_M",
+          "assignerOrgId": "a0819718-46f1-4df5-94e2-005712e83aaa",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GitHub_M",
+          "last_assigned_cve": "CVE-2026-34780",
+          "last_assigned_date": "2026-04-04",
+          "scope": "CVEs requested by code owners using the GitHub Security Advisories feature and vulnerabilities affecting open source projects discovered by security researchers at GitHub or Microsoft not covered by another CNA’s scope."
+        }
       }
     },
     {
@@ -61,8 +70,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "GitHub Enterprise Server issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -88,7 +95,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "GitHub_P",
+          "assignerOrgId": "82327ea3-741d-41e4-88f8-2cf9e791e760",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GitHub_P",
+          "last_assigned_cve": "CVE-2026-3582",
+          "last_assigned_date": "2026-03-10",
+          "scope": "GitHub Enterprise Server issues only."
+        }
       }
     }
   ]

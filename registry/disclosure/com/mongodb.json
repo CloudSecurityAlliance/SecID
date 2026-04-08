@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "MongoDB products only, not including end-of-life components or products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "mongodb",
+          "assignerOrgId": "a39b4221-9bd0-4244-95fc-f3e2e07f1deb",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mongodb",
+          "last_assigned_cve": "CVE-2026-5170",
+          "last_assigned_date": "2026-03-30",
+          "scope": "MongoDB products only, not including end-of-life components or products."
+        }
       }
     }
   ]

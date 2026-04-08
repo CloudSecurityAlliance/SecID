@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in Perl and CPAN Modules (including End-of-Life Perl versions) found at https://perl.org, https://cpan.org, or https://metacpan.org/, excluding distributions of Perl or CPAN Modules maintained by third-party redistributors.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -51,7 +49,13 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "scope": "Vulnerabilities in Perl and CPAN Modules (including End-of-Life Perl versions) found at https://perl.org, https://cpan.org, or https://metacpan.org/, excluding distributions of Perl or CPAN Modules maintained by third-party redistributors."
+        }
       }
     }
   ]

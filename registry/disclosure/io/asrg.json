@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All automotive and related infrastructure vulnerabilities that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "ASRG",
+          "assignerOrgId": "c15abc07-96a9-4d11-a503-5d621bfe42ba",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ASRG",
+          "last_assigned_cve": "CVE-2026-2541",
+          "last_assigned_date": "2026-02-15",
+          "scope": "All automotive and related infrastructure vulnerabilities that are not in another CNA’s scope."
+        }
       }
     }
   ]

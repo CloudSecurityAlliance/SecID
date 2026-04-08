@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities related to TCS-CERT’s customers’ environment and vulnerabilities related to research conducted by Cyber Solutions by Thales’ Intrusion and Application Security Team.",
-        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "TCS-CERT",
+          "assignerOrgId": "64c5ae8f-7972-4697-86a0-7ada793ac795",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/TCS-CERT",
+          "last_assigned_cve": "CVE-2026-2344",
+          "last_assigned_date": "2026-02-11",
+          "scope": "Vulnerabilities related to TCS-CERT’s customers’ environment and vulnerabilities related to research conducted by Cyber Solutions by Thales’ Intrusion and Application Security Team."
+        }
       }
     }
   ]

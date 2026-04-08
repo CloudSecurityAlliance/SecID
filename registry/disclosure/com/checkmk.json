@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All products of Checkmk GmbH including Checkmk and Checkmk Appliance, Nagvis, Robotmk, and packages published on exchange.checkmk.com.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Checkmk",
+          "assignerOrgId": "f7d6281c-4801-44ce-ace2-493291dedb0f",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Checkmk",
+          "last_assigned_cve": "CVE-2026-24096",
+          "last_assigned_date": "2026-04-01",
+          "scope": "All products of Checkmk GmbH including Checkmk and Checkmk Appliance, Nagvis, Robotmk, and packages published on exchange.checkmk.com."
+        }
       }
     }
   ]

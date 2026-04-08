@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Liferay supported products and end-of-life/end-of-service products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Liferay",
+          "assignerOrgId": "8b54e794-c6f0-462e-9faa-c1001a673ac3",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Liferay",
+          "last_assigned_cve": "CVE-2025-62275",
+          "last_assigned_date": "2025-11-01",
+          "scope": "All Liferay supported products and end-of-life/end-of-service products."
+        }
       }
     }
   ]

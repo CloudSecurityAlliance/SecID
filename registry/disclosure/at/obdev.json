@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Objective Development issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": null,
         "urls": [
@@ -45,7 +43,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "obdev",
+          "assignerOrgId": "e0cebea7-a708-4bfe-81c1-855d35eb4544",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/obdev",
+          "last_assigned_cve": "CVE-2020-13095",
+          "last_assigned_date": "2020-06-30",
+          "scope": "Objective Development issues only."
+        }
       }
     }
   ]

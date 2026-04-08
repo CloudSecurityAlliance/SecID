@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in the AHA! website and other AHA! controlled assets, as well as vulnerabilities identified in assets owned, operated, or maintained by another organization unless covered by the scope of another CNA.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "AHA",
+          "assignerOrgId": "26969f82-7e87-44d8-9cb5-f6fb926ddd43",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/AHA",
+          "last_assigned_cve": "CVE-2026-4946",
+          "last_assigned_date": "2026-03-29",
+          "scope": "Vulnerabilities in the AHA! website and other AHA! controlled assets, as well as vulnerabilities identified in assets owned, operated, or maintained by another organization unless covered by the scope of another CNA."
+        }
       }
     }
   ]

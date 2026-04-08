@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All products made and managed by the curl project. This includes curl, libcurl, and trurl.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "curl",
+          "assignerOrgId": "2499f714-1537-4658-8207-48ae4bb9eae9",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/curl",
+          "last_assigned_cve": "CVE-2026-3805",
+          "last_assigned_date": "2026-03-11",
+          "scope": "All products made and managed by the curl project. This includes curl, libcurl, and trurl."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in software discovered by CERT.PL, and vulnerabilities reported to CERT.PL for coordinated disclosure, which are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "CERT",
         "contacts": [
           {
@@ -56,7 +54,18 @@
             "note": "Security advisories (CVE list)"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "CERT-PL",
+          "assignerOrgId": "4bb8329e-dd38-46c1-aafb-9bf32bcb93c6",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/CERT-PL",
+          "last_assigned_cve": "CVE-2026-26928",
+          "last_assigned_date": "2026-04-02",
+          "scope": "Vulnerabilities in software discovered by CERT.PL, and vulnerabilities reported to CERT.PL for coordinated disclosure, which are not in another CNA’s scope."
+        }
       }
     }
   ]

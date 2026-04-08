@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Products and projects covered by its bug bounty programs that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider, Researcher",
         "contacts": [
           {
@@ -56,7 +54,13 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "scope": "Products and projects covered by its bug bounty programs that are not in another CNA’s scope."
+        }
       }
     }
   ]

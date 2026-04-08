@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "iManage issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "iManage",
+          "assignerOrgId": "5d978718-751a-428d-ac8e-4f9445ebfd11",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/iManage",
+          "last_assigned_cve": "CVE-2025-3651",
+          "last_assigned_date": "2025-04-17",
+          "scope": "iManage issues only."
+        }
       }
     }
   ]

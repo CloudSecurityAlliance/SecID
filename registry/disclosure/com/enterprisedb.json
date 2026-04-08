@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All EnterpriseDB products and vulnerabilities identified in open source libraries used by EnterpriseDB products unless covered by another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "EDB",
+          "assignerOrgId": "20be33e2-bf35-4d13-8fad-18bd2f3e3659",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/EDB",
+          "last_assigned_cve": "CVE-2026-0949",
+          "last_assigned_date": "2026-01-16",
+          "scope": "All EnterpriseDB products and vulnerabilities identified in open source libraries used by EnterpriseDB products unless covered by another CNA’s scope."
+        }
       }
     }
   ]

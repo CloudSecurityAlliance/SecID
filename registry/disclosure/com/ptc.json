@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All currently supported PTC software products and cloud/SaaS services.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": null,
         "urls": [
@@ -45,7 +43,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "PTC",
+          "assignerOrgId": "0b655efc-079c-4cb9-9e8d-164871239f4e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PTC",
+          "last_assigned_cve": "CVE-2026-4681",
+          "last_assigned_date": "2026-03-23",
+          "scope": "All currently supported PTC software products and cloud/SaaS services."
+        }
       }
     }
   ]

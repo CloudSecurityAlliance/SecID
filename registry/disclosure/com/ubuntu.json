@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Canonical issues (including Ubuntu Linux) only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -56,7 +54,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "canonical",
+          "assignerOrgId": "cc1ad9ee-3454-478d-9317-d3e869d708bc",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/canonical",
+          "last_assigned_cve": "CVE-2026-4370",
+          "last_assigned_date": "2026-04-01",
+          "scope": "All Canonical issues (including Ubuntu Linux) only."
+        }
       }
     }
   ]
