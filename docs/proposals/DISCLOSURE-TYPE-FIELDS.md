@@ -402,6 +402,44 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 `security_txt` is the easiest to automate — fetch `https://{domain}/.well-known/security.txt` for all 486 disclosure namespaces and record whether it exists.
 
+## Implementation Status
+
+### Phase 1: Documentation — not started
+
+Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field names list needs documenting.
+
+### Phase 2: CVE data migration — DONE (2026-04-08)
+
+**Script:** `scripts/migrate-disclosure-cve-fields.py`
+
+**Data sources:**
+- `working-data/cna/partner-details.json` — slug mapping and partner metadata
+- `seed/cve-cna-partners-raw.json` — slug extraction from CVE partner URLs
+- `~/GitHub/cveproject/cvelistV5/latest_cve_per_cna.csv` — assignerOrgId, last CVE, dates (457 CNAs)
+
+**Results:**
+- 485 files modified, 513 match_nodes migrated
+- 0 JSON validation errors
+- `cve_program_role` and `scope` removed from all `data` objects
+- Structured `cve` object added with: `role` (array), `assignerShortName`, `assignerOrgId`, `cna_partner_url`, `scope`, `root` reference, `last_assigned_cve`, `last_assigned_date`
+- 122 warnings logged:
+  - 101 entries missing `assignerOrgId` (CNA slug found but not in cvelistV5 CSV — inactive CNAs that never assigned a CVE)
+  - 21 entries missing slug mapping (could not map namespace domain to CNA partner slug)
+- Live resolver updated — structured CVE data is serving at secid.cloudsecurityalliance.org
+
+**Commits:**
+- `a7535a0` — Migration script
+- `b2be2e1` — Migrated data (485 files, +6316/-2037 lines)
+
+### Phase 3: Other fields — not started
+
+| Field | Approach | Effort |
+|-------|----------|--------|
+| `security_txt` | Automate — fetch `/.well-known/security.txt` for all 486 domains | Low — script |
+| `safe_harbor` | Manual research per vendor, starting with top 20 | Medium |
+| `bug_bounty` | Manual research per vendor, starting with top 20 | Medium |
+| `disclosure_policy` | Manual research per vendor, starting with top 20 | Medium |
+
 ## Open Questions
 
 1. **Should `last_assigned_cve` / `last_assigned_date` be auto-updated?** The data comes from the CVE list and could be refreshed on a schedule. A `checked` timestamp on the `cve` object would indicate when it was last refreshed.
