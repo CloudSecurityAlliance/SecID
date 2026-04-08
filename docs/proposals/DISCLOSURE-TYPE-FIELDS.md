@@ -1,4 +1,4 @@
-# Proposal: Profiles — Type-Specific Standard Fields
+# Proposal: Disclosure Type-Specific Standard Fields
 
 Status: Draft / discussion
 Date: 2026-04-05
@@ -6,9 +6,9 @@ Updated: 2026-04-07
 
 ## Summary
 
-Add a `profiles` object to registry entries that holds structured, type-specific data modules. Each module has a defined schema, can appear at both the namespace level and the match_node level, and inherits from parent to child. The `profiles` wrapper provides a clean extension point for future modules without polluting the top-level namespace.
+Add structured fields to disclosure registry entries' `data` objects that capture the information security researchers need when reporting vulnerabilities. Five new fields: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
 
-Initial modules for the `disclosure` type: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
+These fields are nested objects/arrays inside the existing `data` object — no new wrapper or top-level concept. They can appear at both the namespace level and the match_node level, with the same replace-not-merge inheritance that already applies to `data`.
 
 ## The Problem
 
@@ -22,9 +22,9 @@ When a researcher finds a vulnerability, they need answers to five questions:
 
 Today, disclosure entries have `contacts` and `scope` but lack structured data for safe harbor, CVE participation, bug bounties, security.txt, and disclosure policies. The `cve_program_role` field exists in ~513 CNA-sourced entries but is a free-text string, not structured.
 
-## Design: The `profiles` Wrapper
+## Design: Structured Fields Inside `data`
 
-`profiles` is a top-level object on registry entries (alongside `match_nodes`, `urls`, etc.) that contains named data modules. The same `profiles` key appears at both the namespace level and inside match_nodes.
+The five new fields are nested objects inside the existing `data` object. No new wrapper, no new top-level concept.
 
 ```json
 {
@@ -32,56 +32,50 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
   "type": "disclosure",
   "status": "published",
   "official_name": "Example Corp",
-  "urls": [...],
-
-  "profiles": {
-    "cve": { ... },
-    "safe_harbor": { ... },
-    "bug_bounty": [ ... ],
-    "security_txt": { ... },
-    "disclosure_policy": { ... }
-  },
 
   "match_nodes": [
     {
       "patterns": ["(?i)^psirt$"],
       "description": "Example Corp PSIRT",
-      "profiles": {
-        "bug_bounty": [{ "url": "https://hackerone.com/example", "paid": true }]
+      "data": {
+        "contacts": [{"type": "email", "value": "security@example.com"}],
+        "organization_type": "Vendor",
+
+        "cve": { ... },
+        "safe_harbor": { ... },
+        "bug_bounty": [ ... ],
+        "security_txt": { ... },
+        "disclosure_policy": { ... }
       }
     }
   ]
 }
 ```
 
-**Why a wrapper object:**
-
-- Clean extension point — new modules are added inside `profiles`, not as new top-level fields
-- Consistent key at every level (`profiles` at namespace, `profiles` at match_node, `profiles` at children)
-- Easy to enumerate — "what profiles does this entry have?" is `Object.keys(entry.profiles)`
-- Separates identity/resolution fields (`namespace`, `type`, `urls`, `match_nodes`) from descriptive profiles
-- Room to grow — future modules for any type go here
+Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchanged. The new fields sit alongside them. Structured nested objects are visually distinct from flat fields — no ambiguity about which is which.
 
 ### Inheritance
 
-`profiles` at a match_node level inherits from the namespace level. **Replace semantics — no deep merge.**
+`data` at a match_node level already works with replace semantics. The new structured fields follow the same pattern:
 
-**Inheritance rules:**
+| State | Behavior |
+|-------|----------|
+| Field **absent** | Not yet researched |
+| Field **`null`** | Researched, confirmed absent |
+| Field **present** (object or array) | The thing exists, here are the details |
 
-| Child `profiles` state | Behavior |
-|------------------------|----------|
-| Module **absent** | Inherit parent's module as-is |
-| Module **present** (object or array) | Child's module **replaces** parent's entirely. No field-level merge, no array append. |
-| Module **`null`** | Explicitly overrides parent — means "does not apply here" |
+When a match_node's `data` has a field, it's the complete value for that match_node. No merging with namespace-level data.
 
-**Why replace, not merge:** Deep merge creates ambiguity. If parent has `cve.role: "root"` and child has `cve.role: "cna"`, does the child add to or replace the parent's role? With replace semantics, the answer is always: child's `cve` object is the complete `cve` for that match_node. If you need the parent's data too, copy it into the child. Simple, predictable, no surprises.
+### Namespace-Level Data
+
+These fields can also appear on namespace-level `data` (outside match_nodes) for org-wide defaults:
 
 ```json
 {
   "namespace": "microsoft.com",
   "type": "disclosure",
 
-  "profiles": {
+  "data": {
     "safe_harbor": { "url": "https://www.microsoft.com/en-us/msrc/bounty-safe-harbor" },
     "disclosure_policy": { "url": "https://www.microsoft.com/en-us/msrc/cvd", "stated_timeline": "90 days" }
   },
@@ -90,15 +84,16 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
     {
       "patterns": ["(?i)^msrc$"],
       "description": "Microsoft Security Response Center",
-      "profiles": {
-        "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }],
-        "cve": { "role": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" }
+      "data": {
+        "contacts": [{"type": "email", "value": "secure@microsoft.com"}],
+        "cve": { "role": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" },
+        "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }]
       }
     },
     {
       "patterns": ["(?i)^xbox$"],
       "description": "Xbox Bug Bounty",
-      "profiles": {
+      "data": {
         "bug_bounty": [{ "url": "https://hackerone.com/xbox", "paid": true }],
         "cve": null
       }
@@ -107,38 +102,13 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 }
 ```
 
-- MSRC inherits `safe_harbor` and `disclosure_policy` from namespace (absent in its profiles), adds `bug_bounty` and `cve`
-- Xbox inherits `safe_harbor` and `disclosure_policy`, has its own `bug_bounty` (replaces, not appends), explicitly sets `cve` to `null` (Xbox doesn't assign CVEs)
+MSRC has its own `cve` and `bug_bounty`. Xbox has its own `bug_bounty` and explicitly no CVE (`null`). Both inherit `safe_harbor` and `disclosure_policy` from the namespace level.
 
 ### Phase 1 API Behavior
 
-**Phase 1:** When a namespace is successfully matched (`found`, `corrected`, or `related` status), the resolver includes namespace-level profiles in the response. This eliminates ambiguity — the client sees exactly what exists at each level without a second request.
+**Phase 1:** When a namespace is successfully matched (`found`, `corrected`, or `related` status), the resolver includes namespace-level `data` fields in the response alongside the matched result. This lets clients see org-wide defaults without a second request.
 
-When querying `secid:disclosure/redhat.com/cna`, the response includes:
-- The match_node result for `cna` (with its own `profiles` if present)
-- The namespace-level `profiles` as `namespace_profiles` on the envelope
-
-```json
-{
-  "secid_query": "secid:disclosure/redhat.com/cna",
-  "status": "found",
-  "results": [...],
-  "namespace_profiles": {
-    "cve": { "role": ["cna"], "assignerShortName": "redhat", ... },
-    "safe_harbor": null,
-    "bug_bounty": [{ "url": "https://hackerone.com/redhat", "paid": true }]
-  }
-}
-```
-
-This means "absent at match_node level" is unambiguously "not set here" — the client can see the namespace-level value right in the same response.
-
-**Scope of `namespace_profiles`:**
-- **Which types:** Disclosure only for now. Extends to other types as they adopt profiles.
-- **Which response statuses:** Included on `found`, `corrected`, and `related` (wherever a namespace was successfully matched). Not included on `not_found` or `error` (no namespace was identified to pull profiles from).
-- **Match_node profiles:** Returned inside `results[].profiles` on the matched result object, not separately.
-
-**Phase 2:** Resolver adds inheritance — merges namespace-level profiles with match_node-level profiles using replace semantics before returning. This is a backward-compatible enhancement (responses get richer; tolerant JSON consumers will not break, though strict-schema consumers should anticipate new fields).
+**Phase 2:** Resolver merges namespace-level data fields with match_node-level data using replace semantics before returning. Backward-compatible enhancement (responses get richer; tolerant JSON consumers will not break, though strict-schema consumers should anticipate new fields).
 
 ### Null vs Absent Convention
 
@@ -150,31 +120,20 @@ Consistent with existing SecID convention:
 
 No redundant `"exists": true` booleans.
 
-### Boundary: `profiles` vs `data`
-
-Profiles and the existing `data` object coexist on the same node. They serve different purposes:
-
-- **`profiles`** — structured modules with defined schemas and controlled vocabulary (cve, safe_harbor, bug_bounty, etc.). Each module has a documented field table. Typed and machine-queryable.
-- **`data`** — operational freeform details (contacts, urls, examples, organization_type). Existing field, unchanged by this proposal.
-
-After migration, `cve_program_role` and `scope` move from `data` into `profiles.cve`. `contacts`, `organization_type`, `urls`, and `examples` stay in `data`.
-
 ### Field Naming Policy
 
 - **Preserve source names** for fields sourced directly from external data: `assignerShortName`, `assignerOrgId` (from CVE 5.0 JSON `cveMetadata`). These are camelCase because that's what CVE uses.
 - **Use snake_case** for SecID-defined fields: `cna_partner_url`, `last_assigned_cve`, `last_assigned_date`, `stated_timeline`, `statement_url`.
 
-This is consistent with SecID's "follow the source" principle — CVE's naming is CVE's naming, we don't normalize it.
-
 ### Metadata Convention
 
-Profile modules use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects; `field_checked`, `field_updated`, `field_note` as suffixes for scalar fields.
+The new fields use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects.
 
-**Extended provenance fields** (`source`, `process`, `checked_by`) are a useful addition but are a **registry-wide concern, not disclosure-specific**. These will be proposed separately as an extension to REGISTRY-JSON-FORMAT.md's per-field metadata convention. This proposal does not depend on them — the existing `checked`/`updated`/`note` fields are sufficient for V1.
+**Extended provenance fields** (`source`, `process`, `checked_by`) are a registry-wide concern and will be proposed separately. This proposal does not depend on them.
 
-**V1 vs V2 pattern:** In V1, profile modules are pointers (URLs) with timestamps. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content.
+**V1 vs V2 pattern:** In V1, fields are pointers (URLs) with timestamps. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content.
 
-## Disclosure Profile Modules
+## New Fields
 
 ### `cve`
 
@@ -230,7 +189,7 @@ Field names use CVE Program terminology (`assignerShortName`, `assignerOrgId`) s
 |-------|------|----------|-------------|
 | `role` | `string[]` | Only for CVE Program participants | CVE Program role(s). Protected vocabulary — only present for formal program participants. Array because some orgs hold multiple roles (e.g., Root + CNA-LR). When present, `assignerShortName` is required. |
 | `assignerShortName` | `string` | When `role` is present | CNA short name as used in CVE JSON records (`cveMetadata.assignerShortName`). **Preserve source case.** |
-| `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up" — consistent with null/absent convention. |
+| `assignerOrgId` | `string` (UUID) | No (strongly recommended when `role` present) | CVE Program org UUID (`cveMetadata.assignerOrgId`). Stable — survives renames and rebrands. Absent means "not yet looked up." |
 | `cna_partner_url` | `string` | No | URL to this org's CVE Partner page on cve.org. |
 | `scope` | `string` | No | What products/services the CNA covers (from CVE Program data). |
 | `root` | `object` | No | The Root CNA this org reports to. |
@@ -289,8 +248,7 @@ Bug bounty program(s). **Array** — organizations may run multiple programs on 
     "paid": true
   },
   {
-    "url": "https://bugcrowd.com/example-iot",
-    "paid": true
+    "url": "https://bugcrowd.com/example-iot"
   }
 ]
 ```
@@ -318,8 +276,6 @@ RFC 9116 machine-readable security contact file.
 |-------|------|-------------|
 | `url` | `string` | URL of the security.txt file. |
 
-`profiles.security_txt` is the canonical location for this data. One existing entry uses `urls[].type="security_txt"` as a general URL entry — that can coexist, but `profiles.security_txt` is the structured, queryable representation.
-
 ### `disclosure_policy`
 
 Vulnerability disclosure policy.
@@ -338,25 +294,13 @@ Vulnerability disclosure policy.
 
 No `type` vocabulary (coordinated / responsible / full) — the industry uses these terms inconsistently. The URL and stated_timeline are the useful machine-readable data.
 
-## Cross-Type Modules
+## Cross-Type Applicability
 
-The `profiles` wrapper is not limited to disclosure. Modules can be reused across types where they make sense, and each type can define its own modules.
+**This proposal defines only the five disclosure fields listed above.** Other types may add their own structured fields to `data` in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal. The `data` object accommodates this naturally — just add new nested objects alongside existing fields.
 
-**This proposal defines only the five disclosure modules listed above.** These are the modules being implemented now:
+## Complete Examples
 
-| Module | Types where it applies | Notes |
-|--------|----------------------|-------|
-| `cve` | `disclosure`, potentially `advisory` | A CNA's advisory entry may also benefit from CVE program data |
-| `safe_harbor` | `disclosure` | Disclosure-specific |
-| `bug_bounty` | `disclosure` | Disclosure-specific |
-| `security_txt` | `disclosure` | Disclosure-specific |
-| `disclosure_policy` | `disclosure` | Disclosure-specific |
-
-**Aspirational (not part of this proposal):** Other types may define their own profile modules in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal with the same level of schema definition. The `profiles` wrapper accommodates this without schema changes, but the modules themselves are not being defined or committed to here. Any future modules must individually pass the registry/data-layer boundary test — some may belong in the data layer rather than the registry.
-
-## Complete Example
-
-A fully populated disclosure entry for a CVE Program participant:
+### CNA with full data
 
 ```json
 {
@@ -370,41 +314,6 @@ A fully populated disclosure entry for a CVE Program participant:
     {"type": "security", "url": "https://access.redhat.com/security/"}
   ],
 
-  "profiles": {
-    "cve": {
-      "role": ["root", "cna"],
-      "assignerShortName": "redhat",
-      "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
-      "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
-      "scope": "Red Hat products and the open source community",
-      "root": {
-        "assignerShortName": "mitre",
-        "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
-      },
-      "last_assigned_cve": "CVE-2026-3184",
-      "last_assigned_date": "2026-04-03",
-      "checked": "2026-04-05",
-      "note": "Red Hat is both a Root CNA and a CNA. Root scope covers open source community."
-    },
-    "safe_harbor": null,
-    "bug_bounty": [
-      {
-        "url": "https://hackerone.com/redhat",
-        "paid": true,
-        "checked": "2026-04-05"
-      }
-    ],
-    "security_txt": {
-      "url": "https://www.redhat.com/.well-known/security.txt",
-      "checked": "2026-04-05"
-    },
-    "disclosure_policy": {
-      "url": "https://access.redhat.com/articles/2939351",
-      "stated_timeline": "coordinated disclosure",
-      "checked": "2026-04-05"
-    }
-  },
-
   "match_nodes": [
     {
       "patterns": ["(?i)^cna$"],
@@ -412,14 +321,48 @@ A fully populated disclosure entry for a CVE Program participant:
       "data": {
         "contacts": [
           {"type": "email", "value": "secalert@redhat.com"}
-        ]
+        ],
+        "organization_type": "Vendor, Open Source",
+
+        "cve": {
+          "role": ["root", "cna"],
+          "assignerShortName": "redhat",
+          "assignerOrgId": "53f830b8-0a3f-465b-8143-3b8a9948e749",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat",
+          "scope": "Red Hat products and the open source community",
+          "root": {
+            "assignerShortName": "mitre",
+            "assignerOrgId": "8254265b-2729-46b6-b9e3-3dfca2d5bfca"
+          },
+          "last_assigned_cve": "CVE-2026-3184",
+          "last_assigned_date": "2026-04-03",
+          "checked": "2026-04-05",
+          "note": "Red Hat is both a Root CNA and a CNA. Root scope covers open source community."
+        },
+        "safe_harbor": null,
+        "bug_bounty": [
+          {
+            "url": "https://hackerone.com/redhat",
+            "paid": true,
+            "checked": "2026-04-05"
+          }
+        ],
+        "security_txt": {
+          "url": "https://www.redhat.com/.well-known/security.txt",
+          "checked": "2026-04-05"
+        },
+        "disclosure_policy": {
+          "url": "https://access.redhat.com/articles/2939351",
+          "stated_timeline": "coordinated disclosure",
+          "checked": "2026-04-05"
+        }
       }
     }
   ]
 }
 ```
 
-A disclosure entry for a non-CNA with a stated CVE position:
+### Non-CNA with stated CVE position
 
 ```json
 {
@@ -429,42 +372,49 @@ A disclosure entry for a non-CNA with a stated CVE position:
   "status": "published",
   "official_name": "Small Vendor Inc.",
 
-  "profiles": {
-    "cve": {
-      "note": "Will request CVE from MITRE on reporter's behalf. Typical turnaround 2-4 weeks.",
-      "statement_url": "https://smallvendor.com/security/cve-policy"
-    },
-    "safe_harbor": {
-      "url": "https://smallvendor.com/security/safe-harbor"
-    },
-    "bug_bounty": null,
-    "security_txt": {
-      "url": "https://smallvendor.com/.well-known/security.txt"
-    }
-  },
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^psirt$"],
+      "description": "Small Vendor PSIRT",
+      "data": {
+        "contacts": [
+          {"type": "email", "value": "security@smallvendor.com"}
+        ],
 
-  "match_nodes": [...]
+        "cve": {
+          "note": "Will request CVE from MITRE on reporter's behalf. Typical turnaround 2-4 weeks.",
+          "statement_url": "https://smallvendor.com/security/cve-policy"
+        },
+        "safe_harbor": {
+          "url": "https://smallvendor.com/security/safe-harbor"
+        },
+        "bug_bounty": null,
+        "security_txt": {
+          "url": "https://smallvendor.com/.well-known/security.txt"
+        }
+      }
+    }
+  ]
 }
 ```
 
 ## Migration Plan
 
-### Phase 1: Schema (hard dependency — must complete before any data migration)
+### Phase 1: Schema
 
-- **Update JSON Schema** (`schemas/registry-namespace.schema.json`): add `profiles` to MatchNode properties. Top-level already allows additional properties (`additionalProperties: true` at line 113). MatchNode has `additionalProperties: false` (line 185) — this is the only hard blocker.
-- Add `profiles` wrapper definition to REGISTRY-JSON-FORMAT.md
-- Define initial disclosure modules (cve, safe_harbor, bug_bounty, security_txt, disclosure_policy)
-- Document Phase 1 API behavior (namespace_profiles in every response)
+- **Update JSON Schema** (`schemas/registry-namespace.schema.json`): MatchNode has `additionalProperties: false` (line 185) — update to allow the new structured fields inside `data`. Top-level schema already allows additional properties.
+- Add field definitions to REGISTRY-JSON-FORMAT.md
+- Define initial disclosure fields (cve, safe_harbor, bug_bounty, security_txt, disclosure_policy)
 - Update disclosure type description (`registry/disclosure.md`)
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
 
-The existing `cve_program_role` free-text field in `data` objects maps to the new `profiles.cve` structured module. Migration is mechanical. The parenthetical "(reports to X)" maps to `profiles.cve.root`.
+The existing `cve_program_role` free-text field in `data` maps to the new structured `cve` object. Migration is mechanical.
 
 **Complete mapping of all observed values** (from current registry data):
 
-| Existing `cve_program_role` | Count | `profiles.cve.role` | `profiles.cve.root.assignerShortName` |
-|-----------------------------|-------|---------------------|---------------------------------------|
+| Existing `cve_program_role` | Count | `cve.role` | `cve.root.assignerShortName` |
+|-----------------------------|-------|------------|------------------------------|
 | `"CNA"` | 498 | `["cna"]` | (from CNA partner data) |
 | `"Root"` | 6 | `["root"]` | `"mitre"` |
 | `"Top-Level Root (reports to CVE Board)"` | 2 | `["tlr"]` | — |
@@ -476,7 +426,7 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 | `"ADP (Authorized Data Publisher)"` | 1 | `["adp"]` | — |
 | `"Secretariat (reports to CVE Board)"` | 1 | `["secretariat"]` | — |
 
-**Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["root", "cna-lr"]` — no information loss. Individual match_nodes can carry role-specific scope overrides (which is how Red Hat's three roles are already structured).
+**Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["root", "cna-lr"]` — no information loss.
 
 **Parsing rules:**
 - For multi-role entries, split on comma **only at the top level** — commas appear inside parenthetical explanatory text (e.g., "CNA of Last Resort, reports to MITRE"). The `partner-details.json` `Program Role` field is already an array, so prefer using that structured source over string splitting.
@@ -486,7 +436,7 @@ The existing `cve_program_role` free-text field in `data` objects maps to the ne
 
 **Migration should emit a warning list** for entries where `role` is present but `assignerOrgId` could not be found — these need manual follow-up against the CVE list data.
 
-**After migration, remove from `data`:** `cve_program_role`, `scope` (now in `profiles.cve`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
+**After migration, remove from `data`:** `cve_program_role` (replaced by `cve` object), `scope` when it's CNA scope (now in `cve.scope`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
 
 ### Phase 3: Populate other fields (new research)
 
@@ -496,47 +446,42 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 ## Open Questions
 
-1. **Should `last_assigned_cve` / `last_assigned_date` be auto-updated?** The data comes from the CVE list and could be refreshed on a schedule. A `checked` timestamp on the `cve` module would indicate when it was last refreshed.
+1. **Should `last_assigned_cve` / `last_assigned_date` be auto-updated?** The data comes from the CVE list and could be refreshed on a schedule. A `checked` timestamp on the `cve` object would indicate when it was last refreshed.
 
 2. **`security_txt` automation** — should we build a script to check all disclosure namespace domains for security.txt? Easy to do, high coverage quickly.
 
-3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. Should there be a `checked` date? (Probably yes — added to the examples.)
+3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. `checked` dates on bounty entries help detect this.
 
-4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `profiles.cve.role` carries all roles as an array. Match_node-level `profiles.cve` can override with role-specific scope via replace semantics (which is how the existing entries are already structured).
+4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `cve` carries all roles. Match_node-level `cve` can override with role-specific scope via replace semantics (which is how the existing entries are already structured).
 
 5. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
 
-6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. A CERT's disclosure entry would use the same profile modules as any other org. If needed later, a `csirt` profile module could be added to the entity type.
-
-7. **Formal JSON Schema for modules** — field tables are documented here. Formal JSON Schema constraints (for roles vocabulary, UUID format, date format) will be defined when we implement and discover what validation is needed in practice. Premature schema rigidity risks not matching real-world data patterns.
+6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. If needed later, a `csirt` field could be added.
 
 ## Resolved Issues
 
-Issues raised by review feedback and resolved in this revision:
+Issues raised by review feedback and resolved across four revisions:
 
 | Issue | Resolution |
 |-------|-----------|
 | Schema dependency misstated (top-level already open) | Fixed — only MatchNode `additionalProperties: false` is the blocker |
-| security_txt migration note described non-existent data | Removed — no scalar `security_txt` fields exist in current disclosure entries |
-| Phase 1 inheritance ambiguity | Fixed — Phase 1 includes `namespace_profiles` in every response |
-| Mixed camelCase/snake_case naming | Codified — CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
-| `requests` mixed into CVE Program roles | Fixed — `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
-| Local file path not reproducible | Fixed — references cvelistV5 GitHub repo, extraction script goes in `scripts/` |
-| Backward compat claim too broad | Added caveat — tolerant consumers OK, strict-schema consumers should anticipate new fields |
-| Multi-role lossy with single role | Restored `role` as array — no information loss, no precedence needed |
-| assignerOrgId too strict as required | Relaxed — strongly recommended but absent means "not yet looked up" |
-| namespace_profiles scope undefined | Specified: disclosure only, on found/corrected/related, not on not_found/error |
-| bug_bounty.paid forces false certainty | Made optional — absent means unknown |
-| Naive comma splitting in parsing | Added safety note: split only at top level, prefer structured source data |
-| Missing UUID migration handling | Added: migration emits warning list for manual follow-up |
+| Phase 1 inheritance ambiguity | Phase 1 includes namespace-level data in response when namespace matched |
+| Mixed camelCase/snake_case naming | Policy: CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
+| `requests` mixed into CVE Program roles | `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
+| Local file path not reproducible | References cvelistV5 GitHub repo, extraction script goes in `scripts/` |
+| Backward compat claim too broad | Added caveat for strict-schema consumers |
+| Multi-role lossy with single role | `role` is an array — no information loss |
+| Naive comma splitting in parsing | Added safety note: prefer structured source data |
+| Missing UUID migration handling | Migration emits warning list for manual follow-up |
+| `profiles` wrapper adds unnecessary complexity | Dropped — fields go directly in `data` |
 
 **Deferred (not blocking this proposal):**
 
 | Issue | Plan |
 |-------|------|
-| Formal JSON Schema for modules | Define when implementing — light schema for `role` enum + UUID/date formats recommended as follow-on |
+| Formal JSON Schema for new fields | Define when implementing — light schema for `role` enum + UUID/date formats recommended as follow-on |
 | Extended provenance fields (source, process, checked_by) | Separate registry-wide proposal |
 
 ---
 
-*Based on design discussion about CNA tagging, disclosure researcher experience, and type-specific standard fields. The `profiles` wrapper establishes a general extension mechanism for all SecID types.*
+*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Four rounds of review feedback incorporated.*
