@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Mautic core and officially supported plugins.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": null,
         "urls": [
@@ -45,7 +43,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Mautic",
+          "assignerOrgId": "4e531c38-7a33-45d3-98dd-d909c0d8852e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Mautic",
+          "last_assigned_cve": "CVE-2026-3105",
+          "last_assigned_date": "2026-02-24",
+          "scope": "Mautic core and officially supported plugins."
+        }
       }
     }
   ]

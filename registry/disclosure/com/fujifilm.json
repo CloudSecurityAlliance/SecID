@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Fuji Xerox and FUJIFILM Business Innovation products such as multifunction devices, printers, production printers, software, and cloud services.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "FB",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/FB",
+          "scope": "Fuji Xerox and FUJIFILM Business Innovation products such as multifunction devices, printers, production printers, software, and cloud services."
+        }
       }
     }
   ]

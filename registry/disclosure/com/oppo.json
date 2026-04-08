@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "OPPO devices only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "OPPO",
+          "assignerOrgId": "7f2b1ad8-5432-4d64-91a1-9099af1cc695",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OPPO",
+          "last_assigned_cve": "CVE-2025-27389",
+          "last_assigned_date": "2025-12-05",
+          "scope": "OPPO devices only."
+        }
       }
     }
   ]

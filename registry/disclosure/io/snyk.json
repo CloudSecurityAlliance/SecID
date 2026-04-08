@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in Snyk products and vulnerabilities discovered by, or reported to, Snyk that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source, Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "snyk",
+          "assignerOrgId": "bae035ff-b466-4ff4-94d0-fc9efd9e1730",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/snyk",
+          "last_assigned_cve": "CVE-2026-4603",
+          "last_assigned_date": "2026-03-23",
+          "scope": "Vulnerabilities in Snyk products and vulnerabilities discovered by, or reported to, Snyk that are not in another CNA’s scope."
+        }
       }
     }
   ]

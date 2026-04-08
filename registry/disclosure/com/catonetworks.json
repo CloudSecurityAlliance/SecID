@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Cato Networks products and vulnerabilities in third-party products affecting Cato products unless covered by the scope of another CNA.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Researcher",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Cato",
+          "assignerOrgId": "2505284f-8ffb-486c-bf60-e19c1097a90b",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Cato",
+          "last_assigned_cve": "CVE-2025-14213",
+          "last_assigned_date": "2026-03-31",
+          "scope": "All Cato Networks products and vulnerabilities in third-party products affecting Cato products unless covered by the scope of another CNA."
+        }
       }
     }
   ]

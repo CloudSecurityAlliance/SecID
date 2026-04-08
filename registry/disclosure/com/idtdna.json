@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities within IDT-manufactured products, software, and services that are in-service.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "IDT-DNA",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/IDT-DNA",
+          "scope": "Vulnerabilities within IDT-manufactured products, software, and services that are in-service."
+        }
       }
     }
   ]

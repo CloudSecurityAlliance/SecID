@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Smile Digital Health products and HAPI FHIR.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "SmileDigitalHealth",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/SmileDigitalHealth",
+          "scope": "All Smile Digital Health products and HAPI FHIR."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Azure Access branded products and technologies only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "azure-access",
+          "assignerOrgId": "a0340c66-c385-4f8b-991b-3d05f6fd5220",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/azure-access",
+          "last_assigned_cve": "CVE-2025-12603",
+          "last_assigned_date": "2025-11-01",
+          "scope": "Azure Access branded products and technologies only."
+        }
       }
     }
   ]

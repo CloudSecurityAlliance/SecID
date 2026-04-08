@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Hanwha Vision (formerly Samsung Techwin and Hanwha Techwin) products and solutions only, including end-of-life (EOL).",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Hanwha_Vision",
+          "assignerOrgId": "fc9afe74-3f80-4fb7-a313-e6f036a89882",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Hanwha_Vision",
+          "last_assigned_cve": "CVE-2025-8075",
+          "last_assigned_date": "2025-12-26",
+          "scope": "Hanwha Vision (formerly Samsung Techwin and Hanwha Techwin) products and solutions only, including end-of-life (EOL)."
+        }
       }
     }
   ]

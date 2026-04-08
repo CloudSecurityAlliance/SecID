@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Roche’s medical technology products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Roche",
+          "assignerOrgId": "5cdcf916-2b10-4ec8-bfc1-d054821e439e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Roche",
+          "last_assigned_cve": "CVE-2025-7674",
+          "last_assigned_date": "2025-08-05",
+          "scope": "Roche’s medical technology products."
+        }
       }
     }
   ]

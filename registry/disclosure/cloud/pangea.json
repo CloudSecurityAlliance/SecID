@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Pangea Cyber products and services, as well as vulnerabilities in third-party software that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Hosted Service, Researcher",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "PangeaCyber",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/PangeaCyber",
+          "scope": "All Pangea Cyber products and services, as well as vulnerabilities in third-party software that are not in another CNA’s scope."
+        }
       }
     }
   ]

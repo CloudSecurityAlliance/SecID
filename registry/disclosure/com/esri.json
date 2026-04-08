@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Esri products only, including ArcGIS.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories (blog)"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Esri",
+          "assignerOrgId": "cedc17bb-4939-4f40-a1f4-30ae8af1094e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Esri",
+          "last_assigned_cve": "CVE-2026-1446",
+          "last_assigned_date": "2026-01-26",
+          "scope": "All Esri products only, including ArcGIS."
+        }
       }
     }
   ]

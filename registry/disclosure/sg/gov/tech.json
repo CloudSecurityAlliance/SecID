@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities discovered by GovTech CSG only that are not in another CNA’s scope.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -51,7 +49,15 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "GovTech_CSG",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/GovTech_CSG",
+          "scope": "Vulnerabilities discovered by GovTech CSG only that are not in another CNA’s scope."
+        }
       }
     }
   ]

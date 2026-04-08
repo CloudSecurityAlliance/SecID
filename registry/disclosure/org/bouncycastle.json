@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Legion of the Bouncy Castle issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "bcorg",
+          "assignerOrgId": "91579145-5d7b-4cc5-b925-a0262ff19630",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/bcorg",
+          "last_assigned_cve": "CVE-2025-12194",
+          "last_assigned_date": "2025-10-24",
+          "scope": "Legion of the Bouncy Castle issues only."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in software published and maintained by Progress Software Corporation.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "ProgressSoftware",
+          "assignerOrgId": "f9fea0b6-671e-4eea-8fde-31911902ae05",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ProgressSoftware",
+          "last_assigned_cve": "CVE-2026-2737",
+          "last_assigned_date": "2026-04-02",
+          "scope": "Vulnerabilities in software published and maintained by Progress Software Corporation."
+        }
       }
     }
   ]

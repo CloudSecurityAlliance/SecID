@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Perforce products.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Perforce",
+          "assignerOrgId": "ca2a266c-be2f-4d4b-92d0-47b76b1a9c4e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Perforce",
+          "last_assigned_cve": "CVE-2025-14591",
+          "last_assigned_date": "2025-12-20",
+          "scope": "All Perforce products."
+        }
       }
     }
   ]

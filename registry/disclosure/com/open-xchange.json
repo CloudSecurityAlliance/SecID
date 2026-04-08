@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Products and services provided by Open-Xchange, PowerDNS, and Dovecot.",
-        "cve_program_role": "CNA",
         "organization_type": "Open Source, Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "OX",
+          "assignerOrgId": "8ce71d90-2354-404b-a86e-bec2cc4e6981",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OX",
+          "last_assigned_cve": "CVE-2026-27854",
+          "last_assigned_date": "2026-03-31",
+          "scope": "Products and services provided by Open-Xchange, PowerDNS, and Dovecot."
+        }
       }
     }
   ]

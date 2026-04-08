@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Provides CVE IDs for its customers as part of its bug bounty and vulnerability coordination platform.",
-        "cve_program_role": "CNA",
         "organization_type": "Bug Bounty Provider",
         "contacts": null,
         "urls": [
@@ -45,7 +43,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "hackerone",
+          "assignerOrgId": "36234546-b8fa-4601-9d6f-f4e334aa8ea1",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/hackerone",
+          "last_assigned_cve": "CVE-2026-22561",
+          "last_assigned_date": "2026-03-31",
+          "scope": "Provides CVE IDs for its customers as part of its bug bounty and vulnerability coordination platform."
+        }
       }
     }
   ]

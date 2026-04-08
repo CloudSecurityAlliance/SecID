@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "WordPress core, plugins, and themes.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories (vulnerability database)"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "WPScan",
+          "assignerOrgId": "1bfdd5d7-9bf6-4a53-96ea-42e2716d7a81",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/WPScan",
+          "last_assigned_cve": "CVE-2026-1540",
+          "last_assigned_date": "2026-04-02",
+          "scope": "WordPress core, plugins, and themes."
+        }
       }
     }
   ]

@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Sophos issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Sophos",
+          "assignerOrgId": "526a354d-e866-4174-ae7d-bac848e5c4c5",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Sophos",
+          "last_assigned_cve": "CVE-2025-10159",
+          "last_assigned_date": "2025-09-09",
+          "scope": "Sophos issues only."
+        }
       }
     }
   ]

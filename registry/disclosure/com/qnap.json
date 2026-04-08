@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "QNAP issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "qnap",
+          "assignerOrgId": "2fd009eb-170a-4625-932b-17a53af1051f",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/qnap",
+          "last_assigned_cve": "CVE-2025-59383",
+          "last_assigned_date": "2026-03-20",
+          "scope": "QNAP issues only."
+        }
       }
     }
   ]

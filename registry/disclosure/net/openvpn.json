@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All products and projects in which OpenVPN is directly involved commercially and for OpenVPN community projects, including Private Tunnel.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor, Open Source",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "OpenVPN",
+          "assignerOrgId": "36a55730-e66d-4d39-8ca6-3c3b3017965e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenVPN",
+          "last_assigned_cve": "CVE-2026-2738",
+          "last_assigned_date": "2026-02-19",
+          "scope": "All products and projects in which OpenVPN is directly involved commercially and for OpenVPN community projects, including Private Tunnel."
+        }
       }
     }
   ]

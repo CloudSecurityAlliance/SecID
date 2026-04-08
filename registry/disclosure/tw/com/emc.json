@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "ELAN issues only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -46,7 +44,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "ELAN",
+          "assignerOrgId": "36106deb-8e95-420b-a0a0-e70af5d245df",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ELAN",
+          "last_assigned_cve": "CVE-2024-0454",
+          "last_assigned_date": "2024-01-12",
+          "scope": "ELAN issues only."
+        }
       }
     }
   ]

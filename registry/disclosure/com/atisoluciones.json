@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "AtiSoluciones products only.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "ATIS",
+          "assignerOrgId": "68e1e1d3-5247-4d65-9f39-ef1a02cf571e",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/ATIS",
+          "last_assigned_cve": "CVE-2025-13596",
+          "last_assigned_date": "2025-11-24",
+          "scope": "AtiSoluciones products only."
+        }
       }
     }
   ]

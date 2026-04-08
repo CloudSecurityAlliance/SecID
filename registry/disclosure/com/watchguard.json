@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Vulnerabilities in all WatchGuard products and products of WatchGuard subsidiaries.",
-        "cve_program_role": "CNA",
         "organization_type": "Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "WatchGuard",
+          "assignerOrgId": "5d1c2695-1a31-4499-88ae-e847036fd7e3",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/WatchGuard",
+          "last_assigned_cve": "CVE-2026-3987",
+          "last_assigned_date": "2026-04-01",
+          "scope": "Vulnerabilities in all WatchGuard products and products of WatchGuard subsidiaries."
+        }
       }
     }
   ]

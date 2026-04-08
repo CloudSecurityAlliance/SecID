@@ -24,8 +24,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "All Cisco products, and any third-party research targets that are not in another CNA’s scope. Cisco will not issue a CVE ID for issues reported on products that are past the Last Day of Support milestone, as defined on Cisco’s End-of-Life Policy, which is available at https://www.cisco.com/c/en/us/products/eos-eol-policy.html.",
-        "cve_program_role": "CNA",
         "organization_type": "Hosted Service, Open Source, Researcher, Vendor",
         "contacts": [
           {
@@ -51,7 +49,18 @@
             "note": "Security advisories"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "cisco",
+          "assignerOrgId": "d1c1063e-7a18-46af-9102-31f8928bc633",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/cisco",
+          "last_assigned_cve": "CVE-2026-20090",
+          "last_assigned_date": "2026-04-01",
+          "scope": "All Cisco products, and any third-party research targets that are not in another CNA’s scope. Cisco will not issue a CVE ID for issues reported on products that are past the Last Day of Support milestone, as defined on Cisco’s End-of-Life Policy, which is available at https://www.cisco.com/c/en/us/products/eos-eol-policy.html."
+        }
       }
     },
     {
@@ -61,8 +70,6 @@
       "description": "CNA",
       "weight": 80,
       "data": {
-        "scope": "Third-party products it researches.",
-        "cve_program_role": "CNA",
         "organization_type": "Researcher",
         "contacts": [
           {
@@ -88,7 +95,18 @@
             "note": "CVE partner page"
           }
         ],
-        "examples": []
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "cisco",
+          "assignerOrgId": "d1c1063e-7a18-46af-9102-31f8928bc633",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/cisco",
+          "last_assigned_cve": "CVE-2026-20090",
+          "last_assigned_date": "2026-04-01",
+          "scope": "Third-party products it researches."
+        }
       }
     }
   ]
