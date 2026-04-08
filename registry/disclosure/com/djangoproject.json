@@ -59,10 +59,15 @@
           "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/DSF",
           "last_assigned_cve": "CVE-2026-25674",
           "last_assigned_date": "2026-03-03",
-          "scope": "Only supported and end-of-life Django versions available at https://www.djangoproject.com/download/ and projects listed at https://github.com/django (such as Django, channels, and daphne), excluding distributions maintained by third-party redistributors."
+          "scope": "Only supported and end-of-life Django versions available at https://www.djangoproject.com/download/ and projects listed at https://github.com/django (such as Django, channels, and daphne), excluding distributions maintained by third-party redistributors.",
+          "cna_id": "CNA-2025-0057"
         },
         "security_txt": {
           "url": "https://djangoproject.com/.well-known/security.txt",
+          "checked": "2026-04-08"
+        },
+        "disclosure_policy": {
+          "url": "https://www.djangoproject.com/foundation/cve-numbering-authority/",
           "checked": "2026-04-08"
         }
       }

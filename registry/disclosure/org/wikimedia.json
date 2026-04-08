@@ -59,9 +59,14 @@
           "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/wikimedia-foundation",
           "last_assigned_cve": "CVE-2025-67481",
           "last_assigned_date": "2026-02-03",
-          "scope": "Any code repository hosted under gerrit.wikimedia.org, gitlab.wikimedia.org, or github.com/wikimedia that is not labeled as archived or marked as a fork of an upstream project. Please see our disclosure policy for additional exclusions to scope."
+          "scope": "Any code repository hosted under gerrit.wikimedia.org, gitlab.wikimedia.org, or github.com/wikimedia that is not labeled as archived or marked as a fork of an upstream project. Please see our disclosure policy for additional exclusions to scope.",
+          "cna_id": "CNA-2024-0067"
         },
-        "security_txt": null
+        "security_txt": null,
+        "disclosure_policy": {
+          "url": "https://www.mediawiki.org/wiki/Reporting_security_bugs",
+          "checked": "2026-04-08"
+        }
       }
     }
   ]

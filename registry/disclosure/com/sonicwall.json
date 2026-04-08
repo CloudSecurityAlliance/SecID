@@ -59,12 +59,17 @@
           "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/sonicwall",
           "last_assigned_cve": "CVE-2026-3470",
           "last_assigned_date": "2026-03-31",
-          "scope": "SonicWall issues only."
+          "scope": "SonicWall issues only.",
+          "cna_id": "CNA-2018-0004"
         },
         "security_txt": {
           "url": "https://sonicwall.com/.well-known/security.txt",
           "checked": "2026-04-08",
           "note": "File exists but missing Contact: field"
+        },
+        "disclosure_policy": {
+          "url": "https://psirt.global.sonicwall.com/vuln-policy",
+          "checked": "2026-04-08"
         }
       }
     }
