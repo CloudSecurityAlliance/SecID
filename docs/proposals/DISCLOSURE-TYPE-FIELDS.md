@@ -8,7 +8,7 @@ Updated: 2026-04-07
 
 Add structured fields to disclosure registry entries' `data` objects that capture the information security researchers need when reporting vulnerabilities. Five new fields: `cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`.
 
-These fields are nested objects/arrays inside the existing `data` object — no new wrapper or top-level concept. They can appear at both the namespace level and the match_node level, with the same replace-not-merge inheritance that already applies to `data`.
+These fields are nested objects/arrays inside the existing `data` object — no new wrapper, no schema changes required. They appear immediately in MCP and website responses (full mode), and graduate to the stable API (strict mode) once proven.
 
 ## The Problem
 
@@ -24,91 +24,50 @@ Today, disclosure entries have `contacts` and `scope` but lack structured data f
 
 ## Design: Structured Fields Inside `data`
 
-The five new fields are nested objects inside the existing `data` object. No new wrapper, no new top-level concept.
+The five new fields are nested objects inside the existing `data` object. The `data` object already allows arbitrary keys (`additionalProperties: true` in the JSON schema), so **no schema changes are required** to add these fields. This is purely a data population and documentation task.
 
 ```json
-{
-  "namespace": "example.com",
-  "type": "disclosure",
-  "status": "published",
-  "official_name": "Example Corp",
+"data": {
+  "contacts": [{"type": "email", "value": "security@example.com"}],
+  "organization_type": "Vendor",
 
-  "match_nodes": [
-    {
-      "patterns": ["(?i)^psirt$"],
-      "description": "Example Corp PSIRT",
-      "data": {
-        "contacts": [{"type": "email", "value": "security@example.com"}],
-        "organization_type": "Vendor",
-
-        "cve": { ... },
-        "safe_harbor": { ... },
-        "bug_bounty": [ ... ],
-        "security_txt": { ... },
-        "disclosure_policy": { ... }
-      }
-    }
-  ]
+  "cve": { ... },
+  "safe_harbor": { ... },
+  "bug_bounty": [ ... ],
+  "security_txt": { ... },
+  "disclosure_policy": { ... }
 }
 ```
 
-Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchanged. The new fields sit alongside them. Structured nested objects are visually distinct from flat fields — no ambiguity about which is which.
+Existing fields (`contacts`, `organization_type`, `urls`, `examples`) are unchanged. The new fields sit alongside them as structured nested objects.
 
-### Inheritance
+### Strict vs Full API Mode
 
-`data` at a match_node level already works with replace semantics. The new structured fields follow the same pattern:
+New fields appear in **full mode** immediately — this is what the MCP server and website use. The stable **strict mode** (default for REST API clients) only returns fields formally documented in the schema.
 
-| State | Behavior |
-|-------|----------|
-| Field **absent** | Not yet researched |
-| Field **`null`** | Researched, confirmed absent |
-| Field **present** (object or array) | The thing exists, here are the details |
-
-When a match_node's `data` has a field, it's the complete value for that match_node. No merging with namespace-level data.
-
-### Namespace-Level Data
-
-These fields can also appear on namespace-level `data` (outside match_nodes) for org-wide defaults:
-
-```json
-{
-  "namespace": "microsoft.com",
-  "type": "disclosure",
-
-  "data": {
-    "safe_harbor": { "url": "https://www.microsoft.com/en-us/msrc/bounty-safe-harbor" },
-    "disclosure_policy": { "url": "https://www.microsoft.com/en-us/msrc/cvd", "stated_timeline": "90 days" }
-  },
-
-  "match_nodes": [
-    {
-      "patterns": ["(?i)^msrc$"],
-      "description": "Microsoft Security Response Center",
-      "data": {
-        "contacts": [{"type": "email", "value": "secure@microsoft.com"}],
-        "cve": { "role": ["cna"], "assignerShortName": "microsoft", "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8", "scope": "Microsoft products" },
-        "bug_bounty": [{ "url": "https://www.microsoft.com/en-us/msrc/bounty", "paid": true }]
-      }
-    },
-    {
-      "patterns": ["(?i)^xbox$"],
-      "description": "Xbox Bug Bounty",
-      "data": {
-        "bug_bounty": [{ "url": "https://hackerone.com/xbox", "paid": true }],
-        "cve": null
-      }
-    }
-  ]
-}
+```
+GET /api/v1/resolve?secid=...              → strict mode (default): schema-defined fields only
+GET /api/v1/resolve?secid=...&mode=full    → full mode: everything, including new/experimental fields
 ```
 
-MSRC has its own `cve` and `bug_bounty`. Xbox has its own `bug_bounty` and explicitly no CVE (`null`). Both inherit `safe_harbor` and `disclosure_policy` from the namespace level.
+**How this works:**
+- MCP server and website always operate in full mode (AI agents and humans see everything)
+- REST API defaults to strict mode (SDK clients, integrations, scripts get stable data)
+- REST API clients can opt into full mode with `&mode=full`
+- When a field is stable and documented, it graduates from full-only to strict mode
+- Nobody's parser breaks, but the ecosystem advances
 
-### Phase 1 API Behavior
+This is the same pattern as HTTP headers — anyone can add fields, the ones that prove useful get standardized. The strict/full boundary is the standardization line.
 
-**Phase 1:** When a namespace is successfully matched (`found`, `corrected`, or `related` status), the resolver includes namespace-level `data` fields in the response alongside the matched result. This lets clients see org-wide defaults without a second request.
+**The strict/full mode is a general API design decision, not disclosure-specific.** It will be fully specified in [API-RESPONSE-FORMAT.md](../reference/API-RESPONSE-FORMAT.md) as a separate update. This proposal uses it as the deployment mechanism for the disclosure fields.
 
-**Phase 2:** Resolver merges namespace-level data fields with match_node-level data using replace semantics before returning. Backward-compatible enhancement (responses get richer; tolerant JSON consumers will not break, though strict-schema consumers should anticipate new fields).
+### Reserved Field Names
+
+To prevent collisions between standardized fields and ad-hoc additions, these field names inside `data` are reserved for the schemas defined in this proposal:
+
+`cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`
+
+Other types may reserve their own field names in future proposals. The reserved list is documented in REGISTRY-JSON-FORMAT.md. Contributors adding ad-hoc data fields to `data` should avoid these names (and check the reserved list before choosing a name).
 
 ### Null vs Absent Convention
 
@@ -129,9 +88,9 @@ No redundant `"exists": true` booleans.
 
 The new fields use the **existing per-field metadata convention** from [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md) — `checked`, `updated`, `note` inside objects.
 
-**Extended provenance fields** (`source`, `process`, `checked_by`) are a registry-wide concern and will be proposed separately. This proposal does not depend on them.
+**Extended provenance fields** (`source`, `process`, `checked_by`) are a registry-wide concern and will be proposed separately.
 
-**V1 vs V2 pattern:** In V1, fields are pointers (URLs) with timestamps. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection. The registry stays lightweight; the data layer handles heavy content.
+**V1 vs V2:** In V1, fields are pointers (URLs) with timestamps. In V2, the data layer can cache copies of the referenced content (safe harbor text, disclosure policy text) with change detection.
 
 ## New Fields
 
@@ -296,7 +255,7 @@ No `type` vocabulary (coordinated / responsible / full) — the industry uses th
 
 ## Cross-Type Applicability
 
-**This proposal defines only the five disclosure fields listed above.** Other types may add their own structured fields to `data` in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal. The `data` object accommodates this naturally — just add new nested objects alongside existing fields.
+**This proposal defines only the five disclosure fields listed above.** Other types may add their own structured fields to `data` in the future (e.g., capability audit/remediation, methodology input/output). Each would require its own proposal with its own reserved field names.
 
 ## Complete Examples
 
@@ -400,12 +359,14 @@ No `type` vocabulary (coordinated / responsible / full) — the industry uses th
 
 ## Migration Plan
 
-### Phase 1: Schema
+### Phase 1: Documentation
 
-- **Update JSON Schema** (`schemas/registry-namespace.schema.json`): MatchNode has `additionalProperties: false` (line 185) — update to allow the new structured fields inside `data`. Top-level schema already allows additional properties.
+No schema changes are required — `data` already allows arbitrary keys. This phase is documentation only:
+
 - Add field definitions to REGISTRY-JSON-FORMAT.md
-- Define initial disclosure fields (cve, safe_harbor, bug_bounty, security_txt, disclosure_policy)
+- Add reserved field names list (`cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`)
 - Update disclosure type description (`registry/disclosure.md`)
+- Add strict/full mode to API-RESPONSE-FORMAT.md (separate update)
 
 ### Phase 2: Populate CVE data (~513 existing CNA entries)
 
@@ -429,14 +390,14 @@ The existing `cve_program_role` free-text field in `data` maps to the new struct
 **Note on multi-role orgs:** `role` is an array, so multi-role entries like "Root, CNA-LR" map directly to `["root", "cna-lr"]` — no information loss.
 
 **Parsing rules:**
-- For multi-role entries, split on comma **only at the top level** — commas appear inside parenthetical explanatory text (e.g., "CNA of Last Resort, reports to MITRE"). The `partner-details.json` `Program Role` field is already an array, so prefer using that structured source over string splitting.
+- For multi-role entries, split on comma **only at the top level** — commas appear inside parenthetical explanatory text. The `partner-details.json` `Program Role` field is already an array, so prefer using that structured source over string splitting.
 - Extract the parenthetical "reports to X" → `root.assignerShortName`, mapping org name to CVE partner slug
 - Look up `assignerOrgId` and `root.assignerOrgId` from [cvelistV5](https://github.com/CVEProject/cvelistV5) extracted data (457 CNAs with UUIDs). Extraction script should be added to `SecID/scripts/` for reproducibility.
 - Extract `last_assigned_cve` and `last_assigned_date` from the same data
 
-**Migration should emit a warning list** for entries where `role` is present but `assignerOrgId` could not be found — these need manual follow-up against the CVE list data.
+**Migration should emit a warning list** for entries where `role` is present but `assignerOrgId` could not be found — these need manual follow-up.
 
-**After migration, remove from `data`:** `cve_program_role` (replaced by `cve` object), `scope` when it's CNA scope (now in `cve.scope`). **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
+**After migration, remove from `data`:** `cve_program_role` (replaced by `cve` object). **Move `scope` into `cve.scope`:** All existing `scope` fields in CNA-sourced entries are CNA scope (they were all generated by `scripts/generate-cna-disclosure.py` from CVE partner data). This is deterministic — every entry with `cve_program_role` has its `scope` from the CVE partner list. **Leave in `data`:** `contacts`, `organization_type`, `urls`, `examples`.
 
 ### Phase 3: Populate other fields (new research)
 
@@ -452,36 +413,39 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 3. **Bug bounty staleness** — URLs to bug bounty programs break when programs close. `checked` dates on bounty entries help detect this.
 
-4. **Multi-scope orgs** — Red Hat has three CNA roles (Root, CNA-LR, CNA), each with a different scope. The namespace-level `cve` carries all roles. Match_node-level `cve` can override with role-specific scope via replace semantics (which is how the existing entries are already structured).
+4. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
 
-5. **MITRE has two `assignerOrgId` values** — `50d0f415-c707-4733-9afc-8f6c0e9b3f82` (older, last used 2022) and `8254265b-2729-46b6-b9e3-3dfca2d5bfca` (current). The migration script should use the most recently active UUID.
-
-6. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field. If needed later, a `csirt` field could be added.
+5. **CERT/CSIRT status** — considered and deferred. CERT designation is more of an entity characteristic than a disclosure field.
 
 ## Resolved Issues
 
-Issues raised by review feedback and resolved across four revisions:
+Issues raised across five rounds of review feedback:
 
 | Issue | Resolution |
 |-------|-----------|
-| Schema dependency misstated (top-level already open) | Fixed — only MatchNode `additionalProperties: false` is the blocker |
-| Phase 1 inheritance ambiguity | Phase 1 includes namespace-level data in response when namespace matched |
+| Schema hard dependency claimed | Removed — `data` already allows arbitrary keys, no schema change needed |
+| Phase 1/Phase 2 response shape complexity | Dropped — no special envelope. Fields are in `data`, resolver returns `data` normally. Strict/full mode handles visibility. |
+| `profiles` wrapper adds unnecessary complexity | Dropped — fields go directly in `data` |
 | Mixed camelCase/snake_case naming | Policy: CVE-sourced names preserve CVE casing, SecID-defined use snake_case |
 | `requests` mixed into CVE Program roles | `role` is strictly CVE Program vocabulary; non-participant posture goes in `note` |
-| Local file path not reproducible | References cvelistV5 GitHub repo, extraction script goes in `scripts/` |
-| Backward compat claim too broad | Added caveat for strict-schema consumers |
 | Multi-role lossy with single role | `role` is an array — no information loss |
-| Naive comma splitting in parsing | Added safety note: prefer structured source data |
+| Naive comma splitting in parsing | Prefer structured source data from partner-details.json |
 | Missing UUID migration handling | Migration emits warning list for manual follow-up |
-| `profiles` wrapper adds unnecessary complexity | Dropped — fields go directly in `data` |
+| Scope migration ambiguity | All existing scope fields are CNA scope (generated by same script) — deterministic |
+| Module boundary / key collision risk | Reserved field names list documented |
+| Inheritance wording confusion | Dropped inheritance language — resolver returns data at matched level |
+| Local file path not reproducible | References cvelistV5 GitHub repo |
+| Backward compat claim too broad | Strict/full mode: strict is stable, full includes everything |
+| bug_bounty.paid forces false certainty | Made optional — absent means unknown |
 
 **Deferred (not blocking this proposal):**
 
 | Issue | Plan |
 |-------|------|
-| Formal JSON Schema for new fields | Define when implementing — light schema for `role` enum + UUID/date formats recommended as follow-on |
+| Formal JSON Schema for new fields | Define when implementing — light schema for `role` enum + UUID/date formats recommended |
 | Extended provenance fields (source, process, checked_by) | Separate registry-wide proposal |
+| Strict/full API mode specification | Separate update to API-RESPONSE-FORMAT.md |
 
 ---
 
-*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Four rounds of review feedback incorporated.*
+*Based on design discussion about CNA tagging, disclosure researcher experience, and structured disclosure data. Five rounds of review feedback incorporated.*
