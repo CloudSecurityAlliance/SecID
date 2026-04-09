@@ -78,6 +78,8 @@ Compare `secid_query` with `results[].secid` to see what the server actually res
 
 **The server always tries to help.** Even `not_found` may include suggestions. `corrected` tells you what the right form was.
 
+**Gotcha:** All responses return HTTP 200 — including `not_found` and `error`. Check the `status` field in the JSON, not the HTTP status code.
+
 ---
 
 ## Query Depth = Response Depth

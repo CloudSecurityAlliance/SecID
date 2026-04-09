@@ -36,7 +36,7 @@ github.com/CloudSecurityAlliance/SecID · CC0 (Public Domain)
 | ttp | 4 | ATT&CK, ATLAS, CAPEC |
 | weakness | 13 | CWE, OWASP Top 10 |
 
-Every entry is one JSON file. Adding a source = adding a file.
+Every entry is one JSON file per namespace. Adding a new organization = adding a file. Adding another source from an existing organization = adding a match_node to their file.
 
 ---
 
@@ -132,12 +132,11 @@ Parent = the source name. Children = specific ID patterns. `{id}` = variable sub
 - **No catastrophic backtracking:** avoid nested quantifiers like `(a+)+`
 
 **Test your patterns:**
-```bash
-# Does it match what you expect?
-echo "CVE-2021-44228" | grep -P "^CVE-\d{4}-\d{4,}$"
-
-# Does it NOT match what it shouldn't?
-echo "CVE-bad" | grep -P "^CVE-\d{4}-\d{4,}$"
+```python
+# Quick test in Python (works everywhere)
+import re
+assert re.match(r"^CVE-\d{4}-\d{4,}$", "CVE-2021-44228")
+assert not re.match(r"^CVE-\d{4}-\d{4,}$", "CVE-bad")
 ```
 
 See `docs/guides/REGEX-WORKFLOW.md` for the full testing workflow.
@@ -155,9 +154,10 @@ example.com → registry/{type}/com/example.json
 
 **3. Check if it exists** — if so, add a source section (match_node) to it
 
-**4. If new, start from a template:**
+**4. If new, use an existing entry as a reference:**
 ```bash
-cp registry/advisory/_template.md registry/advisory/com/example.json
+# Copy a similar entry and adapt it
+cp registry/advisory/com/redhat.json registry/advisory/com/example.json
 # Edit with the real data
 ```
 
