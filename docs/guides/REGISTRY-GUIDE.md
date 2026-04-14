@@ -104,6 +104,17 @@ red_hat.com              ✗  Underscore not allowed in segment
 
 4. **Unicode for internationalization** - Organizations worldwide should use native language domain names.
 
+**GitHub (and other platform) organizations — choosing the namespace:**
+
+Many sources live on GitHub. Use this priority order to determine the namespace:
+
+1. **Verified domain on GitHub org** → use it (e.g., `github.com/CVEProject` → `cve.org`)
+2. **Verified domain is a product, not the parent org** → use the parent org's domain (e.g., `github.com/openshift` → `redhat.com`, not `openshift.com`)
+3. **No verified domain, but clear organizational affiliation** → use parent org's domain (e.g., `github.com/RedHatInsights` → `redhat.com`)
+4. **No affiliation discoverable** → fall back to `github.com/orgname` or `github.com/orgname/reponame`
+
+Evidence for affiliation: org description, linked website, README references, naming conventions. See [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md#github-organizations-namespace-assignment) for detailed examples and rationale.
+
 ## Granularity and Hierarchy
 
 Many sources have hierarchical structure. Use the granularity levels the source provides.

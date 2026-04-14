@@ -501,6 +501,40 @@ Sub-namespaces can be any depth — one path segment (`github.com/advisories`) o
 
 **No platform allowlist.** The registry filesystem determines namespace boundaries. If `registry/advisory/com/github/advisories.md` exists, then `github.com/advisories` is a valid namespace. No hardcoded list of "allowed platforms" needed.
 
+### GitHub Organizations: Namespace Assignment
+
+GitHub organizations often have a verified domain, an obvious parent organization, or neither. Use this chain of evidence to determine the namespace:
+
+**1. Verified domain → use it (usually)**
+
+GitHub lets organizations verify domain ownership. When present, this is the strongest signal:
+- `github.com/CVEProject` has verified domain `cve.org` → namespace is `cve.org`
+- `github.com/oasis-tcs` has verified domain `oasis-open.org` → namespace is `oasis-open.org`
+
+**2. Verified domain of a product, but parent org is the real owner → use parent's domain**
+
+Some GitHub orgs represent products, not organizations. The verified domain may be the product's marketing domain, but the namespace should reflect the organization that owns it:
+- `github.com/openshift` has verified domain `openshift.com`, but OpenShift is a Red Hat product → prefer `redhat.com` as the namespace, with OpenShift as a name within it
+
+Use judgment here. If the product is essentially independent (its own governance, its own security advisories), the product domain may be correct. If it's clearly a sub-project of a larger org, use the parent.
+
+**3. No verified domain, but clear organizational affiliation → use the parent org's domain**
+
+Many GitHub orgs don't verify a domain but are obviously part of a larger organization:
+- `github.com/RedHatOfficial` → clearly Red Hat → namespace is `redhat.com`
+- `github.com/RedHatInsights` → lists `console.redhat.com`, major Red Hat project → namespace is `redhat.com`
+- `github.com/aws-samples` → clearly AWS → namespace is `aws.amazon.com`
+
+Evidence for affiliation: org description, linked website, README references, naming conventions, team members, repositories that cross-reference the parent org.
+
+**4. No verified domain, no clear affiliation → fall back to `github.com/orgname`**
+
+When there's genuinely no organizational parent:
+- `github.com/someresearchgroup` with no domain → namespace is `github.com/someresearchgroup`
+- `github.com/someresearchgroup/specific-tool` → namespace is `github.com/someresearchgroup/specific-tool` if the repo is the relevant unit
+
+This applies to any platform, not just GitHub. GitLab orgs, Bitbucket workspaces, etc. follow the same logic: verified domain > organizational analysis > platform path fallback.
+
 ### Self-Registration via DNS/ACME (Future)
 
 **Current state:** Namespace registration is manual (pull requests reviewed by maintainers). This works at the current scale of ~150 namespaces.
