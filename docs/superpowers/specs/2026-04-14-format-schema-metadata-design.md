@@ -38,12 +38,14 @@ All four are optional. Absent means "not yet documented."
 
 ### `parsability` enum values
 
+`parsability` describes **data format only** — how machine-readable the content is. Access patterns (API, bulk download, search interface) are captured separately in the source-level `urls` array `type` field.
+
 | Value | Meaning | Example |
 |-------|---------|---------|
-| `"structured"` | Machine-readable with a defined schema. `schema` field applies. | CVE JSON from cvelistV5, CSAF advisory XML |
-| `"scraped"` | HTML page — processable but fragile, no stable schema | NVD detail page, vendor security portal |
-| `"bulk_only"` | No per-item URL; data available only as full-dataset download | NVD JSON feeds, MITRE ATT&CK STIX bundle |
-| `"search_only"` | No direct URL; must go through a search interface | Some vendor advisory portals |
+| `"structured"` | Machine-readable with a defined schema. `schema` field applies. | CVE JSON from cvelistV5, CSAF advisory XML, NVD API responses |
+| `"scraped"` | HTML/PDF/unstructured — processable but fragile, no stable schema | NVD detail page, vendor security portal |
+
+**What counts as `schema`?** A formal JSON Schema file is ideal, but API documentation is also valid. If the NVD API returns well-structured JSON defined by their API docs, `schema` points at a reference entry for those docs. The field means "what defines the structure of this data" — not "is there a `.json` schema file."
 
 ### Example: Structured source
 
@@ -81,6 +83,51 @@ All four are optional. Absent means "not yet documented."
 ```
 
 No `schema` field — there's nothing to reference for a scraped page.
+
+### Source-level URL objects
+
+The same four fields apply to **source-level `urls` arrays** — the access methods listed on each source's `data` block. This is where bulk downloads, APIs, search interfaces, and other access patterns live. Each URL object in the array gets enriched with format metadata:
+
+```json
+{
+  "patterns": ["(?i)^cve$"],
+  "data": {
+    "official_name": "Common Vulnerabilities and Exposures",
+    "urls": [
+      {
+        "type": "website",
+        "url": "https://www.cve.org",
+        "parsability": "scraped"
+      },
+      {
+        "type": "api",
+        "url": "https://cveawg.mitre.org/api",
+        "parsability": "structured",
+        "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+        "auth": "No auth required. Rate limited; request API key for higher limits.",
+        "notes": "REST API, per-record access via /api/cve/{id}"
+      },
+      {
+        "type": "bulk_data",
+        "url": "https://github.com/CVEProject/cvelistV5",
+        "parsability": "structured",
+        "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+        "auth": "Public GitHub repo, no auth for clone/download",
+        "notes": "One JSON file per CVE, organized by year/bucket directories"
+      }
+    ]
+  }
+}
+```
+
+**Two levels, same fields:**
+
+| Level | Where | Purpose |
+|-------|-------|---------|
+| Source-level `urls` | `match_nodes[].data.urls[]` | Access methods for the source as a whole (API, bulk download, website, search) |
+| Per-item child `data` | `match_nodes[].children[].data` | Resolution URLs for specific items (given an ID, here's the URL) |
+
+The `type` field on source-level URLs identifies the access pattern. Existing values include `website`, `api`, `bulk_data`, `search`, `github`. These are already in use across registry entries — no new enum needed. Additional types can be added as encountered.
 
 ## 2. Schemas as `reference` Registry Entries
 
@@ -185,6 +232,7 @@ The CVE Project's GitHub presence (github.com/CVEProject) falls under the `cve.o
 - **`version_required: true`** — referencing `secid:reference/cve.org/cve-schema` without a version returns disambiguation guidance, not a schema URL.
 - **Reuse across namespaces** — every advisory source publishing CVE JSON 5.2 records references the same `secid:reference/cve.org/cve-schema@5.2.0`. Schema version bump updates one entry.
 - **Standard match_nodes** — the resolver walks the same tree structure as any other type, no special handling needed.
+- **`cve.org` vs `mitre.org`** — CVE advisories are under `secid:advisory/mitre.org/cve` (MITRE operates the CVE Program). The CVE schema is under `secid:reference/cve.org/cve-schema` (the CVE Project publishes the schema at cve.org). Different namespaces because different organizational roles — MITRE is the operator, cve.org is the publication identity.
 
 ## 3. Parsing Instructions as `reference` Entries
 
@@ -315,7 +363,7 @@ The format metadata designed here is the foundation v2.0 needs to decide how to 
 
 ## Implementation Order
 
-1. **Update REGISTRY-JSON-FORMAT.md** — document the three new fields on URL objects, parsability enum, schema and parsing_instructions conventions
+1. **Update REGISTRY-JSON-FORMAT.md** — document the four new fields on URL objects (at both source-level and per-item level), parsability enum, schema and parsing_instructions conventions
 2. **Create `registry/reference/org/cve.json`** — first schema entry (CVE JSON 5.x)
 3. **Create `docs/parsers/` directory** — first parser document (cve-json-5.md)
 4. **Add `secid-parsers` match_node to `registry/reference/org/cloudsecurityalliance.json`**
