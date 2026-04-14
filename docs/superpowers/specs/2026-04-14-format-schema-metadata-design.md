@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-14
 **Status:** Approved design, pending implementation
-**Scope:** Registry URL objects, schema references, parsing instructions
+**Scope:** Registry URL objects, schema references, parsing instructions, auth documentation
 **Affects:** Registry JSON format, API responses, v2.0 data serving
 
 ## Problem
@@ -19,21 +19,22 @@ Without format metadata, clients can't filter for machine-readable sources, v2.0
 
 Three complementary pieces:
 
-1. **URL object extensions** — three new optional fields on every match_node child `data` block
+1. **URL object extensions** — four new optional fields on every match_node child `data` block
 2. **Schemas as `reference` registry entries** — versioned, resolvable via SecID
 3. **Parsing instructions as `reference` entries** — CSA-authored documents describing how to consume each format
 
 ## 1. URL Object Extensions
 
-Every URL entry in a match_node child gains three new optional fields alongside the existing `content_type` and `format`:
+Every URL entry in a match_node child gains four new optional fields alongside the existing `content_type` and `format`:
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `parsability` | enum string | How processable is the data at this URL |
 | `schema` | SecID string | What schema the data conforms to (absent for unstructured) |
 | `parsing_instructions` | SecID string | Document describing how to consume this data |
+| `auth` | string (free text) | How to authenticate/access this URL. Ranges from `"none"` to multi-paragraph explanations of custom account creation processes. Absent means "not yet documented." |
 
-All three are optional. Absent means "not yet documented."
+All four are optional. Absent means "not yet documented."
 
 ### `parsability` enum values
 
@@ -55,8 +56,9 @@ All three are optional. Absent means "not yet documented."
     "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/{year}/{bucket}/{id}.json",
     "content_type": "application/json",
     "parsability": "structured",
-    "schema": "secid:reference/cveproject.org/cve-schema@5.2.0",
-    "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5"
+    "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+    "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+    "auth": "GitHub raw: standard rate limits, no auth. For higher limits, use a GitHub personal access token in the Authorization header."
   }
 }
 ```
@@ -72,7 +74,8 @@ All three are optional. Absent means "not yet documented."
     "url": "https://nvd.nist.gov/vuln/detail/{id}",
     "content_type": "text/html",
     "parsability": "scraped",
-    "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#nvd-html"
+    "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#nvd-html",
+    "auth": "none"
   }
 }
 ```
@@ -89,7 +92,7 @@ The namespace is the domain of the org that owns the schema:
 
 | Schema | SecID |
 |--------|-------|
-| CVE JSON 5.2.0 | `secid:reference/cveproject.org/cve-schema@5.2.0` |
+| CVE JSON 5.2.0 | `secid:reference/cve.org/cve-schema@5.2.0` |
 | CSAF 2.0 | `secid:reference/oasis-open.org/csaf@2.0` |
 | OSV 1.3 | `secid:reference/ossf.github.io/osv-schema@1.3` |
 | STIX 2.1 | `secid:reference/oasis-open.org/stix@2.1` |
@@ -97,20 +100,22 @@ The namespace is the domain of the org that owns the schema:
 
 ### Registry entry example
 
-File: `registry/reference/org/cveproject.json`
+File: `registry/reference/org/cve.json`
+
+The CVE Project's GitHub presence (github.com/CVEProject) falls under the `cve.org` namespace — it's the same organization.
 
 ```json
 {
   "schema_version": "1.0",
-  "namespace": "cveproject.org",
+  "namespace": "cve.org",
   "type": "reference",
   "status": "draft",
   "status_notes": null,
 
-  "official_name": "CVE Project",
-  "common_name": "CVE Project",
-  "alternate_names": null,
-  "notes": "The CVE Project maintains the CVE schema and related tooling. Operated under MITRE's stewardship of the CVE Program.",
+  "official_name": "CVE Program",
+  "common_name": "CVE",
+  "alternate_names": ["CVE Project", "Common Vulnerabilities and Exposures"],
+  "notes": "The CVE Program maintains the CVE schema and related tooling. Operated by MITRE under contract with CISA. The cve.org website, CVE Services API, and CVEProject GitHub org are all part of this namespace.",
   "wikidata": null,
   "wikipedia": null,
 
@@ -177,8 +182,8 @@ File: `registry/reference/org/cveproject.json`
 
 ### Key properties
 
-- **`version_required: true`** — referencing `secid:reference/cveproject.org/cve-schema` without a version returns disambiguation guidance, not a schema URL.
-- **Reuse across namespaces** — every advisory source publishing CVE JSON 5.2 records references the same `secid:reference/cveproject.org/cve-schema@5.2.0`. Schema version bump updates one entry.
+- **`version_required: true`** — referencing `secid:reference/cve.org/cve-schema` without a version returns disambiguation guidance, not a schema URL.
+- **Reuse across namespaces** — every advisory source publishing CVE JSON 5.2 records references the same `secid:reference/cve.org/cve-schema@5.2.0`. Schema version bump updates one entry.
 - **Standard match_nodes** — the resolver walks the same tree structure as any other type, no special handling needed.
 
 ## 3. Parsing Instructions as `reference` Entries
@@ -208,7 +213,7 @@ Each document covers two perspectives:
 ```markdown
 # CVE JSON 5.x Parsing Instructions
 
-**Schema:** secid:reference/cveproject.org/cve-schema@5.2.0
+**Schema:** secid:reference/cve.org/cve-schema@5.2.0
 **Source URL pattern:** github.com/CVEProject/cvelistV5
 
 ## Key field mappings
@@ -274,7 +279,7 @@ Added to the existing CSA reference file (`registry/reference/org/cloudsecuritya
 
 ## 4. API Response Changes
 
-Minimal. The three new fields pass through on resolution results when present:
+Minimal. The four new fields pass through on resolution results when present:
 
 ```json
 {
@@ -283,8 +288,9 @@ Minimal. The three new fields pass through on resolution results when present:
   "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/1xxx/CVE-2024-1234.json",
   "content_type": "application/json",
   "parsability": "structured",
-  "schema": "secid:reference/cveproject.org/cve-schema@5.2.0",
-  "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5"
+  "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+  "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+  "auth": "GitHub raw: standard rate limits, no auth required for public repos"
 }
 ```
 
@@ -310,7 +316,7 @@ The format metadata designed here is the foundation v2.0 needs to decide how to 
 ## Implementation Order
 
 1. **Update REGISTRY-JSON-FORMAT.md** — document the three new fields on URL objects, parsability enum, schema and parsing_instructions conventions
-2. **Create `registry/reference/org/cveproject.json`** — first schema entry (CVE JSON 5.x)
+2. **Create `registry/reference/org/cve.json`** — first schema entry (CVE JSON 5.x)
 3. **Create `docs/parsers/` directory** — first parser document (cve-json-5.md)
 4. **Add `secid-parsers` match_node to `registry/reference/org/cloudsecurityalliance.json`**
 5. **Annotate `registry/advisory/org/mitre.json`** — add parsability/schema/parsing_instructions to CVE URL children as proof-of-concept
