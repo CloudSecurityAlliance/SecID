@@ -1,7 +1,7 @@
 # Format & Schema Metadata Design
 
 **Date:** 2026-04-14
-**Status:** Approved design, pending implementation
+**Status:** Implemented
 **Scope:** Registry URL objects, schema references, parsing instructions, auth documentation
 **Affects:** Registry JSON format, API responses, v2.0 data serving
 
