@@ -124,6 +124,37 @@ The `#` must be percent-encoded as `%23` in the query parameter (otherwise it's 
 }
 ```
 
+**With format metadata:** Resolution results include format metadata when the registry specifies it:
+
+```json
+{
+  "secid_query": "secid:advisory/mitre.org/cve#CVE-2026-1234",
+  "status": "found",
+  "results": [
+    {
+      "secid": "secid:advisory/mitre.org/cve#CVE-2026-1234",
+      "weight": 100,
+      "url": "https://www.cve.org/CVERecord?id=CVE-2026-1234",
+      "content_type": "text/html",
+      "parsability": "scraped",
+      "auth": "none"
+    },
+    {
+      "secid": "secid:advisory/mitre.org/cve#CVE-2026-1234",
+      "weight": 45,
+      "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/1xxx/CVE-2026-1234.json",
+      "content_type": "application/json",
+      "parsability": "structured",
+      "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+      "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+      "auth": "No auth required. Standard GitHub rate limits."
+    }
+  ]
+}
+```
+
+Format metadata fields are omitted from results when the registry doesn't specify them.
+
 ### Level 2: Source record (type + namespace + name)
 
 ```
@@ -291,6 +322,24 @@ GET /api/v1/resolve?secid=secid:advisory/CVE-2026-1234
 
 Results are sorted by weight descending. The client gets every place that CVE can be found, ranked by match quality.
 
+## Filtering by Parsability
+
+Clients can filter resolution results to only structured (machine-readable) sources:
+
+```
+GET /api/v1/resolve?secid=secid:advisory/mitre.org/cve%23CVE-2026-1234&parsability=structured
+```
+
+Returns only results where `parsability` is `"structured"`. This filters out HTML pages and other unstructured sources, returning only machine-readable URLs with defined schemas.
+
+When `parsability` is combined with `content_type`, both filters apply:
+
+```
+GET /api/v1/resolve?secid=secid:advisory/mitre.org/cve%23CVE-2026-1234&parsability=structured&content_type=application/json
+```
+
+Returns only structured JSON sources — excludes HTML pages and structured XML sources.
+
 ## Corrected Queries
 
 When the server fixes the input:
@@ -380,6 +429,11 @@ GET /api/v1/resolve?secid=
 | `secid` | string | Fully-qualified SecID |
 | `weight` | integer | Match quality (higher = better) |
 | `url` | string | Resolved URL |
+| `content_type` | string | MIME type of the response (e.g., `text/html`, `application/json`). Present when the registry specifies it. |
+| `parsability` | string | Data format: `"structured"` or `"scraped"`. Present when the registry specifies it. |
+| `schema` | string | SecID reference to the data schema (e.g., `secid:reference/cve.org/cve-schema@5.2.0`). Present for structured sources. |
+| `parsing_instructions` | string | SecID reference to parsing instruction document. Present when the registry specifies it. |
+| `auth` | string | Free-text auth description. Present when the registry specifies it. |
 
 ### Registry result (browsing / discovery)
 
