@@ -341,6 +341,36 @@ Existing files without timestamps remain valid — absent timestamps mean "not y
 
 See [TIMESTAMP-FIELDS.md](../proposals/TIMESTAMP-FIELDS.md) for full rationale, backwards compatibility analysis, and pilot files.
 
+## Format Metadata
+
+Registry URL objects carry optional metadata describing the data format available at each URL. This serves three purposes:
+
+1. **Client filtering** — API clients can request only structured (machine-readable) results
+2. **v2.0 data serving** — the service needs to know how to fetch and parse each source
+3. **Provenance** — documents how registry entries were derived from raw source data
+
+### Fields
+
+Four optional fields appear on both source-level URL objects and per-item match_node children:
+
+- **`parsability`**: `"structured"` (machine-readable with a schema) or `"scraped"` (HTML/unstructured). Describes data format only — access patterns (API, bulk, search) are captured in the URL `type` field.
+- **`schema`**: A SecID string referencing the schema (e.g., `secid:reference/cve.org/cve-schema@5.2.0`). Schemas are `reference` registry entries — versioned, resolvable. Absent for scraped sources.
+- **`parsing_instructions`**: A SecID string referencing a parsing instruction document (e.g., `secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5`). CSA-authored documents covering field mappings, access patterns, and provenance.
+- **`auth`**: Free text describing authentication requirements. Ranges from `"none"` to multi-paragraph instructions for complex access processes.
+
+All four are optional. Absent means "not yet documented" — entries can be annotated incrementally.
+
+### What counts as a schema?
+
+A formal JSON Schema file is ideal, but API documentation qualifies too. If the NVD API returns structured JSON defined by their API docs, `schema` points at a reference entry for those docs. The field means "what defines this data's structure" — not "is there a `.json` schema file."
+
+### Two levels, same fields
+
+| Level | Where | Purpose |
+|-------|-------|---------|
+| Source-level `urls` | `match_nodes[].data.urls[]` | Access methods for the source as a whole |
+| Per-item child `data` | `match_nodes[].children[].data` | Resolution URLs for specific items |
+
 ## Schema Structure
 
 ### Top-Level Fields
@@ -626,6 +656,22 @@ The `data` object at each level contains whatever result information is appropri
 | `versions_available` | array \| null | See Version Resolution Fields |
 | `examples` | (string \| ExampleObject)[] | Representative identifier examples (see Examples) |
 
+**Source-level URL object fields:**
+
+Each object in the `urls` array has a `type` and `url` field. The following optional fields can be added to characterize the data available at that URL:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | string | Access pattern identifier: `website`, `api`, `bulk_data`, `search`, `github`, `download`, `lookup`. Additional types can be added as encountered. |
+| `url` | string | The URL |
+| `parsability` | string \| null | `"structured"` or `"scraped"`. Same semantics as subpath-level. |
+| `schema` | string \| null | SecID schema reference. Same semantics as subpath-level. |
+| `parsing_instructions` | string \| null | SecID parsing instructions reference. Same semantics as subpath-level. |
+| `auth` | string \| null | Free-text auth description. Same semantics as subpath-level. |
+| `notes` | string \| null | Additional context about this access method. |
+| `format` | string \| null | Short format hint (e.g., `"json"`, `"xml"`). Legacy field — prefer `parsability` + `schema` for new entries. |
+| `note` | string \| null | Legacy alias for `notes`. Use `notes` for new entries. |
+
 **Subpath-level data** (pattern-specific resolution):
 
 | Field | Type | Description |
@@ -633,6 +679,10 @@ The `data` object at each level contains whatever result information is appropri
 | `url` | string | Lookup URL with `{id}` placeholder |
 | `format` | string | Response format (json, html, xml) |
 | `content_type` | string | Full MIME type from HTTP Content-Type header (e.g., `text/html`, `application/json`). Used by the `?content_type=` qualifier to filter results by format. |
+| `parsability` | string \| null | Data format: `"structured"` (machine-readable, has schema) or `"scraped"` (HTML/unstructured). Absent means not yet documented. |
+| `schema` | string \| null | SecID reference to the schema this data conforms to (e.g., `secid:reference/cve.org/cve-schema@5.2.0`). Absent for scraped sources. A formal JSON Schema is ideal but API documentation also qualifies — the field means "what defines this data's structure." |
+| `parsing_instructions` | string \| null | SecID reference to a parsing instruction document (e.g., `secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5`). Covers field mappings, access patterns, and provenance notes. |
+| `auth` | string \| null | Free-text description of how to authenticate/access this URL. Ranges from `"none"` to multi-paragraph explanations. Absent means not yet documented. |
 | `lang` | LangConfig | Language availability and URL substitution config. See Language Resolution below. |
 | `note` | string | Context for when/why to use this URL |
 | `type` | string | Category when source has multiple ID types |
