@@ -28,9 +28,27 @@
         "description": "The canonical vulnerability identifier system, operated by MITRE under contract with CISA.",
         "notes": "CVE is the canonical identifier — other advisories cross-reference CVEs. NVD (NIST) enriches CVE records with CVSS scores, CPE entries, and CWE mappings, but NVD has processing backlogs. Quality of CVE descriptions varies by CNA — some provide detailed technical analysis, others minimal information. The cvelistV5 GitHub repo contains raw JSON records organized by year and bucket directories.\n\nMultiple representations: The same CVE record is available through four access methods — the cve.org website (text/html), the cvelistV5 GitHub web view (text/html showing JSON), raw GitHub download (application/json), and the CVE Services API (application/json). Use `?content_type=application/json` to filter to machine-readable results only. The children below have identical patterns but different weights and content_type values: the website (weight 100) is the primary human-facing resolution, while raw GitHub (weight 45) and API (weight 50) are machine-readable access methods.",
         "urls": [
-          {"type": "website", "url": "https://www.cve.org"},
-          {"type": "api", "url": "https://cveawg.mitre.org/api"},
-          {"type": "bulk_data", "url": "https://github.com/CVEProject/cvelistV5", "format": "json"}
+          {
+            "type": "website",
+            "url": "https://www.cve.org",
+            "parsability": "scraped"
+          },
+          {
+            "type": "api",
+            "url": "https://cveawg.mitre.org/api",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "auth": "No auth required. Rate limited; be respectful.",
+            "notes": "REST API, per-record access via /api/cve/{id}"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://github.com/CVEProject/cvelistV5",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "auth": "Public GitHub repo, no auth for clone/download. Use token for higher rate limits.",
+            "notes": "One JSON file per CVE, organized by year/bucket directories. ~250K+ records, ~2GB full clone."
+          }
         ],
         "examples": ["CVE-2024-1234", "CVE-2023-44487", "CVE-2021-44228"]
       },
@@ -42,6 +60,8 @@
           "data": {
             "url": "https://www.cve.org/CVERecord?id={id}",
             "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2024-1234", "url": "https://www.cve.org/CVERecord?id=CVE-2024-1234"},
               {"input": "CVE-2021-44228", "url": "https://www.cve.org/CVERecord?id=CVE-2021-44228", "note": "Log4Shell — highest-profile CVE in recent history"}
@@ -56,6 +76,8 @@
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/{year}/{bucket}/{id}.json",
             "format": "json",
             "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "note": "GitHub web page showing CVE JSON record from cvelistV5 repository",
             "variables": {
               "year": {
@@ -89,6 +111,10 @@
             "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/{year}/{bucket}/{id}.json",
             "format": "json",
             "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+            "auth": "No auth required. Standard GitHub rate limits (60/hr unauthenticated, 5000/hr with token).",
             "note": "Raw CVE JSON file — direct download, no HTML wrapper",
             "variables": {
               "year": {
@@ -122,6 +148,10 @@
             "url": "https://cveawg.mitre.org/api/cve/{id}",
             "format": "json",
             "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+            "auth": "No auth required. Rate limited.",
             "note": "API endpoint, richer data than web page"
           }
         }
