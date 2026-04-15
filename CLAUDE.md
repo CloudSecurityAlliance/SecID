@@ -68,6 +68,8 @@ With 20+ markdown files, know which document answers which question:
 | How do I test a resolver? | [skills/compliance-testing/](skills/compliance-testing/) - compliance testing skill |
 | How do I use SecID as an end user? | [skills/secid-user/](skills/secid-user/) - end-user usage skill |
 | How do I add a methodology? | [METHODOLOGY-PROCESS.md](docs/proposals/METHODOLOGY-PROCESS.md) |
+| What format/schema does a URL return? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Format Metadata" section |
+| How do I parse a specific data format? | [docs/parsers/](docs/parsers/) - parsing instruction documents (e.g., cve-json-5.md) |
 
 Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
 
@@ -122,7 +124,8 @@ secid/
 │   └── _deferred/           # Partially researched entries not ready for main registry
 ├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
 ├── slides/                  # Presentation assets (overview deck)
-└── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
+├── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
+└── docs/parsers/            # Parsing instruction documents (how to consume each data format)
 ```
 
 ## Registry File Format
@@ -146,6 +149,17 @@ In registry data, `null` and absent mean different things:
 - **absent field** = "not yet researched" (unknown state)
 
 Optional per-field metadata (`_checked`, `_updated`, `_note` suffixes) record *when* data was verified. A `null` with `_checked` tells you when the absence was confirmed. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Per-Field Metadata" for naming conventions and examples.
+
+### Format Metadata
+
+URL objects (both source-level `urls[]` and per-item match_node children) carry optional format metadata:
+
+- **`parsability`**: `"structured"` (machine-readable) or `"scraped"` (HTML/unstructured)
+- **`schema`**: SecID reference to the data schema (e.g., `secid:reference/cve.org/cve-schema@5.2.0`). Schemas are `reference` registry entries.
+- **`parsing_instructions`**: SecID reference to a parsing instruction document (e.g., `secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5`). Documents live in `docs/parsers/`.
+- **`auth`**: Free text describing authentication requirements.
+
+All four are optional. Absent means "not yet documented." See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Format Metadata" for full details.
 
 ## Key Design Principles
 

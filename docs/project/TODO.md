@@ -1,6 +1,6 @@
 # TODO
 
-Tracking work items for SecID. Updated 2026-04-05 (v1.0 release).
+Tracking work items for SecID. Updated 2026-04-06.
 
 ## Active — Next Up
 
@@ -15,34 +15,6 @@ Develop training content for CSA's education platform (Skilljar/training.cloudse
 - Integration with AI security training (SecID for AI weaknesses, ATLAS techniques, AICM controls)
 
 **Depends on:** Slide decks (overview + CSA integration done), live service (done)
-
-### Technical Deep Dive Slide Deck
-**Status:** Planned
-**Priority:** High
-
-Developer/integrator deck covering:
-- API contract (one endpoint, encoding gotcha, response envelope)
-- MCP server setup and tool descriptions
-- SDK examples (Python, TypeScript, Go)
-- JSON Schema for registry validation
-- OpenAPI spec for code generation
-- Resolution depth and cross-source search
-- Building a client from the prompt template
-
-**File:** `slides/secid-technical.md`
-
-### Contributing Slide Deck
-**Status:** Planned
-**Priority:** Medium
-
-Community contribution deck covering:
-- Registry file format and templates
-- Namespace-to-filesystem algorithm
-- Research workflow (for capabilities: vendor docs → API scan → cross-reference)
-- PR process and review
-- How AI agents help with research
-
-**File:** `slides/secid-contributing.md`
 
 ### Disclosure: Safe Harbor Research
 **Status:** Not started
@@ -101,6 +73,28 @@ DISA STIGs are US government work (public domain). Structured XCCDF XML.
 **Data source:** https://www.cyber.mil/stigs/downloads/
 **Format:** XCCDF XML → per-check JSON extraction
 
+### SecID-Service: Surface Format Metadata in API Responses
+**Status:** Not started
+**Priority:** High
+
+The registry now includes `parsability`, `schema`, `parsing_instructions`, and `auth` fields on URL objects (both source-level and per-item children). The SecID-Service resolver needs to:
+- Pass through these fields in resolution result objects when present
+- Support `?parsability=structured` query parameter for filtering results
+- Existing `?content_type=` filter should compose with `?parsability=`
+
+**Repo:** [CloudSecurityAlliance/SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)
+**Spec:** See `docs/reference/API-RESPONSE-FORMAT.md` "Filtering by Parsability" section
+**Depends on:** Registry data already deployed (auto-deploys via GitHub Actions)
+
+### SecID-Server-API: Surface Format Metadata in API Responses
+**Status:** Not started
+**Priority:** Medium
+
+Same changes as SecID-Service but for the self-hosted resolver. Pass through `parsability`, `schema`, `parsing_instructions`, `auth` fields. Support `?parsability=` filter.
+
+**Repo:** [CloudSecurityAlliance/SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)
+**Depends on:** SecID-Service implementation (use as reference)
+
 ### V2 Data Repositories
 **Status:** Design complete, not started
 **Priority:** Medium
@@ -126,6 +120,18 @@ Cross-type connections: CVE→CWE→ATT&CK→control→capability. The relations
 
 ## Completed (v1.0)
 
+### SecID-Server-API Repo
+**Status:** Done (v1.0)
+Scaffolded `CloudSecurityAlliance/SecID-Server-API` — self-hosted Python/TypeScript resolver with same API as the Cloudflare Worker. Supports in-memory, Redis, memcached, and SQLite storage backends. Docker image published as `secid-server-api`. Any SecID client works with any server (same API contract).
+
+### Participation Model Proposal
+**Status:** Done (proposal)
+`docs/proposals/PARTICIPATION-MODEL.md` defines four participation levels: pull requests (live), self-service namespace ownership (proposed), federation (proposed), private resolvers (proposed). Maps out how organizations can eventually own their own namespace files and run public resolvers.
+
+### Disclosure: Structured CNA Fields
+**Status:** Done (v1.0)
+`data.cve` (role, cna_id, assignerShortName, assignerOrgId, last_assigned_cve, last_assigned_date, scope), `data.security_txt` (url), and `data.disclosure_policy` (url) populated across all 486 CNA disclosure entries. See `docs/proposals/DISCLOSURE-TYPE-FIELDS.md`.
+
 ### JSON Schema for Registry Validation
 **Status:** Done (v1.0)
 Created `schemas/registry-namespace.schema.json` — validates all 719 registry files.
@@ -147,11 +153,13 @@ Created `schemas/openapi.yaml` — documents resolve, registry download, health,
 All `data.source` fields converted to `urls[]` arrays. Two URL mechanisms: `data.url` (resolution template) and `urls[]` (everything else).
 
 ### Slide Decks
-**Status:** Partially done
-- Overview deck (17 slides) — Done
+**Status:** Done (v1.0)
+- Overview deck (19 slides) — Done
 - CSA Integration deck (14 slides) — Done
-- Technical deck — Planned
-- Contributing deck — Planned
+- Technical Deep Dive deck (16 slides) — Done
+- Contributing deck (14 slides) — Done
+
+All four decks published to `slides/` with CSA-branded Marp theme. Pre-commit hook auto-rebuilds HTML on markdown/theme changes.
 
 ### MCP Server Enhancements
 **Status:** Done (v1.0)
@@ -185,9 +193,9 @@ Re-scrape cve.org/PartnerInformation/ListofPartners periodically. Scripts exist 
 Monitor cloud provider release notes for new security features. Update capability entries when services change.
 
 ### CI/CD for Slide Generation
-**Status:** Deferred
+**Status:** Done (pre-commit hook)
 
-Auto-generate PDF/HTML from Marp markdown on push to slides/.
+Pre-commit hook at `.git/hooks/pre-commit` auto-rebuilds HTML from Marp markdown when `slides/*.md` or `slides/theme/*.css` are staged. Full GitHub Actions workflow for PDF generation remains deferred.
 
 ### llms.txt for AI Discoverability
 **Status:** Deferred
@@ -195,6 +203,6 @@ Auto-generate PDF/HTML from Marp markdown on push to slides/.
 Implement llms.txt standard on the website for AI-friendly content discovery.
 
 ### Standalone SecID Plugin
-**Status:** Deferred
+**Status:** Done (v1.0)
 
-Claude Code plugin for SecID operations.
+Claude Code plugin scaffolded and published to `CloudSecurityAlliance/csa-plugins-official` marketplace. Install via `/plugin install secid@csa-plugins-official`. Provides resolve, lookup, and describe tools via local MCP server. Supports `--base-url` flag for internal resolvers.
