@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cve.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "CVE Program",
+  "common_name": "CVE",
+  "alternate_names": ["CVE Project", "Common Vulnerabilities and Exposures"],
+  "notes": "The CVE Program maintains the CVE schema and related tooling. Operated by MITRE under contract with CISA. The cve.org website, CVE Services API, and CVEProject GitHub org are all part of this namespace. GitHub verified domain: cve.org on github.com/CVEProject.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.cve.org"},
+    {"type": "github", "url": "https://github.com/CVEProject"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cve-schema$"],
+      "description": "CVE JSON Record Format schema",
+      "weight": 100,
+      "data": {
+        "official_name": "CVE JSON Record Format",
+        "common_name": null,
+        "alternate_names": ["CVE JSON Schema", "CVE Record Format"],
+        "description": "JSON schema defining the structure of CVE records, maintained by the CVE Project. Used by CVE Services API, cvelistV5 repository, and all CNAs submitting CVE records.",
+        "notes": "The schema accepts any 5.x record — the dataVersion pattern is ^5\\.(0|[1-9][0-9]*)(\\....)$. Older 5.0 and 5.1 records remain valid against the latest schema. The repo also contains bundled schemas, example files, and documentation.",
+        "version_required": true,
+        "unversioned_behavior": "disambiguation",
+        "version_disambiguation": "Multiple schema versions exist. Specify @5.2 for the current production schema, @5.1 for the prior version, or @5.0 for the original 5.x release.",
+        "versions_available": ["5.2.0", "5.1.0", "5.0.0"],
+        "urls": [
+          {"type": "website", "url": "https://cveproject.github.io/cve-schema", "parsability": "scraped"},
+          {"type": "github", "url": "https://github.com/CVEProject/cve-schema"}
+        ],
+        "examples": ["5.2.0", "5.2", "5.1.0", "5.0.0"]
+      },
+      "children": [
+        {
+          "patterns": ["^5\\.2(\\.0)?$"],
+          "description": "CVE JSON 5.2.0 — current production schema",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "notes": "Default dataVersion is 5.2.0. Schema on main branch.",
+            "examples": [
+              {"input": "5.2.0", "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json"},
+              {"input": "5.2", "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.1(\\.0)?$"],
+          "description": "CVE JSON 5.1.0",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "examples": [
+              {"input": "5.1.0", "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.0(\\.0)?$"],
+          "description": "CVE JSON 5.0.0",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/CVE_Record_Format.json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "examples": [
+              {"input": "5.0.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/CVE_Record_Format.json"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
