@@ -1221,6 +1221,37 @@
           }
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^secid-parsers$"],
+      "description": "SecID parsing instruction documents — how to consume specific data schemas for registry work and v2.0 data serving",
+      "weight": 100,
+      "data": {
+        "official_name": "SecID Parsing Instructions",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "CSA-authored documents covering field mappings, access patterns, rate limits, and provenance notes for each data format SecID works with.",
+        "notes": "Each document serves two audiences: (1) consumers (v2.0 service, pipelines, AI agents) who need to know how to parse the data, and (2) contributors/auditors who want to understand how registry patterns were derived from raw sources.",
+        "urls": [
+          {"type": "github", "url": "https://github.com/CloudSecurityAlliance/SecID/tree/main/docs/parsers"}
+        ],
+        "examples": ["cve-json-5"]
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^cve-json-5$"],
+          "description": "CVE JSON 5.x parsing instructions",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CloudSecurityAlliance/SecID/blob/main/docs/parsers/cve-json-5.md",
+            "content_type": "text/markdown",
+            "parsability": "structured",
+            "examples": [
+              {"input": "cve-json-5", "url": "https://github.com/CloudSecurityAlliance/SecID/blob/main/docs/parsers/cve-json-5.md"}
+            ]
+          }
+        }
+      ]
     }
   ]
 }
