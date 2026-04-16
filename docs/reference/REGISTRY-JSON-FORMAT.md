@@ -18,6 +18,15 @@ The registry does NOT contain:
 
 Enrichment and relationships belong in separate data layers that reference SecIDs.
 
+## Regex Dialect Policy
+
+Registry `match_nodes[].patterns` are canonicalized to **ECMAScript `RegExp`** syntax because production resolution runs in Cloudflare Workers (JavaScript runtime).
+
+- Store one canonical pattern set in the registry. Do not store per-engine variants (`ecmascript`, `pcre`, `python`, etc.) in registry data.
+- Non-JS runtimes should use tooling that translates/validates from canonical ECMAScript patterns.
+- Keep patterns in a portable subset when possible.
+- Legacy inline-flag patterns (for example `(?i)^cve$`) may still exist during migration; new/updated patterns should use ECMAScript-compatible syntax.
+
 ## Resolution Pipeline
 
 This section explains how a SecID string is resolved to URLs using registry data.
@@ -98,7 +107,7 @@ The resolver walks the **pattern tree** (`match_nodes`), matching each portion o
 ```
 secid:advisory/redhat.com/errata#RHSA-2026:1234
 
-1. Name "errata" → match against name-level nodes → "(?i)^errata$" matches
+1. Name "errata" → match against name-level nodes → "^errata$" matches
 2. No @version → skip version-level children
 3. Subpath "RHSA-2026:1234" → match against subpath-level children → "^RHSA-\\d{4}:\\d+$" matches
 4. Return data from both levels (source info + specific advisory URL)
@@ -394,7 +403,7 @@ A formal JSON Schema file is ideal, but API documentation qualifies too. If the 
   ],
 
   "match_nodes": [
-    { "patterns": ["(?i)^cve$"], "data": { ... }, "children": [ ... ] }
+    { "patterns": ["^cve$"], "data": { ... }, "children": [ ... ] }
   ]
 }
 ```
@@ -590,7 +599,7 @@ The `match_nodes` array replaces the old `sources` block. Each node in the tree 
 ```json
 "match_nodes": [
   {
-    "patterns": ["(?i)^cve$"],
+    "patterns": ["^cve$"],
     "description": "Common Vulnerabilities and Exposures",
     "weight": 100,
     "data": {
@@ -620,7 +629,7 @@ The `match_nodes` array replaces the old `sources` block. Each node in the tree 
 ]
 ```
 
-The name-level pattern (e.g., `(?i)^cve$`) replaces the literal source key. This is matched against the `name` component of the SecID: `secid:advisory/mitre.org/cve#CVE-2024-1234` → name `cve` matches `(?i)^cve$`.
+The name-level pattern (e.g., `^cve$`) replaces the literal source key. This is matched against the `name` component of the SecID: `secid:advisory/mitre.org/cve#CVE-2024-1234` → name `cve` matches `^cve$`.
 
 #### Node Schema
 
@@ -632,9 +641,9 @@ The name-level pattern (e.g., `(?i)^cve$`) replaces the literal source key. This
 | `data` | object | no | Result data returned when this node matches (see below) |
 | `children` | array | no | Child nodes for matching the next portion of the string (recursive) |
 
-**Multiple patterns per node:** A node can have multiple regex alternatives. All share the same children and data. Used when a source is known by multiple names (e.g., `["(?i)^top10$", "(?i)^top-10$", "(?i)^owasp-top-10$"]`).
+**Multiple patterns per node:** A node can have multiple regex alternatives. All share the same children and data. Used when a source is known by multiple names (e.g., `["^top10$", "^top-10$", "^owasp-top-10$"]`).
 
-**Case sensitivity:** Use `(?i)` prefix in the regex for case-insensitive matching. Convention: name-level patterns use `(?i)` (users may type `CVE` or `cve`), subpath patterns match canonical case per the source's format. No lossy normalization of the input — the original is always preserved.
+**Case sensitivity:** Patterns are case-sensitive by default. For case-insensitive matching, add explicit aliases in `patterns` (for common variants) rather than engine-specific inline flags. Convention: keep canonical lowercase name-level patterns and add targeted aliases only where needed. Subpath patterns should match canonical source case. No lossy normalization of input — the original is always preserved.
 
 #### Node Data Object
 
@@ -902,7 +911,7 @@ At each level, the node's `data` is collected into the result set. The resolver 
 
 - **Chop and pass.** Each regex only sees its portion of the string. The resolver splits at grammar boundaries (`@`, `#`) and passes each piece to the appropriate tree level. No backtracking, no lookahead across levels.
 - **All matches traversed.** The resolver doesn't stop at the first match — all matching sibling nodes are traversed to completion. Multiple matches are returned with weights.
-- **Case sensitivity per-pattern.** Use `(?i)` prefix for case-insensitive matching. No lossy normalization of input.
+- **Case sensitivity per-pattern.** Use explicit alias patterns when case-insensitive behavior is needed. No lossy normalization of input.
 - **Mutual exclusivity is checkable.** At each level, you can validate that sibling patterns don't overlap. When they do overlap, `weight` disambiguates.
 
 For sources with multiple subpath types (old `id_patterns` with `type` field), each type becomes a sibling child node:
@@ -1125,7 +1134,7 @@ For sources where different versions have different URL structures, add version-
 
 ```json
 {
-  "patterns": ["(?i)^ccm$"],
+  "patterns": ["^ccm$"],
   "description": "Cloud Controls Matrix",
   "data": { "..." : "..." },
   "children": [
@@ -1352,7 +1361,7 @@ If a document has both a human-readable reference (`secid:reference/nist.gov/ai-
 
 Entity files describe organizations and their products/services. They use the same `match_nodes` structure as other types — the resolver walks the same tree for `secid:entity/redhat.com/openshift` as it does for `secid:advisory/redhat.com/errata#RHSA-2024:1234`.
 
-Entity match_nodes typically use literal patterns (`(?i)^openshift$`) rather than regex patterns, since entity names are fixed strings rather than structured identifier formats. However, the same tree shape enables hierarchical navigation — products can have sub-products as children.
+Entity match_nodes typically use literal patterns (`^openshift$`) rather than regex patterns, since entity names are fixed strings rather than structured identifier formats. However, the same tree shape enables hierarchical navigation — products can have sub-products as children.
 
 ### Entity-specific data fields
 
@@ -1381,7 +1390,7 @@ Entity match_nodes may include these additional fields in `data`:
 
   "match_nodes": [
     {
-      "patterns": ["(?i)^openshift$"],
+      "patterns": ["^openshift$"],
       "description": "Red Hat OpenShift",
       "weight": 100,
       "data": {
@@ -1395,7 +1404,7 @@ Entity match_nodes may include these additional fields in `data`:
       },
       "children": [
         {
-          "patterns": ["(?i)^rosa$"],
+          "patterns": ["^rosa$"],
           "description": "Red Hat OpenShift Service on AWS",
           "weight": 100,
           "data": {
@@ -1412,7 +1421,7 @@ Entity match_nodes may include these additional fields in `data`:
       ]
     },
     {
-      "patterns": ["(?i)^rhel$"],
+      "patterns": ["^rhel$"],
       "description": "Red Hat Enterprise Linux",
       "weight": 100,
       "data": {
@@ -1455,7 +1464,7 @@ Cross-references between entities and their publications (e.g., "MITRE operates 
 
   "match_nodes": [
     {
-      "patterns": ["(?i)^cve$"],
+      "patterns": ["^cve$"],
       "description": "Common Vulnerabilities and Exposures",
       "weight": 100,
       "data": {
@@ -1573,7 +1582,7 @@ This example shows a namespace with a `/`-separated path portion (`github.com/ad
 
   "match_nodes": [
     {
-      "patterns": ["(?i)^ghsa$"],
+      "patterns": ["^ghsa$"],
       "description": "GitHub Security Advisories",
       "weight": 100,
       "data": {
@@ -1615,7 +1624,7 @@ The current YAML frontmatter maps to JSON as follows:
 |------------|------------|-------|
 | `full_name` | `official_name` | Renamed for clarity |
 | `website` | `urls[] where type=website` | Now array with context |
-| `sources` (keyed object) | `match_nodes` (array of pattern nodes) | Literal keys become `patterns` with `(?i)` regex |
+| `sources` (keyed object) | `match_nodes` (array of pattern nodes) | Literal keys become `patterns` regex values (ECMAScript-compatible) |
 | `id_pattern` / `id_patterns` | `children` on name-level nodes | Subpath patterns become child nodes |
 | `id_routing` | `data.url` on child nodes | Merged into node data |
 | `version_patterns` | Version-level children | Intermediate tree level between name and subpath |
@@ -1666,7 +1675,7 @@ For sources with hierarchical identifiers, the tree naturally mirrors the hierar
 
   "match_nodes": [
     {
-      "patterns": ["(?i)^ccm$"],
+      "patterns": ["^ccm$"],
       "description": "Cloud Controls Matrix",
       "weight": 100,
       "data": {
