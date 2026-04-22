@@ -396,6 +396,7 @@ This learning feeds back into spec refinement and overlay priorities.
 | Deliverable | Status | Success Criteria |
 |-------------|--------|------------------|
 | Registry data (500+ namespaces) | Done (700+ namespaces) | Every namespace has URL resolution rules + description |
+| Format metadata | **Done** | `parsability`, `schema`, `parsing_instructions`, `auth` on URL objects. Schemas as `reference` entries. Parsing instruction docs in `docs/parsers/`. API supports `?parsability=structured` filtering. |
 | REST API + MCP server | **Live** | [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) — MCP server shipped first, REST API followed |
 | Compliance test suite | Not started | Canonical test cases built during API development; doubles as conformance spec for third-party implementations |
 | Python library (`secid`) | Not started | `pip install secid` enables parsing and resolution |
