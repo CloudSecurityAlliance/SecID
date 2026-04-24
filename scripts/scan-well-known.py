@@ -28,8 +28,9 @@ REGISTRY_DIR = os.path.join(os.path.dirname(__file__), "..", "registry")
 DATA_REPO = os.path.join(os.path.dirname(__file__), "..", "..", "..",
                          "CloudSecurityAlliance-DataSets", "SecID-Entity-Data", "data")
 
-# Files to check, grouped by path
+# Files to check — root-level conventions + .well-known security/AI/auth/privacy URIs
 FILES_TO_CHECK = [
+    # Root-level conventions
     "llms.txt",
     "llms-full.txt",
     "robots.txt",
@@ -38,10 +39,55 @@ FILES_TO_CHECK = [
     "humans.txt",
     "skill.md",
     "SKILL.MD",
+    # Security — vulnerability disclosure, advisories, SBOM
     ".well-known/security.txt",
-    ".well-known/change-password",
+    ".well-known/csaf/provider-metadata.json",
+    ".well-known/csaf-aggregator",
+    ".well-known/sbom",
+    # Auth & identity infrastructure
     ".well-known/openid-configuration",
+    ".well-known/oauth-authorization-server",
+    ".well-known/oauth-protected-resource",
+    ".well-known/openid-federation",
+    ".well-known/webauthn",
+    ".well-known/uma2-configuration",
+    ".well-known/gnap-as-rs",
+    ".well-known/hoba",
+    ".well-known/did.json",
+    ".well-known/did-configuration.json",
+    ".well-known/ssf-configuration",
+    ".well-known/idp-proxy",
+    # Encryption & PKI
+    ".well-known/est",
+    ".well-known/cmp",
+    ".well-known/pki-validation",
+    ".well-known/posh",
+    ".well-known/acme-challenge",
+    ".well-known/ssh-known-hosts",
+    ".well-known/sshfp",
+    ".well-known/stun-key",
+    ".well-known/edhoc",
+    ".well-known/brski",
+    # Email & transport security
     ".well-known/mta-sts.txt",
+    ".well-known/enterprise-transport-security",
+    ".well-known/enterprise-network-security",
+    # Privacy
+    ".well-known/gpc.json",
+    ".well-known/dnt-policy.txt",
+    ".well-known/ohttp-gateway",
+    ".well-known/private-token-issuer-directory",
+    # Network
+    ".well-known/looking-glass",
+    ".well-known/probing.txt",
+    # App linking
+    ".well-known/assetlinks.json",
+    # Host metadata
+    ".well-known/host-meta",
+    ".well-known/host-meta.json",
+    # MCP endpoints (checked via POST separately, but GET here for discovery)
+    "mcp",
+    "_api/mcp",
 ]
 
 TIMEOUT = 8  # seconds per request
@@ -49,55 +95,107 @@ TIMEOUT = 8  # seconds per request
 
 # ── Content Validation ──
 
+def _is_html(content: str) -> bool:
+    """Check if content looks like an HTML page (soft 404 detector)."""
+    s = content.strip()[:200].lower()
+    return s.startswith("<!doctype") or s.startswith("<html") or s.startswith("<head") or s.startswith("<!-")
+
+
+def _is_valid_json_with(content: str, *required_keys: str) -> bool:
+    """Check if content is valid JSON containing at least one of the required keys."""
+    try:
+        data = json.loads(content.strip())
+        if isinstance(data, dict):
+            return any(k in data for k in required_keys)
+        return False
+    except (json.JSONDecodeError, ValueError):
+        return False
+
+
+# Map of filename → validator function. If not listed, falls through to default.
+# Validators return True if content is genuine, False if it's a soft 404.
+_VALIDATORS = {
+    # Root-level conventions
+    "llms.txt":       lambda c: c.strip().startswith("#"),
+    "llms-full.txt":  lambda c: c.strip().startswith("#"),
+    "skill.md":       lambda c: c.strip().startswith("#") or c.strip().startswith("---"),
+    "SKILL.MD":       lambda c: c.strip().startswith("#") or c.strip().startswith("---"),
+    "robots.txt":     lambda c: any(k in c.lower() for k in ("user-agent:", "disallow:", "allow:")),
+    "sitemap.xml":    lambda c: any(k in c[:500] for k in ("<?xml", "<urlset", "<sitemapindex")),
+    "security.txt":   lambda c: "contact:" in c.lower(),
+    "humans.txt":     lambda c: not _is_html(c),
+
+    # Security — vulnerability disclosure, advisories, SBOM
+    ".well-known/security.txt":                lambda c: "contact:" in c.lower(),
+    ".well-known/csaf/provider-metadata.json": lambda c: _is_valid_json_with(c, "publisher", "metadata_version", "canonical_url"),
+    ".well-known/csaf-aggregator":             lambda c: _is_valid_json_with(c, "aggregator", "csaf_providers"),
+    ".well-known/sbom":                        lambda c: _is_valid_json_with(c, "sbom", "bom") or not _is_html(c),
+
+    # Auth & identity — all JSON discovery documents
+    ".well-known/openid-configuration":        lambda c: _is_valid_json_with(c, "issuer", "authorization_endpoint"),
+    ".well-known/oauth-authorization-server":  lambda c: _is_valid_json_with(c, "issuer", "authorization_endpoint"),
+    ".well-known/oauth-protected-resource":    lambda c: _is_valid_json_with(c, "resource"),
+    ".well-known/openid-federation":           lambda c: not _is_html(c) and len(c.strip()) > 20,
+    ".well-known/webauthn":                    lambda c: _is_valid_json_with(c, "origins", "rpId") or (not _is_html(c) and len(c.strip()) > 10),
+    ".well-known/uma2-configuration":          lambda c: _is_valid_json_with(c, "issuer"),
+    ".well-known/gnap-as-rs":                  lambda c: _is_valid_json_with(c, "grant_request_endpoint"),
+    ".well-known/hoba":                        lambda c: not _is_html(c),
+    ".well-known/did.json":                    lambda c: _is_valid_json_with(c, "id", "@context"),
+    ".well-known/did-configuration.json":      lambda c: _is_valid_json_with(c, "linked_dids", "@context"),
+    ".well-known/ssf-configuration":           lambda c: _is_valid_json_with(c, "issuer", "delivery_methods_supported"),
+    ".well-known/idp-proxy":                   lambda c: not _is_html(c),
+
+    # Encryption & PKI
+    ".well-known/est":                         lambda c: not _is_html(c),
+    ".well-known/cmp":                         lambda c: not _is_html(c),
+    ".well-known/pki-validation":              lambda c: not _is_html(c),
+    ".well-known/posh":                        lambda c: _is_valid_json_with(c, "fingerprints", "expires"),
+    ".well-known/acme-challenge":              lambda c: not _is_html(c),
+    ".well-known/ssh-known-hosts":             lambda c: not _is_html(c) and ("ssh-" in c or "ecdsa-" in c),
+    ".well-known/sshfp":                       lambda c: not _is_html(c),
+    ".well-known/stun-key":                    lambda c: not _is_html(c),
+    ".well-known/edhoc":                       lambda c: not _is_html(c),
+    ".well-known/brski":                       lambda c: not _is_html(c),
+
+    # Email & transport security
+    ".well-known/mta-sts.txt":                 lambda c: "version:" in c.lower() and "mode:" in c.lower(),
+    ".well-known/enterprise-transport-security": lambda c: not _is_html(c) and len(c.strip()) > 10,
+    ".well-known/enterprise-network-security":   lambda c: not _is_html(c) and len(c.strip()) > 10,
+
+    # Privacy
+    ".well-known/gpc.json":                    lambda c: _is_valid_json_with(c, "gpc"),
+    ".well-known/dnt-policy.txt":              lambda c: "tracking" in c.lower() or "dnt" in c.lower(),
+    ".well-known/ohttp-gateway":               lambda c: not _is_html(c),
+    ".well-known/private-token-issuer-directory": lambda c: _is_valid_json_with(c, "token-keys") or not _is_html(c),
+
+    # Network
+    ".well-known/looking-glass":               lambda c: not _is_html(c),
+    ".well-known/probing.txt":                 lambda c: not _is_html(c) and "probe" in c.lower(),
+
+    # App linking
+    ".well-known/assetlinks.json":             lambda c: c.strip().startswith("[") and "target" in c,
+
+    # Host metadata
+    ".well-known/host-meta":                   lambda c: "<?xml" in c[:200] or "<XRD" in c[:200],
+    ".well-known/host-meta.json":              lambda c: _is_valid_json_with(c, "links"),
+
+    # MCP — GET won't return MCP data, but may reveal an info page
+    "mcp":                                     lambda c: not _is_html(c) or "mcp" in c.lower()[:500],
+    "_api/mcp":                                lambda c: not _is_html(c) or "mcp" in c.lower()[:500],
+}
+
+
 def validate_content(filename: str, content: str) -> bool:
     """Check if content is a real file, not a soft 404 / homepage HTML."""
     if not content or len(content.strip()) < 10:
         return False
 
-    stripped = content.strip()
+    validator = _VALIDATORS.get(filename)
+    if validator:
+        return validator(content)
 
-    # Universal HTML check — if it starts with HTML tags, it's not what we want
-    # (except for sitemap.xml which is XML)
-    if filename != "sitemap.xml" and filename != ".well-known/openid-configuration":
-        if stripped.startswith("<!") or stripped.startswith("<html") or stripped.startswith("<HTML"):
-            return False
-
-    if filename in ("llms.txt", "llms-full.txt"):
-        return stripped.startswith("#")
-
-    if filename in ("skill.md", "SKILL.MD"):
-        return stripped.startswith("#") or stripped.startswith("---")
-
-    if filename == "robots.txt":
-        lower = stripped.lower()
-        return "user-agent:" in lower or "disallow:" in lower or "allow:" in lower
-
-    if filename == "sitemap.xml":
-        return "<?xml" in stripped[:200] or "<urlset" in stripped[:500] or "<sitemapindex" in stripped[:500]
-
-    if filename in ("security.txt", ".well-known/security.txt"):
-        return "contact:" in stripped.lower()
-
-    if filename == ".well-known/openid-configuration":
-        try:
-            data = json.loads(stripped)
-            return "issuer" in data
-        except (json.JSONDecodeError, ValueError):
-            return False
-
-    if filename == ".well-known/mta-sts.txt":
-        lower = stripped.lower()
-        return "version:" in lower and "mode:" in lower
-
-    if filename == "humans.txt":
-        # Should be plaintext, not HTML
-        return not stripped.startswith("<")
-
-    if filename == ".well-known/change-password":
-        # Any non-HTML response is fine — it's a redirect target
-        return not stripped.startswith("<!")
-
-    return True
+    # Default: not HTML = probably real
+    return not _is_html(content)
 
 
 # ── Domain Extraction ──
