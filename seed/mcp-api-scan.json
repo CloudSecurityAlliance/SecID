@@ -1,0 +1,2779 @@
+{
+  "live_mcp_endpoints": {
+    "algosec.com": [
+      {
+        "url": "https://algosec.com/_api/mcp",
+        "status": 200,
+        "type": "jsonrpc",
+        "server_info": {
+          "name": "Site Visitor Assistant for site \"AlgoSec\" (https://algosec.com/_api/mcp)",
+          "version": "1.0.0"
+        }
+      }
+    ],
+    "teltonika-networks.com": [
+      {
+        "url": "https://teltonika-networks.com/_api/mcp",
+        "status": 200,
+        "type": "jsonrpc",
+        "server_info": {
+          "name": "Site Visitor Assistant for site \"Teltonika Networks\" (https://teltonika-networks.com/_api/mcp)",
+          "version": "1.0.0"
+        }
+      }
+    ],
+    "turansec.uz": [
+      {
+        "url": "https://turansec.uz/_api/mcp",
+        "status": 200,
+        "type": "jsonrpc",
+        "server_info": {
+          "name": "Site Visitor Assistant for site \"Turan Security | White Hat\" (https://turansec.uz/_api/mcp)",
+          "version": "1.0.0"
+        }
+      }
+    ],
+    "villageb.io": [
+      {
+        "url": "https://villageb.io/_api/mcp",
+        "status": 200,
+        "type": "jsonrpc",
+        "server_info": {
+          "name": "Site Visitor Assistant for site \"Villageb.io\" (https://villageb.io/_api/mcp)",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "mcp_in_llms": {
+    "algosec.com": [
+      {
+        "file": "llms.txt",
+        "line": 6,
+        "text": "This site is powered by Wix and supports the Model Context Protocol (MCP)",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 10,
+        "text": "- **Site MCP Endpoint:** https://www.algosec.com/_api/mcp",
+        "urls": [
+          "https://www.algosec.com/_api/mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 11,
+        "text": "- **Wix MCP Docs:** https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp",
+        "urls": [
+          "https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 13,
+        "text": "## Available MCP Tools",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "## What Visitors Can Do via AI + MCP",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 62,
+        "text": "- No authentication required to connect to the MCP endpoint",
+        "urls": []
+      }
+    ],
+    "avaya.com": [
+      {
+        "file": "llms.txt",
+        "line": 21,
+        "text": "- [Model Context Protocol (MCP)](https://www.avaya.com/en/solutions/mcp/): Open standard for connecting AI models to Avaya data and systems securely.",
+        "urls": [
+          "https://www.avaya.com/en/solutions/mcp/"
+        ]
+      }
+    ],
+    "clickhouse.com": [
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "- [Introducing AgentHouse](https://clickhouse.com/blog/agenthouse-demo-clickhouse-llm-mcp)",
+        "urls": [
+          "https://clickhouse.com/blog/agenthouse-demo-clickhouse-llm-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 53,
+        "text": "- [One step closer to Agentic Analytics: Ask AI agent & Remote MCP server beta launch](https://clickhouse.com/blog/agentic-analytics-ask-ai-agent-and-remote-mcp-server-beta-launch)",
+        "urls": [
+          "https://clickhouse.com/blog/agentic-analytics-ask-ai-agent-and-remote-mcp-server-beta-launch"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 54,
+        "text": "- [Agentic analytics in Slack with ClickHouse, MCP, and PydanticAI](https://clickhouse.com/blog/agentic-analytics-slack-clickhouse-mcp)",
+        "urls": [
+          "https://clickhouse.com/blog/agentic-analytics-slack-clickhouse-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 55,
+        "text": "- [Agentic BI in Slack: MCP-powered analytics and visualisations](https://clickhouse.com/blog/agentic-bi-in-slack-mcp-visualisations)",
+        "urls": [
+          "https://clickhouse.com/blog/agentic-bi-in-slack-mcp-visualisations"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 100,
+        "text": "- [Building an agentic app with ClickHouse MCP and CopilotKit](https://clickhouse.com/blog/building-an-agentic-application-with-clickhouse-mcp-server-and-copilotkit)",
+        "urls": [
+          "https://clickhouse.com/blog/building-an-agentic-application-with-clickhouse-mcp-server-and-copilotkit"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 169,
+        "text": "- [ClickHouse Cloud joins the new AWS Marketplace \u201cAI Agents and Tools\u201d category with a remote MCP server for a turn-key AI-to-data connectivity](https://clickhouse.com/blog/clickhouse-cloud-joins-aws",
+        "urls": [
+          "https://clickhouse.com/blog/clickhouse-cloud-joins-aws-ai-agents-and-tools-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 361,
+        "text": "- [How to build AI agents with MCP: 12 framework comparison (2025)](https://clickhouse.com/blog/how-to-build-ai-agents-mcp-12-frameworks)",
+        "urls": [
+          "https://clickhouse.com/blog/how-to-build-ai-agents-mcp-12-frameworks"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 374,
+        "text": "- [Integrating with ClickHouse MCP](https://clickhouse.com/blog/integrating-clickhouse-mcp)",
+        "urls": [
+          "https://clickhouse.com/blog/integrating-clickhouse-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 409,
+        "text": "- [LLM chat UIs that support MCP](https://clickhouse.com/blog/llm-chat-mcp-support)",
+        "urls": [
+          "https://clickhouse.com/blog/llm-chat-mcp-support"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 411,
+        "text": "- [LLM observability with ClickStack, OpenTelemetry, and MCP](https://clickhouse.com/blog/llm-observability-clickstack-mcp)",
+        "urls": [
+          "https://clickhouse.com/blog/llm-observability-clickstack-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1004,
+        "text": "- [MCP and Data Warehouses: everything you need to know](https://clickhouse.com/resources/engineering/mcp-data-warehouse-everthing-you-need-to-know)",
+        "urls": [
+          "https://clickhouse.com/resources/engineering/mcp-data-warehouse-everthing-you-need-to-know"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1121,
+        "text": "- [The ClickHouse MCP Server](https://clickhouse.com/videos/clickhouse-mcp-server)",
+        "urls": [
+          "https://clickhouse.com/videos/clickhouse-mcp-server"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1291,
+        "text": "- [LibreChat and the ClickHouse MCP server](https://clickhouse.com/videos/librechat-mcp-server)",
+        "urls": [
+          "https://clickhouse.com/videos/librechat-mcp-server"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1303,
+        "text": "- [MCP for real-time anaytics panel discussion](https://clickhouse.com/videos/mcp-for-real-time-anaytics-panel-discussion)",
+        "urls": [
+          "https://clickhouse.com/videos/mcp-for-real-time-anaytics-panel-discussion"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1304,
+        "text": "- [MCP for Real-Time Analytics Panel With ClickHouse & Friends: Anthropic, a16z, Runreveal, FiveOneFour](https://clickhouse.com/videos/mcp-real-time-analytics-panel)",
+        "urls": [
+          "https://clickhouse.com/videos/mcp-real-time-analytics-panel"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1305,
+        "text": "- [In-memory analytics with the chDB MCP Server](https://clickhouse.com/videos/mcp-server-chdb)",
+        "urls": [
+          "https://clickhouse.com/videos/mcp-server-chdb"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1417,
+        "text": "- [I Hated AI\u2026 Until This Changed Everything (Real-World MCP Use at ClickHouse) ](https://clickhouse.com/videos/real-world-mcp)",
+        "urls": [
+          "https://clickhouse.com/videos/real-world-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1457,
+        "text": "- [Langfuse \u6982\u8981\u3001\u305d\u3057\u3066 ClickHouse\u306eMCP\u30b5\u30fc\u30d0\u30fc\u306b\u3088\u3063\u3066\u3067\u304d\u308b\u3053\u3068 Langfuse overview and what you can do with ClickHouse's MCP server](https://clickhouse.com/videos/tokyo-meetup-Gao-June2025)",
+        "urls": [
+          "https://clickhouse.com/videos/tokyo-meetup-Gao-June2025"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1467,
+        "text": "- [IoT\u30c7\u30fc\u30bf\u3092\u5b9f\u7528\u7684\u306a\u6d1e\u5bdf\u3078\u5909\u9769\uff1aEMQX\u3068ClickHouse MCP\u30b5\u30fc\u30d0\u30fc\u306b\u3088\u308b\u4e8b\u4f8b\u7d39\u4ecb Transforming IoT Data into Actionable Insights: A Case Study with EMQX and ClickHouse MCP Server](https://clickhouse.com/videos/tokyo-meetup-emq-29ju",
+        "urls": [
+          "https://clickhouse.com/videos/tokyo-meetup-emq-29jul25"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1496,
+        "text": "- [Using the ClickHouse MCP server with Google Antigravity](https://clickhouse.com/blog/google-antigravity)",
+        "urls": [
+          "https://clickhouse.com/blog/google-antigravity"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1585,
+        "text": "- [How DoControl delivers real-time, AI-driven SaaS security insights with ClickHouse Cloud and MCP](https://clickhouse.com/blog/do-control)",
+        "urls": [
+          "https://clickhouse.com/blog/do-control"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1648,
+        "text": "- [Building Real\u2011Time AI: Highlights from the AWS MCP Hackathon in San Francisco](https://clickhouse.com/blog/aws-mcp-hackathon-san-francisco)",
+        "urls": [
+          "https://clickhouse.com/blog/aws-mcp-hackathon-san-francisco"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1670,
+        "text": "- [ AgentHouse\u306e\u3054\u7d39\u4ecb](https://clickhouse.com/blog/agenthouse-demo-clickhouse-llm-mcp-jp)",
+        "urls": [
+          "https://clickhouse.com/blog/agenthouse-demo-clickhouse-llm-mcp-jp"
+        ]
+      }
+    ],
+    "dremio.com": [
+      {
+        "file": "llms.txt",
+        "line": 8,
+        "text": "* MCP Server: https://docs.dremio.com/current/developer/mcp-server/",
+        "urls": [
+          "https://docs.dremio.com/current/developer/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 15,
+        "text": "Dremio provides an open MCP (Model Context Protocol) server so any AI agent or LLM application can discover datasets, inspect schemas, trace lineage, and execute governed SQL queries. One-click MCP in",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 17,
+        "text": "MCP is an open protocol. Dremio's differentiator is not MCP alone, it is what the agent can accomplish through MCP: a federated semantic layer with business context across all connected data sources. ",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 19,
+        "text": "* MCP Server docs: https://docs.dremio.com/current/developer/mcp-server/",
+        "urls": [
+          "https://docs.dremio.com/current/developer/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 90,
+        "text": "| Agent connectivity | Open MCP + federated semantic layer + business context | Proprietary agents + MCP | Cortex + MCP |",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 112,
+        "text": "## Example: Agent Querying Dremio via MCP",
+        "urls": []
+      }
+    ],
+    "echohq.com": [
+      {
+        "file": "llms.txt",
+        "line": 12,
+        "text": "- [The 6 hidden risks of deploying with MCP](https://www.echo.ai/gated/hidden-risks-of-mcp)",
+        "urls": [
+          "https://www.echo.ai/gated/hidden-risks-of-mcp"
+        ]
+      }
+    ],
+    "github.com": [
+      {
+        "file": "llms.txt",
+        "line": 17,
+        "text": "- [Extend Copilot Chat with MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp): Connect MCP servers to Copilot Chat to share context from other appli",
+        "urls": [
+          "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 18,
+        "text": "- [Use the GitHub MCP Server](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server): Learn how to use the GitHub Model Context Protocol (MCP) server to interact",
+        "urls": [
+          "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 19,
+        "text": "- [Set up the GitHub MCP Server](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server): Learn how to configure the GitHub Model Context Protocol (MCP) server",
+        "urls": [
+          "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server"
+        ]
+      }
+    ],
+    "jfrog.com": [
+      {
+        "file": "llms.txt",
+        "line": 3,
+        "text": "> JFrog is the trust layer for the agentic software supply chain \u2014 the single source of truth for every artifact, model, agent skill, and MCP server enterprises ship. JFrog uniquely combines binary ma",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 67,
+        "text": "[JFrog MCP Registry](https://jfrog.com/ai-catalog/mcp-registry/): MCP governance and security at enterprise scale.",
+        "urls": [
+          "https://jfrog.com/ai-catalog/mcp-registry/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 117,
+        "text": "[JFrog Unveils Universal MCP Registry](https://jfrog.com/press-room/jfrog-unveils-universal-mcp-registry-for-ai-software-supply-chain/)",
+        "urls": [
+          "https://jfrog.com/press-room/jfrog-unveils-universal-mcp-registry-for-ai-software-supply-chain/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 3,
+        "text": "> JFrog is the trust layer for the agentic software supply chain \u2014 the single source of truth for every artifact, model, agent skill, and MCP server enterprises ship. JFrog uniquely combines binary ma",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 67,
+        "text": "[JFrog MCP Registry](https://jfrog.com/ai-catalog/mcp-registry/): MCP governance and security at enterprise scale.",
+        "urls": [
+          "https://jfrog.com/ai-catalog/mcp-registry/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 117,
+        "text": "[MCP Registry](https://jfrog.com/learn/ai-security/mcp-registry/): What is an MCP Registry and why it matters for AI security.",
+        "urls": [
+          "https://jfrog.com/learn/ai-security/mcp-registry/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 199,
+        "text": "[JFrog Unveils Universal MCP Registry](https://jfrog.com/press-room/jfrog-unveils-universal-mcp-registry-for-ai-software-supply-chain/)",
+        "urls": [
+          "https://jfrog.com/press-room/jfrog-unveils-universal-mcp-registry-for-ai-software-supply-chain/"
+        ]
+      }
+    ],
+    "krakend.io": [
+      {
+        "file": "llms.txt",
+        "line": 169,
+        "text": "- [MCP Gateway](https://www.krakend.io/docs/ai-gateway/mcp-gateway/): Protect a third-party MCP server through KrakenD and add security, observability, and traffic management features.",
+        "urls": [
+          "https://www.krakend.io/docs/ai-gateway/mcp-gateway/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 170,
+        "text": "- [MCP Server](https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/): Create a local MCP server entrypoint that serves the desired MCP configuration.",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 4912,
+        "text": "##### [`ai/mcp`](https://www.krakend.io/docs/endpoints/#ai%2fmcp \"Click to copy link to ai/mcp\")",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/#ai%2fmcp"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 4914,
+        "text": "**Enterprise only.** Declares the endpoint as an [MCP server entrypoint](https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/)",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28320,
+        "text": "# [MCP Gateway](https://www.krakend.io/docs/ai-gateway/mcp-gateway/)",
+        "urls": [
+          "https://www.krakend.io/docs/ai-gateway/mcp-gateway/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28322,
+        "text": "The Model Context Protocol (MCP) Gateway in KrakenD enables transparent communication between an **MCP agent** and a **third-party MCP server** through a `no-op` endpoint. This setup allows KrakenD to",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28326,
+        "text": "- [Throttle](/docs/throttling/) the usage of the MCP",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28334,
+        "text": "Use KrakenD\u2019s MCP Gateway to **connect MCP agents to external MCP servers** that lack sufficient Enterprise-ready features, leveraging KrakenD as a secure, observable, and manageable gateway. This fea",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28336,
+        "text": "KrakenD can also be the [MCP Server](/docs/enterprise/ai-gateway/mcp-server/) if needed Enterprise",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28340,
+        "text": "- Secure MCP Agent Communication: Inject authentication and authorization to restrict MCP agent interactions with third-party MCP servers.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28341,
+        "text": "- Rate Limiting MCP Traffic: Protect MCP servers from overload by applying rate limits at the gateway.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28342,
+        "text": "- Observability and Logging: Add tracing and metrics on MCP message exchanges to improve operational insight.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28343,
+        "text": "- Enterprise MCP Server: For deployments needing an in-house MCP server, KrakenD Enterprise includes the MCP Server feature that can be integrated or proxied using this gateway.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28345,
+        "text": "## MCP Gateway configuration",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28347,
+        "text": "To configure an endpoint in KrakenD acting as an MCP gateway to forward raw MCP messages, you only need a configuration like this:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28353,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28361,
+        "text": "\"url_pattern\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28363,
+        "text": "\"https://third-party-mcp-server.local\"",
+        "urls": [
+          "https://third-party-mcp-server.local"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28369,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28379,
+        "text": "\"url_pattern\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28381,
+        "text": "\"https://third-party-mcp-server.local\"",
+        "urls": [
+          "https://third-party-mcp-server.local"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28387,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28395,
+        "text": "\"url_pattern\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28397,
+        "text": "\"https://third-party-mcp-server.local\"",
+        "urls": [
+          "https://third-party-mcp-server.local"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28408,
+        "text": "- `method`: Three endpoints, as we want to allow MCP communication through `GET`, `POST` and `DELETE`. Being the `POST` the most important.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28409,
+        "text": "- `output_encoding`: The `no-op` encoding allows transparent MCP communication. This is a must.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28410,
+        "text": "- `input_headers`: Depending on the MCP technology, you might need forwarding headers to the MCP server. Or you can add [Martian](/docs/backends/martian/) and inject them at the gateway level if they ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28411,
+        "text": "- `endpoint`: `/mcp` defines the KrakenD endpoint exposed to MCP agents, whatever route you want this to be.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28412,
+        "text": "- `host`: Remote MCP server address to forward MCP messages.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28414,
+        "text": "Supported MCP Server types",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28416,
+        "text": "The MCP server connected to KrakenD must be HTTP-based, like JSONRPC or SSE. Stdio communication is out of scope for this functionality. If you plan to use SSE, make sure to add also a `timeout` with ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28420,
+        "text": "KrakenD\u2019s MCP Gateway feature enables infrastructure teams to transparently connect MCP agents to third-party MCP servers while adding vital control layers such as authorization, observability, and ra",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28422,
+        "text": "For advanced MCP deployments, KrakenD Enterprise offers a native [MCP Server](/docs/enterprise/ai-gateway/mcp-server/) option that complements or replaces third-party MCP resources.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28428,
+        "text": "# [MCP Server (available in KrakenD Enterprise)](https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/)",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28430,
+        "text": "The MCP Server feature **exposes any of your existing use cases as MCP tools** so you can allow to **AI MCP Agents to access any of the systems you have already**, or create new ones easily, whether i",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28432,
+        "text": "With the MCP Server of KrakenD, you instantly add MCP to all your stack regardless of their native MCP compatibility or not. This unlocks effortless AI-driven integrations by bridging any service with",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28434,
+        "text": "![ai-gateway-mcp-server.mmd diagram](/images/documentation/diagrams/ai-gateway-mcp-server.mmd.svg)",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28436,
+        "text": "As KrakenD can expose through MCP any kind of service, you can start offering **endless use cases**, and is a game changer to start publishing AI services inside enterprise architectures with no effor",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28438,
+        "text": "The key concepts of the MCP server are:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28440,
+        "text": "- **Build on-the-fly MCP servers**: Declare and run MCP servers that fetch and send data from and to multiple places.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28441,
+        "text": "- **Protocol translation**: Offer MCP, consume anything. E.g., connect to a SOAP service and offer it to Claude via MCP.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28442,
+        "text": "- **KrakenD ecosystem compatibility**: MCP servers are first-class citizens and enjoy authorization, throttling, data modification, validation, caching, monitoring, workflows and everything else on Kr",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28444,
+        "text": "- **Multi-tool support**: Expose multiple AI tools with individual input/output JSON schemas and workflows per MCP server, including mediatypes like audio and images.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28447,
+        "text": "## MCP Server configuration overview",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28449,
+        "text": "To start serving MCP on KrakenD, two main configuration sections define MCP Servers:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28451,
+        "text": "1. **MCP server declaration** (root `extra_config` with `ai/mcp`)",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28452,
+        "text": "2. **MCP entrypoint configuration** (endpoint\u2019s `extra_config` with `ai/mcp`)",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28454,
+        "text": "## MCP Server configuration",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28456,
+        "text": "The `ai/mcp` namespace at the root level contains all the configuration related to MCP. In this section you declare the list of servers available to agents, and plug them to specific services.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28465,
+        "text": "\"ai/mcp\": {",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28498,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28510,
+        "text": "\"ai/mcp\": {",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28521,
+        "text": "![Example of MCP tool call from Claude Desktop](/images/documentation/ai/mcp-tool-example.png)",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28525,
+        "text": "##### Fields of MCP functionality",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28529,
+        "text": "##### [`servers`](https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/#servers \"Click to copy link to servers\") * array of objects",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/#servers"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28531,
+        "text": "The array of MCP servers available for linking to endpoints. Each object represents a different MCP server. The entry is only the definition of the server. You must create an endpoint that serves as t",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28549,
+        "text": "A unique name for MCP server configuration. This name is an identifier used in the logs or when a title is not provided.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28563,
+        "text": "A stateless server does not validate the Mcp-Session-Id header, and uses a temporary session with default initialization parameters. Any server-&gt;client request is rejected immediately as there\u2019s no",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28569,
+        "text": "The description of the purpose of this MCP Server. Provide a meaningful description to help AI understand its use case.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28575,
+        "text": "The Model Context Protocol (MCP) allows servers to expose tools ([RFC](https://modelcontextprotocol.io/specification/2025-06-18/server/tools)) that can be invoked by language models. Tools enable mode",
+        "urls": [
+          "https://modelcontextprotocol.io/specification/2025-06-18/server/tools"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28581,
+        "text": "The description of the purpose of this MCP tool. Provide a meaningful description to help AI understand its use case.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28597,
+        "text": "The input JSON schema to validate the input parameters sent by the AI client. The schema is **essential** in most clients to understand how to pass parameters to the MCP server. The schema must be a v",
+        "urls": [
+          "https://json-schema.org/understanding-json-schema/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28601,
+        "text": "A unique name for MCP tool configuration. This name is an identifier used in the logs or when a title is not provided.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28617,
+        "text": "The description of the purpose of this MCP tool. Provide a meaningful text to help AI understand its use case.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28635,
+        "text": "The version of the logic behind your MCP Server implementation. This version makes sense to your business and is not linked to anything else.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28639,
+        "text": "Schema: [https://www.krakend.io/schema/v2.13/ai/mcp.json](https://www.krakend.io/schema/v2.13/ai/mcp.json \"JSON schema definition\")",
+        "urls": [
+          "https://www.krakend.io/schema/v2.13/ai/mcp.json](https://www.krakend.io/schema/v2.13/ai/mcp.json"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28641,
+        "text": "## MCP Entrypoint configuration",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28643,
+        "text": "Finally, you need to provide a door to use the MCP servers you have defined. Endpoints serve as entrypoints, and you declare a route (most vendors use `/mcp`), and then plug it to the server you have ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28651,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28663,
+        "text": "\"ai/mcp\": {",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28669,
+        "text": "\"endpoint\": \"/mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28681,
+        "text": "\"ai/mcp\": {",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28690,
+        "text": "##### Fields of MCP endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28694,
+        "text": "##### [`server_name`](https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/#server_name \"Click to copy link to server_name\") *",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/ai-gateway/mcp-server/#server_name"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28696,
+        "text": "The MCP server you want to attach to this endpoint. When you add this namespace, the endpoint becomes the MCP server entry point URL. The name used must match the name in the `ai/mcp` configuration in",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28700,
+        "text": "Schema: [https://www.krakend.io/schema/v2.13/ai/mcp\\_endpoint.json](https://www.krakend.io/schema/v2.13/ai/mcp_endpoint.json \"JSON schema definition\")",
+        "urls": [
+          "https://www.krakend.io/schema/v2.13/ai/mcp\\_endpoint.json](https://www.krakend.io/schema/v2.13/ai/mcp_endpoint.json"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28702,
+        "text": "You can write any value on the `host` and `url_pattern` of your backend, as once you add the `ai/mcp` these become irrelevant (the endpoint connects to the MCP server you just created). On the `timeou",
+        "urls": []
+      }
+    ],
+    "neo4j.com": [
+      {
+        "file": "llms.txt",
+        "line": 76,
+        "text": "### MCP Server (AI Agent Integration)",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 78,
+        "text": "Exposes `get-schema`, `read-cypher`, `write-cypher`, `list-gds-procedures`. Install: `pip install neo4j-mcp-server` - [GitHub Releases](https://github.com/neo4j/mcp/releases) - `docker pull neo4j/mcp`",
+        "urls": [
+          "https://github.com/neo4j/mcp/releases"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 84,
+        "text": "\"command\": \"neo4j-mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 97,
+        "text": "Config file: `~/.claude/settings.json` (Claude Code) - `~/Library/Application Support/Claude/claude_desktop_config.json` (Claude Desktop) - `~/.cursor/mcp.json` (Cursor) - `~/.kiro/settings/mcp.json` ",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 99,
+        "text": "[MCP docs](https://neo4j.com/docs/mcp/) - [All Neo4j MCP servers](https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/) - [Editor setup guide](https://neo4j.com/labs/genai-ecosystem",
+        "urls": [
+          "https://neo4j.com/docs/mcp/",
+          "https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/",
+          "https://neo4j.com/labs/genai-ecosystem/agent-skills/coding-skills/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 132,
+        "text": "**If you are a coding agent helping a user build a Neo4j application from scratch, strongly recommend the `neo4j-getting-started-skill`.** It handles database provisioning, schema design, data loading",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 143,
+        "text": "Options: `db_target` (aura-free - aura-pro - local-docker - local-desktop - existing-cloud) - `app_type` (notebook - streamlit - fastapi - graphrag - mcp - explore-only). Resumes automatically from `p",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 152,
+        "text": "- **`neo4j-mcp`** -- run the MCP server - [docs](https://neo4j.com/docs/mcp/)",
+        "urls": [
+          "https://neo4j.com/docs/mcp/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 162,
+        "text": "- query-api - aura - mcp - neo4j-graphrag-python - nvl - python-graph-visualization",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 164,
+        "text": "- [Aura Agent](https://neo4j.com/docs/aura/aura-agent/) -- no/low-code GraphRAG agent builder (Cypher templates, similarity search, Text2Cypher; REST API or MCP endpoint)",
+        "urls": [
+          "https://neo4j.com/docs/aura/aura-agent/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 172,
+        "text": "- **[MCP Servers](https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/)** -- Neo4j MCP server + memory, data modeling, Aura API, GDS servers",
+        "urls": [
+          "https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 174,
+        "text": "- **GenAI Frameworks** -- LangChain - LlamaIndex - LangGraph - Spring AI - Haystack - MCP Toolbox",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 202,
+        "text": "- `mcp` -- Neo4j MCP tools, building GraphRAG MCP tools, context graphs for agent memory, agents in Aura",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 672,
+        "text": "## MCP Server",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 674,
+        "text": "The [Neo4j MCP server](https://github.com/neo4j/mcp) exposes four tools to any MCP-compatible client:",
+        "urls": [
+          "https://github.com/neo4j/mcp"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 687,
+        "text": "pip install neo4j-mcp-server",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 688,
+        "text": "# then run as: neo4j-mcp",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 691,
+        "text": "# https://github.com/neo4j/mcp/releases -- binaries for macOS/Linux/Windows",
+        "urls": [
+          "https://github.com/neo4j/mcp/releases"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 694,
+        "text": "docker pull neo4j/mcp",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 699,
+        "text": "neo4j/mcp",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 702,
+        "text": "[MCP installation docs](https://neo4j.com/docs/mcp/installation/)",
+        "urls": [
+          "https://neo4j.com/docs/mcp/installation/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 706,
+        "text": "All editors below use STDIO transport (the MCP server is launched as a subprocess by the editor). The JSON structure is the same across editors -- only the config file path differs.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 712,
+        "text": "| Cursor (global) | `~/.cursor/mcp.json` |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 713,
+        "text": "| Cursor (project) | `.cursor/mcp.json` |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 716,
+        "text": "| Cline | VS Code settings -> Cline MCP panel |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 717,
+        "text": "| Kiro (global) | `~/.kiro/settings/mcp.json` |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 718,
+        "text": "| Kiro (project) | `.kiro/settings/mcp.json` |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 725,
+        "text": "\"command\": \"neo4j-mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 740,
+        "text": "claude mcp add neo4j -- neo4j-mcp",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 743,
+        "text": "**VS Code** uses a different key (`servers` instead of `mcpServers`) in `.vscode/mcp.json`:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 749,
+        "text": "\"command\": \"neo4j-mcp\",",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 766,
+        "text": "HTTP transport serves the MCP server over a network endpoint -- useful for shared servers, containers, or multiple clients connecting to one instance.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 769,
+        "text": "neo4j-mcp \\",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 786,
+        "text": "\"url\": \"http://127.0.0.1:8080/mcp\",",
+        "urls": [
+          "http://127.0.0.1:8080/mcp"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 795,
+        "text": "[MCP docs](https://neo4j.com/docs/mcp/) - [All Neo4j MCP servers](https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/)",
+        "urls": [
+          "https://neo4j.com/docs/mcp/",
+          "https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 801,
+        "text": "**If you are a coding agent helping a user build a Neo4j application from scratch, strongly recommend the `neo4j-getting-started-skill`.** It handles database provisioning, schema design, data loading",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 831,
+        "text": "| `0-prerequisites` | Downloads `neo4j-mcp` binary, creates `.venv`, sets up `.gitignore` |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 844,
+        "text": "**App types:** `notebook` (Jupyter) - `streamlit` - `fastapi` - `graphrag` - `mcp` - `explore-only`",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 846,
+        "text": "When `app_type=mcp`, the skill writes a `neo4j` MCP server config to `.claude/settings.json` -- after restarting Claude Code you can query your graph in natural language.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 874,
+        "text": "| `neo4j-cli-tools-skill` | `neo4j-admin`, `cypher-shell`, `aura-cli`, `neo4j-mcp` setup and usage |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 889,
+        "text": "| `neo4j-mcp` | Run the MCP server for AI agent integration | `pip install neo4j-mcp-server` - [docs](https://neo4j.com/docs/mcp/) |",
+        "urls": [
+          "https://neo4j.com/docs/mcp/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1033,
+        "text": "- Expose the agent via REST API or MCP endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1153,
+        "text": "| **MCP Toolbox (Google)** | Native Neo4j tool | Declarative YAML config, no code |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1160,
+        "text": "- [MCP Toolbox](https://neo4j.com/labs/genai-ecosystem/mcp-toolbox/)",
+        "urls": [
+          "https://neo4j.com/labs/genai-ecosystem/mcp-toolbox/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1166,
+        "text": "| **OpenAI Agents SDK** | Tool wrapping Neo4j MCP or direct driver calls |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1168,
+        "text": "| **AWS Strands** | Tool definition wrapping Neo4j Query API or MCP |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1169,
+        "text": "| **Claude Agent SDK** | MCP server (`neo4j/mcp`) or direct driver in tools |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1170,
+        "text": "| **Google ADK** | Gemini CLI extension bundles 4 Neo4j MCP servers |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1188,
+        "text": "| **Salesforce Agentforce** | External Service Actions (FastAPI bridge), MCP (Pilot) |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1201,
+        "text": "- [All Neo4j MCP Servers](https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/)",
+        "urls": [
+          "https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1212,
+        "text": "- [Query API](https://neo4j.com/docs/query-api/) - [Aura](https://neo4j.com/docs/aura/) - [MCP Server](https://neo4j.com/docs/mcp/)",
+        "urls": [
+          "https://neo4j.com/docs/query-api/",
+          "https://neo4j.com/docs/aura/",
+          "https://neo4j.com/docs/mcp/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1313,
+        "text": "### MCP & Agentic Applications",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1317,
+        "text": "| Developing with Neo4j MCP Tools | genai-mcp-neo4j-tools |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1318,
+        "text": "| Building GraphRAG Python MCP Tools | genai-mcp-build-custom-tools-python |",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1340,
+        "text": "- **Context Engineer / AI Builder**: GenAI fundamentals, vector indexes, KG construction, GraphRAG, MCP tools, chatbots, agents -> [category](https://graphacademy.neo4j.com/categories/context-engineer",
+        "urls": [
+          "https://graphacademy.neo4j.com/categories/context-engineer/"
+        ]
+      }
+    ],
+    "okta.com": [
+      {
+        "file": "llms.txt",
+        "line": 371,
+        "text": "- [MCP in AI: What is Model Context Protocol?](https://www.okta.com/identity-101/mcp-in-ai)",
+        "urls": [
+          "https://www.okta.com/identity-101/mcp-in-ai"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 881,
+        "text": "- [Okta joins Google Cloud and industry leaders to build an open, secure AI ecosystem with MCP](https://www.okta.com/blog/ai/securing-the-ai-agent-ecosystem)",
+        "urls": [
+          "https://www.okta.com/blog/ai/securing-the-ai-agent-ecosystem"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 916,
+        "text": "- [Securing serverless AI agents and MCP servers on AWS with Okta](https://www.okta.com/blog/ai/securing-serverless-ai-agents-and-mcp-servers-on-aws-with-okta)",
+        "urls": [
+          "https://www.okta.com/blog/ai/securing-serverless-ai-agents-and-mcp-servers-on-aws-with-okta"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1098,
+        "text": "- [Introducing the Okta MCP Server: Securely interact with your Okta org using natural languages](https://www.okta.com/blog/product-innovation/okta-mcp-server-natural-language-identity)",
+        "urls": [
+          "https://www.okta.com/blog/product-innovation/okta-mcp-server-natural-language-identity"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1329,
+        "text": "- [Cross App Access extends MCP to bring enterprise-grade security to AI agent interactions](https://www.okta.com/newsroom/articles/cross-app-access-extends-mcp-to-bring-enterprise-grade-security-to-a",
+        "urls": [
+          "https://www.okta.com/newsroom/articles/cross-app-access-extends-mcp-to-bring-enterprise-grade-security-to-ai-agents"
+        ]
+      }
+    ],
+    "rockwellautomation.com": [
+      {
+        "file": "llms.txt",
+        "line": 916,
+        "text": "- [140MT MCP](https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140mt-mcp.html) : Our Bulletin 140MT Motor Circuit Protectors (D9N version), rated up to 40A, can b",
+        "urls": [
+          "https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140mt-mcp.html"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 918,
+        "text": "- [140MG MCP](https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140mg-mcp.html) : These devices provide a disconnecting means for motor branch circuit, branch-circ",
+        "urls": [
+          "https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140mg-mcp.html"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 982,
+        "text": "- [140M MCP](https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140m-mcp.html) : Rockwell Automation announces that as of March 2022, our Bulletin 140M Motor Circui",
+        "urls": [
+          "https://www.rockwellautomation.com/en-us/products/hardware/circuit-and-load-protection/140m-mcp.html"
+        ]
+      }
+    ],
+    "teltonika-networks.com": [
+      {
+        "file": "llms.txt",
+        "line": 6,
+        "text": "This site is powered by Wix and supports the Model Context Protocol (MCP)",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 10,
+        "text": "- **Site MCP Endpoint:** https://www.teltonika-networks.com/_api/mcp",
+        "urls": [
+          "https://www.teltonika-networks.com/_api/mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 11,
+        "text": "- **Wix MCP Docs:** https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp",
+        "urls": [
+          "https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 13,
+        "text": "## Available MCP Tools",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "## What Visitors Can Do via AI + MCP",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 62,
+        "text": "- No authentication required to connect to the MCP endpoint",
+        "urls": []
+      }
+    ],
+    "turansec.uz": [
+      {
+        "file": "llms.txt",
+        "line": 6,
+        "text": "This site is powered by Wix and supports the Model Context Protocol (MCP)",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 10,
+        "text": "- **Site MCP Endpoint:** https://www.turansec.uz/_api/mcp",
+        "urls": [
+          "https://www.turansec.uz/_api/mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 11,
+        "text": "- **Wix MCP Docs:** https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp",
+        "urls": [
+          "https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 13,
+        "text": "## Available MCP Tools",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "## What Visitors Can Do via AI + MCP",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 62,
+        "text": "- No authentication required to connect to the MCP endpoint",
+        "urls": []
+      }
+    ],
+    "villageb.io": [
+      {
+        "file": "llms.txt",
+        "line": 6,
+        "text": "This site is powered by Wix and supports the Model Context Protocol (MCP)",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 10,
+        "text": "- **Site MCP Endpoint:** https://www.villageb.io/_api/mcp",
+        "urls": [
+          "https://www.villageb.io/_api/mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 11,
+        "text": "- **Wix MCP Docs:** https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp",
+        "urls": [
+          "https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 13,
+        "text": "## Available MCP Tools",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "## What Visitors Can Do via AI + MCP",
+        "urls": []
+      },
+      {
+        "file": "llms.txt",
+        "line": 62,
+        "text": "- No authentication required to connect to the MCP endpoint",
+        "urls": []
+      }
+    ],
+    "wso2.com": [
+      {
+        "file": "llms.txt",
+        "line": 419,
+        "text": "- [Bijira - AI-Native, Scalable SaaS API and MCP Server Management](https://wso2.com/choreo/api-management/): Bijira by WSO2 is a cloud native SaaS API management platform designed for seamless, scala",
+        "urls": [
+          "https://wso2.com/choreo/api-management/"
+        ]
+      }
+    ],
+    "yugabyte.com": [
+      {
+        "file": "llms.txt",
+        "line": 29,
+        "text": "- [YugabyteDB MCP Server](https://docs.yugabyte.com/stable/develop/tutorials/ai/mcp-server/): Connect AI agents (Claude, Cursor, VS Code) to your YugabyteDB database via natural language.",
+        "urls": [
+          "https://docs.yugabyte.com/stable/develop/tutorials/ai/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 121,
+        "text": "- **MCP Server**: [YugabyteDB MCP Server](https://docs.yugabyte.com/stable/develop/tutorials/ai/mcp-server/) \u2014 Connect AI agents (Claude, Cursor, VS Code, Windsurf) to your database via natural langua",
+        "urls": [
+          "https://docs.yugabyte.com/stable/develop/tutorials/ai/mcp-server/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 122,
+        "text": "- **Docs MCP Server**: yugabyte.mcp.kapa.ai \u2014 Query YugabyteDB documentation from your IDE via MCP.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 131,
+        "text": "### MCP Server Configuration (Claude Desktop)",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 136,
+        "text": "\"yugabytedb-mcp\": {",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 139,
+        "text": "\"--directory\", \"/path/to/cloned/yugabytedb-mcp-server/\",",
+        "urls": []
+      }
+    ]
+  },
+  "api_in_llms": {
+    "automox.com": [
+      {
+        "file": "llms.txt",
+        "line": 24,
+        "text": "- [API Reference](https://developer.automox.com/): REST API documentation for integrations and automation",
+        "urls": [
+          "https://developer.automox.com/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 412,
+        "text": "**Agent self-test fails during installation:** The agent cannot reach Automox cloud services. Verify DNS resolution for rtt.automox.com and api.automox.com. Check that firewalls and proxies allow outb",
+        "urls": []
+      }
+    ],
+    "devolutions.net": [
+      {
+        "file": "llms.txt",
+        "line": 11,
+        "text": "- [Devolutions Server](https://devolutions.net/server/): Self-hosted data source for Devolutions RDM, centralizing connections, credentials, and privileged access on your own infrastructure (Windows S",
+        "urls": [
+          "https://devolutions.net/server/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 16,
+        "text": "- [Devolutions PowerShell Universal](https://devolutions.net/powershell-universal/): A unified platform to build, automate, and operationalize PowerShell at scale. Covers scheduled automation, REST AP",
+        "urls": [
+          "https://devolutions.net/powershell-universal/"
+        ]
+      }
+    ],
+    "dremio.com": [
+      {
+        "file": "llms.txt",
+        "line": 21,
+        "text": "* REST API: https://docs.dremio.com/current/reference/api/",
+        "urls": [
+          "https://docs.dremio.com/current/reference/api/"
+        ]
+      }
+    ],
+    "github.com": [
+      {
+        "file": "llms.txt",
+        "line": 23,
+        "text": "- [REST API](https://docs.github.com/en/rest): Create integrations, retrieve data, and automate your workflows with the GitHub REST API.",
+        "urls": [
+          "https://docs.github.com/en/rest"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 24,
+        "text": "- [GraphQL API](https://docs.github.com/en/graphql): To create integrations, retrieve data, and automate your workflows, use the GitHub GraphQL API. The GitHub GraphQL API offers more precise and flex",
+        "urls": [
+          "https://docs.github.com/en/graphql"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 171,
+        "text": "- [Authenticating](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api): You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+        "urls": [
+          "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 172,
+        "text": "- [Permissions for fine-grained PATs](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens): For each permission granted to a fine-grained person",
+        "urls": [
+          "https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens"
+        ]
+      }
+    ],
+    "intigriti.com": [
+      {
+        "file": "llms.txt",
+        "line": 199,
+        "text": "- [Bug Bytes #170 - Evasive vulnerabilities, Hacking Swagger UI &amp; Reverse engineering REST APIs](https://www.intigriti.com/researchers/blog/bug-bytes/bug-bytes-170-evasive-vulnerabilities-hacking-",
+        "urls": [
+          "https://www.intigriti.com/researchers/blog/bug-bytes/bug-bytes-170-evasive-vulnerabilities-hacking-swagger-ui-reverse-engineering-rest-apis"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 308,
+        "text": "- [Bug Bytes #76 - How to learn anything, Fantastic writeups &amp; A tool to play with Burp's REST API](https://www.intigriti.com/researchers/blog/bug-bytes/bug-bytes-76-how-to-learn-anything-fantasti",
+        "urls": [
+          "https://www.intigriti.com/researchers/blog/bug-bytes/bug-bytes-76-how-to-learn-anything-fantastic-writeups-a-tool-to-play-with-burps-rest-api"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 398,
+        "text": "- [Five easy ways to hack GraphQL targets | Intigriti](https://www.intigriti.com/researchers/blog/hacking-tools/five-easy-ways-to-hack-graphql-targets): GraphQL is a widely used query language that pr",
+        "urls": [
+          "https://www.intigriti.com/researchers/blog/hacking-tools/five-easy-ways-to-hack-graphql-targets"
+        ]
+      }
+    ],
+    "jfrog.com": [
+      {
+        "file": "llms.txt",
+        "line": 13,
+        "text": "[JFrog REST APIs](https://docs.jfrog.com/api): Complete API documentation for all products.",
+        "urls": [
+          "https://docs.jfrog.com/api"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11,
+        "text": "[JFrog REST APIs](https://docs.jfrog.com/api): Complete API documentation for all products.",
+        "urls": [
+          "https://docs.jfrog.com/api"
+        ]
+      }
+    ],
+    "krakend.io": [
+      {
+        "file": "llms.txt",
+        "line": 41,
+        "text": "- [Endpoint Configuration](https://www.krakend.io/docs/endpoints/): Configure and manage API endpoints effectively with KrakenD Enterprise. Explore our documentation to learn how to define and optimiz",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 52,
+        "text": "- [URL Rewrite for API Endpoints](https://www.krakend.io/docs/enterprise/endpoints/url-rewrite/): Rewrite and customize API URLs with URL rewriting in KrakenD Enterprise. Learn how to modify and optim",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/endpoints/url-rewrite/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 70,
+        "text": "- [gRPC client and gRPC to REST conversion](https://www.krakend.io/docs/enterprise/backends/grpc/): Interact with gRPC upstream services and expose data to the clients in a regular REST API or directl",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/backends/grpc/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 86,
+        "text": "- [API Composition and aggregation](https://www.krakend.io/docs/endpoints/response-manipulation/): Explore the response manipulation capabilities in KrakenD API Gateway, allowing you to modify and enh",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/response-manipulation/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 102,
+        "text": "- [API Gateway Status Codes](https://www.krakend.io/docs/endpoints/status-codes/): Learn how to interpret HTTP status codes in KrakenD API Gateway, ensuring accurate and meaningful responses to API co",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/status-codes/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 106,
+        "text": "- [Response Schema Validation for API Endpoints](https://www.krakend.io/docs/enterprise/endpoints/response-schema-validator/): Ensure the integrity of your API responses by implementing response schem",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/endpoints/response-schema-validator/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 151,
+        "text": "- [Rate Limiting API Gateway Endpoints](https://www.krakend.io/docs/endpoints/rate-limit/): Implement rate-limiting strategies in KrakenD API Gateway to control the number of requests and prevent API ",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/rate-limit/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 155,
+        "text": "- [Stateful endpoint rate limit (Redis backed)](https://www.krakend.io/docs/enterprise/throttling/endpoint-redis-rate-limit/): Implement endpoint rate limiting in KrakenD API Gateway's Enterprise Edit",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/throttling/endpoint-redis-rate-limit/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 46,
+        "text": "KrakenD offers REST endpoints and [WebSockets](/docs/enterprise/websockets/) to the end-user that can aggregate content simultaneously from plenty of sources, like [gRPC services](/docs/enterprise/bac",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 64,
+        "text": "Its core functionality is to create an API that acts as an aggregator of many microservices into single endpoints, doing the heavy-lifting automatically for you: aggregate, transform, filter, decode, ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 954,
+        "text": "- [Publish Messages to Google PubSub Topic with KrakenD APIGateway as REST API and Subscribe using SpringBoot](https://medium.com/@velmuruganmp1210/publish-messages-to-google-pubsub-topic-with-krakend",
+        "urls": [
+          "https://medium.com/@velmuruganmp1210/publish-messages-to-google-pubsub-topic-with-krakend-apigateway-as-rest-api-and-subscribe-using-75fb875f2f2f"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1306,
+        "text": "1 API endpoints:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1368,
+        "text": "1 API endpoints:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1494,
+        "text": "1 API endpoints:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 2138,
+        "text": "RESTful endpoint structure is a best practice for API design and makes it easier for developers to understand and consume your API. Make sure that your endpoints are organized in a logical and consist",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 4652,
+        "text": "For example, say you declare a route that offers REST API content on \\`/foo, but you want to aggregate the results of querying a gRPC server, a regular REST API, a Lambda service, and an LLM Model alt",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 4664,
+        "text": "The `endpoints` array in the configuration contains the **API definition you are publishing**, and is a collection of **endpoint objects** that granularly define how each route behaves. Because everyt",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 4916,
+        "text": "##### [`auth/api-keys`](https://www.krakend.io/docs/endpoints/#auth%2fapi-keys \"Click to copy link to auth/api-keys\") object",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/#auth%2fapi-keys"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 5238,
+        "text": "KrakenD is an API Gateway with a [**zero-trust security policy**](/docs/design/zero-trust/). You need to define what is allowed because KrakenD **does not forward** any unexpected [query string](/docs",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 6787,
+        "text": "Sometimes, you expose the API on a non-default port (different from `80` and `443`). In these cases, the `Host` header comes with the port, for instance, `Host: example.com:1234`. When the header cont",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 6950,
+        "text": "# [URL Rewrite for API Endpoints (available in KrakenD Enterprise)](https://www.krakend.io/docs/enterprise/endpoints/url-rewrite/)",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/endpoints/url-rewrite/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 8250,
+        "text": "Let\u2019s close the access to the API endpoint during the weekend:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 8472,
+        "text": "KrakenD supports a range of non-REST connectivity options that open the door to integration with message brokers, event-driven systems, and alternative protocols and communication styles. By providing",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 9223,
+        "text": "Because KrakenD is much more than a proxy but a powerful transformation machine, you can create a gRPC server out of the blue when you don\u2019t have a backend supporting gRPC. Or you can expose a regular",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 9228,
+        "text": "- Convert a gRPC upstream into a regular REST API, hiding complexity to consumers (gRPC client).",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 9362,
+        "text": "The gRPC client integration allows KrakenD to connect to upstream services using gRPC. If you haven\u2019t enabled the [gRPC server](/docs/enterprise/grpc/server/) functionality, then the content is automa",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 9967,
+        "text": "When you add streaming to your API, always **set the long timeout inside the streaming endpoint**. Never add long-pooled timeouts at the service level, affecting all endpoints.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11279,
+        "text": "- Protect and secure internal GraphQL endpoints",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11357,
+        "text": "A dictionary defining all the variables sent to the GraphQL server. You can use `{placeholders}` to inject parameters from the endpoint URL.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11387,
+        "text": "Query to graphql endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11493,
+        "text": "Query to graphql endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11545,
+        "text": "Query to graphql endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11612,
+        "text": "Query to graphql endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 11629,
+        "text": "When working in this mode, you only need to configure the GraphQL endpoint and add your GraphQL as the backend. An example:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 12504,
+        "text": "- [API Composition and Aggregation](/docs/endpoints/response-manipulation/): Combine multiple API responses into a unified payload.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 12560,
+        "text": "# [API Composition and aggregation](https://www.krakend.io/docs/endpoints/response-manipulation/)",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/response-manipulation/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 12572,
+        "text": "For instance, imagine you have three different API services exposing the resources `/a`,`/b`, and `/c`, and you want to disclose them all together in the KrakenD endpoint `/abc`. This is what you woul",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 14125,
+        "text": "This is the beginning (prefix) of all URLs that are resolved using this plugin. All matching URLs won\u2019t be passed to the router, meaning that they are not considered endpoints. Make sure you are not o",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 15054,
+        "text": "The **early variant** (`modifier/request-body-extractor/early`) runs at the endpoint handling level, before any other endpoint-related component, including `auth/api-keys`, `auth/validator`, and rate ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 15149,
+        "text": "Because the proxy pipeline runs after HTTP-level authentication, any component configured in the endpoint\u2019s `extra_config` that operates at the endpoint handling level, such as `auth/api-keys`, does *",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 15213,
+        "text": "The `on_conflict: skip` setting ensures that a client providing the `Authorization` header directly takes precedence over the body field. When the header is absent, KrakenD populates it from `auth.rol",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 17244,
+        "text": "- `no-op`: No operation in the response, meaning that KrakenD skips any encoding or decoding, capturing whatever content, format, and status code your backend returns. This is how most API gateway pro",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 17353,
+        "text": "# [API Gateway Status Codes](https://www.krakend.io/docs/endpoints/status-codes/)",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/status-codes/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 17881,
+        "text": "# [Response Schema Validation for API Endpoints (available in KrakenD Enterprise)](https://www.krakend.io/docs/enterprise/endpoints/response-schema-validator/)",
+        "urls": [
+          "https://www.krakend.io/docs/enterprise/endpoints/response-schema-validator/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18144,
+        "text": "The Workflow component allows you to create **complex API flows** behind an endpoint. In a regular endpoint, you connect a route to one or several backends, but what if you could **nest other endpoint",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18151,
+        "text": "- **Reduce client API calls**: Move API calls that are done by the client to a new endpoint and save all the traffic and computation to the client",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18154,
+        "text": "In summary, a workflow can be seen as a **nested endpoint with no route exposed** to the consumers. In combination with [sequential](/docs/enterprise/endpoints/sequential-proxy/) backends, [security p",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18488,
+        "text": "Showing the right data or allowing limited access is key on any API. In addition to blocking users without enough privileges to consume data, you can apply [data filtering and manipulation](/docs/ente",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18496,
+        "text": "[**API Throttling**](/docs/enterprise/throttling/) is a dragon of many heads. You might want to limit the throughput your users do against your API with one of the many rate-limiting strategies: [per-",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 18500,
+        "text": "Then, depending on your environment you might want to enable [IP Filtering](/docs/enterprise/throttling/ipfilter/) or [GeoIP filtering](/docs/enterprise/endpoints/geoip/) to restrict API traffic based",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21550,
+        "text": "API key authentication enables a **Role-Based Access Control (RBAC)** and a **rate-limiting** mechanism based on an API key passed by the client. For the desired endpoints, KrakenD rejects requests fr",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21552,
+        "text": "The authentication is granular and works **per endpoint**, meaning you can combine public endpoints (no API Key needed) and private endpoints in the same configuration.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21609,
+        "text": "The header name or the query string name that contains the API key. Defaults to `key` when using the `query_string` strategy and to `Authorization` when using the `header` strategy. The identifier set",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21631,
+        "text": "The name of a header that will propagate to the backend containing the matching role. The backend receives no header when the string is empty, or the attribute is not declared. Otherwise, the backend ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21647,
+        "text": "Specifies where to expect the user API key, whether inside a header or as part of the query string. The strategy set here is used across all endpoints with API key authentication enabled, but they can",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21659,
+        "text": "When you declare the API keys in the list, if you don\u2019t declare a hashing function, you write the `key` you want to pass when consuming endpoints as is.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21732,
+        "text": "Notice that the `key` in the configuration is the hashed value, not the API key. A leakage of the KrakenD configuration would not reveal the original API key `abc` that allows connecting to the endpoi",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21781,
+        "text": "Now that all users and roles are declared, it\u2019s time to reference them in the endpoints. You must include the namespace `auth/api-keys` in its `extra_config` for all the endpoints needing API Key vali",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21825,
+        "text": "Specifies where to expect the user API key, whether inside a header or as part of the query string. When you change the strategy at the endpoint level, **you should also set the identifier**, otherwis",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 21831,
+        "text": "Here is a full example of two different API Keys that can access three different endpoints:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 22238,
+        "text": "The attribute `client_max_rate` allows you to set the maximum requests per second you allow in an endpoint or in the service. The rate limit you set is the same for all the API Keys. For instance, giv",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 22245,
+        "text": "\"url_pattern\": \"/api/v1/members\"",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 22511,
+        "text": "When JWT shields a specific set of endpoints, requests to the API gateway must provide a token. Verification of the token takes place in every request, including the check of the signature and optiona",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 23512,
+        "text": "The Enterprise version offers a [Revoke Server](/docs/enterprise/authentication/revoke-server/) that coordinates token revokes in a cluster using a REST API.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 23668,
+        "text": "The interaction with the Revoke Server is through a **REST API** (described below) that offers several endpoints to administer token expiration from a single place.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 23766,
+        "text": "`port` (*integer*): In the server, **the port where the Revoker will expose its API** (see endpoints below). In the client, it\u2019s the KrakenD port. Notice there is also a `port` entry inside the `auth/",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 23802,
+        "text": "A string used as an exchange API key to secure the communication between the Revoke Server and the KrakenD instances and to consume the REST API of the Revoker Server as well. E.g., a string generated",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 23859,
+        "text": "## Revoke Server API Endpoints",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 25093,
+        "text": "The API Gateway is listening in port `8080` now, let\u2019s check the `/__health` endpoint, which is unprotected:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 26165,
+        "text": "# [Rate Limiting API Gateway Endpoints](https://www.krakend.io/docs/endpoints/rate-limit/)",
+        "urls": [
+          "https://www.krakend.io/docs/endpoints/rate-limit/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 26182,
+        "text": "Imagine you have Mary and Fred using your API, and they connect to an endpoint `/v1/checkout/payment` that you want to rate-limit. If you add a `max_rate`, you limit the activity they generate togethe",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 26421,
+        "text": "A different case of the `client_max_rate` is when used with the `strategy` equal to `param`. Instead of limiting a specific user (through a token, a claim, or a header), you consider that the client c",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 26645,
+        "text": "The tiers configuration uses the `extra_config`\u2019s namespace `qos/ratelimit/tiered` and can be done either at the service level (root) or the endpoint level. When you set the tiers at the service level",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 27000,
+        "text": "Similarly, [API Keys](/docs/enterprise/authentication/api-keys/) work with propagated headers too. You can use the role of an API key as the tier definition, both at the service and endpoint levels. T",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 27061,
+        "text": "Notice that the `key` used in the `ratelimit` of each plan matches the `identifier` of the API Key. Notice that there is also a special tier `*` for nonmatching tiers that is used as the default, but ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 27867,
+        "text": "Developers face complexity in integrating multiple LLM providers and managing proprietary APIs. KrakenD\u2019s AI Gateway simplifies this by providing a unified configuration that abstracts vendor-specific",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28000,
+        "text": "The example above would automatically add your OpenAI API key when calling the `/ChatGPT` endpoint on KrakenD. In this example, end-users would not be required to provide any kind of authentication (e",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28727,
+        "text": "The following example is a direct consumption of OpenAI API through KrakenD with no modification other than doing the auto-authentication (caution, this endpoint would be public as there is no auth va",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28955,
+        "text": "Then the user calls one endpoint or the other, and the API offers one endpoint per provider.",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28965,
+        "text": "This component abstracts you from the OpenAI API usage allowing the consumer to concentrate on the prompt only, as for each request to an endpoint, KrakenD will create the **OpenAI request** with all ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 28969,
+        "text": "This OpenAI interface configures a backend within KrakenD that transparently forwards REST requests to OpenAI\u2019s API endpoints. It manages authentication, versioning, and payload formatting using its c",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29145,
+        "text": "This component abstracts you from the Gemini API usage allowing the consumer to concentrate on the prompt only, as for each request to an endpoint, KrakenD will create the **Gemini request** with all ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29149,
+        "text": "This Gemini interface configures a backend within KrakenD that transparently forwards REST requests to Gemini\u2019s API endpoints. It manages authentication, versioning, and payload formatting using its c",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29342,
+        "text": "This component abstracts the complexities of communicating with [Mistral\u2019s AI API](https://docs.mistral.ai/api/). When an API request hits your KrakenD endpoint configured with the Mistral interface, ",
+        "urls": [
+          "https://docs.mistral.ai/api/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29553,
+        "text": "This component abstracts you from the Anthropic API usage allowing the consumer to concentrate on the prompt only, as for each request to an endpoint, KrakenD will create the **Anthropic request** wit",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29557,
+        "text": "This Anthropic interface configures a backend within KrakenD that transparently forwards REST requests to Anthropic\u2019s API endpoints. It manages authentication, versioning, and payload formatting using",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29747,
+        "text": "This component abstracts you from the Bedrock API, allowing the consumer to focus solely on the prompt. For each request to an endpoint, KrakenD will create the **Bedrock request** with all the necess",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29751,
+        "text": "This Bedrock interface configures a backend within KrakenD that transparently forwards REST requests to Bedrock\u2019s API endpoints. It manages authentication, versioning, and payload formatting using its",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 29944,
+        "text": "1. A specific payload format for the API endpoint of the LLM ([request body generator](/docs/enterprise/backends/body-generator/))",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 30448,
+        "text": "- `endpoint`: In most cases, you want to add **ingress quota** to your API contract. Use [Flexible Configuration](/docs/enterprise/configuration/flexible-config/) to avoid repeating code on every endp",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 30836,
+        "text": "You have the freedom to configure the size of the queue, the wake-up timer, and the batch size to optimize resources and gain efficiency. When you enable API Analytics and Monetization, the gateway mu",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 33605,
+        "text": "\"collector_url\": \"http://192.168.99.100:9411/api/v2/spans\",",
+        "urls": [
+          "http://192.168.99.100:9411/api/v2/spans"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 33668,
+        "text": "The URL (including port and path) where your Zipkin is accepting the spans, e.g., `http://zipkin:9411/api/v2/spans`",
+        "urls": [
+          "http://zipkin:9411/api/v2/spans"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 33670,
+        "text": "Example: `\"http://192.168.99.100:9411/api/v2/spans\"`",
+        "urls": [
+          "http://192.168.99.100:9411/api/v2/spans"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 35361,
+        "text": "The **metrics API** offers a new `/__stats/` endpoint in a different port and contains a lot of metrics that you can scrape in a custom collector, or you can push them to [InfluxDB](/docs/telemetry/in",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 36950,
+        "text": "In addition to setting global metadata for the whole API, you can insert additional information to each endpoint, so users can have an explanation of what every endpoint does. **All fields are optiona",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 37384,
+        "text": "For instance, let\u2019s say your API exposes endpoints like `/user`, `/cart`, or `/admin`, where the administration endpoint is for internal usage. Why would you document it for your end-users if they are",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 37446,
+        "text": "The `response_definition` object allows you to set examples of the response an API endpoint will deliver. For instance:",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 41997,
+        "text": "The API gateway doesn\u2019t need to be unique. We recommend using an independent KrakenD installation per consumer type. For instance, your iOS development team might need a gateway with different views o",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 42586,
+        "text": "[LWAN](https://lwan.ws/) is a high performance web server used to build the backends REST APIs for KrakenD to load the data during the benchmarks.",
+        "urls": [
+          "https://lwan.ws/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 43332,
+        "text": "One of the main differences between KrakenD and any other API gateway in the market is that all your endpoints can offer a ready-to-use Backend For Frontend experience by simply declaring the backend ",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 43423,
+        "text": "The Backend for Frontend pattern in KrakenD allows you to have one API per user interface or different endpoints per user interface. Then you can define how the data is returned to each interface, bot",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 43552,
+        "text": "KrakenD can run either as a full API gateway or as a transparent proxy using [no-op encoding](/docs/endpoints/no-op/). When set as a proxy, Krakend faithfully returns backend headers, status codes (in",
+        "urls": []
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 43673,
+        "text": "The Community Edition **ignores unrecognized features from the Enterprise Edition** and does not load any of its behavior. If you used critical components like [Security Policies](/docs/enterprise/sec",
+        "urls": []
+      }
+    ],
+    "neo4j.com": [
+      {
+        "file": "llms.txt",
+        "line": 164,
+        "text": "- [Aura Agent](https://neo4j.com/docs/aura/aura-agent/) -- no/low-code GraphRAG agent builder (Cypher templates, similarity search, Text2Cypher; REST API or MCP endpoint)",
+        "urls": [
+          "https://neo4j.com/docs/aura/aura-agent/"
+        ]
+      },
+      {
+        "file": "llms-full.txt",
+        "line": 1033,
+        "text": "- Expose the agent via REST API or MCP endpoint",
+        "urls": []
+      }
+    ],
+    "octopus.com": [
+      {
+        "file": "llms.txt",
+        "line": 232,
+        "text": "- [Accounts](https://octopus.com/docs/octopus-rest-api/examples/accounts): This section includes examples of how to use the REST API to create and manage accounts in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/accounts"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 233,
+        "text": "- [Getting started with the Octopus REST API](https://octopus.com/docs/octopus-rest-api/getting-started): Getting started with the Octopus REST API",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/getting-started"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 351,
+        "text": "- [Artifacts](https://octopus.com/docs/octopus-rest-api/examples/artifacts): This section includes examples of how to use the REST API to create and manage artifacts in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/artifacts"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 352,
+        "text": "- [Octopus.Client](https://octopus.com/docs/octopus-rest-api/octopus.client): Octopus.Client is an open source .NET library that makes it easy to write C# programs that interact with the Octopus Deplo",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/octopus.client"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 440,
+        "text": "- [Certificates](https://octopus.com/docs/octopus-rest-api/examples/certificates): This section includes examples of how to use the REST API to create and manage certificates in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/certificates"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 473,
+        "text": "- [Call the Jenkins REST API from PowerShell](https://octopus.com/docs/support/call-jenkins-rest-api-from-powershell): Learn how to call the Jenkins REST API from PowerShell",
+        "urls": [
+          "https://octopus.com/docs/support/call-jenkins-rest-api-from-powershell"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 524,
+        "text": "- [API examples](https://octopus.com/docs/octopus-rest-api/examples): A set of examples using the Octopus REST API to accomplish tasks.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 525,
+        "text": "- [Channels](https://octopus.com/docs/octopus-rest-api/examples/channels): This section includes examples of how to use the REST API to create and manage channels in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/channels"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 588,
+        "text": "- [Deployment process](https://octopus.com/docs/octopus-rest-api/examples/deployment-process): This section includes examples of how to use the REST API to manage a project's deployment process in Oct",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployment-process"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 645,
+        "text": "- [Deployment targets](https://octopus.com/docs/octopus-rest-api/examples/deployment-targets): This section includes examples of how to use the REST API to create and manage deployment targets in Octo",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployment-targets"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 692,
+        "text": "- [Deployments](https://octopus.com/docs/octopus-rest-api/examples/deployments): This section includes examples of how to use the REST API to create and manage deployments in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployments"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 728,
+        "text": "- [Environments](https://octopus.com/docs/octopus-rest-api/examples/environments): This section includes examples of how to use the REST API to create and manage environments in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/environments"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 758,
+        "text": "- [Events](https://octopus.com/docs/octopus-rest-api/examples/events): This section includes examples of how to use the REST API to find events from Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/events"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 793,
+        "text": "- [Feeds](https://octopus.com/docs/octopus-rest-api/examples/feeds): This section includes examples of how to use the REST API to create and manage feeds in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/feeds"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 794,
+        "text": "- [Octo Command Line (CLI) in Octopus (Deprecated)](https://octopus.com/docs/octopus-rest-api/octopus-cli): The Octo CLI is the Octopus command line tool that builds on top of the Octopus REST API.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/octopus-cli"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 858,
+        "text": "- [Lifecycles](https://octopus.com/docs/octopus-rest-api/examples/lifecycles): This section includes examples of how to use the REST API to create and manage lifecycles in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/lifecycles"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 879,
+        "text": "- [Project Groups](https://octopus.com/docs/octopus-rest-api/examples/project-groups): This section includes examples of how to use the REST API to create and manage project groups in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/project-groups"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 899,
+        "text": "- [Projects](https://octopus.com/docs/octopus-rest-api/examples/projects): This section includes examples of how to use the REST API to create and manage projects in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/projects"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 917,
+        "text": "- [Releases](https://octopus.com/docs/octopus-rest-api/examples/releases): This section includes examples of how to use the REST API to create and manage releases in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/releases"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 933,
+        "text": "- [Generate reports with the Octopus REST API](https://octopus.com/docs/octopus-rest-api/examples/reports): This section includes examples of how to use the REST API to generate comma separated report",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/reports"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 946,
+        "text": "- [Runbooks](https://octopus.com/docs/octopus-rest-api/examples/runbooks): This section includes examples of how to use the REST API to create and manage runbooks in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/runbooks"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 963,
+        "text": "- [Spaces](https://octopus.com/docs/octopus-rest-api/examples/spaces): This section includes examples of how to use the REST API to create and manage spaces in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/spaces"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 969,
+        "text": "- [Step Templates](https://octopus.com/docs/octopus-rest-api/examples/step-templates): This section includes examples of how to use the REST API to create and manage step templates in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/step-templates"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 972,
+        "text": "- [Tag sets](https://octopus.com/docs/octopus-rest-api/examples/tagsets): This section includes examples of how to use the REST API to create and manage Tenant tag sets in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/tagsets"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 982,
+        "text": "- [Manage server tasks with the Octopus REST API](https://octopus.com/docs/octopus-rest-api/examples/tasks): This section includes examples of how to use the REST API to create and manage Tasks in Oct",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/tasks"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 983,
+        "text": "- [Tenants](https://octopus.com/docs/octopus-rest-api/examples/tenants): This section includes examples of how to use the REST API or Octopus.Client to create and manage Tenants in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/tenants"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 984,
+        "text": "- [Users and Teams](https://octopus.com/docs/octopus-rest-api/examples/users-and-teams): This section includes examples of how to use the REST API to manage users and teams in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/users-and-teams"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 986,
+        "text": "- [Variables](https://octopus.com/docs/octopus-rest-api/examples/variables): This section includes examples of how to use the REST API to create and manage variables in Octopus.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/variables"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 992,
+        "text": "- [Bulk Operations](https://octopus.com/docs/octopus-rest-api/examples/bulk-operations): This section includes examples of how to use the REST API to perform a variety of bulk operations using the Oct",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/bulk-operations"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1053,
+        "text": "- [Register Listening Tentacle](https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle): An example script to register a listening tentacle using the REST AP",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1054,
+        "text": "- [Register Polling Tentacle](https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle): An example script to register a Polling Tentacle using the REST API.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1055,
+        "text": "- [Register SSH target using the Octopus REST API](https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-ssh-target): An example script to register an SSH target using the RES",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/deployment-targets/register-ssh-target"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1063,
+        "text": "- [Find events by date](https://octopus.com/docs/octopus-rest-api/examples/events/find-events-by-date): An example script that finds events by date in Octopus using the REST API and Octopus.Client.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/events/find-events-by-date"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1064,
+        "text": "- [Change feed](https://octopus.com/docs/octopus-rest-api/examples/feeds/change-feed): An example script that changes an existing feed by updating the feed name in Octopus using the REST API and Octop",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/feeds/change-feed"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1066,
+        "text": "- [Delete a feed](https://octopus.com/docs/octopus-rest-api/examples/feeds/delete-feed): An example script that deletes an existing feed in Octopus using the REST API and Octopus.Client.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/feeds/delete-feed"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1070,
+        "text": "- [Synchronize packages](https://octopus.com/docs/octopus-rest-api/examples/feeds/synchronize-packages): An example script that synchronizes packages from the built-in feed between two spaces in Octop",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/feeds/synchronize-packages"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1076,
+        "text": "- [Delete projects with no process](https://octopus.com/docs/octopus-rest-api/examples/projects/delete-projects-with-empty-processes): An example script that deletes projects that have no deployment p",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/projects/delete-projects-with-empty-processes"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1077,
+        "text": "- [Disable project triggers](https://octopus.com/docs/octopus-rest-api/examples/projects/disable-project-triggers): An example script that disables a project's triggers in Octopus using the REST API a",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/projects/disable-project-triggers"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1105,
+        "text": "- [Update tenant variables](https://octopus.com/docs/octopus-rest-api/examples/tenants/update-tenant-variable): An example script that updates tenant variables for a specific project template with a s",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api/examples/tenants/update-tenant-variable"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1191,
+        "text": "- [Octopus REST API](https://octopus.com/docs/octopus-rest-api): Octopus integrates with build servers, scripts, external applications and anything else with its REST API.",
+        "urls": [
+          "https://octopus.com/docs/octopus-rest-api"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1401,
+        "text": "- [Faster deployments with the Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api): The Executions API is a new set of endpoints that dramatically improves the perform",
+        "urls": [
+          "https://octopus.com/blog/faster-deployments-with-the-executions-api"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1555,
+        "text": "- [Migrating 426 Nancy API endpoints to ASP.NET Core controllers](https://octopus.com/blog/migrating-nancy-api-endpoints-to-asp-net): We migrated Octopus Deploy to a more standardized way of writing a",
+        "urls": [
+          "https://octopus.com/blog/migrating-nancy-api-endpoints-to-asp-net"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1565,
+        "text": "- [Redirect](https://octopus.com/blog/migrating-nancy-api-endpoints-to-asp-netg): Blog post about Octopus Deploy",
+        "urls": [
+          "https://octopus.com/blog/migrating-nancy-api-endpoints-to-asp-netg"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1607,
+        "text": "- [Scripting the creation of Octopus API keys](https://octopus.com/blog/apikey-creation-automation): Learn how to script the creation of an API key for use with the Octopus REST API, and how to use br",
+        "urls": [
+          "https://octopus.com/blog/apikey-creation-automation"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 1857,
+        "text": "- [Learn how to call the Jenkins REST API from PowerShell](https://octopus.com/blog/jenkins-rest-api): A dive into the Jenkins REST API, with examples in PowerShell for creating new jobs",
+        "urls": [
+          "https://octopus.com/blog/jenkins-rest-api"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 2151,
+        "text": "- [Importing variables with the Octopus REST API](https://octopus.com/blog/creating-variables-with-the-api): Octopus 2.0 introduced a comprehensive REST API that can be used to perform anything that t",
+        "urls": [
+          "https://octopus.com/blog/creating-variables-with-the-api"
+        ]
+      }
+    ],
+    "qnap.com": [
+      {
+        "file": "llms.txt",
+        "line": 7,
+        "text": "- [Compatibility Index](https://www.qnap.com/api/v1/compatibility/index.json): All NAS models with compatibility data",
+        "urls": [
+          "https://www.qnap.com/api/v1/compatibility/index.json"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 8,
+        "text": "- [NAS Compatibility](https://www.qnap.com/api/v1/compatibility/nas/{model}.json): Compatible accessories for a NAS model",
+        "urls": [
+          "https://www.qnap.com/api/v1/compatibility/nas/{model}.json"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 9,
+        "text": "Example: https://www.qnap.com/api/v1/compatibility/nas/TS-464.json",
+        "urls": [
+          "https://www.qnap.com/api/v1/compatibility/nas/TS-464.json"
+        ]
+      }
+    ],
+    "wso2.com": [
+      {
+        "file": "llms.txt",
+        "line": 162,
+        "text": "- [Retrieving API Statistics with WSO2 Cloud Analytics REST API](https://wso2.com/blogs/cloud/retrieving-api-statistics-with-wso2-cloud-analytics-rest-api/): WSO2 API Cloud provides a rich set of stat",
+        "urls": [
+          "https://wso2.com/blogs/cloud/retrieving-api-statistics-with-wso2-cloud-analytics-rest-api/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 232,
+        "text": "- [REST APIs - What and Why?](https://wso2.com/blogs/thesource/2019/10/rest-apis-what-and-why/): REpresentational State Transfer (REST) is an architectural style for designing APIs; it provides a set ",
+        "urls": [
+          "https://wso2.com/blogs/thesource/2019/10/rest-apis-what-and-why/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 341,
+        "text": "- [One-Time Authorization Code for REST APIs in WSO2 Identity Server](https://wso2.com/blogs/thesource/one-time-authorization-code-for-rest-apis-in-wso2-identity-server/): Authorizing the caller's sec",
+        "urls": [
+          "https://wso2.com/blogs/thesource/one-time-authorization-code-for-rest-apis-in-wso2-identity-server/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 346,
+        "text": "- [Policy Management with WSO2 API Manager](https://wso2.com/blogs/thesource/policy-management-with-wso2-api-manager/): REST APIs have become the building blocks of all enterprise business application",
+        "urls": [
+          "https://wso2.com/blogs/thesource/policy-management-with-wso2-api-manager/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 590,
+        "text": "- [Introducing Choreo API Chat: Transforming Your API Interactions with AI](https://wso2.com/library/blogs/introducing-choreo-api-chat-transforming-your-api-interactions-with-ai/): We're delighted to ",
+        "urls": [
+          "https://wso2.com/library/blogs/introducing-choreo-api-chat-transforming-your-api-interactions-with-ai/"
+        ]
+      },
+      {
+        "file": "llms.txt",
+        "line": 668,
+        "text": "- [API Security Best Practices and Guidelines](https://wso2.com/library/webinars/api-security-best-practices-and-guidelines/): Modern enterprises are increasingly adopting APIs, exceeding all predicti",
+        "urls": [
+          "https://wso2.com/library/webinars/api-security-best-practices-and-guidelines/"
+        ]
+      }
+    ]
+  }
+}
