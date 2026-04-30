@@ -37,12 +37,44 @@ sources:
       - "secid:control/cloudsecurityalliance.org/aicm@1.0#MDS-01"
       - "secid:control/cloudsecurityalliance.org/aicm@1.0#DSP-03"
 
-  ai-safety:
-    full_name: "AI Safety Initiative"
+  ccm-caiq:
+    full_name: "Consensus Assessments Initiative Questionnaire"
     urls:
-      website: "https://cloudsecurityalliance.org/research/working-groups/artificial-intelligence"
+      website: "https://cloudsecurityalliance.org/research/cloud-controls-matrix"
+      download: "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1"
+      machine_readable: "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal"
+    versions:
+      - "4.0.3"
+      - "3.1"
+      - "3.0.1"
+    id_pattern: "[A-Z&]{2,3}-\\d{2}\\.\\d+"
     examples:
-      - "secid:control/cloudsecurityalliance.org/ai-safety"
+      - "secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#IAM-01.1"
+      - "secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#A&A-01.2"
+      - "secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01"
+
+  aicm-caiq:
+    full_name: "AI Consensus Assessments Initiative Questionnaire"
+    urls:
+      website: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"
+      download: "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix"
+    versions:
+      - "1.0"
+    id_pattern: "[A-Z&]{2,3}-\\d{2}\\.\\d+"
+    examples:
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1"
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#IAM-01.1"
+
+  star:
+    full_name: "Security, Trust, Assurance and Risk Registry"
+    type: registry
+    note: "Registry of CAIQ submissions and third-party assessments — not itself a control framework. Listed here for discoverability."
+    urls:
+      website: "https://cloudsecurityalliance.org/star"
+      registry: "https://cloudsecurityalliance.org/star/registry"
+      third_party_search: "https://star.watch"
+    examples:
+      - "secid:control/cloudsecurityalliance.org/star"
 ---
 
 # Cloud Security Alliance Controls
@@ -163,25 +195,85 @@ Use both for comprehensive AI cloud security.
 
 ---
 
-## ai-safety
+## ccm-caiq
 
-CSA's AI Safety Initiative brings together industry efforts on AI security.
+The Consensus Assessments Initiative Questionnaire — yes/no assessment questions mapped to CCM controls.
 
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/ai-safety
+secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#IAM-01.1
 ```
 
-### Working Group Activities
+Question ID format is `XXX-NN.M` where `XXX-NN` is the parent CCM control and `M` is the question number within that control. One or more questions per control.
 
-- AI Controls Matrix development
-- AI security research papers
-- Best practices documentation
-- Industry collaboration
+### Resolution
+
+CAIQ ships in the same ZIP bundle as CCM. The CAIQ is a separate sheet within the bundle's main Excel file.
+
+To find a specific question: download the CCM bundle, open the spreadsheet, go to the "CAIQ" sheet, and find the row where "Question ID" matches.
+
+Bare control IDs (without `.M` sub-number) resolve to the full set of questions for that control. For the control specification itself, use `secid:control/cloudsecurityalliance.org/ccm#XXX-NN`.
 
 ### Notes
 
-- Part of CSA research program
-- Open participation
-- Regular publications and updates
+- v4.0.3 current (283 questions); pairs with CCM v4.1
+- Used for STAR Level 1 self-assessments
+- Same ZIP/Excel bundle as CCM
+
+---
+
+## aicm-caiq
+
+The AI Consensus Assessments Initiative Questionnaire — yes/no assessment questions mapped to AICM controls. CSA's own branding is "AI-CAIQ".
+
+### Format
+
+```
+secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1
+```
+
+Same `XXX-NN.M` format as CCM CAIQ. Includes the MDS (Model Security) domain unique to AICM.
+
+### Resolution
+
+AI-CAIQ ships in the same ZIP bundle as AICM. The questionnaire is a separate sheet within the AICM Excel file.
+
+Bare control IDs resolve to the full set of questions for that control. For the control specification itself, use `secid:control/cloudsecurityalliance.org/aicm#XXX-NN`.
+
+### Notes
+
+- v1.0 (released July 2025); pairs with AICM v1.0/v1.0.3
+- AI-specific assessment questions including MDS (Model Security)
+
+---
+
+## star
+
+The Security, Trust, Assurance and Risk Registry — a public registry of CAIQ submissions and third-party assessments.
+
+**Important:** STAR is a *registry* (an index/lookup), not a control framework. It is included in the control namespace for discoverability. The underlying controls are CCM (`secid:control/cloudsecurityalliance.org/ccm`); the assessment questionnaire is CAIQ (`secid:control/cloudsecurityalliance.org/ccm-caiq`). STAR is the public collection of organizations' submitted CAIQ files plus third-party attestations.
+
+### Format
+
+```
+secid:control/cloudsecurityalliance.org/star
+```
+
+No per-entry pattern is currently defined — bare `star` resolves to the registry homepage.
+
+### Levels
+
+- **Level 1** — Self-assessment via CAIQ (free; publicly downloadable submissions). Largest portion of the registry.
+- **Level 2** — Third-party audit (STAR Certification based on ISO 27001; STAR Attestation based on SOC 2).
+- **Level 3** — Continuous monitoring (planned/emerging).
+
+### Resolution
+
+The registry is publicly browsable and searchable. Each entry corresponds to a cloud provider organization and lists their submitted assessments. Level 1 CAIQ submissions are downloadable as Excel/PDF files from the registry pages.
+
+### Notes
+
+- Largest public collection of CAIQ submissions
+- Registry/index, not a control set
+- Third-party search/analytics available at star.watch

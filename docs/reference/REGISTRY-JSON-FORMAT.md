@@ -740,6 +740,35 @@ Example:
 }
 ```
 
+**Registry-type data** (a discoverability/index entry, not itself a framework — `type: registry`):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `type` | string | Set to `"registry"` to flag that this entry is an *index/lookup* rather than a control framework, capability set, weakness taxonomy, etc. The entry lives in its parent type for discoverability — the things being indexed are defined elsewhere (often in other namespaces or other sources within the same namespace). |
+
+Used when an organization publishes a registry of submissions, attestations, or third-party data that does not itself define new identifiers. Such entries typically have no `match_nodes.children` because they are leaves — there is no child ID system to match. URLs should distinguish program/policy pages from the searchable registry surface(s) using `type: "website"` vs `type: "lookup"`.
+
+The `type: "registry"` flag tells AI agents and downstream consumers: "look elsewhere for the actual controls/identifiers — this entry is a pointer, not a definition."
+
+Example (from `registry/control/org/cloudsecurityalliance.json`, the STAR entry):
+
+```json
+{
+  "patterns": ["(?i)^star$"],
+  "description": "CSA STAR Registry — public registry of CAIQ submissions and third-party assessments. NOT a control framework.",
+  "data": {
+    "type": "registry",
+    "official_name": "Security, Trust, Assurance and Risk Registry",
+    "common_name": "STAR",
+    "description": "Public registry of cloud provider security assessments. The largest public collection of CAIQ submissions. Listed here for discoverability — STAR is an index/registry of assessments, not itself a set of controls.",
+    "urls": [
+      {"type": "website", "url": "https://cloudsecurityalliance.org/star", "note": "STAR program homepage"},
+      {"type": "lookup", "url": "https://cloudsecurityalliance.org/star/registry", "note": "Public searchable registry"}
+    ]
+  }
+}
+```
+
 **Disclosure-type data** (vulnerability reporting — `type: disclosure`):
 
 | Field | Type | Description |

@@ -296,7 +296,7 @@ Run `./scripts/update-counts.sh` to refresh these counts after adding namespaces
 - `registry/advisory/com/google.json` — OSV, Chrome, Android, GCP, Project Zero
 - `registry/advisory/com/suse.json` — SUSE-SU (colon-in-ID variable extraction)
 - `registry/weakness/org/owasp.json` — `version_required`, `version_disambiguation`, structured ExampleObject fixtures
-- `registry/control/org/cloudsecurityalliance.json` — CCM, AICM (versioned controls)
+- `registry/control/org/cloudsecurityalliance.json` — CCM, AICM (versioned controls), CCM-CAIQ, AICM-CAIQ (assessment questions, sub-numbered `XXX-NN.M` IDs), STAR (`type: registry` flag)
 - `registry/reference/org/cloudsecurityalliance.json` — CSA website artifacts (1,131 publications with known_values lookup)
 - `registry/control/org/iso.json` — 6 ISO standards
 - `registry/ttp/org/mitre.json` — ATT&CK, ATLAS, CAPEC
