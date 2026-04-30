@@ -27,10 +27,8 @@
         "common_name": null,
         "alternate_names": ["CVE JSON Schema", "CVE Record Format"],
         "description": "JSON schema defining the structure of CVE records, maintained by the CVE Project. Used by CVE Services API, cvelistV5 repository, and all CNAs submitting CVE records.",
-        "notes": "The schema accepts any 5.x record — the dataVersion pattern is ^5\\.(0|[1-9][0-9]*)(\\....)$. Older 5.0 and 5.1 records remain valid against the latest schema. The repo also contains bundled schemas, example files, and documentation.",
-        "version_required": true,
-        "unversioned_behavior": "disambiguation",
-        "version_disambiguation": "Multiple schema versions exist. Specify @5.2 for the current production schema, @5.1 for the prior version, or @5.0 for the original 5.x release.",
+        "notes": "The schema accepts any 5.x record — the dataVersion pattern is ^5\\.(0|[1-9][0-9]*)(\\....)$. Older 5.0 and 5.1 records remain valid against the latest schema. The repo also contains bundled schemas, example files, and documentation.\n\nNote on versioning: version_required is false because the schema version IS the subpath identifier (e.g., #5.2.0). There are no items within a version — each version is a leaf. The version_required pattern is for sources where versions wrap a hierarchy of items (e.g., OWASP Top 10 2021 → A01-A10).",
+        "version_required": false,
         "versions_available": ["5.2.0", "5.1.0", "5.0.0"],
         "urls": [
           {"type": "website", "url": "https://cveproject.github.io/cve-schema", "parsability": "scraped"},
