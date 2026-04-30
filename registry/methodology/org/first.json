@@ -27,9 +27,9 @@
           "description": "CVSS v4.0: released 2023. Adds Supplemental metric group, refines Temporal into Threat, adds granularity to Environmental metrics.",
           "weight": 100,
           "data": {
-            "url": "https://www.first.org/cvss/v4.0/specification-document",
+            "url": "https://www.first.org/cvss/v4.0/",
             "examples": [
-              {"input": "4.0", "url": "https://www.first.org/cvss/v4.0/specification-document", "note": "CVSS v4.0 specification"}
+              {"input": "4.0", "url": "https://www.first.org/cvss/v4.0/", "note": "CVSS v4.0 (current)"}
             ]
           }
         },
@@ -38,9 +38,44 @@
           "description": "CVSS v3.1: released 2019. Widely adopted. Base, Temporal, and Environmental metric groups.",
           "weight": 90,
           "data": {
-            "url": "https://www.first.org/cvss/v3.1/specification-document",
+            "url": "https://www.first.org/cvss/v3-1/",
             "examples": [
-              {"input": "3.1", "url": "https://www.first.org/cvss/v3.1/specification-document", "note": "CVSS v3.1 specification"}
+              {"input": "3.1", "url": "https://www.first.org/cvss/v3-1/", "note": "CVSS v3.1"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.0$"],
+          "description": "CVSS v3.0: released 2015. First major restructure (Base, Temporal, and Environmental metric groups). Superseded by v3.1.",
+          "weight": 70,
+          "data": {
+            "url": "https://www.first.org/cvss/v3-0/",
+            "examples": [
+              {"input": "3.0", "url": "https://www.first.org/cvss/v3-0/", "note": "CVSS v3.0 (superseded by v3.1)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^2(\\.0)?$"],
+          "description": "CVSS v2: released 2007. Refined v1's approach. Largely superseded by v3.x; still appears in legacy data and older NVD records.",
+          "weight": 50,
+          "data": {
+            "url": "https://www.first.org/cvss/v2/",
+            "examples": [
+              {"input": "2.0", "url": "https://www.first.org/cvss/v2/", "note": "CVSS v2 (legacy)"},
+              {"input": "2", "url": "https://www.first.org/cvss/v2/", "note": "CVSS v2 (short form)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^1(\\.0)?$"],
+          "description": "CVSS v1: released 2005. Original methodology, the first published version. Deprecated; rarely encountered today.",
+          "weight": 30,
+          "data": {
+            "url": "https://www.first.org/cvss/v1/",
+            "examples": [
+              {"input": "1.0", "url": "https://www.first.org/cvss/v1/", "note": "CVSS v1 (deprecated)"},
+              {"input": "1", "url": "https://www.first.org/cvss/v1/", "note": "CVSS v1 (short form)"}
             ]
           }
         }
