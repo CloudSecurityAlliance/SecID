@@ -206,3 +206,32 @@ Implement llms.txt standard on the website for AI-friendly content discovery.
 **Status:** Done (v1.0)
 
 Claude Code plugin scaffolded and published to `CloudSecurityAlliance/csa-plugins-official` marketplace. Install via `/plugin install secid@csa-plugins-official`. Provides resolve, lookup, and describe tools via local MCP server. Supports `--base-url` flag for internal resolvers.
+
+### Standards Registry Coverage
+**Status:** Research needed
+**Priority:** Medium
+
+Many security standards span multiple SecID types or don't fit cleanly. Need to audit coverage and decide placement:
+
+**Already covered:**
+- CVSS → `methodology/org/first.json` (scoring methodology)
+- EPSS → `methodology/org/first.json` (prediction methodology)
+- STIX → not yet (threat intel format)
+- ATT&CK → `ttp/org/mitre.json` (technique taxonomy)
+
+**Need to add:**
+- CSAF 2.0/2.1 → `methodology/org/oasis-open.json`? Or `reference`? It's a standard for advisory format AND distribution process.
+- STIX 2.1 → `reference` (data format standard) or `methodology` (threat intel exchange process)?
+- TAXII → `reference` or `methodology`?
+- OpenDXL → `reference`?
+- SARIF → `reference` (static analysis results format)?
+- CycloneDX → `reference` (SBOM format)?
+- SPDX → `reference` (SBOM format)?
+- VEX → `reference` or `methodology`?
+- OpenVEX → `reference`?
+- OSCAL → `reference` or `methodology`? (security assessment format)
+- ROLIE → `reference` (feed format for security data)?
+
+**The question:** Is a data format standard a `reference` (a document you cite) or a `methodology` (a process you follow)? CVSS is methodology because it produces a score. CSAF is harder — it defines both a data format and a distribution process.
+
+**Possible rule:** If the standard defines a *process that produces an output* (CVSS → score, SSVC → decision), it's `methodology`. If it defines a *format for representing data* (CSAF → JSON advisory, STIX → JSON threat intel), it's `reference`. Some may need entries in both types.
