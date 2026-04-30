@@ -82,6 +82,21 @@
         "examples": ["huawei-sn-xxxxx"]
       },
       "children": []
+    },
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Huawei CSAF security advisories",
+      "weight": 80,
+      "data": {
+        "official_name": "Huawei CSAF Advisories",
+        "description": "Machine-readable Huawei security advisories in CSAF format.",
+        "notes": "CSAF trusted provider. Contact: psirt@huawei.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.huawei.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://securitybulletin.huawei.com/.well-known/csaf/clear"}
+        ],
+        "examples": ["csaf"]
+      }
     }
   ]
 }

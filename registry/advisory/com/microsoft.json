@@ -188,6 +188,22 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Microsoft CSAF security advisories",
+      "weight": 80,
+      "data": {
+        "official_name": "Microsoft CSAF Advisories",
+        "description": "Machine-readable Microsoft security advisories and VEX documents in CSAF format.",
+        "notes": "CSAF provider. Contact: secure@microsoft.com. Non-standard path at msrc.microsoft.com/csaf/. Two feeds: advisories (Microsoft CVEs) and vex (third-party VEX).",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://msrc.microsoft.com/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://msrc.microsoft.com/csaf/advisories"},
+          {"type": "csaf_directory", "url": "https://msrc.microsoft.com/csaf/vex", "notes": "VEX documents for third-party CVEs"}
+        ],
+        "examples": ["csaf"]
+      }
     }
   ]
 }

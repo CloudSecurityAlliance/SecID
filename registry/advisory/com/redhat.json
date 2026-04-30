@@ -138,6 +138,22 @@
           "data": {"type": "alias", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}"}
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Red Hat CSAF security advisories",
+      "weight": 80,
+      "data": {
+        "official_name": "Red Hat CSAF Advisories",
+        "description": "Machine-readable Red Hat security advisories and VEX documents in CSAF format.",
+        "notes": "CSAF trusted provider. Contact: secalert@redhat.com. Non-standard path.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://security.access.redhat.com/data/csaf/v2/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://security.access.redhat.com/data/csaf/v2/advisories/"},
+          {"type": "csaf_directory", "url": "https://security.access.redhat.com/data/csaf/v2/vex/", "notes": "VEX documents"}
+        ],
+        "examples": ["csaf"]
+      }
     }
   ]
 }

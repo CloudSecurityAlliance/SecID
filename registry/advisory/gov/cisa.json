@@ -91,6 +91,21 @@
           }
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "CISA CSAF security advisories",
+      "weight": 80,
+      "data": {
+        "official_name": "CISA CSAF Advisories",
+        "description": "Machine-readable security advisories in CSAF format. CISA produces OT and IT advisories and republishes vendor CSAFs.",
+        "notes": "CSAF trusted provider (coordinator role). Contact: central@cisa.dhs.gov. Non-standard metadata path.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.cisa.gov/sites/default/files/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "github", "url": "https://github.com/cisagov/CSAF"}
+        ],
+        "examples": ["csaf"]
+      }
     }
   ]
 }

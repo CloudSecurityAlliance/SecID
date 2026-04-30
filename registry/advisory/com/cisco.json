@@ -78,6 +78,21 @@
           }
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Cisco CSAF security advisories",
+      "weight": 80,
+      "data": {
+        "official_name": "Cisco CSAF Advisories",
+        "description": "Machine-readable Cisco security advisories in CSAF format.",
+        "notes": "CSAF trusted provider. Contact: psirt@cisco.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.cisco.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://www.cisco.com/.well-known/csaf/"}
+        ],
+        "examples": ["csaf"]
+      }
     }
   ]
 }
