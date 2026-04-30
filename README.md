@@ -18,7 +18,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 600+ other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 700+ other security knowledge sources.
 
 ## What SecID Does
 
@@ -235,18 +235,18 @@ Each registry file documents its subpath patterns and resolution rules.
 
 ### Registry File Mapping
 
-**One file per namespace.** Each namespace file contains ALL sources for that organization:
+**One namespace per filesystem location** — each location has both a `.md` (human-authored) and `.json` (production) file containing ALL sources for that organization:
 
 ```
-SecID:                          Registry File:
-secid:weakness/mitre.org/cwe        → registry/weakness/org/mitre.md (cwe source section)
-secid:advisory/nist.gov/nvd         → registry/advisory/gov/nist.md (nvd source section)
-secid:ttp/mitre.org/attack          → registry/ttp/org/mitre.md (attack source section)
-secid:control/cloudsecurityalliance.org/ccm           → registry/control/org/cloudsecurityalliance.md (ccm source section)
-secid:regulation/europa.eu/gdpr        → registry/regulation/eu/europa.md (gdpr source section)
+SecID:                                                   Registry Files:
+secid:weakness/mitre.org/cwe                          → registry/weakness/org/mitre.{md,json}
+secid:advisory/nist.gov/nvd                           → registry/advisory/gov/nist.{md,json}
+secid:ttp/mitre.org/attack                            → registry/ttp/org/mitre.{md,json}
+secid:control/cloudsecurityalliance.org/ccm           → registry/control/org/cloudsecurityalliance.{md,json}
+secid:regulation/europa.eu/gdpr                       → registry/regulation/eu/europa.{md,json}
 ```
 
-Each registry file contains resolution rules for all sources in that namespace. For example, `registry/weakness/org/mitre.md` contains the `cwe` source section explaining how `#CWE-123` resolves to `https://cwe.mitre.org/data/definitions/123.html`.
+Each pair contains resolution rules for all sources in that namespace. For example, `registry/weakness/org/mitre.md` documents the `cwe` source explaining how `#CWE-123` resolves to `https://cwe.mitre.org/data/definitions/123.html`; the parallel `mitre.json` is what the live resolver loads.
 
 ## Identifier Format
 
@@ -353,7 +353,9 @@ secid/
 
 ## File Format
 
-SecID is AI-first, meaning files need to be easily parsed by AI agents while remaining human-readable. We use markdown with YAML frontmatter (Obsidian-compatible):
+**Dual format.** Each namespace has both a `.md` (YAML+Markdown) file and a `.json` file at the same path. The Markdown is authoritative for contributions and human reading; the JSON is the production format consumed by the resolver.
+
+**`.md` (human-authored):**
 
 ```markdown
 ---
@@ -365,12 +367,14 @@ namespace: mitre.org
 # Content here...
 ```
 
-Why this format:
+**`.json` (production format):** Structured `match_nodes` tree with patterns, descriptions, URLs, examples, and resolution data. Consumed by the live resolver and self-hosted servers. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the schema.
+
+Why this design:
 - **Embedded metadata** - Structured data lives with the content, not in a separate file or database
-- **AI-parseable** - YAML frontmatter is trivially extracted; markdown is universally understood by LLMs
-- **Human-readable** - Works in any text editor, renders nicely on GitHub
-- **Tool support** - Compatible with Obsidian, static site generators, and countless other tools
-- **No better alternative** - This is the most common, simplest format for structured documents; we haven't found anything easier or more widely supported
+- **AI-parseable** - YAML frontmatter is trivially extracted; markdown is universally understood by LLMs; JSON is consumed directly by tooling
+- **Human-readable** - `.md` works in any text editor, renders nicely on GitHub
+- **Tool support** - `.md` is compatible with Obsidian, static site generators, and countless other tools; `.json` is loaded directly by the resolver
+- **Dual format flexibility** - Authors edit Markdown when contributing; resolvers consume JSON when serving. Each format optimized for its audience.
 
 ## Glossary
 
