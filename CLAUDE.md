@@ -374,7 +374,26 @@ This is a **specification-only repository** — no build system, no tests, no co
 
 ## CI/CD
 
-**JSON registry changes merged to main are automatically deployed to the live resolver at secid.cloudsecurityalliance.org.** A GitHub Actions workflow (`.github/workflows/update-registry.yml`) fires on pushes to `main` that touch `registry/**/*.json`, sending a `repository-dispatch` event to `CloudSecurityAlliance/SecID-Service` which re-uploads the registry data. Broken patterns or invalid JSON will break live resolution — validate before merging.
+**JSON registry changes merged to main are automatically deployed to the live resolver at secid.cloudsecurityalliance.org.** Broken patterns or invalid JSON will break live resolution — validate before merging.
+
+**Deploy chain:**
+
+1. Push to `main` touching `registry/**/*.json` triggers `.github/workflows/update-registry.yml` (also has `workflow_dispatch:` for manual testing)
+2. That workflow uses the `SECID_TO_SERVICE_DISPATCH` PAT (fine-grained, scoped to SecID-Service only) to send a `repository_dispatch` event
+3. SecID-Service receives the dispatch and runs its "Upload registry to KV" workflow, which:
+   - Builds and tests
+   - Runs `scripts/upload-registry-kv.ts --sync` using the `SECID_SERVICE_DEPLOY` Cloudflare token
+   - Uploads all expected keys (overwrites) AND deletes orphans (KV keys no longer produced by registry)
+   - Deploys the Worker
+4. Live resolver serves from `secid_REGISTRY` KV; chain completes in ~1m20s
+
+**Sync semantics:** `--sync` mode means KV exactly matches what the registry produces. Modifying a namespace overwrites its value; deleting a namespace deletes its key; renaming creates new + orphans old (both handled). Source-level changes within a namespace are content-only updates (the namespace key still exists, value gets the new sources array). A 50-key safety threshold blocks accidental mass-delete.
+
+**For manual operations:**
+
+- Test the auto-trigger chain: `gh workflow run "Notify registry update" -R CloudSecurityAlliance/SecID`
+- Force a fresh KV sync: `gh workflow run "Upload registry to KV" -R CloudSecurityAlliance/SecID-Service`
+- Local audit (no mutations): `npx tsx scripts/upload-registry-kv.ts --sync --dry-run /path/to/SecID` from the SecID-Service repo with `CLOUDFLARE_API_TOKEN` env var set
 
 ## Commit and PR Style
 
