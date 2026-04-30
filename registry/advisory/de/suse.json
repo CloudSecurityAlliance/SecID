@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "suse.de",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data. Note: suse.com also has a separate advisory registry entry for SUSE-SU advisories.",
+
+  "official_name": "SUSE Product Security",
+  "common_name": "SUSE Security",
+  "alternate_names": ["SUSE Product Security Team"],
+  "notes": "SUSE is a German open-source enterprise Linux company. SUSE Product Security publishes CSAF-format advisories via the suse.de domain. This covers CSAF distribution; the suse.com advisory entry covers SUSE-SU security update advisories. CSAF and CSAF-VEX documents are hosted on ftp.suse.com.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.suse.com/security/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "SUSE Product Security CSAF advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "SUSE Product Security CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format. Includes both CSAF advisories and CSAF-VEX documents.",
+        "notes": "CSAF csaf_trusted_provider. Contact: security@suse.de. Two directory trees: csaf/ for advisories and csaf-vex/ for VEX documents.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://suse.de/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://ftp.suse.com/pub/projects/security/csaf/"},
+          {"type": "csaf_directory", "url": "https://ftp.suse.com/pub/projects/security/csaf-vex/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

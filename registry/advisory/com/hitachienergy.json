@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hitachienergy.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Hitachi Energy PSIRT",
+  "common_name": "Hitachi Energy PSIRT",
+  "alternate_names": ["Hitachi Energy Product Security Incident Response Team"],
+  "notes": "Hitachi Energy (formerly ABB Power Grids) provides power and automation technologies for the energy sector. Hitachi Energy PSIRT publishes security advisories for their products including grid automation, power quality, and energy management systems. CSAF advisories are distributed via the CERT-Bund aggregator rather than self-hosted.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.hitachienergy.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Hitachi Energy PSIRT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Hitachi Energy PSIRT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Advisories distributed via CERT-Bund aggregator (not self-hosted).",
+        "urls": [
+          {"type": "website", "url": "https://www.hitachienergy.com/cybersecurity"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tibco.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "TIBCO PSIRT",
+  "common_name": "TIBCO PSIRT",
+  "alternate_names": ["TIBCO Product Security Incident Response Team"],
+  "notes": "TIBCO Software (now part of Cloud Software Group) provides middleware, integration, and analytics software. TIBCO PSIRT publishes security advisories in CSAF format for TIBCO products.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.tibco.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "TIBCO PSIRT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "TIBCO PSIRT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_provider. Contact: security@tibco.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://tibco.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://www.tibco.com/.well-known/csaf"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

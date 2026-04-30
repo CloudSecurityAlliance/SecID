@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "siemens.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Siemens ProductCERT",
+  "common_name": "Siemens ProductCERT",
+  "alternate_names": ["Siemens Product Computer Emergency Response Team"],
+  "notes": "Siemens is a multinational technology conglomerate. Siemens ProductCERT publishes security advisories (SSA - Siemens Security Advisories) in CSAF format covering Siemens industrial products including SIMATIC, SINEMA, SCALANCE, and other automation and control systems. Siemens is one of the largest ICS/OT security advisory publishers.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.siemens.com"},
+    {"type": "website", "url": "https://cert-portal.siemens.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Siemens ProductCERT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Siemens ProductCERT CSAF Advisories",
+        "common_name": "Siemens SSA",
+        "description": "Machine-readable security advisories in CSAF format. Siemens Security Advisories (SSA) cover a wide range of industrial automation and control products.",
+        "notes": "CSAF csaf_trusted_provider. Contact: productcert@siemens.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://cert-portal.siemens.com/productcert/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_feed", "url": "https://cert-portal.siemens.com/productcert/csaf/ssa-feed-tlp-white.json"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

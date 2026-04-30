@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "intevation.de",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Intevation GmbH",
+  "common_name": "Intevation",
+  "alternate_names": null,
+  "notes": "Intevation GmbH is a German open-source software company. They publish security advisories in CSAF format and are actively involved in CSAF tooling development.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://intevation.de"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Intevation CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Intevation CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: security@intevation.de",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://intevation.de/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_feed", "url": "https://intevation.de/.well-known/csaf/white/csaf-feed-tlp-white.json"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

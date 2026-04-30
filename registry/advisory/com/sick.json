@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sick.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "SICK PSIRT",
+  "common_name": "SICK PSIRT",
+  "alternate_names": ["SICK Product Security Incident Response Team"],
+  "notes": "SICK AG is a German manufacturer of sensors and sensor solutions for industrial automation applications. SICK PSIRT publishes security advisories in CSAF format covering their sensor and automation products.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.sick.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "SICK PSIRT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "SICK PSIRT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: psirt@sick.de",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.sick.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_feed", "url": "https://www.sick.com/.well-known/csaf/white/csaf-feed-tlp-white.json"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

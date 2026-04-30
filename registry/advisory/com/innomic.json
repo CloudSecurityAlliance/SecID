@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "innomic.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "IDS Innomic Schwingungsmesstechnik GmbH",
+  "common_name": "IDS Innomic",
+  "alternate_names": null,
+  "notes": "IDS Innomic Schwingungsmesstechnik GmbH is a German manufacturer of vibration measurement technology. They publish security advisories in CSAF format for their products.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.innomic.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "IDS Innomic CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "IDS Innomic CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_provider. Contact: info@innomic.de",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.innomic.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://www.innomic.com/.well-known/csaf/white/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

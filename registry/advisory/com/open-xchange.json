@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "namespace": "open-xchange.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Open-Xchange GmbH",
+  "common_name": "Open-Xchange",
+  "alternate_names": ["OX"],
+  "notes": "Open-Xchange GmbH develops email, communication, and collaboration software including OX App Suite and Dovecot. Their security team publishes advisories in CSAF format covering OX App Suite and Dovecot products.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.open-xchange.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Open-Xchange CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Open-Xchange CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format covering OX App Suite and Dovecot products.",
+        "notes": "CSAF csaf_trusted_provider. Contact: security@open-xchange.com. Separate advisory paths for App Suite and Dovecot.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.open-xchange.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

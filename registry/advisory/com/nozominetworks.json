@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nozominetworks.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Nozomi Networks",
+  "common_name": "Nozomi Networks",
+  "alternate_names": null,
+  "notes": "Nozomi Networks provides OT and IoT security and visibility solutions. Their product security team publishes security advisories in CSAF format for Nozomi Networks products and for vulnerabilities discovered in third-party OT/IoT devices.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.nozominetworks.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Nozomi Networks CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Nozomi Networks CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: prodsec@nozominetworks.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://csaf.data.security.nozominetworks.com/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://security.nozominetworks.com/csaf/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

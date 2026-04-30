@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cert-bund.de",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Bundesamt für Sicherheit in der Informationstechnik (BSI)",
+  "common_name": "CERT-Bund",
+  "alternate_names": ["BSI", "German Federal Office for Information Security"],
+  "notes": "CERT-Bund is the Computer Emergency Response Team of the German Federal Office for Information Security (BSI). It serves as a coordinator for IT security incidents in Germany and publishes security advisories in CSAF format. CERT-Bund also operates an aggregator that hosts CSAF advisories for multiple vendors.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.bsi.bund.de"},
+    {"type": "website", "url": "https://wid.cert-bund.de"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "CERT-Bund CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "CERT-Bund CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format. CERT-Bund publishes its own advisories and aggregates advisories from multiple vendors.",
+        "notes": "CSAF csaf_trusted_provider. Contact: csaf-provider@cert-bund.de. Multiple ROLIE feeds covering white and green TLP classifications.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://wid.cert-bund.de/.well-known/csaf/provider-metadata.json", "parsability": "structured"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

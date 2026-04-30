@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kunbus.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "KUNBUS PSIRT",
+  "common_name": "KUNBUS PSIRT",
+  "alternate_names": ["KUNBUS Product Security Incident Response Team"],
+  "notes": "KUNBUS GmbH is a German manufacturer of industrial communication and automation solutions, including the Revolution Pi platform. KUNBUS PSIRT publishes security advisories in CSAF format covering their industrial products.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.kunbus.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "KUNBUS PSIRT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "KUNBUS PSIRT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: product-security@kunbus.com. Provides directories for white, amber, green, and red TLP classifications.",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://psirt.kunbus.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://psirt.kunbus.com/.well-known/csaf/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

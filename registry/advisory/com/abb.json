@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "abb.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "ABB Product Security Incident Response Team (PSIRT)",
+  "common_name": "ABB PSIRT",
+  "alternate_names": null,
+  "notes": "ABB is a multinational industrial automation and power technology company. ABB PSIRT publishes security advisories for ABB products including industrial control systems, drives, robotics, and power grid equipment. Advisories are published in CSAF format as a trusted provider.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://global.abb/group/en/technology/cyber-security"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "ABB PSIRT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "ABB PSIRT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: https://global.abb/group/en/technology/cyber-security",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://psirt.abb.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_feed", "url": "https://psirt.abb.com/csaf/abb-csaf-feed-tlp-white.json"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

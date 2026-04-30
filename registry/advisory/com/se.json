@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "se.com",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Schneider Electric CPCERT",
+  "common_name": "Schneider Electric",
+  "alternate_names": ["Schneider Electric Corporate Product CERT", "SE CPCERT"],
+  "notes": "Schneider Electric is a multinational company specializing in energy management and industrial automation. Schneider Electric CPCERT (Corporate Product CERT) publishes security advisories in CSAF format for their products including PLCs, SCADA systems, building management, and power distribution equipment.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.se.com"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Schneider Electric CPCERT CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Schneider Electric CPCERT CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: cpcert@se.com",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://www.se.com/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://www.se.com/.well-known/csaf/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}

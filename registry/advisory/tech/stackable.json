@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "stackable.tech",
+  "type": "advisory",
+  "status": "draft",
+  "status_notes": "CSAF provider. Created from CERT-Bund aggregator + provider-metadata.json data.",
+
+  "official_name": "Stackable Product Security Team",
+  "common_name": "Stackable",
+  "alternate_names": null,
+  "notes": "Stackable provides a Kubernetes-native data platform for managing open-source data applications. Their product security team publishes security advisories in CSAF format.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://stackable.tech"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csaf$"],
+      "description": "Stackable CSAF security advisories",
+      "weight": 100,
+      "data": {
+        "official_name": "Stackable CSAF Advisories",
+        "common_name": null,
+        "description": "Machine-readable security advisories in CSAF format.",
+        "notes": "CSAF csaf_trusted_provider. Contact: product-security@stackable.tech",
+        "urls": [
+          {"type": "csaf_provider", "url": "https://advisories.stackable.tech/.well-known/csaf/provider-metadata.json", "parsability": "structured"},
+          {"type": "csaf_directory", "url": "https://advisories.stackable.tech/csaf/v2/advisories/"}
+        ],
+        "examples": ["csaf"]
+      }
+    }
+  ]
+}
