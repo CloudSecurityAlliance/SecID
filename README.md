@@ -523,7 +523,7 @@ This specification is open for public comment. We welcome feedback, questions, a
 
 | Type | Count |
 |------|-------|
-| Advisory | 42 |
+| Advisory | 56 |
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
@@ -533,7 +533,7 @@ This specification is open for public comment. We welcome feedback, questions, a
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 35 |
-| **Total** | **710** |
+| **Total** | **724** |
 
 <!-- REGISTRY-COUNTS-END -->
 

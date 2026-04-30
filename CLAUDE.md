@@ -273,7 +273,7 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 
 | Type | Count |
 |------|-------|
-| Advisory | 42 |
+| Advisory | 56 |
 | Weakness | 13 |
 | Ttp | 4 |
 | Control | 32 |
@@ -283,7 +283,7 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Regulation | 12 |
 | Entity | 14 |
 | Reference | 35 |
-| **Total** | **710** |
+| **Total** | **724** |
 
 <!-- REGISTRY-COUNTS-END -->
 
