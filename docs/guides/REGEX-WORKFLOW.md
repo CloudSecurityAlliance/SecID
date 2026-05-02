@@ -6,11 +6,14 @@
 This guide defines how SecID handles regex safety for registry `match_nodes`.
 
 ## Dialect Policy
-Canonical registry regex syntax is **ECMAScript `RegExp`** because SecID-Service executes in Cloudflare Workers (TypeScript/JavaScript runtime).
+Canonical registry regex syntax is **ECMAScript `RegExp`** (ES2025, as implemented by V8 in Cloudflare Workers).
 
 - Registry files store one canonical pattern set only (no per-engine pattern variants).
-- Non-JS runtimes (Python, Go, Rust, etc.) should use translation/validation tooling from canonical ECMAScript patterns.
-- Avoid engine-specific constructs in registry patterns (`(?i)` prefix, Python-style `(?P<name>...)`, lookbehind, backreferences).
+- Non-JS runtimes (Python, Go, Rust, etc.) can consume patterns as-is — all allowed constructs are cross-engine portable.
+- **`(?i)` inline modifier is allowed and canonical.** It is valid ES2025 ECMAScript (V8 125+), universally portable across Python/Go/Rust/Java/.NET/PCRE, and makes patterns self-describing.
+- **Prohibited constructs:** Python-style `(?P<name>...)` named groups (use `(?<name>...)` instead), lookbehind `(?<=`/`(?<!`, atomic groups `(?>`, backreferences `\1`, nested quantifiers `(a+)+`, unanchored patterns.
+
+See `docs/project/REGEX-ECMASCRIPT-MIGRATION-PLAN.md` for the full dialect policy and rationale.
 
 ## Threat Model
 SecID-Service executes registry patterns against user-controlled identifiers at runtime. A pathological pattern could cause catastrophic backtracking (ReDoS) and CPU spikes.

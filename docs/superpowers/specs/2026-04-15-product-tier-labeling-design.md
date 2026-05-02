@@ -21,16 +21,9 @@ Product tiers are versions/editions of a product. For SaaS products, the tier is
 
 Use the existing `@version` mechanism in the SecID grammar. No grammar changes, no new types, no new fields.
 
-### Regex Dialect Decision (logged in spec)
+### Regex Dialect
 
-For this design (and as a general registry direction), regex patterns are canonicalized to **ECMAScript `RegExp`** syntax because SecID-Service executes in Cloudflare Workers (TypeScript/JavaScript runtime).
-
-- **Single canonical pattern set in registry:** do not store parallel regex-by-engine variants (`ecmascript`, `pcre`, `python`, etc.) in registry files.
-- **Cross-runtime support via tooling:** non-JS consumers use generated/translated validators from canonical ECMAScript patterns.
-- **Validation order:** required compile check in JS runtime; optional compatibility checks in Python/Go/Rust as secondary gates.
-- **Portable subset discipline:** keep patterns simple and anchored; avoid engine-specific constructs when possible.
-
-This keeps one source of truth aligned with production runtime behavior while still supporting non-JS clients through tooling.
+Registry patterns use **ES2025 ECMAScript `RegExp`** as canonical dialect (V8 in Cloudflare Workers is the production runtime). `(?i)` inline modifiers are allowed and canonical — they are valid ES2025 and universally portable across Python/Go/Rust/Java/.NET/PCRE. See `docs/project/REGEX-ECMASCRIPT-MIGRATION-PLAN.md` for the full dialect policy.
 
 ### `@version` is opaque
 
@@ -43,7 +36,7 @@ Vendors use varied formats for tier names ("Enterprise Plus", "enterprise-plus",
 Example: for a canonical token `enterprise-plus`, the version-matching regex accepts variants:
 
 ```
-/^enterprise[_-]?plus$/i
+(?i)^enterprise[_-]?plus$
 ```
 
 This matches `enterprise-plus`, `enterprise_plus`, `enterpriseplus`, `Enterprise-Plus` — all resolve to the canonical `enterprise-plus`. To pick the canonical token: when a vendor has a URL slug or API identifier for the tier, prefer that (follow the source). Otherwise, use lowercase with hyphens for word separators — the same convention entity product names already follow (e.g., `openshift-container-platform`, `directory-server`).
@@ -157,7 +150,7 @@ Entity registry entries for tiered products add `versions_available` and `versio
   ],
   "match_nodes": [
     {
-      "patterns": ["^zendesk$"],
+      "patterns": ["(?i)^zendesk$"],
       "description": "Zendesk customer service platform",
       "weight": 100,
       "data": {
@@ -177,7 +170,7 @@ Entity registry entries for tiered products add `versions_available` and `versio
       }
     },
     {
-      "patterns": ["^sell$"],
+      "patterns": ["(?i)^sell$"],
       "description": "Zendesk Sell — CRM and sales platform",
       "weight": 100,
       "data": {
