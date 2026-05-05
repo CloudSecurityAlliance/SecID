@@ -193,6 +193,14 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 
 Types are intentionally overloaded. Split only when usage proves it necessary.
 
+**WARNING: Adding a new type requires coordinated changes across multiple repos.** The type list is hardcoded in:
+1. **This repo** — SPEC.md, CLAUDE.md, registry directory structure
+2. **SecID-Service** — `src/types.ts` (`SECID_TYPES` array), `src/mcp.ts` (type descriptions), website/frontend
+3. **SecID-Server-API** — `python/resolver.py` (`SECID_TYPES` list)
+4. **SecID-Client-SDK** — type definitions in all language clients
+
+The parser will **reject** queries for types not in the hardcoded list. The website will **not display** types it doesn't know about. CI/CD does **not** auto-detect new types from registry data. A new type is a spec-level change, not just a registry addition.
+
 ## Granularity
 
 Use the hierarchy levels the source provides:
