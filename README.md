@@ -1,3 +1,10 @@
+```
+project_tracker_base: CINO Project Tracker:appf7fRQUvY9Iy7sL
+project_tracker_table: Projects:tblchmbxSAavvJKaY
+project_tracker_record: SecID — Security Identifier System & Registry:recJ6I5SHI8RvqpRF
+project_source: github:CloudSecurityAlliance/SecID
+```
+
 <p align="center">
   <img src="csa-logo.jpeg" alt="Cloud Security Alliance" width="200">
 </p>
@@ -18,7 +25,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 700+ other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 724 other security knowledge sources.
 
 ## What SecID Does
 
@@ -506,20 +513,20 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 
 ## Current Status
 
-**Version 0.9 - Public Draft**
+**Version 1.0 — Live (April 2026)**
 
-This specification is open for public comment. We welcome feedback, questions, and suggestions via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues).
+The identifier grammar, type list, and registry format are stable. The resolver is live at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/). Feedback and contributions still welcome via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues) — the spec is frozen for v1.0, but the registry grows continuously and post-1.0 layers are under active design.
 
 | Component | Status |
 |-----------|--------|
-| Identifier grammar + 10 types | **Done** |
-| Registry namespaces (YAML + JSON) | **Done** — see counts below |
+| Identifier grammar + 10 types | **v1.0 frozen** |
+| Registry namespaces (YAML + JSON, 724 namespaces) | **Live** — auto-deploys to production resolver |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
 | [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, npm, Go, etc.) | In progress |
 | Registry validation skill | **Active** |
 | Compliance test suite | Not started |
-| Relationship layer | Post-1.0 |
-| Overlay layer | Post-1.0 |
+| Relationship layer | Post-1.0 (active research) |
+| Enrichment / Overlay layer | Post-1.0 (active research) |
 
 ### Registry Namespace Counts
 

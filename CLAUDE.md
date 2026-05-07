@@ -17,9 +17,9 @@ Examples:
 - `secid:control/nist.gov/csf@2.0#PR.AC-1` - NIST CSF control
 - `secid:reference/arxiv.org/2303.08774` - arXiv paper
 
-## Current Status: v0.9 (Public Draft)
+## Current Status: v1.0 (Live)
 
-Working toward v1.0: Given a SecID string, return the URL(s) where that resource can be found.
+The resolver is live at secid.cloudsecurityalliance.org with 724 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 See ROADMAP.md for details.
 
