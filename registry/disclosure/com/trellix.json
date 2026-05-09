@@ -36,12 +36,22 @@
           {
             "type": "docs",
             "url": "https://kcm.trellix.com/corporate/index?page=content&id=KB95564",
-            "note": "Disclosure policy"
+            "note": "Disclosure policy",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "tls_handshake_failure",
+            "_broken_note": "Hostname `kcm.trellix.com` may have been retired post-rebrand",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
             "url": "https://supportm.trellix.com/webcenter/portal/supportportal/pages_knowledgecenter",
-            "note": "Security advisories"
+            "note": "Security advisories",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "dns_failure",
+            "_broken_note": "Hostname `supportm.trellix.com` retired",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
@@ -65,7 +75,12 @@
         "security_txt": null,
         "disclosure_policy": {
           "url": "https://kcm.trellix.com/corporate/index?page=content&id=KB95564",
-          "checked": "2026-04-08"
+          "checked": "2026-04-08",
+          "_broken": true,
+          "_broken_verified": "2026-05-08",
+          "_broken_failure": "tls_handshake_failure",
+          "_broken_note": "Hostname `kcm.trellix.com` may have been retired post-rebrand",
+          "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
         }
       }
     }

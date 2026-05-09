@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "description": "Validation overlay for known-broken URLs and emails in CNA disclosure entries. Read by scripts/generate-cna-disclosure.py during regeneration to inject _broken metadata. Remove entries when upstream cve.org fixes them.",
+  "audit_date": "2026-05-09",
+  "audit_methodology": "Combined HTTP audit (httpx + Playwright + manual real-browser verification) and email validation (QuickEmailVerification + real Gmail bounce evidence). Full data: working-data/cve-org-url-audit/ and working-data/cna/.",
+  "upstream_issues": [
+    {
+      "issue": "CVEProject/cve-website#3937",
+      "url": "https://github.com/CVEProject/cve-website/issues/3937",
+      "scope": "Broken URLs in CNAsList.json"
+    },
+    {
+      "issue": "CVEProject/cve-website#3938",
+      "url": "https://github.com/CVEProject/cve-website/issues/3938",
+      "scope": "Broken email addresses in CNAsList.json"
+    }
+  ],
+  "broken_urls": [
+    {
+      "url": "https://www.blacklanternsecurity.com/cna.html",
+      "cna_short_name": "BLSOPS",
+      "namespace": "blacklanternsecurity.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Returns HTTP 404"
+    },
+    {
+      "url": "https://ctone.com//wp-content/uploads/2024/07/CTOne-Vulnerability-Disclosure-Policy.pdf",
+      "cna_short_name": "CTOne",
+      "namespace": "ctone.com",
+      "verified": "2026-05-08",
+      "failure": "tls_handshake_failure",
+      "note": "TLS handshake fails (SSLV3_ALERT_HANDSHAKE_FAILURE) — server rejects connections"
+    },
+    {
+      "url": "https://ctone.com/published-product-vulnerabilities/",
+      "cna_short_name": "CTOne",
+      "namespace": "ctone.com",
+      "verified": "2026-05-08",
+      "failure": "tls_handshake_failure",
+      "note": "TLS handshake fails"
+    },
+    {
+      "url": "https://www.dragos.com/advisories/",
+      "cna_short_name": "Dragos",
+      "namespace": "dragos.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Returns HTTP 404"
+    },
+    {
+      "url": "https://www.hitachienergy.com/cybersecurity/alerts-and-notifications",
+      "cna_short_name": "Hitachi_Energy",
+      "namespace": "hitachienergy.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Returns HTTP 404"
+    },
+    {
+      "url": "https://www.cert-in.org.in/RVDCP.jsp",
+      "cna_short_name": "CERT-In",
+      "namespace": "cert-in.org.in",
+      "verified": "2026-05-08",
+      "failure": "connect_failure",
+      "note": "Host appears geo-restricted; TLS times out from outside India"
+    },
+    {
+      "url": "https://www.cert-in.org.in/",
+      "cna_short_name": "CERT-In",
+      "namespace": "cert-in.org.in",
+      "verified": "2026-05-08",
+      "failure": "connect_failure",
+      "note": "Host appears geo-restricted"
+    },
+    {
+      "url": "https://knvd.krcert.or.kr/processingProcedures.do",
+      "cna_short_name": "krcert",
+      "namespace": "krcert.or.kr",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Returns HTTP 404; prior fix in CVEProject/cve-website#898 (closed) has rotted"
+    },
+    {
+      "url": "https://www.kyberturvallisuuskeskus.fi/fi/ajankohtaista/haavoittuvuudet-miten-niista-ilmoitetaan-oikein",
+      "cna_short_name": "NCSC-FI",
+      "namespace": "kyberturvallisuuskeskus.fi",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404; prior fix in CVEProject/cve-website#283 (closed) has rotted"
+    },
+    {
+      "url": "https://www.kyberturvallisuuskeskus.fi/en/our-services/situation-awareness-and-network-management/vulnerability-coordination",
+      "cna_short_name": "NCSC-FI",
+      "namespace": "kyberturvallisuuskeskus.fi",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404"
+    },
+    {
+      "url": "https://www.kyberturvallisuuskeskus.fi/en/haavoittuvuudet",
+      "cna_short_name": "NCSC-FI",
+      "namespace": "kyberturvallisuuskeskus.fi",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404"
+    },
+    {
+      "url": "https://www.omron.com/contact/ContactForm.do?FID=00282",
+      "cna_short_name": "OMRON",
+      "namespace": "omron.com",
+      "verified": "2026-05-08",
+      "failure": "bot_blocked",
+      "note": "WAF blocks all automated tools; manual verification confirms the URL no longer returns the intended form"
+    },
+    {
+      "url": "https://www.omron.com/global/en/inquiry/vulnerability_information/",
+      "cna_short_name": "OMRON",
+      "namespace": "omron.com",
+      "verified": "2026-05-08",
+      "failure": "bot_blocked",
+      "note": "WAF blocks; manually verified broken"
+    },
+    {
+      "url": "https://static.omnissa.com/uploads/omnissa-external-vulnerability-response-and-remediation-policy.pdf",
+      "cna_short_name": "Omnissa",
+      "namespace": "omnissa.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "PDF removed; HTTP 404"
+    },
+    {
+      "url": "https://securityadvisories.paloaltonetworks.com/",
+      "cna_short_name": "palo_alto",
+      "namespace": "paloaltonetworks.com",
+      "verified": "2026-05-08",
+      "failure": "dns_failure",
+      "note": "Hostname retired post-rebrand to security.paloaltonetworks.com; DNS fails"
+    },
+    {
+      "url": "https://patchstack.com/patchstack-vulnerability-disclosure-policy/",
+      "cna_short_name": "Patchstack",
+      "namespace": "patchstack.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404"
+    },
+    {
+      "url": "https://starlabs.sg/advisories/STAR%20Labs%20SG%20Pte.%20Ltd.%20Vulnerability%20Disclosure%20Policy.pdf",
+      "cna_short_name": "STAR_Labs",
+      "namespace": "starlabs.sg",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "PDF removed; HTTP 404"
+    },
+    {
+      "url": "https://siliconlabs.force.com/s/alert/Alert__c/00B1M000009sQ4R",
+      "cna_short_name": "Silabs",
+      "namespace": "silabs.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Salesforce-hosted alert page no longer accessible"
+    },
+    {
+      "url": "https://www.ncsc.admin.ch/ncsc/en/home/infos-fuer/infos-it-spezialisten/themen/schwachstelle-melden/advisories.html",
+      "cna_short_name": "NCSC.ch",
+      "namespace": "ncsc.admin.ch",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Site reorganization; HTTP 404"
+    },
+    {
+      "url": "https://docs.temporal.io/temporal-technologies-inc-security",
+      "cna_short_name": "Temporal",
+      "namespace": "temporal.io",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Page removed; HTTP 404"
+    },
+    {
+      "url": "https://kcm.trellix.com/corporate/index?page=content&id=KB95564",
+      "cna_short_name": "Trellix",
+      "namespace": "trellix.com",
+      "verified": "2026-05-08",
+      "failure": "tls_handshake_failure",
+      "note": "Hostname `kcm.trellix.com` may have been retired post-rebrand"
+    },
+    {
+      "url": "https://supportm.trellix.com/webcenter/portal/supportportal/pages_knowledgecenter",
+      "cna_short_name": "Trellix",
+      "namespace": "trellix.com",
+      "verified": "2026-05-08",
+      "failure": "dns_failure",
+      "note": "Hostname `supportm.trellix.com` retired"
+    },
+    {
+      "url": "https://opengauss.org/zh/security.html",
+      "cna_short_name": "openGauss",
+      "namespace": "opengauss.org",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404; prior fix in CVEProject/cve-website#1495 (closed) has rotted"
+    },
+    {
+      "url": "https://censys.io/vulnerability-disclosure",
+      "cna_short_name": "Censys",
+      "namespace": "censys.io",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Redirects to censys.com/vulnerability-disclosure which is HTTP 404 (post-rebrand from .io to .com)"
+    },
+    {
+      "url": "https://grafana.com/security.txt",
+      "cna_short_name": "GRAFANA",
+      "namespace": "grafana.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "HTTP 404 — no security.txt file at this path"
+    },
+    {
+      "url": "https://sps.honeywell.com/us/en/support/productivity/cyber-security-notifications",
+      "cna_short_name": "Honeywell",
+      "namespace": "honeywell.com",
+      "verified": "2026-05-08",
+      "failure": "gateway_timeout",
+      "note": "Persistent HTTP 504 Gateway Time-out (not transient)"
+    },
+    {
+      "url": "https://ict.co/help-support/responsible-disclosure-policy/",
+      "cna_short_name": "ICT",
+      "namespace": "ict.co",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Site reorganization; HTTP 404"
+    },
+    {
+      "url": "https://ict.co/help-support/security-advisories/",
+      "cna_short_name": "ICT",
+      "namespace": "ict.co",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Site reorganization; HTTP 404"
+    },
+    {
+      "url": "http://www.vapidlabs.com/misc/policy.html",
+      "cna_short_name": "larry_cashdollar",
+      "namespace": "vapidlabs.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Apache 404 Not Found"
+    },
+    {
+      "url": "https://www.gov.il/en/departments/faq/cve_advisories",
+      "cna_short_name": "INCD",
+      "namespace": "gov.il",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Hebrew 404 page after passing Cloudflare bot challenge. Sister disclosure_policy URL (cve_policy) does work."
+    },
+    {
+      "url": "https://www.zigor.com/list-of-vulnerabilities/",
+      "cna_short_name": "ZGR",
+      "namespace": "zigor.com",
+      "verified": "2026-05-08",
+      "failure": "hard_404",
+      "note": "Spanish 404 page (PÁGINA NO ENCONTRADA)"
+    }
+  ],
+  "broken_emails": [
+    {
+      "email": "cve-coordination@ribose.com",
+      "cna_short_name": "Ribose",
+      "namespace": "ribose.com",
+      "verified": "2026-05-09",
+      "failure": "rejected_email",
+      "note": "Gmail bounce: 550 5.4.1 Recipient address rejected (Microsoft Exchange Online apcprd02)"
+    },
+    {
+      "email": "sirt@silver-peak.com",
+      "cna_short_name": "Silver_Peak",
+      "namespace": "silver-peak.com",
+      "verified": "2026-05-09",
+      "failure": "rejected_email",
+      "note": "Gmail bounce: 550 5.4.1 Recipient address rejected. Silver Peak was acquired by HPE/Aruba; alias retired."
+    },
+    {
+      "email": "security@tanium.org",
+      "cna_short_name": "Tanium",
+      "namespace": "tanium.org",
+      "verified": "2026-05-09",
+      "failure": "no_smtp",
+      "note": "tanium.org has no MX records; A records present but port 25 refuses connections (no SMTP server). Tanium's primary domain is tanium.com — wrong domain in CNAsList.json."
+    },
+    {
+      "email": "security@watchdog.com",
+      "cna_short_name": "watchdog",
+      "namespace": "watchdog.com",
+      "verified": "2026-05-09",
+      "failure": "rejected_email",
+      "note": "Gmail bounce: 550 5.1.1 User does not exist"
+    }
+  ]
+}

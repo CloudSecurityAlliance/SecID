@@ -20,6 +20,10 @@
 .cursorignore
 
 # Working data (scraped pages, temp analysis)
-working-data/
+working-data/*
+# Exception: hand-curated pipeline-input data we want versioned
+!working-data/cna/
+working-data/cna/*
+!working-data/cna/known-broken.json
 
 # Note: CLAUDE.md, AGENTS.md, and GEMINI.md are intentionally not blocked

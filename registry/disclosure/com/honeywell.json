@@ -41,7 +41,12 @@
           {
             "type": "website",
             "url": "https://sps.honeywell.com/us/en/support/productivity/cyber-security-notifications",
-            "note": "Security advisories"
+            "note": "Security advisories",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "gateway_timeout",
+            "_broken_note": "Persistent HTTP 504 Gateway Time-out (not transient)",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",

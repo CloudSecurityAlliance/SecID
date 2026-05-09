@@ -36,12 +36,22 @@
           {
             "type": "docs",
             "url": "https://ctone.com//wp-content/uploads/2024/07/CTOne-Vulnerability-Disclosure-Policy.pdf",
-            "note": "Disclosure policy"
+            "note": "Disclosure policy",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "tls_handshake_failure",
+            "_broken_note": "TLS handshake fails (SSLV3_ALERT_HANDSHAKE_FAILURE) — server rejects connections",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
             "url": "https://ctone.com/published-product-vulnerabilities/",
-            "note": "Security advisories"
+            "note": "Security advisories",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "tls_handshake_failure",
+            "_broken_note": "TLS handshake fails",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
@@ -62,7 +72,12 @@
         "security_txt": null,
         "disclosure_policy": {
           "url": "https://ctone.com//wp-content/uploads/2024/07/CTOne-Vulnerability-Disclosure-Policy.pdf",
-          "checked": "2026-04-08"
+          "checked": "2026-04-08",
+          "_broken": true,
+          "_broken_verified": "2026-05-08",
+          "_broken_failure": "tls_handshake_failure",
+          "_broken_note": "TLS handshake fails (SSLV3_ALERT_HANDSHAKE_FAILURE) — server rejects connections",
+          "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
         }
       }
     }

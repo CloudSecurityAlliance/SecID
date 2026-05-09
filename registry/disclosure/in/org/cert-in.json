@@ -36,12 +36,22 @@
           {
             "type": "docs",
             "url": "https://www.cert-in.org.in/RVDCP.jsp",
-            "note": "Disclosure policy"
+            "note": "Disclosure policy",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "connect_failure",
+            "_broken_note": "Host appears geo-restricted; TLS times out from outside India",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
             "url": "https://www.cert-in.org.in/",
-            "note": "Security advisories"
+            "note": "Security advisories",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "connect_failure",
+            "_broken_note": "Host appears geo-restricted",
+            "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
           },
           {
             "type": "website",
@@ -69,7 +79,12 @@
         },
         "disclosure_policy": {
           "url": "https://www.cert-in.org.in/RVDCP.jsp",
-          "checked": "2026-04-08"
+          "checked": "2026-04-08",
+          "_broken": true,
+          "_broken_verified": "2026-05-08",
+          "_broken_failure": "connect_failure",
+          "_broken_note": "Host appears geo-restricted; TLS times out from outside India",
+          "_broken_source": "CVEProject/cve-website#3937, CVEProject/cve-website#3938"
         }
       }
     }

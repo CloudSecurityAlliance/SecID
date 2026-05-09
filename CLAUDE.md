@@ -376,7 +376,11 @@ markdownlint **/*.md
 ./scripts/fetch-cna-pages.sh              # Download CNA partner HTML pages
 node scripts/fetch-cna-details.js         # Extract structured details (or use .py variant)
 python3 scripts/generate-cna-disclosure.py # Generate disclosure/*.json files
+python3 scripts/enrich-cna-from-cnalist.py # Add cna_id and disclosure_policy from CNAsList.json
+python3 scripts/apply-known-broken.py     # Apply known-broken validation overlay (URLs/emails verified broken)
 ```
+
+The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](working-data/cna/known-broken.json) — a hand-curated overlay of URLs and emails that have been verified broken (HTTP 404, DNS failure, bounced emails, etc.) and annotates matching fields in the disclosure entries with `_broken: true` plus failure metadata. Idempotent: re-running it after removing entries from the overlay strips the corresponding `_broken_*` fields. Cross-references upstream issues like [CVEProject/cve-website#3937](https://github.com/CVEProject/cve-website/issues/3937) and [#3938](https://github.com/CVEProject/cve-website/issues/3938).
 
 This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
 
