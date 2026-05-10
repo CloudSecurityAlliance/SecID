@@ -29,7 +29,12 @@
           {
             "type": "email",
             "value": "security@tanium.org",
-            "note": "Email"
+            "note": "Email",
+            "_broken": true,
+            "_broken_verified": "2026-05-09",
+            "_broken_failure": "no_smtp",
+            "_broken_note": "tanium.org has no MX records; A records present but port 25 refuses connections (no SMTP server). Tanium's primary domain is tanium.com — wrong domain in CNAsList.json.",
+            "_broken_source": "CVEProject/cve-website#3938"
           }
         ],
         "urls": [

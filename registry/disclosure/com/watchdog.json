@@ -29,7 +29,12 @@
           {
             "type": "email",
             "value": "security@watchdog.com",
-            "note": "Email"
+            "note": "Email",
+            "_broken": true,
+            "_broken_verified": "2026-05-09",
+            "_broken_failure": "rejected_email",
+            "_broken_note": "Gmail bounce: 550 5.1.1 User does not exist",
+            "_broken_source": "CVEProject/cve-website#3938"
           }
         ],
         "urls": [

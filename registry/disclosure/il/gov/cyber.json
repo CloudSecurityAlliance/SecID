@@ -41,7 +41,12 @@
           {
             "type": "website",
             "url": "https://www.gov.il/en/departments/faq/cve_advisories",
-            "note": "Security advisories"
+            "note": "Security advisories",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "hard_404",
+            "_broken_note": "Hebrew 404 page after passing Cloudflare bot challenge. Sister disclosure_policy URL (cve_policy) does work.",
+            "_broken_source": "CVEProject/cve-website#3937"
           },
           {
             "type": "website",

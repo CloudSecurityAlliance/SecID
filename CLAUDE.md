@@ -17,9 +17,9 @@ Examples:
 - `secid:control/nist.gov/csf@2.0#PR.AC-1` - NIST CSF control
 - `secid:reference/arxiv.org/2303.08774` - arXiv paper
 
-## Current Status: v0.9 (Public Draft)
+## Current Status: v1.0 (Live)
 
-Working toward v1.0: Given a SecID string, return the URL(s) where that resource can be found.
+The resolver is live at secid.cloudsecurityalliance.org with 724 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 See ROADMAP.md for details.
 
@@ -376,7 +376,13 @@ markdownlint **/*.md
 ./scripts/fetch-cna-pages.sh              # Download CNA partner HTML pages
 node scripts/fetch-cna-details.js         # Extract structured details (or use .py variant)
 python3 scripts/generate-cna-disclosure.py # Generate disclosure/*.json files
+python3 scripts/enrich-cna-from-cnalist.py # Add cna_id and disclosure_policy from CNAsList.json
+python3 scripts/apply-known-broken.py     # Apply known-broken validation overlay (URLs/emails verified broken)
 ```
+
+The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](working-data/cna/known-broken.json) — a v2.0 schema, AI-consumable, JSON-Patch-like validation overlay. Each entry asserts "at this JMESPath `field_path` in upstream `CNAsList.json`, the `current_value` is broken — here is the `failure`, the `evidence`, and the `upstream_issue` tracking the fix." Matching URL/email values in the disclosure entries are annotated with `_broken: true` plus per-entry metadata (`_broken_verified`, `_broken_failure`, `_broken_note`, `_broken_source`). URL entries carry `_broken_source: CVEProject/cve-website#3937`; email entries carry `_broken_source: CVEProject/cve-website#3938`. Idempotent: removing an entry from the overlay and re-running the script strips the corresponding `_broken_*` fields automatically.
+
+The overlay's `recheck_policy.mode` is currently `report-only` — a future companion `scripts/audit-known-broken.py` will walk the overlay against fresh `CNAsList.json` data and bucket entries into (1) still-present-and-matching, (2) replaced-upstream (same `field_path`, different value — flag for re-validation), (3) disappeared-upstream (orphan), and (4) stale (last-verified beyond threshold). The audit script reports only — it does not auto-reprobe URLs/emails.
 
 This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
 

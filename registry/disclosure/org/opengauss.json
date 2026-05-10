@@ -36,7 +36,12 @@
           {
             "type": "docs",
             "url": "https://opengauss.org/zh/security.html",
-            "note": "Disclosure policy"
+            "note": "Disclosure policy",
+            "_broken": true,
+            "_broken_verified": "2026-05-08",
+            "_broken_failure": "hard_404",
+            "_broken_note": "HTTP 404; prior fix in CVEProject/cve-website#1495 (closed) has rotted",
+            "_broken_source": "CVEProject/cve-website#3937"
           },
           {
             "type": "website",
@@ -62,7 +67,12 @@
         "security_txt": null,
         "disclosure_policy": {
           "url": "https://opengauss.org/zh/security.html",
-          "checked": "2026-04-08"
+          "checked": "2026-04-08",
+          "_broken": true,
+          "_broken_verified": "2026-05-08",
+          "_broken_failure": "hard_404",
+          "_broken_note": "HTTP 404; prior fix in CVEProject/cve-website#1495 (closed) has rotted",
+          "_broken_source": "CVEProject/cve-website#3937"
         }
       }
     }
