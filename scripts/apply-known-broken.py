@@ -40,20 +40,22 @@ def load_overlay():
         sys.exit(1)
     data = json.loads(OVERLAY_FILE.read_text())
 
-    # Normalize: lowercased URL/email -> entry. Preserve original case in the
+    schema = data.get("schema_version")
+    if schema != "2.0":
+        print(f"ERROR: unsupported schema_version {schema!r} (expected '2.0')", file=sys.stderr)
+        sys.exit(1)
+
+    # Normalize: lowercased value -> entry. Preserve original case in the
     # entry itself (we match case-insensitively but display the original).
     by_url = {}
     by_email = {}
 
     for u in data.get("broken_urls") or []:
-        by_url[u["url"].strip().lower()] = u
+        by_url[u["current_value"].strip().lower()] = u
     for e in data.get("broken_emails") or []:
-        by_email[e["email"].strip().lower()] = e
+        by_email[e["current_value"].strip().lower()] = e
 
-    issues = data.get("upstream_issues") or []
-    issue_ref = ", ".join(i["issue"] for i in issues) if issues else ""
-
-    return by_url, by_email, issue_ref
+    return by_url, by_email
 
 
 def strip_broken(obj: dict) -> bool:
@@ -66,17 +68,18 @@ def strip_broken(obj: dict) -> bool:
     return removed
 
 
-def annotate_broken(obj: dict, entry: dict, issue_ref: str) -> None:
+def annotate_broken(obj: dict, entry: dict) -> None:
     """Inject _broken metadata into obj based on an overlay entry."""
     obj["_broken"] = True
-    obj["_broken_verified"] = entry["verified"]
+    obj["_broken_verified"] = entry["evidence"]["last_verified"]
     obj["_broken_failure"] = entry["failure"]
-    obj["_broken_note"] = entry["note"]
-    if issue_ref:
-        obj["_broken_source"] = issue_ref
+    obj["_broken_note"] = entry["failure_note"]
+    upstream = entry.get("upstream_issue")
+    if upstream:
+        obj["_broken_source"] = upstream
 
 
-def process_url_object(url_obj: dict, by_url: dict, issue_ref: str) -> bool:
+def process_url_object(url_obj: dict, by_url: dict) -> bool:
     """If url_obj['url'] matches a broken entry, annotate. Otherwise strip any
     stale annotations. Return True if anything changed."""
     if not isinstance(url_obj, dict):
@@ -87,15 +90,14 @@ def process_url_object(url_obj: dict, by_url: dict, issue_ref: str) -> bool:
     key = url.strip().lower()
     entry = by_url.get(key)
     if entry:
-        # Snapshot before to detect change
         before = {k: url_obj.get(k) for k in BROKEN_KEYS}
-        annotate_broken(url_obj, entry, issue_ref)
+        annotate_broken(url_obj, entry)
         return any(url_obj.get(k) != before[k] for k in BROKEN_KEYS)
     else:
         return strip_broken(url_obj)
 
 
-def process_contact_object(contact: dict, by_email: dict, issue_ref: str) -> bool:
+def process_contact_object(contact: dict, by_email: dict) -> bool:
     """If contact is an email matching a broken entry, annotate. Otherwise
     strip stale annotations."""
     if not isinstance(contact, dict):
@@ -109,42 +111,42 @@ def process_contact_object(contact: dict, by_email: dict, issue_ref: str) -> boo
     entry = by_email.get(key)
     if entry:
         before = {k: contact.get(k) for k in BROKEN_KEYS}
-        annotate_broken(contact, entry, issue_ref)
+        annotate_broken(contact, entry)
         return any(contact.get(k) != before[k] for k in BROKEN_KEYS)
     else:
         return strip_broken(contact)
 
 
-def process_node_data(data: dict, by_url, by_email, issue_ref) -> bool:
+def process_node_data(data: dict, by_url, by_email) -> bool:
     """Walk a match_node's data block, annotating URLs and contacts."""
     changed = False
 
     # data.urls[]
     for url_obj in data.get("urls") or []:
-        if process_url_object(url_obj, by_url, issue_ref):
+        if process_url_object(url_obj, by_url):
             changed = True
 
     # data.contacts[] (emails only)
     for contact in data.get("contacts") or []:
-        if process_contact_object(contact, by_email, issue_ref):
+        if process_contact_object(contact, by_email):
             changed = True
 
     # data.disclosure_policy {url, checked}
     dp = data.get("disclosure_policy")
     if isinstance(dp, dict):
-        if process_url_object(dp, by_url, issue_ref):
+        if process_url_object(dp, by_url):
             changed = True
 
     # data.security_txt — sometimes a string, sometimes {url, ...}
     st = data.get("security_txt")
     if isinstance(st, dict):
-        if process_url_object(st, by_url, issue_ref):
+        if process_url_object(st, by_url):
             changed = True
 
     return changed
 
 
-def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
+def process_file(path: Path, by_url, by_email) -> tuple[bool, dict]:
     """Returns (modified, change_summary)."""
     data = json.loads(path.read_text())
     summary = {"urls_marked": 0, "emails_marked": 0, "stale_cleared": 0}
@@ -152,7 +154,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
     # Top-level urls (mostly just the website URL — rarely flagged but check)
     for url_obj in data.get("urls") or []:
         before_broken = url_obj.get("_broken")
-        if process_url_object(url_obj, by_url, issue_ref):
+        if process_url_object(url_obj, by_url):
             if url_obj.get("_broken"):
                 summary["urls_marked"] += 1
             elif before_broken:
@@ -166,7 +168,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
         # Track per-field
         for u in node_data.get("urls") or []:
             before = u.get("_broken")
-            if process_url_object(u, by_url, issue_ref):
+            if process_url_object(u, by_url):
                 file_modified = True
                 if u.get("_broken"):
                     summary["urls_marked"] += 1
@@ -175,7 +177,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
 
         for c in node_data.get("contacts") or []:
             before = c.get("_broken")
-            if process_contact_object(c, by_email, issue_ref):
+            if process_contact_object(c, by_email):
                 file_modified = True
                 if c.get("_broken"):
                     summary["emails_marked"] += 1
@@ -185,7 +187,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
         dp = node_data.get("disclosure_policy")
         if isinstance(dp, dict):
             before = dp.get("_broken")
-            if process_url_object(dp, by_url, issue_ref):
+            if process_url_object(dp, by_url):
                 file_modified = True
                 if dp.get("_broken"):
                     summary["urls_marked"] += 1
@@ -195,7 +197,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
         st = node_data.get("security_txt")
         if isinstance(st, dict):
             before = st.get("_broken")
-            if process_url_object(st, by_url, issue_ref):
+            if process_url_object(st, by_url):
                 file_modified = True
                 if st.get("_broken"):
                     summary["urls_marked"] += 1
@@ -209,7 +211,7 @@ def process_file(path: Path, by_url, by_email, issue_ref) -> tuple[bool, dict]:
 
 
 def main():
-    by_url, by_email, issue_ref = load_overlay()
+    by_url, by_email = load_overlay()
     print(f"Overlay loaded: {len(by_url)} broken URLs, {len(by_email)} broken emails")
     print(f"Mode: {'DRY RUN (no writes)' if DRY_RUN else 'LIVE'}")
     print()
@@ -225,7 +227,7 @@ def main():
         if "/_" in str(path) or path.name.startswith("_"):
             continue
         files_processed += 1
-        modified, summary = process_file(path, by_url, by_email, issue_ref)
+        modified, summary = process_file(path, by_url, by_email)
         if modified:
             files_modified += 1
             modified_files.append((path, summary))

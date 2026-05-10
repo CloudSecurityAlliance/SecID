@@ -25,5 +25,9 @@ working-data/*
 !working-data/cna/
 working-data/cna/*
 !working-data/cna/known-broken.json
+# Audit provenance for the v2.0 overlay (input lists + email-verifier output)
+!working-data/cna/dead-urls.txt
+!working-data/cna/email-cna.txt
+!working-data/cna/email-cna_verified.csv
 
 # Note: CLAUDE.md, AGENTS.md, and GEMINI.md are intentionally not blocked
