@@ -112,6 +112,92 @@
     },
 
     {
+      "patterns": ["(?i)^27017$"],
+      "description": "ISO/IEC 27017 Code of practice for cloud services information security",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27017 Information technology — Security techniques — Code of practice for information security controls based on ISO/IEC 27002 for cloud services",
+        "common_name": "ISO 27017",
+        "alternate_names": null,
+        "description": "Cloud-specific implementation guidance for ISO/IEC 27002 controls, plus additional cloud-only controls. Addresses both cloud service customers and cloud service providers.",
+        "notes": "Extends 27002:2013 with cloud-specific guidance. Two ID forms: (1) numeric IDs that reference 27002:2013 clause numbers with cloud implementation guidance, and (2) 'CLD.' prefixed IDs in Annex A for controls additional to 27002. Aligned to 27002:2013 numbering — has not been re-aligned to 27002:2022's restructured numbering. ISO standards must be purchased.",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "2015", "release_date": "2015-12-15", "status": "current", "note": "First and only edition. Aligned with ISO/IEC 27002:2013."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/43757.html"}
+        ],
+        "examples": ["6.1.1", "13.1.4", "CLD.6.3.1", "CLD.9.5.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "ISO 27017 reference to a 27002:2013 control with cloud-specific implementation guidance. Numbering matches 27002:2013.",
+          "weight": 75,
+          "data": {
+            "note": "These IDs reference existing 27002:2013 control numbers — 27017 adds cloud-specific implementation guidance for the same control. To resolve the actual control wording, see 27002:2013 with the same ID.",
+            "examples": [
+              {"input": "6.1.1", "note": "Information security roles and responsibilities (cloud-specific guidance)"},
+              {"input": "13.1.4", "note": "Segregation in networks (cloud-specific guidance)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CLD\\.\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "ISO 27017 Annex A cloud-extended control (CLD. prefix). These are controls additional to 27002, not extensions of existing 27002 controls.",
+          "weight": 100,
+          "data": {
+            "note": "CLD-prefixed controls in Annex A are net-new cloud-specific controls, not 27002 references. The 'CLD.' prefix is part of the canonical ID and must be preserved.",
+            "examples": [
+              {"input": "CLD.6.3.1", "note": "Shared roles and responsibilities within a cloud computing environment"},
+              {"input": "CLD.9.5.1", "note": "Segregation in virtual computing environments"},
+              {"input": "CLD.12.4.5", "note": "Monitoring of cloud services"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^27018$"],
+      "description": "ISO/IEC 27018 Code of practice for protection of PII in public clouds",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27018 Information technology — Security techniques — Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors",
+        "common_name": "ISO 27018",
+        "alternate_names": null,
+        "description": "PII-protection implementation guidance for ISO/IEC 27002 controls when public cloud service providers act as PII processors. Aligned with GDPR and other privacy frameworks.",
+        "notes": "Extends 27002:2013 with PII-protection guidance for public cloud PII processors. Includes an Annex A 'Public cloud PII processor extended control set' organized around privacy principles. Aligned to 27002:2013 numbering — has not been re-aligned to 27002:2022's restructured numbering. ISO standards must be purchased. The Annex A extended PII control ID structure is not yet encoded here — see the standard directly for those IDs.",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "2019", "release_date": "2019-01-15", "status": "current", "note": "Second edition. Aligned with ISO/IEC 27002:2013."},
+          {"version": "2014", "release_date": "2014-08-01", "status": "superseded", "note": "First edition."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.iso.org/standard/76559.html"}
+        ],
+        "examples": ["6.1.1", "12.4.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(\\.\\d{1,2})?$"],
+          "description": "ISO 27018 reference to a 27002:2013 control with PII-processor implementation guidance. Numbering matches 27002:2013.",
+          "weight": 75,
+          "data": {
+            "note": "These IDs reference existing 27002:2013 control numbers — 27018 adds PII-specific guidance for the same control. To resolve the actual control wording, see 27002:2013 with the same ID.",
+            "examples": [
+              {"input": "6.1.1", "note": "Information security roles and responsibilities (PII processor guidance)"},
+              {"input": "12.4.1", "note": "Event logging (PII processor guidance)"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
       "patterns": ["(?i)^42001$"],
       "description": "ISO/IEC 42001 AI Management System",
       "weight": 100,
