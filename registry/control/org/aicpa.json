@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aicpa.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "American Institute of Certified Public Accountants",
+  "common_name": "AICPA",
+  "alternate_names": ["AICPA & CIMA", "Association of International Certified Professional Accountants"],
+  "notes": "AICPA publishes the Trust Services Criteria (TSC), the framework underlying SOC 2 and SOC 3 attestation reports. SOC 1 uses a different framework (focused on internal controls over financial reporting) and is out of scope here. AICPA merged operationally with CIMA in 2017 and now operates as the Association of International Certified Professional Accountants, but the AICPA brand and TSC publication continue under aicpa-cima.org.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.aicpa-cima.org"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^tsc$", "(?i)^soc-2$", "(?i)^trust-services-criteria$"],
+      "description": "AICPA Trust Services Criteria — the framework underlying SOC 2 and SOC 3 attestation reports",
+      "weight": 100,
+      "data": {
+        "official_name": "Trust Services Criteria",
+        "common_name": "TSC",
+        "alternate_names": ["SOC 2 TSC", "Trust Services Criteria for Security, Availability, Processing Integrity, Confidentiality, and Privacy"],
+        "description": "Criteria framework used by service auditors when reporting on a service organization's controls over security, availability, processing integrity, confidentiality, and privacy. Forms the basis of SOC 2 and SOC 3 attestation reports.",
+        "notes": "The TSC criteria IDs (CC1.1, A1.1, C1.1, PI1.1, P1.1, etc.) are publicly published in AICPA's TSC document. The accompanying audit guidance (TSP Section 100) and Points of Focus commentary are also published by AICPA, with full SOC 2 audit guidance available via the AICPA-CIMA website. The criteria are organized into five categories: Security (the Common Criteria, mandatory for any SOC 2 report) plus four optional categories (Availability, Confidentiality, Processing Integrity, Privacy) that are included only when the audit's scope covers them. The Common Criteria (CC) are aligned with the COSO 2013 internal control framework.",
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {"version": "2017", "release_date": "2017-04-15", "status": "current", "note": "Original 2017 TSC. Points of Focus commentary was revised in March 2022 (often referred to as 'TSC 2017 with Revised Points of Focus 2022'); the criteria themselves are unchanged from 2017."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.aicpa-cima.org/resources/landing/system-and-organization-controls-soc-suite-of-services", "note": "AICPA SOC suite landing page"},
+          {"type": "docs", "url": "https://www.aicpa-cima.org/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", "note": "SOC 2 / TSC documentation"}
+        ],
+        "examples": ["CC1.1", "CC6.1", "A1.1", "C1.1", "PI1.1", "P1.1"]
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^CC\\d\\.\\d{1,2}$"],
+          "description": "Common Criteria (Security) — mandatory for any SOC 2 report. CC1-CC5 align with the COSO 2013 internal control framework; CC6-CC9 are SOC-specific extensions.",
+          "weight": 100,
+          "data": {
+            "type": "criterion",
+            "category": "Common Criteria / Security",
+            "scope": "mandatory",
+            "note": "Common Criteria are organized into nine groups (CC1-CC9). CC1-CC5 are based on COSO 2013 Internal Control framework principles (Control Environment, Communication and Information, Risk Assessment, Monitoring Activities, Control Activities). CC6-CC9 cover Logical and Physical Access Controls, System Operations, Change Management, and Risk Mitigation. The Common Criteria collectively satisfy the Security trust services principle and are required in every SOC 2 audit regardless of which optional categories the engagement also covers.",
+            "examples": [
+              {"input": "CC1.1", "note": "Control environment: integrity and ethical values (COSO Principle 1)"},
+              {"input": "CC6.1", "note": "Logical and physical access: implementation of logical access controls"},
+              {"input": "CC7.2", "note": "System operations: monitoring of system components and operation"},
+              {"input": "CC8.1", "note": "Change management: change authorization and tracking"},
+              {"input": "CC9.2", "note": "Risk mitigation: assessment and management of vendor and business partner risks"}
+            ],
+            "known_values": {
+              "CC1": "Control Environment (CC1.1-CC1.5) — COSO Principle 1-5",
+              "CC2": "Communication and Information (CC2.1-CC2.3) — COSO Principles 13-15",
+              "CC3": "Risk Assessment (CC3.1-CC3.4) — COSO Principles 6-9",
+              "CC4": "Monitoring Activities (CC4.1-CC4.2) — COSO Principles 16-17",
+              "CC5": "Control Activities (CC5.1-CC5.3) — COSO Principles 10-12",
+              "CC6": "Logical and Physical Access Controls (CC6.1-CC6.8)",
+              "CC7": "System Operations (CC7.1-CC7.5)",
+              "CC8": "Change Management (CC8.1)",
+              "CC9": "Risk Mitigation (CC9.1-CC9.2)"
+            }
+          }
+        },
+        {
+          "patterns": ["(?i)^A\\d\\.\\d$"],
+          "description": "Availability Criteria — supplemental category covering system availability and operational performance. Included only when the SOC 2 engagement scope covers availability.",
+          "weight": 100,
+          "data": {
+            "type": "criterion",
+            "category": "Availability",
+            "scope": "optional",
+            "note": "Availability criteria address the system's accessibility for operation and use as committed or agreed. Three criteria: A1.1 (capacity), A1.2 (environmental protections), A1.3 (recovery/business continuity).",
+            "examples": [
+              {"input": "A1.1", "note": "Capacity: monitoring of capacity demand and capacity additions"},
+              {"input": "A1.2", "note": "Environmental protections, backup, and recovery infrastructure"},
+              {"input": "A1.3", "note": "Recovery plan testing"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^C\\d\\.\\d$"],
+          "description": "Confidentiality Criteria — supplemental category covering protection of confidential information. Included only when the SOC 2 engagement scope covers confidentiality.",
+          "weight": 100,
+          "data": {
+            "type": "criterion",
+            "category": "Confidentiality",
+            "scope": "optional",
+            "note": "Confidentiality criteria address the protection of information designated as confidential. Two criteria: C1.1 (identification and maintenance of confidential information) and C1.2 (disposal of confidential information).",
+            "examples": [
+              {"input": "C1.1", "note": "Confidential information identification and protection during system lifecycle"},
+              {"input": "C1.2", "note": "Disposal of confidential information when no longer required"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^PI\\d\\.\\d$"],
+          "description": "Processing Integrity Criteria — supplemental category covering completeness, validity, accuracy, timeliness, and authorization of system processing. Included only when the SOC 2 engagement scope covers processing integrity.",
+          "weight": 100,
+          "data": {
+            "type": "criterion",
+            "category": "Processing Integrity",
+            "scope": "optional",
+            "note": "Processing Integrity criteria address whether system processing is complete, valid, accurate, timely, and authorized. Five criteria covering: definitions of processed information (PI1.1), system inputs (PI1.2), system processing (PI1.3), system outputs (PI1.4), and stored data integrity (PI1.5).",
+            "examples": [
+              {"input": "PI1.1", "note": "Processing integrity objectives: definitions of processed information"},
+              {"input": "PI1.3", "note": "System processing: complete, valid, accurate, timely, and authorized"},
+              {"input": "PI1.5", "note": "Stored items: integrity, completeness, and accuracy of stored information"}
+            ]
+          }
+        },
+        {
+          "patterns": ["(?i)^P\\d\\.\\d{1,2}$"],
+          "description": "Privacy Criteria — supplemental category covering collection, use, retention, disclosure, and disposal of personal information. Included only when the SOC 2 engagement scope covers privacy.",
+          "weight": 100,
+          "data": {
+            "type": "criterion",
+            "category": "Privacy",
+            "scope": "optional",
+            "note": "Privacy criteria are organized into eight groups (P1-P8) aligned with privacy management principles. P1 (Notice and Communication), P2 (Choice and Consent), P3 (Collection), P4 (Use, Retention, and Disposal), P5 (Access), P6 (Disclosure and Notification), P7 (Quality), P8 (Monitoring and Enforcement). P6 has the largest sub-criterion count (P6.1-P6.7); other groups have 1-3 sub-criteria each.",
+            "examples": [
+              {"input": "P1.1", "note": "Notice and communication of privacy objectives"},
+              {"input": "P3.1", "note": "Collection: personal information collected only for purposes identified in the notice"},
+              {"input": "P4.2", "note": "Use, retention, and disposal: personal information retention period"},
+              {"input": "P6.1", "note": "Disclosure and notification: disclosure to third parties"},
+              {"input": "P8.1", "note": "Monitoring and enforcement of privacy commitments"}
+            ],
+            "known_values": {
+              "P1": "Notice and Communication of Objectives (P1.1)",
+              "P2": "Choice and Consent (P2.1)",
+              "P3": "Collection (P3.1-P3.2)",
+              "P4": "Use, Retention, and Disposal (P4.1-P4.3)",
+              "P5": "Access (P5.1-P5.2)",
+              "P6": "Disclosure and Notification (P6.1-P6.7)",
+              "P7": "Quality (P7.1)",
+              "P8": "Monitoring and Enforcement (P8.1)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
