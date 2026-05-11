@@ -226,8 +226,6 @@ Major sources not yet in the registry:
 |------|--------|-------|
 | advisory | Snyk (snyk.io) | Open-source vulnerability database |
 | advisory | Rapid7 (rapid7.com) | AttackerKB, Metasploit modules |
-| control | PCI-DSS (pcisecuritystandards.org) | Payment card security standard |
-| control | SOC 2 / AICPA (aicpa.org) | Audit framework (no public control list) |
 | reference | RFC (rfc-editor.org) | Internet standards (IETF entry covers RFCs but not as reference type) |
 | reference | NIST publications (csrc.nist.gov) | SP 800-series beyond 800-53 |
 | weakness | CVSS (first.org) | Scoring system — metrics as subpaths |
