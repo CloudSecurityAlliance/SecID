@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "virginia.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Commonwealth of Virginia",
+  "common_name": "Virginia",
+  "alternate_names": null,
+  "notes": "Virginia state privacy and AI laws. Enforced by the Virginia Attorney General.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.virginia.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^vcdpa$"
+      ],
+      "description": "Virginia Consumer Data Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Virginia Consumer Data Protection Act",
+        "common_name": "VCDPA",
+        "alternate_names": null,
+        "description": "Virginia's comprehensive consumer privacy law. Effective January 1, 2023 \u2014 the second US comprehensive privacy law after CCPA.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

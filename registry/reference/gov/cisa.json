@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisa.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Cybersecurity and Infrastructure Security Agency",
+  "common_name": "CISA",
+  "alternate_names": null,
+  "notes": "US Cybersecurity and Infrastructure Security Agency, the federal lead on civilian cybersecurity. Publishes guidance, alerts, programs (KEV catalog, CDM, govCAR), and Authorized Data Publisher activity for the CVE program.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cisa.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^govcar$"
+      ],
+      "description": "CISA Cyber Defense Matrix (govCAR)",
+      "weight": 100,
+      "data": {
+        "official_name": "Government Cybersecurity Architecture Review",
+        "common_name": "govCAR",
+        "alternate_names": null,
+        "description": "CISA-led methodology and fact sheets for federal-agency cybersecurity architecture and threat-informed defense alignment.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

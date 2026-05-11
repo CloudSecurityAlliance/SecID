@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "utah.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Utah",
+  "common_name": "Utah",
+  "alternate_names": null,
+  "notes": "Utah state privacy and AI laws. Enforced by the Utah Attorney General and Utah Division of Consumer Protection.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.utah.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ucpa$"
+      ],
+      "description": "Utah Consumer Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Utah Consumer Privacy Act",
+        "common_name": "UCPA",
+        "alternate_names": null,
+        "description": "Utah's comprehensive consumer privacy law (SB 227). Effective December 31, 2023.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://le.utah.gov/~2022/bills/static/SB0227.html"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

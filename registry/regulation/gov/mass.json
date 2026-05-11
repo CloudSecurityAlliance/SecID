@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mass.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Commonwealth of Massachusetts",
+  "common_name": "Massachusetts",
+  "alternate_names": null,
+  "notes": "Massachusetts state privacy and AI laws. Enforced by the Massachusetts Attorney General.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mass.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ai-bills$"
+      ],
+      "description": "Massachusetts AI-related bills",
+      "weight": 100,
+      "data": {
+        "official_name": "Massachusetts AI Bills",
+        "common_name": "MA AI Bills",
+        "alternate_names": null,
+        "description": "Collection of Massachusetts proposed and enacted AI-related legislation.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://malegislature.gov/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "enx.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ENX Association",
+  "common_name": "ENX",
+  "alternate_names": null,
+  "notes": "ENX Association maintains TISAX (Trusted Information Security Assessment Exchange) and the ISA (Information Security Assessment) catalog used by the European automotive industry for supplier information security audits.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://enx.com"
+    },
+    {
+      "type": "website",
+      "url": "https://portal.enx.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^isa$"
+      ],
+      "description": "ENX Information Security Assessment (ISA) catalog",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Security Assessment",
+        "common_name": "ISA",
+        "alternate_names": null,
+        "description": "The catalog of security requirements used in TISAX assessments. ISA is the question catalog; TISAX is the assessment framework that consumes it.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://portal.enx.com/en-US/TISAX/downloads/"
+          }
+        ],
+        "examples": [
+          {
+            "input": "isa@6",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}
