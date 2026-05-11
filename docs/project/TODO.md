@@ -1,8 +1,39 @@
 # TODO
 
-Tracking work items for SecID. Updated 2026-04-06.
+Tracking work items for SecID. Updated 2026-05-10.
 
 ## Active — Next Up
+
+### Operational: Verify Live Resolver Deploy Chain
+**Status:** Likely still blocked (last verified 2026-04-30)
+**Priority:** High
+
+Auto-trigger workflow (`SECID_TO_SERVICE_DISPATCH` PAT) and manual KV upload (`cve-schema` test failures) were both blocked at last check. Registry changes merge to `main` fine but may not reach the live resolver at secid.cloudsecurityalliance.org until both paths are restored.
+
+**Action:** Run `gh workflow run "Upload registry to KV" -R CloudSecurityAlliance/SecID-Service` to test current state. If still failing, diagnose token authorization and the failing test cases. The deploy-chain documentation is in CLAUDE.md under "CI/CD."
+
+### Repo Hygiene: Sweep Stale Feature Branches
+**Status:** Pending
+**Priority:** Low
+
+Local branches that may have stale upstream tracking after recent PR squashes:
+- `cino-tracker-alignment`
+- `feature/secid-slide-deck`
+- `proposal/timestamp-fields`
+
+**Action:** Run the `commit-commands:clean_gone` Claude Code skill (or `git fetch --prune` + manual review) to remove any whose remote branches are gone.
+
+### Control Registry: Fill Audit Framework Gaps
+**Status:** Gaps identified 2026-05-10, not started
+**Priority:** Medium (AICPA), Low (ISF SOGP, ENX ISA)
+
+Multi-framework audit identified three control namespaces missing from the registry:
+
+- **AICPA TSC 2017** — Trust Services Criteria, the SOC 2 backbone. Create `registry/control/org/aicpa.json` with criteria IDs (CC1.1–CC9.x for Common Criteria, plus supplemental A1.x, C1.x, PI1.x, P1.x). The criteria IDs themselves are public; only the audit guidance is paywalled. Also update `registry/INDEX.md:230` ("Audit framework (no public control list)") — that framing is incorrect since the criteria IDs are public. High US-audit-world value.
+- **ISF SOGP 2022** — Information Security Forum Standard of Good Practice. Members-only access; IDs do not appear in public cross-references. Defer until a concrete use case appears (someone citing an SOGP ID in the wild).
+- **ENX ISA v6.0** — Automotive control catalog underlying TISAX assessments. ISA is a free PDF from ENX. Add as `control` type; pair with a separate `methodology` entry for TISAX itself (cross-type pattern, like CVSS in `methodology` and the CVSS reference doc in `reference`). Niche but well-scoped.
+
+**Context:** ISO 27017:2015 and 27018:2019 (the other two gaps from the same audit) are already present in `registry/control/org/iso.json`.
 
 ### Training Course Content
 **Status:** Planned
