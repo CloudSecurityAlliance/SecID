@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "florida.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Florida",
+  "common_name": "Florida",
+  "alternate_names": null,
+  "notes": "Florida state privacy and biometric laws. Note that the state portal is served at both florida.gov and myflorida.gov; florida.gov is used here as the canonical SecID namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://florida.gov"
+    },
+    {
+      "type": "website",
+      "url": "https://myflorida.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^biometric-privacy-laws$"
+      ],
+      "description": "Florida biometric-privacy provisions",
+      "weight": 100,
+      "data": {
+        "official_name": "Florida Biometric Privacy Laws",
+        "common_name": "FL Biometric",
+        "alternate_names": null,
+        "description": "Florida statutes governing biometric identifier collection and use (Florida Information Protection Act and related amendments).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "http://www.leg.state.fl.us/statutes/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

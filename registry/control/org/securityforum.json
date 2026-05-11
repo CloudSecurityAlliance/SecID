@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "securityforum.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Information Security Forum",
+  "common_name": "ISF",
+  "alternate_names": null,
+  "notes": "The Information Security Forum is a members-only association that publishes the Standard of Good Practice for Information Security (SOGP), a comprehensive controls catalog widely used by ISF member organizations.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.securityforum.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sogp$"
+      ],
+      "description": "ISF Standard of Good Practice for Information Security",
+      "weight": 100,
+      "data": {
+        "official_name": "Standard of Good Practice for Information Security",
+        "common_name": "SOGP",
+        "alternate_names": null,
+        "description": "Comprehensive information-security controls catalog maintained by the ISF for member organizations. Members-only license; not publicly redistributable.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.securityforum.org/solutions-and-insights/standard-of-good-practice-for-information-security/"
+          }
+        ],
+        "examples": [
+          {
+            "input": "sogp@2022",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

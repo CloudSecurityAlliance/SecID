@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "in.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Indiana",
+  "common_name": "Indiana",
+  "alternate_names": null,
+  "notes": "Indiana state privacy laws. Enforced by the Indiana Attorney General. Canonical state portal at in.gov.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.in.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^incdpa$"
+      ],
+      "description": "Indiana Consumer Data Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Indiana Consumer Data Protection Act",
+        "common_name": "INCDPA",
+        "alternate_names": null,
+        "description": "Indiana's comprehensive consumer privacy law (SB 5). Effective January 1, 2026.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://iga.in.gov/legislative/2023/bills/senate/5/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

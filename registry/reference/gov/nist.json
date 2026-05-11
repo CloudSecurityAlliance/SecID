@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nist.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Institute of Standards and Technology",
+  "common_name": "NIST",
+  "alternate_names": null,
+  "notes": "NIST reference documents \u2014 IR (Internal/Interagency Reports), TN (Technical Notes), CSWP (Cybersecurity White Papers), CSRC glossary content, and AI RMF crosswalks. This is the reference type entry; NIST's normative control publications (SP 800-53, CSF, etc.) live under control type.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nist.gov"
+    },
+    {
+      "type": "website",
+      "url": "https://csrc.nist.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ir-\\d+$"
+      ],
+      "description": "NIST Internal/Interagency Report",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST IR",
+        "common_name": "IR",
+        "alternate_names": null,
+        "description": "Research and technical reports published by NIST staff; less formal than Special Publications but authoritative.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csrc.nist.gov/publications/ir"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^tn-\\d+$"
+      ],
+      "description": "NIST Technical Note",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST TN",
+        "common_name": "TN",
+        "alternate_names": null,
+        "description": "Technical notes published by NIST.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nist.gov/publications"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cswp-.+$"
+      ],
+      "description": "NIST Cybersecurity White Paper",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST CSWP",
+        "common_name": "CSWP",
+        "alternate_names": null,
+        "description": "Cybersecurity white papers from NIST CSRC.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csrc.nist.gov/publications/cswp"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^csrc-glossary$"
+      ],
+      "description": "NIST CSRC Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Computer Security Resource Center Glossary",
+        "common_name": "CSRC Glossary",
+        "alternate_names": null,
+        "description": "Authoritative glossary of NIST cybersecurity terms aggregated from NIST publications.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csrc.nist.gov/glossary"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ai-rmf-crosswalks$"
+      ],
+      "description": "NIST AI RMF Crosswalks",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Risk Management Framework Crosswalks",
+        "common_name": "AI RMF Crosswalks",
+        "alternate_names": null,
+        "description": "NIST-published crosswalks between AI RMF 1.0 and other AI governance frameworks (ISO/IEC 23894, OECD AI Principles, EU AI Act, Blueprint for an AI Bill of Rights).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nist.gov/itl/ai-risk-management-framework/crosswalks-ai-rmf"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "canada.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Government of Canada",
+  "common_name": "Canada",
+  "alternate_names": null,
+  "notes": "Government of Canada portal covering federal Canadian regulations and proposed legislation. The Canada.ca domain is the umbrella federal portal; specific departments (parl.ca, justice.gc.ca, etc.) may have their own SecID namespaces.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.canada.ca"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^aida$"
+      ],
+      "description": "Artificial Intelligence and Data Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Artificial Intelligence and Data Act",
+        "common_name": "AIDA",
+        "alternate_names": null,
+        "description": "Proposed Canadian federal AI legislation, part of Bill C-27 (Digital Charter Implementation Act). Did not pass before the 2025 federal election.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ised-isde.canada.ca/site/innovation-better-canada/en/artificial-intelligence-and-data-act"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

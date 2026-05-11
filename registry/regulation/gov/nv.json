@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nv.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Nevada",
+  "common_name": "Nevada",
+  "alternate_names": null,
+  "notes": "Nevada state privacy laws. Enforced by the Nevada Attorney General.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nv.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^privacy-amendments$"
+      ],
+      "description": "Nevada SB 220 / SB 260 privacy amendments",
+      "weight": 100,
+      "data": {
+        "official_name": "Nevada Privacy Amendments",
+        "common_name": "NV Privacy",
+        "alternate_names": null,
+        "description": "Nevada amendments to consumer privacy law (SB 220 establishing the original opt-out, SB 260 expanding it).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.leg.state.nv.us/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

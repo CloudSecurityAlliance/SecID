@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "wa.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Washington",
+  "common_name": "Washington",
+  "alternate_names": null,
+  "notes": "State of Washington privacy and health-data laws. Enforced by the Washington Attorney General. Note: wa.gov is the Washington State portal; washington.gov is a different domain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.wa.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^my-health-my-data-act$"
+      ],
+      "description": "Washington My Health My Data Act",
+      "weight": 100,
+      "data": {
+        "official_name": "My Health My Data Act",
+        "common_name": "MHMDA",
+        "alternate_names": null,
+        "description": "Washington state law protecting consumer health data not covered by HIPAA. Effective March 31, 2024.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://app.leg.wa.gov/billsummary?BillNumber=1155&Year=2023"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

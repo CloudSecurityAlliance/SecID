@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "maryland.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "State of Maryland",
+  "common_name": "Maryland",
+  "alternate_names": null,
+  "notes": "Maryland state privacy and facial-recognition laws. Enforced by the Maryland Attorney General.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.maryland.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^facial-recognition-laws$"
+      ],
+      "description": "Maryland facial-recognition statutes",
+      "weight": 100,
+      "data": {
+        "official_name": "Maryland Facial Recognition Laws",
+        "common_name": "MD Facial Recog",
+        "alternate_names": null,
+        "description": "Maryland statutes governing facial-recognition technology use by employers and law enforcement.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://mgaleg.maryland.gov/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

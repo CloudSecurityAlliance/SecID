@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "whitehouse.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "White House / Executive Branch (regulation type)",
+  "common_name": "White House",
+  "alternate_names": null,
+  "notes": "US White House National Security Memoranda and other executive instruments with regulatory effect. The reference-type entry covers Executive Orders and OMB Memoranda; this regulation-type entry covers NSMs and similar directives that function as regulation.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.whitehouse.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nsm-ai(-framework)?$"
+      ],
+      "description": "National Security Memorandum on AI",
+      "weight": 100,
+      "data": {
+        "official_name": "National Security Memorandum on AI",
+        "common_name": "NSM AI",
+        "alternate_names": null,
+        "description": "The October 2024 National Security Memorandum on Advancing US Leadership in Artificial Intelligence; harnessing AI to fulfill national security objectives; and fostering the safety, security, and trustworthiness of AI.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/briefing-room/presidential-actions/2024/10/24/memorandum-on-advancing-the-united-states-leadership-in-artificial-intelligence-harnessing-artificial-intelligence-to-fulfill-national-security-objectives-and-fostering-the-safety-security/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
