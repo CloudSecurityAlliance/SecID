@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mit.edu",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Massachusetts Institute of Technology",
+  "common_name": "MIT",
+  "alternate_names": null,
+  "notes": "MIT-affiliated research publications and datasets in cybersecurity and AI safety. This reference-type entry covers MIT-published research artifacts. Companion entry weakness/edu/mit covers AI weakness taxonomies (e.g., MIT AI Risk Repository).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mit.edu"
+    },
+    {
+      "type": "website",
+      "url": "https://airisk.mit.edu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ai-risk-repository$"
+      ],
+      "description": "MIT AI Risk Repository",
+      "weight": 100,
+      "data": {
+        "official_name": "MIT AI Risk Repository",
+        "common_name": "AI Risk Repository",
+        "alternate_names": null,
+        "description": "MIT-curated database of AI risks compiled from a comprehensive literature review, organized by causal taxonomy and domain. Maintained by MIT CSAIL and MIT FutureTech.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://airisk.mit.edu"
+          }
+        ],
+        "examples": [
+          {
+            "input": "ai-risk-repository",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

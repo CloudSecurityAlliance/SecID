@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "equifax.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Equifax Inc.",
+  "common_name": "Equifax",
+  "alternate_names": null,
+  "notes": "Equifax publishes vendor security guidance and white papers covering credit reporting and data security topics. This reference-type entry covers their publicly-distributed guidance documents.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.equifax.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-guidance$"
+      ],
+      "description": "Equifax security guidance collection",
+      "weight": 100,
+      "data": {
+        "official_name": "Security Guidance",
+        "common_name": "Security Guidance",
+        "alternate_names": null,
+        "description": "Equifax-published security guidance and white papers.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.equifax.com/business/insights/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
