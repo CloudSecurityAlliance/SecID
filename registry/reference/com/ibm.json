@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ibm.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Business Machines Corporation",
+  "common_name": "IBM",
+  "alternate_names": null,
+  "notes": "IBM publishes extensive security guidance, whitepapers, and reference documents across many domains. This reference-type entry covers their guidance content. Other IBM SecID entries: advisory/com/ibm (PSIRT advisories), control/com/ibm, disclosure/com/ibm, weakness/com/ibm.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ibm.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-guidance$"
+      ],
+      "description": "IBM security guidance collection",
+      "weight": 100,
+      "data": {
+        "official_name": "Security Guidance",
+        "common_name": "Security Guidance",
+        "alternate_names": null,
+        "description": "IBM-published security guidance documents, including whitepapers on emerging topics like Generative AI controls.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ibm.com/security"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

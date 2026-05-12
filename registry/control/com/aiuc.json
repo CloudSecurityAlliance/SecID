@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aiuc.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Artificial Intelligence Underwriting Company",
+  "common_name": "AIUC",
+  "alternate_names": null,
+  "notes": "AIUC publishes AIUC-1, a controls framework for AI/ML systems aimed at insurance underwriting and risk transfer for AI deployments.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://aiuc.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^aiuc-1$"
+      ],
+      "description": "AIUC-1 Controls Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "AIUC-1",
+        "common_name": "AIUC-1",
+        "alternate_names": null,
+        "description": "AIUC's flagship controls framework for AI underwriting. Covers technical and governance controls for production AI systems.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://aiuc.com/standard"
+          }
+        ],
+        "examples": [
+          {
+            "input": "aiuc-1",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

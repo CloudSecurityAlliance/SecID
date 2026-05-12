@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "owasp.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Open Worldwide Application Security Project",
+  "common_name": "OWASP",
+  "alternate_names": null,
+  "notes": "OWASP publishes many reference documents and projects covering web application security, AI/LLM security, mobile security, and more. This reference-type entry covers OWASP project documentation and reference materials. Other OWASP SecID entries: control/org/owasp (Top 10s as control frameworks), methodology/org/owasp, weakness/org/owasp, entity/org/owasp.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://owasp.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ai-exchange$"
+      ],
+      "description": "OWASP AI Exchange",
+      "weight": 100,
+      "data": {
+        "official_name": "OWASP AI Exchange",
+        "common_name": "AI Exchange",
+        "alternate_names": null,
+        "description": "Living open-source resource on AI/ML security threats, controls, and best practices. Continuously updated reference document covering adversarial ML, LLM security, and AI governance.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://owaspai.org"
+          },
+          {
+            "type": "website",
+            "url": "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+          }
+        ],
+        "examples": [
+          {
+            "input": "ai-exchange",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}
