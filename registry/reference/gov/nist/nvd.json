@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nvd.nist.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Vulnerability Database",
+  "common_name": "NVD",
+  "alternate_names": null,
+  "notes": "NIST's National Vulnerability Database (NVD) is the US-government repository of vulnerability data and the maintainer of CPE (Common Platform Enumeration). Filed as a subdomain-specific namespace because NVD has its own DNS hostname (nvd.nist.gov) and operates several distinct data products (CPE dictionary, CVE feeds, CVSS calculator, CWE classification overlays). Parent namespace `nist.gov` covers normative NIST publications (SP 800-53, CSF, AI RMF, etc.); this subdomain covers NVD-specific reference data.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nvd.nist.gov"
+    },
+    {
+      "type": "api",
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    },
+    {
+      "type": "bulk_data",
+      "url": "https://nvd.nist.gov/vuln/data-feeds"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cpe$"
+      ],
+      "description": "Common Platform Enumeration",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Platform Enumeration",
+        "common_name": "CPE",
+        "alternate_names": ["CPE 2.3"],
+        "description": "Structured naming scheme for IT systems, software, and packages. Each CPE name encodes vendor, product, version, update, edition, language, software edition, target software, target hardware, and other attributes (CPE 2.3 well-formed name or URI form).",
+        "notes": "CPE was originally a MITRE project (CPE 2.2); maintenance transferred to NIST/NVD circa 2014 with the 2.3 specification. CPE 2.3 is documented in NIST IR 7695/7696/7697/7698. The CPE Dictionary is published by NVD and is the authoritative source.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://nvd.nist.gov/products/cpe"
+          },
+          {
+            "type": "docs",
+            "url": "https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://nvd.nist.gov/products/cpe/feeds"
+          }
+        ],
+        "examples": [
+          {
+            "input": "cpe",
+            "note": "The CPE dictionary as a whole"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^cpe:2\\.3:[aho]:[^:]+:[^:]+"
+      ],
+      "description": "CPE 2.3 formatted string (subpath item)",
+      "weight": 100,
+      "data": {
+        "official_name": "CPE 2.3 Well-Formed Name",
+        "common_name": "CPE 2.3 WFN",
+        "alternate_names": null,
+        "description": "An individual CPE 2.3 formatted string identifying a specific product/version combination.",
+        "notes": "Used as a subpath after the cpe match: secid:reference/nvd.nist.gov/cpe#cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*",
+        "urls": [],
+        "examples": [
+          {
+            "input": "cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*",
+            "note": "Linux kernel 5.4 as an operating system CPE"
+          },
+          {
+            "input": "cpe:2.3:a:apache:http_server:2.4.58:*:*:*:*:*:*:*",
+            "note": "Apache HTTP Server 2.4.58 as an application CPE"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -21,47 +21,24 @@
       "patterns": [
         "(?i)^cpe$"
       ],
-      "description": "CPE — Common Platform Enumeration",
+      "description": "CPE — Common Platform Enumeration (MOVED to nvd.nist.gov)",
       "weight": 100,
+      "deprecated": true,
       "data": {
         "official_name": "Common Platform Enumeration",
         "common_name": "CPE",
         "alternate_names": null,
         "description": "Standardized naming scheme for IT products and platforms.",
-        "notes": "Used in NVD to identify affected products. CPE 2.3 is current. Format: cpe:2.3:part:vendor:product:version:... Maintained as a NIST dictionary.",
+        "notes": "DEPRECATED LOCATION. CPE was originally a MITRE project (CPE 2.2) but transferred to NIST/NVD in 2014 with the 2.3 specification. The canonical SecID is now `secid:reference/nvd.nist.gov/cpe`. This match_node is retained so legacy citations of `secid:reference/mitre.org/cpe` still resolve.",
         "urls": [
           {
             "type": "website",
             "url": "https://nvd.nist.gov/products/cpe"
-          },
-          {
-            "type": "docs",
-            "url": "https://csrc.nist.gov/projects/security-content-automation-protocol/scap-specifications/cpe"
           }
         ],
-        "examples": [
-          "cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*"
-        ]
+        "examples": []
       },
-      "children": [
-        {
-          "patterns": [
-            "^cpe:2\\.3:[aho]:[^:]+:[^:]+"
-          ],
-          "description": "CPE 2.3 formatted string",
-          "weight": 100,
-          "data": {
-            "url": "https://nvd.nist.gov/products/cpe/search/results?namingFormat=2.3&keyword={id}",
-            "note": "CPE strings use colon-delimited fields. Part types: a (application), h (hardware), o (operating system).",
-            "examples": [
-              {
-                "input": "cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*",
-                "url": "https://nvd.nist.gov/products/cpe/search/results?namingFormat=2.3&keyword=cpe:2.3:o:linux:linux_kernel:5.4:*:*:*:*:*:*:*"
-              }
-            ]
-          }
-        }
-      ]
+      "redirect_to": "secid:reference/nvd.nist.gov/cpe"
     },
     {
       "patterns": [
