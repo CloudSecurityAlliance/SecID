@@ -1,8 +1,27 @@
 # TODO
 
-Tracking work items for SecID. Updated 2026-05-10.
+Tracking work items for SecID. Updated 2026-05-12.
 
 ## Active — Next Up
+
+### New Types: `assertion` + `content` (Education/Credential Ecosystem)
+**Status:** Proposal drafted 2026-05-12, awaiting review
+**Priority:** Medium (significant multi-repo lift)
+
+Two new SecID types covering the education / training / credential ecosystem:
+- **`assertion`** — credentials, attestations, authorizations (CISSP, CCSK, SOC 2, FedRAMP, ISO 27001 cert, PCI QSA, microbadges)
+- **`content`** — structured learning material (CISSP CBK, CCSK BoK, CCSK Foundation course, SANS courses)
+
+**Design:** Models the `control`/`capability` carving — one type covers normative/awarded side, the other covers what's available/published. Two types are linked via registry-layer cross-reference fields (`tests_curriculum`, `teaches_curriculum`, `assesses_framework`, `issuer`, `publisher`).
+
+**Proposal:** [`docs/proposals/ASSERTION-CONTENT-TYPES.md`](../proposals/ASSERTION-CONTENT-TYPES.md) — full design with dimensional analysis, edge cases (NICE Framework, academic credentials, microbadges, auditor credentials, training completion), worked JSON examples (CISSP + CISSP CBK), multi-repo impact assessment, and 7 open questions for reviewer challenge.
+
+**Next steps:**
+1. Review proposal (AI + human reviewers)
+2. Resolve open questions
+3. Spec lock — finalize names and cross-reference field shapes
+4. Multi-repo lift across SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK
+5. Populate first registry entries (CCSK, CISSP, CCSK BoK, CISSP CBK, SOC 2 Type II)
 
 ### Operational: Verify Live Resolver Deploy Chain
 **Status:** Likely still blocked (last verified 2026-04-30)
@@ -23,17 +42,16 @@ Local branches that may have stale upstream tracking after recent PR squashes:
 
 **Action:** Run the `commit-commands:clean_gone` Claude Code skill (or `git fetch --prune` + manual review) to remove any whose remote branches are gone.
 
-### Control Registry: Fill Audit Framework Gaps
-**Status:** Gaps identified 2026-05-10, not started
-**Priority:** Medium (AICPA), Low (ISF SOGP, ENX ISA)
+### Control Registry: Remaining Audit Framework Gaps
+**Status:** Partially complete; 2 of 5 gaps remain
+**Priority:** Low (ISF SOGP, ENX ISA)
 
-Multi-framework audit identified three control namespaces missing from the registry:
+Two control namespaces from the 2026-05-10 audit are still missing:
 
-- **AICPA TSC 2017** — Trust Services Criteria, the SOC 2 backbone. Create `registry/control/org/aicpa.json` with criteria IDs (CC1.1–CC9.x for Common Criteria, plus supplemental A1.x, C1.x, PI1.x, P1.x). The criteria IDs themselves are public; only the audit guidance is paywalled. Also update `registry/INDEX.md:230` ("Audit framework (no public control list)") — that framing is incorrect since the criteria IDs are public. High US-audit-world value.
 - **ISF SOGP 2022** — Information Security Forum Standard of Good Practice. Members-only access; IDs do not appear in public cross-references. Defer until a concrete use case appears (someone citing an SOGP ID in the wild).
 - **ENX ISA v6.0** — Automotive control catalog underlying TISAX assessments. ISA is a free PDF from ENX. Add as `control` type; pair with a separate `methodology` entry for TISAX itself (cross-type pattern, like CVSS in `methodology` and the CVSS reference doc in `reference`). Niche but well-scoped.
 
-**Context:** ISO 27017:2015 and 27018:2019 (the other two gaps from the same audit) are already present in `registry/control/org/iso.json`.
+**Already addressed:** ISO 27017:2015 and 27018:2019 (now in `registry/control/org/iso.json`); AICPA TSC 2017 (now in `registry/control/org/aicpa.json`).
 
 ### Training Course Content
 **Status:** Planned
