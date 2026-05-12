@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oasis-open.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Organization for the Advancement of Structured Information Standards",
+  "common_name": "OASIS",
+  "alternate_names": ["OASIS Open"],
+  "notes": "OASIS is a non-profit international consortium that develops, converges, and adopts open standards. The Cyber Threat Intelligence (CTI) Technical Committee at OASIS maintains STIX and TAXII (transferred from MITRE around 2015). Other OASIS work includes the Common Security Advisory Framework (CSAF), OpenC2, and many non-security standards.",
+  "wikidata": "Q1396375",
+  "wikipedia": "https://en.wikipedia.org/wiki/OASIS_(organization)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.oasis-open.org"
+    },
+    {
+      "type": "cti_tc",
+      "url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^stix$"
+      ],
+      "description": "Structured Threat Information Expression",
+      "weight": 100,
+      "data": {
+        "official_name": "Structured Threat Information Expression",
+        "common_name": "STIX",
+        "alternate_names": ["STIX 2.1"],
+        "description": "Structured language for representing cyber threat intelligence — threat actors, campaigns, malware, indicators, observed data, courses of action, vulnerabilities.",
+        "notes": "STIX 2.1 is the current OASIS Standard (June 2021). Originally developed by MITRE under DHS sponsorship; transferred to OASIS Cyber Threat Intelligence Technical Committee. STIX 1.x (MITRE-era XML) is legacy. MITRE ATT&CK ships as STIX 2.0 bundles. Companion to TAXII.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://oasis-open.github.io/cti-documentation/"
+          },
+          {
+            "type": "spec",
+            "url": "https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html"
+          }
+        ],
+        "examples": [
+          {
+            "input": "stix",
+            "note": "The STIX 2.1 specification as a whole"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^taxii$"
+      ],
+      "description": "Trusted Automated eXchange of Indicator Information",
+      "weight": 100,
+      "data": {
+        "official_name": "Trusted Automated eXchange of Indicator Information",
+        "common_name": "TAXII",
+        "alternate_names": ["TAXII 2.1"],
+        "description": "Application-layer protocol for the exchange of STIX cyber threat intelligence over HTTPS.",
+        "notes": "TAXII 2.1 is the current OASIS Standard (June 2021). Defines servers, clients, channels, and collections for pulling/pushing STIX data. Originally MITRE/DHS; transferred to OASIS CTI TC. Companion to STIX.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://oasis-open.github.io/cti-documentation/"
+          },
+          {
+            "type": "spec",
+            "url": "https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html"
+          }
+        ],
+        "examples": [
+          {
+            "input": "taxii",
+            "note": "The TAXII 2.1 specification as a whole"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^csaf$"
+      ],
+      "description": "Common Security Advisory Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Security Advisory Framework",
+        "common_name": "CSAF",
+        "alternate_names": ["CSAF 2.0"],
+        "description": "Standardized JSON format for the distribution of machine-readable security advisories.",
+        "notes": "CSAF 2.0 is the current OASIS Standard. Supersedes CVRF 1.x. Used by major vendors (Cisco, Microsoft, Red Hat, Oracle, etc.) for publishing security advisories. CISA encourages CSAF adoption.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf"
+          },
+          {
+            "type": "spec",
+            "url": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html"
+          }
+        ],
+        "examples": [
+          {
+            "input": "csaf",
+            "note": "The CSAF 2.0 specification as a whole"
+          }
+        ]
+      }
+    }
+  ]
+}

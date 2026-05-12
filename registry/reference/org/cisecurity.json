@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisecurity.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Center for Internet Security",
+  "common_name": "CIS",
+  "alternate_names": null,
+  "notes": "Center for Internet Security is a non-profit operating the MS-ISAC and EI-ISAC, publishing the CIS Benchmarks and CIS Controls, and maintaining OVAL (transferred from MITRE in 2017). The control-type entry control/org/cisecurity.json covers normative CIS Controls; this reference-type entry covers other CIS-maintained specifications and reference data such as OVAL.",
+  "wikidata": null,
+  "wikipedia": "https://en.wikipedia.org/wiki/Center_for_Internet_Security",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cisecurity.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^oval$"
+      ],
+      "description": "Open Vulnerability and Assessment Language",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Vulnerability and Assessment Language",
+        "common_name": "OVAL",
+        "alternate_names": null,
+        "description": "International, open standard for the structured assessment and reporting of machine state — used to describe how to check for vulnerabilities, configuration issues, patches, and inventoried software on a system.",
+        "notes": "OVAL definitions are XML documents that name a test and describe how to evaluate it across supported platforms. Originally a MITRE project (with US-CERT/DHS sponsorship); maintenance transferred to CIS Center for Internet Security in 2017. The OVAL Repository and the OVAL Language specification continue at CIS.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://oval.cisecurity.org"
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/CISecurity/OVAL"
+          },
+          {
+            "type": "legacy",
+            "url": "https://oval.mitre.org"
+          }
+        ],
+        "examples": [
+          {
+            "input": "oval",
+            "note": "The OVAL language specification and repository"
+          }
+        ]
+      }
+    }
+  ]
+}

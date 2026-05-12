@@ -44,51 +44,47 @@
       "patterns": [
         "(?i)^stix$"
       ],
-      "description": "STIX — Structured Threat Information Expression",
+      "description": "STIX — Structured Threat Information Expression (MOVED to oasis-open.org)",
       "weight": 100,
+      "deprecated": true,
       "data": {
         "official_name": "Structured Threat Information Expression",
         "common_name": "STIX",
         "alternate_names": null,
         "description": "Structured language for describing cyber threat intelligence.",
-        "notes": "STIX 2.1 is current. JSON-based format for sharing threat intelligence — indicators, attack patterns, campaigns, threat actors. Now maintained by OASIS. Transported via TAXII protocol.",
+        "notes": "DEPRECATED LOCATION. STIX was originally developed by MITRE/DHS but transferred to OASIS Cyber Threat Intelligence Technical Committee for standardization. STIX 2.1 is the current OASIS Standard. Canonical SecID is now `secid:reference/oasis-open.org/stix`. Retained so legacy citations of `secid:reference/mitre.org/stix` still resolve.",
         "urls": [
           {
             "type": "website",
             "url": "https://oasis-open.github.io/cti-documentation/"
-          },
-          {
-            "type": "docs",
-            "url": "https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html"
           }
         ],
         "examples": []
-      }
+      },
+      "redirect_to": "secid:reference/oasis-open.org/stix"
     },
     {
       "patterns": [
         "(?i)^taxii$"
       ],
-      "description": "TAXII — Trusted Automated Exchange of Intelligence Information",
+      "description": "TAXII — Trusted Automated eXchange of Indicator Information (MOVED to oasis-open.org)",
       "weight": 100,
+      "deprecated": true,
       "data": {
-        "official_name": "Trusted Automated Exchange of Intelligence Information",
+        "official_name": "Trusted Automated eXchange of Indicator Information",
         "common_name": "TAXII",
         "alternate_names": null,
         "description": "Transport protocol for sharing cyber threat intelligence.",
-        "notes": "TAXII 2.1 is current. HTTP-based protocol for exchanging STIX content. Defines collections, channels, and API endpoints. Now maintained by OASIS.",
+        "notes": "DEPRECATED LOCATION. TAXII was originally developed by MITRE/DHS but transferred to OASIS Cyber Threat Intelligence Technical Committee for standardization. TAXII 2.1 is the current OASIS Standard. Canonical SecID is now `secid:reference/oasis-open.org/taxii`. Retained so legacy citations of `secid:reference/mitre.org/taxii` still resolve.",
         "urls": [
           {
             "type": "website",
             "url": "https://oasis-open.github.io/cti-documentation/"
-          },
-          {
-            "type": "docs",
-            "url": "https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html"
           }
         ],
         "examples": []
-      }
+      },
+      "redirect_to": "secid:reference/oasis-open.org/taxii"
     },
     {
       "patterns": [
@@ -115,22 +111,24 @@
       "patterns": [
         "(?i)^oval$"
       ],
-      "description": "OVAL — Open Vulnerability and Assessment Language",
+      "description": "OVAL — Open Vulnerability and Assessment Language (MOVED to cisecurity.org)",
       "weight": 100,
+      "deprecated": true,
       "data": {
         "official_name": "Open Vulnerability and Assessment Language",
         "common_name": "OVAL",
         "alternate_names": null,
         "description": "Language for determining vulnerability presence and system configuration.",
-        "notes": "Community standard for assessing and reporting on machine state. Used in SCAP (Security Content Automation Protocol). Defines tests for checking system configurations.",
+        "notes": "DEPRECATED LOCATION. OVAL was originally a MITRE project (with US-CERT/DHS sponsorship) but maintenance transferred to CIS Center for Internet Security in 2017. The OVAL Repository and Language specification continue at CIS. Canonical SecID is now `secid:reference/cisecurity.org/oval`. Retained so legacy citations of `secid:reference/mitre.org/oval` still resolve.",
         "urls": [
           {
-            "type": "website",
+            "type": "legacy",
             "url": "https://oval.mitre.org/"
           }
         ],
         "examples": []
-      }
+      },
+      "redirect_to": "secid:reference/cisecurity.org/oval"
     },
     {
       "patterns": [
