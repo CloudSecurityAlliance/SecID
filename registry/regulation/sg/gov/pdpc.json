@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pdpc.gov.sg",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Personal Data Protection Commission, Singapore",
+  "common_name": "PDPC",
+  "alternate_names": null,
+  "notes": "Singapore's data protection authority \u2014 administers the Personal Data Protection Act 2012.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.pdpc.gov.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pdpa$"
+      ],
+      "description": "Personal Data Protection Act 2012",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Data Protection Act",
+        "common_name": "PDPA (Singapore)",
+        "alternate_names": null,
+        "description": "Singapore's primary data protection statute; significantly amended in 2020.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.pdpc.gov.sg/Overview-of-PDPA/The-Legislation/Personal-Data-Protection-Act"
+          }
+        ],
+        "examples": [
+          {
+            "input": "pdpa",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

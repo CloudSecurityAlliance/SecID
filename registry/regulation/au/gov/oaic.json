@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oaic.gov.au",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Office of the Australian Information Commissioner",
+  "common_name": "OAIC",
+  "alternate_names": null,
+  "notes": "Australia's privacy regulator \u2014 enforces the Privacy Act 1988 and the Australian Privacy Principles.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.oaic.gov.au"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^privacy-act$"
+      ],
+      "description": "Privacy Act 1988",
+      "weight": 100,
+      "data": {
+        "official_name": "Privacy Act 1988",
+        "common_name": "Australian Privacy Act",
+        "alternate_names": null,
+        "description": "Australia's federal privacy law containing the Australian Privacy Principles (APPs).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.oaic.gov.au/privacy/the-privacy-act"
+          }
+        ],
+        "examples": [
+          {
+            "input": "privacy-act",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

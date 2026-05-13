@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pipc.go.kr",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Personal Information Protection Commission, Korea",
+  "common_name": "PIPC",
+  "alternate_names": null,
+  "notes": "South Korea's data protection authority \u2014 administers the Personal Information Protection Act (PIPA).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.pipc.go.kr/eng/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pipa$"
+      ],
+      "description": "Personal Information Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Information Protection Act",
+        "common_name": "PIPA (Korea)",
+        "alternate_names": null,
+        "description": "South Korea's primary data protection statute; significantly amended 2023.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.pipc.go.kr/eng/"
+          }
+        ],
+        "examples": [
+          {
+            "input": "pipa",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

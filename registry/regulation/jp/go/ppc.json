@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ppc.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Personal Information Protection Commission, Japan",
+  "common_name": "PPC",
+  "alternate_names": null,
+  "notes": "Japan's data protection authority \u2014 administers the Act on the Protection of Personal Information (APPI).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ppc.go.jp/en/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^appi$"
+      ],
+      "description": "Act on the Protection of Personal Information",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on the Protection of Personal Information",
+        "common_name": "APPI",
+        "alternate_names": null,
+        "description": "Japan's primary data protection statute; last amended 2022.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ppc.go.jp/en/legal/"
+          }
+        ],
+        "examples": [
+          {
+            "input": "appi",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

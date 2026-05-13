@@ -4,160 +4,642 @@
   "type": "control",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Institute of Electrical and Electronics Engineers",
   "common_name": "IEEE",
   "alternate_names": null,
   "notes": "IEEE produces ethical AI and technology governance standards including the 7000 series, Ethically Aligned Design framework, and standards addressing AI trustworthiness, bias, and privacy. IEEE standards are paywalled — access requires purchase from IEEE Xplore or the IEEE Standards Association.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.ieee.org"}
+    {
+      "type": "website",
+      "url": "https://www.ieee.org"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ethically-aligned$"],
-      "description": "IEEE Ethically Aligned Design framework",
+      "patterns": [
+        "(?i)^754$"
+      ],
+      "description": "IEEE 754 - Floating-Point Arithmetic",
       "weight": 100,
       "data": {
+        "official_name": "IEEE 754 - Standard for Floating-Point Arithmetic",
+        "notes": "Paywalled. Defines binary and decimal floating-point arithmetic — number representation, rounding, exceptions. Foundational to numerical reproducibility in ML/AI systems.",
         "urls": [
-          {"type": "website", "url": "https://ethicsinaction.ieee.org"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/754/6210/"
+          }
         ],
         "versions_available": [
-          {"version": "1.0", "release_date": null, "status": "current", "note": "First edition of Ethically Aligned Design."}
+          {
+            "version": "2019",
+            "release_date": "2019-07-22",
+            "status": "current",
+            "note": "IEEE 754-2019 revision."
+          }
         ],
-        "examples": ["human-rights", "well-being"]
+        "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7000$"],
+      "patterns": [
+        "(?i)^1471$"
+      ],
+      "description": "IEEE 1471 - Architecture Description (superseded)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 1471 - Recommended Practice for Architectural Description of Software-Intensive Systems",
+        "notes": "Paywalled. Superseded by ISO/IEC/IEEE 42010. Specifies requirements for describing system/software architectures; still referenced by older architecture documentation practices.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/1471/2031/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2000",
+            "release_date": "2000-09-21",
+            "status": "superseded",
+            "note": "Superseded by ISO/IEC/IEEE 42010:2011."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^1609$"
+      ],
+      "description": "IEEE 1609 - Wireless Access in Vehicular Environments (WAVE)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 1609 family - Wireless Access in Vehicular Environments (WAVE)",
+        "notes": "Paywalled. Family of standards for V2X communications: 1609.0 (architecture), 1609.2 (security), 1609.3 (networking), 1609.4 (multi-channel). Relevant to AI in connected/autonomous vehicles.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/1609.0/6097/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-04-10",
+            "status": "current",
+            "note": "IEEE 1609.0-2019 (architecture). Other parts updated independently."
+          }
+        ],
+        "examples": [
+          "1609.2",
+          "1609.3",
+          "1609.4"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^2840$"
+      ],
+      "description": "IEEE 2840 - AI Risk Management",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 2840 - Standard for Responsible AI Licensing",
+        "notes": "Paywalled. Focuses on responsible AI licensing terms. Note: the README in the CSA dataset describes 2840 as 'AI Risk Management' — verify against the published title at IEEE Xplore before relying on it.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/2840/11346/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 2840-2021."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^2857$"
+      ],
+      "description": "IEEE 2857 - Privacy Engineering for AI",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 2857 - Privacy Engineering for AI Systems",
+        "notes": "Paywalled. Framework for incorporating privacy considerations throughout the AI system lifecycle (design through operation). Complements ISO/IEC 27701 and 29100.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/2857/7273/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 2857-2021."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^2858$"
+      ],
+      "description": "IEEE 2858 - Privacy Engineering Objectives",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 2858 - Privacy Engineering Objectives",
+        "notes": "Paywalled. Defines privacy objectives for systems processing personally identifiable information. Companion to 2857 (engineering framework) and 2859 (process).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/2858/10416/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 2858-2021."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^2859$"
+      ],
+      "description": "IEEE 2859 - Privacy Engineering Process",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 2859 - Privacy Engineering Process",
+        "notes": "Paywalled. Defines a process for privacy engineering in systems that process PII. Companion to 2857 (framework) and 2858 (objectives).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/2859/10417/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 2859-2021."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^5339$"
+      ],
+      "description": "IEEE 5339 - AI Management System Requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 5339 - Standard for AI Management System Requirements",
+        "notes": "Paywalled. Requirements for AI management systems within organizations — complementary to ISO/IEC 42001 and IEEE 42001 (the latter being an adoption of the former).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/5339/12130/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^7000$"
+      ],
       "description": "IEEE 7000 - Ethical System Design",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7000 - Ethical System Design",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/7000/6781/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/7000/6781/"
+          }
         ],
         "versions_available": [
-          {"version": "2021", "release_date": "2021-01-01", "status": "current", "note": "IEEE 7000-2021 standard for ethical system design."}
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 7000-2021 standard for ethical system design."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7001$"],
+      "patterns": [
+        "(?i)^7001$"
+      ],
       "description": "IEEE 7001 - Transparency of Autonomous Systems",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7001 - Transparency of Autonomous Systems",
         "versions_available": [
-          {"version": "2021", "release_date": "2021-01-01", "status": "current", "note": "IEEE 7001-2021 standard for transparency of autonomous systems."}
+          {
+            "version": "2021",
+            "release_date": "2021-01-01",
+            "status": "current",
+            "note": "IEEE 7001-2021 standard for transparency of autonomous systems."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7002$"],
+      "patterns": [
+        "(?i)^7002$"
+      ],
       "description": "IEEE 7002 - Data Privacy Process",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7002 - Data Privacy Process",
         "versions_available": [
-          {"version": "2022", "release_date": "2022-01-01", "status": "current", "note": "IEEE 7002-2022 standard for data privacy process."}
+          {
+            "version": "2022",
+            "release_date": "2022-01-01",
+            "status": "current",
+            "note": "IEEE 7002-2022 standard for data privacy process."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7010$"],
+      "patterns": [
+        "(?i)^7010$"
+      ],
       "description": "IEEE 7010 - Well-being Metrics for AI",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7010 - Well-being Metrics for AI",
         "versions_available": [
-          {"version": "2020", "release_date": "2020-01-01", "status": "current", "note": "IEEE 7010-2020 standard for well-being metrics for AI."}
+          {
+            "version": "2020",
+            "release_date": "2020-01-01",
+            "status": "current",
+            "note": "IEEE 7010-2020 standard for well-being metrics for AI."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7011$"],
+      "patterns": [
+        "(?i)^7011$"
+      ],
       "description": "IEEE 7011 - Process of Identifying and Rating the Trustworthiness of News Sources",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7011 - Standard for the Process of Identifying and Rating the Trustworthiness of News Sources",
         "notes": "Paywalled. Defines processes for assessing and rating the trustworthiness of news sources. Addresses misinformation and media integrity challenges.",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/7011/7582/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/7011/7582/"
+          }
         ],
         "versions_available": [
-          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE 7011-2024 standard for identifying and rating trustworthiness of news sources."}
+          {
+            "version": "2024",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "note": "IEEE 7011-2024 standard for identifying and rating trustworthiness of news sources."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^7012$"],
+      "patterns": [
+        "(?i)^7012$"
+      ],
       "description": "IEEE 7012 - Machine Readable Personal Privacy Terms",
       "weight": 100,
       "data": {
         "official_name": "IEEE 7012 - Standard for Machine Readable Personal Privacy Terms",
         "notes": "Paywalled. Defines a machine-readable format for personal privacy terms, enabling automated privacy negotiation between individuals and organizations.",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/7012/7192/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/7012/7192/"
+          }
         ],
         "versions_available": [
-          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE 7012-2024 standard for machine readable personal privacy terms."}
+          {
+            "version": "2024",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "note": "IEEE 7012-2024 standard for machine readable personal privacy terms."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^24028$"],
+      "patterns": [
+        "(?i)^12207$"
+      ],
+      "description": "IEEE 12207 - Software Lifecycle Processes",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC/IEEE 12207 - Systems and software engineering — Software life cycle processes",
+        "notes": "Paywalled. Joint IEEE/ISO/IEC standard defining software lifecycle processes — acquisition, supply, development, operation, maintenance, disposal. Foundational for software engineering process discipline.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/12207/4733/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-11-15",
+            "status": "current",
+            "note": "ISO/IEC/IEEE 12207:2017."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^15288$"
+      ],
+      "description": "IEEE 15288 - System Lifecycle Processes",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC/IEEE 15288 - Systems and software engineering — System life cycle processes",
+        "notes": "Paywalled. Joint IEEE/ISO/IEC standard defining system lifecycle processes — companion to 12207 but at the systems (not just software) level. Applies to AI systems and complex cloud infrastructure engineering.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/15288/5673/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-05-19",
+            "status": "current",
+            "note": "ISO/IEC/IEEE 15288:2023."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^24028$"
+      ],
       "description": "IEEE 24028 - Ethical Considerations in AI and Autonomous Systems (Transparency)",
       "weight": 100,
       "data": {
         "official_name": "IEEE 24028 - Standard for Ethical Considerations in AI and Autonomous Systems (Transparency)",
         "notes": "Paywalled. IEEE adoption of ISO/IEC TR 24028:2020 on trustworthiness in AI. Addresses transparency, explainability, and accountability in AI systems. Note: distinct from but aligned with ISO/IEC TR 24028 — IEEE publishes its own edition.",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/24028/10744/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/24028/10744/"
+          }
         ],
         "versions_available": [
-          {"version": "2023", "release_date": "2023-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC TR 24028:2020 on AI trustworthiness."}
+          {
+            "version": "2023",
+            "release_date": "2023-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC TR 24028:2020 on AI trustworthiness."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^24029-1$"],
+      "patterns": [
+        "(?i)^24029-1$"
+      ],
       "description": "IEEE 24029-1 - Assessment of Biases in AI Systems (Part 1)",
       "weight": 100,
       "data": {
         "official_name": "IEEE 24029-1 - Assessment of Biases in AI Systems and Methods for Mitigation (Part 1)",
         "notes": "Paywalled. IEEE adoption of ISO/IEC TR 24029-1:2021 on robustness assessment of neural networks. Part 1 covers assessment methods. Note: distinct from but aligned with ISO/IEC 24029 — IEEE publishes its own edition.",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/24029-1/10750/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/24029-1/10750/"
+          }
         ],
         "versions_available": [
-          {"version": "2023", "release_date": "2023-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC 24029-1:2021 on neural network robustness assessment."}
+          {
+            "version": "2023",
+            "release_date": "2023-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC 24029-1:2021 on neural network robustness assessment."
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^42001$"],
+      "patterns": [
+        "(?i)^24029-2$"
+      ],
+      "description": "IEEE 24029-2 - Robustness of Neural Networks (Part 2)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 24029-2 - Assessment of Robustness of Neural Networks Part 2: Methodology for the use of formal methods",
+        "notes": "Paywalled. IEEE adoption of ISO/IEC 24029-2. Part 2 covers formal-methods-based robustness assessment of neural networks (Part 1 covers statistical methods). Note: companion to 24029-1.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/24029-2/11221/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC 24029-2."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^24030$"
+      ],
+      "description": "IEEE 24030 - AI Use Cases",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 24030 - Use cases and applications for AI systems",
+        "notes": "Paywalled. IEEE adoption of ISO/IEC TR 24030:2021. Catalogue of AI use cases across domains (healthcare, finance, manufacturing, etc.) plus a framework for documenting new use cases.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/24030/10752/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC TR 24030:2021."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^42001$"
+      ],
       "description": "IEEE 42001 - AI Management System",
       "weight": 100,
       "data": {
         "official_name": "IEEE 42001 - AI Management System",
         "notes": "Paywalled. IEEE adoption of ISO/IEC 42001:2023. Requirements for establishing, implementing, maintaining and continually improving an AI management system (AIMS). Note: this is the IEEE edition of the same standard also published by ISO (see secid:control/iso.org/42001). Same technical content, different publication channel.",
         "urls": [
-          {"type": "website", "url": "https://standards.ieee.org/ieee/42001/11228/"}
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/42001/11228/"
+          }
         ],
         "versions_available": [
-          {"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "IEEE adoption of ISO/IEC 42001:2023. First international AI management system standard."}
+          {
+            "version": "2024",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC 42001:2023. First international AI management system standard."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^802\\.11$"
+      ],
+      "description": "IEEE 802.11 - Wireless LAN",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 802.11 - Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications",
+        "notes": "Paywalled. Family of standards for wireless local area networks (Wi-Fi). Security amendments (WPA2, WPA3) are critical for protecting cloud/AI system access.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/802.11/7028/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-12-01",
+            "status": "current",
+            "note": "IEEE 802.11-2020 consolidated edition."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^802\\.1x$"
+      ],
+      "description": "IEEE 802.1X - Port-Based Network Access Control",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE 802.1X - Port-Based Network Access Control",
+        "notes": "Paywalled. Authentication framework for network access (PNAC). Widely used for enterprise Wi-Fi (EAP), wired LAN access, and identity-based network segmentation.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/802.1X/7345/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-02-28",
+            "status": "current",
+            "note": "IEEE 802.1X-2020 revision."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ethically-aligned$"
+      ],
+      "description": "IEEE Ethically Aligned Design framework",
+      "weight": 100,
+      "data": {
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ethicsinaction.ieee.org"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "1.0",
+            "release_date": null,
+            "status": "current",
+            "note": "First edition of Ethically Aligned Design."
+          }
+        ],
+        "examples": [
+          "human-rights",
+          "well-being"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^tr-?24027$",
+        "(?i)^24027$"
+      ],
+      "description": "IEEE TR 24027 - Bias in AI Systems (Technical Report)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEEE TR 24027 - Bias in AI Systems and AI-Aided Decision Making",
+        "notes": "Paywalled technical report (not a standard). Comprehensive treatment of bias types in AI and mitigation strategies. IEEE adoption of ISO/IEC TR 24027:2021.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.ieee.org/ieee/24027/10749/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-01-01",
+            "status": "current",
+            "note": "IEEE adoption of ISO/IEC TR 24027:2021."
+          }
         ],
         "examples": []
       }

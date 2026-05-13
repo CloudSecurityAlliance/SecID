@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "swift.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Society for Worldwide Interbank Financial Telecommunication",
+  "common_name": "SWIFT",
+  "alternate_names": null,
+  "notes": "SWIFT operates the global financial messaging network. Publishes the SWIFT Customer Security Programme (CSP) which is mandatory for institutions connected to the network.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.swift.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^csp$"
+      ],
+      "description": "SWIFT Customer Security Programme",
+      "weight": 100,
+      "data": {
+        "official_name": "SWIFT Customer Security Programme",
+        "common_name": "SWIFT CSP",
+        "alternate_names": null,
+        "description": "Mandatory cybersecurity controls and self-attestation framework for SWIFT-connected institutions.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.swift.com/myswift/customer-security-programme-csp"
+          }
+        ],
+        "examples": [
+          {
+            "input": "csp",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}
