@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "planalto.gov.br",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Presid\u00eancia da Rep\u00fablica do Brasil",
+  "common_name": "Planalto",
+  "alternate_names": null,
+  "notes": "Brazil's federal-government portal hosting federal legislation. The Lei Geral de Prote\u00e7\u00e3o de Dados (LGPD) is published here.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "http://www.planalto.gov.br"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^lgpd$"
+      ],
+      "description": "Lei Geral de Prote\u00e7\u00e3o de Dados",
+      "weight": 100,
+      "data": {
+        "official_name": "Lei Geral de Prote\u00e7\u00e3o de Dados",
+        "common_name": "LGPD",
+        "alternate_names": null,
+        "description": "Brazil's general data protection law (Law 13.709/2018), modeled on GDPR.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
+          }
+        ],
+        "examples": [
+          {
+            "input": "lgpd",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meity.gov.in",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Ministry of Electronics and Information Technology",
+  "common_name": "MeitY",
+  "alternate_names": null,
+  "notes": "India's Ministry of Electronics and Information Technology \u2014 administers the Digital Personal Data Protection Act (DPDP Act) and related digital regulations.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.meity.gov.in"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^dpdp$"
+      ],
+      "description": "Digital Personal Data Protection Act 2023",
+      "weight": 100,
+      "data": {
+        "official_name": "Digital Personal Data Protection Act",
+        "common_name": "DPDP Act",
+        "alternate_names": null,
+        "description": "India's primary data protection statute (Act No. 22 of 2023).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.meity.gov.in/data-protection-framework"
+          }
+        ],
+        "examples": [
+          {
+            "input": "dpdp",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ]
+}
