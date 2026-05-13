@@ -21,14 +21,15 @@
       "patterns": [
         "(?i)^aida$"
       ],
-      "description": "Artificial Intelligence and Data Act",
+      "description": "Artificial Intelligence and Data Act (MOVED to parl.ca)",
       "weight": 100,
+      "deprecated": true,
       "data": {
         "official_name": "Artificial Intelligence and Data Act",
         "common_name": "AIDA",
         "alternate_names": null,
-        "description": "Proposed Canadian federal AI legislation, part of Bill C-27 (Digital Charter Implementation Act). Did not pass before the 2025 federal election.",
-        "notes": "",
+        "description": "Proposed Canadian federal AI legislation (part of Bill C-27).",
+        "notes": "DEPRECATED LOCATION. AIDA is filed under parl.ca per the DNS-canonical rule — Parliament of Canada is the legal publisher of bills and acts. Canada.ca/ISED-ISDE is an implementation/promotion page rather than the legal publisher. Canonical SecID is now `secid:regulation/parl.ca/aida`. Retained so legacy citations of `secid:regulation/canada.ca/aida` still resolve.",
         "urls": [
           {
             "type": "website",
@@ -36,7 +37,8 @@
           }
         ],
         "examples": []
-      }
+      },
+      "redirect_to": "secid:regulation/parl.ca/aida"
     }
   ]
 }
