@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fsisac.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Financial Services Information Sharing and Analysis Center",
+  "common_name": "FS-ISAC",
+  "alternate_names": null,
+  "notes": "Member-driven threat-intelligence and information-sharing organization for the global financial services sector. Publishes threat intel feeds plus operational guidance and resilience requirements. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fsisac.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cybersecurity-fundamentals$"
+      ],
+      "description": "FS-ISAC Cybersecurity Fundamentals",
+      "weight": 100,
+      "data": {
+        "official_name": "FS-ISAC Cybersecurity Fundamentals for Small Financial Institutions",
+        "notes": "Members-only. Baseline guidance for FI cybersecurity practices.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.fsisac.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

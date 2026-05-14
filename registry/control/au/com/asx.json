@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "namespace": "asx.com.au",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ASX Limited",
+  "common_name": "ASX",
+  "alternate_names": null,
+  "notes": "Australia's principal stock exchange and clearing operator. Publishes participant operational and security requirements; restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.asx.com.au"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^participant-security$"
+      ],
+      "description": "ASX participant security requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "ASX Participant Security Requirements",
+        "notes": "Members-only.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

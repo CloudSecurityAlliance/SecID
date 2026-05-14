@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "acord.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ACORD Corporation",
+  "common_name": "ACORD",
+  "alternate_names": null,
+  "notes": "Global insurance-industry data standards consortium. Publishes ACORD data-exchange standards used by insurance carriers, brokers, and reinsurers. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.acord.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^standards$"
+      ],
+      "description": "ACORD data-exchange standards",
+      "weight": 100,
+      "data": {
+        "official_name": "ACORD Data Standards",
+        "notes": "Members-only. Insurance-industry data-exchange standards including XML schemas and reference data definitions.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.acord.org/standards-architecture"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

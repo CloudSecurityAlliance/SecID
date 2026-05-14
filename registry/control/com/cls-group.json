@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cls-group.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "CLS Bank International",
+  "common_name": "CLS",
+  "alternate_names": null,
+  "notes": "Global FX (foreign exchange) settlement system operator. Settles the vast majority of high-value FX trades using payment-versus-payment (PvP) to eliminate Herstatt risk. Members are major banks; security and operational requirements are members-only / NDA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cls-group.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cls-settlement$",
+        "(?i)^settlement$"
+      ],
+      "description": "CLS Settlement service",
+      "weight": 100,
+      "data": {
+        "official_name": "CLS Settlement",
+        "notes": "Members-only / NDA. Largest global FX settlement service; PvP across 18+ currencies.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cls-group.com/products/settlement/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

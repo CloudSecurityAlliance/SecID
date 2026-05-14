@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "namespace": "api.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Petroleum Institute",
+  "common_name": "API",
+  "alternate_names": [
+    "American Petroleum Institute"
+  ],
+  "notes": "US oil and gas trade association. Publishes API standards including API 1164 (Pipeline SCADA Security), API 780 (Security Risk Assessment Methodology), and others relevant to oil/gas OT/ICS cybersecurity. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.api.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^1164$"
+      ],
+      "description": "API 1164 — Pipeline SCADA Security",
+      "weight": 100,
+      "data": {
+        "official_name": "API Standard 1164 - Pipeline SCADA Security",
+        "notes": "Paid. Oil/gas pipeline SCADA cybersecurity standard.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.api.org/products-and-services/standards/pipeline-and-pipeline-security"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^780$"
+      ],
+      "description": "API 780 — Security Risk Assessment Methodology",
+      "weight": 100,
+      "data": {
+        "official_name": "API Standard 780 - Security Risk Assessment Methodology for the Petroleum and Petrochemical Industries",
+        "notes": "Paid.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

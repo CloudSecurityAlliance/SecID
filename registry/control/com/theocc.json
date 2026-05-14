@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "theocc.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "The Options Clearing Corporation",
+  "common_name": "OCC",
+  "alternate_names": [
+    "OCC (options clearing)"
+  ],
+  "notes": "US-registered options and derivatives clearing corporation. Note: distinct from the Office of the Comptroller of the Currency (US bank regulator) which uses the same OCC acronym. Publishes member operational/security requirements; members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.theocc.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^member-security$"
+      ],
+      "description": "OCC member security requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "OCC Member Security Requirements",
+        "notes": "Members-only. Operational and security requirements for OCC clearing members.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.theocc.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

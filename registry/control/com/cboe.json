@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cboe.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Cboe Global Markets",
+  "common_name": "Cboe",
+  "alternate_names": null,
+  "notes": "US-based exchange operator including the Chicago Board Options Exchange and several equity exchanges. Publishes participant operational and security requirements; restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cboe.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^participant-security$"
+      ],
+      "description": "Cboe participant security requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "Cboe Participant Security Requirements",
+        "notes": "Members-only.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
