@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.bc.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Government of British Columbia",
+  "common_name": "British Columbia",
+  "alternate_names": ["BC"],
+  "notes": "Government of British Columbia canonical portal. BC Laws (bclaws.gov.bc.ca) publishes the consolidated text of provincial statutes in HTML and XML.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www2.gov.bc.ca"},
+    {"type": "legislation", "url": "https://www.bclaws.gov.bc.ca"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pipa$", "(?i)^bc-pipa$"],
+      "description": "Personal Information Protection Act (BC)",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Information Protection Act",
+        "common_name": "PIPA (BC)",
+        "alternate_names": ["BC PIPA"],
+        "description": "British Columbia's private-sector privacy law (SBC 2003 c 63). Substantially similar to PIPEDA.",
+        "urls": [
+          {"type": "website", "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"},
+          {"type": "source", "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01/xml"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

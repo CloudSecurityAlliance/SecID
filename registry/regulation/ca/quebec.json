@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "quebec.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Gouvernement du Québec",
+  "common_name": "Quebec",
+  "alternate_names": ["Québec"],
+  "notes": "Government of Quebec canonical portal. LégisQuébec (legisquebec.gouv.qc.ca) publishes the consolidated text of Quebec statutes via the Éditeur officiel du Québec.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.quebec.ca"},
+    {"type": "legislation", "url": "https://www.legisquebec.gouv.qc.ca"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^loi-25$", "(?i)^law-25$", "(?i)^bill-64$", "(?i)^quebec-privacy-act$", "(?i)^p-39\\.1$"],
+      "description": "Act respecting the protection of personal information in the private sector (Quebec)",
+      "weight": 100,
+      "data": {
+        "official_name": "Act respecting the protection of personal information in the private sector",
+        "common_name": "Loi 25",
+        "alternate_names": ["Law 25", "Bill 64", "Quebec Privacy Act", "P-39.1"],
+        "description": "Quebec's private-sector privacy law (CQLR c P-39.1), enacted 1993 and significantly modernized by Law 25 (Bill 64), adopted September 2021 with phased implementation through 2024.",
+        "urls": [
+          {"type": "website", "url": "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

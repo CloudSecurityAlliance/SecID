@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ontario.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Government of Ontario",
+  "common_name": "Ontario",
+  "alternate_names": null,
+  "notes": "Government of Ontario canonical portal. e-Laws (ontario.ca/laws) publishes the consolidated text of provincial statutes.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.ontario.ca"},
+    {"type": "legislation", "url": "https://www.ontario.ca/laws"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^phipa$", "(?i)^ontario-phipa$"],
+      "description": "Personal Health Information Protection Act, 2004",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Health Information Protection Act, 2004",
+        "common_name": "PHIPA",
+        "alternate_names": ["Ontario PHIPA"],
+        "description": "Ontario's health information privacy law (SO 2004 c 3 Sched A). Governs health information custodians.",
+        "urls": [
+          {"type": "website", "url": "https://www.ontario.ca/laws/statute/04p03"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
