@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "paynet.my",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Payments Network Malaysia",
+  "common_name": "PayNet",
+  "alternate_names": null,
+  "notes": "Malaysian national payment-systems operator. Runs DuitNow (real-time payments, QR), MyDebit (domestic card), FPX (online banking).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://paynet.my"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^duitnow$"
+      ],
+      "description": "DuitNow — Malaysian instant payments",
+      "weight": 100,
+      "data": {
+        "official_name": "DuitNow",
+        "notes": "Members-only operational rules. Malaysian real-time payment system supporting account-to-account transfers and QR-code payments.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://paynet.my/duitnow.html"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

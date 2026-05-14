@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nets.com.sg",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Network for Electronic Transfers",
+  "common_name": "NETS",
+  "alternate_names": null,
+  "notes": "Singapore's domestic payment scheme. Operates NETS debit, FAST (Singapore real-time interbank payments — with HKICL), and CashCard.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nets.com.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nets$"
+      ],
+      "description": "NETS",
+      "weight": 100,
+      "data": {
+        "official_name": "NETS — Network for Electronic Transfers",
+        "notes": "Members-only. Singapore's domestic debit scheme; widely accepted at Singapore POS.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nets.com.sg"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^fast$"
+      ],
+      "description": "FAST — Singapore real-time interbank",
+      "weight": 100,
+      "data": {
+        "official_name": "Fast And Secure Transfers (FAST)",
+        "notes": "Members-only. Singapore's real-time interbank payment rail.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

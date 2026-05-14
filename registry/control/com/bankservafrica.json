@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bankservafrica.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "BankservAfrica",
+  "common_name": "BankservAfrica",
+  "alternate_names": null,
+  "notes": "South African interbank payment-systems operator. Runs PayShap (South African real-time payments) and SADC RTGS (cross-border ZAR settlement in the Southern African Development Community).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bankservafrica.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^payshap$"
+      ],
+      "description": "PayShap — South African real-time payments",
+      "weight": 100,
+      "data": {
+        "official_name": "PayShap",
+        "notes": "Members-only. South African real-time payment system using ShapID (national-ID-or-mobile-number based addressing).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://payshap.co.za"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

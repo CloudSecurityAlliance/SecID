@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "earlywarning.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Early Warning Services",
+  "common_name": "EWS",
+  "alternate_names": null,
+  "notes": "US bank-owned consortium (operator of Zelle). Publishes participant operational and security rules. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.earlywarning.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^zelle$"
+      ],
+      "description": "Zelle — US real-time bank-to-bank payments",
+      "weight": 100,
+      "data": {
+        "official_name": "Zelle",
+        "notes": "Members-only. US peer-to-peer payment network operated by Early Warning Services on behalf of major US banks. Distinct from TCH RTP and Fed FedNow.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.zellepay.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

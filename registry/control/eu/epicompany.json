@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "epicompany.eu",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "European Payments Initiative",
+  "common_name": "EPI",
+  "alternate_names": null,
+  "notes": "European bank-led payments initiative. Operates Wero — a pan-European wallet replacing several national schemes. Members-only participant rules.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.epicompany.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^wero$"
+      ],
+      "description": "Wero — Pan-European wallet",
+      "weight": 100,
+      "data": {
+        "official_name": "Wero by EPI",
+        "notes": "Members-only. Pan-European wallet succeeding national schemes (e.g. Paylib in France). Backed by major European banks; launching across countries 2024-2026.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.wero-wallet.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

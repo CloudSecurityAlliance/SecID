@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bsp.gov.ph",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Bangko Sentral ng Pilipinas",
+  "common_name": "BSP",
+  "alternate_names": null,
+  "notes": "Central bank of the Philippines. Operates PESONet and InstaPay (Philippine real-time payment systems) plus the National Retail Payment System (NRPS) framework.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bsp.gov.ph"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pesonet$"
+      ],
+      "description": "PESONet — Philippine batch interbank",
+      "weight": 100,
+      "data": {
+        "official_name": "PESONet",
+        "notes": "Members-only. Philippine batched interbank fund-transfer system.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsp.gov.ph"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^instapay$"
+      ],
+      "description": "InstaPay — Philippine real-time payments",
+      "weight": 100,
+      "data": {
+        "official_name": "InstaPay",
+        "notes": "Members-only. Philippine real-time interbank fund-transfer system.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "vippsmobilepay.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Vipps MobilePay AS",
+  "common_name": "Vipps MobilePay",
+  "alternate_names": null,
+  "notes": "Nordic mobile-payment scheme formed in 2022 from the merger of Vipps (Norway) and MobilePay (Denmark). Now also covers Finland. Members-only operational rules.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.vippsmobilepay.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^vipps$",
+        "(?i)^mobilepay$"
+      ],
+      "description": "Vipps MobilePay",
+      "weight": 100,
+      "data": {
+        "official_name": "Vipps MobilePay",
+        "notes": "Members-only. Dominant mobile-payment service in Norway, Denmark, and Finland.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.vippsmobilepay.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

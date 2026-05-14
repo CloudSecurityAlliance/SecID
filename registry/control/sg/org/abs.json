@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "abs.org.sg",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Association of Banks in Singapore",
+  "common_name": "ABS",
+  "alternate_names": null,
+  "notes": "Industry body for Singapore's banking sector. Operates PayNow (Singapore real-time payments) with MAS oversight. Publishes participant rules.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.abs.org.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^paynow$"
+      ],
+      "description": "PayNow — Singapore real-time payments",
+      "weight": 100,
+      "data": {
+        "official_name": "PayNow",
+        "notes": "Members-only operational rules. Singapore's real-time payment system using NRIC, FIN, UEN, or mobile-number as the payee identifier.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.abs.org.sg/consumer-banking/pay-now"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

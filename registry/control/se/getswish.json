@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "getswish.se",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Getswish AB",
+  "common_name": "Getswish",
+  "alternate_names": null,
+  "notes": "Swedish bank-owned company operating Swish — the dominant Swedish P2P mobile payment system.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://getswish.se"
+    },
+    {
+      "type": "website",
+      "url": "https://swish.nu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^swish$"
+      ],
+      "description": "Swish — Swedish mobile payments",
+      "weight": 100,
+      "data": {
+        "official_name": "Swish",
+        "notes": "Members-only. Real-time mobile payment system; backbone of Swedish retail payments alongside Bankgirot.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://getswish.se"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

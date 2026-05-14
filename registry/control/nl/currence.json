@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "currence.nl",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Currence Holding",
+  "common_name": "Currence",
+  "alternate_names": null,
+  "notes": "Dutch payment-scheme operator. Operates iDEAL — the dominant Netherlands online-banking payment scheme — plus Acceptgiro, Incasso. Members-only operational rules.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.currence.nl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ideal$"
+      ],
+      "description": "iDEAL — Dutch online banking payments",
+      "weight": 100,
+      "data": {
+        "official_name": "iDEAL",
+        "notes": "Members-only. Dutch bank-led online-banking payment scheme; dominant for e-commerce in the Netherlands.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ideal.nl"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
