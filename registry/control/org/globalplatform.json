@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "globalplatform.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "GlobalPlatform",
+  "common_name": "GlobalPlatform",
+  "alternate_names": null,
+  "notes": "International standards organization for secure-element (SE) and Trusted Execution Environment (TEE) specifications. Underpins essentially every smart card, eSIM, mobile secure element, and ARM/Intel TEE deployment. Members-only specifications.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://globalplatform.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^tee$"
+      ],
+      "description": "GlobalPlatform TEE specifications",
+      "weight": 100,
+      "data": {
+        "official_name": "GlobalPlatform Trusted Execution Environment (TEE) specifications",
+        "notes": "Members-only. Specification series for TEE Client API, TEE Internal Core API, TEE System Architecture. Underpins ARM TrustZone, Intel SGX implementations of GP TEE profiles.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://globalplatform.org/specs-library/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^se$",
+        "(?i)^card-spec$"
+      ],
+      "description": "GlobalPlatform Card Specifications (Secure Element)",
+      "weight": 100,
+      "data": {
+        "official_name": "GlobalPlatform Card Specification (Secure Element)",
+        "notes": "Members-only. The dominant secure-element specification — used in essentially every smart card, eSIM, and embedded SE.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

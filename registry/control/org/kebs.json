@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kebs.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Kenya Bureau of Standards",
+  "common_name": "KEBS",
+  "alternate_names": null,
+  "notes": "Kenya's national standards body. Publishes KS (Kenya Standards) including KS ISO/IEC adoptions. Paywalled.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.kebs.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ks-iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "KS ISO/IEC adoptions",
+      "weight": 100,
+      "data": {
+        "official_name": "KS - Kenya Standards (ISO/IEC adoptions)",
+        "notes": "Paywalled. KS-prefixed numbers track the ISO master.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.kebs.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "5gaa.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "5G Automotive Association",
+  "common_name": "5GAA",
+  "alternate_names": null,
+  "notes": "Cross-industry organization developing C-V2X (Cellular Vehicle-to-Everything) specifications for connected and autonomous vehicles. Members-only specifications for V2X security, including vehicle-to-vehicle, vehicle-to-infrastructure, and vehicle-to-pedestrian communication.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://5gaa.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^c-v2x$",
+        "(?i)^v2x$"
+      ],
+      "description": "5GAA C-V2X security specifications",
+      "weight": 100,
+      "data": {
+        "official_name": "5GAA C-V2X Security Specifications",
+        "notes": "Members-only. Covers V2X authentication, certificate management, privacy-preserving identifier rotation.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://5gaa.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
