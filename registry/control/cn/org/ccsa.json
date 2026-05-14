@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ccsa.org.cn",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "China Communications Standards Association",
+  "common_name": "CCSA",
+  "alternate_names": null,
+  "notes": "Chinese national telecommunications standards organization. Publishes YD/T (telecom) and other communications standards. Paid via the CCSA portal. Subset of standards may overlap with ITU-T or 3GPP work.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ccsa.org.cn/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^yd-?t-?(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "CCSA YD/T standards",
+      "weight": 100,
+      "data": {
+        "notes": "Paid. Chinese telecom standards series; YD/T prefix denotes telecommunications industry standards.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ccsa.org.cn/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

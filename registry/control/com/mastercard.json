@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mastercard.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Mastercard Incorporated",
+  "common_name": "Mastercard",
+  "alternate_names": null,
+  "notes": "Global payment-card network. Publishes Site Data Protection (SDP) and Risk Management Standards as part of the Mastercard Rules. Materials are restricted to participants.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mastercard.com"
+    },
+    {
+      "type": "website",
+      "url": "https://www.mastercard.us"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sdp$",
+        "(?i)^site-data-protection$"
+      ],
+      "description": "Mastercard Site Data Protection (SDP) Program",
+      "weight": 100,
+      "data": {
+        "official_name": "Mastercard Site Data Protection Program",
+        "notes": "Network-participant restricted. Mastercard's data-security program, aligned with PCI DSS, with additional Mastercard-specific requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.mastercard.us/en-us/business/overview/safety-and-security/security-recommendations/site-data-protection-PCI.html"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^mastercard-rules$",
+        "(?i)^rules$"
+      ],
+      "description": "Mastercard Rules",
+      "weight": 100,
+      "data": {
+        "official_name": "Mastercard Rules",
+        "notes": "Network-participant restricted. Master operating rules including security and risk-management requirements.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "namespace": "visa.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Visa Inc.",
+  "common_name": "Visa",
+  "alternate_names": null,
+  "notes": "Global payment-card network. Publishes multiple security programs that issuers, acquirers, and merchants must follow as part of network participation: Visa Core Rules (master document), AIS (Account Information Security Program, the Visa precursor to PCI DSS), PIN Security Requirements, P2PE attestation, Visa Threat Intelligence. Materials are restricted to participants/merchants under network agreements.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.visa.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ais$",
+        "(?i)^account-information-security$"
+      ],
+      "description": "Visa Account Information Security (AIS) Program",
+      "weight": 100,
+      "data": {
+        "official_name": "Visa Account Information Security (AIS) Program",
+        "notes": "Network-participant restricted. AIS is Visa's program that pre-dated and is now aligned with PCI DSS.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.visa.com/about-visa/visa-data-security.html"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^core-rules$",
+        "(?i)^visa-core-rules$"
+      ],
+      "description": "Visa Core Rules and Visa Product and Service Rules",
+      "weight": 100,
+      "data": {
+        "official_name": "Visa Core Rules and Visa Product and Service Rules",
+        "notes": "Network-participant restricted. Comprehensive operating rules including security requirements for participants.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.visa.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^pin-security$"
+      ],
+      "description": "Visa PIN Security Requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "Visa PIN Security Requirements",
+        "notes": "Network-participant restricted.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ebaclearing.eu",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "EBA Clearing",
+  "common_name": "EBA Clearing",
+  "alternate_names": null,
+  "notes": "European bank-owned payment-systems operator. Runs EURO1 (large-value pan-European clearing), STEP2 (retail bulk), and RT1 (instant payments). Publishes operational and security requirements for participants under members-only agreements.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ebaclearing.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^euro1$"
+      ],
+      "description": "EBA Clearing EURO1 — large-value euro clearing",
+      "weight": 100,
+      "data": {
+        "official_name": "EURO1",
+        "notes": "Members-only. Operational and security requirements for participating banks in pan-European large-value clearing.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ebaclearing.eu/services/euro1/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^step2$"
+      ],
+      "description": "EBA Clearing STEP2 — pan-European retail bulk",
+      "weight": 100,
+      "data": {
+        "official_name": "STEP2",
+        "notes": "Members-only. Pan-European retail payment-system requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ebaclearing.eu/services/step2/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^rt1$"
+      ],
+      "description": "EBA Clearing RT1 — instant payments",
+      "weight": 100,
+      "data": {
+        "official_name": "RT1",
+        "notes": "Members-only. Instant-payment system requirements (SCT Inst implementation).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ebaclearing.eu/services/rt1/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

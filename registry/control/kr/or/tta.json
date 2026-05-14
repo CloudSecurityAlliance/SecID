@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tta.or.kr",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Telecommunications Technology Association",
+  "common_name": "TTA",
+  "alternate_names": [
+    "TTA Korea"
+  ],
+  "notes": "South Korean national telecommunications standards organization. Publishes TTAS standards covering telecom, IoT, and increasingly cybersecurity (e.g., TTAS.KO-12.0247 IoT common security requirements). Paid via the TTA portal.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.tta.or.kr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ttas-?(.+)$"
+      ],
+      "description": "TTA TTAS-series standards",
+      "weight": 100,
+      "data": {
+        "notes": "Paid. Korean telecommunications/IT standards series.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.tta.or.kr/eng/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tiaonline.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Telecommunications Industry Association",
+  "common_name": "TIA",
+  "alternate_names": null,
+  "notes": "US trade association representing the telecommunications industry. Publishes TIA standards including TIA-942 (Telecommunications Infrastructure Standard for Data Centers), TIA-568 (cabling), and various telecom security standards. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.tiaonline.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^942$",
+        "(?i)^tia-?942$"
+      ],
+      "description": "TIA-942 — Data Center Infrastructure Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSI/TIA-942 - Telecommunications Infrastructure Standard for Data Centers",
+        "notes": "Paid. The widely-cited data-center infrastructure standard, including the four-rated reliability tiers (Tier I–IV). Security-relevant sections cover physical security, redundancy, and resilience.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.tiaonline.org/standards/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-08-01",
+            "status": "current",
+            "note": "ANSI/TIA-942-B-2017."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

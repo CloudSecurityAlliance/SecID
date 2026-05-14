@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "emvco.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "EMVCo",
+  "common_name": "EMVCo",
+  "alternate_names": null,
+  "notes": "Joint consortium of American Express, Discover, JCB, Mastercard, UnionPay, and Visa. Publishes EMV specifications for chip cards, contactless payments, mobile payments (tokenization, 3-D Secure, etc.). Paid for non-members; members access via their network.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.emvco.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^emv$",
+        "(?i)^specifications$",
+        "(?i)^icc$"
+      ],
+      "description": "EMV Integrated Circuit Card specifications",
+      "weight": 100,
+      "data": {
+        "official_name": "EMV Integrated Circuit Card Specifications",
+        "notes": "Multi-book specification series for chip cards (Book 1: Application Independent ICC to Terminal Interface; Book 2: Security and Key Management; Book 3: Application Specification; Book 4: Cardholder, Attendant, and Acquirer Interface).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.emvco.com/specifications/"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "book-2",
+            "note": "EMV Book 2 — Security and Key Management"
+          },
+          {
+            "input": "3ds",
+            "note": "EMV 3-D Secure"
+          },
+          {
+            "input": "tokenization",
+            "note": "EMV Payment Tokenisation"
+          }
+        ]
+      }
+    }
+  ]
+}

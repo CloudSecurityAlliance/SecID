@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "namespace": "payments.ca",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Payments Canada",
+  "common_name": "Payments Canada",
+  "alternate_names": null,
+  "notes": "Canadian retail and large-value payment system operator. Runs Lynx (large-value), ACSS (retail clearing), and the Real-Time Rail (RTR, in development). Publishes by-laws and operational rules that participating financial institutions must follow. Rules are public; some operational specs are members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.payments.ca"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^lynx$"
+      ],
+      "description": "Lynx — Canadian large-value payment system",
+      "weight": 100,
+      "data": {
+        "official_name": "Lynx",
+        "notes": "Canada's RTGS large-value payment system. By-laws are public; operational/security specs members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.payments.ca/our-systems/our-payment-systems/lynx"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^acss$"
+      ],
+      "description": "ACSS — Automated Clearing Settlement System",
+      "weight": 100,
+      "data": {
+        "official_name": "ACSS - Automated Clearing Settlement System",
+        "notes": "Canadian retail clearing system. Rules are public; operational specs members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.payments.ca/our-systems/our-payment-systems/acss"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^rtr$",
+        "(?i)^real-time-rail$"
+      ],
+      "description": "Real-Time Rail (RTR) — Canadian instant payments",
+      "weight": 100,
+      "data": {
+        "official_name": "Real-Time Rail (RTR)",
+        "notes": "Canada's emerging real-time payment system. Members-only operational/security requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.payments.ca/our-systems/our-payment-systems/rtr"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

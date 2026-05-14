@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "atis.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Alliance for Telecommunications Industry Solutions",
+  "common_name": "ATIS",
+  "alternate_names": null,
+  "notes": "US-based standards organization for the telecommunications industry. Publishes ATIS standards covering 5G security, SS7, network management, and various telecom-specific topics. Paid / members.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.atis.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^standards$",
+        "(?i)^atis-(\\d+)$"
+      ],
+      "description": "ATIS standards (generic)",
+      "weight": 100,
+      "data": {
+        "notes": "Paid. ATIS publishes hundreds of standards covering telecom interoperability, 5G security, network function virtualization, and related areas.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.atis.org/standards/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
