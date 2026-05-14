@@ -410,6 +410,26 @@ This is a **specification-only repository** — no build system, no tests, no co
 - Force a fresh KV sync: `gh workflow run "Upload registry to KV" -R CloudSecurityAlliance/SecID-Service`
 - Local audit (no mutations): `npx tsx scripts/upload-registry-kv.ts --sync --dry-run /path/to/SecID` from the SecID-Service repo with `CLOUDFLARE_API_TOKEN` env var set
 
+**Checking deploy-chain health** (do this when a registry change doesn't seem to be reaching the live resolver):
+
+```bash
+# Should show recent successful runs of "Notify registry update"
+gh run list -R CloudSecurityAlliance/SecID -L 5
+
+# Should show recent successful runs of "Upload registry to KV" triggered as "registry-updated"
+gh run list -R CloudSecurityAlliance/SecID-Service -L 5
+
+# End-to-end check via live resolver (replace with any recently-merged namespace):
+curl -s https://secid.cloudsecurityalliance.org/api/v1/resolve/secid:control/iso.org/27017 | head
+```
+
+Failure modes seen historically (none active as of the last verification):
+- `SECID_TO_SERVICE_DISPATCH` PAT unauthorized — auto-trigger workflow on SecID side fails on the dispatch step
+- `cve-schema` test failures in SecID-Service — manual `Upload registry to KV` runs fail in the test stage
+- `CLOUDFLARE_API_TOKEN` expired/scoped wrong — upload step fails
+
+If health-check commands show failures, inspect the failing run's logs and check token validity first.
+
 ## Commit and PR Style
 
 Use short, imperative commit subjects (e.g., "Add EUVD advisory namespace", "Update Red Hat errata patterns"). One logical change per commit. For PRs that modify regex patterns, include a note about regex safety (anchored, no catastrophic backtracking).
