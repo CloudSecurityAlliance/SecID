@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "jsa.or.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Japanese Standards Association",
+  "common_name": "JSA",
+  "alternate_names": [
+    "JIS publisher"
+  ],
+  "notes": "Japanese national standards developer and publisher. Operates webdesk.jsa.or.jp as the standards sales portal. Most JIS standards relevant to information security (JIS Q-series) are Japanese editions of ISO/IEC originals — e.g., JIS Q 27001 = ISO/IEC 27001. Standards are paywalled at JSA. Not redistributable. The Japanese Industrial Standards Committee (JISC) is the broader policy body; JSA is the publisher.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.jsa.or.jp"
+    },
+    {
+      "type": "store",
+      "url": "https://webdesk.jsa.or.jp/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^jis-?q-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "JIS Q-series — Japanese editions of ISO/IEC management-system standards",
+      "weight": 50,
+      "data": {
+        "notes": "JIS Q-series standards are Japanese national editions of ISO/IEC management-system standards. Technical content tracks the ISO master; cross-reference secid:control/iso.org/<n>. Paywalled at JSA.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://webdesk.jsa.or.jp/"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "jis-q-27001",
+            "note": "JIS Q 27001 — Japanese edition of ISO/IEC 27001."
+          },
+          {
+            "input": "jis-q-15001",
+            "note": "JIS Q 15001 — Personal Information Protection Management Systems (Japanese-original)."
+          }
+        ]
+      }
+    }
+  ]
+}

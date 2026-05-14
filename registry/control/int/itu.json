@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "namespace": "itu.int",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Telecommunication Union",
+  "common_name": "ITU",
+  "alternate_names": [
+    "ITU-T"
+  ],
+  "notes": "United Nations specialized agency for ICT, three sectors: ITU-T (Standardization), ITU-R (Radiocommunication), ITU-D (Development). ITU-T Recommendations are FREE TO DOWNLOAD from itu.int — but ITU retains copyright and explicit permission is required for redistribution / republication (see https://www.itu.int/en/Pages/copyright.aspx). Same posture as AICPA TSC: access is free, redistribution is not granted by default. Notable security recommendations: X.805 (security architecture), X.1051 (info security management for telecom orgs — basis for ISO/IEC 27011), X.509 (certificate format), X.1500-series (cybersecurity exchange formats).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.itu.int"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.itu.int/rec/T-REC/",
+      "note": "ITU-T Recommendations index — free download."
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^x\\.805$"
+      ],
+      "description": "ITU-T X.805 — Security architecture for end-to-end communications",
+      "weight": 100,
+      "data": {
+        "official_name": "ITU-T X.805 - Security architecture for systems providing end-to-end communications",
+        "notes": "Free to download from itu.int. Redistribution requires ITU permission. Defines a layered/planes/dimensions security architecture model widely cited in telecom and network security work.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.itu.int/rec/T-REC-X.805/en"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2003",
+            "release_date": "2003-10-29",
+            "status": "current",
+            "note": "ITU-T X.805 (10/2003)."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^x\\.1051$"
+      ],
+      "description": "ITU-T X.1051 — Information security management for telecommunications organizations",
+      "weight": 100,
+      "data": {
+        "official_name": "ITU-T X.1051 - Information security management guidelines for telecommunications organizations based on ISO/IEC 27002",
+        "notes": "Free to download from itu.int. Redistribution requires ITU permission. ITU-T's ISMS guidance for telecom organizations; technical basis for ISO/IEC 27011.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.itu.int/rec/T-REC-X.1051/en"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2016",
+            "release_date": "2016-04-29",
+            "status": "current",
+            "note": "ITU-T X.1051 (04/2016)."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

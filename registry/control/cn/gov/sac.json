@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sac.gov.cn",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Standardization Administration of China",
+  "common_name": "SAC",
+  "alternate_names": null,
+  "notes": "Chinese national standards administration. Publishes the GB (mandatory) and GB/T (recommended) standards series. SAC and the State Administration for Market Regulation (SAMR) jointly operate the standards portals std.samr.gov.cn and openstd.samr.gov.cn. Cybersecurity standards under TC260 (covered at secid:control/cn/org/tc260.json) are the most-cited subset; SAC is the broader parent for non-cyber-specific national standards. License posture: mostly paywalled with selective free access for mandatory GB standards.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sac.gov.cn"
+    },
+    {
+      "type": "store",
+      "url": "https://openstd.samr.gov.cn/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^gb-?t-?22080$"
+      ],
+      "description": "GB/T 22080 — Chinese national edition of ISO/IEC 27001",
+      "weight": 100,
+      "data": {
+        "official_name": "GB/T 22080 - Information technology — Security techniques — Information security management systems — Requirements",
+        "notes": "Chinese national edition of ISO/IEC 27001. Technical content tracks the ISO master; cross-reference secid:control/iso.org/27001.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://openstd.samr.gov.cn/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2016",
+            "release_date": "2016-08-29",
+            "status": "current",
+            "note": "GB/T 22080-2016 (adopts ISO/IEC 27001:2013)."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^gb-?t-?22239$"
+      ],
+      "description": "GB/T 22239 — Information Security Technology — Baseline for Classified Protection of Cybersecurity (MLPS 2.0)",
+      "weight": 100,
+      "data": {
+        "official_name": "GB/T 22239 - Information Security Technology — Baseline for Classified Protection of Cybersecurity",
+        "notes": "The control baseline underlying China's Multi-Level Protection Scheme (MLPS 2.0). Mandatory technical baseline for systems within China's classified-protection regime. Distinct from ISO/IEC 27002; a Chinese-original control framework.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://openstd.samr.gov.cn/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-05-10",
+            "status": "current",
+            "note": "GB/T 22239-2019 (MLPS 2.0)."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
