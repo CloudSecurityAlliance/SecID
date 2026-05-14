@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bcb.gov.br",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Banco Central do Brasil",
+  "common_name": "BCB",
+  "alternate_names": null,
+  "notes": "Brazilian central bank. Operates PIX — the Brazilian real-time payment system (the world's 2nd-largest RTP by volume after India's UPI). PIX participation rules and security manuals are publicly published by BCB, though some operational specs are restricted to participating institutions.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bcb.gov.br"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pix$"
+      ],
+      "description": "PIX — Brazilian real-time payments",
+      "weight": 100,
+      "data": {
+        "official_name": "Pix - Brazilian Real-Time Payments System",
+        "notes": "Free download of public manuals from bcb.gov.br; participant operational manuals partially restricted. Launched 2020; processes billions of transactions monthly.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bcb.gov.br/en/financialstability/pix"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

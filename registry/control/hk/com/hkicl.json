@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hkicl.com.hk",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Hong Kong Interbank Clearing Limited",
+  "common_name": "HKICL",
+  "alternate_names": null,
+  "notes": "Operator of Hong Kong's interbank clearing infrastructure. Runs CHATS (Clearing House Automated Transfer System — Hong Kong RTGS) and FPS (Faster Payment System — Hong Kong real-time payments).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.hkicl.com.hk"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fps$"
+      ],
+      "description": "FPS — Hong Kong Faster Payment System",
+      "weight": 100,
+      "data": {
+        "official_name": "Faster Payment System (FPS)",
+        "notes": "Members-only operational rules. Hong Kong's real-time payment system supporting HKD and CNY.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://fps.hkicl.com.hk"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^chats$"
+      ],
+      "description": "CHATS — Hong Kong RTGS",
+      "weight": 100,
+      "data": {
+        "official_name": "Clearing House Automated Transfer System (CHATS)",
+        "notes": "Members-only. Hong Kong's RTGS system supporting HKD, USD, EUR, and CNY clearing.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cartes-bancaires.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Cartes Bancaires CB",
+  "common_name": "CB",
+  "alternate_names": null,
+  "notes": "French domestic card scheme operated by the bank consortium GIE-CB. Dominant in French domestic card payments alongside Visa/MC.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cartes-bancaires.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cb$"
+      ],
+      "description": "Cartes Bancaires CB",
+      "weight": 100,
+      "data": {
+        "official_name": "Cartes Bancaires CB",
+        "notes": "Members-only. French domestic card scheme. Most French cards are co-badged CB + Visa or CB + Mastercard.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cartes-bancaires.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
