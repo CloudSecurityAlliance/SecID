@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ethercat.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "EtherCAT Technology Group",
+  "common_name": "ETG",
+  "alternate_names": null,
+  "notes": "International industrial-networking organization for EtherCAT. Publishes EtherCAT specifications including EtherCAT Safety and EtherCAT Security profiles. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ethercat.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^safety$",
+        "(?i)^ethercat-safety$"
+      ],
+      "description": "EtherCAT Safety (FSoE — Functional Safety over EtherCAT)",
+      "weight": 100,
+      "data": {
+        "official_name": "EtherCAT FSoE - Functional Safety over EtherCAT",
+        "notes": "Members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ethercat.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^security$"
+      ],
+      "description": "EtherCAT Security profile",
+      "weight": 100,
+      "data": {
+        "official_name": "EtherCAT Security",
+        "notes": "Members-only. Security extensions for EtherCAT industrial networks, aligned with IEC 62443.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

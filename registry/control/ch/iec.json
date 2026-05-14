@@ -48,6 +48,66 @@
           }
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^61508(-\\d+)?$"],
+      "description": "IEC 61508 — Foundational functional safety standard",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 61508 - Functional safety of electrical/electronic/programmable electronic safety-related systems",
+        "notes": "Paywalled. Multi-part (7 parts). The foundational functional-safety standard; basis for industry-specific derivations (61511 process, 61513 nuclear, 62061 machinery, 26262 automotive, 50128 rail).",
+        "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/5515"}],
+        "versions_available": [{"version": "2010", "release_date": "2010-04-01", "status": "current", "note": "IEC 61508:2010 (Edition 2.0)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^61511(-\\d+)?$"],
+      "description": "IEC 61511 — Functional safety for the process industry",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 61511 - Functional safety - Safety instrumented systems for the process industry sector",
+        "notes": "Paywalled. Process-industry derivation of IEC 61508 for safety instrumented systems (SIS).",
+        "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/24241"}],
+        "versions_available": [{"version": "2016", "release_date": "2016-08-01", "status": "current", "note": "IEC 61511:2016 (Edition 2.0)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^62061$"],
+      "description": "IEC 62061 — Functional safety of machinery control systems",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 62061 - Safety of machinery - Functional safety of safety-related control systems",
+        "notes": "Paywalled. Machinery-specific functional-safety standard, alternative path to ISO 13849 for machinery designers.",
+        "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/59927"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-03-01", "status": "current", "note": "IEC 62061:2021."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^60601(-\\d+(?:-\\d+)?)?$"],
+      "description": "IEC 60601 — Medical electrical equipment safety",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 60601 - Medical electrical equipment - General requirements for basic safety and essential performance",
+        "notes": "Paywalled. Multi-part. The foundational medical-electrical-equipment safety standard required globally for medical device approvals. Cybersecurity is increasingly addressed in collateral standards (60601-1-2 EMC) and particular standards.",
+        "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/2606"}],
+        "versions_available": [{"version": "2020", "release_date": "2020-08-01", "status": "current", "note": "IEC 60601-1:2005+AMD1:2012+AMD2:2020 (Edition 3.2)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^62366(-\\d+)?$"],
+      "description": "IEC 62366 — Usability engineering for medical devices",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 62366 - Medical devices - Application of usability engineering to medical devices",
+        "notes": "Paywalled. Usability-engineering standard for medical devices; complements ISO 14971 risk management and IEC 60601 safety.",
+        "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/24664"}],
+        "versions_available": [{"version": "2015", "release_date": "2015-02-01", "status": "current", "note": "IEC 62366-1:2015 + AMD1:2020."}],
+        "examples": []
+      }
     }
   ]
 }

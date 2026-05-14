@@ -696,6 +696,126 @@
         "versions_available": [{"version": "2022", "release_date": "2022-08-01", "status": "current", "note": "ISO/IEC TR 24368:2022."}],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^29134$"],
+      "description": "ISO/IEC 29134 — Privacy impact assessment guidelines",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 29134 - Guidelines for privacy impact assessment",
+        "notes": "Paywalled. Methodology for PIA (privacy impact assessment) processes.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/62289.html"}],
+        "versions_available": [{"version": "2017", "release_date": "2017-06-01", "status": "current", "note": "ISO/IEC 29134:2017."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^29151$"],
+      "description": "ISO/IEC 29151 — Code of practice for PII protection",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 29151 - Code of practice for personally identifiable information protection",
+        "notes": "Paywalled. Practitioner-oriented PII protection guidance derived from ISO/IEC 27002 controls; complementary to ISO/IEC 27701.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/62726.html"}],
+        "versions_available": [{"version": "2017", "release_date": "2017-08-01", "status": "current", "note": "ISO/IEC 29151:2017."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^29184$"],
+      "description": "ISO/IEC 29184 — Online privacy notices and consent",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 29184 - Online privacy notices and consent",
+        "notes": "Paywalled. Structure and content for online privacy notices plus consent mechanisms.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/70331.html"}],
+        "versions_available": [{"version": "2020", "release_date": "2020-06-01", "status": "current", "note": "ISO/IEC 29184:2020."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27551$"],
+      "description": "ISO/IEC 27551 — Attribute-based unlinkable entity authentication",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27551 - Requirements for attribute-based unlinkable entity authentication",
+        "notes": "Paywalled. Privacy-preserving authentication where verifiers learn attributes without linking back to a global identifier.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72018.html"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-09-01", "status": "current", "note": "ISO/IEC 27551:2021."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27559$"],
+      "description": "ISO/IEC 27559 — Privacy-enhancing data de-identification framework",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27559 - Privacy enhancing data de-identification framework",
+        "notes": "Paywalled. Framework for de-identification techniques and assurance of de-identified datasets.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/71677.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-11-01", "status": "current", "note": "ISO/IEC 27559:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^31700(-\\d+)?$"],
+      "description": "ISO 31700 — Consumer protection: Privacy by design for consumer goods and services",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 31700 - Consumer protection - Privacy by design for consumer goods and services",
+        "notes": "Paywalled. The first ISO standard to formalize Privacy by Design as international consensus.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/84977.html"}],
+        "versions_available": [{"version": "2023", "release_date": "2023-02-01", "status": "current", "note": "ISO 31700-1:2023 (requirements); 31700-2:2023 (use cases)."}],
+        "examples": [{"input": "31700-1", "note": "Requirements"}, {"input": "31700-2", "note": "Use cases"}]
+      }
+    },
+    {
+      "patterns": ["(?i)^13849(-\\d+)?$"],
+      "description": "ISO 13849 — Safety of machinery: safety-related parts of control systems",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 13849 - Safety of machinery - Safety-related parts of control systems",
+        "notes": "Paywalled. Multi-part. Functional-safety standard for machinery control systems using Performance Levels (PL).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/73481.html"}],
+        "versions_available": [{"version": "2023", "release_date": "2023-04-01", "status": "current", "note": "ISO 13849-1:2023."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^14971$"],
+      "description": "ISO 14971 — Medical device risk management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 14971 - Medical devices - Application of risk management to medical devices",
+        "notes": "Paywalled. Foundational medical-device risk-management standard required by FDA and EU MDR.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72704.html"}],
+        "versions_available": [{"version": "2019", "release_date": "2019-12-01", "status": "current", "note": "ISO 14971:2019."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^13485$"],
+      "description": "ISO 13485 — Medical devices QMS",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 13485 - Medical devices - Quality management systems - Requirements for regulatory purposes",
+        "notes": "Paywalled. The international quality-management standard for medical device manufacturers; required for many regulatory regimes (FDA, EU MDR, Health Canada).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/59752.html"}],
+        "versions_available": [{"version": "2016", "release_date": "2016-03-01", "status": "current", "note": "ISO 13485:2016 + A11:2021."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^80001(-\\d+)?$"],
+      "description": "ISO/IEC 80001 — Risk management for IT networks incorporating medical devices",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 80001 - Application of risk management for IT-networks incorporating medical devices",
+        "notes": "Paywalled. Multi-part. Risk-management standard for medical IT networks bridging hospital IT and medical-device manufacturers.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72026.html"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-09-01", "status": "current", "note": "ISO/IEC 80001-1:2021."}],
+        "examples": [{"input": "80001-1", "note": "Core risk management"}, {"input": "80001-5-1", "note": "Activities in the product lifecycle"}]
+      }
     }
   ]
 }
