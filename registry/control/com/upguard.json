@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "upguard.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "UpGuard",
+  "common_name": "UpGuard",
+  "alternate_names": null,
+  "notes": "Commercial vendor-risk and breach-detection platform. Methodology proprietary; SecID identity record only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.upguard.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^rating$"
+      ],
+      "description": "UpGuard vendor risk rating",
+      "weight": 100,
+      "data": {
+        "official_name": "UpGuard Vendor Risk Rating",
+        "notes": "Proprietary methodology.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.upguard.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

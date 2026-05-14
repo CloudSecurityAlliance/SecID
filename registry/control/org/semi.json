@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "semi.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "SEMI - Semiconductor Equipment and Materials International",
+  "common_name": "SEMI",
+  "alternate_names": null,
+  "notes": "Global semiconductor industry association. Publishes SEMI standards covering semiconductor equipment, materials, and increasingly fab cybersecurity (SEMI E187 - Specification for Cybersecurity of Fab Equipment). Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.semi.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^e187$"
+      ],
+      "description": "SEMI E187 — Cybersecurity of Fab Equipment",
+      "weight": 100,
+      "data": {
+        "official_name": "SEMI E187 - Specification for Cybersecurity of Fab Equipment",
+        "notes": "Paid. The dominant cybersecurity specification for semiconductor manufacturing equipment. Aligned with NIST CSF and IEC 62443.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.semi.org/en/products-services/standards"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-01-01",
+            "status": "current",
+            "note": "SEMI E187-0922."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

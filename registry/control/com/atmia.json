@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "atmia.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ATM Industry Association",
+  "common_name": "ATMIA",
+  "alternate_names": null,
+  "notes": "Global trade association for the ATM industry. Publishes ATM Security Best Practices and the Next Generation ATM Architecture framework. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.atmia.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-best-practices$"
+      ],
+      "description": "ATMIA ATM Security Best Practices",
+      "weight": 100,
+      "data": {
+        "official_name": "ATMIA ATM Security Best Practices",
+        "notes": "Members-only. Operational and physical security framework for ATM deployers and operators.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.atmia.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

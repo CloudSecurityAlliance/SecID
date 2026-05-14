@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bimco.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Baltic and International Maritime Council",
+  "common_name": "BIMCO",
+  "alternate_names": null,
+  "notes": "Maritime industry association representing shipowners, operators, brokers. Publishes standard charter-party clauses including the BIMCO Cyber Security Clause for time charters and voyage charters. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bimco.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyber-security-clause$"
+      ],
+      "description": "BIMCO Cyber Security Clause",
+      "weight": 100,
+      "data": {
+        "official_name": "BIMCO Cyber Security Clause for Time Charter Parties and Voyage Charter Parties",
+        "notes": "Members-only. Standardised cyber-security contractual language for charter parties, now widely adopted in maritime trade.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bimco.org/contracts-and-clauses/bimco-clauses/current/cyber-security-clause-2019"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-06-01",
+            "status": "current",
+            "note": "BIMCO Cyber Security Clause 2019."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

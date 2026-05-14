@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bitsight.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "BitSight Technologies",
+  "common_name": "BitSight",
+  "alternate_names": null,
+  "notes": "Commercial cybersecurity-ratings provider. Methodology is proprietary and not published as a document; cited widely in third-party risk and cyber-insurance work. SecID identity record only — no companion private-repo stub.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bitsight.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^rating$"
+      ],
+      "description": "BitSight Security Rating methodology",
+      "weight": 100,
+      "data": {
+        "official_name": "BitSight Security Rating",
+        "notes": "Proprietary. Methodology not published as a document. Citations point at BitSight's website.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bitsight.com/security-ratings"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

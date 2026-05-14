@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "namespace": "crest-approved.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "CREST",
+  "common_name": "CREST",
+  "alternate_names": [
+    "Council of Registered Ethical Security Testers"
+  ],
+  "notes": "International accreditation body for cybersecurity service providers. Operates examination and certification schemes including CHECK (UK National Cyber Security Centre approved pentest scheme) and STAR (Simulated Targeted Attack and Response). Members-only standards and methodologies.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.crest-approved.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^check$"
+      ],
+      "description": "CREST CHECK — UK NCSC-approved penetration testing",
+      "weight": 100,
+      "data": {
+        "official_name": "CREST CHECK Penetration Testing Service",
+        "notes": "Members-only methodology. CHECK is the UK NCSC-approved scheme for penetration testing of HMG and CNI systems.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.crest-approved.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^star$"
+      ],
+      "description": "CREST STAR — Simulated Targeted Attack and Response",
+      "weight": 100,
+      "data": {
+        "official_name": "CREST STAR - Simulated Targeted Attack and Response",
+        "notes": "Members-only. Red-team / threat-led penetration testing methodology used in UK financial-sector CBEST and EU TIBER-EU programmes.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
