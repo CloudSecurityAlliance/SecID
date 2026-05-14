@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "americanchemistry.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Chemistry Council",
+  "common_name": "ACC",
+  "alternate_names": null,
+  "notes": "US chemical-industry trade association. Operates the Responsible Care programme including the Responsible Care Security Code — mandatory for ACC members. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.americanchemistry.com"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.americanchemistry.com/better-policy-regulation/responsible-care"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^responsible-care-security-code$",
+        "(?i)^rcsc$"
+      ],
+      "description": "Responsible Care Security Code",
+      "weight": 100,
+      "data": {
+        "official_name": "Responsible Care Security Code (RCSC)",
+        "notes": "Members-only — mandatory for ACC members. Covers physical security, cyber security, transportation security, and product security.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.americanchemistry.com/better-policy-regulation/responsible-care"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

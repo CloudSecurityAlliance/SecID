@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mesa.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Manufacturing Enterprise Solutions Association",
+  "common_name": "MESA",
+  "alternate_names": null,
+  "notes": "Manufacturing IT/OT industry association. Publishes the MESA Smart Manufacturing Working Group outputs, B2MML XML standards, and MESA's Smart Manufacturing capabilities/maturity model. Members-only / paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mesa.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^smart-manufacturing$"
+      ],
+      "description": "MESA Smart Manufacturing model",
+      "weight": 100,
+      "data": {
+        "official_name": "MESA Smart Manufacturing Working Group outputs",
+        "notes": "Members-only / paid.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.mesa.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

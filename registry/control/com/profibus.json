@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "profibus.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "PROFIBUS & PROFINET International",
+  "common_name": "PI",
+  "alternate_names": [
+    "PROFIBUS",
+    "PROFINET"
+  ],
+  "notes": "International industrial-automation networking organization. Publishes PROFIBUS, PROFINET, and IO-Link specifications including PROFINET Security Class profiles. Members-only specifications.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.profibus.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^profinet-security$"
+      ],
+      "description": "PROFINET Security Class profiles",
+      "weight": 100,
+      "data": {
+        "official_name": "PROFINET Security Class 1/2/3 profiles",
+        "notes": "Members-only. Layered cybersecurity profiles for industrial PROFINET networks; aligned with IEC 62443.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.profibus.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

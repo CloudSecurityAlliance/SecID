@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "awwa.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Water Works Association",
+  "common_name": "AWWA",
+  "alternate_names": null,
+  "notes": "US water-utility trade association. Publishes AWWA G-series standards including G430 Security Practices for Operation and Management. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.awwa.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^g430$"
+      ],
+      "description": "AWWA G430 — Security Practices for Operation and Management",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSI/AWWA G430 - Security Practices for Operation and Management",
+        "notes": "Paid. Water-utility-specific operational security practices.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.awwa.org/Store"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

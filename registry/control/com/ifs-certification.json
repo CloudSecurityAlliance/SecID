@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ifs-certification.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Featured Standards",
+  "common_name": "IFS",
+  "alternate_names": null,
+  "notes": "Owner of the IFS family of standards (Food, Wholesale/Cash & Carry, Logistics, Broker, HPC). Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ifs-certification.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^food$"
+      ],
+      "description": "IFS Food Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "IFS Food Standard for auditing food products",
+        "notes": "Paid.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ifs-certification.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aiche.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Institute of Chemical Engineers",
+  "common_name": "AIChE",
+  "alternate_names": null,
+  "notes": "Professional society for chemical engineers. Publishes guidelines through the Center for Chemical Process Safety (CCPS) including the CCPS Guidelines for Cybersecurity in the Chemical Industry. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.aiche.org"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.aiche.org/ccps"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ccps-cybersecurity$"
+      ],
+      "description": "CCPS Guidelines for Cybersecurity in the Chemical Industry",
+      "weight": 100,
+      "data": {
+        "official_name": "CCPS Guidelines for Cybersecurity in the Chemical Industry",
+        "notes": "Paid. CCPS-published practitioner guidance for chemical-industry process-cybersecurity.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.aiche.org/ccps"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

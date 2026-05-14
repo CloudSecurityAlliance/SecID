@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "h-isac.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Health Information Sharing and Analysis Center",
+  "common_name": "H-ISAC",
+  "alternate_names": null,
+  "notes": "Member-driven ISAC for the global health sector — providers, payers, pharma, medical-device manufacturers. Publishes threat intel and operational guidance. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://h-isac.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^threat-intel$"
+      ],
+      "description": "H-ISAC threat intelligence and operational guidance",
+      "weight": 100,
+      "data": {
+        "official_name": "H-ISAC Threat Intelligence and Operational Guidance",
+        "notes": "Members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://h-isac.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

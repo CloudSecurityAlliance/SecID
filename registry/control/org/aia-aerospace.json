@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aia-aerospace.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Aerospace Industries Association",
+  "common_name": "AIA Aerospace",
+  "alternate_names": null,
+  "notes": "US aerospace and defense industry trade association. Publishes the National Aerospace Standards (NAS) series and the AIA Aerospace Cybersecurity Standard for the Aerospace and Defense Industry. **NOTE: distinct from American Institute of Architects (aia.org).** Paid via AIA / IHS Markit.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.aia-aerospace.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nas-?(\\d+)$"
+      ],
+      "description": "National Aerospace Standards (NAS)",
+      "weight": 100,
+      "data": {
+        "official_name": "AIA National Aerospace Standards (NAS) series",
+        "notes": "Paid. Aerospace component and equipment specifications.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.aia-aerospace.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

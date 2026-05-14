@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ndia.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Defense Industrial Association",
+  "common_name": "NDIA",
+  "alternate_names": null,
+  "notes": "US-based defense industrial trade association. Publishes guidance through its System Security Engineering Committee, Cybersecurity Division, and other working groups. Members-only guidance plus public position papers.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ndia.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sse-guide$"
+      ],
+      "description": "NDIA System Security Engineering Guidebook",
+      "weight": 100,
+      "data": {
+        "official_name": "NDIA System Security Engineering Guidebook",
+        "notes": "Members-only. Companion to NIST SP 800-160 v1 in defense-industrial practice.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ndia.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
