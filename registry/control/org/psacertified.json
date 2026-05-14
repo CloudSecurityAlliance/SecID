@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "namespace": "psacertified.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "PSA Certified",
+  "common_name": "PSA Certified",
+  "alternate_names": [
+    "Arm Platform Security Architecture"
+  ],
+  "notes": "IoT-device security-certification programme established by Arm and partners. Publishes the PSA Certified Threat Model and Security Analysis (TMSA), PSA Functional API, and PSA Certified Level 1/2/3 evaluation profiles. Mixed access — some specs free, certification work paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.psacertified.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^tmsa$"
+      ],
+      "description": "PSA Threat Model and Security Analysis",
+      "weight": 100,
+      "data": {
+        "official_name": "PSA Certified Threat Model and Security Analysis",
+        "notes": "Free download with PSA Certified copyright. Reference TMSA for IoT-device security analysis.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.psacertified.org/development-resources/building-in-security/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^level-(\\d+)$"
+      ],
+      "description": "PSA Certified Level 1/2/3 evaluation profiles",
+      "weight": 100,
+      "data": {
+        "official_name": "PSA Certified Level 1, Level 2, Level 3 evaluation profiles",
+        "notes": "Mixed access. Evaluation criteria for IoT-device security certification.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

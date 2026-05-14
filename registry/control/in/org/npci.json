@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "namespace": "npci.org.in",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Payments Corporation of India",
+  "common_name": "NPCI",
+  "alternate_names": null,
+  "notes": "Indian umbrella organization for retail payments. Operates UPI (Unified Payments Interface — world's largest real-time payments system by volume), IMPS, RuPay (domestic card scheme), and NACH. Technical specs partly public; participant security and operational rules are members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.npci.org.in"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^upi$"
+      ],
+      "description": "UPI — Unified Payments Interface",
+      "weight": 100,
+      "data": {
+        "official_name": "Unified Payments Interface (UPI)",
+        "notes": "Members-only for participant security rules; technical API specs are partially public. UPI processes 10+ billion transactions monthly (2024) — world's largest by volume.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.npci.org.in/what-we-do/upi/product-overview"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^rupay$"
+      ],
+      "description": "RuPay — Indian domestic card scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "RuPay",
+        "notes": "Members-only. NPCI's domestic card network; PCI-DSS-aligned plus India-specific requirements.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^imps$"
+      ],
+      "description": "IMPS — Immediate Payment Service",
+      "weight": 100,
+      "data": {
+        "official_name": "Immediate Payment Service (IMPS)",
+        "notes": "Members-only. NPCI's interbank instant-payment service.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dsci.in",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Data Security Council of India",
+  "common_name": "DSCI",
+  "alternate_names": null,
+  "notes": "Indian industry body for cybersecurity and data privacy. NASSCOM-affiliated. Publishes the DSCI Privacy Framework (DPF) and DSCI Best Practices Approach (DBPA). Paid materials.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.dsci.in"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^dpf$"
+      ],
+      "description": "DSCI Privacy Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "DSCI Privacy Framework (DPF)",
+        "notes": "Paid. India-specific privacy framework for organizations operating under DPDP Act 2023.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.dsci.in"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

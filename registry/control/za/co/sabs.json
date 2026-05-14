@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sabs.co.za",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "South African Bureau of Standards",
+  "common_name": "SABS",
+  "alternate_names": null,
+  "notes": "South African national standards body. Publishes SANS (South African National Standards) including local adoptions of ISO/IEC and SABS-original standards. Paywalled at store.sabs.co.za.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sabs.co.za"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sans-iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "SANS ISO/IEC adoptions",
+      "weight": 100,
+      "data": {
+        "official_name": "SANS - South African National Standards (ISO/IEC adoptions)",
+        "notes": "Paywalled. SANS-prefixed numbers are South African editions; technical content tracks the ISO master.",
+        "urls": [
+          {
+            "type": "store",
+            "url": "https://store.sabs.co.za"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
