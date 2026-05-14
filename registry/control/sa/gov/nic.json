@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nic.gov.sa",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Information Centre (Saudi Arabia)",
+  "common_name": "NIC",
+  "alternate_names": null,
+  "notes": "Saudi national information centre. Operates Nafath — the Saudi national digital identity / single sign-on platform. Used for government services and private-sector identity verification.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nic.gov.sa"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nafath$"
+      ],
+      "description": "Nafath — Saudi digital identity SSO",
+      "weight": 100,
+      "data": {
+        "official_name": "Nafath",
+        "notes": "Saudi national SSO and identity-verification platform. Public docs partly available; participant rules partly restricted.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

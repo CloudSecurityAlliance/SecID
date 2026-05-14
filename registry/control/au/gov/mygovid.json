@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mygovid.gov.au",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "myID (formerly myGovID)",
+  "common_name": "myID",
+  "alternate_names": [
+    "myGovID"
+  ],
+  "notes": "Australian government digital identity service. Recently rebranded from myGovID to myID. Run by Services Australia / Australian Taxation Office.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mygovid.gov.au"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^myid$",
+        "(?i)^mygovid$"
+      ],
+      "description": "myID — Australian digital identity",
+      "weight": 100,
+      "data": {
+        "official_name": "myID (formerly myGovID)",
+        "notes": "Australian government digital identity used for ATO, business registries, and federal services. Public technical docs; participant rules partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.mygovid.gov.au"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

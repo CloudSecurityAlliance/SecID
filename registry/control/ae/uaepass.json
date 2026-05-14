@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "uaepass.ae",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "UAE Pass",
+  "common_name": "UAE Pass",
+  "alternate_names": null,
+  "notes": "UAE national digital identity system. Operated by Telecommunications and Digital Government Regulatory Authority (TDRA) jointly with Smart Dubai and ADDA (Abu Dhabi Digital Authority).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.uaepass.ae"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^uaepass$"
+      ],
+      "description": "UAE Pass — UAE national digital identity",
+      "weight": 100,
+      "data": {
+        "official_name": "UAE Pass",
+        "notes": "Public technical docs; participant rules restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.uaepass.ae"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

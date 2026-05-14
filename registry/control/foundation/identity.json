@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "identity.foundation",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Decentralized Identity Foundation",
+  "common_name": "DIF",
+  "alternate_names": null,
+  "notes": "Open-source consortium developing decentralized-identity standards (DIDs, Verifiable Credentials, DIDComm). Working-group outputs are mostly free / open-source; specifications are typically Apache 2.0 or W3C-licensed.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://identity.foundation"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^did-?(\\w+)?$"
+      ],
+      "description": "DID Methods and related DIF specifications",
+      "weight": 100,
+      "data": {
+        "official_name": "DIF DID Methods + DIDComm + Verifiable Credentials specifications",
+        "notes": "Free / open-source. DIF working groups produce specifications under permissive licenses.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://identity.foundation/working-groups/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
