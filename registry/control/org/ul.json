@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ul.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "UL Standards & Engagement",
+  "common_name": "UL",
+  "alternate_names": [
+    "Underwriters Laboratories"
+  ],
+  "notes": "US-based safety-science and standards organization. Publishes the UL 2900-series cybersecurity-for-products standards (UL 2900-1 general; UL 2900-2-1 healthcare; UL 2900-2-2 industrial control; UL 2900-2-3 life-safety signaling). Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ul.org"
+    },
+    {
+      "type": "store",
+      "url": "https://www.shopulstandards.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^2900(-\\d+(?:-\\d+)?)?$"
+      ],
+      "description": "UL 2900-series — Software Cybersecurity for Network-Connectable Products",
+      "weight": 100,
+      "data": {
+        "official_name": "UL 2900 - Standard for Software Cybersecurity for Network-Connectable Products",
+        "notes": "Paid. UL 2900-1 (general); UL 2900-2-1 (healthcare and wellness systems); UL 2900-2-2 (industrial control systems); UL 2900-2-3 (security and life safety signaling).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.shopulstandards.com/ProductDetail.aspx?productId=UL2900-1"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "2900-2-1",
+            "note": "Healthcare"
+          },
+          {
+            "input": "2900-2-2",
+            "note": "Industrial control"
+          }
+        ]
+      }
+    }
+  ]
+}
