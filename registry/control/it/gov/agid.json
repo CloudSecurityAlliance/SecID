@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "agid.gov.it",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Agenzia per l'Italia Digitale",
+  "common_name": "AgID",
+  "alternate_names": null,
+  "notes": "Italian government Digital Agency. Operates SPID (Sistema Pubblico di Identità Digitale) — Italy's national digital identity system. Also CIE (Carta d'Identità Elettronica) integration. Technical specs are public; participant rules partly restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.agid.gov.it"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^spid$"
+      ],
+      "description": "SPID — Italian National Digital Identity",
+      "weight": 100,
+      "data": {
+        "official_name": "Sistema Pubblico di Identità Digitale (SPID)",
+        "notes": "Public technical specs at agid.gov.it; SPID participant operating rules partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.agid.gov.it/it/piattaforme/spid"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cie$"
+      ],
+      "description": "CIE — Italian Electronic Identity Card",
+      "weight": 100,
+      "data": {
+        "official_name": "Carta d'Identità Elettronica (CIE)",
+        "notes": "Italian eID card integration specs.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

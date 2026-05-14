@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "singpass.gov.sg",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Singpass / GovTech Singapore",
+  "common_name": "Singpass",
+  "alternate_names": null,
+  "notes": "Singapore's national digital identity system. Operated by Government Technology Agency of Singapore (GovTech). Used for government services and private-sector authentication.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.singpass.gov.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^singpass$"
+      ],
+      "description": "Singpass — Singapore national digital identity",
+      "weight": 100,
+      "data": {
+        "official_name": "Singpass",
+        "notes": "Public technical specs at api.singpass.gov.sg; participant rules partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.singpass.gov.sg"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

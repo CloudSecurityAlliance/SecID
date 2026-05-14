@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "digital.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Digital Agency (Japan)",
+  "common_name": "Digital Agency",
+  "alternate_names": null,
+  "notes": "Japanese government Digital Agency. Operates My Number Card (mai-na-ba-ka-do) — Japan's national digital identity. Established 2021.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.digital.go.jp"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^my-?number$"
+      ],
+      "description": "My Number Card — Japanese national digital identity",
+      "weight": 100,
+      "data": {
+        "official_name": "My Number Card (マイナンバーカード)",
+        "notes": "Public technical specs and participant rules; some details partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.digital.go.jp"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

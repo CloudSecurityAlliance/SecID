@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "alberta.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Government of Alberta",
+  "common_name": "Alberta",
+  "alternate_names": null,
+  "notes": "Government of Alberta canonical portal. Alberta King's Printer (kings-printer.alberta.ca) publishes the consolidated text of provincial statutes.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.alberta.ca"},
+    {"type": "legislation", "url": "https://kings-printer.alberta.ca"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pipa$", "(?i)^alberta-pipa$"],
+      "description": "Personal Information Protection Act (Alberta)",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Information Protection Act",
+        "common_name": "PIPA (Alberta)",
+        "alternate_names": ["Alberta PIPA"],
+        "description": "Alberta's private-sector privacy law (SA 2003 c P-6.5). Substantially similar to PIPEDA.",
+        "urls": [
+          {"type": "website", "url": "https://kings-printer.alberta.ca/documents/Acts/P06P5.pdf"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^hia$", "(?i)^alberta-hia$"],
+      "description": "Health Information Act (Alberta)",
+      "weight": 100,
+      "data": {
+        "official_name": "Health Information Act",
+        "common_name": "HIA (Alberta)",
+        "alternate_names": ["Alberta HIA"],
+        "description": "Alberta's health information privacy law (RSA 2000 c H-5). Governs custodians of health information.",
+        "urls": [
+          {"type": "website", "url": "https://kings-printer.alberta.ca/documents/Acts/H05.pdf"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

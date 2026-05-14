@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.uk",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "GOV.UK (UK Government Digital Service)",
+  "common_name": "GOV.UK",
+  "alternate_names": [
+    "GDS",
+    "DSIT"
+  ],
+  "notes": "UK government umbrella publishing domain. Operates GOV.UK One Login (national digital identity service) and publishes the UK Digital Identity and Attributes Trust Framework. Run by the Government Digital Service (GDS), part of DSIT.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.uk"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^one-?login$"
+      ],
+      "description": "GOV.UK One Login — UK digital identity service",
+      "weight": 100,
+      "data": {
+        "official_name": "GOV.UK One Login",
+        "notes": "Public technical docs at docs.sign-in.service.gov.uk; participant onboarding partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.sign-in.service.gov.uk"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^uk-diatf$",
+        "(?i)^digital-identity-trust-framework$"
+      ],
+      "description": "UK Digital Identity and Attributes Trust Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "UK Digital Identity and Attributes Trust Framework",
+        "notes": "Public publication of the trust framework underpinning UK digital-identity certification.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/uk-digital-identity-and-attributes-trust-framework"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

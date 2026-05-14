@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openid.net",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "OpenID Foundation",
+  "common_name": "OIDF",
+  "alternate_names": null,
+  "notes": "International non-profit standards-development organization. Publishes OpenID Connect, FAPI (Financial-grade API), OpenID4VC (Verifiable Credentials), OpenID4VP (Verifiable Presentations). Specifications are mostly free / open.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://openid.net"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^oidc$",
+        "(?i)^openid-connect$"
+      ],
+      "description": "OpenID Connect",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenID Connect",
+        "notes": "Free / open specification. The dominant authentication-on-OAuth-2.0 standard.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://openid.net/connect/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^fapi$"
+      ],
+      "description": "FAPI — Financial-grade API",
+      "weight": 100,
+      "data": {
+        "official_name": "Financial-grade API (FAPI) Security Profile",
+        "notes": "Free / open. The OAuth 2.0 / OIDC security profile used by UK Open Banking, Berlin Group NextGenPSD2, and others.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://openid.net/wg/fapi/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^openid4vc$",
+        "(?i)^openid4vp$"
+      ],
+      "description": "OpenID for Verifiable Credentials / Presentations",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenID for Verifiable Credentials (OpenID4VC, OpenID4VP)",
+        "notes": "Free / open. The emerging standard for verifiable-credential issuance and presentation, central to the EUDI Wallet and many national digital-identity initiatives.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

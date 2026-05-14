@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.br",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Gov.br (Brazilian Federal Government Identity)",
+  "common_name": "Gov.br",
+  "alternate_names": null,
+  "notes": "Brazilian federal government digital identity platform. Operates the Gov.br ID for federal services. Run by SERPRO and Ministry of Management.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.br"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^gov-?br$"
+      ],
+      "description": "Gov.br ID — Brazilian federal digital identity",
+      "weight": 100,
+      "data": {
+        "official_name": "Gov.br ID",
+        "notes": "Public technical docs; participant rules partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.br/governodigital/pt-br/identidade"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

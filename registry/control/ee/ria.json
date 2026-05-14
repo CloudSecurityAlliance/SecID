@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ria.ee",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Riigi Infosüsteemi Amet (Information System Authority of Estonia)",
+  "common_name": "RIA",
+  "alternate_names": null,
+  "notes": "Estonian Information System Authority. Operates X-Road (Estonia's secure data-exchange platform used globally as a reference for digital-government interoperability), Estonian eID, and Mobile-ID. Publishes the X-Road specifications and Estonian eID protocols. Most technical specs are freely accessible; participant security guidelines may be partly restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ria.ee"
+    },
+    {
+      "type": "docs",
+      "url": "https://x-road.global"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^x-?road$"
+      ],
+      "description": "X-Road — Estonian secure data-exchange platform",
+      "weight": 100,
+      "data": {
+        "official_name": "X-Road",
+        "notes": "Open-source platform with free specifications at x-road.global. Adopted by 20+ countries (Finland, Iceland, etc.) as their digital-government data-exchange layer. Estonian operational/security guidance partly restricted.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://x-road.global"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^eid$"
+      ],
+      "description": "Estonian eID infrastructure",
+      "weight": 100,
+      "data": {
+        "official_name": "Estonian eID / Mobile-ID",
+        "notes": "Free technical specs from ria.ee.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ria.ee"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
