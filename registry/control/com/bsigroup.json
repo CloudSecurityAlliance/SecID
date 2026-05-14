@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bsigroup.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "British Standards Institution",
+  "common_name": "BSI",
+  "alternate_names": null,
+  "notes": "UK national standards body. Publishes BS (British Standards) and BS ISO/IEC (UK editions of ISO/IEC standards). Notable independent BS publications: BS 10012 (privacy info mgmt), BS 65000 (organizational resilience), BS 7799 (historical ancestor of ISO/IEC 27001/27002). Standards are paywalled — purchase from shop.bsigroup.com.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bsigroup.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^10012$"
+      ],
+      "description": "BS 10012 — Personal Information Management",
+      "weight": 100,
+      "data": {
+        "official_name": "BS 10012 - Data protection. Specification for a personal information management system",
+        "notes": "Paywalled. UK-developed PIMS specification, predates ISO/IEC 27701 and remains in use alongside it. Often paired with GDPR compliance programs.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsigroup.com/en-GB/standards/bs-10012/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-03-31",
+            "status": "current",
+            "note": "BS 10012:2017 + A1:2018."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^65000$"
+      ],
+      "description": "BS 65000 — Organizational Resilience",
+      "weight": 100,
+      "data": {
+        "official_name": "BS 65000 - Organizational resilience. Guidance",
+        "notes": "Paywalled. Provides guidance for an organization to enhance resilience by anticipating, preparing for, responding to, and adapting to incremental change and sudden disruptions.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsigroup.com/en-GB/standards/bs-65000/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-01-01",
+            "status": "current",
+            "note": "BS 65000:2022."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^7799$"
+      ],
+      "description": "BS 7799 — Information Security Management (historical)",
+      "weight": 100,
+      "data": {
+        "official_name": "BS 7799 - Code of Practice for Information Security Management (historical)",
+        "notes": "Withdrawn — BS 7799 Part 1 (1995/1999) became ISO/IEC 17799 in 2000, which was renumbered ISO/IEC 27002. BS 7799 Part 2 (1999/2002) became ISO/IEC 27001 in 2005. The BS 7799 series is the direct ancestor of the ISO/IEC 27000 family.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsigroup.com/en-GB/iso-27001-information-security/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "1995",
+            "release_date": "1995-02-01",
+            "status": "withdrawn",
+            "note": "BS 7799-1:1995 (Code of Practice)."
+          },
+          {
+            "version": "1999",
+            "release_date": "1999-04-01",
+            "status": "withdrawn",
+            "note": "BS 7799-2:1999 (Specification for ISMS)."
+          },
+          {
+            "version": "2002",
+            "release_date": "2002-09-01",
+            "status": "withdrawn",
+            "note": "BS 7799-2:2002 — became ISO/IEC 27001:2005."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

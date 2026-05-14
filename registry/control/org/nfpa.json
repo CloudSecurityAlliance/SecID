@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nfpa.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Fire Protection Association",
+  "common_name": "NFPA",
+  "alternate_names": null,
+  "notes": "US non-profit standards developer focused on fire, electrical, and life-safety codes. Notable beyond fire: NFPA 1600 is widely cited in business continuity / disaster recovery / emergency-management programs. Codes and standards are paywalled (but viewable for free on nfpa.org via the 'free access' portal — viewing only, no download/redistribute).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nfpa.org"
+    },
+    {
+      "type": "store",
+      "url": "https://catalog.nfpa.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^1600$"
+      ],
+      "description": "NFPA 1600 — Continuity, Emergency, and Crisis Management",
+      "weight": 100,
+      "data": {
+        "official_name": "NFPA 1600 - Standard on Continuity, Emergency, and Crisis Management",
+        "notes": "Paywalled (free read-only viewing on nfpa.org). Widely cited in BCM/DR programs alongside ISO 22301. Provides criteria for an integrated continuity, emergency, and crisis-management program.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=1600"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2024-08-01",
+            "status": "current",
+            "note": "NFPA 1600:2025."
+          },
+          {
+            "version": "2019",
+            "release_date": "2018-12-01",
+            "status": "superseded",
+            "note": "Previous edition."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

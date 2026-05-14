@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ansi.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American National Standards Institute",
+  "common_name": "ANSI",
+  "alternate_names": null,
+  "notes": "US standards coordinating body. Doesn't usually author standards itself — instead approves and distributes standards developed by accredited US technical committees (e.g., ANSI/ISO/IEC editions). Also distributes US adoptions of ISO/IEC. Paywalled at webstore.ansi.org.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ansi.org"
+    },
+    {
+      "type": "store",
+      "url": "https://webstore.ansi.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "ANSI-distributed editions of ISO/IEC standards",
+      "weight": 50,
+      "data": {
+        "notes": "US-distributed editions of ISO/IEC standards. Technical content matches the ISO master; refer to secid:control/iso.org/<n> for the canonical record.",
+        "urls": [
+          {
+            "type": "store",
+            "url": "https://webstore.ansi.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "iso-iec-27001",
+            "note": "Resolves the US-distributed ANSI edition; cross-reference secid:control/iso.org/27001."
+          }
+        ]
+      }
+    }
+  ]
+}
