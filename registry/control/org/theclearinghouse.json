@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "namespace": "theclearinghouse.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "The Clearing House Payments Company",
+  "common_name": "TCH",
+  "alternate_names": null,
+  "notes": "US-based bank-owned payments operator. Runs CHIPS (large-value), EPN (Electronic Payments Network — ACH), and RTP (Real-Time Payments). Publishes operational and security rulebooks for participants. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.theclearinghouse.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^chips$"
+      ],
+      "description": "CHIPS — Clearing House Interbank Payments System",
+      "weight": 100,
+      "data": {
+        "official_name": "CHIPS - Clearing House Interbank Payments System",
+        "notes": "Members-only. US large-value bank-owned payment system, peer/competitor to Fedwire.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.theclearinghouse.org/payment-systems/chips"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^rtp$",
+        "(?i)^real-time-payments$"
+      ],
+      "description": "TCH RTP — Real-Time Payments",
+      "weight": 100,
+      "data": {
+        "official_name": "TCH Real-Time Payments (RTP)",
+        "notes": "Members-only. US instant-payment network operated by TCH.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.theclearinghouse.org/payment-systems/rtp"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^epn$"
+      ],
+      "description": "EPN — Electronic Payments Network",
+      "weight": 100,
+      "data": {
+        "official_name": "EPN - Electronic Payments Network",
+        "notes": "Members-only. TCH-operated ACH operator, peer to FedACH.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

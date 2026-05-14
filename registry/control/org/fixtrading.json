@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fixtrading.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "FIX Trading Community",
+  "common_name": "FIX",
+  "alternate_names": null,
+  "notes": "Industry consortium maintaining the FIX (Financial Information eXchange) Protocol — the dominant electronic-trading message standard. The FIX Protocol specification itself is FREE / publicly available, but implementation guides and recommended practices documents may be members-only. License posture similar to ETSI / ITU-T.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fixtrading.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fix$",
+        "(?i)^fix-protocol$"
+      ],
+      "description": "FIX Protocol",
+      "weight": 100,
+      "data": {
+        "official_name": "Financial Information eXchange (FIX) Protocol",
+        "notes": "FIX Protocol specifications are FREE to download. Some implementation guides may be members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.fixtrading.org/standards/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

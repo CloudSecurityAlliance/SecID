@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "discover.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Discover Financial Services",
+  "common_name": "Discover",
+  "alternate_names": null,
+  "notes": "US-based credit-card network. Publishes the Discover Information Security Compliance (DISC) program — Discover's data-security requirements for merchants and acquirers, aligned with PCI DSS plus Discover-specific additions. Network-participant restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.discover.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^disc$"
+      ],
+      "description": "Discover Information Security Compliance (DISC)",
+      "weight": 100,
+      "data": {
+        "official_name": "Discover Information Security Compliance Program",
+        "notes": "Network-participant restricted. Discover's data-security program for merchants and acquirers; aligned with PCI DSS.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.discover.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fisc.or.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Center for Financial Industry Information Systems",
+  "common_name": "FISC",
+  "alternate_names": null,
+  "notes": "Japanese non-profit body publishing FISC Security Guidelines for the financial industry — the dominant security framework for Japanese banks and financial institutions. Members-only / paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fisc.or.jp"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-guidelines$"
+      ],
+      "description": "FISC Security Guidelines for Financial Institutions",
+      "weight": 100,
+      "data": {
+        "official_name": "FISC Security Guidelines on Computer Systems for Banking and Related Financial Institutions",
+        "notes": "Members-only / paid. The dominant security framework for Japanese FIs; periodically revised.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.fisc.or.jp"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "euroclear.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Euroclear Group",
+  "common_name": "Euroclear",
+  "alternate_names": null,
+  "notes": "Major European central securities depository (CSD) and settlement operator. Holds and settles bonds, equities, and ETFs. Publishes participant operational/security requirements; restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.euroclear.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^participant-security$"
+      ],
+      "description": "Euroclear participant security requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "Euroclear Participant Security Requirements",
+        "notes": "Members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.euroclear.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

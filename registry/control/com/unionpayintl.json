@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "unionpayintl.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "UnionPay International",
+  "common_name": "UnionPay",
+  "alternate_names": [
+    "CUP"
+  ],
+  "notes": "Chinese-origin international payment-card network. Major in mainland China and increasingly internationally. Publishes UnionPay Card Security Standards including QSP (QR Payment) and chip-card requirements. Network-participant restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.unionpayintl.com"
+    },
+    {
+      "type": "website",
+      "url": "https://www.unionpay.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-standards$"
+      ],
+      "description": "UnionPay Card Security Standards",
+      "weight": 100,
+      "data": {
+        "official_name": "UnionPay Card Security Standards",
+        "notes": "Network-participant restricted. UnionPay's chip-card, transaction, and merchant-acquiring security requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.unionpayintl.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

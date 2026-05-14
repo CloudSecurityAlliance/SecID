@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "jpx.co.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Japan Exchange Group",
+  "common_name": "JPX",
+  "alternate_names": [
+    "JSCC"
+  ],
+  "notes": "Japan's principal exchange group, parent of Tokyo Stock Exchange (TSE), Osaka Exchange, and Japan Securities Clearing Corporation (JSCC). Publishes participant operational/security requirements; restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.jpx.co.jp"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^jscc$"
+      ],
+      "description": "JSCC — Japan Securities Clearing Corporation",
+      "weight": 100,
+      "data": {
+        "official_name": "Japan Securities Clearing Corporation",
+        "notes": "Members-only. The clearing-house subsidiary of JPX.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.jpx.co.jp/jscc/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "theice.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Intercontinental Exchange (ICE)",
+  "common_name": "ICE",
+  "alternate_names": null,
+  "notes": "US-based exchange operator and parent of NYSE and ICE Clear. Publishes participant operational and security requirements; restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.theice.com"
+    },
+    {
+      "type": "website",
+      "url": "https://www.nyse.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^participant-security$"
+      ],
+      "description": "ICE participant security requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "ICE Participant Security Requirements",
+        "notes": "Members-only. Applies to ICE exchanges (ICE Futures US, ICE Futures Europe), ICE Clear, and NYSE participants.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
