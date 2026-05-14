@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "namespace": "asisonline.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ASIS International",
+  "common_name": "ASIS",
+  "alternate_names": null,
+  "notes": "Professional association for security management. Publishes ANSI-accredited standards covering organizational resilience, physical asset protection, workplace violence prevention, and risk assessment. Standards are paywalled at asisonline.org.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.asisonline.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^orm-?1$"
+      ],
+      "description": "ASIS ORM.1 — Organizational Resilience Maturity Model",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSI/ASIS ORM.1 - Security and Resilience in Organizations and Their Supply Chains",
+        "notes": "Paywalled. ANSI/ASIS ORM.1 provides a maturity-model approach to organizational resilience covering security, risk, continuity, and supply-chain. Complements BS 65000 and ISO 22301.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.asisonline.org/publications--resources/standards--guidelines/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-01-01",
+            "status": "current",
+            "note": "ANSI/ASIS ORM.1-2017."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^spc-?1$"
+      ],
+      "description": "ASIS SPC.1 — Organizational Resilience: Security, Preparedness, and Continuity Management Systems",
+      "weight": 100,
+      "data": {
+        "official_name": "ASIS SPC.1 - Organizational Resilience: Security, Preparedness, and Continuity Management Systems",
+        "notes": "Paywalled. Specifies requirements and gives guidance for a management system for organizational resilience.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.asisonline.org/publications--resources/standards--guidelines/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2009",
+            "release_date": "2009-01-01",
+            "status": "current",
+            "note": "ANSI/ASIS SPC.1-2009 (reaffirmed)."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^pap-?1$"
+      ],
+      "description": "ASIS PAP.1 — Physical Asset Protection",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSI/ASIS PAP.1 - Physical Asset Protection",
+        "notes": "Paywalled. ANSI/ASIS PAP.1 provides a management-system approach to physical asset protection.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.asisonline.org/publications--resources/standards--guidelines/"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2012",
+            "release_date": "2012-01-01",
+            "status": "current",
+            "note": "ANSI/ASIS PAP.1-2012."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

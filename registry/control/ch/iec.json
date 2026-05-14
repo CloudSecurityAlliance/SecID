@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iec.ch",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Electrotechnical Commission",
+  "common_name": "IEC",
+  "alternate_names": null,
+  "notes": "International standards body for electrical/electronic and related technologies. Joint publisher with ISO of the ISO/IEC series (covered under iso.org). Standalone-IEC standards include IEC 61508 (functional safety) and the IEC 62443 series (OT/ICS cybersecurity, jointly with ISA). Paywalled at webstore.iec.ch.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.iec.ch"
+    },
+    {
+      "type": "store",
+      "url": "https://webstore.iec.ch"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^62443(?:-(\\d+(?:-\\d+)?))?$"
+      ],
+      "description": "IEC 62443 — Security for industrial automation and control systems (jointly with ISA)",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC 62443 - Industrial communication networks - IT security for networks and systems",
+        "notes": "Paywalled. Multi-part series jointly developed with ISA (International Society of Automation). Parts: 1-1 (concepts), 2-1 (security program), 2-4 (service-provider req's), 3-2 (system risk), 3-3 (system security req's), 4-1 (secure product development), 4-2 (component security req's), etc. The IEC 62443 series is the de facto OT/ICS cybersecurity standard. The ISA-published edition is at secid:control/isa.org/62443.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://webstore.iec.ch/searchform&q=IEC+62443"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "62443-3-3",
+            "note": "System security requirements and security levels."
+          },
+          {
+            "input": "62443-4-1",
+            "note": "Secure product development lifecycle requirements."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -42,6 +42,36 @@
           }
         ]
       }
+    },
+    {
+      "patterns": [
+        "(?i)^cmmi$"
+      ],
+      "description": "CMMI — Capability Maturity Model Integration",
+      "weight": 100,
+      "data": {
+        "official_name": "CMMI - Capability Maturity Model Integration",
+        "common_name": "CMMI",
+        "alternate_names": null,
+        "description": "Process-improvement framework, originally from Carnegie Mellon SEI, transferred to ISACA's CMMI Institute. Covers development (CMMI-DEV), services (CMMI-SVC), supplier management, and a cybermaturity platform (CMMI for Cybermaturity).",
+        "notes": "Paywalled. Variants include CMMI-DEV, CMMI-SVC, and CMMI for Cybermaturity. Widely used in defense/aerospace and large-enterprise IT capability assessments.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://cmmiinstitute.com"
+          }
+        ],
+        "examples": [
+          {
+            "input": "cmmi-dev",
+            "note": "CMMI for Development"
+          },
+          {
+            "input": "cmmi-cyber",
+            "note": "CMMI for Cybermaturity Platform"
+          }
+        ]
+      }
     }
   ]
 }
