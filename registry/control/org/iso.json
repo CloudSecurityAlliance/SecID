@@ -288,6 +288,414 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^22301$"],
+      "description": "ISO/IEC 22301 — Business continuity management systems",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 22301 - Security and resilience - Business continuity management systems - Requirements",
+        "notes": "Paywalled. The international BCM standard. Specifies requirements for an organization's business continuity management system (BCMS). Frequently cited alongside ISO/IEC 27031, NFPA 1600, BS 65000, and ASIS SPC.1.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/75106.html"}],
+        "versions_available": [{"version": "2019", "release_date": "2019-10-30", "status": "current", "note": "ISO 22301:2019."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^22317$"],
+      "description": "ISO/IEC 22317 — Business impact analysis (BIA)",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 22317 - Security and resilience - Business continuity management systems - Guidelines for business impact analysis",
+        "notes": "Paywalled. Companion to ISO 22301; methodology for conducting BIA within a BCMS.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/75653.html"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-04-01", "status": "current", "note": "ISO 22317:2021."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^22989$"],
+      "description": "ISO/IEC 22989 — AI concepts and terminology",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 22989 - Information technology - Artificial intelligence - Artificial intelligence concepts and terminology",
+        "notes": "Paywalled. Foundational AI terminology standard; underpins ISO/IEC 23053, 23894, 42001, 5338, and other AI-series documents.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/74296.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-07-01", "status": "current", "note": "ISO/IEC 22989:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^26262(?:-(\\d+))?$"],
+      "description": "ISO 26262 — Road vehicles: Functional safety",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 26262 - Road vehicles - Functional safety",
+        "notes": "Paywalled. Multi-part series. Functional-safety counterpart to ISO/SAE 21434 (cybersecurity engineering). Frequently cited together in automotive system design.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/68383.html"}],
+        "versions_available": [{"version": "2018", "release_date": "2018-12-01", "status": "current", "note": "ISO 26262:2018 (2nd edition, multi-part)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27003$"],
+      "description": "ISO/IEC 27003 — ISMS guidance",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27003 - Information security management systems - Guidance",
+        "notes": "Paywalled. Implementation guidance for ISO/IEC 27001.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/63417.html"}],
+        "versions_available": [{"version": "2017", "release_date": "2017-04-01", "status": "current", "note": "ISO/IEC 27003:2017."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27004$"],
+      "description": "ISO/IEC 27004 — Information security measurement",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27004 - Information security management - Monitoring, measurement, analysis and evaluation",
+        "notes": "Paywalled. Measurement and metrics guidance for ISMS effectiveness.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/64120.html"}],
+        "versions_available": [{"version": "2016", "release_date": "2016-12-01", "status": "current", "note": "ISO/IEC 27004:2016."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27005$"],
+      "description": "ISO/IEC 27005 — Information security risk management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27005 - Guidance on managing information security risks",
+        "notes": "Paywalled. The risk-management companion to ISO/IEC 27001; cited in nearly every ISMS implementation. Aligned with ISO 31000.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/80585.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-10-01", "status": "current", "note": "ISO/IEC 27005:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27006(?:-(\\d+))?$"],
+      "description": "ISO/IEC 27006 — Requirements for ISMS certification bodies",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27006 - Requirements for bodies providing audit and certification of information security management systems",
+        "notes": "Paywalled. The standard that ISMS certification bodies must meet. Multi-part (27006-1 main, 27006-2 for PIMS audit additions).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/82908.html"}],
+        "versions_available": [{"version": "2024", "release_date": "2024-03-01", "status": "current", "note": "ISO/IEC 27006-1:2024."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27011$"],
+      "description": "ISO/IEC 27011 — Information security controls for telecom",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27011 - Code of practice for Information security controls based on ISO/IEC 27002 for telecommunications organizations",
+        "notes": "Paywalled. Telecom-sector adaptation of ISO/IEC 27002. Technical basis: ITU-T X.1051 (see secid:control/itu.int).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/64143.html"}],
+        "versions_available": [{"version": "2016", "release_date": "2016-12-01", "status": "current", "note": "ISO/IEC 27011:2016."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27019$"],
+      "description": "ISO/IEC 27019 — Information security controls for energy utility industry",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27019 - Information security controls for the energy utility industry",
+        "notes": "Paywalled. Energy-sector adaptation of ISO/IEC 27002, covering process control systems used to operate energy generation, transmission, and distribution.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/68091.html"}],
+        "versions_available": [{"version": "2017", "release_date": "2017-10-01", "status": "current", "note": "ISO/IEC 27019:2017."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27031$"],
+      "description": "ISO/IEC 27031 — ICT readiness for business continuity",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27031 - Guidelines for information and communication technology readiness for business continuity",
+        "notes": "Paywalled. ICT-focused continuity guidance; complements ISO 22301 (BCMS).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44374.html"}],
+        "versions_available": [{"version": "2011", "release_date": "2011-03-01", "status": "current", "note": "ISO/IEC 27031:2011."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27032$"],
+      "description": "ISO/IEC 27032 — Cybersecurity guidelines",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27032 - Cybersecurity - Guidelines for Internet security",
+        "notes": "Paywalled. Broad framing for cybersecurity collaboration across stakeholders; revised in 2023 with sharper scope.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/76070.html"}],
+        "versions_available": [{"version": "2023", "release_date": "2023-06-01", "status": "current", "note": "ISO/IEC 27032:2023 (second edition)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27035(?:-(\\d+))?$"],
+      "description": "ISO/IEC 27035 — Information security incident management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27035 - Information security incident management",
+        "notes": "Paywalled. Multi-part series: 27035-1 (principles), 27035-2 (incident response readiness), 27035-3 (ICT incident response operations), 27035-4 (coordination).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/78973.html"}],
+        "versions_available": [{"version": "2023", "release_date": "2023-02-01", "status": "current", "note": "Parts updated 2023; multi-part series."}],
+        "examples": [{"input": "27035-1", "note": "Principles and process"}, {"input": "27035-2", "note": "Incident response readiness"}]
+      }
+    },
+    {
+      "patterns": ["(?i)^27036(?:-(\\d+))?$"],
+      "description": "ISO/IEC 27036 — Supplier-relationship information security",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27036 - Information security for supplier relationships",
+        "notes": "Paywalled. Multi-part: 27036-1 (overview), 27036-2 (requirements), 27036-3 (ICT supply chain security), 27036-4 (cloud services).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/77837.html"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-03-01", "status": "current", "note": "Multi-part series; parts updated independently."}],
+        "examples": [{"input": "27036-2", "note": "Requirements"}, {"input": "27036-3", "note": "ICT supply chain"}, {"input": "27036-4", "note": "Cloud services"}]
+      }
+    },
+    {
+      "patterns": ["(?i)^27037$"],
+      "description": "ISO/IEC 27037 — Digital evidence identification and collection",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27037 - Guidelines for identification, collection, acquisition and preservation of digital evidence",
+        "notes": "Paywalled. Foundational digital-forensics guidance; companion to 27041, 27042, 27043.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44381.html"}],
+        "versions_available": [{"version": "2012", "release_date": "2012-10-01", "status": "current", "note": "ISO/IEC 27037:2012."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27039$"],
+      "description": "ISO/IEC 27039 — Intrusion detection and prevention systems (IDPS)",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27039 - Selection, deployment and operations of intrusion detection and prevention systems",
+        "notes": "Paywalled.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/56889.html"}],
+        "versions_available": [{"version": "2015", "release_date": "2015-02-01", "status": "current", "note": "ISO/IEC 27039:2015."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27040$"],
+      "description": "ISO/IEC 27040 — Storage security",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27040 - Storage security",
+        "notes": "Paywalled. Storage-specific security guidance — particularly relevant to cloud storage services and data-at-rest controls.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/80194.html"}],
+        "versions_available": [{"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "ISO/IEC 27040:2024 (second edition)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27041$"],
+      "description": "ISO/IEC 27041 — Investigative process assurance",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27041 - Guidance on assuring suitability and adequacy of incident investigative method",
+        "notes": "Paywalled. Part of the digital forensics / IR series (27037, 27041, 27042, 27043).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44405.html"}],
+        "versions_available": [{"version": "2015", "release_date": "2015-06-01", "status": "current", "note": "ISO/IEC 27041:2015."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27042$"],
+      "description": "ISO/IEC 27042 — Digital evidence analysis and interpretation",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27042 - Guidelines for the analysis and interpretation of digital evidence",
+        "notes": "Paywalled. Companion to 27037 (collection) and 27041 (process assurance).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44406.html"}],
+        "versions_available": [{"version": "2015", "release_date": "2015-06-01", "status": "current", "note": "ISO/IEC 27042:2015."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27043$"],
+      "description": "ISO/IEC 27043 — Incident investigation principles and processes",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27043 - Incident investigation principles and processes",
+        "notes": "Paywalled. The overarching investigation-process framework in the 27037/27041/27042/27043 cluster.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44407.html"}],
+        "versions_available": [{"version": "2015", "release_date": "2015-03-01", "status": "current", "note": "ISO/IEC 27043:2015."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27050(?:-(\\d+))?$"],
+      "description": "ISO/IEC 27050 — Electronic discovery",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27050 - Electronic discovery",
+        "notes": "Paywalled. Multi-part series: 27050-1 (overview), 27050-2 (governance), 27050-3 (code of practice), 27050-4 (technical readiness).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/63081.html"}],
+        "versions_available": [{"version": "2019", "release_date": "2019-11-01", "status": "current", "note": "Multi-part series."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27099$"],
+      "description": "ISO/IEC 27099 — Information security controls for PKI/trust service providers",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27099 - Public key infrastructure - Practices and policy framework",
+        "notes": "Paywalled. Information-security controls catalogue specifically for PKI/trust-service operations.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/56590.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-04-01", "status": "current", "note": "ISO/IEC 27099:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27100$"],
+      "description": "ISO/IEC 27100 — Cybersecurity overview and concepts",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27100 - Cybersecurity - Overview and concepts",
+        "notes": "Paywalled. Higher-level cybersecurity framing and concept dictionary; positioned above 27032.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/78878.html"}],
+        "versions_available": [{"version": "2020", "release_date": "2020-12-01", "status": "current", "note": "ISO/IEC TS 27100:2020 (Technical Specification)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27102$"],
+      "description": "ISO/IEC 27102 — Cyber insurance guidance",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27102 - Information security management - Guidelines for cyber insurance",
+        "notes": "Paywalled. Bridge between information-security risk and cyber-insurance underwriting/claims practice.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72436.html"}],
+        "versions_available": [{"version": "2019", "release_date": "2019-08-01", "status": "current", "note": "ISO/IEC 27102:2019."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27103$"],
+      "description": "ISO/IEC 27103 — Cybersecurity and ISO/IEC Standards",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27103 - Cybersecurity and ISO and IEC Standards",
+        "notes": "Paywalled. Cross-mapping of ISO/IEC security standards to the NIST Cybersecurity Framework structure.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72437.html"}],
+        "versions_available": [{"version": "2018", "release_date": "2018-02-01", "status": "current", "note": "ISO/IEC TR 27103:2018."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27110$"],
+      "description": "ISO/IEC 27110 — Cybersecurity framework guidelines",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27110 - Cybersecurity framework development guidelines",
+        "notes": "Paywalled. Meta-standard: guidance for organizations developing their own cybersecurity framework (e.g., the NIST CSF).",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/72435.html"}],
+        "versions_available": [{"version": "2021", "release_date": "2021-02-01", "status": "current", "note": "ISO/IEC TS 27110:2021."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27400$"],
+      "description": "ISO/IEC 27400 — IoT security and privacy",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27400 - Cybersecurity - IoT security and privacy - Guidelines",
+        "notes": "Paywalled. Security and privacy guidance for IoT systems and platforms.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/44373.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-06-01", "status": "current", "note": "ISO/IEC 27400:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^27402$"],
+      "description": "ISO/IEC 27402 — IoT baseline requirements for consumer devices",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27402 - Cybersecurity - IoT security and privacy - Device baseline requirements",
+        "notes": "Paywalled. Baseline cybersecurity requirements for IoT consumer devices.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/80136.html"}],
+        "versions_available": [{"version": "2023", "release_date": "2023-09-01", "status": "current", "note": "ISO/IEC 27402:2023."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^28000$"],
+      "description": "ISO 28000 — Supply chain security management",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO 28000 - Security and resilience - Security management systems - Requirements",
+        "notes": "Paywalled. Supply-chain security management system specification; updated 2022 to broaden from logistics to general security management.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/79612.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-03-01", "status": "current", "note": "ISO 28000:2022 (second edition)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^30141$"],
+      "description": "ISO/IEC 30141 — IoT reference architecture",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 30141 - Internet of Things (IoT) - Reference architecture",
+        "notes": "Paywalled. Reference architecture for IoT systems — entities, domains, characteristics.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/65695.html"}],
+        "versions_available": [{"version": "2018", "release_date": "2018-08-01", "status": "current", "note": "ISO/IEC 30141:2018."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^38500$"],
+      "description": "ISO/IEC 38500 — Governance of IT",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 38500 - Information technology - Governance of IT for the organization",
+        "notes": "Paywalled. The international IT-governance standard. COBIT is the most-cited implementation framework that satisfies 38500's principles.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/62816.html"}],
+        "versions_available": [{"version": "2024", "release_date": "2024-06-01", "status": "current", "note": "ISO/IEC 38500:2024 (third edition)."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^38507$"],
+      "description": "ISO/IEC 38507 — Governance implications of AI for organizations",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 38507 - Governance implications of the use of artificial intelligence by organizations",
+        "notes": "Paywalled. AI-governance counterpart to ISO/IEC 38500; companion to ISO/IEC 42001.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/56641.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-04-01", "status": "current", "note": "ISO/IEC 38507:2022."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^5469$"],
+      "description": "ISO/IEC TS 5469 — AI functional safety and AI systems",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC TS 5469 - Artificial intelligence - Functional safety and AI systems",
+        "notes": "Paywalled. Technical Specification on safety considerations when AI is used in safety-related systems. Emerging area at the intersection of ISO 26262 (functional safety) and the ISO/IEC 22989/42001 AI series.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/81283.html"}],
+        "versions_available": [{"version": "2024", "release_date": "2024-01-01", "status": "current", "note": "ISO/IEC TS 5469:2024."}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^24368$"],
+      "description": "ISO/IEC TR 24368 — Overview of ethical and societal concerns in AI",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC TR 24368 - Information technology - Artificial intelligence - Overview of ethical and societal concerns",
+        "notes": "Paywalled Technical Report. Catalogue of ethical and societal concerns related to AI; intended as background reading for AI risk and impact assessments.",
+        "urls": [{"type": "website", "url": "https://www.iso.org/standard/78507.html"}],
+        "versions_available": [{"version": "2022", "release_date": "2022-08-01", "status": "current", "note": "ISO/IEC TR 24368:2022."}],
+        "examples": []
+      }
     }
   ]
 }
