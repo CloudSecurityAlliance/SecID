@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kats.go.kr",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Korean Agency for Technology and Standards",
+  "common_name": "KATS",
+  "alternate_names": null,
+  "notes": "South Korean national standards agency. Publishes the Korean Industrial Standards (KS) series. KS X-series covers information technology including information security. Most KS X ISO/IEC standards are Korean adoptions of ISO/IEC originals. License posture: paywalled or restricted access through the KATS standards portal at standard.go.kr.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.kats.go.kr"
+    },
+    {
+      "type": "store",
+      "url": "https://standard.go.kr/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ks-?x-?iso-?iec-?(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "KS X ISO/IEC adoptions — Korean editions of ISO/IEC standards",
+      "weight": 50,
+      "data": {
+        "notes": "Korean national editions of ISO/IEC standards. Technical content tracks the ISO master; cross-reference secid:control/iso.org/<n>. Subject to ISO redistribution terms.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standard.go.kr/"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "ks-x-iso-iec-27001",
+            "note": "KS X ISO/IEC 27001 — Korean adoption."
+          }
+        ]
+      }
+    }
+  ]
+}

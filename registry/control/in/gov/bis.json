@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bis.gov.in",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Bureau of Indian Standards",
+  "common_name": "BIS",
+  "alternate_names": null,
+  "notes": "Indian national standards body. Publishes Indian Standards (IS) including direct adoptions like IS/ISO/IEC 27001 and indigenous-only standards. License posture is mixed: indigenous Indian Standards are advertised as free-to-download at https://standardsbis.bsbedge.com/ (redistribution terms unclear); IS/ISO/IEC adoptions remain subject to ISO terms. Flag for verification before any public-repo ingestion of indigenous IS content.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bis.gov.in"
+    },
+    {
+      "type": "store",
+      "url": "https://standardsbis.bsbedge.com/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^is-iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "IS/ISO/IEC adoptions — Indian editions of ISO/IEC standards",
+      "weight": 50,
+      "data": {
+        "notes": "Indian national editions of ISO/IEC standards. Technical content tracks the ISO master; cross-reference secid:control/iso.org/<n>. Subject to ISO redistribution terms even when downloaded free from BIS.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standardsbis.bsbedge.com/"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "is-iso-iec-27001",
+            "note": "IS/ISO/IEC 27001 — Indian adoption."
+          }
+        ]
+      }
+    }
+  ]
+}
