@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "stet.eu",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "STET",
+  "common_name": "STET",
+  "alternate_names": null,
+  "notes": "French interbank payment processor. Publishes the STET PSD2 API Framework, a major European Open Banking specification alongside Berlin Group NextGenPSD2 and UK OBIE.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.stet.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psd2-api$"
+      ],
+      "description": "STET PSD2 API Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "STET PSD2 API Framework",
+        "notes": "Mostly free. French and broader European Open Banking technical and security specification.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.stet.eu/en/standards/open-banking/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

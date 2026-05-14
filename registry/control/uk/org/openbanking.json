@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openbanking.org.uk",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Open Banking Limited",
+  "common_name": "OBL",
+  "alternate_names": [
+    "OBIE",
+    "Open Banking Implementation Entity"
+  ],
+  "notes": "UK trustee body established by the CMA9 retail-banks ruling. Publishes the UK Open Banking Standard including the Open Banking Read/Write API Specification, Security Profile (FAPI-aligned), and Operational Guidelines. Specifications are freely available; some certification materials are paid/restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.openbanking.org.uk"
+    },
+    {
+      "type": "docs",
+      "url": "https://standards.openbanking.org.uk"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^read-write-api$"
+      ],
+      "description": "Open Banking Read/Write API Specification",
+      "weight": 100,
+      "data": {
+        "official_name": "UK Open Banking Read/Write API Specification",
+        "notes": "Mostly free. The technical and security specifications for the UK Open Banking ecosystem. Security profile based on FAPI 1.0 Advanced.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://standards.openbanking.org.uk"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^security-profile$",
+        "(?i)^fapi$"
+      ],
+      "description": "Open Banking Security Profile (FAPI-based)",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Banking Security Profile",
+        "notes": "FAPI 1.0 Advanced-based, with UK-specific extensions.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

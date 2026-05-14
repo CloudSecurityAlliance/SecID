@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "berlin-group.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "The Berlin Group",
+  "common_name": "Berlin Group",
+  "alternate_names": null,
+  "notes": "Pan-European banking-industry initiative for PSD2 implementation. Publishes the NextGenPSD2 framework — the dominant European Open Banking technical/security specification. Mostly free for the core specs; some implementation material is members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.berlin-group.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nextgenpsd2$"
+      ],
+      "description": "NextGenPSD2 framework",
+      "weight": 100,
+      "data": {
+        "official_name": "Berlin Group NextGenPSD2",
+        "notes": "Mostly free. Pan-European PSD2 API and security specification covering AISP, PISP, and PIISP roles. Most-implemented European Open Banking standard alongside UK OBIE.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.berlin-group.org/nextgenpsd2-downloads"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
