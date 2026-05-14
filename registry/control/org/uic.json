@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "uic.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Union of Railways",
+  "common_name": "UIC",
+  "alternate_names": null,
+  "notes": "International railways association. Publishes UIC International Railway Solution (IRS) standards covering railway operations, infrastructure, and increasingly cybersecurity. Paid via UIC.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://uic.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^irs-?(\\d+)$"
+      ],
+      "description": "UIC International Railway Solution (IRS) series",
+      "weight": 100,
+      "data": {
+        "official_name": "UIC International Railway Solution (IRS) standards",
+        "notes": "Paid.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://uic.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

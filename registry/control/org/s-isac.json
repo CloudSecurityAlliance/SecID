@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "s-isac.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Space Information Sharing and Analysis Center",
+  "common_name": "Space-ISAC",
+  "alternate_names": null,
+  "notes": "Member-driven ISAC for the global space sector — satellite operators, ground-station providers, launch services. Publishes threat intel and operational guidance covering space-system cybersecurity. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://s-isac.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^threat-intel$"
+      ],
+      "description": "Space-ISAC threat intelligence",
+      "weight": 100,
+      "data": {
+        "official_name": "Space-ISAC Threat Intelligence and Operational Guidance",
+        "notes": "Members-only.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://s-isac.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

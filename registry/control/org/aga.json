@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aga.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Gas Association",
+  "common_name": "AGA",
+  "alternate_names": null,
+  "notes": "US natural-gas-utility trade association. Publishes AGA standards including AGA Report No. 12 (Cryptographic Protection of SCADA Communications) — a foundational standard for SCADA-protocol authentication and encryption. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.aga.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^12$",
+        "(?i)^aga-?12$"
+      ],
+      "description": "AGA 12 — Cryptographic Protection of SCADA Communications",
+      "weight": 100,
+      "data": {
+        "official_name": "AGA Report No. 12 - Cryptographic Protection of SCADA Communications",
+        "notes": "Paid. Cryptographic protocol for SCADA traffic; defined the original AGA 12-1/12-2 SCADA cryptographic message structure.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.aga.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

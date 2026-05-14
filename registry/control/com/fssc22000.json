@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fssc22000.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Foundation FSSC",
+  "common_name": "FSSC 22000",
+  "alternate_names": null,
+  "notes": "Independent foundation owning the FSSC 22000 food safety management certification scheme. Includes FSSC 22000-Quality and increasingly food-defense / food-fraud / cybersecurity components. Members-only / paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fssc22000.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fssc-?22000$"
+      ],
+      "description": "FSSC 22000 scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "FSSC 22000 Food Safety Management System Certification Scheme",
+        "notes": "Members-only / paid. ISO 22000 + sector-specific PRPs + additional FSSC requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.fssc22000.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

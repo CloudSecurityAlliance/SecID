@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "waterisac.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Water Information Sharing and Analysis Center",
+  "common_name": "WaterISAC",
+  "alternate_names": null,
+  "notes": "Water-sector ISAC for water and wastewater utilities. Publishes the 15 Cybersecurity Fundamentals for Water Utilities plus threat intel. Members-only (membership open to water utilities).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.waterisac.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^15-fundamentals$",
+        "(?i)^cybersecurity-fundamentals$"
+      ],
+      "description": "WaterISAC 15 Cybersecurity Fundamentals for Water Utilities",
+      "weight": 100,
+      "data": {
+        "official_name": "WaterISAC 15 Cybersecurity Fundamentals for Water and Wastewater Utilities",
+        "notes": "Members-only. The dominant practical-cybersecurity-baseline for water utilities.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.waterisac.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

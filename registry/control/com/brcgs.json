@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "brcgs.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Brand Reputation Compliance Global Standards",
+  "common_name": "BRCGS",
+  "alternate_names": [
+    "BRC"
+  ],
+  "notes": "Global standards organization for food safety, packaging, storage and distribution, and consumer products. Publishes BRCGS Global Standards. Paid / certification-driven.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.brcgs.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^food$"
+      ],
+      "description": "BRCGS Food Safety",
+      "weight": 100,
+      "data": {
+        "official_name": "BRCGS Global Standard for Food Safety",
+        "notes": "Paid. The dominant food-safety certification scheme used by UK and EU retailers.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.brcgs.com/our-standards/food-safety/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

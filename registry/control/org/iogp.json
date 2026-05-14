@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iogp.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Association of Oil & Gas Producers",
+  "common_name": "IOGP",
+  "alternate_names": null,
+  "notes": "Upstream oil and gas industry association. Publishes IOGP Reports including security, integrity, and increasingly cybersecurity guidance (e.g., IOGP Report 627 Information Security Management). Members-only / paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.iogp.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^report-?(\\d+)$"
+      ],
+      "description": "IOGP Report series",
+      "weight": 100,
+      "data": {
+        "official_name": "IOGP Reports",
+        "notes": "Members-only / paid. Report 627 covers information security management.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.iogp.org/bookstore/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

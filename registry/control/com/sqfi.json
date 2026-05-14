@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sqfi.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Safe Quality Food Institute",
+  "common_name": "SQF",
+  "alternate_names": null,
+  "notes": "Food safety scheme owner under the Food Marketing Institute. Publishes the SQF Code for primary production, manufacturing, and retail. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sqfi.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sqf-code$"
+      ],
+      "description": "SQF Code",
+      "weight": 100,
+      "data": {
+        "official_name": "SQF Code - Food Safety, Quality, Ethical Sourcing",
+        "notes": "Paid. Multi-level (Levels 1-3) food-safety certification widely used in North American food supply chain.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.sqfi.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
