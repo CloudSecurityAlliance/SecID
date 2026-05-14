@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "himss.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Healthcare Information and Management Systems Society",
+  "common_name": "HIMSS",
+  "alternate_names": null,
+  "notes": "Global health-IT professional association. Publishes the HIMSS Electronic Medical Record Adoption Model (EMRAM), Continua Personal Connected Health Alliance design guidelines (Continua merged into HIMSS), the Cybersecurity Survey, and certification programmes. Paid materials.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.himss.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^emram$"
+      ],
+      "description": "HIMSS Electronic Medical Record Adoption Model (EMRAM)",
+      "weight": 100,
+      "data": {
+        "official_name": "HIMSS EMRAM - Electronic Medical Record Adoption Model",
+        "notes": "Paid. Hospital EMR-maturity model with security/privacy criteria at higher stages.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.himss.org/what-we-do-solutions/digital-health-transformation/maturity-models/electronic-medical-record-adoption-model-emram"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^continua$"
+      ],
+      "description": "Continua Design Guidelines (now under HIMSS)",
+      "weight": 100,
+      "data": {
+        "official_name": "Continua Design Guidelines",
+        "notes": "Members-only / paid. Personal Connected Health Alliance interoperability guidelines covering health-IoT device-to-system security. Continua merged into HIMSS (formerly the Personal Connected Health Alliance, PCHA).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.himss.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

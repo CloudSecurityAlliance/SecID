@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pqcc.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Post-Quantum Cryptography Coalition",
+  "common_name": "PQCC",
+  "alternate_names": null,
+  "notes": "Industry coalition working on post-quantum cryptography migration. Publishes the PQC Migration Roadmap, threat assessments, and members-only working drafts. Hosted by MITRE.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://pqcc.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^migration-roadmap$"
+      ],
+      "description": "PQCC Post-Quantum Cryptography Migration Roadmap",
+      "weight": 100,
+      "data": {
+        "official_name": "PQCC PQC Migration Roadmap",
+        "notes": "Public roadmap document; working drafts and member-only material support detailed migration planning. Note: PQCC working materials are members-only; the headline Roadmap is public.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://pqcc.org"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

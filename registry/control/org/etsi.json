@@ -64,6 +64,30 @@
         "versions_available": [],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "(?i)^qsc$",
+        "(?i)^quantum-safe-crypto$",
+        "(?i)^ts-103-744$"
+      ],
+      "description": "ETSI ISG QSC — Quantum-Safe Cryptography deliverables",
+      "weight": 100,
+      "data": {
+        "official_name": "ETSI Industry Specification Group on Quantum-Safe Cryptography (ISG QSC) deliverables",
+        "notes": "Free download from etsi.org with ETSI copyright. ISG QSC publishes TS, TR, and GS deliverables covering post-quantum cryptography migration, hybrid key exchange, and quantum-safe TLS/IPsec profiles. Notable: TS 103 744 (Quantum-safe Hybrid Key Exchanges).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.etsi.org/committee/cyber-qsc"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {"input": "ts-103-744", "note": "Quantum-safe Hybrid Key Exchanges"},
+          {"input": "tr-103-619", "note": "PQC migration strategies"}
+        ]
+      }
     }
   ]
 }
