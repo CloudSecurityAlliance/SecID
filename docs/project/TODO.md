@@ -1,6 +1,6 @@
 # TODO
 
-Tracking work items for SecID. Updated 2026-05-12.
+Tracking work items for SecID. Updated 2026-05-14.
 
 ## Active — Next Up
 
@@ -22,14 +22,6 @@ Two new SecID types covering the education / training / credential ecosystem:
 3. Spec lock — finalize names and cross-reference field shapes
 4. Multi-repo lift across SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK
 5. Populate first registry entries (CCSK, CISSP, CCSK BoK, CISSP CBK, SOC 2 Type II)
-
-### Operational: Verify Live Resolver Deploy Chain
-**Status:** Likely still blocked (last verified 2026-04-30)
-**Priority:** High
-
-Auto-trigger workflow (`SECID_TO_SERVICE_DISPATCH` PAT) and manual KV upload (`cve-schema` test failures) were both blocked at last check. Registry changes merge to `main` fine but may not reach the live resolver at secid.cloudsecurityalliance.org until both paths are restored.
-
-**Action:** Run `gh workflow run "Upload registry to KV" -R CloudSecurityAlliance/SecID-Service` to test current state. If still failing, diagnose token authorization and the failing test cases. The deploy-chain documentation is in CLAUDE.md under "CI/CD."
 
 ### Repo Hygiene: Sweep Stale Feature Branches
 **Status:** Pending
