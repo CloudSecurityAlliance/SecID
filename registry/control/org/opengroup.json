@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "namespace": "opengroup.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "The Open Group",
+  "common_name": "The Open Group",
+  "alternate_names": null,
+  "notes": "Vendor- and technology-neutral consortium producing enterprise architecture and risk standards. Notable: TOGAF (enterprise architecture framework) and Open FAIR (factor analysis of information risk). Some materials are free; others require Open Group membership or paid certification.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.opengroup.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^togaf$"
+      ],
+      "description": "TOGAF — The Open Group Architecture Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "TOGAF Standard",
+        "notes": "TOGAF body of knowledge is free to access (registration required); certification, training, and supplementary deliverables are paid. Versioned as TOGAF 9, TOGAF 10, etc.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.opengroup.org/togaf"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "10",
+            "release_date": "2022-04-25",
+            "status": "current",
+            "note": "TOGAF Standard 10th Edition."
+          },
+          {
+            "version": "9.2",
+            "release_date": "2018-04-01",
+            "status": "superseded",
+            "note": "TOGAF 9.2."
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^open-fair$",
+        "(?i)^fair$"
+      ],
+      "description": "Open FAIR — Factor Analysis of Information Risk",
+      "weight": 100,
+      "data": {
+        "official_name": "Open FAIR — Factor Analysis of Information Risk",
+        "notes": "Quantitative risk-analysis framework. Open Group publishes the Open FAIR Risk Taxonomy and Risk Analysis standards. Standards documents are free with registration; certification is paid.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.opengroup.org/open-fair"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

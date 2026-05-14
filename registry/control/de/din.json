@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "din.de",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Deutsches Institut für Normung",
+  "common_name": "DIN",
+  "alternate_names": [
+    "DIN e.V."
+  ],
+  "notes": "German national standards body. Primarily publishes DIN editions of ISO/IEC standards (technical content typically identical to the ISO original, language and front matter localised). Also publishes purely-national DIN standards on engineering, materials, processes. Paywalled at beuth.de (DIN's distribution arm).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.din.de"
+    },
+    {
+      "type": "store",
+      "url": "https://www.beuth.de"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "DIN editions of ISO/IEC standards (content tracks ISO master)",
+      "weight": 50,
+      "data": {
+        "notes": "DIN editions of ISO/IEC standards. Technical content tracks the ISO master; refer to secid:control/iso.org/<n> for the canonical record. This match_node exists so DIN-prefixed citations resolve to a known namespace.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.din.de"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "iso-iec-27001",
+            "note": "Resolves the German DIN edition; cross-reference secid:control/iso.org/27001."
+          }
+        ]
+      }
+    }
+  ]
+}
