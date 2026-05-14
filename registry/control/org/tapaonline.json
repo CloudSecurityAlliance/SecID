@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tapaonline.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Transported Asset Protection Association",
+  "common_name": "TAPA",
+  "alternate_names": null,
+  "notes": "Industry association focused on cargo theft prevention and supply-chain security. Publishes FSR (Facility Security Requirements), TSR (Trucking Security Requirements), and ACSS (Air Cargo Security Standards). Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.tapaonline.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fsr$"
+      ],
+      "description": "TAPA FSR — Facility Security Requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "TAPA Facility Security Requirements (FSR)",
+        "notes": "Members-only. Cargo-handling facility security framework with three certification levels (A, B, C).",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^tsr$"
+      ],
+      "description": "TAPA TSR — Trucking Security Requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "TAPA Trucking Security Requirements (TSR)",
+        "notes": "Members-only. Road-freight cargo security framework.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^acss$"
+      ],
+      "description": "TAPA ACSS — Air Cargo Security Standards",
+      "weight": 100,
+      "data": {
+        "official_name": "TAPA Air Cargo Security Standards (ACSS)",
+        "notes": "Members-only. Air-cargo facility and operations security framework.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

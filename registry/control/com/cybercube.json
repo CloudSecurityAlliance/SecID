@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cybercube.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "CyberCube Analytics",
+  "common_name": "CyberCube",
+  "alternate_names": null,
+  "notes": "Commercial cyber-catastrophe modeling provider, primarily serving the insurance industry. Methodology proprietary. SecID identity record only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cybercube.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyber-modeling$"
+      ],
+      "description": "CyberCube cyber-catastrophe modeling",
+      "weight": 100,
+      "data": {
+        "official_name": "CyberCube Cyber Catastrophe Modeling",
+        "notes": "Proprietary. Used by reinsurers and cyber insurers for portfolio modeling.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cybercube.com"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

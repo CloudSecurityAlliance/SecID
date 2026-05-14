@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pda.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Parenteral Drug Association",
+  "common_name": "PDA",
+  "alternate_names": null,
+  "notes": "Pharmaceutical industry association focused on sterile manufacturing and parenteral drug development. Publishes Technical Reports (TRs) covering aseptic processing, computer-systems validation, and quality risk. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.pda.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^tr-?(\\d+)$"
+      ],
+      "description": "PDA Technical Reports series",
+      "weight": 100,
+      "data": {
+        "official_name": "PDA Technical Reports",
+        "notes": "Paid. Series spans aseptic processing, validation, quality risk, and increasingly digital manufacturing / data integrity.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.pda.org/bookstore"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

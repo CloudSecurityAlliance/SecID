@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ispe.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Society for Pharmaceutical Engineering",
+  "common_name": "ISPE",
+  "alternate_names": null,
+  "notes": "Global pharmaceutical-industry technical association. Publishes the GAMP series (Good Automated Manufacturing Practice) — the dominant framework for pharmaceutical computer-systems validation and automation security. Paid via ISPE.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ispe.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^gamp-?5$"
+      ],
+      "description": "ISPE GAMP 5 — Good Automated Manufacturing Practice",
+      "weight": 100,
+      "data": {
+        "official_name": "ISPE GAMP 5 - A Risk-Based Approach to Compliant GxP Computerized Systems",
+        "notes": "Paid. Foundational framework for pharma manufacturing computer-system validation; widely required for FDA / EMA inspections. Second Edition (2022) updated for cloud, AI/ML, and modern software practices.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ispe.org/publications/guidance-documents/gamp-5"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "5-2022",
+            "release_date": "2022-07-01",
+            "status": "current",
+            "note": "GAMP 5 Second Edition."
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

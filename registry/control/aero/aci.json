@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aci.aero",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Airports Council International",
+  "common_name": "ACI",
+  "alternate_names": null,
+  "notes": "Global trade association of airport operators. Publishes the Airport Security Programme guidance and related aviation-security materials. Paid.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.aci.aero"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^asp$",
+        "(?i)^airport-security-programme$"
+      ],
+      "description": "ACI Airport Security Programme",
+      "weight": 100,
+      "data": {
+        "official_name": "ACI Airport Security Programme guidance",
+        "notes": "Paid. Airport-specific security programme guidance complementing ICAO Annex 17 requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.aci.aero"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
