@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "namespace": "interac.ca",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Interac Corp.",
+  "common_name": "Interac",
+  "alternate_names": null,
+  "notes": "Canadian domestic debit and Interac e-Transfer network operator. Publishes security and risk-management requirements that participating financial institutions and acquirers must follow. Materials are members-only / NDA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.interac.ca"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security$"
+      ],
+      "description": "Interac Security Requirements for participants",
+      "weight": 100,
+      "data": {
+        "official_name": "Interac Security Requirements",
+        "notes": "Members-only / NDA. Includes specific requirements for debit-card processing, e-Transfer, and Interac Online services.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.interac.ca"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

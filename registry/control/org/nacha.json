@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nacha.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "NACHA - The Electronic Payments Association",
+  "common_name": "NACHA",
+  "alternate_names": null,
+  "notes": "US Automated Clearing House (ACH) network rule-making body. Publishes the NACHA Operating Rules — the comprehensive rules governing ACH transactions including security and risk-management requirements. Paid annual subscription, not redistributable.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nacha.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^operating-rules$",
+        "(?i)^nacha-rules$"
+      ],
+      "description": "NACHA Operating Rules",
+      "weight": 100,
+      "data": {
+        "official_name": "NACHA Operating Rules and Guidelines",
+        "notes": "Paid annual subscription. Comprehensive ACH transaction rules. Specific security-relevant subsections include the WEB Debit Account Validation rule and Same Day ACH security expectations.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nacha.org/rules"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

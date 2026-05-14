@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iata.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "International Air Transport Association",
+  "common_name": "IATA",
+  "alternate_names": null,
+  "notes": "Global trade association of airlines. Publishes aviation cyber-security guidance including the Aviation Cyber Security Roadmap and integrated cyber requirements in the IOSA (Operational Safety Audit) standard. Paid / member airlines.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.iata.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyber-security$",
+        "(?i)^cyber$"
+      ],
+      "description": "IATA Cyber Security framework",
+      "weight": 100,
+      "data": {
+        "official_name": "IATA Aviation Cyber Security Roadmap",
+        "notes": "Industry framework for aviation cybersecurity covering pre-flight, in-flight, and operational ground systems.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.iata.org/en/programs/security/cyber-security/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^iosa$"
+      ],
+      "description": "IATA Operational Safety Audit (IOSA)",
+      "weight": 100,
+      "data": {
+        "official_name": "IATA Operational Safety Audit (IOSA)",
+        "notes": "Airline operational-safety audit program with cybersecurity components.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.iata.org/en/programs/safety/audit/iosa/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

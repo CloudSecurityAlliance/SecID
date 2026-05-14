@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cen.eu",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "European Committee for Standardization",
+  "common_name": "CEN",
+  "alternate_names": null,
+  "notes": "European standards body (CEN, paired with CENELEC for electrotechnical). Publishes EN standards including EN ISO/IEC adoptions and CEN-original standards. EN 18031 (consumer-product cybersecurity, mandated by EU RED Article 3.3) and the prEN AI Act technical standards are particularly relevant. Paywalled via national standards bodies (DIN, AFNOR, BSI, UNE, etc.).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cencenelec.eu"
+    },
+    {
+      "type": "website",
+      "url": "https://www.cen.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^en-?18031(-\\d+)?$"
+      ],
+      "description": "EN 18031 — Common security requirements for radio equipment",
+      "weight": 100,
+      "data": {
+        "official_name": "EN 18031 - Common security requirements for radio equipment",
+        "notes": "Paywalled. Three-part series harmonized to the EU Radio Equipment Directive Article 3(3) cybersecurity requirements. Mandatory for radio equipment placed on the EU market from August 2025.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cencenelec.eu"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-09-01",
+            "status": "current",
+            "note": "EN 18031-1/-2/-3:2024."
+          }
+        ],
+        "examples": [
+          {
+            "input": "en-18031-1",
+            "note": "Part 1: Internet-connected radio equipment"
+          },
+          {
+            "input": "en-18031-2",
+            "note": "Part 2: Radio equipment processing data"
+          },
+          {
+            "input": "en-18031-3",
+            "note": "Part 3: Radio equipment for virtual money / financial value"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^en-iso-iec-(\\d+(?:-\\d+)?)$"
+      ],
+      "description": "EN ISO/IEC adoptions",
+      "weight": 100,
+      "data": {
+        "notes": "European editions of ISO/IEC standards. Technical content tracks the ISO master; cross-reference secid:control/iso.org/<n>.",
+        "urls": [],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

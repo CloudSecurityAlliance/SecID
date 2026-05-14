@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csagroup.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "CSA Group",
+  "common_name": "CSA Group",
+  "alternate_names": [
+    "Canadian Standards Association"
+  ],
+  "notes": "Canadian national standards body. **NOTE: name collision with Cloud Security Alliance (cloudsecurityalliance.org)** — the two are unrelated. CSA Group publishes the CSA standards covering electrical, mechanical, environmental, and increasingly information-technology / privacy / cybersecurity topics. Paywalled via CSA Group store.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.csagroup.org"
+    },
+    {
+      "type": "store",
+      "url": "https://www.csagroup.org/store/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^z(\\d+(?:\\.\\d+)?)$",
+        "(?i)^csa-z(\\d+(?:\\.\\d+)?)$"
+      ],
+      "description": "CSA Group Z-series standards",
+      "weight": 100,
+      "data": {
+        "notes": "Paid. Examples include Z246.1 (security management for petroleum and natural gas industry systems), and various IT/privacy-related Z-series.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.csagroup.org/store/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

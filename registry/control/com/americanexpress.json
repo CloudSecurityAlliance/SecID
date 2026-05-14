@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "americanexpress.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "American Express Company",
+  "common_name": "American Express",
+  "alternate_names": [
+    "Amex"
+  ],
+  "notes": "US-based global card network and issuer. Publishes the Data Security Operating Policy (DSOP) for merchants. Documents are restricted to merchants/acquirers under their American Express acceptance agreements.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.americanexpress.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^dsop$",
+        "(?i)^data-security-operating-policy$"
+      ],
+      "description": "American Express Data Security Operating Policy (DSOP)",
+      "weight": 100,
+      "data": {
+        "official_name": "American Express Data Security Operating Policy (DSOP)",
+        "notes": "Merchant-restricted. American Express's data-security policy for merchants, aligned with PCI DSS with additional Amex-specific requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.americanexpress.com/us/security-center/data-security/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

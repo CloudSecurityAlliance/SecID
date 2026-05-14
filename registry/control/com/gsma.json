@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gsma.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "GSM Association",
+  "common_name": "GSMA",
+  "alternate_names": null,
+  "notes": "Global trade association for mobile network operators. Publishes the FS-series (Fraud and Security) standards covering mobile network security, SS7 security, roaming security, and IoT device security. Paid / members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gsma.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fs-?(\\d+)?$"
+      ],
+      "description": "GSMA FS-series — Fraud and Security standards",
+      "weight": 100,
+      "data": {
+        "official_name": "GSMA Fraud and Security (FS) Standards",
+        "notes": "Multi-document series including FS.07 (5G security), FS.11 (SS7 security), FS.31 (Baseline Security Controls), FS.34 (Roaming security), and the IoT Security Guidelines (FS.40+).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gsma.com/security/"
+          }
+        ],
+        "versions_available": [],
+        "examples": [
+          {
+            "input": "fs-31",
+            "note": "FS.31 Baseline Security Controls"
+          },
+          {
+            "input": "fs-40",
+            "note": "FS.40 IoT Security Guidelines"
+          }
+        ]
+      }
+    }
+  ]
+}

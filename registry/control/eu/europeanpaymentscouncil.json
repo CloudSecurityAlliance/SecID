@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "namespace": "europeanpaymentscouncil.eu",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "European Payments Council",
+  "common_name": "EPC",
+  "alternate_names": null,
+  "notes": "European banking-industry body governing the SEPA (Single Euro Payments Area) schemes. Publishes scheme rulebooks for SCT (SEPA Credit Transfer), SDD (SEPA Direct Debit), SCT Inst (instant credit transfer), and related cards-clearing schemes. Scheme rules include security and risk-management requirements for participating banks.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.europeanpaymentscouncil.eu"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^sct$",
+        "(?i)^sepa-credit-transfer$"
+      ],
+      "description": "SEPA Credit Transfer (SCT) scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "SEPA Credit Transfer (SCT) Rulebook",
+        "notes": "Scheme rulebook governing euro credit transfers across SEPA. Includes operational and security requirements for participants.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.europeanpaymentscouncil.eu/document-library"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^sct-inst$",
+        "(?i)^sepa-instant$"
+      ],
+      "description": "SEPA Instant Credit Transfer (SCT Inst) scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "SEPA Instant Credit Transfer (SCT Inst) Rulebook",
+        "notes": "Scheme rulebook governing real-time euro credit transfers across SEPA.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.europeanpaymentscouncil.eu/document-library"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^sdd$",
+        "(?i)^sepa-direct-debit$"
+      ],
+      "description": "SEPA Direct Debit (SDD) scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "SEPA Direct Debit (SDD) Rulebook",
+        "notes": "Scheme rulebook governing euro direct debits across SEPA.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.europeanpaymentscouncil.eu/document-library"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
