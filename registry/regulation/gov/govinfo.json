@@ -113,6 +113,66 @@
           }
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^sox$", "(?i)^sarbanes-oxley$"],
+      "description": "Sarbanes-Oxley Act of 2002",
+      "weight": 100,
+      "data": {
+        "official_name": "Sarbanes-Oxley Act of 2002",
+        "common_name": "SOX",
+        "alternate_names": ["Public Company Accounting Reform and Investor Protection Act", "Public Law 107-204"],
+        "description": "US federal law mandating financial-reporting and internal-controls requirements for publicly-traded companies. Sections 302 (CEO/CFO certification of internal controls) and 404 (assessment of internal controls over financial reporting) drive substantial IT general controls (ITGC) audit work.",
+        "notes": "Audit oversight via PCAOB; cybersecurity implications via internal-controls audit scope.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.govinfo.gov/app/details/PLAW-107publ204"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^bsa$", "(?i)^bank-secrecy-act$"],
+      "description": "Bank Secrecy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Bank Secrecy Act of 1970",
+        "common_name": "BSA",
+        "alternate_names": ["31 U.S.C. 5311 et seq."],
+        "description": "US anti-money-laundering and counter-terrorism-financing law. Requires financial institutions to file Currency Transaction Reports (CTRs), Suspicious Activity Reports (SARs), and maintain BSA/AML compliance programs. Operated under Treasury FinCEN.",
+        "notes": "Amended significantly by the USA PATRIOT Act (2001) and the Anti-Money Laundering Act of 2020.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title31/html/USCODE-2023-title31-subtitleIV-chap53-subchapII.htm"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^cisa-2015$", "(?i)^cyber-information-sharing-act$"],
+      "description": "Cybersecurity Information Sharing Act of 2015",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybersecurity Information Sharing Act of 2015",
+        "common_name": "CISA 2015",
+        "alternate_names": ["6 U.S.C. 1501-1510"],
+        "description": "US federal law authorizing voluntary cyber-threat-information sharing between private sector and federal government with liability protections. **NOTE: distinct from the agency CISA (Cybersecurity and Infrastructure Security Agency)** established by the CISA Act of 2018.",
+        "notes": "Enables the AIS (Automated Indicator Sharing) program operated by CISA agency.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.govinfo.gov/content/pkg/PLAW-114publ113/html/PLAW-114publ113.htm"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^circia$"],
+      "description": "Cyber Incident Reporting for Critical Infrastructure Act of 2022",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyber Incident Reporting for Critical Infrastructure Act of 2022",
+        "common_name": "CIRCIA",
+        "alternate_names": ["6 U.S.C. 681 et seq."],
+        "description": "US federal law requiring critical infrastructure entities to report covered cyber incidents to CISA within 72 hours and ransomware payments within 24 hours. CISA rulemaking ongoing (Notice of Proposed Rulemaking April 2024).",
+        "notes": "Final rule expected 2025-2026.",
+        "urls": [
+          {"type": "website", "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia"}
+        ]
+      }
     }
   ]
 }

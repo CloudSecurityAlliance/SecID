@@ -32,6 +32,51 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^pipl$"],
+      "description": "Personal Information Protection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Information Protection Law of the People's Republic of China",
+        "common_name": "PIPL",
+        "alternate_names": ["中华人民共和国个人信息保护法"],
+        "description": "China's comprehensive personal information protection law (effective November 2021). Imposes GDPR-like obligations including consent, data minimisation, cross-border transfer restrictions, and DPO requirements.",
+        "notes": "Companion to the Cybersecurity Law (CSL 2017) and Data Security Law (DSL 2021) — together form China's data-governance trinity.",
+        "urls": [
+          {"type": "website", "url": "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^dsl$", "(?i)^data-security-law$"],
+      "description": "Data Security Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Data Security Law of the People's Republic of China",
+        "common_name": "DSL",
+        "alternate_names": ["中华人民共和国数据安全法"],
+        "description": "China's data security law establishing tiered data classification (important data, core data), security obligations across the data lifecycle, and cross-border transfer restrictions for industrial / non-personal data. Effective September 2021.",
+        "notes": "Operates alongside PIPL (personal information) and CSL (cybersecurity).",
+        "urls": [
+          {"type": "website", "url": "https://www.cac.gov.cn/2021-06/11/c_1624994566919140.htm"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^csl$", "(?i)^cybersecurity-law$"],
+      "description": "Cybersecurity Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybersecurity Law of the People's Republic of China",
+        "common_name": "CSL",
+        "alternate_names": ["中华人民共和国网络安全法"],
+        "description": "China's foundational cybersecurity law (effective June 2017). Establishes the Multi-Level Protection Scheme (MLPS, operationalised via GB/T 22239), critical information infrastructure (CII) designation, network operator obligations, and cross-border data transfer constraints.",
+        "notes": "Foundation for the broader Chinese cyber-governance framework.",
+        "urls": [
+          {"type": "website", "url": "https://www.cac.gov.cn/2016-11/07/c_1119867116.htm"}
+        ]
+      }
     }
   ]
 }
