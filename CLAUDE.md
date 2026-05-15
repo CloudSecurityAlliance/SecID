@@ -324,6 +324,32 @@ See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Ty
 
 Some sources appear in multiple types. For example, a security tool might be both an `entity` (the product) and a `control` (its capabilities). A weakness taxonomy like OWASP AI Exchange defines both `weakness` entries and `control` entries. Each type gets its own registry file — see `registry/README.md` for the dual-documentation pattern.
 
+### Common pattern: standards-publishing organizations
+
+An organization that publishes controls almost always belongs in `entity/` *and* `control/` simultaneously. They have separate roles:
+
+| Type file | Represents | Used for |
+|---|---|---|
+| `registry/entity/<path>.json` | The organization itself (identity, website, brief description) | Citing the org as a stable anchor; "what is UIDAI?", "who publishes ISO 27001?" |
+| `registry/control/<path>.json` | The controls/standards/programs they publish | Citing specific standards; `secid:control/iso.org/27001@2022#A.5.1` |
+| `registry/regulation/<publisher-path>.json` | Laws authorizing or shaping their work | Citing specific laws; `secid:regulation/in/gov/meity#aadhaar-act-2016` |
+
+The regulation file lives under the **actual legal publisher's** namespace (Parliament of India for Aadhaar Act, European Commission for PSD2, US Congress for HIPAA) — not under the operating-org's namespace. Cross-references between the three layers will be expressed via the future Relationships layer (SPEC §6); today they're documented in `notes:` field text.
+
+### Worked example: Aadhaar / India Stack
+
+| SecID | File | Description |
+|---|---|---|
+| `secid:regulation/in/gov/meity#aadhaar-act-2016` | `registry/regulation/in/gov/meity.json` | Aadhaar Act 2016 — the enabling legislation |
+| `secid:entity/in/gov/uidai` | `registry/entity/in/gov/uidai.json` | UIDAI — the statutory authority |
+| `secid:control/in/gov/uidai/auth-api` | `registry/control/in/gov/uidai.json` | Aadhaar Authentication API spec |
+
+Same `uidai.gov.in` namespace; two type-specific files (entity + control). Plus the regulation under the Indian government's `meity.gov.in` legal-publisher namespace.
+
+### EU directive transposition
+
+EU directives (PSD2, NIS2, eIDAS amendments) get a record under `regulation/eu/europa.json` *and* a per-member-state record under that country's legal publisher (`regulation/de/gesetze-im-internet.json`, `regulation/fr/gov/legifrance.json`, etc.). Each national transposition record notes the parent EU directive's SecID in its `notes:` field. Cross-references will move to structured fields once the Relationships layer ships.
+
 ## Claude Code Skills
 
 The `skills/` directory contains workflow skills for common registry tasks. Use the appropriate skill for the task at hand:
