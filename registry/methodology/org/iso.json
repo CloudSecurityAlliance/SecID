@@ -13,10 +13,8 @@
   "match_nodes": [
     {
       "patterns": ["(?i)^27005$"],
-      "description": "ISO/IEC 27005: Information security risk management. Methodology for identifying, analyzing, evaluating, and treating information security risks within an ISMS context.",
+      "description": "ISO/IEC 27005: Information security risk management. Methodology for identifying, analyzing, evaluating, and treating information security risks within an ISMS context. Version is significant — ISO 27005 versions differ materially: the 2022 edition (third edition) restructured the methodology to align with ISO 31000 risk management vocabulary and introduced scenario-based risk identification, while the 2018 edition used a different asset-based approach. Always specify version.",
       "weight": 100,
-      "version_required": true,
-      "version_disambiguation": "ISO 27005 versions differ materially. The 2022 edition (third edition) restructured the methodology to align with ISO 31000 risk management vocabulary and introduced scenario-based risk identification. The 2018 edition used a different asset-based approach. Always specify version.",
       "data": {
         "url": "https://www.iso.org/standard/80585.html",
         "examples": ["27005"]
