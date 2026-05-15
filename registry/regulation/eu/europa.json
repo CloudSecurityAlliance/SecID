@@ -178,6 +178,126 @@
           }
         }
       ]
+    },
+    {
+      "patterns": ["(?i)^psd2$"],
+      "description": "Payment Services Directive 2",
+      "weight": 100,
+      "data": {
+        "official_name": "Revised Payment Services Directive",
+        "common_name": "PSD2",
+        "alternate_names": ["Directive (EU) 2015/2366"],
+        "description": "EU directive mandating Strong Customer Authentication (SCA), open banking access for licensed third-party providers (AISPs/PISPs), and enhanced fraud reporting. Transposed into 27 national laws across EU member states.",
+        "notes": "Adopted 2015, effective Jan 2018; SCA enforcement Sept 2019. Underpins the UK OBIE Read/Write API (post-Brexit), Berlin Group NextGenPSD2, STET PSD2 API, PolishAPI, and other European Open Banking specifications. Successor PSD3 / Payment Services Regulation (PSR) proposed 2023.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^psd3$", "(?i)^psr$"],
+      "description": "Payment Services Directive 3 / Payment Services Regulation",
+      "weight": 100,
+      "data": {
+        "official_name": "Payment Services Directive 3 and Payment Services Regulation",
+        "common_name": "PSD3 / PSR",
+        "alternate_names": ["COM/2023/367", "COM/2023/366"],
+        "description": "Proposed (2023) successor to PSD2; split into a Directive (PSD3, on licensing) and a Regulation (PSR, on conduct rules). Strengthens SCA, expands open finance scope, addresses payment fraud, and introduces VOP (Verification of Payee) requirements.",
+        "notes": "Legislative proposals published June 2023; expected to apply ~2026-2027 once finalised.",
+        "urls": [
+          {"type": "proposal", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52023PC0367"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^eidas$", "(?i)^eidas-1$"],
+      "description": "eIDAS Regulation (electronic identification and trust services)",
+      "weight": 100,
+      "data": {
+        "official_name": "Electronic Identification and Trust Services Regulation",
+        "common_name": "eIDAS",
+        "alternate_names": ["Regulation (EU) 910/2014"],
+        "description": "EU regulation establishing a framework for electronic identification, authentication, and trust services (electronic signatures, seals, time-stamps, registered delivery, website authentication) across the single market.",
+        "notes": "Effective July 2016. Provides three Levels of Assurance (LoA) for eID schemes: low, substantial, high. Member states notify their national eID schemes (e.g., Italian SPID, German eID, French FranceConnect+) for cross-border recognition.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^eidas-2$", "(?i)^eidas2$"],
+      "description": "eIDAS 2 — Revised eIDAS Regulation (EUDI Wallet)",
+      "weight": 100,
+      "data": {
+        "official_name": "Revised eIDAS Regulation establishing the European Digital Identity Wallet",
+        "common_name": "eIDAS 2",
+        "alternate_names": ["Regulation (EU) 2024/1183"],
+        "description": "Updates eIDAS to mandate the EU Digital Identity Wallet (EUDI Wallet) — a sovereign cross-border digital-identity wallet for citizens, residents, and businesses. Member states must offer at least one notified wallet by November 2026.",
+        "notes": "In force May 2024; wallet-rollout deadline 2026. Architecture Reference Framework (ARF) defines the wallet's technical specs and integrates Verifiable Credentials (W3C VC, OpenID4VC).",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1183"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^cra$", "(?i)^cyber-resilience-act$"],
+      "description": "Cyber Resilience Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyber Resilience Act",
+        "common_name": "CRA",
+        "alternate_names": ["Regulation (EU) 2024/2847"],
+        "description": "EU regulation imposing horizontal cybersecurity requirements on products with digital elements (hardware, software, components) placed on the EU market. Establishes essential requirements, conformity assessment, CE marking, and vulnerability handling obligations.",
+        "notes": "Adopted December 2024. Main provisions apply from December 2027 (36 months after entry into force); vulnerability and incident reporting obligations apply earlier from September 2026. Companion to EN 18031 harmonised standard for radio equipment under the Radio Equipment Directive.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R2847"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^eprivacy$", "(?i)^eprivacy-directive$"],
+      "description": "ePrivacy Directive",
+      "weight": 100,
+      "data": {
+        "official_name": "Directive on Privacy and Electronic Communications",
+        "common_name": "ePrivacy Directive",
+        "alternate_names": ["Directive 2002/58/EC", "Cookie Directive"],
+        "description": "EU directive on privacy in electronic communications. Governs cookies, electronic marketing, traffic data, and confidentiality of communications. Pending replacement by an ePrivacy Regulation (long-stalled).",
+        "notes": "Amended significantly by Directive 2009/136/EC (the 'Cookie Directive' amendments). The proposed ePrivacy Regulation has been in legislative limbo since 2017.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32002L0058"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^cer$", "(?i)^cer-directive$"],
+      "description": "Critical Entities Resilience Directive",
+      "weight": 100,
+      "data": {
+        "official_name": "Critical Entities Resilience Directive",
+        "common_name": "CER",
+        "alternate_names": ["Directive (EU) 2022/2557"],
+        "description": "Companion directive to NIS2 covering physical and operational resilience of critical entities across 11 sectors (energy, transport, banking, financial market infrastructure, health, drinking water, wastewater, digital infrastructure, public administration, space, food).",
+        "notes": "Adopted December 2022, transposition deadline October 2024.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2557"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^red-3-3$", "(?i)^red-art-3-3$"],
+      "description": "Radio Equipment Directive Article 3(3) cybersecurity requirements",
+      "weight": 100,
+      "data": {
+        "official_name": "Radio Equipment Directive Article 3(3) cybersecurity essential requirements",
+        "common_name": "RED 3(3)",
+        "alternate_names": ["Delegated Regulation (EU) 2022/30"],
+        "description": "Activation of cybersecurity essential requirements under the Radio Equipment Directive (2014/53/EU) Article 3(3) for internet-connected radio equipment. Mandatory for radio equipment placed on the EU market from 1 August 2025.",
+        "notes": "Harmonised standard for compliance: EN 18031 series.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0030"}
+        ]
+      }
     }
   ]
 }

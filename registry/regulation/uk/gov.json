@@ -18,6 +18,66 @@
 
   "match_nodes": [
     {
+      "patterns": ["(?i)^dpa-2018$", "(?i)^uk-gdpr$"],
+      "description": "Data Protection Act 2018 / UK GDPR",
+      "weight": 100,
+      "data": {
+        "official_name": "Data Protection Act 2018 (incorporating UK GDPR)",
+        "common_name": "DPA 2018",
+        "alternate_names": ["UK GDPR"],
+        "description": "UK's data protection law. Incorporates the EU GDPR as UK GDPR via the European Union (Withdrawal) Act 2018. Supplemented by national provisions covering law enforcement, intelligence services, and exceptions. Enforced by the ICO.",
+        "notes": "Post-Brexit divergence pending via the UK Data (Use and Access) Bill 2024.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2018/12/contents"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^osa$", "(?i)^online-safety-act$"],
+      "description": "Online Safety Act 2023",
+      "weight": 100,
+      "data": {
+        "official_name": "Online Safety Act 2023",
+        "common_name": "OSA",
+        "alternate_names": null,
+        "description": "UK law imposing duties of care on online platforms regarding illegal content and content harmful to children. Enforced by Ofcom.",
+        "notes": "Phased commencement; risk-assessment and child-safety duties active 2025.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2023/50/contents"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^cma$", "(?i)^computer-misuse-act$"],
+      "description": "Computer Misuse Act 1990",
+      "weight": 100,
+      "data": {
+        "official_name": "Computer Misuse Act 1990",
+        "common_name": "CMA",
+        "alternate_names": null,
+        "description": "UK's foundational computer-crime law. Criminalises unauthorised access (Section 1), unauthorised access with intent to commit further offences (Section 2), unauthorised modification (Section 3), and making/supplying tools for offences (Section 3A).",
+        "notes": "Reform consultation ongoing (Home Office, 2023+) — possible new defence for legitimate security researchers.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/1990/18/contents"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^nis-regs-2018$"],
+      "description": "Network and Information Systems Regulations 2018 (UK NIS)",
+      "weight": 100,
+      "data": {
+        "official_name": "Network and Information Systems Regulations 2018",
+        "common_name": "UK NIS",
+        "alternate_names": null,
+        "description": "UK implementation of the original EU NIS Directive (now superseded in EU by NIS2). Covers Operators of Essential Services (OES) and Relevant Digital Service Providers (RDSPs).",
+        "notes": "Pending modernisation via the UK Cyber Security and Resilience Bill announced 2024.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/uksi/2018/506/contents/made"}
+        ]
+      }
+    },
+    {
       "patterns": ["(?i)^ai-action-plan$"],
       "description": "AI Opportunities Action Plan",
       "weight": 100,

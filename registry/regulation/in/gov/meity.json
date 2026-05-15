@@ -42,6 +42,66 @@
           }
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^aadhaar-act$", "(?i)^aadhaar-act-2016$"],
+      "description": "Aadhaar Act 2016",
+      "weight": 100,
+      "data": {
+        "official_name": "Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Act, 2016",
+        "common_name": "Aadhaar Act",
+        "alternate_names": ["Act No. 18 of 2016"],
+        "description": "Indian statute creating UIDAI as a statutory authority and authorizing the Aadhaar biometric identity programme. Establishes the legal basis for Aadhaar issuance, authentication, and use by public and private entities.",
+        "notes": "Foundational law for the world's largest biometric identity system. Significantly amended by the Aadhaar and Other Laws (Amendment) Act, 2019 in response to Supreme Court rulings on permissible private-sector use.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.meity.gov.in/aadhaar-targeted-delivery-financial-and-other-subsidies-benefits-and-services-act-2016"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^it-act$", "(?i)^it-act-2000$"],
+      "description": "Information Technology Act 2000",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Technology Act, 2000",
+        "common_name": "IT Act 2000",
+        "alternate_names": ["Act No. 21 of 2000"],
+        "description": "Indian foundational cyber law covering electronic commerce, digital signatures, computer-related offences, and intermediary liability. Significantly amended in 2008 (Section 43A on data protection, Section 79 intermediary safe-harbour, Sections 66/67 cyber offences).",
+        "notes": "Operationalised via the IT Rules 2011 (SPDI Rules), IT Rules 2021 (intermediary guidelines), and CERT-In incident reporting directives.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.meity.gov.in/content/information-technology-act-2000"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^it-rules-2011$", "(?i)^spdi-rules$"],
+      "description": "IT (SPDI) Rules 2011",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011",
+        "common_name": "SPDI Rules",
+        "alternate_names": ["IT Rules 2011"],
+        "description": "Subordinate rules under IT Act 2000 Section 43A specifying reasonable security practices for protection of sensitive personal data.",
+        "notes": "Recognises ISO/IEC 27001 as one of the standards meeting 'reasonable security practices'. Largely superseded in scope by the DPDP Act 2023 but still relevant for pre-DPDP cases.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.meity.gov.in/writereaddata/files/GSR313E_10511%281%29_0.pdf"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^it-rules-2021$"],
+      "description": "IT (Intermediary Guidelines) Rules 2021",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021",
+        "common_name": "IT Rules 2021",
+        "alternate_names": null,
+        "description": "Rules governing intermediaries (social media, messaging platforms) including grievance officer requirements, traceability for significant social media intermediaries, and content moderation obligations.",
+        "notes": "Amended multiple times since 2021; significant amendments in 2022 (online gaming) and 2023 (fact-checking).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.meity.gov.in/writereaddata/files/Information%20Technology%20%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20%28updated%2006.04.2023%29-.pdf"}
+        ]
+      }
     }
   ]
 }
