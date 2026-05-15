@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ris.bka.gv.at",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "RIS — Rechtsinformationssystem des Bundes",
+  "common_name": "RIS",
+  "alternate_names": null,
+  "notes": "Official online repository of Austrian federal laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ris.bka.gv.at"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^zadig-2018$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Austrian PSD2 transposition (ZaDiG 2018)",
+      "weight": 100,
+      "data": {
+        "official_name": "Zahlungsdienstegesetz 2018 (ZaDiG 2018)",
+        "common_name": "ZaDiG 2018",
+        "description": "Austrian Payment Services Act transposing PSD2. Supervised by FMA.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.ris.bka.gv.at"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Austrian NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Austrian NIS2 transposition (NISG 2024)",
+        "common_name": "Austrian NIS2 transposition",
+        "description": "Austrian transposition of NIS2 Directive.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ris.bka.gv.at"
+          }
+        ]
+      }
+    }
+  ]
+}

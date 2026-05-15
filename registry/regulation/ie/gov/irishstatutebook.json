@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "namespace": "irishstatutebook.ie",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Irish Statute Book",
+  "common_name": "Irish Statute Book",
+  "alternate_names": null,
+  "notes": "Official online repository of Irish laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.irishstatutebook.ie"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psd2-regulations-2018$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Irish PSD2 transposition (EU PSR Regulations 2018)",
+      "weight": 100,
+      "data": {
+        "official_name": "European Union (Payment Services) Regulations 2018 (S.I. 6/2018)",
+        "common_name": "PSR 2018",
+        "description": "Irish transposition of PSD2 via statutory instrument. Supervised by Central Bank of Ireland.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.irishstatutebook.ie/eli/2018/si/6/made/en/print"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Irish NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Irish NIS2 transposition",
+        "common_name": "Irish NIS2 transposition",
+        "description": "Irish transposition of NIS2. Supervised by NCSC Ireland.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ncsc.gov.ie"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^data-protection-act-2018$"
+      ],
+      "description": "Irish Data Protection Act 2018 (GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Data Protection Act 2018 (Ireland)",
+        "common_name": "DPA 2018 (Ireland)",
+        "description": "Irish data protection law supplementing GDPR. Enforced by Data Protection Commission (DPC). Ireland is the EU regulatory home of many global tech firms, so the DPC has handled significant GDPR enforcement actions.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/html"
+          }
+        ]
+      }
+    }
+  ]
+}

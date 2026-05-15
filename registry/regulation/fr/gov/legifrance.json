@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "namespace": "legifrance.gouv.fr",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Légifrance (French government legal publisher)",
+  "common_name": "Légifrance",
+  "alternate_names": null,
+  "notes": "Official online repository of French laws. Operated by the French government.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.legifrance.gouv.fr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "French PSD2 transposition (Code monétaire et financier)",
+      "weight": 100,
+      "data": {
+        "official_name": "Ordonnance n° 2017-1252 du 9 août 2017 + Code monétaire et financier articles L.521-1 et seq.",
+        "common_name": "French PSD2 transposition",
+        "description": "French transposition of PSD2 into the CMF. Supervised by ACPR.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000035384810"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "French NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Loi visant à renforcer la cybersécurité (NIS2 transposition)",
+        "common_name": "French NIS2 transposition",
+        "description": "French transposition of NIS2 Directive. Supervised by ANSSI.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://cyber.gouv.fr"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^lil$",
+        "(?i)^loi-informatique-et-libertes$"
+      ],
+      "description": "Loi Informatique et Libertés (French GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés (modifiée)",
+        "common_name": "Loi Informatique et Libertés",
+        "description": "Pioneering French data protection law (1978), substantially amended 2018-2019 to align with GDPR. Enforced by CNIL.",
+        "notes": "Predates GDPR; inspired modern data protection laws globally.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460"
+          }
+        ]
+      }
+    }
+  ]
+}

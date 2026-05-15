@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "namespace": "wetten.overheid.nl",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Wetten.overheid.nl",
+  "common_name": "wetten.overheid.nl",
+  "alternate_names": null,
+  "notes": "Official online repository of Dutch national laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://wetten.overheid.nl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^wft-psd2$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Dutch PSD2 transposition (Wft amendments)",
+      "weight": 100,
+      "data": {
+        "official_name": "Wet financieel toezicht (Wft) — PSD2 amendments",
+        "common_name": "Wft PSD2 amendments",
+        "description": "Dutch transposition of PSD2 via Wft amendments. Supervised by DNB and AFM.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://wetten.overheid.nl"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cbw$",
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Dutch NIS2 transposition (Cyberbeveiligingswet)",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyberbeveiligingswet (Cbw)",
+        "common_name": "Cbw",
+        "description": "Dutch transposition of NIS2 Directive. Supervised by NCSC-NL.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://wetten.overheid.nl"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^uavg$"
+      ],
+      "description": "UAVG (Dutch GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Uitvoeringswet Algemene verordening gegevensbescherming (UAVG)",
+        "common_name": "UAVG",
+        "description": "Dutch GDPR Implementation Act. Enforced by Autoriteit Persoonsgegevens.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://wetten.overheid.nl/BWBR0040940"
+          }
+        ]
+      }
+    }
+  ]
+}

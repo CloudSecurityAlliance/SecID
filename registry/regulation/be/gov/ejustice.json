@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ejustice.just.fgov.be",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Justel / eJustice (Belgium)",
+  "common_name": "eJustice",
+  "alternate_names": null,
+  "notes": "Official online repository of Belgian laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ejustice.just.fgov.be"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Belgian PSD2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Loi du 11 mars 2018 relative aux établissements de paiement (PSD2)",
+        "common_name": "Belgian PSD2 transposition",
+        "description": "Belgian transposition of PSD2. Supervised by NBB and FSMA.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ejustice.just.fgov.be"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Belgian NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Belgian NIS2 transposition law",
+        "common_name": "Belgian NIS2 transposition",
+        "description": "Belgian transposition of NIS2. Supervised by CCB.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ccb.belgium.be"
+          }
+        ]
+      }
+    }
+  ]
+}
