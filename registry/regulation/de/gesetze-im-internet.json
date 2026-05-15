@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gesetze-im-internet.de",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Bundesministerium der Justiz / Juris",
+  "common_name": "gesetze-im-internet.de",
+  "alternate_names": null,
+  "notes": "Canonical official online repository of German federal laws. Published by the Federal Ministry of Justice with Juris. Used as the SecID namespace for German national laws including EU directive transpositions.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gesetze-im-internet.de"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^zag$",
+        "(?i)^zag-2018$"
+      ],
+      "description": "ZAG — Zahlungsdiensteaufsichtsgesetz (German PSD2 transposition)",
+      "weight": 100,
+      "data": {
+        "official_name": "Zahlungsdiensteaufsichtsgesetz (ZAG)",
+        "common_name": "ZAG 2018",
+        "alternate_names": [
+          "BGBl. I 2017 S. 2446"
+        ],
+        "description": "German Payment Services Supervision Act transposing PSD2. Includes Strong Customer Authentication (SCA), open banking (AISP/PISP), and operational/security requirements for payment service providers.",
+        "notes": "Enacted 17 July 2017, effective 13 January 2018. Supervised by BaFin. Transposes Directive (EU) 2015/2366 — see secid:regulation/europa.eu/psd2.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/zag_2018/"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2umsucg$"
+      ],
+      "description": "NIS2UmsuCG — German NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Gesetz zur Umsetzung der NIS-2-Richtlinie",
+        "common_name": "NIS2UmsuCG",
+        "alternate_names": [
+          "NIS-2-Umsetzungsgesetz"
+        ],
+        "description": "German transposition of NIS2 Directive (EU) 2022/2555.",
+        "notes": "Adoption process extended into 2025. Transposes Directive (EU) 2022/2555 — see secid:regulation/europa.eu/nis2.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/DE/Das-BSI/Auftrag/Rechtsgrundlagen/NIS-2/nis-2_node.html"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^bdsg$"
+      ],
+      "description": "BDSG — Bundesdatenschutzgesetz (German GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Bundesdatenschutzgesetz (BDSG)",
+        "common_name": "BDSG",
+        "alternate_names": [
+          "BGBl. I 2017 S. 2097"
+        ],
+        "description": "German Federal Data Protection Act supplementing GDPR with German-specific provisions.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bdsg_2018/"
+          }
+        ]
+      }
+    }
+  ]
+}

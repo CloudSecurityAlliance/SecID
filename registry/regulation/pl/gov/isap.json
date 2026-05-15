@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "namespace": "isap.sejm.gov.pl",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Internetowy System Aktów Prawnych",
+  "common_name": "ISAP",
+  "alternate_names": null,
+  "notes": "Polish Legal Acts Database operated by the Sejm.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://isap.sejm.gov.pl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Polish PSD2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Ustawa z dnia 10 maja 2018 r. o zmianie ustawy o usługach płatniczych",
+        "common_name": "Polish PSD2 transposition",
+        "description": "Polish transposition of PSD2. Supervised by KNF.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://isap.sejm.gov.pl"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Polish NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Polska ustawa wdrażająca NIS2",
+        "common_name": "Polish NIS2 transposition",
+        "description": "Polish transposition of NIS2 Directive.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://isap.sejm.gov.pl"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^uodo-act$"
+      ],
+      "description": "Polish Data Protection Act (GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych",
+        "common_name": "Polish DPA",
+        "description": "Polish data protection law supplementing GDPR. Enforced by UODO.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://uodo.gov.pl"
+          }
+        ]
+      }
+    }
+  ]
+}

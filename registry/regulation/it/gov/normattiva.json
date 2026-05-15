@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "namespace": "normattiva.it",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Normattiva (Italian Government Legal Publisher)",
+  "common_name": "Normattiva",
+  "alternate_names": null,
+  "notes": "Official online repository of Italian laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.normattiva.it"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^d-lgs-218-2017$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Italian PSD2 transposition (D.Lgs. 218/2017)",
+      "weight": 100,
+      "data": {
+        "official_name": "Decreto Legislativo 15 dicembre 2017, n. 218",
+        "common_name": "D.Lgs. 218/2017",
+        "description": "Italian transposition of PSD2 amending TUB. Supervised by Banca d'Italia.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.normattiva.it"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^d-lgs-138-2024$",
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Italian NIS2 transposition (D.Lgs. 138/2024)",
+      "weight": 100,
+      "data": {
+        "official_name": "Decreto Legislativo 4 settembre 2024, n. 138",
+        "common_name": "D.Lgs. 138/2024",
+        "description": "Italian transposition of NIS2 Directive. Adopted September 2024. Supervised by ACN.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.normattiva.it"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^codice-privacy$",
+        "(?i)^d-lgs-196-2003$"
+      ],
+      "description": "Codice Privacy (Italian GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "D.Lgs. 30 giugno 2003, n. 196 (Codice Privacy)",
+        "common_name": "Codice Privacy",
+        "description": "Italian Data Protection Code, amended by D.Lgs. 101/2018 to align with GDPR. Enforced by Garante.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.normattiva.it"
+          }
+        ]
+      }
+    }
+  ]
+}

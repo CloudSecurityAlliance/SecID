@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "riksdagen.se",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Riksdagen (Swedish Parliament)",
+  "common_name": "Riksdagen",
+  "alternate_names": null,
+  "notes": "Official online repository of Swedish laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.riksdagen.se"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^lbf-psd2$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Swedish PSD2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Lag (2010:751) om betaltjänster (PSD2 amendments)",
+        "common_name": "Swedish Payment Services Act",
+        "description": "Swedish transposition of PSD2. Supervised by Finansinspektionen.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.riksdagen.se"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Swedish NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Swedish NIS2 implementation law",
+        "common_name": "Swedish NIS2 transposition",
+        "description": "Swedish transposition of NIS2 Directive. Supervised by MSB.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.msb.se"
+          }
+        ]
+      }
+    }
+  ]
+}

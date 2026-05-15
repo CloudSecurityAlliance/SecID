@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "namespace": "boe.es",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Boletín Oficial del Estado",
+  "common_name": "BOE",
+  "alternate_names": null,
+  "notes": "Spanish Official State Gazette. Canonical publisher of Spanish national laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.boe.es"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^rdl-19-2018$",
+        "(?i)^psd2-transposition$"
+      ],
+      "description": "Spanish PSD2 transposition (RDL 19/2018)",
+      "weight": 100,
+      "data": {
+        "official_name": "Real Decreto-ley 19/2018, de 23 de noviembre",
+        "common_name": "RDL 19/2018",
+        "description": "Spanish transposition of PSD2. Supervised by Banco de España.",
+        "notes": "Transposes Directive (EU) 2015/2366.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2018-16036"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nis2-transposition$"
+      ],
+      "description": "Spanish NIS2 transposition",
+      "weight": 100,
+      "data": {
+        "official_name": "Ley de transposición de la Directiva NIS2",
+        "common_name": "Spanish NIS2 transposition",
+        "description": "Spanish transposition of NIS2. Supervised by INCIBE and CCN-CERT.",
+        "notes": "Transposes Directive (EU) 2022/2555.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.boe.es"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^lopdgdd$"
+      ],
+      "description": "LOPDGDD (Spanish GDPR supplement)",
+      "weight": 100,
+      "data": {
+        "official_name": "Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales",
+        "common_name": "LOPDGDD",
+        "description": "Spanish data protection law supplementing GDPR with national specifics including digital rights. Enforced by AEPD.",
+        "notes": "Companion to GDPR.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673"
+          }
+        ]
+      }
+    }
+  ]
+}
