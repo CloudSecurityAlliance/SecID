@@ -14,10 +14,8 @@
   "match_nodes": [
     {
       "patterns": ["(?i)^ssvc$"],
-      "description": "Stakeholder-Specific Vulnerability Categorization (SSVC): decision-tree methodology for prioritizing vulnerability response based on stakeholder context. Developed by CERT/CC at CMU SEI. Produces prioritization decisions (defer, scheduled, out-of-cycle, immediate) rather than numerical scores.",
+      "description": "Stakeholder-Specific Vulnerability Categorization (SSVC): decision-tree methodology for prioritizing vulnerability response based on stakeholder context. Developed by CERT/CC at CMU SEI. Produces prioritization decisions (defer, scheduled, out-of-cycle, immediate) rather than numerical scores. Version is significant — SSVC versions change the decision tree structure. CISA has published a customized SSVC decision tree for their context (see secid:methodology/cisa.gov/ssvc-decision-tree if registered).",
       "weight": 100,
-      "version_required": true,
-      "version_disambiguation": "SSVC versions change the decision tree structure. CISA has published a customized SSVC decision tree for their context (see secid:methodology/cisa.gov/ssvc-decision-tree if registered).",
       "data": {
         "url": "https://certcc.github.io/SSVC/",
         "examples": ["ssvc"]
