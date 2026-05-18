@@ -19,7 +19,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 724 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 1,151 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 See ROADMAP.md for details.
 
@@ -284,14 +284,14 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Advisory | 56 |
 | Weakness | 13 |
 | Ttp | 4 |
-| Control | 33 |
+| Control | 208 |
 | Capability | 54 |
-| Methodology | 18 |
+| Methodology | 22 |
 | Disclosure | 486 |
-| Regulation | 12 |
-| Entity | 14 |
-| Reference | 35 |
-| **Total** | **725** |
+| Regulation | 49 |
+| Entity | 215 |
+| Reference | 44 |
+| **Total** | **1151** |
 
 <!-- REGISTRY-COUNTS-END -->
 
