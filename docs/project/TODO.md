@@ -1,27 +1,75 @@
 # TODO
 
-Tracking work items for SecID. Updated 2026-05-14.
+Tracking work items for SecID. Updated 2026-05-17.
 
 ## Active — Next Up
 
+### Proposal Triage: TIMESTAMP-FIELDS
+**Status:** Sitting in "Proposed" since 2026-03-06 — needs decision
+**Priority:** Medium (foundational schema change; long-open proposal)
+
+[`docs/proposals/TIMESTAMP-FIELDS.md`](../proposals/TIMESTAMP-FIELDS.md) has been in `Proposed` state for ~2 months with no movement. It proposes per-field `_checked` / `_updated` / `_note` metadata for freshness tracking across all entries — a foundational change that affects how every registry file looks.
+
+**Action:** Review and either accept (with a path to implementation), decline (with rationale), or revise. Long-open ambiguity defeats the purpose of the proposal process. Even a status-update commit saying "still in proposal state pending X" would help.
+
 ### New Types: `assertion` + `content` (Education/Credential Ecosystem)
-**Status:** Proposal drafted 2026-05-12, awaiting review
-**Priority:** Medium (significant multi-repo lift)
+**Status:** Under revision — design is collapsing toward fewer types
+**Priority:** Medium (multi-repo lift, but shrinking)
 
-Two new SecID types covering the education / training / credential ecosystem:
-- **`assertion`** — credentials, attestations, authorizations (CISSP, CCSK, SOC 2, FedRAMP, ISO 27001 cert, PCI QSA, microbadges)
-- **`content`** — structured learning material (CISSP CBK, CCSK BoK, CCSK Foundation course, SANS courses)
+[`docs/proposals/ASSERTION-CONTENT-TYPES.md`](../proposals/ASSERTION-CONTENT-TYPES.md) originally proposed two new types (`assertion` + `content`) for the credential/education ecosystem. After session-by-session discussion the design has been collapsing:
 
-**Design:** Models the `control`/`capability` carving — one type covers normative/awarded side, the other covers what's available/published. Two types are linked via registry-layer cross-reference fields (`tests_curriculum`, `teaches_curriculum`, `assesses_framework`, `issuer`, `publisher`).
+- **Org compliance status (SOC 2, FedRAMP, ISO 27001 cert) ≠ separate identities** — they're already covered by the underlying `control` framework (TSC, NIST 800-53, ISO 27001). "Compliance with TSC" is relationship-layer data, not a new type entry.
+- **Bodies of knowledge (CISSP CBK, CCSK BoK) likely fit `control`** — they're normative specs of what knowledge must be demonstrated, same structural shape as control frameworks.
+- **Courses (CCSK Foundation, SANS SEC401) likely fit `reference`** — they're document artifacts with internal addressable structure, like other reference entries.
+- **Only individual professional credentials (CISSP, CCSK, PCI QSA) need a new home** — possibly named `credential` rather than `assertion`.
 
-**Proposal:** [`docs/proposals/ASSERTION-CONTENT-TYPES.md`](../proposals/ASSERTION-CONTENT-TYPES.md) — full design with dimensional analysis, edge cases (NICE Framework, academic credentials, microbadges, auditor credentials, training completion), worked JSON examples (CISSP + CISSP CBK), multi-repo impact assessment, and 7 open questions for reviewer challenge.
+**Next step:** Update the proposal with a "Revision and Analysis" section capturing the collapse-toward-fewer-types thinking (same pattern as the GLOSSARY and ENTITY-REGULATION-CONTROL-SPLIT decision-record updates). Possibly land as 0 or 1 new type, not 2.
 
-**Next steps:**
-1. Review proposal (AI + human reviewers)
-2. Resolve open questions
-3. Spec lock — finalize names and cross-reference field shapes
-4. Multi-repo lift across SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK
-5. Populate first registry entries (CCSK, CISSP, CCSK BoK, CISSP CBK, SOC 2 Type II)
+### Proposal Follow-Through: GLOSSARY-DEFINITION-COMPARISON
+**Status:** Approach revised 2026-05-17 — needs follow-through
+**Priority:** Medium
+
+[`docs/proposals/GLOSSARY-DEFINITION-COMPARISON.md`](../proposals/GLOSSARY-DEFINITION-COMPARISON.md) was revised from "pure relationship-layer" to a hybrid: `kind: "glossary"` tag on the `reference` entry + term-level data in a separate glossary dataset repository.
+
+**Next steps (in order):**
+1. Resolve the 5 open questions in the revision section (kind scalar vs array, embedding threshold, ship tag now, dataset repo naming, cross-source query layer)
+2. Ship the `kind: "glossary"` tag on existing glossary `reference` entries (cheap, useful pre-V2)
+3. Build V2 Data Repository infrastructure (glossary becomes the forcing function — see V2 entry below)
+4. Populate first glossary dataset entries: NIST CSRC, CSA, AWS, OWASP
+
+### Proposal Salvage: Entity-vs-Publication Cleanup
+**Status:** Salvage opportunity from declined ENTITY-REGULATION-CONTROL-SPLIT
+**Priority:** Low–Medium
+
+The regulation/control split was declined ([`docs/proposals/ENTITY-REGULATION-CONTROL-SPLIT.md`](../proposals/ENTITY-REGULATION-CONTROL-SPLIT.md)), but Phase 1 of that proposal — extracting org-only records from `control/` into `entity/` — has a clean standalone case.
+
+Candidates for migration (~10–20 namespaces):
+- Cyber-rating providers in `control/` that have no published spec: BitSight, SecurityScorecard, UpGuard, CyberCube
+- Standards-publisher orgs that exist as `control/<org>` without controls of their own (audit needed)
+
+**Action:** Draft a new narrower proposal (e.g., `docs/proposals/ENTITY-CLEANUP.md`) explicitly citing the declined parent. Migration is small enough to do in one pass.
+
+### Repo Hygiene: Sweep Stale Feature Branches
+**Status:** Pending
+**Priority:** Low
+
+Local branches that may have stale upstream tracking after recent PR squashes:
+- `cino-tracker-alignment`
+- `feature/secid-slide-deck`
+- `proposal/timestamp-fields`
+
+**Action:** Run the `commit-commands:clean_gone` Claude Code skill (or `git fetch --prune` + manual review) to remove any whose remote branches are gone.
+
+### Control Registry: Remaining Audit Framework Gaps
+**Status:** Partially complete; 2 of 5 gaps remain
+**Priority:** Low (ISF SOGP, ENX ISA)
+
+Two control namespaces from the 2026-05-10 audit are still missing:
+
+- **ISF SOGP 2022** — Information Security Forum Standard of Good Practice. Members-only access; IDs do not appear in public cross-references. Defer until a concrete use case appears (someone citing an SOGP ID in the wild).
+- **ENX ISA v6.0** — Automotive control catalog underlying TISAX assessments. ISA is a free PDF from ENX. Add as `control` type; pair with a separate `methodology` entry for TISAX itself (cross-type pattern, like CVSS in `methodology` and the CVSS reference doc in `reference`). Niche but well-scoped.
+
+**Already addressed:** ISO 27017:2015 and 27018:2019 (now in `registry/control/org/iso.json`); AICPA TSC 2017 (now in `registry/control/org/aicpa.json`).
 
 ### Repo Hygiene: Sweep Stale Feature Branches
 **Status:** Pending
@@ -137,15 +185,17 @@ Same changes as SecID-Service but for the self-hosted resolver. Pass through `pa
 **Depends on:** SecID-Service implementation (use as reference)
 
 ### V2 Data Repositories
-**Status:** Design complete, not started
-**Priority:** Medium
+**Status:** Design complete, not started — now has a forcing function (GLOSSARY)
+**Priority:** Medium → potentially High once GLOSSARY needs to ship
 
 Per DATA-HOSTING-RULES.md, create type-specific data repos:
 - `CloudSecurityAlliance-DataSets/SecID-weakness/` — CWE per-record, OWASP per-item
 - `CloudSecurityAlliance-DataSets/SecID-control/` — CCM/AICM per-control, NIST per-control
 - `CloudSecurityAlliance-DataSets/SecID-regulation/` — GDPR per-article, AI Act per-article
+- `CloudSecurityAlliance-DataSets/SecID-glossary/` — NIST CSRC, CSA, AWS, OWASP per-term (forcing function: the GLOSSARY proposal explicitly depends on this)
 
 **Depends on:** Existing processed data in `dataset-public-laws-regulations-standards` repo
+**Forces:** GLOSSARY proposal full implementation can't ship without at least the glossary dataset existing
 
 ### Capability Wave 6 — Remaining Cloud Services
 **Status:** Planned

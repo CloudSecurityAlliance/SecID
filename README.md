@@ -25,7 +25,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 724 other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 1,150+ other security knowledge sources.
 
 ## What SecID Does
 
@@ -520,7 +520,7 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Component | Status |
 |-----------|--------|
 | Identifier grammar + 10 types | **v1.0 frozen** |
-| Registry namespaces (YAML + JSON, 724 namespaces) | **Live** — auto-deploys to production resolver |
+| Registry namespaces (YAML + JSON, 1,151 namespaces) | **Live** — auto-deploys to production resolver |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
 | [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, npm, Go, etc.) | In progress |
 | Registry validation skill | **Active** |
@@ -537,14 +537,14 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Advisory | 56 |
 | Weakness | 13 |
 | Ttp | 4 |
-| Control | 33 |
+| Control | 208 |
 | Capability | 54 |
-| Methodology | 18 |
+| Methodology | 22 |
 | Disclosure | 486 |
-| Regulation | 12 |
-| Entity | 14 |
-| Reference | 35 |
-| **Total** | **725** |
+| Regulation | 49 |
+| Entity | 215 |
+| Reference | 44 |
+| **Total** | **1151** |
 
 <!-- REGISTRY-COUNTS-END -->
 
