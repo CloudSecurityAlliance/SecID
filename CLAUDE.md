@@ -71,7 +71,7 @@ With 20+ markdown files, know which document answers which question:
 | What format/schema does a URL return? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Format Metadata" section |
 | How do I parse a specific data format? | [docs/parsers/](docs/parsers/) - parsing instruction documents (e.g., cve-json-5.md) |
 | Is this acronym/short-name already used? | [NAMING-COLLISIONS.md](docs/NAMING-COLLISIONS.md) - consolidated acronym collisions; resolution is always by canonical DNS namespace |
-| What subtypes (kinds) exist within a type? | [TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) - 10 types + named subtypes (e.g., `subtype: "glossary"`) + when to subtype vs. split |
+| What subtypes (kinds) exist within a type? | [TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) - 10 types + named subtypes (e.g., `subtype: ["glossary"]`) + when to subtype vs. split |
 | What's the JSON Schema for registry files? | [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) (Draft 2020-12); REST API in [schemas/openapi.yaml](schemas/openapi.yaml) |
 
 Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
@@ -197,7 +197,7 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 | `disclosure` | Vulnerability disclosure programs, policies, reporting channels | — |
 | `regulation` | Laws and legal requirements (GDPR, HIPAA) | — |
 | `entity` | Organizations, products, services | — |
-| `reference` | Documents, research, identifier systems (arXiv, DOI, ISBN, RFCs) | `subtype: "glossary"` for glossary-shaped references with term-level subpaths (NIST CSRC, CSA, OWASP, ENISA) |
+| `reference` | Documents, research, identifier systems (arXiv, DOI, ISBN, RFCs) | `subtype: ["glossary"]` for glossary-shaped references with term-level subpaths (NIST CSRC, CSA, OWASP, ENISA) |
 
 Types are intentionally overloaded — use the existing type plus a `subtype:` tag rather than splitting unless the four "When to Split" criteria are met. See [TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) for the full subtype catalog, naming convention, and split-vs-subtype decision gate.
 

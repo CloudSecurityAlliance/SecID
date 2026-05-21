@@ -89,7 +89,7 @@ The cleanest answer uses two pieces, each playing to its strength:
       "patterns": ["(?i)^csrc-glossary$"],
       "description": "NIST CSRC Glossary",
       "data": {
-        "subtype": "glossary",
+        "subtype": ["glossary"],
         "official_name": "NIST Computer Security Resource Center Glossary",
         "common_name": "NIST CSRC Glossary",
         "term_count": 6000,
@@ -201,7 +201,7 @@ This two-phase structure means Phase 1 lands the operational value immediately (
 
 ### Answers to the 5 open questions
 
-1. **`subtype` as single value or array?** → **Single value for now.** Sources that are glossary-shaped *and* something else (controlled vocabularies, ontologies) are rare today; we'll cross that bridge with concrete evidence rather than speculative flexibility. If multi-subtype demand arises, migrating single-value to array later is a non-breaking change for consumers that ignore unknown subtypes and a clear schema bump for those that don't.
+1. **`subtype` as single value or array?** → **Array.** A registry entry can legitimately be more than one subtype at once (a glossary that's also a controlled vocabulary; a methodology that does both mapping and scoring; a regulation that contains both legal scaffolding and technical control content). Making `subtype` an array of strings from day one avoids a future migration and matches how practitioners actually classify these artifacts. Empty arrays and absent fields both mean "no subtype tag" — consumers filter on array membership.
 
 2. **Threshold for dataset-repo vs. inline?** → **Always use the dataset-repo pattern, regardless of size.** Consistency beats per-source cleverness; uniform Phase 1 / Phase 2 mechanics across all glossaries is simpler to implement, document, and reason about than a per-entry threshold. The inline-embedding optimization for small glossaries (20-term-shaped) isn't worth the divergent code paths.
 
@@ -224,7 +224,7 @@ A `subtype: "glossary"` registry entry in Phase 1:
       "patterns": ["(?i)^csrc-glossary$"],
       "description": "NIST CSRC Glossary",
       "data": {
-        "subtype": "glossary",
+        "subtype": ["glossary"],
         "official_name": "NIST Computer Security Resource Center Glossary",
         "common_name": "NIST CSRC Glossary",
         "term_count": 6000,
