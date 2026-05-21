@@ -70,6 +70,8 @@ With 20+ markdown files, know which document answers which question:
 | How do I add a methodology? | [METHODOLOGY-PROCESS.md](docs/proposals/METHODOLOGY-PROCESS.md) |
 | What format/schema does a URL return? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Format Metadata" section |
 | How do I parse a specific data format? | [docs/parsers/](docs/parsers/) - parsing instruction documents (e.g., cve-json-5.md) |
+| Is this acronym/short-name already used? | [NAMING-COLLISIONS.md](docs/NAMING-COLLISIONS.md) - consolidated acronym collisions; resolution is always by canonical DNS namespace |
+| What's the JSON Schema for registry files? | [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) (Draft 2020-12); REST API in [schemas/openapi.yaml](schemas/openapi.yaml) |
 
 Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE-VISION.md, STRATEGY.md, USE-CASES.md) are exploratory/aspirational — not needed for day-to-day registry work.
 
@@ -115,17 +117,22 @@ secid/
 │   ├── project/             # Internal tracking and organizational docs
 │   │   ├── TODO.md, GAPS.md, CONCERNS.md
 │   │   └── csa/             # CSA-internal documents
-│   └── operations/          # Infrastructure, DNS, deployment, CI/CD
+│   ├── operations/          # Infrastructure, DNS, deployment, CI/CD
+│   ├── parsers/             # Parsing instruction documents (how to consume each data format)
+│   └── NAMING-COLLISIONS.md # Consolidated acronym/short-name collisions across namespaces
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (124 namespaces — 100% coverage)
-│   └── _deferred/           # Partially researched entries not ready for main registry
-├── seed/                    # Research scratchpad CSVs — promote to registry/ with provenance
+│   ├── <type>/<tld>/<domain>.json  # JSON format (1,151 namespaces — 100% coverage)
+│   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
+├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (source of truth for JSON validation)
+├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners)
+├── seed/                    # Research scratchpad CSVs — pre-registry; promote into registry/ with provenance
+├── plugins/secid/           # Local Claude Code plugin: MCP server.py + /resolve /lookup /describe commands, skills, agents
+├── working-data/            # Out-of-band staging (CNA pages, known-broken overlay, audit artifacts; not part of registry)
 ├── slides/                  # Presentation assets (overview deck)
-├── skills/                  # Claude Code skills (registry-research, registry-formalization, compliance-testing, secid-user)
-└── docs/parsers/            # Parsing instruction documents (how to consume each data format)
+└── skills/                  # Top-level workflow skills (registry-research, registry-formalization, registry-validation, compliance-testing, secid-user)
 ```
 
 ## Registry File Format
@@ -364,6 +371,17 @@ The `skills/` directory contains workflow skills for common registry tasks. Use 
 
 **Typical new-namespace workflow:** research → formalize → validate. Only `registry-validation` is currently built; the others have documentation but no implementation yet.
 
+## Local Claude Code Plugin (`plugins/secid/`)
+
+This repo ships its own Claude Code plugin alongside the spec. Installing it gives Claude direct access to the live resolver without leaving the repo:
+
+- **`server.py`** — local MCP server bridging to the live resolver at secid.cloudsecurityalliance.org
+- **`commands/`** — `/resolve`, `/lookup`, `/describe` slash commands (each maps to one resolver tool)
+- **`agents/`**, **`skills/`** — plugin-scoped agents and skills (separate from the top-level `skills/` workflow toolkit)
+- **`plugin.json`** — manifest
+
+When working in this repo, prefer the MCP resolver tools (`mcp__plugin_secid_secid__resolve`, `__lookup`, `__describe` — or the `mcp__claude_ai_SecID__*` equivalents when connected via the hosted server) over manually grepping `registry/**/*.json`. They return canonical resolution output and are the same answer a user-facing client would see. Fall back to filesystem reads only when (a) the resolver is unreachable, (b) you need to inspect or modify registry data, or (c) you're debugging a deploy-chain issue where live and local may legitimately disagree.
+
 ## Development Commands
 
 ```bash
@@ -460,53 +478,15 @@ If health-check commands show failures, inspect the failing run's logs and check
 
 Use short, imperative commit subjects (e.g., "Add EUVD advisory namespace", "Update Red Hat errata patterns"). One logical change per commit. For PRs that modify regex patterns, include a note about regex safety (anchored, no catastrophic backtracking).
 
-## Parsing Rules
+## Parsing, Encoding, Preservation (load-bearing rules)
 
-**SecID parsing requires registry access.** The registry defines what's valid - no banned character list to memorize.
+See [SPEC.md](SPEC.md) §4 (grammar), §7 (parsing), §8 (encoding) for the authoritative treatment. The rules below are the ones future Claude instances most commonly get wrong:
 
-**Namespaces are domain names**, optionally with `/`-separated path segments for platform sub-namespaces.
-
-| Component | Character Rules |
-|-----------|-----------------|
-| `type` | Fixed list of 10 values |
-| `namespace` | Domain name, optionally with `/`-separated sub-namespace path segments. Per-segment: `a-z`, `0-9`, `-`, `.`, Unicode `\p{L}\p{N}`. |
-| `name` | **Anything** - resolved by registry lookup, longest match wins |
-| `subpath` | Anything (everything after `#`). May include `@item_version` suffix — parsed via pattern tree matching. |
-
-**Per-segment validation regex:** `^[\p{L}\p{N}]([\p{L}\p{N}._-]*[\p{L}\p{N}])?$` (applies to each segment between `/`)
-
-**Namespace resolution: shortest-to-longest matching.** Since namespaces can contain `/`, the parser tries shortest namespace first against the registry, then progressively longer matches. Example: for `github.com/advisories/ghsa`, try `github.com` then `github.com/advisories` — longest match wins.
-
-**Why domain-name namespaces?**
-- **Self-registration (future)** - Domain owners will prove ownership via DNS/ACME; currently manual via pull requests
-- **No naming authority** - DNS already provides globally unique names
-- **Filesystem safety** - Namespaces become file paths (`registry/advisory/org/mitre.md`)
-- **Unicode for internationalization** - Native language domain names supported
-
-**Why registry-required?** Names can contain `#`, `@`, `?`, `:` - the registry lookup determines where name ends.
-
-**Version resolution:** Sources with `version_required: true` behave differently when `@version` is omitted — the resolver returns all matching versions with disambiguation guidance instead of a single result. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Version Resolution Fields".
-
-## Preserve Source Identifiers
-
-**Subpaths preserve the source's exact format - including special characters.**
-
-| Source Format | SecID | NOT This |
-|---------------|-------|----------|
-| `RHSA-2026:0932` (colon) | `#RHSA-2026:0932` ✓ | `#RHSA-2026-0932` ✗ |
-| `T1059.003` (dot) | `#T1059.003` ✓ | `#T1059-003` ✗ |
-| `PR.AC-1` (dot+dash) | `#PR.AC-1` ✓ | Unchanged |
-
-**Why:** Human recognition, copy-paste workflow, no information loss. What practitioners know is what SecID uses.
-
-## Encoding Rules
-
-**In the SecID string:** No encoding needed. Write identifiers naturally: `RHSA-2024:1234`, `A&A-01`.
-
-**For storage/transport (filenames, URLs):** Percent-encode special characters:
-- `&` → `%26`, Space → `%20`, `:` → `%3A`, `/` → `%2F`, `#` → `%23`
-
-**Flexible input resolution:** Resolvers try input as-is first, then percent-decoded. Registry patterns match human-readable (unencoded) form. Backend storage format is an implementation choice. Do NOT strip quotes or other characters from input - the registry determines what matches.
+- **Parsing requires registry access.** `name` and `subpath` can contain `#`, `@`, `?`, `:` — the registry lookup determines where each component ends. Don't pre-tokenize on punctuation.
+- **Namespace matching is shortest-to-longest.** For `github.com/advisories/ghsa`, the parser tries `github.com` first, then `github.com/advisories`. Longest match wins.
+- **Subpaths preserve the source's exact format.** Keep colons, dots, dashes as the source writes them: `RHSA-2026:0932` (not `RHSA-2026-0932`), `T1059.003` (not `T1059-003`), `PR.AC-1` unchanged. Never lossy-normalize — that's principle #7 in [PRINCIPLES.md](PRINCIPLES.md).
+- **No encoding inside the SecID string itself.** Write `A&A-01` naturally. Percent-encoding (`&`→`%26`, space→`%20`, `:`→`%3A`, `/`→`%2F`, `#`→`%23`) only applies when SecIDs are stored as filenames or carried in URL paths. Resolvers try the input as-is first, then percent-decoded.
+- **Version resolution behaves differently when `version_required: true`.** Omitting `@version` against a version-required source returns all matching versions with disambiguation guidance, not a single result. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Version Resolution Fields".
 
 ## Writing Principle
 
