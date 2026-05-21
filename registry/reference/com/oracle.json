@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oracle.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Oracle Corporation",
+  "common_name": "Oracle",
+  "alternate_names": null,
+  "notes": "Major enterprise software company. Products include Oracle Database, Java SE, WebLogic, MySQL, Oracle Cloud, Oracle Linux. Releases security patches quarterly through Critical Patch Updates (CPUs).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.oracle.com",
+      "checked": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "type": "security",
+      "url": "https://www.oracle.com/security-alerts/",
+      "checked": "2026-03-06",
+      "updated": "2026-03-06"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^oci-glossary$"
+      ],
+      "description": "Oracle Cloud Infrastructure Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Oracle Cloud Infrastructure Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Oracle Cloud Infrastructure Glossary",
+        "notes": "Borderline — broad cloud glossary",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://docs.oracle.com/en-us/iaas/Content/libraries/glossary/glossary-intro.htm"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

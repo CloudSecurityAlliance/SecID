@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "h-isac.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Health Information Sharing and Analysis Center",
+  "common_name": "H-ISAC",
+  "alternate_names": null,
+  "notes": "Member-driven ISAC for the global health sector — providers, payers, pharma, medical-device manufacturers. Publishes threat intel and operational guidance. Members-only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://h-isac.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^health-isac-acronyms$"
+      ],
+      "description": "Health-ISAC Acronyms",
+      "weight": 100,
+      "data": {
+        "official_name": "Health-ISAC Acronyms",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Health-ISAC Acronyms",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://h-isac.org/outreach/resources-2/acronyms/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

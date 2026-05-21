@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "wa.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "State of Washington",
+  "common_name": "Washington",
+  "alternate_names": null,
+  "notes": "State of Washington privacy and health-data laws. Enforced by the Washington Attorney General. Note: wa.gov is the Washington State portal; washington.gov is a different domain.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.wa.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^data-breach-glossary$"
+      ],
+      "description": "Washington State AG Data Breach Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Washington State AG Data Breach Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Washington State AG Data Breach Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.atg.wa.gov/data-breach-resources"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

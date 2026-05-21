@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fortinet.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Fortinet, Inc.",
+  "common_name": "Fortinet",
+  "alternate_names": null,
+  "notes": "Fortinet is a cybersecurity company specializing in network security appliances, particularly firewalls. FortiGate is one of the most deployed enterprise firewalls globally. Key products: FortiGate (next-gen firewalls), FortiOS (device operating system), FortiManager (centralized management), FortiAnalyzer (logging/analytics), FortiClient (endpoint protection). Fortinet devices sit at network boundaries with access to internal networks, making vulnerabilities high-value targets for nation-state actors, ransomware operators, and initial access brokers. Critical FortiOS vulnerabilities frequently appear in CISA KEV. Fortinet is a CNA. SSL-VPN vulnerabilities are particularly high-risk because they are internet-exposed. FortiGuard Labs publishes threat research alongside PSIRT advisories.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fortinet.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyberglossary$"
+      ],
+      "description": "Fortinet CyberGlossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Fortinet CyberGlossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Fortinet CyberGlossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.fortinet.com/resources/cyberglossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

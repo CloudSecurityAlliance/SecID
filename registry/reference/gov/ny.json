@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ny.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "New York State",
+  "common_name": "New York",
+  "alternate_names": null,
+  "notes": "New York state privacy, cybersecurity, and AI laws. Strong enforcement through DFS (Department of Financial Services) and NYC Department of Consumer and Worker Protection.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nysenate.gov/legislation"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^its-glossary$"
+      ],
+      "description": "NY State ITS Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "NY State ITS Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "NY State ITS Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://its.ny.gov/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

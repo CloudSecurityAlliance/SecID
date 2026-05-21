@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisco.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Cisco Systems, Inc.",
+  "common_name": "Cisco",
+  "alternate_names": null,
+  "notes": "Networking and security company. Products include routers, switches, firewalls, and collaboration tools. Cisco PSIRT publishes security advisories using descriptive IDs (cisco-sa-*) with random suffixes. IOS and IOS XE are different code bases despite similar names.",
+  "wikidata": [
+    "Q173395"
+  ],
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cisco.com"
+    },
+    {
+      "type": "security",
+      "url": "https://sec.cloudapps.cisco.com/security/center/home.x"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-glossary$"
+      ],
+      "description": "Cisco Security Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cisco Security Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Cisco Security Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.cisco.com/c/en/us/td/docs/security/glossary/b_security_glossary_terms.html"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

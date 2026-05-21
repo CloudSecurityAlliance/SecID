@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "agid.gov.it",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Agenzia per l'Italia Digitale",
+  "common_name": "AgID",
+  "alternate_names": null,
+  "notes": "Italian government Digital Agency. Operates SPID (Sistema Pubblico di Identità Digitale) — Italy's national digital identity system. Also CIE (Carta d'Identità Elettronica) integration. Technical specs are public; participant rules partly restricted.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.agid.gov.it"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cert-agid-glossario$"
+      ],
+      "description": "Glossario CERT-AGID",
+      "weight": 100,
+      "data": {
+        "official_name": "Glossario CERT-AGID",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Glossario CERT-AGID",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://cert-agid.gov.it/glossario/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

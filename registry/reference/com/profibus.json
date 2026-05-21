@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "profibus.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "PROFIBUS & PROFINET International",
+  "common_name": "PI",
+  "alternate_names": [
+    "PROFIBUS",
+    "PROFINET"
+  ],
+  "notes": "International industrial-automation networking organization. Publishes PROFIBUS, PROFINET, and IO-Link specifications including PROFINET Security Class profiles. Members-only specifications.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.profibus.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pi-glossary$"
+      ],
+      "description": "PROFIBUS/PROFINET Glossary (PI Security)",
+      "weight": 100,
+      "data": {
+        "official_name": "PROFIBUS/PROFINET Glossary (PI Security)",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "PROFIBUS/PROFINET Glossary (PI Security)",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.profibus.com/download/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

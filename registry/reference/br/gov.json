@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.br",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Gov.br (Brazilian Federal Government Identity)",
+  "common_name": "Gov.br",
+  "alternate_names": null,
+  "notes": "Brazilian federal government digital identity platform. Operates the Gov.br ID for federal services. Run by SERPRO and Ministry of Management.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.br"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossario-seguranca-informacao$"
+      ],
+      "description": "Glossário de Segurança da Informação (GSI/PR Brazil)",
+      "weight": 100,
+      "data": {
+        "official_name": "Glossário de Segurança da Informação (GSI/PR Brazil)",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Glossário de Segurança da Informação (GSI/PR Brazil)",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.gov.br/gsi/pt-br/seguranca-da-informacao-e-cibernetica/glossario-de-seguranca-da-informacao-1"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

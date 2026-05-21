@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kubernetes.io",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Kubernetes",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "CVE Program partner. Country: USA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://kubernetes.io"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^kubernetes-glossary$"
+      ],
+      "description": "Kubernetes Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Kubernetes Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Kubernetes Glossary",
+        "notes": "Borderline — includes security terms but is broader K8s glossary",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://kubernetes.io/docs/reference/glossary/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

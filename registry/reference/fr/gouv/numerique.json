@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "numerique.gouv.fr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Direction interministérielle du numérique",
+  "common_name": "DINUM",
+  "alternate_names": null,
+  "notes": "French government digital agency. Operates France Connect — the French national digital identity SSO. Publishes integration specs and security requirements for service providers.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.numerique.gouv.fr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyberdico$"
+      ],
+      "description": "ANSSI CyberDico",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSSI CyberDico",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "ANSSI CyberDico",
+        "notes": "URL is cyber.gouv.fr (ANSSI subdomain); may belong to different namespace if cyber.gouv.fr is registered separately",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://cyber.gouv.fr/glossaire"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

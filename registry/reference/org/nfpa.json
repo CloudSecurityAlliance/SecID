@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nfpa.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "National Fire Protection Association",
+  "common_name": "NFPA",
+  "alternate_names": null,
+  "notes": "US non-profit standards developer focused on fire, electrical, and life-safety codes. Notable beyond fire: NFPA 1600 is widely cited in business continuity / disaster recovery / emergency-management programs. Codes and standards are paywalled (but viewable for free on nfpa.org via the 'free access' portal — viewing only, no download/redistribute).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nfpa.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nfpa-glossary$"
+      ],
+      "description": "NFPA Glossary of Terms",
+      "weight": 100,
+      "data": {
+        "official_name": "NFPA Glossary of Terms",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "NFPA Glossary of Terms",
+        "notes": "Borderline — fire safety with NFPA 72 cyber provisions",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.nfpa.org/downloadable-resources/definitions/nfpa-glossary-of-terms"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
