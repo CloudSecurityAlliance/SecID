@@ -1,6 +1,6 @@
 # TODO
 
-Tracking exploratory work and rough notes. **Committed work lives in GitHub issues**, not here — see [open issues](https://github.com/CloudSecurityAlliance/SecID/issues). Updated 2026-05-21.
+Tracking exploratory work and rough notes. **Committed work lives in GitHub issues**, not here — see [open issues](https://github.com/CloudSecurityAlliance/SecID/issues). Updated 2026-05-21 (second sweep).
 
 This file is for:
 - Research/exploration not yet ready for an issue
@@ -20,6 +20,9 @@ This block is a quick read-out of what landed in the most recent burst of work. 
 - **Subtype filter UI** — [SecID-Service #9](https://github.com/CloudSecurityAlliance/SecID-Service/pull/9) — `?subtype=X` filter + clickable homepage chips
 - **Auto-deploy on push to main** — [SecID-Service #9](https://github.com/CloudSecurityAlliance/SecID-Service/pull/9) — no more manual `gh workflow run` needed
 - **type-registry single source of truth** — [SecID-Service #8](https://github.com/CloudSecurityAlliance/SecID-Service/pull/8) — `/api/v1/types` endpoint, MCP describe + homepage + Resolver all import from one constant
+- **DECISIONS.md ADR log** — [#69](https://github.com/CloudSecurityAlliance/SecID/pull/69) — 8 seed ADRs mirroring SecID-Service convention
+- **CVSS reference versioned children** — [#77](https://github.com/CloudSecurityAlliance/SecID/pull/77) — `secid:reference/first.org/cvss@4.0` etc. now resolve to per-version spec docs
+- **7 standards added as reference entries** — [#78](https://github.com/CloudSecurityAlliance/SecID/pull/78) — SARIF, CycloneDX, SPDX, VEX, OpenVEX, OSCAL, ROLIE (closed [#72](https://github.com/CloudSecurityAlliance/SecID/issues/72))
 
 ## Open follow-ups discovered during recent work
 
@@ -48,52 +51,30 @@ Items previously tracked here that now have their own issues:
 | Training course content | [#65](https://github.com/CloudSecurityAlliance/SecID/issues/65) |
 | SecID-Service format metadata | [SecID-Service #10](https://github.com/CloudSecurityAlliance/SecID-Service/issues/10) |
 | SecID-Server-API format metadata | [SecID-Server-API #3](https://github.com/CloudSecurityAlliance/SecID-Server-API/issues/3) |
+| Sharper methodology-vs-reference test (ADR-009) | [#73](https://github.com/CloudSecurityAlliance/SecID/issues/73) |
+| CCM/AICM multi-type modeling | [#71](https://github.com/CloudSecurityAlliance/SecID/issues/71) |
+| Relationship Layer Design | [#75](https://github.com/CloudSecurityAlliance/SecID/issues/75) |
+| Automate CNA listing refresh | [#76](https://github.com/CloudSecurityAlliance/SecID/issues/76) |
 
 ## Active — research and exploration
 
-These items don't yet have enough definition to be issues. They're notes for future work.
+A handful of standards-coverage candidates remain where placement decisions haven't been made. Each is a small research task before promotion to an issue.
 
-### Capability Wave 6 — Remaining Cloud Services
-**Status:** Planned, ongoing trickle
-**Priority:** Low
+### Standards Registry Coverage — remaining candidates
 
-~200 remaining AWS services, plus Azure/GCP services not yet covered. Most will be stub entries ("reviewed, no service-specific security beyond IAM"). Includes DigitalOcean, OpenShift, and other non-Big-Three providers. Best done as a long-running incremental task rather than a single issue.
+The 9 standards from the prior list landed: 3 already existed (CSAF, STIX, TAXII), 1 had ambiguous placement and gained both a reference and methodology entry (CVSS, [#77](https://github.com/CloudSecurityAlliance/SecID/pull/77)), and 7 shipped as reference-only ([#78](https://github.com/CloudSecurityAlliance/SecID/pull/78)). One more standard remains in the original list as a research item:
 
-### Relationship Layer Design
-**Status:** Research/speculation (see [docs/future/RELATIONSHIPS.md](../future/RELATIONSHIPS.md))
-**Priority:** Low (V2)
+- **OpenDXL** → likely `reference` (data-exchange spec from McAfee/Trellix). Confirm whether the project is still maintained and whether it has any methodology-shaped content beyond the format.
 
-Cross-type connections: CVE → CWE → ATT&CK → control → capability. The relationship data model, storage format, and query API. Becomes more concrete once V2 datasets exist ([#64](https://github.com/CloudSecurityAlliance/SecID/issues/64)).
+Other standards worth eventual placement decisions (no committed work; promote to issue when someone wants to land them):
 
-### Standards Registry Coverage
-**Status:** Research needed
-**Priority:** Medium
+- ASVS (OWASP Application Security Verification Standard) → likely `control`
+- MASVS (Mobile Application Security Verification Standard) → likely `control`
+- WSTG (Web Security Testing Guide) → likely `methodology` (security-testing subtype)
+- SSDF (NIST 800-218) — already in `methodology/gov/nist.json` as 800-218? worth confirming
+- VERIS already covered as `methodology` (incident-management subtype)
 
-Many security standards span multiple SecID types or don't fit cleanly. The list below is rough — each candidate needs a placement decision before becoming an issue.
-
-**Already covered:**
-- CVSS → `methodology/org/first.json` (scoring methodology)
-- EPSS → `methodology/org/first.json` (prediction methodology)
-- ATT&CK → `ttp/org/mitre.json` (technique taxonomy)
-
-**Need to add (placement TBD):**
-- CSAF 2.0/2.1 → `methodology/org/oasis-open.json`? Or `reference`? Defines both a data format AND a distribution process.
-- STIX 2.1 → `reference` (data format) or `methodology` (threat intel exchange process)?
-- TAXII → `reference` or `methodology`?
-- OpenDXL → `reference`?
-- SARIF → `reference` (static analysis results format)?
-- CycloneDX → `reference` (SBOM format)?
-- SPDX → `reference` (SBOM format)?
-- VEX / OpenVEX → `reference` or `methodology`?
-- OSCAL → `reference` or `methodology`? (security assessment format)
-- ROLIE → `reference` (feed format for security data)?
-
-**Working rule:** If the standard defines a *process that produces an output* (CVSS → score, SSVC → decision), it's `methodology`. If it defines a *format for representing data* (CSAF → JSON advisory, STIX → JSON threat intel), it's `reference`. Some may need entries in both types.
-
-### Repo hygiene: periodic stale-branch sweep
-**Status:** Ongoing operational task
-
-Local branches accumulate after PR squashes. Run `commit-commands:clean_gone` skill or `git fetch --prune` + manual review periodically. Not worth an issue per cleanup; do it whenever a session notices stragglers.
+**Working rule** (now codified as ADR-009 candidate in [#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)): a methodology provides standalone judgement guidance citable independent of any output format. A reference specifies how data should be formatted, with judgement-involved-incidental.
 
 ## Deferred
 
@@ -102,7 +83,6 @@ Items intentionally not scheduled. Promote to an issue if/when a forcing functio
 - **Resolver and Regex Test Fixture Strategy** — fixture extraction script, negative test fixtures, regex compile checks, overlap detection, deterministic ordering tests. Deferred until CI gates need this level of rigor.
 - **Resolution Instructions for Non-Deterministic Systems** — search-based resolution for systems without stable URLs.
 - **MCP Interaction Logging** — log every MCP interaction to KV with TTL for usage analytics.
-- **Periodic CNA Data Refresh** — re-scrape cve.org/PartnerInformation/ListofPartners on a schedule. Scripts exist in `scripts/fetch-cna-list.py` and `scripts/fetch-cna-details.py`; just needs a cron / GitHub Action.
 - **Capability Freshness Monitoring** — monitor cloud provider release notes for new security features.
 - **llms.txt for AI Discoverability** — implement llms.txt standard on the website.
 
