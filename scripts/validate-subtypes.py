@@ -30,6 +30,11 @@ Usage:
 
     python3 scripts/validate-subtypes.py --type-registry-url <url>
         Custom raw URL (e.g., pointing at a feature branch during dev).
+
+    python3 scripts/validate-subtypes.py --completeness warn
+        Also report source-level match_nodes under types with declared subtypes
+        that do not carry a subtype field. Use --completeness fail to make
+        those gaps fail CI once the inventory is fully backfilled.
 """
 
 from __future__ import annotations
@@ -98,13 +103,40 @@ def fetch_type_registry(*, url: str | None, path: str | None) -> str:
         return resp.read().decode("utf-8")
 
 
-def collect_used_subtypes(registry_root: Path) -> dict[tuple[str, str], list[tuple[Path, str]]]:
-    """Scan registry JSON files for source-level subtype usages.
+def iter_match_nodes(nodes: object):
+    """Yield every match_node recursively, including children.
 
-    Returns a mapping {(type, value): [(file_path, pattern_str), ...]} so
-    error messages can point at the exact match_nodes that triggered a failure.
+    Registry entries may have nested child nodes (for example CVSS versions
+    under CVSS). Subtype validation and completeness checks must see those
+    source-level nodes too, not just the top-level match_nodes array.
+    """
+    if not isinstance(nodes, list):
+        return
+    for node in nodes:
+        if not isinstance(node, dict):
+            continue
+        yield node
+        yield from iter_match_nodes(node.get("children"))
+
+
+def node_pattern_label(node: dict) -> str:
+    return ",".join(node.get("patterns") or []) or "(no patterns)"
+
+
+def collect_used_subtypes(registry_root: Path) -> tuple[
+    dict[tuple[str, str], list[tuple[Path, str]]],
+    dict[str, list[tuple[Path, str]]],
+]:
+    """Scan registry JSON files for source-level subtype usages and gaps.
+
+    Returns:
+      - {(type, subtype_value): [(file_path, pattern_str), ...]}
+      - {type: [(file_path, pattern_str), ...]} for nodes with no subtype
+
+    The second mapping is filtered later to types that declare subtypes.
     """
     used: dict[tuple[str, str], list[tuple[Path, str]]] = {}
+    missing: dict[str, list[tuple[Path, str]]] = {}
     for path in sorted(registry_root.rglob("*.json")):
         # Skip type-level description files (registry/<type>.json).
         # Those live in the parent of the per-namespace files.
@@ -118,14 +150,14 @@ def collect_used_subtypes(registry_root: Path) -> dict[tuple[str, str], list[tup
         type_name = doc.get("type")
         if not isinstance(type_name, str):
             continue
-        for node in doc.get("match_nodes") or []:
-            if not isinstance(node, dict):
-                continue
+        for node in iter_match_nodes(doc.get("match_nodes")):
             data = node.get("data") or {}
             if not isinstance(data, dict):
-                continue
+                data = {}
             subtypes = data.get("subtype")
+            pattern_label = node_pattern_label(node)
             if subtypes is None:
+                missing.setdefault(type_name, []).append((path, pattern_label))
                 continue
             values: list[str] = []
             if isinstance(subtypes, list):
@@ -133,10 +165,9 @@ def collect_used_subtypes(registry_root: Path) -> dict[tuple[str, str], list[tup
             elif isinstance(subtypes, str):
                 # Tolerate single-string form even though convention is array.
                 values = [subtypes]
-            pattern_label = ",".join(node.get("patterns") or []) or "(no patterns)"
             for v in values:
                 used.setdefault((type_name, v), []).append((path, pattern_label))
-    return used
+    return used, missing
 
 
 def main() -> int:
@@ -154,6 +185,16 @@ def main() -> int:
         default="registry",
         help="Path to the SecID registry/ directory (default: ./registry)",
     )
+    parser.add_argument(
+        "--completeness",
+        choices=("off", "warn", "fail"),
+        default="off",
+        help=(
+            "Also check for source-level match_nodes without data.subtype under "
+            "types that declare subtypes. 'warn' reports gaps without failing; "
+            "'fail' exits non-zero. Default: off."
+        ),
+    )
     args = parser.parse_args()
 
     registry_root = Path(args.registry_root)
@@ -168,7 +209,7 @@ def main() -> int:
         return 2
 
     declared = parse_type_registry(source)
-    used = collect_used_subtypes(registry_root)
+    used, missing = collect_used_subtypes(registry_root)
 
     failures: list[str] = []
     for (type_name, value), occurrences in sorted(used.items()):
@@ -193,6 +234,28 @@ def main() -> int:
         print("  2. Then update SecID's docs/reference/TYPES-AND-SUBTYPES.md to document the new value.")
         print("  3. Re-run this script — it should now pass.")
         return 1
+
+    completeness_gaps = {
+        type_name: occurrences
+        for type_name, occurrences in sorted(missing.items())
+        if declared.get(type_name)
+    }
+    if args.completeness != "off" and completeness_gaps:
+        total_gaps = sum(len(v) for v in completeness_gaps.values())
+        prefix = "FAIL" if args.completeness == "fail" else "WARN"
+        print(
+            f"{prefix}: {total_gaps} source-level match_node(s) under types with "
+            "declared subtypes do not have data.subtype"
+        )
+        for type_name, occurrences in completeness_gaps.items():
+            print(f"  {type_name}: {len(occurrences)} untagged match_node(s)")
+            for path, pattern_label in occurrences[:10]:
+                print(f"    {path} (patterns: {pattern_label})")
+            if len(occurrences) > 10:
+                print(f"    ... {len(occurrences) - 10} more")
+        if args.completeness == "fail":
+            return 1
+        print()
 
     total_uses = sum(len(v) for v in used.values())
     print(

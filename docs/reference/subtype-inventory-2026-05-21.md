@@ -7,7 +7,7 @@ Scope: source-level `match_nodes` under `registry/methodology/` and `registry/re
 | Type | Total source-level match nodes | Tagged | Untagged | Notes |
 |---|---:|---:|---:|---|
 | `methodology` | 56 | 56 | 0 | This sweep backfills the remaining methodology gaps. |
-| `reference` | 204 | 0 | 204 | 109 untagged entries look glossary-shaped by pattern or description; these should be handled in a dedicated reference glossary sweep to avoid mixing policy decisions with the methodology cleanup. |
+| `reference` | 236 | 0 | 236 | Untagged reference entries should be handled in a dedicated reference glossary sweep to avoid mixing policy decisions with the methodology cleanup. |
 
 ## Methodology inventory
 
@@ -74,4 +74,4 @@ Scope: source-level `match_nodes` under `registry/methodology/` and `registry/re
 
 - Reference glossary entries are still untagged. A targeted follow-up can add `subtype: ["glossary"]` to the glossary-shaped `reference` entries after maintainers confirm they want the broader backfill in one PR.
 - Candidate subtypes for `advisory`, `control`, `disclosure`, `entity`, and `regulation` still require SecID-Service type-registry declarations before data can use them.
-- Completeness checking in `scripts/validate-subtypes.py` should probably start as warn-only after the current methodology gaps are closed.
+- Completeness checking in `scripts/validate-subtypes.py` is available through `--completeness warn` and can be escalated to `--completeness fail` once maintainers want CI to enforce full subtype coverage for declared-subtype types.
