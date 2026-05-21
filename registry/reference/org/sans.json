@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sans.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "Escal Institute of Advanced Technologies (SANS Institute)",
+  "common_name": "SANS",
+  "alternate_names": null,
+  "notes": "Largest commercial cybersecurity training organization. Publishes a long-maintained Glossary of Security Terms, plus the SANS ISC InfoSec Glossary with ~450 terms and an API.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sans.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossary$"
+      ],
+      "description": "SANS Glossary of Security Terms",
+      "weight": 100,
+      "data": {
+        "official_name": "SANS Glossary of Security Terms",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "SANS Glossary of Security Terms",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.sans.org/security-resources/glossary-of-terms"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

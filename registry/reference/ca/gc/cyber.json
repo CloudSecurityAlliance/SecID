@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.gc.ca",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "Canadian Centre for Cyber Security",
+  "common_name": "CCCS / Cyber Centre",
+  "alternate_names": null,
+  "notes": "Canada's national cyber security agency, part of the Communications Security Establishment (CSE). Publishes the CCCS glossary at cyber.gc.ca/en/glossary plus ITSG-33 Annex 5 terminology.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cyber.gc.ca"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossary$"
+      ],
+      "description": "Canadian Centre for Cyber Security Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Canadian Centre for Cyber Security Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Canadian Centre for Cyber Security Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.cyber.gc.ca/en/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

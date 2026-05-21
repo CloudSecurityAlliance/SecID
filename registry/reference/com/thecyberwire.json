@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "thecyberwire.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "N2K Networks",
+  "common_name": "CyberWire / N2K",
+  "alternate_names": null,
+  "notes": "Cybersecurity media outlet operating The CyberWire podcast and N2K Networks. Publishes a dedicated cybersecurity glossary aimed at general-audience and trainee security professionals.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://thecyberwire.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossary$"
+      ],
+      "description": "CyberWire Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "CyberWire Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "CyberWire Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://thecyberwire.com/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

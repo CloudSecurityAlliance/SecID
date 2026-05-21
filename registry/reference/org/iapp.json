@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iapp.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "International Association of Privacy Professionals",
+  "common_name": "IAPP",
+  "alternate_names": null,
+  "notes": "World's largest global information privacy community. Publishes the IAPP Glossary of Privacy Terms covering privacy laws, regulations, and concepts (CIPP/CIPM/CIPT certification scope), plus Key Terms for Cybersecurity Law and Key Terms for AI Governance.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://iapp.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^privacy-glossary$"
+      ],
+      "description": "IAPP Glossary of Privacy Terms",
+      "weight": 100,
+      "data": {
+        "official_name": "IAPP Glossary of Privacy Terms",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "IAPP Glossary of Privacy Terms",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://iapp.org/resources/privacy-glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

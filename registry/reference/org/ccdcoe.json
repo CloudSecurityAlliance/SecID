@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ccdcoe.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "NATO Cooperative Cyber Defence Centre of Excellence",
+  "common_name": "CCDCOE",
+  "alternate_names": null,
+  "notes": "NATO-affiliated multinational hub for cyber defence research, training, and exercises (e.g., Locked Shields). Publishes the Tallinn Manual on international law applicable to cyber operations and maintains the Cyber Law Toolkit with a curated glossary.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ccdcoe.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossary$"
+      ],
+      "description": "Cyber Law Toolkit Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyber Law Toolkit Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Cyber Law Toolkit Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://cyberlaw.ccdcoe.org/wiki/Glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
