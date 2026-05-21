@@ -302,6 +302,12 @@ Types are intentionally broad. We overload related concepts into existing types:
 
 Split into new types only when usage demonstrates the need. See [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md#type-evolution).
 
+### Subtypes
+
+When an entry has a more specific character within its type, it carries a `subtype:` array in its registry data. For example, all 43 methodology entries are tagged with one of 11 values (`scoring`, `mapping`, `risk-management`, `threat-modeling`, etc.), and glossary references carry `subtype: ["glossary"]`. Subtypes let consumers filter across the registry — "show me all scoring methodologies" or "all glossary-shaped references" — without inflating the official type list.
+
+See [TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) for the full subtype catalog and the "try a subtype first" principle that gates new-type proposals.
+
 ## Repository Structure
 
 ```
