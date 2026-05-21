@@ -4,100 +4,172 @@
   "type": "methodology",
   "status": "draft",
   "status_notes": "Initial entry. Reviewed 2026-04-05.",
-
   "official_name": "Forum of Incident Response and Security Teams",
   "urls": [
-    {"type": "website", "url": "https://www.first.org/"}
+    {
+      "type": "website",
+      "url": "https://www.first.org/"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^cvss$"],
-      "description": "Common Vulnerability Scoring System (CVSS): methodology for scoring the severity of software vulnerabilities. Produces a numerical score (0.0-10.0) and severity rating from a set of metrics. Version is significant — CVSS versions differ materially in metric groups and scoring algorithms; v3.1 and v4.0 produce different scores for the same vulnerability, so always specify version.",
+      "patterns": [
+        "(?i)^cvss$"
+      ],
+      "description": "Common Vulnerability Scoring System (CVSS): methodology for scoring the severity of software vulnerabilities. Produces a numerical score (0.0-10.0) and severity rating from a set of metrics. Version is significant \u2014 CVSS versions differ materially in metric groups and scoring algorithms; v3.1 and v4.0 produce different scores for the same vulnerability, so always specify version.",
       "weight": 100,
       "data": {
-        "subtype": ["scoring"],
+        "subtype": [
+          "scoring"
+        ],
         "url": "https://www.first.org/cvss/",
-        "examples": ["cvss"]
+        "examples": [
+          "cvss"
+        ]
       },
       "children": [
         {
-          "patterns": ["^4\\.0$"],
+          "patterns": [
+            "^4\\.0$"
+          ],
           "description": "CVSS v4.0: released 2023. Adds Supplemental metric group, refines Temporal into Threat, adds granularity to Environmental metrics.",
           "weight": 100,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://www.first.org/cvss/v4.0/",
             "examples": [
-              {"input": "4.0", "url": "https://www.first.org/cvss/v4.0/", "note": "CVSS v4.0 (current)"}
+              {
+                "input": "4.0",
+                "url": "https://www.first.org/cvss/v4.0/",
+                "note": "CVSS v4.0 (current)"
+              }
             ]
           }
         },
         {
-          "patterns": ["^3\\.1$"],
+          "patterns": [
+            "^3\\.1$"
+          ],
           "description": "CVSS v3.1: released 2019. Widely adopted. Base, Temporal, and Environmental metric groups.",
           "weight": 90,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://www.first.org/cvss/v3-1/",
             "examples": [
-              {"input": "3.1", "url": "https://www.first.org/cvss/v3-1/", "note": "CVSS v3.1"}
+              {
+                "input": "3.1",
+                "url": "https://www.first.org/cvss/v3-1/",
+                "note": "CVSS v3.1"
+              }
             ]
           }
         },
         {
-          "patterns": ["^3\\.0$"],
+          "patterns": [
+            "^3\\.0$"
+          ],
           "description": "CVSS v3.0: released 2015. First major restructure (Base, Temporal, and Environmental metric groups). Superseded by v3.1.",
           "weight": 70,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://www.first.org/cvss/v3-0/",
             "examples": [
-              {"input": "3.0", "url": "https://www.first.org/cvss/v3-0/", "note": "CVSS v3.0 (superseded by v3.1)"}
+              {
+                "input": "3.0",
+                "url": "https://www.first.org/cvss/v3-0/",
+                "note": "CVSS v3.0 (superseded by v3.1)"
+              }
             ]
           }
         },
         {
-          "patterns": ["^2(\\.0)?$"],
+          "patterns": [
+            "^2(\\.0)?$"
+          ],
           "description": "CVSS v2: released 2007. Refined v1's approach. Largely superseded by v3.x; still appears in legacy data and older NVD records.",
           "weight": 50,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://www.first.org/cvss/v2/",
             "examples": [
-              {"input": "2.0", "url": "https://www.first.org/cvss/v2/", "note": "CVSS v2 (legacy)"},
-              {"input": "2", "url": "https://www.first.org/cvss/v2/", "note": "CVSS v2 (short form)"}
+              {
+                "input": "2.0",
+                "url": "https://www.first.org/cvss/v2/",
+                "note": "CVSS v2 (legacy)"
+              },
+              {
+                "input": "2",
+                "url": "https://www.first.org/cvss/v2/",
+                "note": "CVSS v2 (short form)"
+              }
             ]
           }
         },
         {
-          "patterns": ["^1(\\.0)?$"],
+          "patterns": [
+            "^1(\\.0)?$"
+          ],
           "description": "CVSS v1: released 2005. Original methodology, the first published version. Deprecated; rarely encountered today.",
           "weight": 30,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://www.first.org/cvss/v1/",
             "examples": [
-              {"input": "1.0", "url": "https://www.first.org/cvss/v1/", "note": "CVSS v1 (deprecated)"},
-              {"input": "1", "url": "https://www.first.org/cvss/v1/", "note": "CVSS v1 (short form)"}
+              {
+                "input": "1.0",
+                "url": "https://www.first.org/cvss/v1/",
+                "note": "CVSS v1 (deprecated)"
+              },
+              {
+                "input": "1",
+                "url": "https://www.first.org/cvss/v1/",
+                "note": "CVSS v1 (short form)"
+              }
             ]
           }
         }
       ]
     },
     {
-      "patterns": ["(?i)^epss$"],
+      "patterns": [
+        "(?i)^epss$"
+      ],
       "description": "Exploit Prediction Scoring System (EPSS): data-driven methodology for estimating the probability that a software vulnerability will be exploited in the wild within 30 days.",
       "weight": 100,
       "data": {
-        "subtype": ["scoring"],
+        "subtype": [
+          "scoring"
+        ],
         "url": "https://www.first.org/epss/",
-        "examples": ["epss"]
+        "examples": [
+          "epss"
+        ]
       }
     },
     {
-      "patterns": ["(?i)^tlp$"],
+      "patterns": [
+        "(?i)^tlp$"
+      ],
       "description": "Traffic Light Protocol (TLP): information sharing classification methodology. Defines four levels (RED, AMBER+STRICT, AMBER, GREEN, CLEAR) for marking sensitivity of shared information.",
       "weight": 100,
       "data": {
-        "subtype": ["classification"],
+        "subtype": [
+          "classification"
+        ],
         "url": "https://www.first.org/tlp/",
-        "examples": ["tlp"]
+        "examples": [
+          "tlp"
+        ]
       }
     }
   ]

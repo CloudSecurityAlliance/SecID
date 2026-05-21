@@ -4,29 +4,44 @@
   "type": "methodology",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Federal Risk and Authorization Management Program",
   "common_name": "FedRAMP",
   "alternate_names": null,
   "notes": "FedRAMP publishes analysis methodologies that prescribe processes (rather than control catalogs). The threat-based risk-profiling methodology is the canonical example.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.fedramp.gov"},
-    {"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}
+    {
+      "type": "website",
+      "url": "https://www.fedramp.gov"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.fedramp.gov/documents-templates/"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^threat-based-risk-profiling-methodology$"],
+      "patterns": [
+        "(?i)^threat-based-risk-profiling-methodology$"
+      ],
       "description": "FedRAMP Threat-Based Risk Profiling Methodology",
       "weight": 100,
       "data": {
+        "subtype": [
+          "scoring"
+        ],
         "official_name": "FedRAMP Threat-Based Risk Profiling Methodology",
         "description": "A phase-based scoring methodology FedRAMP uses to assess the relative criticality of security controls against MITRE ATT&CK-derived threat scenarios. Produces prioritized control rankings rather than a control catalog of its own.",
-        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/threat-based-methodology/"}],
-        "examples": ["threat-based-risk-profiling-methodology"]
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.fedramp.gov/threat-based-methodology/"
+          }
+        ],
+        "examples": [
+          "threat-based-risk-profiling-methodology"
+        ]
       }
     }
   ]

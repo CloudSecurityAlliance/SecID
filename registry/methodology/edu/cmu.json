@@ -4,32 +4,52 @@
   "type": "methodology",
   "status": "draft",
   "status_notes": "Initial entry from CERT/CC SSVC documentation. Reviewed 2026-04-05.",
-
   "official_name": "Carnegie Mellon University Software Engineering Institute",
   "urls": [
-    {"type": "website", "url": "https://www.sei.cmu.edu/"},
-    {"type": "docs", "url": "https://certcc.github.io/SSVC/", "note": "SSVC documentation"}
+    {
+      "type": "website",
+      "url": "https://www.sei.cmu.edu/"
+    },
+    {
+      "type": "docs",
+      "url": "https://certcc.github.io/SSVC/",
+      "note": "SSVC documentation"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ssvc$"],
-      "description": "Stakeholder-Specific Vulnerability Categorization (SSVC): decision-tree methodology for prioritizing vulnerability response based on stakeholder context. Developed by CERT/CC at CMU SEI. Produces prioritization decisions (defer, scheduled, out-of-cycle, immediate) rather than numerical scores. Version is significant — SSVC versions change the decision tree structure. CISA has published a customized SSVC decision tree for their context (see secid:methodology/cisa.gov/ssvc-decision-tree if registered).",
+      "patterns": [
+        "(?i)^ssvc$"
+      ],
+      "description": "Stakeholder-Specific Vulnerability Categorization (SSVC): decision-tree methodology for prioritizing vulnerability response based on stakeholder context. Developed by CERT/CC at CMU SEI. Produces prioritization decisions (defer, scheduled, out-of-cycle, immediate) rather than numerical scores. Version is significant \u2014 SSVC versions change the decision tree structure. CISA has published a customized SSVC decision tree for their context (see secid:methodology/cisa.gov/ssvc-decision-tree if registered).",
       "weight": 100,
       "data": {
-        "subtype": ["scoring"],
+        "subtype": [
+          "scoring"
+        ],
         "url": "https://certcc.github.io/SSVC/",
-        "examples": ["ssvc"]
+        "examples": [
+          "ssvc"
+        ]
       },
       "children": [
         {
-          "patterns": ["^2\\.0$"],
+          "patterns": [
+            "^2\\.0$"
+          ],
           "description": "SSVC v2.0: current version with refined decision points and stakeholder roles.",
           "weight": 100,
           "data": {
+            "subtype": [
+              "scoring"
+            ],
             "url": "https://certcc.github.io/SSVC/",
             "examples": [
-              {"input": "2.0", "url": "https://certcc.github.io/SSVC/", "note": "SSVC v2.0 documentation"}
+              {
+                "input": "2.0",
+                "url": "https://certcc.github.io/SSVC/",
+                "note": "SSVC v2.0 documentation"
+              }
             ]
           }
         }
