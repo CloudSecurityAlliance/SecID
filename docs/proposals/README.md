@@ -8,7 +8,7 @@ Registry schema changes and significant design additions go through a proposal p
 |----------|--------|------|---------|
 | [TIMESTAMP-FIELDS.md](TIMESTAMP-FIELDS.md) | Proposed | 2026-03-06 | Per-field `_checked`/`_updated`/`_note` metadata for freshness and verification tracking |
 | [ASSERTION-CONTENT-TYPES.md](ASSERTION-CONTENT-TYPES.md) | Under revision | 2026-05-12 | Two new types for the credential/education ecosystem; current discussion is collapsing the design toward fewer types using existing `control` and `reference` |
-| [GLOSSARY-DEFINITION-COMPARISON.md](GLOSSARY-DEFINITION-COMPARISON.md) | Approach under revision | 2026-05-14 | Cross-source term-definition comparison; revised toward `kind: "glossary"` tag on `reference` + dataset-repo for term content |
+| [GLOSSARY-DEFINITION-COMPARISON.md](GLOSSARY-DEFINITION-COMPARISON.md) | Accepted | 2026-05-20 | Cross-source term-definition comparison; `subtype: "glossary"` tag on `reference` + dataset-repo for term content (Phase 1), copy into registry for direct API serving (Phase 2) |
 | [ENTITY-REGULATION-CONTROL-SPLIT.md](ENTITY-REGULATION-CONTROL-SPLIT.md) | Declined (with rationale) | 2026-05-14 | Three-type split rejected; entity-vs-publication cleanup may be salvaged separately |
 
 ## Process

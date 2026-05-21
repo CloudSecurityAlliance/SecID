@@ -1,11 +1,18 @@
 # Proposal: Cross-Source Glossary Definition Comparison
 
-Status: **Approach under revision** — see *Revision and Analysis (2026-05-17)* below
-Date: 2026-05-14 (original); 2026-05-17 (revision notes added)
+Status: **Accepted (2026-05-20)** — hybrid approach with `subtype: "glossary"` on `reference` entries
+Date: 2026-05-14 (original); 2026-05-17 (revision notes); 2026-05-20 (accepted, with two-phase rollout)
 Author: Kurt Seifried, with AI-assisted design
 Reviewers: open — please add review notes inline or as PR comments
 
-> **Quick orientation for readers**: this proposal originally argued for a pure relationship-layer approach (glossary documents identified in `reference`, but term-level definitions stored outside the registry). After reflection, the approach is being revised toward a **hybrid**: a `kind: "glossary"` tag on the `reference` entry, full term-level data embedded in a separate dataset repository, and the registry entry as the pointer that ties them together. The original argument is preserved below; the revised approach is in the *Revision and Analysis* section.
+> **Quick orientation for readers**: this proposal originally argued for a pure relationship-layer approach (glossary documents identified in `reference`, but term-level definitions stored outside the registry). After reflection (2026-05-17 revision) and acceptance (2026-05-20), the final shape is a **hybrid with two-phase rollout**:
+>
+> - **Phase 1 (now)**: Tag glossary `reference` entries with `subtype: "glossary"`. Term content lives in a separate glossary dataset repository (V2 pattern), pointed at via `data_repo:`. The registry entry is identity-only.
+> - **Phase 2 (later)**: Once the V2 data-hosting pattern is stable, term-level data is copied into the core SecID registry alongside identity data, so resolving `secid:reference/nist.gov/csrc-glossary#vulnerability` returns the definition directly via the API — no dataset-repo hop required.
+>
+> The `subtype:` field also establishes the canonical name for "named sub-classifications within a SecID type" (see [docs/reference/TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md)). The 2026-05-17 revision used `kind:` for this field; the 2026-05-20 acceptance renames it to `subtype:` for consistency with the broader subtype vocabulary. No registry entries used `kind:` yet, so this rename is cost-free.
+>
+> The original (pre-revision) argument is preserved below for decision-record continuity; the accepted approach is in the *Revision and Analysis* and *Acceptance* sections.
 
 ## Summary
 
@@ -19,7 +26,7 @@ This closes a practical context gap: security terms are reused across standards 
 
 After reflection, the original proposal's pure relationship-layer framing is being revised. The new direction:
 
-1. Tag glossary-shaped `reference` entries explicitly (`kind: "glossary"`)
+1. Tag glossary-shaped `reference` entries explicitly (`subtype: "glossary"`)
 2. Embed term-level data — but in a separate **glossary dataset repository**, not in the core registry file directly
 3. The `reference` registry entry remains identity-only but points at the dataset for term content
 
@@ -33,7 +40,7 @@ That leaves a real question: when someone resolves `secid:reference/nist.gov/csr
 
 - **Pure relationship-layer**: the registry returns "this is a valid term identity" but no definition. To get the definition, you call a separate service or fetch a separate dataset. The SecID resolution itself is bare.
 - **Embed everything in the registry file**: the registry file *is* the definition store. Resolving the SecID returns the term + definition + provenance directly.
-- **Hybrid**: the registry entry tags itself as a glossary (`kind: "glossary"`) and points at a dataset repository where the term-level data lives. Resolution can be enriched by following the pointer.
+- **Hybrid**: the registry entry tags itself as a glossary (`subtype: "glossary"`) and points at a dataset repository where the term-level data lives. Resolution can be enriched by following the pointer.
 
 The user-experience question is real: **a SecID for a term that doesn't return the definition is a citation primitive, not a useful lookup.** AI agents and humans both expect "show me the definition" to come back when they ask.
 
@@ -82,7 +89,7 @@ The cleanest answer uses two pieces, each playing to its strength:
       "patterns": ["(?i)^csrc-glossary$"],
       "description": "NIST CSRC Glossary",
       "data": {
-        "kind": "glossary",
+        "subtype": "glossary",
         "official_name": "NIST Computer Security Resource Center Glossary",
         "common_name": "NIST CSRC Glossary",
         "term_count": 6000,
@@ -105,7 +112,7 @@ The cleanest answer uses two pieces, each playing to its strength:
 
 This pattern aligns with the existing SecID three-layer model (Registry / Relationship / Data) per CLAUDE.md, and with the V2 Data Repositories item in TODO.md (which proposed exactly this pattern for control, weakness, regulation types). Glossary would be the first V2 dataset.
 
-### Why the `kind: "glossary"` tag is doing real work
+### Why the `subtype: "glossary"` tag is doing real work
 
 A small but powerful addition. The tag signals to consumers (resolver, MCP server, AI agents) that:
 
@@ -114,9 +121,9 @@ A small but powerful addition. The tag signals to consumers (resolver, MCP serve
 - A `data_repo` SecID points at the term-level dataset
 - The parser document describes how to consume the dataset
 
-Consumers can filter for `kind: "glossary"` entries to find all glossaries across the registry, regardless of source. That's the cross-source comparison the original proposal targeted — but accomplished via a tag on existing entries, not via a new type or new infrastructure.
+Consumers can filter for `subtype: "glossary"` entries to find all glossaries across the registry, regardless of source. That's the cross-source comparison the original proposal targeted — but accomplished via a tag on existing entries, not via a new type or new infrastructure.
 
-This mirrors how `disclosure` entries use `cve` blocks to mark CNAs, and how `methodology` entries could grow `kind` tags for variants (scoring methodologies vs. mapping methodologies vs. assessment methodologies).
+This mirrors how `disclosure` entries use `cve` blocks to mark CNAs, and how `methodology` entries could grow `subtype:` tags for variants (scoring methodologies vs. mapping methodologies vs. assessment methodologies).
 
 ### What this approach buys vs. costs
 
@@ -140,13 +147,13 @@ The original proposal's other elements remain valid:
 - Per-source provenance (timestamps, source URLs, licenses) (✓ unchanged — just lives in dataset, not relationship-layer)
 - Goals, non-goals, use cases, risks (✓ unchanged)
 
-What changes is the *storage location* for the term-level data: from "relationship-layer dataset and service behavior" (vague) to "named glossary dataset repository following V2 pattern" (concrete) — and the addition of the `kind: "glossary"` tag on the registry entry as the bridge.
+What changes is the *storage location* for the term-level data: from "relationship-layer dataset and service behavior" (vague) to "named glossary dataset repository following V2 pattern" (concrete) — and the addition of the `subtype: "glossary"` tag on the registry entry as the bridge.
 
 ### Open questions for this revision
 
-1. **Should the `kind` field be a single value (`"glossary"`) or an array (`["glossary", "controlled-vocabulary"]`)?** Some sources are glossary-shaped AND also other things (controlled vocabularies, ontologies). An array gives flexibility; a single value keeps schema simple.
+1. **Should the `subtype` field be a single value (`"glossary"`) or an array (`["glossary", "controlled-vocabulary"]`)?** Some sources are glossary-shaped AND also other things (controlled vocabularies, ontologies). An array gives flexibility; a single value keeps schema simple.
 2. **How small a glossary justifies the dataset-repo pattern vs. inline embedding?** A 20-term glossary fits easily in a registry file. A 6,000-term glossary doesn't. Is there a threshold (50 terms? 500 terms?), or always-use-dataset for consistency?
-3. **Do we ship the registry-side `kind: "glossary"` tag *now* (before V2 datasets exist), as preparation?** Tagging existing glossary `reference` entries is cheap and useful even if the dataset repo isn't built yet — at minimum it makes them discoverable as glossaries.
+3. **Do we ship the registry-side `subtype: "glossary"` tag *now* (before V2 datasets exist), as preparation?** Tagging existing glossary `reference` entries is cheap and useful even if the dataset repo isn't built yet — at minimum it makes them discoverable as glossaries.
 4. **Naming the dataset repo**: `CloudSecurityAlliance-DataSets/SecID-glossary/` (matches V2 plan from TODO.md) or something more specific like `CloudSecurityAlliance-DataSets/SecID-reference-glossaries/` to distinguish from other reference-type data?
 5. **Cross-source comparison query**: still relationship-layer service behavior, or implementable as a simple dataset-repo scan?
 
@@ -162,7 +169,84 @@ This revision was reached on 2026-05-17 based on current understanding of glossa
 
 ---
 
-## Problem
+## Acceptance (2026-05-20)
+
+The 2026-05-17 revision is accepted as the path forward, with concrete answers to the open questions and a two-phase rollout that addresses the operational concerns raised in *Invitation to challenge this revision*.
+
+### Field rename: `kind:` → `subtype:`
+
+The 2026-05-17 revision named the discriminator field `kind`. On 2026-05-20 it is renamed to `subtype` to align with the broader vocabulary documented in [docs/reference/TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md). "Subtype" is now the canonical term for "named sub-classification within a SecID type." No registry entries used `kind:` yet, so the rename is cost-free.
+
+### Two-phase rollout
+
+The hybrid approach is correct *structurally*, but the open questions and challenge invitation flagged a real operational risk: if V2 dataset infrastructure isn't built quickly, the hybrid leaves users with bare-identity SecIDs that can't return definitions. The fix is to split rollout into two phases:
+
+**Phase 1 — Tag now, dataset repo for term content (operational state today)**
+
+- Add `subtype: "glossary"` to glossary `reference` entries as they're touched, plus to any new glossary entries from day one
+- Term-level data lives in a separate glossary dataset repository (the V2 pattern from [TODO.md](../project/TODO.md))
+- Registry entry carries `data_repo:` SecID pointer and parser reference; consumers follow the pointer to fetch definitions
+- Aggressive update cadence (weekly/monthly per source) happens in the dataset repo, not through registry PR review
+- Resolution of `secid:reference/.../glossary#term` returns identity + dataset-repo pointer; consumer fetches the dataset for the definition itself
+
+**Phase 2 — Copy term data into SecID registry for direct API serving (future)**
+
+- Once the V2 dataset pattern is operationally stable and source-update workflows are well-understood, copy term-level data into the SecID registry alongside identity data
+- The resolver API serves definitions directly: `GET /api/v1/resolve/secid:reference/nist.gov/csrc-glossary#vulnerability` returns the term definition in the response body, not just an identity record
+- The dataset repository remains as the high-churn ingestion staging area; the registry holds the snapshot served via the API
+- Update cadence for the API-served snapshot is decoupled from upstream source churn — controlled by a sync job, not by every upstream edit
+- This phase is gated on: (a) V2 dataset pattern proven on at least 1–2 sources, (b) KV value-size headroom and read-cost projections for the dataset volumes involved, (c) sync/refresh tooling that makes copying tractable
+
+This two-phase structure means Phase 1 lands the operational value immediately (discoverability via the `subtype` tag, term-level identity via subpaths, definitions available via dataset-repo fetch) without blocking on V2 infrastructure maturity. Phase 2 upgrades the developer experience from "two-hop fetch" to "one-API-call" once the foundation is solid.
+
+### Answers to the 5 open questions
+
+1. **`subtype` as single value or array?** → **Single value for now.** Sources that are glossary-shaped *and* something else (controlled vocabularies, ontologies) are rare today; we'll cross that bridge with concrete evidence rather than speculative flexibility. If multi-subtype demand arises, migrating single-value to array later is a non-breaking change for consumers that ignore unknown subtypes and a clear schema bump for those that don't.
+
+2. **Threshold for dataset-repo vs. inline?** → **Always use the dataset-repo pattern, regardless of size.** Consistency beats per-source cleverness; uniform Phase 1 / Phase 2 mechanics across all glossaries is simpler to implement, document, and reason about than a per-entry threshold. The inline-embedding optimization for small glossaries (20-term-shaped) isn't worth the divergent code paths.
+
+3. **Ship `subtype: "glossary"` tag now, before datasets exist?** → **Yes.** Tagging is the cheapest part of the whole proposal and pays off immediately (discoverability — "list all glossaries across the registry" works as soon as tags exist, independent of where the term content lives). New glossary entries are tagged from day one; existing glossary `reference` entries get tagged opportunistically as they're touched (per the "document the subtypes, don't backfill yet" decision in [TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md)).
+
+4. **Naming the dataset repo?** → **Deferred to when the first glossary dataset is actually built.** Naming is cheap to revisit; locking it now without a concrete first user is premature. Reasonable working name: `CloudSecurityAlliance-DataSets/SecID-glossary/`, but final choice can wait.
+
+5. **Cross-source comparison query: service or dataset scan?** → **Dataset-repo scan in Phase 1; folds into the resolver API in Phase 2.** Phase 1 has no service to build — a consumer wanting cross-source comparisons fetches each glossary dataset and joins on term keys. Phase 2's API serving makes cross-source comparison a natural extension of the resolver's existing multi-source response shape; no separate service needed.
+
+### What Phase 1 looks like concretely
+
+A `subtype: "glossary"` registry entry in Phase 1:
+
+```json
+{
+  "namespace": "csrc.nist.gov",
+  "type": "reference",
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^csrc-glossary$"],
+      "description": "NIST CSRC Glossary",
+      "data": {
+        "subtype": "glossary",
+        "official_name": "NIST Computer Security Resource Center Glossary",
+        "common_name": "NIST CSRC Glossary",
+        "term_count": 6000,
+        "primary_url": "https://csrc.nist.gov/glossary",
+        "data_repo": "secid:reference/cloudsecurityalliance.org/secid-glossaries#csrc-nist",
+        "license": "Public domain (US government work)",
+        "parser": "secid:reference/cloudsecurityalliance.org/secid-parsers#nist-csrc-glossary-json"
+      }
+    }
+  ]
+}
+```
+
+Consumer flow: resolve the SecID → see `subtype: "glossary"` + `data_repo:` → follow the `data_repo` SecID to the dataset → fetch term-level data per the `parser:` instructions.
+
+### What Phase 2 looks like concretely
+
+Same registry entry, plus the registry now holds a periodically-refreshed snapshot of term data. Resolving `secid:reference/csrc.nist.gov/csrc-glossary#vulnerability` returns the term + definition + provenance in the API response body. The `data_repo:` field remains as a pointer to the upstream-tracking dataset repo (for consumers that want the latest cut without waiting for the next snapshot), but most consumers stop following it.
+
+The exact shape of the in-registry term storage is deferred to Phase 2 design — it depends on what the V2 dataset pattern looks like in practice and how large the snapshot files end up being relative to existing registry files.
+
+---
 
 Today, SecID can identify many glossary *documents* under `reference`, but cannot systematically compare term-level definitions across sources.
 
