@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.gouv.fr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "Agence nationale de la sécurité des systèmes d'information",
+  "common_name": "ANSSI",
+  "alternate_names": null,
+  "notes": "French national cyber security agency. Maintains CyberDico — a bilingual (French/English) cybersecurity glossary openly licensed under Etalab 2.0.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cyber.gouv.fr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyberdico$"
+      ],
+      "description": "ANSSI CyberDico",
+      "weight": 100,
+      "data": {
+        "official_name": "ANSSI CyberDico",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "ANSSI CyberDico",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://cyber.gouv.fr/glossaire"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "techtarget.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "TechTarget, Inc.",
+  "common_name": "TechTarget",
+  "alternate_names": null,
+  "notes": "Tech media company operating WhatIs.com and SearchSecurity definition libraries. Hosts multiple dedicated security glossaries (general Security, Network Security, Security Management, Threats & Countermeasures, Application Security, Authentication).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.techtarget.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-definitions$"
+      ],
+      "description": "TechTarget Security Definitions",
+      "weight": 100,
+      "data": {
+        "official_name": "TechTarget Security Definitions",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "TechTarget Security Definitions",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.techtarget.com/searchsecurity/definitions"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oecd.ai",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "OECD AI Policy Observatory",
+  "common_name": "OECD.AI",
+  "alternate_names": null,
+  "notes": "OECD's AI policy observatory hosting policy initiatives, definitions, and the AI Principles (2019). Publishes the OECD.AI Glossary of Terms on AI consolidating definitions from OECD, EU AI Act, UNESCO, and ISO standards.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://oecd.ai"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ai-glossary$"
+      ],
+      "description": "OECD.AI Glossary of Terms on AI",
+      "weight": 100,
+      "data": {
+        "official_name": "OECD.AI Glossary of Terms on AI",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "OECD.AI Glossary of Terms on AI",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://oecd.ai/en/dashboards/policy-initiatives/glossary-of-terms-on-ai"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyberveilignederland.nl",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated for glossary phase 3 sweep 2026-05-21; covers a publisher not previously in SecID.",
+  "official_name": "Cyberveilig Nederland",
+  "common_name": "Cyberveilig Nederland",
+  "alternate_names": null,
+  "notes": "Dutch trade association for cybersecurity. Publishes the Cyberveilig Woordenboek (Cyber Safe Dictionary) annually, mapping English terms to Dutch with definitions; co-published with NCSC-NL and aligned with the national CSBN concept list.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cyberveilignederland.nl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cyberveilig-woordenboek$"
+      ],
+      "description": "Cyberveilig Woordenboek 2024",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyberveilig Woordenboek 2024",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Cyberveilig Woordenboek 2024",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.cyberveilignederland.nl/download/file/Cyberveilig_Woordenboek2024.pdf"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
