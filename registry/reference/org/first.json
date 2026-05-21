@@ -26,7 +26,7 @@
         "common_name": "CVSS",
         "alternate_names": null,
         "description": "Industry standard for scoring the severity of security vulnerabilities. Provides Base, Temporal/Threat, and Environmental metric groups producing a score from 0.0 to 10.0.",
-        "notes": "CVSS v4.0 is the current version (released November 2023). CVSS v3.1 remains widely used across the industry. Each version has a specification document, user guide, and online calculator. CVSS is maintained by the CVSS Special Interest Group (SIG) within FIRST.\n\nCVSS is a specification/standard, not a database of identifiers — it defines how to score vulnerabilities, not individual vulnerability records. Filed under reference because it is a document/specification that other systems reference.",
+        "notes": "CVSS v4.0 is the current version (released November 2023). CVSS v3.1 remains widely used across the industry. Each version has a specification document, user guide, and online calculator. CVSS is maintained by the CVSS Special Interest Group (SIG) within FIRST.\n\nCVSS is a specification/standard, not a database of identifiers — it defines how to score vulnerabilities, not individual vulnerability records. Filed under reference because it is a document/specification that other systems reference. Companion entry: secid:methodology/first.org/cvss covers the scoring methodology (assessment guidance, metric definitions) that goes beyond the format.",
         "version_required": false,
         "versions_available": [
           {"version": "4.0", "status": "current", "note": "Current version. Adds Supplemental metric group, renames Temporal to Threat."},
@@ -37,15 +37,71 @@
         ],
         "urls": [
           {"type": "website", "url": "https://www.first.org/cvss/"},
-          {"type": "docs", "url": "https://www.first.org/cvss/v4-0/specification-document", "note": "CVSS v4.0 specification"},
-          {"type": "docs", "url": "https://www.first.org/cvss/v3-1/specification-document", "note": "CVSS v3.1 specification"},
+          {"type": "docs", "url": "https://www.first.org/cvss/v4.0/specification-document", "note": "CVSS v4.0 specification"},
+          {"type": "docs", "url": "https://www.first.org/cvss/v3.1/specification-document", "note": "CVSS v3.1 specification"},
           {"type": "tool", "url": "https://www.first.org/cvss/calculator/4.0", "note": "CVSS v4.0 calculator"},
           {"type": "tool", "url": "https://www.first.org/cvss/calculator/3.1", "note": "CVSS v3.1 calculator"},
           {"type": "docs", "url": "https://www.first.org/cvss/data-representations", "note": "CVSS JSON and XML schema representations"}
         ],
         "examples": []
       },
-      "children": []
+      "children": [
+        {
+          "patterns": ["^4\\.0$"],
+          "description": "CVSS v4.0 specification document (released November 2023).",
+          "weight": 100,
+          "data": {
+            "url": "https://www.first.org/cvss/v4.0/specification-document",
+            "examples": [
+              {"input": "4.0", "url": "https://www.first.org/cvss/v4.0/specification-document", "note": "CVSS v4.0 specification (current)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.1$"],
+          "description": "CVSS v3.1 specification document (released June 2019).",
+          "weight": 90,
+          "data": {
+            "url": "https://www.first.org/cvss/v3.1/specification-document",
+            "examples": [
+              {"input": "3.1", "url": "https://www.first.org/cvss/v3.1/specification-document", "note": "CVSS v3.1 specification"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.0$"],
+          "description": "CVSS v3.0 specification document (released 2015; superseded by 3.1).",
+          "weight": 70,
+          "data": {
+            "url": "https://www.first.org/cvss/v3.0/specification-document",
+            "examples": [
+              {"input": "3.0", "url": "https://www.first.org/cvss/v3.0/specification-document", "note": "CVSS v3.0 specification (superseded)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^2(\\.0)?$"],
+          "description": "CVSS v2 complete guide. There is no separate 'specification document' for v2; the complete guide at /cvss/v2/guide is the canonical document.",
+          "weight": 50,
+          "data": {
+            "url": "https://www.first.org/cvss/v2/guide",
+            "examples": [
+              {"input": "2.0", "url": "https://www.first.org/cvss/v2/guide", "note": "CVSS v2 complete guide (legacy)"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^1(\\.0)?$"],
+          "description": "CVSS v1 landing page. No separate specification document survives on first.org — the v1 area only has the version's overview and the introduction paper. Resolves to the landing page.",
+          "weight": 30,
+          "data": {
+            "url": "https://www.first.org/cvss/v1/",
+            "examples": [
+              {"input": "1.0", "url": "https://www.first.org/cvss/v1/", "note": "CVSS v1 landing page (historical; no separate spec doc)"}
+            ]
+          }
+        }
+      ]
     },
 
     {
