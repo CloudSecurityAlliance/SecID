@@ -44,7 +44,8 @@ With 20+ markdown files, know which document answers which question:
 | What are the design principles? | [PRINCIPLES.md](PRINCIPLES.md) - AI-first, helpful over correct, four response outcomes |
 | How do SecID strings work? | [SPEC.md](SPEC.md) - grammar, types, parsing, encoding |
 | Why does SecID exist? | [RATIONALE.md](docs/explanation/RATIONALE.md) |
-| Why was X designed this way? | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) |
+| Why was X designed this way? | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) - longer-form explanations |
+| When was X decided, what were the alternatives? | [DECISIONS.md](DECISIONS.md) - chronological ADR log with rejected alternatives |
 | How do I add a namespace? | [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) - principles, patterns, process |
 | How do I add a namespace (step-by-step)? | [ADD-NAMESPACE.md](docs/guides/ADD-NAMESPACE.md) - task-oriented walkthrough |
 | How do I update an existing namespace? | [UPDATE-NAMESPACE.md](docs/guides/UPDATE-NAMESPACE.md) |
