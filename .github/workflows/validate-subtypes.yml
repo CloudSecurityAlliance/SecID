@@ -1,0 +1,42 @@
+name: Validate subtypes
+
+# Gate: every `subtype:` value used in registry data must be declared in
+# SecID-Service's src/type-registry.ts. Forces a coordinated code change
+# whenever a new subtype is introduced.
+#
+# Safety note: this workflow does not interpolate any untrusted GitHub
+# event data (issue titles, PR bodies, commit messages, etc.) into shell
+# commands. It only runs a Python script with no arguments derived from
+# user input.
+#
+# See scripts/validate-subtypes.py for the validation logic, and
+# docs/reference/TYPES-AND-SUBTYPES.md for the conceptual model.
+
+on:
+  pull_request:
+    paths:
+      - "registry/**/*.json"
+      - "scripts/validate-subtypes.py"
+      - ".github/workflows/validate-subtypes.yml"
+  push:
+    branches: [main]
+    paths:
+      - "registry/**/*.json"
+      - "scripts/validate-subtypes.py"
+      - ".github/workflows/validate-subtypes.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate subtype values against SecID-Service type-registry
+        run: python3 scripts/validate-subtypes.py
