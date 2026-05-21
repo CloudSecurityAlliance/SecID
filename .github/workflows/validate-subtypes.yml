@@ -39,4 +39,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate subtype values against SecID-Service type-registry
-        run: python3 scripts/validate-subtypes.py
+        run: python3 scripts/validate-subtypes.py --completeness-policy warn

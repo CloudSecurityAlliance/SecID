@@ -30,6 +30,11 @@ Usage:
 
     python3 scripts/validate-subtypes.py --type-registry-url <url>
         Custom raw URL (e.g., pointing at a feature branch during dev).
+
+    python3 scripts/validate-subtypes.py --completeness-policy warn
+        Also report source-level match_nodes under types that declare subtypes
+        but do not carry a data.subtype tag. Use "fail" once the existing
+        inventory has been cleaned up.
 """
 
 from __future__ import annotations
@@ -139,6 +144,36 @@ def collect_used_subtypes(registry_root: Path) -> dict[tuple[str, str], list[tup
     return used
 
 
+def collect_missing_subtypes(
+    registry_root: Path, declared_types: set[str]
+) -> dict[str, list[tuple[Path, str]]]:
+    """Find source-level match_nodes missing data.subtype for declared types."""
+    missing: dict[str, list[tuple[Path, str]]] = {}
+    for path in sorted(registry_root.rglob("*.json")):
+        if path.parent == registry_root:
+            continue
+        try:
+            doc = json.loads(path.read_text())
+        except json.JSONDecodeError as exc:
+            print(f"WARN: skipping unparseable {path}: {exc}", file=sys.stderr)
+            continue
+        type_name = doc.get("type")
+        if type_name not in declared_types:
+            continue
+        for node in doc.get("match_nodes") or []:
+            if not isinstance(node, dict):
+                continue
+            data = node.get("data") or {}
+            if not isinstance(data, dict):
+                data = {}
+            subtypes = data.get("subtype")
+            if subtypes:
+                continue
+            pattern_label = ",".join(node.get("patterns") or []) or "(no patterns)"
+            missing.setdefault(type_name, []).append((path, pattern_label))
+    return missing
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
@@ -153,6 +188,15 @@ def main() -> int:
         "--registry-root",
         default="registry",
         help="Path to the SecID registry/ directory (default: ./registry)",
+    )
+    parser.add_argument(
+        "--completeness-policy",
+        choices=("off", "warn", "fail"),
+        default="off",
+        help=(
+            "Also check for source-level match_nodes under types with declared "
+            "subtypes that are missing data.subtype. Default: off."
+        ),
     )
     args = parser.parse_args()
 
@@ -169,6 +213,12 @@ def main() -> int:
 
     declared = parse_type_registry(source)
     used = collect_used_subtypes(registry_root)
+    declared_subtype_types = {type_name for type_name, values in declared.items() if values}
+    missing = (
+        collect_missing_subtypes(registry_root, declared_subtype_types)
+        if args.completeness_policy != "off"
+        else {}
+    )
 
     failures: list[str] = []
     for (type_name, value), occurrences in sorted(used.items()):
@@ -193,6 +243,22 @@ def main() -> int:
         print("  2. Then update SecID's docs/reference/TYPES-AND-SUBTYPES.md to document the new value.")
         print("  3. Re-run this script — it should now pass.")
         return 1
+
+    if missing:
+        total_missing = sum(len(v) for v in missing.values())
+        print()
+        print(
+            f"{args.completeness_policy.upper()}: {total_missing} source-level match_node(s) "
+            "under types with declared subtypes are missing data.subtype"
+        )
+        for type_name, occurrences in sorted(missing.items()):
+            print(f"  {type_name}: {len(occurrences)} missing")
+            for path, pattern_label in occurrences[:20]:
+                print(f"    - {path} (patterns: {pattern_label})")
+            if len(occurrences) > 20:
+                print(f"    ... {len(occurrences) - 20} more")
+        if args.completeness_policy == "fail":
+            return 1
 
     total_uses = sum(len(v) for v in used.values())
     print(
