@@ -125,6 +125,90 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "(?i)^800-\\d+[a-z]?(-pt\\d+)?(-v\\d+)?$"
+      ],
+      "description": "NIST Special Publication 800-series (informative guidance)",
+      "weight": 90,
+      "data": {
+        "official_name": "NIST SP 800-series guidance",
+        "common_name": "SP 800",
+        "alternate_names": null,
+        "description": "NIST Special Publication 800-series documents that are guidance/informative rather than control catalogs. Examples include SP 800-100 (Information Security Handbook), SP 800-115 (Technical Guide to Security Testing), SP 800-122 (PII Confidentiality), SP 800-145 (Cloud Definition), SP 800-160 v2 (Cyber-Resiliency Considerations). Catalog-style SP 800-series documents (800-53, 800-171, etc.) are registered under control/gov/nist; process-style ones (800-30, 800-37, 800-39, 800-61) are registered under methodology/gov/nist.",
+        "notes": "Many SP 800-numbered documents have content shaped as guidance prose rather than per-control catalogs. Resolution from a numeric source name (e.g., \"800-100\") defers to the document's metadata `secid` field for type disambiguation.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csrc.nist.gov/publications/sp800"
+          }
+        ],
+        "examples": ["800-100", "800-115", "800-122", "800-145", "800-160-v2", "800-218a", "800-57-pt1"]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^1800-\\d+$"
+      ],
+      "description": "NIST Special Publication 1800-series (NCCoE practice guides)",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST SP 1800-series practice guides",
+        "common_name": "SP 1800",
+        "alternate_names": null,
+        "description": "NCCoE (National Cybersecurity Center of Excellence) practice guides demonstrating reference implementations of cybersecurity capabilities. Informative reference documents, not control catalogs.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nccoe.nist.gov"
+          }
+        ],
+        "examples": ["1800-13", "1800-26"]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^fips-(140(-\\d)?|180|186|197|198|201|202|203|204|205)$"
+      ],
+      "description": "NIST FIPS algorithm/categorization specs (informative)",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST FIPS algorithm and categorization specs",
+        "common_name": "FIPS (reference)",
+        "alternate_names": null,
+        "description": "FIPS publications that specify cryptographic algorithms (FIPS 197 AES, FIPS 180 SHA, FIPS 186 DSS, FIPS 198 HMAC, FIPS 201 PIV, FIPS 202 SHA-3, FIPS 203/204/205 post-quantum) or that defer requirement content to external standards (FIPS 140-2 withdrawn, FIPS 140-3 deferring to ISO/IEC 19790). Categorization frameworks with structurable catalogs (FIPS 199, FIPS 200) are registered under control/gov/nist.",
+        "notes": "FIPS 140-2 and 140-3 land here rather than under control because their structurable content is too thin to register as a control catalog (140-3 defers to ISO/IEC 19790:2012(E) which is not redistributable; 140-2 was withdrawn in 2022).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csrc.nist.gov/publications/fips"
+          }
+        ],
+        "examples": ["fips-180", "fips-186", "fips-197", "fips-202", "fips-203", "fips-204", "fips-205", "fips-140-2", "fips-140-3"]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ai-100-\\d+$"
+      ],
+      "description": "NIST AI 100-series (informative AI documents)",
+      "weight": 90,
+      "data": {
+        "official_name": "NIST AI 100-series",
+        "common_name": "AI 100",
+        "alternate_names": null,
+        "description": "NIST Artificial Intelligence series publications such as AI 100-4. Complements the AI RMF (AI 100-1) and AI 600-1 GenAI Profile (both registered under control/gov/nist when structured catalog-like).",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+          }
+        ],
+        "examples": ["ai-100-4"]
+      }
     }
   ]
 }

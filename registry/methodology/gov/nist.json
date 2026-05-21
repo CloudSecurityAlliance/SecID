@@ -100,6 +100,16 @@
       }
     },
     {
+      "patterns": ["(?i)^800-39$"],
+      "description": "NIST SP 800-39: Managing Information Security Risk. Three-tier (organization, mission/business process, information system) risk-management process.",
+      "weight": 100,
+      "data": {
+        "subtype": ["risk-management"],
+        "url": "https://csrc.nist.gov/pubs/sp/800/39/final",
+        "examples": ["800-39"]
+      }
+    },
+    {
       "patterns": ["(?i)^800-61$"],
       "description": "NIST SP 800-61: Incident Handling Guide. Methodology for detecting, analyzing, containing, eradicating, and recovering from computer security incidents.",
       "weight": 100,

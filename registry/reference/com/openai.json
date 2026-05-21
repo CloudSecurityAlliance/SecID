@@ -48,6 +48,22 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^preparedness$"],
+      "description": "OpenAI Preparedness Framework — risk-category framework for frontier AI",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenAI Preparedness Framework",
+        "common_name": "Preparedness Framework",
+        "alternate_names": null,
+        "description": "OpenAI's framework for tracking and mitigating catastrophic risks from frontier AI models. Defines four tracked risk categories (Cybersecurity, CBRN, Persuasion, Model Autonomy) with scorecard levels and pre-deployment safeguards.",
+        "notes": "Not a per-control catalog; closer in shape to a methodology or policy document. Filed under reference until OpenAI publishes a fuller catalog of per-category controls.",
+        "urls": [
+          {"type": "website", "url": "https://openai.com/safety/preparedness/"}
+        ],
+        "examples": ["preparedness"]
+      }
     }
   ]
 }
