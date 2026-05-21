@@ -17,6 +17,7 @@
       "description": "NIST IR 8477: Mapping Relationships Between Documentary Standards, Regulations, Frameworks, and Guidelines. Defines four mapping styles (crosswalk, supportive, STRM, structural) plus a selection methodology for choosing among them.",
       "weight": 100,
       "data": {
+        "subtype": ["mapping"],
         "url": "https://csrc.nist.gov/pubs/ir/8477/final",
         "examples": ["ir-8477"]
       },
@@ -83,6 +84,7 @@
       "description": "NIST Risk Management Framework (SP 800-37): seven-step process for managing security and privacy risk — prepare, categorize, select, implement, assess, authorize, monitor.",
       "weight": 100,
       "data": {
+        "subtype": ["risk-management"],
         "url": "https://csrc.nist.gov/projects/risk-management/about-rmf",
         "examples": ["rmf", "800-37"]
       }
@@ -92,6 +94,7 @@
       "description": "NIST SP 800-30: Guide for Conducting Risk Assessments. Methodology for identifying, estimating, and prioritizing information security risks.",
       "weight": 100,
       "data": {
+        "subtype": ["risk-management"],
         "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
         "examples": ["800-30"]
       }
@@ -101,6 +104,7 @@
       "description": "NIST SP 800-61: Incident Handling Guide. Methodology for detecting, analyzing, containing, eradicating, and recovering from computer security incidents.",
       "weight": 100,
       "data": {
+        "subtype": ["incident-management"],
         "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
         "examples": ["800-61"]
       }
@@ -110,6 +114,7 @@
       "description": "NIST SP 800-115: Technical Guide to Information Security Testing and Assessment. Methodology for planning, conducting, and analyzing security testing.",
       "weight": 100,
       "data": {
+        "subtype": ["security-testing"],
         "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
         "examples": ["800-115"]
       }
@@ -119,6 +124,7 @@
       "description": "NIST SP 800-161: Cybersecurity Supply Chain Risk Management (C-SCRM) Practices. Methodology for identifying, assessing, and mitigating supply chain risks.",
       "weight": 100,
       "data": {
+        "subtype": ["supply-chain"],
         "url": "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
         "examples": ["800-161"]
       }
