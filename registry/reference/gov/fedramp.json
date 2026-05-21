@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fedramp.gov",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Federal Risk and Authorization Management Program",
+  "common_name": "FedRAMP",
+  "alternate_names": null,
+  "notes": "FedRAMP publishes informative guidance documents alongside its control baselines: playbooks, templates, white papers, training material, and program-administration documents. These guidance docs are not control catalogs themselves; the control content lives in the FedRAMP baselines (registered under control/gov/fedramp).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.fedramp.gov"},
+    {"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^3pao-.+$"],
+      "description": "FedRAMP 3PAO (Third Party Assessment Organization) guidance documents",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP 3PAO Guidance",
+        "description": "Documents describing 3PAO obligations, performance standards, and readiness-assessment reporting requirements.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/assessors/"}],
+        "examples": ["3pao-obligations-and-performance-standards", "3pao-readiness-assessment-report-guide"]
+      }
+    },
+    {
+      "patterns": ["(?i)^.+-playbook$"],
+      "description": "FedRAMP playbook documents (agency or CSP workflow guidance)",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP Playbooks",
+        "description": "Procedural playbooks for FedRAMP stakeholders walking through authorization, continuous monitoring, and related workflows.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": ["agency-authorization-playbook", "csp-authorization-playbook"]
+      }
+    },
+    {
+      "patterns": ["(?i)^.+-(template|form)$", "(?i)^fedramp-.+-template$"],
+      "description": "FedRAMP form and template documents",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP Templates",
+        "description": "Fillable forms and Word templates that CSPs and agencies use during the FedRAMP process (SSP, SAP, SAR, POA&M, RoB, etc.).",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": ["agency-package-request-form", "fedramp-ato-letter-template", "fedramp-significant-change-form-template", "ssp-appendix-f-rules-of-behavior-(rob)-template"]
+      }
+    },
+    {
+      "patterns": ["(?i)^csp-.+$"],
+      "description": "FedRAMP CSP-facing guidance documents",
+      "weight": 90,
+      "data": {
+        "official_name": "FedRAMP CSP Guidance",
+        "description": "Guidance documents addressed to Cloud Service Providers covering operations, monitoring, scanning, and reporting.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": ["csp-annual-assessment-guidance", "csp-continuous-monitoring-strategy-guide", "csp-vulnerability-scanning-requirements"]
+      }
+    },
+    {
+      "patterns": ["(?i)^fedramp-.+$"],
+      "description": "Other FedRAMP-prefixed guidance documents (catch-all)",
+      "weight": 80,
+      "data": {
+        "official_name": "FedRAMP Program Documents",
+        "description": "FedRAMP-prefixed program documents including branding guidance, policy memos, white papers, and quick guides.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": ["fedramp-branding-guidance", "fedramp-policy-memo", "fedramp-subnets-white-paper", "fedramp-general-document-acceptance-criteria"]
+      }
+    },
+    {
+      "patterns": ["(?i)^ssp-appendix-[a-z]-.+$"],
+      "description": "FedRAMP SSP appendix documents (non-control-catalog appendices)",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP SSP Appendices",
+        "description": "SSP appendix templates such as Rules of Behavior (Appendix F), Information System Contingency Plan (Appendix G), Cryptographic Modules Table (Appendix Q). Appendix A (Security Controls) is a control catalog and lives under control/gov/fedramp.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": ["ssp-appendix-f-rules-of-behavior-(rob)-template", "ssp-appendix-g-information-system-contingency-plan-(iscp)-template", "ssp-appendix-q-cryptographic-modules-table"]
+      }
+    },
+    {
+      "patterns": ["(?i)^reusing-authorizations-for-cloud-products-quick-guide$", "(?i)^vulnerability-scanning-requirements-for-containers$"],
+      "description": "FedRAMP specific named guidance documents",
+      "weight": 100,
+      "data": {
+        "official_name": "FedRAMP Named Guidance",
+        "description": "Specific FedRAMP guidance documents that don't fit the broader CSP-/playbook-/template- naming patterns.",
+        "urls": [{"type": "docs", "url": "https://www.fedramp.gov/documents-templates/"}],
+        "examples": []
+      }
+    }
+  ]
+}
