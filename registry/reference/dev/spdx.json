@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "namespace": "spdx.dev",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "Software Package Data Exchange",
+  "common_name": "SPDX",
+  "alternate_names": ["ISO/IEC 5962:2021"],
+  "notes": "SPDX is a Linux Foundation project. The project domain is spdx.dev. SPDX is also an ISO standard (ISO/IEC 5962:2021) for SPDX 2.2.1. The Linux Foundation governs the working group; the spec is developed in the open at github.com/spdx/spdx-spec.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://spdx.dev/"},
+    {"type": "github", "url": "https://github.com/spdx"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^spdx$"],
+      "description": "Software Package Data Exchange (SPDX) specification",
+      "weight": 100,
+      "data": {
+        "official_name": "Software Package Data Exchange",
+        "common_name": "SPDX",
+        "alternate_names": ["ISO/IEC 5962:2021"],
+        "description": "Open standard for communicating SBOM information, including provenance, license, security, and other related information. Provides a common format for describing the components, licenses, and copyrights associated with software packages.",
+        "notes": "Two related ID systems live within SPDX: (1) SPDX identifiers for software packages and files within an SBOM document, and (2) SPDX license identifiers (e.g., MIT, Apache-2.0, GPL-3.0-only) which are widely used outside SBOM contexts. The SPDX License List is the canonical license-identifier registry referenced by many tools. SPDX 2.3 is current; SPDX 3.0 is in development. A data format; placed under reference.",
+        "version_required": false,
+        "versions_available": [
+          {"version": "3.0", "status": "draft", "note": "Major revision in development"},
+          {"version": "2.3", "status": "current"},
+          {"version": "2.2.1", "status": "active", "note": "ISO/IEC 5962:2021 ratified version"},
+          {"version": "2.2", "status": "superseded"},
+          {"version": "2.1", "status": "superseded"},
+          {"version": "2.0", "status": "superseded"}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://spdx.dev/"},
+          {"type": "spec", "url": "https://spdx.github.io/spdx-spec/"},
+          {"type": "github", "url": "https://github.com/spdx/spdx-spec"},
+          {"type": "license_list", "url": "https://spdx.org/licenses/", "note": "SPDX License List — canonical license-identifier registry"}
+        ],
+        "examples": [
+          {"input": "spdx", "note": "SPDX specification suite"}
+        ]
+      }
+    }
+  ]
+}

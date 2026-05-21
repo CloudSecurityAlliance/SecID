@@ -209,6 +209,27 @@
         ],
         "examples": ["ai-100-4"]
       }
+    },
+    {
+      "patterns": ["(?i)^oscal$"],
+      "description": "Open Security Controls Assessment Language",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Security Controls Assessment Language",
+        "common_name": "OSCAL",
+        "alternate_names": null,
+        "description": "Set of standardized formats expressed in XML, JSON, and YAML for representing security control catalogs, profiles, system security plans, assessment plans, assessment results, and plans of action and milestones (POA&M).",
+        "notes": "OSCAL is a multi-document data format suite. The actual assessment methodology that uses OSCAL data (e.g., the procedures in NIST SP 800-53A) is separate and would be its own methodology entry. OSCAL itself is the format you serialize results INTO — not a methodology for thinking about controls. Placed under reference per the methodology-vs-reference distinction.",
+        "urls": [
+          {"type": "website", "url": "https://pages.nist.gov/OSCAL/"},
+          {"type": "docs", "url": "https://pages.nist.gov/OSCAL-Reference/"},
+          {"type": "github", "url": "https://github.com/usnistgov/OSCAL"},
+          {"type": "schema", "url": "https://github.com/usnistgov/OSCAL/tree/main/json/schema"}
+        ],
+        "examples": [
+          {"input": "oscal", "note": "The OSCAL suite as a whole; specific models (catalog, profile, ssp, ap, ar, poam) live within"}
+        ]
+      }
     }
   ]
 }

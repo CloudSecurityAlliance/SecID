@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "openvex.dev",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "OpenVEX",
+  "common_name": "OpenVEX",
+  "alternate_names": null,
+  "notes": "OpenVEX is a Linux Foundation / Chainguard-sponsored alternative to the CSAF VEX profile (secid:reference/oasis-open.org/vex). Both implement the VEX (Vulnerability EXploitability eXchange) concept — vendor statements about whether a product is affected by a vulnerability. OpenVEX uses a more lightweight JSON-LD format compared to CSAF VEX's larger CSAF-document format.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://openvex.dev/"},
+    {"type": "github", "url": "https://github.com/openvex/spec"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^openvex$"],
+      "description": "OpenVEX specification — lightweight VEX statement format",
+      "weight": 100,
+      "data": {
+        "official_name": "OpenVEX",
+        "common_name": "OpenVEX",
+        "alternate_names": null,
+        "description": "JSON-LD-based format for issuing VEX (Vulnerability EXploitability eXchange) statements. Vendor or supplier asserts a product's exploitability status (not_affected, affected, fixed, under_investigation) for a specific vulnerability.",
+        "notes": "OpenVEX positions itself as a leaner alternative to CSAF VEX (a profile of the larger CSAF document format). The two formats use the same four canonical statuses and the same conceptual model; tools can interconvert. A data format; placed under reference per the methodology-vs-reference distinction.",
+        "urls": [
+          {"type": "website", "url": "https://openvex.dev/"},
+          {"type": "spec", "url": "https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md"},
+          {"type": "github", "url": "https://github.com/openvex/spec"}
+        ],
+        "examples": [
+          {"input": "openvex", "note": "OpenVEX specification"}
+        ]
+      }
+    }
+  ]
+}

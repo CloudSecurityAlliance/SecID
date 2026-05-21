@@ -18,6 +18,25 @@
 
   "match_nodes": [
     {
+      "patterns": ["(?i)^rolie$"],
+      "description": "Resource-Oriented Lightweight Information Exchange (RFC 8322)",
+      "weight": 100,
+      "data": {
+        "official_name": "Resource-Oriented Lightweight Information Exchange",
+        "common_name": "ROLIE",
+        "alternate_names": ["RFC 8322"],
+        "description": "Atom Publishing Protocol extension for sharing structured security information (vulnerability descriptions, software identifiers, configuration checklists) via web feeds. Defined by IETF RFC 8322.",
+        "notes": "ROLIE is a publishing/transport format — it specifies how to structure security-data feeds, not how to interpret or act on their content. Placed under reference. Also accessible via secid:reference/ietf.org/8322 (numeric RFC pattern).",
+        "urls": [
+          {"type": "spec", "url": "https://datatracker.ietf.org/doc/html/rfc8322"},
+          {"type": "lookup", "url": "https://www.rfc-editor.org/info/rfc8322"}
+        ],
+        "examples": [
+          {"input": "rolie", "note": "ROLIE specification (RFC 8322)"}
+        ]
+      }
+    },
+    {
       "patterns": ["^\\d+$"],
       "description": "RFC number (numeric identifier)",
       "weight": 100,

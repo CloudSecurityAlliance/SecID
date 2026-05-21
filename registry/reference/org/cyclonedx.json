@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyclonedx.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "CycloneDX",
+  "common_name": "CycloneDX",
+  "alternate_names": ["OWASP CycloneDX"],
+  "notes": "CycloneDX is a Software Bill of Materials (SBOM) standard. Originally created within OWASP; now stewarded by the OWASP CycloneDX Working Group. The canonical project home is cyclonedx.org. CycloneDX supports SBOM, SaaSBOM, HBOM (hardware), ML-BOM, OBOM (operations), and CBOM (cryptography).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://cyclonedx.org/"},
+    {"type": "spec", "url": "https://cyclonedx.org/specification/overview/"},
+    {"type": "github", "url": "https://github.com/CycloneDX"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cyclonedx$"],
+      "description": "CycloneDX SBOM standard",
+      "weight": 100,
+      "data": {
+        "official_name": "CycloneDX",
+        "common_name": "CycloneDX",
+        "alternate_names": ["OWASP CycloneDX"],
+        "description": "A lightweight Software Bill of Materials (SBOM) standard designed for application security contexts and supply chain component analysis. Supports SBOM, SaaSBOM, HBOM, ML-BOM, OBOM, CBOM, and VDR (Vulnerability Disclosure Report).",
+        "notes": "Multiple format encodings (JSON, XML, Protocol Buffers). Widely used in modern SBOM tooling — Trivy, Syft, Anchore, Dependency-Track all produce or consume CycloneDX. Companion/alternative to SPDX. A data format; the value-add is in the tools that produce/consume CycloneDX, not in standalone judgement guidance — placed under reference.",
+        "version_required": false,
+        "versions_available": [
+          {"version": "1.6", "status": "current", "note": "Latest spec version"},
+          {"version": "1.5", "status": "active"},
+          {"version": "1.4", "status": "active"},
+          {"version": "1.3", "status": "superseded"},
+          {"version": "1.2", "status": "superseded"},
+          {"version": "1.1", "status": "superseded"},
+          {"version": "1.0", "status": "superseded"}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://cyclonedx.org/"},
+          {"type": "spec", "url": "https://cyclonedx.org/specification/overview/"},
+          {"type": "github", "url": "https://github.com/CycloneDX/specification"},
+          {"type": "schema", "url": "https://cyclonedx.org/schema/", "note": "JSON Schema and XML XSD per spec version"}
+        ],
+        "examples": [
+          {"input": "cyclonedx", "note": "CycloneDX SBOM standard"}
+        ]
+      }
+    }
+  ]
+}
