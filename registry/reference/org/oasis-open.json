@@ -110,6 +110,45 @@
           }
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^sarif$"],
+      "description": "Static Analysis Results Interchange Format",
+      "weight": 100,
+      "data": {
+        "official_name": "Static Analysis Results Interchange Format",
+        "common_name": "SARIF",
+        "alternate_names": ["SARIF 2.1.0"],
+        "description": "JSON-based file format for the output of static analysis tools. Lets results from different SAST tools be aggregated, compared, and consumed uniformly.",
+        "notes": "SARIF 2.1.0 is the current OASIS Standard (March 2020). Used by CodeQL, Semgrep, ESLint, GitHub code scanning, Azure DevOps, and many others. GitHub Advanced Security accepts SARIF for third-party scan ingestion. A data format; the value-add is in the tools that produce/consume SARIF, not in the format itself — placed under reference per the methodology-vs-reference distinction (see DECISIONS.md ADR-009 when codified).",
+        "urls": [
+          {"type": "spec", "url": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html"},
+          {"type": "tc", "url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif"},
+          {"type": "schema", "url": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/schemas/sarif-schema-2.1.0.json"}
+        ],
+        "examples": [
+          {"input": "sarif", "note": "The SARIF 2.1.0 specification as a whole"}
+        ]
+      }
+    },
+    {
+      "patterns": ["(?i)^vex$"],
+      "description": "Vulnerability EXploitability eXchange (CSAF VEX profile)",
+      "weight": 100,
+      "data": {
+        "official_name": "CSAF VEX Profile",
+        "common_name": "VEX",
+        "alternate_names": ["CSAF VEX"],
+        "description": "Profile 5 of CSAF 2.0, defining a structured format for vendor statements about whether a product is affected by a vulnerability. The four canonical statuses are: not_affected, affected, fixed, under_investigation.",
+        "notes": "VEX is a concept implemented by multiple specs: the CSAF VEX profile (this entry, an OASIS standard) and OpenVEX (separate spec at openvex.dev). Use the CSAF VEX entry when the source is publishing VEX statements as part of their CSAF advisory pipeline; use the OpenVEX entry (secid:reference/openvex.dev/openvex) for sources using the Chainguard/Linux-Foundation-aligned alternative. Both follow the same conceptual model.",
+        "urls": [
+          {"type": "spec", "url": "https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.html#45-profile-5-vex"},
+          {"type": "tc", "url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=csaf"}
+        ],
+        "examples": [
+          {"input": "vex", "note": "CSAF VEX profile (Profile 5 of CSAF 2.0)"}
+        ]
+      }
     }
   ]
 }
