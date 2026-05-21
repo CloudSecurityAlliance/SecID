@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iec.ch",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "International Electrotechnical Commission",
+  "common_name": "IEC",
+  "alternate_names": null,
+  "notes": "International standards body for electrical/electronic and related technologies. Joint publisher with ISO of the ISO/IEC series (covered under iso.org). Standalone-IEC standards include IEC 61508 (functional safety) and the IEC 62443 series (OT/ICS cybersecurity, jointly with ISA). Paywalled at webstore.iec.ch.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.iec.ch"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^iec-glossary$"
+      ],
+      "description": "IEC Electropedia / IEC Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "IEC Electropedia / IEC Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "IEC Electropedia / IEC Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://std.iec.ch/terms/terms.nsf"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

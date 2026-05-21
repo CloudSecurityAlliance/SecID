@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sharedassessments.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Shared Assessments Program",
+  "common_name": "Shared Assessments",
+  "alternate_names": null,
+  "notes": "Member organization producing third-party risk-management tooling, principally the Standardized Information Gathering (SIG) questionnaire used widely in vendor risk assessments. Members-only license.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sharedassessments.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^tprm-glossary$"
+      ],
+      "description": "Shared Assessments TPRM Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Shared Assessments TPRM Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Shared Assessments TPRM Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://sharedassessments.org/glossary/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

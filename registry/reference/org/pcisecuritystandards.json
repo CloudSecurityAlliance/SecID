@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pcisecuritystandards.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "PCI Security Standards Council",
+  "common_name": "PCI SSC",
+  "alternate_names": null,
+  "notes": "Payment card industry security standards. PCI DSS is required for any organization that processes, stores, or transmits cardholder data.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.pcisecuritystandards.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^pci-glossary$"
+      ],
+      "description": "PCI Security Standards Council Glossary, Abbreviations and Acronyms",
+      "weight": 100,
+      "data": {
+        "official_name": "PCI Security Standards Council Glossary, Abbreviations and Acronyms",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "PCI Security Standards Council Glossary, Abbreviations and Acronyms",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.pcisecuritystandards.org/glossary/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

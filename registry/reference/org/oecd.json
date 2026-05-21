@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oecd.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Organisation for Economic Co-operation and Development",
+  "common_name": "OECD",
+  "alternate_names": null,
+  "notes": "OECD provides international AI governance frameworks including AI risk classification, incident monitoring, and a common incident reporting framework.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://oecd.ai"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^oecd-ai-glossary$"
+      ],
+      "description": "OECD.AI Glossary of Terms on AI",
+      "weight": 100,
+      "data": {
+        "official_name": "OECD.AI Glossary of Terms on AI",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "OECD.AI Glossary of Terms on AI",
+        "notes": "URL is oecd.ai (sibling domain to oecd.org). Verify namespace.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://oecd.ai/en/dashboards/policy-initiatives/glossary-of-terms-on-ai"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "quebec.ca",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Gouvernement du Québec",
+  "common_name": "Quebec",
+  "alternate_names": [
+    "Québec"
+  ],
+  "notes": "Government of Quebec canonical portal. LégisQuébec (legisquebec.gouv.qc.ca) publishes the consolidated text of Quebec statutes via the Éditeur officiel du Québec.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.quebec.ca"
+    },
+    {
+      "type": "legislation",
+      "url": "https://www.legisquebec.gouv.qc.ca"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cybersecurity-glossary$"
+      ],
+      "description": "Quebec Cybersecurity Glossary (PDF)",
+      "weight": 100,
+      "data": {
+        "official_name": "Quebec Cybersecurity Glossary (PDF)",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Quebec Cybersecurity Glossary (PDF)",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.quebec.ca/en/employment/learn-trade-occupation/exploring-trades-occupations/21220-cybersecurity-specialists"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "redhat.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "Red Hat, Inc.",
+  "common_name": "Red Hat",
+  "alternate_names": [
+    "Red Hat"
+  ],
+  "notes": "Enterprise open source company, part of IBM since 2019. Provides enterprise Linux, container platforms, and automation tools. Operates comprehensive security response program with RHSA, RHBA, RHEA advisories.",
+  "wikidata": [
+    "Q485809"
+  ],
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.redhat.com",
+      "checked": "2026-03-06",
+      "updated": "2026-03-06"
+    },
+    {
+      "type": "security",
+      "url": "https://access.redhat.com/security/",
+      "checked": "2026-03-06",
+      "updated": "2026-03-06"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^security-glossary$"
+      ],
+      "description": "Red Hat Security Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Red Hat Security Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Red Hat Security Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://access.redhat.com/security/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

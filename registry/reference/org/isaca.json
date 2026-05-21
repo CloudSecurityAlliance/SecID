@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "isaca.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "ISACA",
+  "common_name": "ISACA",
+  "alternate_names": null,
+  "notes": "ISACA is a global association supporting IT audit, governance, and information security. Publishes COBIT and the Cybersecurity Audit Certificate. Maintains CISA/CISM/CRISC professional certifications.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.isaca.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cybersecurity-fundamentals-glossary$"
+      ],
+      "description": "ISACA Cybersecurity Fundamentals Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "ISACA Cybersecurity Fundamentals Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "ISACA Cybersecurity Fundamentals Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.isaca.org/-/media/files/isacadp/project/isaca/resources/glossary/cybersecurity_fundamentals_glossary.pdf"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

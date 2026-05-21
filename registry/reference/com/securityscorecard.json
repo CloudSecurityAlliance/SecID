@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "securityscorecard.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "official_name": "SecurityScorecard",
+  "common_name": "SecurityScorecard",
+  "alternate_names": null,
+  "notes": "Commercial cybersecurity-ratings provider. Methodology is proprietary and not published as a document. SecID identity record only.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.securityscorecard.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^securityscorecard-glossary$"
+      ],
+      "description": "SecurityScorecard Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "SecurityScorecard Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "SecurityScorecard Glossary",
+        "notes": "",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://support.securityscorecard.com/hc/en-us/articles/4410784989083-SecurityScorecard-glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
