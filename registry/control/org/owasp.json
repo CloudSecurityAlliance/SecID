@@ -8,7 +8,7 @@
   "official_name": "Open Web Application Security Project",
   "common_name": "OWASP",
   "alternate_names": null,
-  "notes": "OWASP AI Exchange provides security controls for AI systems. The controls have a lookup URL pattern.",
+  "notes": "OWASP publishes multiple control catalogs and verification standards: ASVS (web app verification), MASVS (mobile app verification), and the AI Exchange (AI-system controls). These are normative requirements catalogs — what to implement and verify — distinct from OWASP's testing methodology guides (WSTG → secid:methodology/owasp.org/testing-guide).",
   "wikidata": null,
   "wikipedia": null,
 
@@ -17,6 +17,96 @@
   ],
 
   "match_nodes": [
+    {
+      "patterns": ["(?i)^asvs$"],
+      "description": "OWASP Application Security Verification Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "OWASP Application Security Verification Standard",
+        "common_name": "ASVS",
+        "alternate_names": null,
+        "description": "Catalog of normative security requirements for designing, building, and testing web applications. Organized into chapters and sections (V1 Architecture, V2 Authentication, etc.) with per-requirement IDs. Defines three verification levels (L1 opportunistic, L2 standard, L3 advanced) to scope which requirements apply.",
+        "notes": "ASVS is the de-facto reference for web app security verification — widely cited in compliance contexts (PCI DSS, SOC 2 control mapping) and procurement requirements. The companion MASVS covers mobile apps. ASVS 4.0.x ID format is V<chapter>.<section>.<requirement> (e.g., V1.1.1). ASVS 5.0 (in development as of 2025) restructures into chapter-level IDs.",
+        "version_required": false,
+        "versions_available": [
+          {"version": "5.0", "status": "draft", "note": "Major restructure, in development"},
+          {"version": "4.0.3", "status": "current"},
+          {"version": "4.0.2", "status": "superseded"},
+          {"version": "4.0.1", "status": "superseded"},
+          {"version": "3.0.1", "status": "historical"}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://owasp.org/www-project-application-security-verification-standard/"},
+          {"type": "github", "url": "https://github.com/OWASP/ASVS"},
+          {"type": "docs", "url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x00-Header.md", "note": "ASVS 4.0 English text"}
+        ],
+        "examples": ["V1.1.1", "V2.1.3", "V14.4.5"]
+      },
+      "children": [
+        {
+          "patterns": ["^V\\d+(\\.\\d+){0,3}$"],
+          "description": "ASVS requirement ID — V<chapter>[.<section>[.<requirement>[.<sub>]]] (e.g., V1.1.1, V2.1.3)",
+          "weight": 100,
+          "data": {
+            "examples": [
+              {"input": "V1.1.1", "note": "Architecture, Design and Threat Modelling — Secure SDLC requirement"},
+              {"input": "V2.1.3", "note": "Authentication — Password security requirement"},
+              {"input": "V14.4.5", "note": "Configuration — HTTPS configuration requirement"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": ["(?i)^masvs$"],
+      "description": "OWASP Mobile Application Security Verification Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "OWASP Mobile Application Security Verification Standard",
+        "common_name": "MASVS",
+        "alternate_names": null,
+        "description": "Catalog of normative security requirements for mobile apps (iOS and Android). The mobile counterpart to ASVS. MASVS 2.x reorganized into category-prefixed IDs covering storage, crypto, authentication, network, platform, code quality, resilience, and privacy.",
+        "notes": "Part of the OWASP Mobile Application Security (MAS) project, which also produces the MASTG (Mobile Application Security Testing Guide — a testing methodology) and MAS Checklist. MASVS 2.0+ uses MASVS-<CATEGORY>-<N> ID format (e.g., MASVS-AUTH-1). Older MASVS 1.x used MSTG-<CATEGORY>-<N> for testing controls (mostly phased out as MASVS separated requirements from testing).",
+        "version_required": false,
+        "versions_available": [
+          {"version": "2.1.0", "status": "current"},
+          {"version": "2.0.0", "status": "superseded"},
+          {"version": "1.5.0", "status": "historical"},
+          {"version": "1.4.2", "status": "historical"}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://mas.owasp.org/MASVS/"},
+          {"type": "github", "url": "https://github.com/OWASP/owasp-masvs"},
+          {"type": "docs", "url": "https://mas.owasp.org/checklists/", "note": "MAS Checklist — operational view of MASVS controls"}
+        ],
+        "examples": ["MASVS-AUTH-1", "MASVS-STORAGE-2", "MASVS-CRYPTO-1", "MASVS-NETWORK", "MASVS-CODE"]
+      },
+      "children": [
+        {
+          "patterns": ["^MASVS-(STORAGE|CRYPTO|AUTH|NETWORK|PLATFORM|CODE|RESILIENCE|PRIVACY)-\\d+$"],
+          "description": "MASVS 2.x control ID — MASVS-<CATEGORY>-<N>",
+          "weight": 100,
+          "data": {
+            "url": "https://mas.owasp.org/MASVS/controls/{id}/",
+            "examples": [
+              {"input": "MASVS-AUTH-1", "url": "https://mas.owasp.org/MASVS/controls/MASVS-AUTH-1/", "note": "Authentication requirement"},
+              {"input": "MASVS-STORAGE-2", "url": "https://mas.owasp.org/MASVS/controls/MASVS-STORAGE-2/", "note": "Storage requirement"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^MASVS-(STORAGE|CRYPTO|AUTH|NETWORK|PLATFORM|CODE|RESILIENCE|PRIVACY)$"],
+          "description": "MASVS 2.x category — a group of related controls",
+          "weight": 90,
+          "data": {
+            "examples": [
+              {"input": "MASVS-AUTH", "note": "Authentication category"},
+              {"input": "MASVS-STORAGE", "note": "Storage category"}
+            ]
+          }
+        }
+      ]
+    },
     {
       "patterns": ["(?i)^ai-exchange$"],
       "description": "OWASP AI Exchange Controls",

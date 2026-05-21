@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "opendxl.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Project momentum declined after McAfee → Trellix transition; track if community activity revives or if Trellix moves the official site.",
+
+  "official_name": "Open Data Exchange Layer",
+  "common_name": "OpenDXL",
+  "alternate_names": ["DXL"],
+  "notes": "OpenDXL is a publish/subscribe messaging fabric for security tool integration, originally open-sourced by McAfee (now Trellix). Defines a wire protocol and ontology so disparate security products can exchange events, request-response messages, and brokered topic data without point-to-point custom integrations. A data-exchange/integration spec — placed under reference per the methodology-vs-reference distinction (the value is in the wire format and ontology, not in standalone judgement guidance).",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://www.opendxl.com/"},
+    {"type": "github", "url": "https://github.com/opendxl"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^opendxl$", "(?i)^dxl$"],
+      "description": "OpenDXL — Open Data Exchange Layer",
+      "weight": 100,
+      "data": {
+        "official_name": "Open Data Exchange Layer",
+        "common_name": "OpenDXL",
+        "alternate_names": ["DXL"],
+        "description": "Publish/subscribe messaging fabric and ontology for security-tool integration. Defines a broker-based wire protocol over MQTT/AMQP plus a message ontology covering events, queries, and responses. Multiple language SDKs (Python, Java, C, JavaScript).",
+        "notes": "Originally open-sourced by McAfee under the Open DXL initiative. Active community development was strong 2016-2020; momentum declined after the McAfee Enterprise → Trellix transition (2022). The github.com/opendxl organization remains active but commit cadence has slowed. Worth re-checking project status before citing in long-term plans.",
+        "urls": [
+          {"type": "website", "url": "https://www.opendxl.com/"},
+          {"type": "github", "url": "https://github.com/opendxl"},
+          {"type": "docs", "url": "https://opendxl.github.io/opendxl-client-python/pydoc/"}
+        ],
+        "examples": [
+          {"input": "opendxl", "note": "OpenDXL specification and SDK suite"},
+          {"input": "dxl", "note": "Common shorthand"}
+        ]
+      }
+    }
+  ]
+}
