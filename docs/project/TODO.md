@@ -4,6 +4,20 @@ Tracking work items for SecID. Updated 2026-05-17.
 
 ## Active — Next Up
 
+### Bug: Cross-Source Search Misses MITRE Acronyms (cwe, capec, etc.)
+**Status:** Reported 2026-05-20
+**Priority:** High (user-visible search broken for common identifiers)
+**Repo:** SecID-Service (resolver search logic)
+
+Cross-source search for a bare MITRE acronym fails to surface the right entry even when the full SecID resolves correctly:
+
+- `https://secid.cloudsecurityalliance.org/?secid=cwe` — does **not** show `cwe` under `weakness/mitre.org`
+- `https://secid.cloudsecurityalliance.org/?secid=secid:weakness/mitre.org/cwe` — resolves correctly
+
+The bare-string `cwe` search should find the `weakness/mitre.org/cwe` source. Same problem reported for `capec` and likely other MITRE-published terms (`attack`, etc.) — the cross-source-search code probably isn't walking MITRE's `match_nodes` correctly when the input is a name alone (no type prefix).
+
+**Action:** In SecID-Service, audit the cross-source-search path in `kv-resolve.ts` (or wherever bare-name lookups happen). Likely the search is matching only top-level namespace names (`mitre.org`) and not descending into the `match_nodes` to find name-level patterns. The same fix should help `capec`, `attack`, and similar MITRE-style short names.
+
 ### Proposal Triage: TIMESTAMP-FIELDS
 **Status:** Sitting in "Proposed" since 2026-03-06 — needs decision
 **Priority:** Medium (foundational schema change; long-open proposal)
