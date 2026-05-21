@@ -16,6 +16,7 @@
       "description": "Common Vulnerability Scoring System (CVSS): methodology for scoring the severity of software vulnerabilities. Produces a numerical score (0.0-10.0) and severity rating from a set of metrics. Version is significant — CVSS versions differ materially in metric groups and scoring algorithms; v3.1 and v4.0 produce different scores for the same vulnerability, so always specify version.",
       "weight": 100,
       "data": {
+        "subtype": ["scoring"],
         "url": "https://www.first.org/cvss/",
         "examples": ["cvss"]
       },
@@ -84,6 +85,7 @@
       "description": "Exploit Prediction Scoring System (EPSS): data-driven methodology for estimating the probability that a software vulnerability will be exploited in the wild within 30 days.",
       "weight": 100,
       "data": {
+        "subtype": ["scoring"],
         "url": "https://www.first.org/epss/",
         "examples": ["epss"]
       }
@@ -93,6 +95,7 @@
       "description": "Traffic Light Protocol (TLP): information sharing classification methodology. Defines four levels (RED, AMBER+STRICT, AMBER, GREEN, CLEAR) for marking sensitivity of shared information.",
       "weight": 100,
       "data": {
+        "subtype": ["classification"],
         "url": "https://www.first.org/tlp/",
         "examples": ["tlp"]
       }
