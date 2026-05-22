@@ -135,6 +135,107 @@ paths:
                 type: object
                 description: The full registry data structure. Contains all types, namespaces, and match_nodes.
 
+  /api/v1/types:
+    get:
+      operationId: getTypes
+      summary: List all SecID types with their named subtypes
+      description: |
+        Returns the canonical list of SecID types and their declared named
+        subtypes, merged with per-(type, subtype) entry counts when available.
+
+        The type list and subtype values are served from a code-bundled
+        constant in the Worker (zero-latency, no KV reads). Counts are
+        merged from the `secid:meta` and `secid:subtypes` KV keys.
+
+        See [TYPES-AND-SUBTYPES.md](https://github.com/CloudSecurityAlliance/SecID/blob/main/docs/reference/TYPES-AND-SUBTYPES.md)
+        for the conceptual model and the catalog.
+
+        Subtype additions are gated by a code change in SecID-Service
+        plus a CI validator in this repo — see DECISIONS.md ADR-008.
+      responses:
+        "200":
+          description: List of types with subtypes and counts.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - types
+                properties:
+                  types:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - description
+                        - long_description
+                        - subtypes
+                      properties:
+                        type:
+                          type: string
+                          description: Type name (one of the 10 official types).
+                          example: methodology
+                        description:
+                          type: string
+                          description: Short human description for cards and listings.
+                        long_description:
+                          type: string
+                          description: Longer description suitable for MCP describe responses.
+                        namespace_count:
+                          type: integer
+                          nullable: true
+                          description: |
+                            Number of namespaces of this type currently in the registry.
+                            `null` if the count is unavailable (older deploys before the
+                            counts feature shipped).
+                        subtypes:
+                          type: array
+                          description: |
+                            Named subtypes declared for this type. Empty array means
+                            the type has no named subtypes today (most types).
+                          items:
+                            type: object
+                            required:
+                              - value
+                              - description
+                            properties:
+                              value:
+                                type: string
+                                description: Subtype value used in registry data's `data.subtype` array (kebab-case).
+                                example: scoring
+                              description:
+                                type: string
+                                description: One-sentence description of what the subtype identifies.
+                              count:
+                                type: integer
+                                nullable: true
+                                description: Number of source-level match_nodes carrying this subtype. `null` if unavailable.
+              examples:
+                methodology-and-reference:
+                  summary: Excerpt showing methodology and reference types with their subtypes
+                  value:
+                    types:
+                      - type: methodology
+                        description: "Formal processes — scoring, mapping, risk assessment, threat modeling"
+                        long_description: "Formal processes with defined inputs, steps, and outputs — methodologies for scoring (CVSS, SSVC, EPSS), mapping (IR 8477, CTID), risk management (FAIR, ISO 27005), threat modeling (STRIDE, PASTA), and more."
+                        namespace_count: 23
+                        subtypes:
+                          - value: scoring
+                            description: "Methodologies that produce a score, prioritization decision, or rating."
+                            count: 7
+                          - value: mapping
+                            description: "Methodologies that produce a mapping/crosswalk from one framework to another."
+                            count: 7
+                      - type: reference
+                        description: "Documents, research, identifier systems — arXiv, DOI, RFCs, CSA artifacts"
+                        long_description: "Documents, research papers, and identifier systems — arXiv, DOI, ISBN, RFCs, and CSA artifacts. Citation targets without normative force."
+                        namespace_count: 188
+                        subtypes:
+                          - value: glossary
+                            description: "A glossary document with addressable term-level subpaths."
+                            count: 1
+
   /health:
     get:
       operationId: healthCheck
