@@ -3,7 +3,7 @@
   "namespace": "cloudflare.com",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types. Two developer-docs glossary match_nodes added 2026-05-21 to model the distinct Cloudflare glossaries that live under developers.cloudflare.com (separate from the customer-facing learning/security/glossary covered by security-glossary). Added 25 per-product developer-docs glossary match_nodes on 2026-05-21 (one per product whose llms.txt indexes a glossary page).",
   "official_name": "Cloudflare, Inc.",
   "common_name": null,
   "alternate_names": null,
@@ -27,12 +27,687 @@
         "official_name": "Cloudflare Learning Center Security Glossary",
         "common_name": null,
         "alternate_names": null,
-        "description": "Cloudflare Learning Center Security Glossary",
+        "description": "Customer-facing security glossary hosted on the Cloudflare Learning Center. Distinct from the developer-docs glossaries — different audience (general / marketing-adjacent) and different editorial style.",
         "notes": "",
         "urls": [
           {
             "type": "source",
             "url": "https://www.cloudflare.com/learning/security/glossary/"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^fundamentals-glossary$"
+      ],
+      "description": "Cloudflare Developer Documentation Fundamentals Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Developer Documentation Fundamentals Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Glossary of terms used across Cloudflare's developer documentation, organized by product. ~420 entries spanning every Cloudflare service (Spectrum, Workers, Pages, R2, WAF, Zero Trust, Magic Transit, etc.). Each entry tagged with the originating Product column.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/fundamentals/reference/glossary/index.md (single 3-column table: Term / Definition / Product).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/fundamentals/reference/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/fundamentals/reference/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^waf-glossary$"
+      ],
+      "description": "Cloudflare WAF Documentation Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare WAF Documentation Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Glossary of terms used across Cloudflare's Web Application Firewall (WAF) documentation. ~17 entries scoped to WAF-specific terminology (attack score, paranoia level, leaked credentials, prompt injection, etc.).",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/waf/glossary/index.md (single 2-column table: Term / Definition).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/waf/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/waf/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ai\\-crawl\\-control\\-glossary$"
+      ],
+      "description": "Cloudflare Ai Crawl Control Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Ai Crawl Control Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Review AI Crawl Control terminology definitions.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/ai-crawl-control/reference/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/ai-crawl-control/reference/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/ai-crawl-control/reference/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ai\\-gateway\\-glossary$"
+      ],
+      "description": "Cloudflare Ai Gateway Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Ai Gateway Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Reference all supported AI Gateway headers for configuring, customizing, and managing API requests.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/ai-gateway/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/ai-gateway/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/ai-gateway/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^api\\-shield\\-glossary$"
+      ],
+      "description": "Cloudflare Api Shield Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Api Shield Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across API Shield documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/api-shield/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/api-shield/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/api-shield/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^bots\\-glossary$"
+      ],
+      "description": "Cloudflare Bots Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Bots Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare bot solutions documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/bots/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/bots/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/bots/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^byoip\\-glossary$"
+      ],
+      "description": "Cloudflare Byoip Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Byoip Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across BYOIP documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/byoip/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/byoip/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/byoip/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cache\\-glossary$"
+      ],
+      "description": "Cloudflare Cache Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Cache Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare Cache documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/cache/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/cache/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/cache/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cloudflare\\-one\\-glossary$"
+      ],
+      "description": "Cloudflare Cloudflare One Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Cloudflare One Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Reference information for Glossary in Cloudflare One.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/cloudflare-one/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/cloudflare-one/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/cloudflare-one/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cloudflare\\-wan\\-glossary$"
+      ],
+      "description": "Cloudflare Cloudflare Wan Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Cloudflare Wan Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare WAN documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/cloudflare-wan/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/cloudflare-wan/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/cloudflare-wan/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^d1\\-glossary$"
+      ],
+      "description": "Cloudflare D1 Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare D1 Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of key terms used throughout the D1 documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/d1/reference/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/d1/reference/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/d1/reference/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^dns\\-glossary$"
+      ],
+      "description": "Cloudflare Dns Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Dns Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare DNS documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/dns/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/dns/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/dns/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^durable\\-objects\\-glossary$"
+      ],
+      "description": "Cloudflare Durable Objects Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Durable Objects Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of key terms used in Cloudflare Durable Objects documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/durable-objects/reference/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/durable-objects/reference/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/durable-objects/reference/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^kv\\-glossary$"
+      ],
+      "description": "Cloudflare Kv Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Kv Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of terms used across Cloudflare Workers KV documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/kv/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/kv/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/kv/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^logs\\-glossary$"
+      ],
+      "description": "Cloudflare Logs Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Logs Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Review definitions for Cloudflare Logs terminology.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/logs/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/logs/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/logs/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^magic\\-transit\\-glossary$"
+      ],
+      "description": "Cloudflare Magic Transit Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Magic Transit Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Magic Transit documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/magic-transit/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/magic-transit/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/magic-transit/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^network\\-flow\\-glossary$"
+      ],
+      "description": "Cloudflare Network Flow Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Network Flow Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Network Flow documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/network-flow/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/network-flow/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/network-flow/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^queues\\-glossary$"
+      ],
+      "description": "Cloudflare Queues Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Queues Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Review definitions for terms used across Cloudflare Queues documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/queues/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/queues/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/queues/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^radar\\-glossary$"
+      ],
+      "description": "Cloudflare Radar Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Radar Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of key terms and concepts used across Cloudflare Radar, including traffic types, attack categories, and ranking methodologies.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/radar/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/radar/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/radar/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^spectrum\\-glossary$"
+      ],
+      "description": "Cloudflare Spectrum Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Spectrum Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare Spectrum documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/spectrum/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/spectrum/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/spectrum/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^speed\\-glossary$"
+      ],
+      "description": "Cloudflare Speed Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Speed Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Cloudflare Speed documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/speed/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/speed/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/speed/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^ssl\\-glossary$"
+      ],
+      "description": "Cloudflare Ssl Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Ssl Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Learn more about the common terms related to Keyless SSL.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/ssl/keyless-ssl/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/ssl/keyless-ssl/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/ssl/keyless-ssl/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^tenant\\-glossary$"
+      ],
+      "description": "Cloudflare Tenant Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Tenant Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Key terms and definitions used throughout the Cloudflare Tenant API documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/tenant/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/tenant/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/tenant/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^waiting\\-room\\-glossary$"
+      ],
+      "description": "Cloudflare Waiting Room Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Waiting Room Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions for terms used across Waiting Room documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/waiting-room/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/waiting-room/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/waiting-room/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^workers\\-ai\\-glossary$"
+      ],
+      "description": "Cloudflare Workers Ai Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Workers Ai Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of key terms used in the Workers AI documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/workers-ai/platform/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/workers-ai/platform/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/workers-ai/platform/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^workers\\-glossary$"
+      ],
+      "description": "Cloudflare Workers Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Workers Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of terms used in the Cloudflare Workers documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/workers/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/workers/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/workers/glossary/index.md"
+          }
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^workflows\\-glossary$"
+      ],
+      "description": "Cloudflare Workflows Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloudflare Workflows Glossary",
+        "common_name": null,
+        "alternate_names": null,
+        "description": "Definitions of key terms used in the Cloudflare Workflows documentation.",
+        "notes": "Has a markdown alternate at https://developers.cloudflare.com/workflows/reference/glossary/index.md . Auto-discovered from the product's llms.txt index on 2026-05-21.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://developers.cloudflare.com/workflows/reference/glossary/"
+          },
+          {
+            "type": "markdown_alternate",
+            "url": "https://developers.cloudflare.com/workflows/reference/glossary/index.md"
           }
         ],
         "examples": []
