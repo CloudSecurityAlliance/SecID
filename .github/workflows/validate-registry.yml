@@ -1,0 +1,55 @@
+name: Validate registry
+
+# Two data-quality checks for the registry:
+#
+#   1. Schema validation — every registry/**/*.json must validate against
+#      schemas/registry-namespace.schema.json. Catches malformed entries
+#      before they hit production KV.
+#
+#   2. Type-list consistency — the JSON Schema's `type` enum must match
+#      SecID-Service's canonical TYPE_REGISTRY in type-registry.ts.
+#      Catches drift between the two source-of-truth files.
+#
+# The companion validate-subtypes.yml workflow runs separately and checks
+# that subtype values used in registry data are declared in type-registry.ts.
+# The three workflows together form the spec-side test surface.
+#
+# Safety note: this workflow does not interpolate any untrusted GitHub
+# event data into shell commands. Scripts run with no arguments derived
+# from user input.
+
+on:
+  pull_request:
+    paths:
+      - "registry/**/*.json"
+      - "schemas/registry-namespace.schema.json"
+      - "scripts/validate-registry-schema.py"
+      - "scripts/validate-type-list.py"
+      - ".github/workflows/validate-registry.yml"
+  push:
+    branches: [main]
+    paths:
+      - "registry/**/*.json"
+      - "schemas/registry-namespace.schema.json"
+      - "scripts/validate-registry-schema.py"
+      - "scripts/validate-type-list.py"
+      - ".github/workflows/validate-registry.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install jsonschema
+        run: pip install jsonschema
+      - name: Validate registry JSON files against schema
+        run: python3 scripts/validate-registry-schema.py
+      - name: Validate type-list consistency with SecID-Service
+        run: python3 scripts/validate-type-list.py
