@@ -162,7 +162,7 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 
 | Type | Identifies | Notable subtypes / overloads |
 |------|------------|------------------------------|
-| `advisory` | Publications about vulnerabilities (CVE, GHSA, vendor advisories) | Incident reports (AIID, NHTSA, FDA adverse events) — implicit, untagged today |
+| `advisory` | Publications about vulnerabilities (CVE, GHSA, vendor advisories) | `subtype: ["incident"]` for incident reports (AIID, NHTSA SGO, AIAAIC, CA DMV autonomous-vehicle reports) |
 | `weakness` | Abstract flaw patterns (CWE, OWASP Top 10) | — |
 | `ttp` | Adversary techniques (ATT&CK, ATLAS, CAPEC) | — |
 | `control` | Security requirements (NIST CSF, ISO 27001, benchmarks) | Prescriptive benchmarks (HarmBench, WMDP), documentation standards (Model Cards) — implicit, untagged today |
@@ -176,10 +176,10 @@ See [PRINCIPLES.md](PRINCIPLES.md) for the full treatment. The short version:
 Types are intentionally overloaded — use the existing type plus a `subtype:` tag rather than splitting unless the four "When to Split" criteria are met. See [TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) for the full subtype catalog, naming convention, and split-vs-subtype decision gate.
 
 **WARNING: Adding a new type requires coordinated changes across multiple repos.** The type list is hardcoded in:
-1. **This repo** — SPEC.md, CLAUDE.md, registry directory structure
-2. **SecID-Service** — `src/types.ts` (`SECID_TYPES` array), `src/mcp.ts` (type descriptions), website/frontend
-3. **SecID-Server-API** — `python/resolver.py` (`SECID_TYPES` list)
-4. **SecID-Client-SDK** — type definitions in all language clients
+1. **This repo** — SPEC.md, CLAUDE.md, registry directory structure, `schemas/registry-namespace.schema.json` (the `type` field's `enum`)
+2. **SecID-Service** — `src/type-registry.ts` (the canonical `TYPE_REGISTRY` constant). Per PR #8, this is the single source of truth within SecID-Service: `mcp.ts`, `api.ts`, the homepage, and the Resolver component all import from it; no other files hardcode the list.
+3. **SecID-Server-API** — `python/registry_loader.py` defines `SECID_TYPES`; `python/resolver.py` and `python/secid_server.py` import it.
+4. **SecID-Client-SDK** — type names appear in **docstrings only** (Python, TypeScript, Go); the clients do NOT validate types and pass values through. Docstrings should be updated for accuracy but won't cause functional breakage if missed.
 
 The parser will **reject** queries for types not in the hardcoded list. The website will **not display** types it doesn't know about. CI/CD does **not** auto-detect new types from registry data. A new type is a spec-level change, not just a registry addition.
 

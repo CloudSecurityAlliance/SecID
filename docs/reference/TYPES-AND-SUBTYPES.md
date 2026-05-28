@@ -57,13 +57,21 @@ Subtypes are placed at the **source-level** match_node (the top-level entries in
 
 ## Named subtypes in use today
 
-Two types currently carry named `subtype:` tags on entries: `reference` (for glossaries) and `methodology` (the full 11-category set tagged on all ~40 entries). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (disclosure, regulation, entity), or implicit overloads that predate the convention.
+Three types currently carry named `subtype:` tags on entries: `reference` (for glossaries), `methodology` (the full 11-category set tagged on all ~40 entries), and `advisory` (for incident reports). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (disclosure, regulation, entity), or implicit overloads that predate the convention.
 
 ### `reference`
 
 | `subtype:` value | What it means | Where to find it | Defined by |
 |------------------|---------------|------------------|------------|
 | `"glossary"` | A glossary document with addressable term-level subpaths. Entry is identity-only; term data lives in a separate dataset repo (Phase 1) and will be copied into the registry for direct API serving in Phase 2. | `registry/reference/<path>.json` entries carrying `subtype: ["glossary"]` | [GLOSSARY-DEFINITION-COMPARISON](../proposals/GLOSSARY-DEFINITION-COMPARISON.md) (Accepted 2026-05-20) |
+
+### `advisory`
+
+| `subtype:` value | What it means | Where to find it | Defined by |
+|------------------|---------------|------------------|------------|
+| `"incident"` | Publication documenting that an AI, automated, or computing system caused harm or behaved badly. Distinct from a vulnerability advisory in *what happened* (an incident has occurred, vs. a vulnerability was disclosed) but identical in resolution shape (publication with ID + URL). Sources include AIID, AIAAIC, NHTSA SGO, CA DMV autonomous-vehicle reports. | `registry/advisory/<path>.json` source-level match_nodes carrying `subtype: ["incident"]` | Declared in SecID-Service `type-registry.ts` 2026-05-27 (promoted from "Implicit overloads") |
+
+Tag at the source-level match_node, not the file level — many advisory files contain a mix (e.g., `nhtsa.json` has SGO incident reports alongside recall/defect-investigation match_nodes that are NOT incidents and stay untagged). Per-node granularity lets one namespace carry both incident and non-incident sources.
 
 ### `methodology`
 
@@ -138,15 +146,16 @@ The `entity` type mixes organizations (Microsoft, NIST, ISO) with their products
 
 ## Implicit overloads (subtypes-in-spirit, not yet tagged)
 
-Two patterns predate the `subtype:` convention and are documented in [DESIGN-DECISIONS.md §"Current Overloading"](../explanation/DESIGN-DECISIONS.md). They behave like subtypes — distinct sub-categories within a type — but they don't currently carry a `subtype:` tag in registry data. They're identified by *which namespace* they live in, not by a discriminator field.
+Patterns that predate the `subtype:` convention and are documented in [DESIGN-DECISIONS.md §"Current Overloading"](../explanation/DESIGN-DECISIONS.md). They behave like subtypes — distinct sub-categories within a type — but they don't currently carry a `subtype:` tag in registry data. They're identified by *which namespace* they live in, not by a discriminator field.
 
 | Type | Implicit sub-category | What it covers | Example sources | Anticipated `subtype:` value (if backfilled) |
 |------|----------------------|----------------|-----------------|---------------------------------------------|
-| `advisory` | Incident reports | "This AI system caused harm" / "this device failed" publications | AIID, NHTSA, FDA adverse events | `["incident-report"]` |
 | `control` | Prescriptive benchmarks | "Test for these behaviors" eval suites that function as requirements | HarmBench, WMDP | `["benchmark"]` |
 | `control` | Documentation standards | Templates for describing a model/system, treated as a normative format requirement | Model Cards | `["documentation-standard"]` |
 
 We are not doing a backfill sweep of these implicit overloads. New entries that match these patterns should carry the `subtype:` value from day one, and existing entries pick it up opportunistically when they're touched for other reasons. Over time the implicit overloads become explicit.
+
+The `advisory + incident` pattern was promoted out of this table on 2026-05-27 — see the `### advisory` section above for the now-explicit subtype.
 
 ## When to add a subtype vs. split into a new type
 
