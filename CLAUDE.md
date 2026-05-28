@@ -19,7 +19,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 1,151 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 1,768 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 See ROADMAP.md for details.
 
@@ -93,48 +93,21 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 
 ```
 secid/
-├── SPEC.md                  # Full technical specification
-├── PRINCIPLES.md            # Foundational design principles
-├── ROADMAP.md               # Project status and phases
-├── docs/
-│   ├── reference/           # Authoritative technical specs
-│   │   ├── REGISTRY-FORMAT.md           # Current YAML+Markdown format
-│   │   ├── REGISTRY-JSON-FORMAT.md      # Target JSON schema (v1.0+)
-│   │   ├── VERSIONING.md               # Version analysis and API behavior
-│   │   ├── EDGE-CASES.md               # Domain-name edge cases
-│   │   ├── INFRASTRUCTURE.md           # Multi-repo architecture
-│   │   └── NAMESPACE-MAPPING.md        # Namespace-to-filesystem mapping
-│   ├── explanation/         # Why decisions were made
-│   │   ├── RATIONALE.md                # Why SecID exists
-│   │   └── DESIGN-DECISIONS.md         # Key design decisions
-│   ├── guides/              # Task-oriented step-by-step how-tos
-│   │   ├── REGISTRY-GUIDE.md           # Principles and patterns for contributions
-│   │   ├── ADD-NAMESPACE.md            # How to add a new namespace
-│   │   ├── UPDATE-NAMESPACE.md         # How to update an existing namespace
-│   │   ├── YAML-TO-JSON.md             # How to convert YAML to JSON
-│   │   └── REGEX-WORKFLOW.md           # How to write and test regex patterns
-│   ├── future/              # Aspirational, explicitly not commitments
-│   │   ├── FUTURE-VISION.md, STRATEGY.md, USE-CASES.md
-│   │   ├── RELATIONSHIPS.md, OVERLAYS.md
-│   ├── project/             # Internal tracking and organizational docs
-│   │   ├── TODO.md, GAPS.md, CONCERNS.md
-│   │   └── csa/             # CSA-internal documents
-│   ├── operations/          # Infrastructure, DNS, deployment, CI/CD
-│   ├── parsers/             # Parsing instruction documents (how to consume each data format)
-│   └── NAMING-COLLISIONS.md # Consolidated acronym/short-name collisions across namespaces
+├── SPEC.md, PRINCIPLES.md, ROADMAP.md, DECISIONS.md, AGENTS.md   # Top-level specs + ADR log
+├── docs/                    # reference/, explanation/, guides/, future/, project/, operations/, parsers/ — see Document Map above
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (1,151 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (1,768 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
-├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (source of truth for JSON validation)
-├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners)
+├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (JSON validation source of truth)
+├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners, stub generators)
 ├── seed/                    # Research scratchpad CSVs — pre-registry; promote into registry/ with provenance
-├── plugins/secid/           # Local Claude Code plugin: MCP server.py + /resolve /lookup /describe commands, skills, agents
-├── working-data/            # Out-of-band staging (CNA pages, known-broken overlay, audit artifacts; not part of registry)
+├── plugins/secid/           # Local Claude Code plugin: MCP server.py + /resolve /lookup /describe commands
+├── working-data/            # Out-of-band staging (CNA pages, known-broken overlay, audit artifacts)
 ├── slides/                  # Presentation assets (overview deck)
-└── skills/                  # Top-level workflow skills (registry-research, registry-formalization, registry-validation, compliance-testing, secid-user)
+└── skills/                  # Top-level workflow skills (registry-research, -formalization, -validation, compliance-testing, secid-user)
 ```
 
 ## Registry File Format
@@ -295,12 +268,12 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Ttp | 4 |
 | Control | 208 |
 | Capability | 54 |
-| Methodology | 22 |
+| Methodology | 23 |
 | Disclosure | 486 |
 | Regulation | 49 |
-| Entity | 215 |
-| Reference | 44 |
-| **Total** | **1151** |
+| Entity | 690 |
+| Reference | 185 |
+| **Total** | **1768** |
 
 <!-- REGISTRY-COUNTS-END -->
 
@@ -328,6 +301,8 @@ Entity files describe organizations and their products/services. **YAML `.md` fi
 Entity match_nodes use literal patterns (`(?i)^openshift$`) since entity names are fixed strings. Products with variants become parent → children relationships (e.g., OpenShift → ROSA, ARO). Entity-specific `data` fields include `issues_type` and `issues_namespace` for cross-referencing.
 
 See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) "Entity Type" section for the full schema and example.
+
+**Many entity files are auto-generated stubs.** `scripts/generate-entity-stubs-from-disclosure.py` mines disclosure CNA data to bulk-create thin entity records as resolution anchors — they exist so cross-references (e.g., `issues_namespace` pointers from disclosure entries) resolve. PR #83 created 475 such stubs in one pass. Hand-curated entries can replace stubs and add detail; treat a thin entity file as "stub, expand when needed," not "complete."
 
 ## Cross-Type Documentation
 
@@ -425,6 +400,17 @@ python3 scripts/generate-cna-disclosure.py # Generate disclosure/*.json files
 python3 scripts/enrich-cna-from-cnalist.py # Add cna_id and disclosure_policy from CNAsList.json
 python3 scripts/apply-known-broken.py     # Apply known-broken validation overlay (URLs/emails verified broken)
 python3 scripts/audit-known-broken.py     # Audit overlay against fresh CNAsList.json (report-only; classifies entries into 4 buckets)
+
+# Entity stub generation (mines disclosure CNA data to bulk-create thin entity records)
+python3 scripts/generate-entity-stubs-from-disclosure.py
+
+# Domain-scanning / annotation utilities
+python3 scripts/check-security-txt.py     # Fetch security.txt across disclosure namespace domains; annotate registry
+python3 scripts/scan-well-known.py        # Scan entity domains for well-known files (llms.txt, robots.txt, security.txt)
+python3 scripts/scan-mcp-endpoints.py     # Detect MCP endpoints + API/MCP mentions in entity domains' llms.txt
+
+# Subtype validation against SecID-Service's type-registry.ts (CI check)
+python3 scripts/validate-subtypes.py
 ```
 
 The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](working-data/cna/known-broken.json) — a v2.0 schema, AI-consumable, JSON-Patch-like validation overlay. Each entry asserts "at this JMESPath `field_path` in upstream `CNAsList.json`, the `current_value` is broken — here is the `failure`, the `evidence`, and the `upstream_issue` tracking the fix." Matching URL/email values in the disclosure entries are annotated with `_broken: true` plus per-entry metadata (`_broken_verified`, `_broken_failure`, `_broken_note`, `_broken_source`). URL entries carry `_broken_source: CVEProject/cve-website#3937`; email entries carry `_broken_source: CVEProject/cve-website#3938`. Idempotent: removing an entry from the overlay and re-running the script strips the corresponding `_broken_*` fields automatically.

@@ -545,12 +545,12 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Ttp | 4 |
 | Control | 208 |
 | Capability | 54 |
-| Methodology | 22 |
+| Methodology | 23 |
 | Disclosure | 486 |
 | Regulation | 49 |
-| Entity | 215 |
-| Reference | 44 |
-| **Total** | **1151** |
+| Entity | 690 |
+| Reference | 185 |
+| **Total** | **1768** |
 
 <!-- REGISTRY-COUNTS-END -->
 
