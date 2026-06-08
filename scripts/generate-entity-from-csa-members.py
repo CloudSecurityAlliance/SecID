@@ -119,24 +119,39 @@ def entity_path_for(domain: str) -> Path:
     return ENTITY_ROOT / tld / f"{rest}.json"
 
 
-def member_to_entity_stub(name: str, domain: str) -> dict:
+def member_to_entity_stub(name: str, domain: str, domain_hand_filled: bool = False) -> dict:
     """Convert a CSA member (name, cleaned domain) into an entity stub.
 
-    Field ordering matches the existing entity registry files.
+    Field ordering matches the existing entity registry files. When
+    `domain_hand_filled` is True, the provenance note records that the
+    domain was supplied by hand (the public member list left it blank)
+    rather than carried in the source CSV — keeping provenance honest.
     """
-    return {
-        "schema_version": "1.0",
-        "namespace": domain,
-        "type": "entity",
-        "status": "draft",
-        "status_notes": (
+    if domain_hand_filled:
+        provenance = (
+            "Auto-generated stub from the CSA public member list "
+            "(csa-website-members-2026-06-08). The member's name is from that "
+            "list; the public list had no domain for this member, so the "
+            "domain was hand-filled from public knowledge. match_nodes are "
+            "empty pending human review to add product/service patterns. CSA "
+            "membership itself is a relationship-layer fact and is "
+            "intentionally not encoded on this record."
+        )
+    else:
+        provenance = (
             "Auto-generated stub from the CSA public member list "
             "(csa-website-members-2026-06-08). Identity is the member's name "
             "and primary domain; match_nodes are empty pending human review to "
             "add product/service patterns. CSA membership itself is a "
             "relationship-layer fact and is intentionally not encoded on this "
             "record."
-        ),
+        )
+    return {
+        "schema_version": "1.0",
+        "namespace": domain,
+        "type": "entity",
+        "status": "draft",
+        "status_notes": provenance,
         "official_name": name,
         "common_name": None,
         "alternate_names": None,
@@ -159,6 +174,15 @@ def main() -> int:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument("--csv", default=DEFAULT_CSV, help="Path to the CSA members CSV")
+    parser.add_argument(
+        "--domains-hand-filled",
+        action="store_true",
+        help=(
+            "Mark generated records' provenance as hand-filled domains. Use for "
+            "a supplemental CSV of members whose public-list domain was blank "
+            "and supplied by hand."
+        ),
+    )
     parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -215,7 +239,7 @@ def main() -> int:
             skipped_already_exists += 1
             continue
 
-        stub = member_to_entity_stub(name, domain)
+        stub = member_to_entity_stub(name, domain, domain_hand_filled=args.domains_hand_filled)
         creations.append(target)
         if not args.dry_run:
             target.parent.mkdir(parents=True, exist_ok=True)
