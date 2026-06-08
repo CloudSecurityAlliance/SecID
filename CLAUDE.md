@@ -271,9 +271,9 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Methodology | 23 |
 | Disclosure | 486 |
 | Regulation | 49 |
-| Entity | 690 |
+| Entity | 937 |
 | Reference | 185 |
-| **Total** | **1768** |
+| **Total** | **2015** |
 
 <!-- REGISTRY-COUNTS-END -->
 
