@@ -548,9 +548,9 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Methodology | 23 |
 | Disclosure | 486 |
 | Regulation | 49 |
-| Entity | 937 |
+| Entity | 944 |
 | Reference | 185 |
-| **Total** | **2015** |
+| **Total** | **2022** |
 
 <!-- REGISTRY-COUNTS-END -->
 
