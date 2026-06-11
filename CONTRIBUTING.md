@@ -11,9 +11,25 @@ Contributions are welcome! SecID is a community project and benefits from divers
 
 ## How to Contribute
 
-1. **Open an issue** - Discuss your idea before starting work
+You don't need to write any code or YAML to contribute data.
+
+### The easy path: issue forms
+
+[**Open an issue**](https://github.com/CloudSecurityAlliance/SecID/issues/new/choose) and pick a form:
+
+- **Add or update a namespace (source)** — a new security-knowledge source of any type (advisory, control, methodology, reference, …)
+- **Add an organization or product (entity)** — short form; name + domain is enough
+- **Report a problem** — a correction, broken link, or wrong resolution
+
+Fill in the fields and submit. A maintainer turns it into a registry entry. This is the recommended path for most contributions.
+
+### The direct path: pull requests
+
+If you're comfortable editing registry files:
+
+1. **Open an issue** first for anything non-trivial — discuss before starting work
 2. **Fork the repository**
-3. **Make your changes**
+3. **Make your changes** (follow existing patterns; see the [guides](docs/guides/))
 4. **Submit a pull request**
 
 ## File Formats

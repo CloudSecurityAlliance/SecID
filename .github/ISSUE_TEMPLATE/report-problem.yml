@@ -1,0 +1,46 @@
+name: "🐞 Report a problem (correction / broken resolution)"
+description: "Something in the registry is wrong, out of date, resolves incorrectly, or has a broken link. Tell us what and where."
+title: "[fix] <what's wrong>"
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for **corrections** — wrong metadata, a dead or wrong resolution URL, a duplicate entry, a mis-named record, a broken pattern.
+
+        Want to *add* something new instead? Use the **"Add a namespace"** or **"Add an organization or product"** form.
+  - type: input
+    id: secid
+    attributes:
+      label: Affected SecID or namespace
+      description: "The identifier or namespace with the problem."
+      placeholder: "secid:entity/amazon.com   (or just the domain / type)"
+    validations:
+      required: true
+  - type: dropdown
+    id: problem_type
+    attributes:
+      label: What kind of problem?
+      options:
+        - "Wrong metadata (name, description, etc.)"
+        - "Broken or dead URL"
+        - "Resolves to the wrong place"
+        - "Duplicate entry"
+        - "Wrong / missing identifier pattern"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: whats_wrong
+    attributes:
+      label: What's wrong?
+      description: "Describe the problem. If it's a resolution issue, what did you query and what did you get?"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should it be instead?
+      description: "The correct value, URL, name, or behavior — with a source/link if you have one."
+    validations:
+      required: true
