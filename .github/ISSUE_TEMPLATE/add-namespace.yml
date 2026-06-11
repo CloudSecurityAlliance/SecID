@@ -1,0 +1,113 @@
+name: "➕ Add or update a namespace (source)"
+description: "Propose a new security-knowledge source — or a change to an existing one — for the SecID registry (advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, reference). For organizations/products, use the entity form instead."
+title: "[namespace] <source name>"
+labels: ["submission", "registry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to SecID! This form is for adding a **source** of security knowledge — a system that issues identifiers (e.g. a CVE-like advisory feed, a control framework, a methodology, a reference/identifier system).
+
+        - Adding an **organization, product, or service**? Use the **"Add an organization or product"** form instead — it's shorter.
+        - Reporting something **wrong** with an existing entry? Use the **"Report a problem"** form.
+
+        SecID only handles **identity, resolution, and disambiguation** — not enrichment data. We need to know what the identifiers look like and where they resolve.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      description: "Which SecID type does this source belong to? (See the README for definitions.)"
+      options:
+        - advisory — publications about vulnerabilities (CVE, GHSA, vendor advisories)
+        - weakness — abstract flaw patterns (CWE, OWASP Top 10)
+        - ttp — adversary techniques (ATT&CK, ATLAS, CAPEC)
+        - control — security requirements / frameworks (NIST CSF, ISO 27001, benchmarks)
+        - capability — product security features (config, audit, remediation)
+        - methodology — formal processes (CVSS, SSVC, STRIDE)
+        - disclosure — vulnerability disclosure programs / policies
+        - regulation — laws and legal requirements (GDPR, HIPAA)
+        - reference — documents, research, identifier systems (arXiv, DOI, RFCs)
+        - "Not sure — help me classify it"
+    validations:
+      required: true
+  - type: input
+    id: namespace
+    attributes:
+      label: Namespace (canonical domain)
+      description: "The source's canonical DNS domain, optionally with a path. This becomes the SecID namespace."
+      placeholder: "example.org   (or example.org/advisories)"
+    validations:
+      required: true
+  - type: input
+    id: official_name
+    attributes:
+      label: Official name
+      placeholder: "Example Security Advisory Database"
+    validations:
+      required: true
+  - type: input
+    id: common_name
+    attributes:
+      label: Common name / acronym
+      description: "Optional — the short name people actually use."
+      placeholder: "ESAD"
+    validations:
+      required: false
+  - type: input
+    id: website
+    attributes:
+      label: Website URL
+      placeholder: "https://example.org/"
+    validations:
+      required: true
+  - type: textarea
+    id: identifies
+    attributes:
+      label: What does this source identify?
+      description: "One or two sentences. What kind of thing gets an identifier here, and who runs it?"
+    validations:
+      required: true
+  - type: textarea
+    id: id_examples
+    attributes:
+      label: Example identifiers
+      description: "A few real IDs from this source, one per line. These become test fixtures."
+      placeholder: |
+        ESAD-2024-0001
+        ESAD-2024-0002
+    validations:
+      required: false
+  - type: textarea
+    id: resolution_url
+    attributes:
+      label: Resolution URL pattern
+      description: "How does an identifier map to a web page? Use {id} as the placeholder."
+      placeholder: "https://example.org/record?id={id}"
+    validations:
+      required: false
+  - type: dropdown
+    id: parsability
+    attributes:
+      label: Is the data machine-readable?
+      options:
+        - "structured — there's an API, JSON, CSV, or downloadable dataset"
+        - "scraped — only HTML pages / unstructured"
+        - "not sure"
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: "Versioning quirks, ID format notes, related sources, schema/API links, etc."
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: "I checked the [live resolver](https://secid.cloudsecurityalliance.org/) and this source isn't already in the registry."
+          required: true
+        - label: "I understand the SecID registry is dedicated to the public domain under [CC0 1.0](https://github.com/CloudSecurityAlliance/SecID/blob/main/LICENSE), and the identity/resolution facts I'm submitting can be published under it."
+          required: true
