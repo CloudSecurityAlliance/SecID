@@ -377,9 +377,12 @@ GET /api/v1/resolve?secid=secid:advisory/totallyinvented.com/whatever
   "secid_query": "secid:advisory/totallyinvented.com/whatever",
   "status": "not_found",
   "results": [],
-  "message": "No namespace 'totallyinvented.com' in the advisory registry."
+  "message": "Namespace \"totallyinvented.com\" not found in type \"advisory\". Submit it at https://github.com/CloudSecurityAlliance/SecID/issues/new?template=add-namespace.yml&labels=submission,registry&namespace=totallyinvented.com",
+  "submission_url": "https://github.com/CloudSecurityAlliance/SecID/issues/new?template=add-namespace.yml&labels=submission,registry&namespace=totallyinvented.com"
 }
 ```
+
+**`submission_url`** appears on **namespace-level** `not_found` responses — a recognized type naming a namespace that isn't registered (the actionable "this should be covered" case). It is a deep link to the prefilled GitHub issue form: `entity` queries link to the short entity form with `domain` prefilled; all other types link to the namespace form with `namespace` prefilled. Malformed queries (invalid type, empty input) get a `message` but no `submission_url`. The resolver also records these namespace-level misses server-side (aggregated by `type/namespace`) so the most-requested missing sources surface as a backlog.
 
 ```
 GET /api/v1/resolve?secid=secid:frobnicate/mitre.org/cve
@@ -421,6 +424,7 @@ GET /api/v1/resolve?secid=
 | `status` | string | Yes | `found`, `corrected`, `related`, `not_found`, `error` |
 | `results` | array | Yes | Result objects (may be empty) |
 | `message` | string | Only on `not_found` / `error` | Human/AI-readable guidance |
+| `submission_url` | string | Only on namespace-level `not_found` | Deep link to the prefilled GitHub issue form for submitting the missing namespace |
 
 ### Resolution result (item resolved to URL)
 
