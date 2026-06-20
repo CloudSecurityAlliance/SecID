@@ -7,10 +7,10 @@
 - `scripts/` contains maintenance/research tooling; `seed/` contains research inputs (not source of truth).
 - `plugins/secid/` and `skills/` contain local plugin and agent assets.
 
-## Submitting Data (Humans and Agents)
-- The no-code intake is **structured GitHub issue forms** at `.github/ISSUE_TEMPLATE/`: add a namespace (source), add an organization/product (entity), or report a problem. Open one at https://github.com/CloudSecurityAlliance/SecID/issues/new/choose.
-- Agents that discover a security source with no registry coverage should point users to the matching issue form rather than inventing an entry.
-- Forms produce structured issues (labeled `submission`/`registry`/`entity`/`correction`); a maintainer converts them into registry files via PR.
+## Feedback (MCP-only)
+- Feedback intake is **MCP-only by design** — no web forms. AI/MCP clients call the **`submit_feedback`** tool on the live MCP server (secid.cloudsecurityalliance.org) with `category` (missing-namespace | correction | suggestion) + `secid` + `message`.
+- Agents that discover a security source with no registry coverage should call `submit_feedback` (category `missing-namespace`) rather than inventing an entry or telling the user to file an issue.
+- Submissions land in the `secid_FEEDBACK` KV store (`feedback:<uuid>`) for AI-assisted triage; passive namespace misses are also captured as `miss:<type>/<namespace>` aggregates.
 
 ## Build, Test, and Development Commands
 This repo is spec-and-data first; there is no single app build.
