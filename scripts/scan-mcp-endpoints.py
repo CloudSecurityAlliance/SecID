@@ -21,6 +21,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from _net_guard import is_safe_host
+
 REGISTRY_DIR = os.path.join(os.path.dirname(__file__), "..", "registry")
 DATA_REPO = os.path.join(os.path.dirname(__file__), "..", "..", "..",
                          "CloudSecurityAlliance-DataSets", "SecID-Entity-Data", "data")
@@ -67,10 +69,14 @@ def domain_to_path(domain: str) -> str:
 
 def check_mcp_endpoint(domain: str, path: str) -> dict | None:
     """Try to connect to an MCP endpoint via POST with initialize request."""
+    # SSRF guard: refuse domains that resolve to an internal/private address
+    # before POSTing to a contributor-controlled host.
+    if not is_safe_host(domain):
+        return None
     url = f"https://{domain}{path}"
     try:
         r = subprocess.run(
-            ["curl", "-s", "-X", "POST",
+            ["curl", "-s", "--proto", "=https", "-X", "POST",
              "-H", "Content-Type: application/json",
              "-H", "Accept: application/json, text/event-stream",
              "-d", MCP_INITIALIZE,
