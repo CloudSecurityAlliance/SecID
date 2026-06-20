@@ -85,6 +85,7 @@ Items intentionally not scheduled. Promote to an issue if/when a forcing functio
 - **MCP Interaction Logging** — log every MCP interaction to KV with TTL for usage analytics.
 - **Capability Freshness Monitoring** — monitor cloud provider release notes for new security features.
 - **llms.txt for AI Discoverability** — implement llms.txt standard on the website.
+- **Automated processing of the feedback backlog** — `secid_FEEDBACK` KV captures namespace-level misses + AI-submitted feedback (`miss:<type>/<namespace>` aggregates, plus MCP-submitted entries). Today it's read-only via raw `wrangler kv` (acceptable for now). Longer term: scheduled jobs read the backlog and process it with AI — rank demand, auto-research the most-requested missing sources, and draft registry entries / PRs for human review. Feedback intake is **MCP-only by design** (AI/MCP clients, not web forms), so the backlog is an AI-to-AI loop end to end.
 
 ## Done (v1.0)
 

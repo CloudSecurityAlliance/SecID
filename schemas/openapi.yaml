@@ -110,8 +110,7 @@ paths:
                     secid_query: "secid:advisory/totallyinvented.com/whatever"
                     status: not_found
                     results: []
-                    message: 'Namespace "totallyinvented.com" not found in type "advisory". Submit it at https://github.com/CloudSecurityAlliance/SecID/issues/new?template=add-namespace.yml&labels=submission,registry&namespace=totallyinvented.com'
-                    submission_url: "https://github.com/CloudSecurityAlliance/SecID/issues/new?template=add-namespace.yml&labels=submission,registry&namespace=totallyinvented.com"
+                    message: 'Namespace "totallyinvented.com" not found in type "advisory". MCP clients can request it with the submit_feedback tool.'
                 error:
                   summary: Unparseable input
                   value:
@@ -372,15 +371,6 @@ components:
         message:
           type: string
           description: Human/AI-readable guidance. Present on `not_found` and `error` responses. Absent on `found` and `corrected`.
-        submission_url:
-          type: string
-          format: uri
-          description: >-
-            Deep link to a prefilled GitHub issue form for submitting the missing
-            namespace. Present only on namespace-level `not_found` responses (a
-            recognized type naming an unregistered namespace). `entity` queries
-            link to the entity form with `domain` prefilled; other types link to
-            the namespace form with `namespace` prefilled.
 
     ResolutionResult:
       type: object

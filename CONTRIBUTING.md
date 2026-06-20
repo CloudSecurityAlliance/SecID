@@ -11,26 +11,23 @@ Contributions are welcome! SecID is a community project and benefits from divers
 
 ## How to Contribute
 
-You don't need to write any code or YAML to contribute data.
+### Feedback: the `submit_feedback` MCP tool (AI/MCP-only)
 
-### The easy path: issue forms
+SecID feedback intake is **MCP-only by design** — there is no web form or issue queue for submissions. AI/MCP clients connected to the [live MCP server](https://secid.cloudsecurityalliance.org/) call the **`submit_feedback`** tool to:
 
-[**Open an issue**](https://github.com/CloudSecurityAlliance/SecID/issues/new/choose) and pick a form:
+- **Request a missing source/org** — `category: "missing-namespace"` (e.g. after a `not_found`)
+- **Report incorrect data** — `category: "correction"` (wrong URL, outdated contact, bad pattern)
+- **Suggest an improvement** — `category: "suggestion"`
 
-- **Add or update a namespace (source)** — a new security-knowledge source of any type (advisory, control, methodology, reference, …)
-- **Add an organization or product (entity)** — short form; name + domain is enough
-- **Report a problem** — a correction, broken link, or wrong resolution
+Submissions land in the `secid_FEEDBACK` store for AI-assisted triage. If you're a human, talk to SecID through any MCP-capable AI client.
 
-Fill in the fields and submit. A maintainer turns it into a registry entry. This is the recommended path for most contributions.
+### Direct contribution: pull requests
 
-### The direct path: pull requests
+If you're editing registry files directly:
 
-If you're comfortable editing registry files:
-
-1. **Open an issue** first for anything non-trivial — discuss before starting work
+1. **Make your changes** — follow existing patterns; see the [guides](docs/guides/)
 2. **Fork the repository**
-3. **Make your changes** (follow existing patterns; see the [guides](docs/guides/))
-4. **Submit a pull request**
+3. **Submit a pull request**
 
 ## File Formats
 

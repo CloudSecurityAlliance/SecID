@@ -481,13 +481,13 @@ We're designing three ways for organizations to participate in SecID. **This mod
 
 | Option | How it works | Status |
 |--------|-------------|--------|
-| **Issue forms** | Open a structured [GitHub issue](https://github.com/CloudSecurityAlliance/SecID/issues/new/choose) — add a namespace, add an organization/product, or report a problem. No fork, no YAML, no JSON. | **Live** — easiest way to submit |
-| **Pull requests** | Fork, edit, submit PR — CSA reviews and merges | **Live** — for contributors comfortable editing registry files directly |
+| **MCP feedback** | AI/MCP clients call the `submit_feedback` tool on the [live MCP server](https://secid.cloudsecurityalliance.org/) to request a missing source, report incorrect data, or suggest improvements. Feedback intake is AI/MCP-only — there is no web form. | **Live** — the feedback channel |
+| **Pull requests** | Fork, edit, submit PR — CSA reviews and merges | **Live** — for contributors editing registry files directly |
 | **Self-service** | An entity proves ownership of the security process for a namespace, gets write access to their own namespace files via CODEOWNERS | Proposed |
 | **Federation** | Organizations run their own public-facing SecID resolver, registered in the namespace entry so other resolvers and clients can discover it. May optionally require authentication. | Proposed |
 | **Private resolvers** | Organizations run internal SecID resolvers (e.g., `secid.internal.example.org`) configured in their client/plugin/SDK — not registered publicly. Supplements public data with private information (draft advisories, internal controls). May require authentication. | Proposed |
 
-Today, contributions come in two ways: **[structured issue forms](https://github.com/CloudSecurityAlliance/SecID/issues/new/choose)** (the no-code path — pick a form, fill in the fields, a maintainer turns it into a registry entry) and **pull requests** (edit the registry files directly). As the project matures, entities will be able to maintain their own namespace data directly, run public resolvers that federate with the CSA registry, and run private resolvers for internal security data.
+Today, input comes in two ways: **feedback** from AI/MCP clients via the `submit_feedback` tool on the live MCP server (request a missing source, flag wrong data, suggest improvements — no web form), and **pull requests** for contributors editing registry files directly. As the project matures, entities will be able to maintain their own namespace data directly, run public resolvers that federate with the CSA registry, and run private resolvers for internal security data.
 
 **We're pragmatic about access models.** We'd love every SecID resolver to be public and open. But reality includes customer-only portals, internal security teams, and data that can't be shared publicly. SecID is designed to work across all of these — fully public, authenticated public, and fully private resolvers all use the same protocol and can interoperate where access allows.
 
@@ -513,7 +513,7 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 - **Understand why:** [RATIONALE.md](docs/explanation/RATIONALE.md)
 - **See examples:** [USE-CASES.md](docs/future/USE-CASES.md)
 - **Browse namespaces:** [registry/](registry/)
-- **Submit something:** [open an issue](https://github.com/CloudSecurityAlliance/SecID/issues/new/choose) — add a namespace, add an organization/product, or report a problem (no fork required)
+- **Give feedback:** use the `submit_feedback` tool on the [live MCP server](https://secid.cloudsecurityalliance.org/) (AI/MCP-only — request a missing source, report wrong data, suggest improvements)
 - **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - **Hands-on guides:** [docs/guides/](docs/guides/) — step-by-step walkthroughs for adding namespaces, writing patterns, and converting formats
 
