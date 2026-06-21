@@ -24,6 +24,8 @@ on:
       - "registry/**/*.json"
       - "schemas/registry-namespace.schema.json"
       - "scripts/validate-registry-schema.py"
+      - "scripts/validate-urls.py"
+      - "scripts/http-exception-allowlist.txt"
       - "scripts/validate-type-list.py"
       - ".github/workflows/validate-registry.yml"
   push:
@@ -32,6 +34,8 @@ on:
       - "registry/**/*.json"
       - "schemas/registry-namespace.schema.json"
       - "scripts/validate-registry-schema.py"
+      - "scripts/validate-urls.py"
+      - "scripts/http-exception-allowlist.txt"
       - "scripts/validate-type-list.py"
       - ".github/workflows/validate-registry.yml"
   workflow_dispatch:
@@ -51,5 +55,7 @@ jobs:
         run: pip install jsonschema
       - name: Validate registry JSON files against schema
         run: python3 scripts/validate-registry-schema.py
+      - name: Validate registry URL scheme/host policy
+        run: python3 scripts/validate-urls.py
       - name: Validate type-list consistency with SecID-Service
         run: python3 scripts/validate-type-list.py

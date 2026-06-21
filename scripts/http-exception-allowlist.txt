@@ -1,0 +1,19 @@
+# http-exception-allowlist.txt
+#
+# Hosts permitted to appear with a plaintext http:// scheme in registry data.
+# Read by scripts/validate-urls.py. EVERYTHING ELSE must be https://, and
+# javascript:/data:/file:/blob: are rejected unconditionally.
+#
+# Format: one bare host per line (no scheme, no path, no port). Case-insensitive.
+# Blank lines and lines starting with `#` are ignored.
+#
+# Policy: SecID is https-first. This file is the RARE exception for known hosts
+# that do not (yet) serve https. Adding a host here is a reviewed decision —
+# keep it minimal and prefer remediating the entry to https. Re-check listed
+# hosts periodically (scripts/check-http-urls.py); once a host supports https,
+# remove it here and upgrade the entry.
+#
+# Verified http-only via scripts/check-http-urls.py probe (2026-06):
+veriscommunity.net          # https cert is for the wrong hostname (mismatch)
+www.pentest-standard.org    # https handshake fails (UNEXPECTED_EOF / protocol error)
+www.planalto.gov.br         # live BR gov site; blocks non-browser UAs, no clean https probe — kept http pending manual verification
