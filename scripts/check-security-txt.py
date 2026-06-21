@@ -19,6 +19,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from _net_guard import is_safe_host
+
 UPDATE = "--update" in sys.argv
 DRY_RUN = "--dry-run" in sys.argv
 
@@ -34,8 +36,16 @@ TIMEOUT = 10  # seconds per request
 async def check_domain(session, domain: str) -> dict:
     """Check a single domain for security.txt."""
     url = f"https://{domain}/.well-known/security.txt"
+    # SSRF guard: reject contributor-controlled domains that resolve to an
+    # internal address before issuing the request. getaddrinfo is blocking, so
+    # run it off the event loop.
+    loop = asyncio.get_event_loop()
+    if not await loop.run_in_executor(None, is_safe_host, domain):
+        return {"domain": domain, "url": url, "found": False, "error": "blocked: non-public host"}
     try:
-        async with session.get(url, timeout=TIMEOUT, allow_redirects=True, ssl=False) as resp:
+        # allow_redirects=False: a redirect to an internal host is an SSRF pivot.
+        # TLS verification ON (removed ssl=False): a bogus cert must fail, not be trusted.
+        async with session.get(url, timeout=TIMEOUT, allow_redirects=False) as resp:
             status = resp.status
             if status == 200:
                 text = await resp.text()

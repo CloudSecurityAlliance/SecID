@@ -22,6 +22,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from _net_guard import is_safe_host
+
 # ── Configuration ──
 
 REGISTRY_DIR = os.path.join(os.path.dirname(__file__), "..", "registry")
@@ -228,11 +230,17 @@ def domain_to_path(domain: str) -> str:
 
 def check_file(domain: str, filename: str) -> dict | None:
     """Check a single well-known file at a domain. Returns result dict or None."""
+    # SSRF guard: refuse contributor-controlled domains that resolve to an
+    # internal/private address before issuing any request.
+    if not is_safe_host(domain):
+        return None
     url = f"https://{domain}/{filename}"
     try:
-        # Use separate header output to avoid polluting content
+        # No -L: do not follow redirects (a redirect is a classic SSRF pivot,
+        # e.g. registry domain -> 302 -> http://169.254.169.254/...). --proto
+        # =https pins the scheme so a // or http redirect can't be chased.
         r = subprocess.run(
-            ["curl", "-s", "-L", "-o", "-", "-w", "\n__CURL_META__%{http_code}|%{url_effective}",
+            ["curl", "-s", "--proto", "=https", "-o", "-", "-w", "\n__CURL_META__%{http_code}|%{url_effective}",
              "--max-time", str(TIMEOUT), url],
             capture_output=True, text=True, timeout=TIMEOUT + 5
         )
