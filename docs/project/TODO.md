@@ -30,6 +30,7 @@ These have GitHub issues — see those for full context.
 
 - **Overly-broad child patterns pollute search results** — [#52](https://github.com/CloudSecurityAlliance/SecID/issues/52). Patterns like `^.+$` in `control/ibm.com` create ~15 false-positives per common short query. Two strands: tighten the patterns (here) or de-weight at search time (SecID-Service).
 - **Subtype tagging coverage audit** — [#53](https://github.com/CloudSecurityAlliance/SecID/issues/53). New methodology entries landed without tags ([#50](https://github.com/CloudSecurityAlliance/SecID/pull/50)); CI catches wrong values but not missing ones. Inventory pass needed.
+- **Branch protection + CI/CD-automated registry merges** — *deferred from the 2026-06 security audit.* The audit added blocking CI gates on the registry contribution path (URL scheme/host gate `validate-urls.py`, and the ReDoS lint + publish-gate landing next), but **gates only matter once they're required**. To do, in order: (1) enable branch protection on `main` with the `validate` job (schema + URL gate + ReDoS lint) and the publish-gate as **required status checks**, and require a reviewer on `registry/**`, `schemas/**`, `scripts/`, `.github/workflows/`; (2) *only then* move to CI/CD-automated PR merges — the automated gates must be enforced **before** the human merge gate is removed (see THREAT_MODEL-SYSTEM T2 in the audit). Also: verify `https://www.planalto.gov.br` in a browser and drop it from `scripts/http-exception-allowlist.txt` if https works.
 
 ## Migrated to issues
 
