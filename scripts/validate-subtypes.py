@@ -41,9 +41,18 @@ import sys
 import urllib.request
 from pathlib import Path
 
+# PINNED to a reviewed commit, not the moving `main` branch. Fetching `main`
+# is a cross-repo TOCTOU: an unrelated SecID-Service merge silently changes the
+# canonical type/subtype set that gates every SecID PR here. Pinning forces a
+# reviewed bump in THIS repo. MAINTAINER ACTION: when SecID-Service's
+# type-registry.ts changes, open a reviewed PR here bumping this SHA in BOTH
+# validators (validate-subtypes.py + validate-type-list.py) in lockstep. Do NOT
+# revert to `main`. (Override for local testing: --type-registry-url / -path.)
+SECID_SERVICE_PINNED_SHA = "2477ec7295fd52210eb198c590e6510cd791d12a"
+
 DEFAULT_TYPE_REGISTRY_URL = (
     "https://raw.githubusercontent.com/CloudSecurityAlliance/"
-    "SecID-Service/main/src/type-registry.ts"
+    f"SecID-Service/{SECID_SERVICE_PINNED_SHA}/src/type-registry.ts"
 )
 
 # Matches "type: \"name\"," (the start of a TypeDef object literal).
@@ -93,6 +102,12 @@ def parse_type_registry(source: str) -> dict[str, set[str]]:
 def fetch_type_registry(*, url: str | None, path: str | None) -> str:
     if path:
         return Path(path).read_text()
+    if url is None and SECID_SERVICE_PINNED_SHA == "<PIN_ME_TO_A_REVIEWED_SHA>":
+        raise RuntimeError(
+            "type-registry.ts fetch is not pinned: set SECID_SERVICE_PINNED_SHA to a "
+            "reviewed SecID-Service commit (or pass --type-registry-path / "
+            "--type-registry-url). Refusing to fetch from an unpinned source."
+        )
     target_url = url or DEFAULT_TYPE_REGISTRY_URL
     with urllib.request.urlopen(target_url, timeout=20) as resp:
         return resp.read().decode("utf-8")
