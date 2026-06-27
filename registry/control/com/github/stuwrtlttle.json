@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/stuwrtlttle",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Prototype taxonomy. Registry entry currently provides identity + resolution only; per-control data (CVSS attenuation, CWE relationships, verification commands) lands in a future Data layer (V2).",
+
+  "official_name": "Common Mitigation Enumeration",
+  "common_name": "CME",
+  "alternate_names": null,
+  "notes": "CME is a structured taxonomy of defensive security controls (e.g. seccomp, ASLR, SELinux, MFA). Unlike CVE (vulnerabilities) or CWE (weakness classes), CME enumerates the mitigations, and maps each control to a deterministic CVSS environmental-score attenuation and to the CWE weakness classes it addresses. Tactics are D3FEND-aligned (Harden, Isolate, Detect, Evict, Restore). Prototype by J. West (2026); ~109 entries at time of registration. The namespace github.com/stuwrtlttle currently represents the CME project.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com/stuwrtlttle/cme", "note": "Project repository (spec, schema, entry data)"},
+    {"type": "website", "url": "https://stuwrtlttle.github.io/cme/", "note": "Human-browsable static index (by CWE, by tactic, search)"},
+    {"type": "docs", "url": "https://raw.githubusercontent.com/stuwrtlttle/cme/refs/heads/main/schema/cme-entry.schema.json", "note": "JSON Schema for CME entries (Draft 2020-12)"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cme$"],
+      "description": "Common Mitigation Enumeration — D3FEND-aligned taxonomy of defensive controls mapped to deterministic CVSS environmental attenuation",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Mitigation Enumeration",
+        "common_name": "CME",
+        "alternate_names": null,
+        "description": "Defensive control taxonomy. Each CME-ID identifies a mitigation (e.g. CME-601 = kernel-level syscall filtering / seccomp) carrying the CVSS base metrics it modifies, the CWE classes it mitigates, machine-executable verification commands, and platform applicability.",
+        "notes": "ID ranges are allocated per category (CME-100–199 Kernel Hardening, CME-200–299 Network Isolation, CME-300–399 Mandatory Access Control, CME-400–499 Cryptographic Controls, CME-500–599 Filesystem Hardening, CME-600–699 Syscall & BPF Controls, CME-700–799 Container & Privilege Isolation, CME-800–899 Credential & Identity Hardening, CME-900–999 Network Protocol & Application Controls, CME-1000–1099 Detection & Monitoring, CME-1100–1199 Eviction & Patch Management, CME-1200–1299 Restore & Recovery, CME-1300–1399 Application Input Validation).",
+        "urls": [
+          {"type": "website", "url": "https://github.com/stuwrtlttle/cme", "note": "Project repository"},
+          {"type": "website", "url": "https://stuwrtlttle.github.io/cme/", "note": "Static index site"}
+        ],
+        "version_required": false,
+        "examples": ["CME-601", "CME-1001"]
+      },
+      "children": [
+        {
+          "patterns": ["^CME-\\d{3,4}$"],
+          "description": "CME control — raw JSON record (structured, source of truth)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/stuwrtlttle/cme/refs/heads/main/data/entries/{id}.json",
+            "parsability": "structured",
+            "content_type": "application/json",
+            "examples": [
+              {"input": "CME-601", "url": "https://raw.githubusercontent.com/stuwrtlttle/cme/refs/heads/main/data/entries/CME-601.json"},
+              {"input": "CME-1001", "url": "https://raw.githubusercontent.com/stuwrtlttle/cme/refs/heads/main/data/entries/CME-1001.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CME-\\d{3,4}$"],
+          "description": "CME control — GitHub rendered view (human-readable)",
+          "weight": 50,
+          "data": {
+            "url": "https://github.com/stuwrtlttle/cme/blob/main/data/entries/{id}.json",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "CME-601", "url": "https://github.com/stuwrtlttle/cme/blob/main/data/entries/CME-601.json"},
+              {"input": "CME-1001", "url": "https://github.com/stuwrtlttle/cme/blob/main/data/entries/CME-1001.json"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
