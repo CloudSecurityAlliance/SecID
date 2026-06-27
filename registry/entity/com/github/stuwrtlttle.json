@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "namespace": "github.com/stuwrtlttle",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Stub entity — resolution anchor so the operator pointer from secid:control/github.com/stuwrtlttle/cme resolves. Expand if/when more is known about the publisher.",
+
+  "official_name": "stuwrtlttle",
+  "common_name": "stuwrtlttle",
+  "alternate_names": null,
+  "notes": "GitHub account publishing the Common Mitigation Enumeration (CME) prototype taxonomy (J. West, 2026). CME enumerates defensive controls and maps each to a deterministic CVSS environmental-score attenuation and to CWE weakness classes.",
+  "wikidata": null,
+  "wikipedia": null,
+
+  "urls": [
+    {"type": "website", "url": "https://github.com/stuwrtlttle"},
+    {"type": "github", "url": "https://github.com/stuwrtlttle/cme", "note": "CME project repository"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cme$"],
+      "description": "Common Mitigation Enumeration",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Mitigation Enumeration",
+        "common_name": "CME",
+        "description": "Taxonomy of defensive security controls mapped to deterministic CVSS environmental attenuation and CWE weakness classes. D3FEND-aligned tactics (Harden, Isolate, Detect, Evict, Restore).",
+        "issues_type": "control",
+        "issues_namespace": "cme",
+        "urls": [
+          {"type": "website", "url": "https://github.com/stuwrtlttle/cme"},
+          {"type": "website", "url": "https://stuwrtlttle.github.io/cme/", "note": "Static index site"}
+        ],
+        "examples": ["cme"]
+      }
+    }
+  ]
+}
