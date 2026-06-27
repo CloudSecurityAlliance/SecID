@@ -451,8 +451,11 @@ gh run list -R CloudSecurityAlliance/SecID -L 5
 # Should show recent successful runs of "Upload registry to KV" triggered as "registry-updated"
 gh run list -R CloudSecurityAlliance/SecID-Service -L 5
 
-# End-to-end check via live resolver (replace with any recently-merged namespace):
-curl -s https://secid.cloudsecurityalliance.org/api/v1/resolve/secid:control/iso.org/27017 | head
+# End-to-end check via live resolver (replace with any recently-merged namespace).
+# The SecID is passed as the ?secid= query parameter — NOT a path segment.
+# (Path-style /resolve/secid:... returns 404 {"error":"Not found"} for every namespace.)
+# URL-encode a #subpath as %23, e.g. ...?secid=secid:control/github.com/stuwrtlttle/cme%23CME-601
+curl -s 'https://secid.cloudsecurityalliance.org/api/v1/resolve?secid=secid:control/iso.org/27017' | head
 ```
 
 Failure modes seen historically (none active as of the last verification):
