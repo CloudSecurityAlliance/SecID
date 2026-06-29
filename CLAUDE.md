@@ -19,7 +19,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 1,768 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 2,030 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 See ROADMAP.md for details.
 
@@ -97,9 +97,10 @@ secid/
 ├── docs/                    # reference/, explanation/, guides/, future/, project/, operations/, parsers/ — see Document Map above
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
+│   ├── <type>.json          # Type description in JSON (10 files, the .json counterpart of <type>.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (1,768 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (2,030 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
 ├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (JSON validation source of truth)
 ├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners, stub generators)
