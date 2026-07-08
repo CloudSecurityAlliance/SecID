@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "namespace": "orca-lf.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Launched ~November 2025.",
+  "official_name": "Open Robust Compartmentalization Alliance",
+  "common_name": "ORCA",
+  "alternate_names": null,
+  "notes": "Linux Foundation alliance launched November 2025 to advance software security through compartmentalization — isolating software into resilient parts to contain threats and limit the impact of vulnerabilities. Established as a neutral collaborative home for cross-domain compartmentalization work. Any specifications it produces may warrant separate methodology or reference records.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://orca-lf.org"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^orca$"],
+      "description": "Open Robust Compartmentalization Alliance (ORCA)",
+      "weight": 100,
+      "data": {
+        "subtype": ["consortium"],
+        "official_name": "Open Robust Compartmentalization Alliance",
+        "common_name": "ORCA",
+        "description": "Linux Foundation alliance advancing software security through compartmentalization.",
+        "examples": ["orca"]
+      }
+    }
+  ]
+}

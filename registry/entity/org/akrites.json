@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "namespace": "akrites.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "New initiative launched ~June 2026; membership and scope may still change.",
+  "official_name": "Akrites",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "Linux Foundation initiative to defend critical open-source software against AI-enabled cyber threats. Operates a single shared Security Incident Response Team (SIRT) running a standardized Coordinated Vulnerability Disclosure (CVD) process. 19 founding members (AWS, Anthropic, Google, Microsoft/GitHub, Red Hat, and others); seed funding via the Linux Foundation's Alpha-Omega fund. See also the disclosure program record: secid:disclosure/akrites.org.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://akrites.org"},
+    {"type": "docs", "url": "https://www.linuxfoundation.org/press/linux-foundation-and-industry-leaders-launch-akrites-to-defend-critical-open-source-software-against-ai-enabled-cyber-threats"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^akrites$"],
+      "description": "Akrites — Linux Foundation open-source vulnerability coordination initiative",
+      "weight": 100,
+      "data": {
+        "subtype": ["consortium"],
+        "official_name": "Akrites",
+        "description": "Multi-organization Linux Foundation initiative operating a shared SIRT and standardized CVD process for critical open-source software.",
+        "examples": ["akrites"]
+      }
+    }
+  ]
+}

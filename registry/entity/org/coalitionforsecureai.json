@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "coalitionforsecureai.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Hosted OASIS Open project; membership evolves.",
+  "official_name": "Coalition for Secure AI",
+  "common_name": "CoSAI",
+  "alternate_names": null,
+  "notes": "Multi-organization AI-security consortium hosted as an OASIS Open project (launched July 2024), not an independent legal entity. Works via technical workstreams — AI software supply chain security, preparing defenders, AI security risk governance, and secure design patterns for agentic systems — producing frameworks and best-practice guidance. Governed by a Project Governing Board and Technical Steering Committee. Framework/guidance outputs may warrant separate methodology or control records.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.coalitionforsecureai.org"},
+    {"type": "github", "url": "https://github.com/cosai-oasis"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cosai$"],
+      "description": "Coalition for Secure AI (CoSAI)",
+      "weight": 100,
+      "data": {
+        "subtype": ["consortium"],
+        "official_name": "Coalition for Secure AI",
+        "common_name": "CoSAI",
+        "description": "AI-security consortium hosted under OASIS Open, producing workstream frameworks and best-practice guidance.",
+        "examples": ["cosai"]
+      }
+    }
+  ]
+}

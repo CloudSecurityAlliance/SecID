@@ -548,11 +548,11 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Control | 209 |
 | Capability | 54 |
 | Methodology | 23 |
-| Disclosure | 486 |
+| Disclosure | 487 |
 | Regulation | 49 |
-| Entity | 951 |
+| Entity | 956 |
 | Reference | 185 |
-| **Total** | **2030** |
+| **Total** | **2036** |
 
 <!-- REGISTRY-COUNTS-END -->
 

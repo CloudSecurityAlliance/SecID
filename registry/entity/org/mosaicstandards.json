@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mosaicstandards.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Launched April 2026; a coordination body over other standards efforts.",
+  "official_name": "Multi-Organization Secure AI Coordination",
+  "common_name": "MOSAIC",
+  "alternate_names": null,
+  "notes": "Coordination structure launched April 2026 to align organizations writing AI-security standards and guidelines and reduce inconsistency, duplicate work, and gaps. Convened by Rob van der Veer (founder of the OWASP AI Exchange). Founding participants include BIML (Berryville Institute of Machine Learning), CIS, CSA, CoSAI, NIST, OWASP AI Exchange, OWASP GenAI Security Project, and SANS Institute. A convening/coordination body rather than a producer of citable identifiers.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://mosaicstandards.org"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^mosaic$"],
+      "description": "Multi-Organization Secure AI Coordination (MOSAIC)",
+      "weight": 100,
+      "data": {
+        "subtype": ["consortium"],
+        "official_name": "Multi-Organization Secure AI Coordination",
+        "common_name": "MOSAIC",
+        "description": "Coordination body aligning organizations that write AI-security standards (CoSAI, NIST, OWASP, CIS, CSA, SANS, BIML).",
+        "examples": ["mosaic"]
+      }
+    }
+  ]
+}
