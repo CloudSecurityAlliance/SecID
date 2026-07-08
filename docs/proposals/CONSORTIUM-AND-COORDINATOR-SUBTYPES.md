@@ -17,7 +17,7 @@ These are the **first** subtypes for both `entity` and `disclosure` (both are `s
 
 This proposal also **explicitly declines** to create `cna`, `bug-bounty`, and `security.txt` subtypes — three values floated as candidates in [TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md) — because those facts are already carried by structured fields (`cve.role`, `bug_bounty[]`, `security_txt`) from [DISCLOSURE-TYPE-FIELDS.md](DISCLOSURE-TYPE-FIELDS.md). See *Deliberately not subtypes* below.
 
-The governing principle: **subtypes name the program/body archetype; structured fields carry the details.** A subtype earns its place only when it groups a distinction not already served by a structured field.
+The governing principle: **subtypes name provisional, still-emergent groupings we want to identify but aren't set in stone; structured fields give first-class, explicit support to high-value facts.** A subtype earns its place only when it groups a distinction not already served by a structured field — and when a distinction proves valuable enough to warrant first-class support (CNA status, security.txt presence, bug-bounty programs), it **graduates into a structured field and is dropped as a subtype**. Never both: one source of truth. That graduation path is exactly why `cna`/`bug-bounty`/`security.txt` are fields, not subtypes (see *Deliberately not subtypes*), while `consortium`/`coordinator`/`psirt` — provisional groupings without dedicated fields — are subtypes.
 
 ## Motivation
 

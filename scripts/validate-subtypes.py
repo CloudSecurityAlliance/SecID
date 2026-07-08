@@ -48,7 +48,7 @@ from pathlib import Path
 # type-registry.ts changes, open a reviewed PR here bumping this SHA in BOTH
 # validators (validate-subtypes.py + validate-type-list.py) in lockstep. Do NOT
 # revert to `main`. (Override for local testing: --type-registry-url / -path.)
-SECID_SERVICE_PINNED_SHA = "2477ec7295fd52210eb198c590e6510cd791d12a"
+SECID_SERVICE_PINNED_SHA = "de7a87421d9ab02df39adb9a90551993fe4821f1"
 
 DEFAULT_TYPE_REGISTRY_URL = (
     "https://raw.githubusercontent.com/CloudSecurityAlliance/"

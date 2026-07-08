@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "namespace": "chainguard.dev/athena",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Launched ~June 2026; no dedicated domain yet — hosted under chainguard.dev. Membership expanding.",
+  "official_name": "Athena",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "Industry coalition led by Chainguard for the coordinated (orchestrated) defense and remediation of open-source software vulnerabilities. Members include Chainguard, BNY, Cisco, Cloudflare, Docker, JPMorganChase, Kyndryl, PwC and others. Chainguard has stated an intent to work with the Linux Foundation on a coordinated OSS Security Incident Response Team (SIRT) and a 'maintainer of last resort' program — aspirational as of mid-2026. If/when that coordinated-disclosure program launches, add a secid:disclosure/chainguard.dev/athena record with subtype coordinator.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.chainguard.dev/athena"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^athena$"],
+      "description": "Athena — Chainguard-led open-source vulnerability defense coalition",
+      "weight": 100,
+      "data": {
+        "subtype": ["consortium"],
+        "official_name": "Athena",
+        "description": "Industry coalition for orchestrated defense and remediation of open-source software vulnerabilities, led by Chainguard.",
+        "examples": ["athena"]
+      }
+    }
+  ]
+}

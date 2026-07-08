@@ -57,7 +57,7 @@ Subtypes are placed at the **source-level** match_node (the top-level entries in
 
 ## Named subtypes in use today
 
-Three types currently carry named `subtype:` tags on entries: `reference` (for glossaries), `methodology` (the full 11-category set tagged on all ~40 entries), and `advisory` (for incident reports). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (disclosure, regulation, entity), or implicit overloads that predate the convention.
+Five types currently carry named `subtype:` tags on entries: `reference` (for glossaries), `methodology` (the full 11-category set tagged on all ~40 entries), `advisory` (for incident reports), `entity` (for multi-organization consortia), and `disclosure` (for coordinators and PSIRTs). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (regulation, and the entity organization/product/service split), or implicit overloads that predate the convention.
 
 ### `reference`
 
@@ -95,6 +95,21 @@ Multi-subtype methodologies are permitted but rare in practice. The tagging swee
 
 Note: METHODOLOGY-ARCHITECTURE.md's table placed NIST 800-61 under "Vulnerability Management." The actual document is the NIST Incident Handling Guide; the tagged data corrects this to `"incident-management"`.
 
+### `entity`
+
+| `subtype:` value | What it means | Where to find it | Defined by |
+|------------------|---------------|------------------|------------|
+| `"consortium"` | A multi-organization collaborative body — consortium, coalition, alliance, or foundation formed by multiple member organizations (CoSAI, Akrites, MOSAIC, ORCA, OpenSSF). Refines the organization form; composes with a future organization/product/service axis. | `registry/entity/<path>.json` source-level match_nodes carrying `subtype: ["consortium"]` | [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md) |
+
+### `disclosure`
+
+| `subtype:` value | What it means | Where to find it | Defined by |
+|------------------|---------------|------------------|------------|
+| `"coordinator"` | A neutral coordinated-vulnerability-disclosure body that routes reports between finders and affected vendors — CERT/CC, national CSIRTs, shared SIRTs (FIRST, JPCERT/CC, Akrites). Composes with the structured `cve.role` field. | `registry/disclosure/<path>.json` source-level match_nodes carrying `subtype: ["coordinator"]` | [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md) |
+| `"psirt"` | A vendor's own Product Security Incident Response Team program (its own products) — distinct from a neutral coordinator and from a CNA. | `registry/disclosure/<path>.json` source-level match_nodes carrying `subtype: ["psirt"]` | [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md) |
+
+**Subtypes vs. structured fields.** CNA status (`cve.role`), bug bounty programs (`bug_bounty[]`), and security.txt (`security_txt`) were once floated as disclosure subtypes but are instead carried by explicit first-class fields ([DISCLOSURE-TYPE-FIELDS](../proposals/DISCLOSURE-TYPE-FIELDS.md)). The governing rule: **subtypes name provisional, still-emergent groupings we want to identify but aren't set in stone; a fact important enough to earn explicit first-class support graduates into a structured field** — and must not then be duplicated as a subtype (one source of truth).
+
 ## Anticipated subtypes (pending proposal)
 
 ### `control` and `reference` (from ASSERTION-CONTENT-TYPES revision direction)
@@ -114,14 +129,7 @@ These patterns exist in the registry but have not been formally proposed as name
 
 ### `disclosure`
 
-The disclosure type has 486 entries dominated by CVE Numbering Authorities (CNAs). Substructure already exists via the `cve:` / `bug_bounty:` / `safe_harbor:` / `security_txt:` / `disclosure_policy:` fields proposed in [DISCLOSURE-TYPE-FIELDS](../proposals/DISCLOSURE-TYPE-FIELDS.md), but no `subtype:` tags yet.
-
-| `subtype:` value (candidate) | What it would identify |
-|------------------------------|------------------------|
-| `"cna"` | CVE Numbering Authority entries (dominant subset — 486 today) |
-| `"bug-bounty"` | Programs hosted on HackerOne / Bugcrowd / Intigriti |
-| `"psirt"` | Vendor Product Security Incident Response Team programs without a bug bounty |
-| `"security.txt"` | Entries primarily sourced from an RFC 9116 `security.txt` file |
+Resolved by [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md): `coordinator` and `psirt` are now named subtypes (see *Named subtypes in use today* above). The other values once floated here — `cna`, `bug-bounty`, `security.txt` — are **deliberately not** subtypes: those facts are carried by the structured `cve.role`, `bug_bounty[]`, and `security_txt` fields from [DISCLOSURE-TYPE-FIELDS](../proposals/DISCLOSURE-TYPE-FIELDS.md), and duplicating them as subtypes would create two sources of truth.
 
 ### `regulation`
 
@@ -136,7 +144,7 @@ EU directives, national transpositions, and US/national laws all currently sit i
 
 ### `entity`
 
-The `entity` type mixes organizations (Microsoft, NIST, ISO) with their products (Office 365, AWS S3) and services. The ENTITY-REGULATION-CONTROL-SPLIT proposal's "What's still worth doing" section flagged this as a known pain point with high consumer value (separating "show me all the orgs" from "show me all the products").
+The `consortium` subtype is now in use (see *Named subtypes in use today* above). The organization/product/service split below remains a candidate. The `entity` type mixes organizations (Microsoft, NIST, ISO) with their products (Office 365, AWS S3) and services. The ENTITY-REGULATION-CONTROL-SPLIT proposal's "What's still worth doing" section flagged this as a known pain point with high consumer value (separating "show me all the orgs" from "show me all the products"). `consortium` composes with these if/when they land (an entry can be `["organization", "consortium"]`).
 
 | `subtype:` value (candidate) | What it would identify |
 |------------------------------|------------------------|
@@ -185,6 +193,7 @@ So the practical rule: **try a subtype first**. If lived experience shows the fo
 | [METHODOLOGY-ARCHITECTURE](../proposals/METHODOLOGY-ARCHITECTURE.md) | The category structure for methodology entries (10 categories + 11th "classification" added on tagging sweep) | 11 `subtype:` values applied to all 43 source-level methodology match_nodes on 2026-05-20 | Implemented (categorization landed; arch doc is "Research / design") |
 | [ASSERTION-CONTENT-TYPES](../proposals/ASSERTION-CONTENT-TYPES.md) | Originally proposed two new types (`assertion`, `content`); revision direction collapses toward existing `control` (BoKs as normative knowledge specs) + `reference` (courses as content artifacts) + relationship-layer (org compliance attestations) | Anticipated: `subtype: ["body-of-knowledge"]` on control, `subtype: ["course"]` on reference | Under revision |
 | [ENTITY-REGULATION-CONTROL-SPLIT](../proposals/ENTITY-REGULATION-CONTROL-SPLIT.md) | Regulations stay in `control/`; small entity-cleanup may still extract clearly-org-not-control entries into `entity/` | Cross-reference fields (`publishedBy:`, `authorizedBy:`) instead of type split | Declined (with rationale) 2026-05-17 |
+| [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md) | First `entity` + `disclosure` subtypes; declines `cna`/`bug-bounty`/`security.txt` (kept as structured fields) | `subtype: ["consortium"]` (entity); `subtype: ["coordinator"]` / `["psirt"]` (disclosure) | Draft 2026-07-08 |
 
 ### Proposals that became new types (split path)
 

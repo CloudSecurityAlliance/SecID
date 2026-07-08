@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "namespace": "akrites.org",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "New program launched ~June 2026; report-intake channels not yet documented here.",
+  "official_name": "Akrites",
+  "common_name": null,
+  "alternate_names": null,
+  "notes": "Coordinated Vulnerability Disclosure (CVD) program for critical open-source software, operated by a single shared Security Incident Response Team (SIRT) under the Linux Foundation. Built on confidentiality-first principles and established standards/tooling (CVE, TLP, CWE, CVSS, EPSS, SSVC, VEX). See the organization record: secid:entity/akrites.org.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://akrites.org"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^sirt$", "(?i)^cvd$"],
+      "description": "Akrites shared SIRT — coordinated vulnerability disclosure for critical open-source software",
+      "weight": 100,
+      "data": {
+        "subtype": ["coordinator"],
+        "organization_type": "Coordinator",
+        "description": "Neutral shared SIRT coordinating vulnerability disclosure and remediation across critical open-source projects, standing between reporters and upstream maintainers.",
+        "examples": []
+      }
+    }
+  ]
+}
