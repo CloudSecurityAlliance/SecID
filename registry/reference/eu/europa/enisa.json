@@ -37,6 +37,26 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "(?i)^faicp$",
+        "(?i)^ai-cybersecurity-framework$"
+      ],
+      "description": "FAICP — Framework for AI Cybersecurity Practices",
+      "weight": 100,
+      "data": {
+        "official_name": "ENISA Multilayer Framework for Good Cybersecurity Practices for AI (FAICP)",
+        "common_name": "FAICP",
+        "alternate_names": null,
+        "description": "Three-layer framework for AI cybersecurity: (1) cybersecurity foundations, (2) AI-specific practices, (3) sector-specific practices. AI is framed as cybersecurity, not safety/alignment.",
+        "notes": "Published by ENISA, June 2023.",
+        "urls": [
+          {"type": "source", "url": "https://www.enisa.europa.eu/sites/default/files/publications/Multilayer%20Framework%20for%20Good%20Cybersecurity%20Practices%20for%20AI.pdf"},
+          {"type": "website", "url": "https://faicp-framework.com/"}
+        ],
+        "examples": []
+      }
     }
   ]
 }

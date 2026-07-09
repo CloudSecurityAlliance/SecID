@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "berryvilleiml.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Berryville Institute of Machine Learning",
+  "common_name": "BIML",
+  "alternate_names": null,
+  "notes": "BIML's published machine-learning security research artifacts — enumerated architectural risk analyses. See the organization record secid:entity/berryvilleiml.com.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://berryvilleiml.com/results/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^biml-?78$", "(?i)^araml$", "(?i)^ml-risk-analysis$"],
+      "description": "An Architectural Risk Analysis of Machine Learning Systems (BIML-78)",
+      "weight": 100,
+      "data": {
+        "official_name": "An Architectural Risk Analysis of Machine Learning Systems: Toward More Secure Machine Learning",
+        "description": "2020 taxonomy of 78 machine-learning security risks organized across 9 components of a generic ML system.",
+        "notes": "Commonly referred to as BIML-78 for its 78 enumerated risks.",
+        "urls": [{"type": "source", "url": "https://berryvilleiml.com/results/"}],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^llm-risk-analysis$", "(?i)^llm-ara$"],
+      "description": "An Architectural Risk Analysis of Large Language Models (2024)",
+      "weight": 100,
+      "data": {
+        "official_name": "An Architectural Risk Analysis of Large Language Models",
+        "description": "2024 BIML risk analysis applying architectural risk analysis to large language models.",
+        "urls": [{"type": "source", "url": "https://berryvilleiml.com/results/"}],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "official_name": "European Telecommunications Standards Institute",
   "common_name": "ETSI",
   "alternate_names": null,
-  "notes": "European standards body for telecommunications. Many ETSI deliverables (EN, TS, TR, GS) are FREE to download from etsi.org, though ETSI retains copyright and explicit terms govern reproduction. Notable security-relevant deliverables: EN 303 645 (consumer IoT cyber baseline), TS 103 645, the ETSI TC CYBER series. License posture similar to ITU-T — flag for verification before redistributing.",
+  "notes": "European standards body for telecommunications. Many ETSI deliverables (EN, TS, TR, GS) are FREE to download from etsi.org, though ETSI retains copyright and explicit terms govern reproduction. Notable security-relevant deliverables: EN 303 645 (consumer IoT cyber baseline), TS 103 645, EN 304 223 / TS 104 223 (baseline cyber security requirements for AI, from TC SAI), the ETSI TC CYBER series. License posture similar to ITU-T — flag for verification before redistributing.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -87,6 +87,28 @@
           {"input": "ts-103-744", "note": "Quantum-safe Hybrid Key Exchanges"},
           {"input": "tr-103-619", "note": "PQC migration strategies"}
         ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^en-?304-?223$",
+        "(?i)^ts-?104-?223$",
+        "(?i)^securing-ai$"
+      ],
+      "description": "ETSI EN 304 223 / TS 104 223 — Securing AI: Baseline Cyber Security Requirements for AI Models and Systems",
+      "weight": 100,
+      "data": {
+        "official_name": "ETSI EN 304 223 - Securing Artificial Intelligence (SAI); Baseline Cyber Security Requirements for AI Models and Systems",
+        "notes": "AI-security (treated as a subset of cybersecurity) baseline for AI models and systems: ~13 core principles expanding to roughly 72 provisions across 5 lifecycle phases (secure design, secure development, secure deployment, secure maintenance, secure end of life), covering AI-specific threats such as prompt injection, data poisoning, and model obfuscation. Provisions use citable identifiers of the form 'Provision X.Y.Z-N' (e.g., Provision 5.2.2-4 mandates a published vulnerability disclosure policy). First published as TS 104 223 v1.1.1 (April 2025), then adopted as European Standard EN 304 223 v2.1.1 (December 2025). Work item REN/SAI-0022. CAVEAT: ETSI deliverable PDFs were access-gated during research; the principle/provision counts and the 'Provision X.Y.Z-N' grammar are corroborated via ETSI newsroom + NCSC, not read verbatim from the standard — verify provision numbering before keying subpaths on it.",
+        "urls": [
+          {"type": "docs", "url": "https://www.etsi.org/deliver/etsi_en/304200_304299/304223/"},
+          {"type": "website", "url": "https://www.etsi.org/technical-groups/sai"}
+        ],
+        "versions_available": [
+          {"version": "TS 104 223 v1.1.1", "release_date": "2025-04", "status": "superseded", "note": "Technical Specification, first publication."},
+          {"version": "EN 304 223 v2.1.1", "release_date": "2025-12", "status": "current", "note": "European Standard adoption."}
+        ],
+        "examples": []
       }
     }
   ]
