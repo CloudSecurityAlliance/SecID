@@ -19,6 +19,17 @@ This proposal also **explicitly declines** to create `cna`, `bug-bounty`, and `s
 
 The governing principle: **subtypes name provisional, still-emergent groupings we want to identify but aren't set in stone; structured fields give first-class, explicit support to high-value facts.** A subtype earns its place only when it groups a distinction not already served by a structured field — and when a distinction proves valuable enough to warrant first-class support (CNA status, security.txt presence, bug-bounty programs), it **graduates into a structured field and is dropped as a subtype**. Never both: one source of truth. That graduation path is exactly why `cna`/`bug-bounty`/`security.txt` are fields, not subtypes (see *Deliberately not subtypes*), while `consortium`/`coordinator`/`psirt` — provisional groupings without dedicated fields — are subtypes.
 
+### Maturity funnel
+
+A grouping matures through four stages; move a thing along only as evidence accumulates:
+
+1. **Free tag** — an uncommitted key in `data` (e.g. `data.tags: [...]`), un-gated by CI, while a grouping is still a hunch. Zero cross-repo cost; use when you want to capture a pattern before you can name it.
+2. **Subtype** — a declared, CI-gated `subtype:` value once the grouping is real and recognized. Provisional but standardized-enough to validate against `type-registry.ts`.
+3. **Standardize the language** — as entries accumulate, rename/merge/split subtypes so the vocabulary reflects the observed pattern (e.g. a coarse `ai` could later split into `ai-security` / `ai-safety`).
+4. **First-class field** — when a fact is high-value or popular enough to warrant explicit, structured support, promote it to a dedicated field and drop the subtype. CNA (`cve.role`) and security.txt (`security_txt`) are the graduated exemplars.
+
+The point of the funnel is to keep ceremony proportional to certainty: cheap tags for hunches, gated subtypes for recognized groupings, structured fields only for the facts that have earned first-class support.
+
 ## Motivation
 
 A 2024–2026 wave of multi-organization security initiatives (CoSAI, MOSAIC, ORCA, Akrites, Chainguard's Athena, the Frontier Model Forum) has no clean way to be grouped in the registry, and the large `disclosure` type (486 entries) has no way to distinguish *what kind of program* an entry is beyond its CVE-program role. Two grouping gaps:
