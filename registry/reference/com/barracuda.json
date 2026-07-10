@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "barracuda.com",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Added 2026-07-10 to register the Barracuda Networks security glossary (extracted in CSA's private dataset repo). Org metadata from the vendor site.",
+  "official_name": "Barracuda Networks",
+  "common_name": "Barracuda",
+  "alternate_names": null,
+  "notes": "Security vendor (email, application, network, and data protection). Publishes a public cybersecurity glossary at /support/glossary. Country: United States.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.barracuda.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^glossary$"
+      ],
+      "description": "Barracuda Networks Glossary",
+      "weight": 100,
+      "data": {
+        "official_name": "Barracuda Networks Glossary",
+        "common_name": "Barracuda Glossary",
+        "alternate_names": null,
+        "description": "Barracuda Networks' public cybersecurity glossary — vendor-authored term/definition entries covering email security, application and network security, data protection, and related concepts.",
+        "notes": "Vendor copyright; publicly readable but not freely redistributable. Extracted term data is held in CSA's private dataset repo, not published.",
+        "subtype": ["glossary"],
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.barracuda.com/support/glossary"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
