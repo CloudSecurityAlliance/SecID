@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iso.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-07-09 to register ISO vocabulary/overview content (ISO/IEC 27000) under the reference type. Org metadata copied from the existing same-org entries under the control, entity, and methodology types.",
+  "official_name": "International Organization for Standardization",
+  "common_name": "ISO",
+  "alternate_names": null,
+  "notes": "ISO publishes globally recognized standards, jointly with IEC for the ISO/IEC series (see iec.ch for standalone-IEC reference content). Under the reference type this namespace covers ISO's vocabulary/overview documents — chiefly ISO/IEC 27000, the overview-and-vocabulary standard for the 27000 (ISMS) family. ISO's control standards live under the control type (registry/control/org/iso.json) and its risk-management / disclosure methodologies under the methodology type.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.iso.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^27000$"
+      ],
+      "description": "ISO/IEC 27000 — Information security management systems — Overview and vocabulary",
+      "weight": 100,
+      "data": {
+        "official_name": "ISO/IEC 27000 Information security management systems — Overview and vocabulary",
+        "common_name": "ISO/IEC 27000",
+        "alternate_names": ["ISO 27000", "27000"],
+        "description": "The overview-and-vocabulary standard for the ISO/IEC 27000 (ISMS) family. Clause 3 is the controlled vocabulary — the terms and definitions used across the whole series; the remaining clauses give an overview of ISMS concepts and the family of standards. Registered as a reference/glossary because clause 3 is the authoritative term source the rest of the 27000 series draws on.",
+        "notes": "Current edition: ISO/IEC 27000:2018 (fifth edition). ISO publishes 27000 at no charge (one of the few gratis ISO standards) but retains copyright — it is not freely redistributable. Term-level data extracted from the licensed copy is held in CSA's private dataset repo, not published; the public resolver returns a license-required stub.",
+        "subtype": ["glossary"],
+        "version_required": false,
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.iso.org/standard/73906.html"
+          }
+        ],
+        "examples": ["27000"]
+      }
+    }
+  ]
+}
