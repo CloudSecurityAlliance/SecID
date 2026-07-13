@@ -71,6 +71,86 @@
         "versions_available": [],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "(?i)^c5$"
+      ],
+      "description": "Cloud Computing Compliance Criteria Catalogue (C5)",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Computing Compliance Criteria Catalogue (C5)",
+        "notes": "Baseline security catalogue for cloud service providers, used as the basis for independent C5 attestation audits. Free download; copyright retained by BSI. Domain code IDM (Identity and Access Management) in C5:2020 was renamed IAM in C5:2026, which also added a new GC domain (\"General Conditions\" — CSP transparency/contractual disclosures, e.g. applicable law and recovery parameters; lives on its own \"C5_Conditions\" tab in the editable workbook, distinct from the audited-criteria \"C5_Criteria\" tab, but still addressed as GC-NN) and expanded several existing domains (e.g. CRY grew from 4 to 19 criteria). Domain examples for 2026 verified directly against BSI's official editable workbook (C5_2026_Editable_en.xlsx); confirmed BCM (Business Continuity Management) is correct — an earlier draft mistakenly carried a \"BC\" domain from a PDF text-extraction artifact, and \"BCS\" does not appear anywhere in the source. 2020 domain/criterion IDs verified only against extracted PDF text, not the 2020 editable workbook.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html"
+          }
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "2026",
+            "release_date": "2026-03-01",
+            "status": "current",
+            "note": "168 criteria across 18 domains (AM, BCM, COM, COS, CRY, DEV, GC, HR, IAM, INQ, OIS, OPS, PI, PS, PSS, SIM, SP, SSO). Second substantive revision.",
+            "urls": [
+              {
+                "type": "document",
+                "url": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2026/C5_2026.pdf?__blob=publicationFile&v=7",
+                "parsability": "scraped"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-01-01",
+            "status": "superseded",
+            "note": "121 criteria. Domain set includes IDM (later renamed IAM in 2026) and no GC domain. Most existing third-party cross-mappings (ISO/IEC 27001, CSA CCM) target this version.",
+            "urls": [
+              {
+                "type": "document",
+                "url": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2020/C5_2020.pdf?__blob=publicationFile&v=3",
+                "parsability": "scraped"
+              }
+            ]
+          }
+        ],
+        "examples": ["OIS-01", "IAM-01", "CRY-04", "OPS-24", "GC-01"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2,4}$"
+          ],
+          "description": "Control domain (e.g., OIS, CRY, IAM/IDM, OPS, GC). Contains multiple criteria.",
+          "weight": 100,
+          "data": {
+            "examples": ["OIS", "CRY", "IAM", "OPS", "GC"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}-\\d{2}$"
+          ],
+          "description": "Specific criterion (e.g., OIS-01, CRY-05, OPS-24, GC-01).",
+          "weight": 100,
+          "data": {
+            "examples": ["OIS-01", "CRY-05", "OPS-24", "GC-01", "IDM-12"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}-\\d{2}\\.\\d{2}[AB]?$"
+          ],
+          "description": "Supplementary criterion under a parent criterion, tagged Basic (B) or Additional (A) evidence — e.g. BCM-01.01B, AM-09.02A. Confirmed present in C5:2026's official editable workbook; not yet confirmed whether C5:2020 uses this same sub-numbering scheme.",
+          "weight": 100,
+          "data": {
+            "examples": ["BCM-01.01B", "AM-09.02A", "AM-01.01A"]
+          }
+        }
+      ]
     }
   ]
 }
