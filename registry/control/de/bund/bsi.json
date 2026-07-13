@@ -151,6 +151,57 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "(?i)^ai-?c4$",
+        "(?i)^aic4$"
+      ],
+      "description": "AI Cloud Computing Compliance Criteria Catalogue (AIC4)",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Cloud Computing Compliance Criteria Catalogue (AIC4)",
+        "notes": "BSI's AI-specific companion to C5: attestation criteria for the security and trustworthiness of AI-based cloud services, attested under ISAE 3000 like C5. 40 criteria across 8 areas — PC (Preliminary Criteria), SR (Security & Robustness), PF (Performance & Functionality), RE (Reliability), DQ (Data Quality), DM (Data Management), EX (Explainability), BI (Bias). Area codes and DOMAIN-NN criterion format verified against BSI's official editable AIC4 workbook.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/AIC4/aic4_node.html"
+          }
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-02-01",
+            "status": "current",
+            "note": "First and current edition — 40 criteria across 8 areas (BI, DM, DQ, EX, PC, PF, RE, SR)."
+          }
+        ],
+        "examples": ["SR-01", "DQ-03", "EX-02", "BI-01"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2}$"
+          ],
+          "description": "Criteria area (PC, SR, PF, RE, DQ, DM, EX, BI).",
+          "weight": 100,
+          "data": {
+            "examples": ["SR", "DQ", "EX", "BI", "DM", "PF", "RE", "PC"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2}-\\d{2}$"
+          ],
+          "description": "Specific criterion (e.g., SR-01, DQ-03, EX-02, BI-01).",
+          "weight": 100,
+          "data": {
+            "examples": ["SR-01", "DQ-03", "EX-02", "BI-01", "DM-04"]
+          }
+        }
+      ]
     }
   ]
 }
