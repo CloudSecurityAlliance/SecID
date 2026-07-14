@@ -239,8 +239,40 @@
             ]
           }
         ],
-        "examples": []
-      }
+        "examples": ["GCS.1.1", "GCS.2.5", "OPS.3.1"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2,4}$"
+          ],
+          "description": "A5 group — GCS (Governance, Compliance & Scope), DEI (Design, Development & Integration), VAV (Verification & Validation), DEP (Deployment), OPS (Operations & Monitoring), RET (Retirement).",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS", "DEI", "VAV", "DEP", "OPS", "RET"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}\\.\\d+$"
+          ],
+          "description": "A5 subgroup (group.N), e.g. GCS.1 (Stakeholder & Impact Scoping).",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS.1", "GCS.2", "DEI.1", "OPS.3"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}\\.\\d+\\.\\d+$"
+          ],
+          "description": "A5 control / requirement (group.subgroup.N), e.g. GCS.1.1. Basismodul defines 57 controls; the Cloud-Infrastructure module adds cloud-specific controls (e.g. GCS.2.5). Verified against BSI's official OSCAL catalogs.",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS.1.1", "GCS.2.4", "OPS.3.1", "RET.1.1", "GCS.2.5"]
+          }
+        }
+      ]
     }
   ]
 }
