@@ -83,6 +83,50 @@
           }
         ]
       }
+    },
+    {
+      "patterns": [
+        "(?i)^sgb-?v$",
+        "(?i)^sgb-?5$"
+      ],
+      "description": "SGB V — Sozialgesetzbuch (Fünftes Buch) / Social Code Book V (statutory health insurance)",
+      "weight": 100,
+      "data": {
+        "official_name": "Sozialgesetzbuch (SGB) Fünftes Buch (V) — Gesetzliche Krankenversicherung",
+        "common_name": "SGB V",
+        "alternate_names": [
+          "Social Code Book V",
+          "SGB 5"
+        ],
+        "description": "German Social Code Book V governing statutory health insurance (Gesetzliche Krankenversicherung).",
+        "notes": "German statutory health-insurance code. §393 (in force 2024-07-01) governs cloud use in healthcare and mandates a BSI C5 attestation.",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/sgb_5/"
+          }
+        ],
+        "examples": ["§393", "393"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^§?\\s?393$",
+            "(?i)^sgb-?v-393$"
+          ],
+          "description": "§393 SGB V — Cloud-Einsatz im Gesundheitswesen; statutory mandate for a BSI C5 attestation",
+          "weight": 100,
+          "data": {
+            "official_name": "§ 393 SGB V — Cloud-Einsatz im Gesundheitswesen; Verordnungsermächtigung",
+            "description": "Permits processing of health data via cloud services only where the provider holds a current BSI C5 attestation (C5-Typ1 until 2025-06-30, C5-Typ2 from 2025-07-01; a comparable or higher-security standard may substitute, as determined by the BMG together with the BSI). In force 2024-07-01.",
+            "notes": "Statutory mandate for BSI C5 in the German healthcare / statutory-health-insurance sector — this is the law that *references* C5, whereas C5 itself is the control catalogue. Cross-reference: the mandated control catalogue is secid:control/bsi.bund.de/c5 (AI companion: secid:control/bsi.bund.de/ai-c4). This law→control link will be formalized in the Relationships layer (SPEC §6); documented here in notes for now.",
+            "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html",
+            "examples": [
+              {"input": "§393", "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html"}
+            ]
+          }
+        }
+      ]
     }
   ]
 }
