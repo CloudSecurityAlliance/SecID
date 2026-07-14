@@ -205,6 +205,34 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "(?i)^a5$"
+      ],
+      "description": "AI Audit and Assurance Assessment Architecture (A5) — Community Draft",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Audit and Assurance Assessment Architecture (A5)",
+        "common_name": "A5",
+        "status": "draft",
+        "notes": "BSI's modular, expandable audit architecture for trustworthy AI systems — targets all actors along the AI value chain (providers, operators, overseers) and is broader in scope than AIC4, which is limited to AI cloud services. Provides both criteria and assessment methodology, structured per BSI's state-of-the-art library and published machine-readable in OSCAL; positioned against EU AI Act / Cyber Resilience Act requirements. Published July 2026 as a Community Draft for public comment (comments to aisecurity@bsi.bund.de until 2026-08-31); German only at the draft stage. BSI does not state A5 supersedes AIC4 — reconfirm that relationship on final publication. Provisionally classified as control (an OSCAL catalogue of criteria) alongside C5/AIC4; the methodology dimension may warrant a companion methodology entry once finalized.",
+        "urls": [
+          {"type": "website", "url": "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/A5/A5_node.html"},
+          {"type": "docs", "url": "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2026/260706_KI_A5-Community-Draft.html"}
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "community-draft-2026",
+            "release_date": "2026-07-06",
+            "status": "draft",
+            "note": "Community Draft; public comments until 2026-08-31. German only. Criteria published in OSCAL."
+          }
+        ],
+        "examples": []
+      }
     }
   ]
 }
