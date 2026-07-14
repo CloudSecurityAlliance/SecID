@@ -155,13 +155,16 @@
     {
       "patterns": [
         "(?i)^ai-?c4$",
-        "(?i)^aic4$"
+        "(?i)^c4-?ai$",
+        "(?i)^c4$"
       ],
-      "description": "AI Cloud Computing Compliance Criteria Catalogue (AIC4)",
+      "description": "AI Cloud Service Compliance Criteria Catalogue (AIC4)",
       "weight": 100,
       "data": {
-        "official_name": "AI Cloud Computing Compliance Criteria Catalogue (AIC4)",
-        "notes": "BSI's AI-specific companion to C5: attestation criteria for the security and trustworthiness of AI-based cloud services, attested under ISAE 3000 like C5. 40 audited criteria across 8 areas — PC (Preliminary Criteria), SR (Security & Robustness), PF (Performance & Functionality), RE (Reliability), DQ (Data Quality), DM (Data Management), EX (Explainability), BI (Bias). A separate General Conditions dimension (BC-01…BC-06) describes the AI service context rather than audited controls; BC-NN IDs share the DOMAIN-NN format. Area/BC codes and criterion format verified against BSI's official editable AIC4 workbook.",
+        "official_name": "AI Cloud Service Compliance Criteria Catalogue (AIC4)",
+        "common_name": "AIC4",
+        "alternate_names": ["AI-C4", "C4-AI", "C4"],
+        "notes": "BSI's AI-specific companion to C5: attestation criteria for the security and trustworthiness of AI-based cloud services, attested under ISAE 3000 like C5. Canonical abbreviation is AIC4; BSI's editable workbook files are named 'C4-AI' and the catalogue is informally shortened to 'C4', so aic4/ai-c4/c4-ai/c4 all resolve here. 40 audited criteria across 8 areas — PC (Preliminary Criteria), SR (Security & Robustness), PF (Performance & Functionality), RE (Reliability), DQ (Data Quality), DM (Data Management), EX (Explainability), BI (Bias). A separate General Conditions dimension (BC-01…BC-06) describes the AI service context rather than audited controls; BC-NN IDs share the DOMAIN-NN format. Area/BC codes and criterion format verified against BSI's official editable AIC4 workbook.",
         "urls": [
           {
             "type": "website",
