@@ -80,7 +80,7 @@
       "weight": 100,
       "data": {
         "official_name": "Cloud Computing Compliance Criteria Catalogue (C5)",
-        "notes": "Baseline security catalogue for cloud service providers, used as the basis for independent C5 attestation audits. Free download; copyright retained by BSI. Domain code IDM (Identity and Access Management) in C5:2020 was renamed IAM in C5:2026, which also added a new GC domain (\"General Conditions\" — CSP transparency/contractual disclosures, e.g. applicable law and recovery parameters; lives on its own \"C5_Conditions\" tab in the editable workbook, distinct from the audited-criteria \"C5_Criteria\" tab, but still addressed as GC-NN) and expanded several existing domains (e.g. CRY grew from 4 to 19 criteria). Domain examples for 2026 verified directly against BSI's official editable workbook (C5_2026_Editable_en.xlsx); confirmed BCM (Business Continuity Management) is correct — an earlier draft mistakenly carried a \"BC\" domain from a PDF text-extraction artifact, and \"BCS\" does not appear anywhere in the source. 2020 domain/criterion IDs verified only against extracted PDF text, not the 2020 editable workbook. General Conditions evolved across versions: C5:2020 numbered them BC-01…BC-06 on a separate sheet, whereas C5:2026 promoted General Conditions into the audited GC domain (GC-NN).",
+        "notes": "Baseline security catalogue for cloud service providers, used as the basis for independent C5 attestation audits. Free download; copyright retained by BSI. Domain code IDM (Identity and Access Management) in C5:2020 was renamed IAM in C5:2026, which also added a new GC domain (\"General Conditions\" — CSP transparency/contractual disclosures, e.g. applicable law and recovery parameters; lives on its own \"C5_Conditions\" tab in the editable workbook, distinct from the audited-criteria \"C5_Criteria\" tab, but still addressed as GC-NN) and expanded several existing domains (e.g. CRY grew from 4 to 19 criteria). Domain examples for 2026 verified directly against BSI's official editable workbook (C5_2026_Editable_en.xlsx); confirmed BCM (Business Continuity Management) is correct — an earlier draft mistakenly carried a \"BC\" domain from a PDF text-extraction artifact, and \"BCS\" does not appear anywhere in the source. 2020 domain/criterion IDs verified only against extracted PDF text, not the 2020 editable workbook. General Conditions evolved across versions: C5:2020 numbered them BC-01…BC-06, C5:2026 renumbers them GC-01…GC-06 — both on a separate Conditions sheet, not part of the audited criteria count. C5:2026 (document version 1.0.1) is licensed CC BY-ND 4.0.",
         "urls": [
           {
             "type": "website",
@@ -92,9 +92,9 @@
         "versions_available": [
           {
             "version": "2026",
-            "release_date": "2026-03-01",
+            "release_date": "2026-04-07",
             "status": "current",
-            "note": "168 criteria across 18 domains (AM, BCM, COM, COS, CRY, DEV, GC, HR, IAM, INQ, OIS, OPS, PI, PS, PSS, SIM, SP, SSO). Second substantive revision.",
+            "note": "Document version 1.0.1 (initial publication 1.0.0, 2026-04-07). 168 criteria across 17 audited domains (AM, BCM, COM, COS, CRY, DEV, HR, IAM, INQ, OIS, OPS, PI, PS, PSS, SIM, SP, SSO), expanded into 623 sub-criteria (Basic/Additional). Plus 6 General Conditions (GC-01…GC-06) on a separate sheet. Licensed CC BY-ND 4.0.",
             "urls": [
               {
                 "type": "document",
@@ -142,12 +142,12 @@
         },
         {
           "patterns": [
-            "^[A-Z]{2,4}-\\d{2}\\.\\d{2}[AB]?$"
+            "^[A-Z]{2,4}-\\d{2}\\.\\d{2}[A-Z]{1,2}$"
           ],
-          "description": "Supplementary criterion under a parent criterion, tagged Basic (B) or Additional (A) evidence — e.g. BCM-01.01B, AM-09.02A. Confirmed present in C5:2026's official editable workbook; not yet confirmed whether C5:2020 uses this same sub-numbering scheme.",
+          "description": "Sub-criterion under a parent criterion (C5:2026 only), suffixed by type: Basic (B), Additional/Complementing (AC), or Additional/Sharpening (AS) — e.g. OIS-01.01B, OIS-01.01AC, OIS-01.01AS. C5:2026's 168 criteria expand into 623 such sub-criteria (verified against BSI's official editable workbook C5_2026_editable.xlsx). C5:2020 has no sub-numbering.",
           "weight": 100,
           "data": {
-            "examples": ["BCM-01.01B", "AM-09.02A", "AM-01.01A"]
+            "examples": ["OIS-01.01B", "OIS-01.01AC", "OIS-01.01AS"]
           }
         }
       ]
@@ -178,7 +178,7 @@
             "version": "2021",
             "release_date": "2021-02-01",
             "status": "current",
-            "note": "First and current edition — 40 criteria across 8 areas (BI, DM, DQ, EX, PC, PF, RE, SR)."
+            "note": "First and current edition (published 2021-02; no document version number stated). 40 criteria across 8 areas (BI, DM, DQ, EX, PC, PF, RE, SR)."
           }
         ],
         "examples": ["SR-01", "DQ-03", "EX-02", "BI-01"]
@@ -228,7 +228,7 @@
             "version": "community-draft-2026",
             "release_date": "2026-07-06",
             "status": "draft",
-            "note": "Community Draft; public comments until 2026-08-31. German only. Criteria published in OSCAL.",
+            "note": "Community Draft, document version 0.9 (Basismodul dated 2026-06-30); public comments until 2026-08-31. German only. Criteria published in OSCAL.",
             "urls": [
               {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul.pdf?__blob=publicationFile&v=5", "lang": "de", "note": "Horizontal Trustworthiness baseline module (criteria) — PDF"},
               {"type": "bulk_data", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul_JSON.zip?__blob=publicationFile&v=3", "lang": "de", "note": "Horizontal Trustworthiness baseline module — OSCAL JSON (zip)"},
