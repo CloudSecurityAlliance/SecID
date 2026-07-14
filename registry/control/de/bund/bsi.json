@@ -216,7 +216,7 @@
         "official_name": "AI Audit and Assurance Assessment Architecture (A5)",
         "common_name": "A5",
         "status": "draft",
-        "notes": "BSI's modular, expandable audit architecture for trustworthy AI systems — targets all actors along the AI value chain (providers, operators, overseers) and is broader in scope than AIC4, which is limited to AI cloud services. Provides both criteria and assessment methodology, structured per BSI's state-of-the-art library and published machine-readable in OSCAL; positioned against EU AI Act / Cyber Resilience Act requirements. Published July 2026 as a Community Draft for public comment (comments to aisecurity@bsi.bund.de until 2026-08-31); German only at the draft stage. BSI does not state A5 supersedes AIC4 — reconfirm that relationship on final publication. Provisionally classified as control (an OSCAL catalogue of criteria) alongside C5/AIC4; the methodology dimension may warrant a companion methodology entry once finalized.",
+        "notes": "BSI's modular, expandable audit architecture for trustworthy AI systems — targets all actors along the AI value chain (providers, operators, overseers) and is broader in scope than AIC4, which is limited to AI cloud services. The draft ships as distinct modules, each published as a PDF plus machine-readable OSCAL JSON: a horizontal Trustworthiness baseline module (Basismodul, technology-/application-independent) and a Cloud-Infrastructure operational module (Betriebsmodul-Cloud-Infrastruktur), accompanied by a separate audit-methodology document (Prüfmethodik). Positioned against EU AI Act / Cyber Resilience Act requirements. Published July 2026 as a Community Draft for public comment (feedback via the Kommentierungstabelle to aisecurity@bsi.bund.de until 2026-08-31); German only at the draft stage. BSI does not state A5 supersedes AIC4 — reconfirm that relationship on final publication. Provisionally classified as control (OSCAL criteria modules) alongside C5/AIC4; the separate Prüfmethodik (methodology) may warrant a companion methodology entry once finalized.",
         "urls": [
           {"type": "website", "url": "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/A5/A5_node.html"},
           {"type": "docs", "url": "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2026/260706_KI_A5-Community-Draft.html"}
@@ -228,7 +228,15 @@
             "version": "community-draft-2026",
             "release_date": "2026-07-06",
             "status": "draft",
-            "note": "Community Draft; public comments until 2026-08-31. German only. Criteria published in OSCAL."
+            "note": "Community Draft; public comments until 2026-08-31. German only. Criteria published in OSCAL.",
+            "urls": [
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul.pdf?__blob=publicationFile&v=5", "lang": "de", "note": "Horizontal Trustworthiness baseline module (criteria) — PDF"},
+              {"type": "bulk_data", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul_JSON.zip?__blob=publicationFile&v=3", "lang": "de", "note": "Horizontal Trustworthiness baseline module — OSCAL JSON (zip)"},
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Betriebsmodul-Cloud-Infrastruktur.pdf?__blob=publicationFile&v=5", "lang": "de", "note": "Cloud-infrastructure operational module (criteria) — PDF"},
+              {"type": "bulk_data", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Betriebsmodul-Cloud-Infrastruktur_JSON.zip?__blob=publicationFile&v=4", "lang": "de", "note": "Cloud-infrastructure operational module — OSCAL JSON (zip)"},
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5-Pruefmethodik.pdf?__blob=publicationFile&v=4", "lang": "de", "note": "Prüfmethodik — audit methodology (PDF)"},
+              {"type": "docs", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Community_Draft_Kommentierungstabelle.xlsx?__blob=publicationFile&v=5", "lang": "de", "note": "Comment-submission form (feedback template — not criteria content)"}
+            ]
           }
         ],
         "examples": []
