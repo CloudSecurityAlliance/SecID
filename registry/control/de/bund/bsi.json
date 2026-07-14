@@ -71,6 +71,208 @@
         "versions_available": [],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "(?i)^c5$"
+      ],
+      "description": "Cloud Computing Compliance Criteria Catalogue (C5)",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Computing Compliance Criteria Catalogue (C5)",
+        "notes": "Baseline security catalogue for cloud service providers, used as the basis for independent C5 attestation audits. Free download; copyright retained by BSI. Domain code IDM (Identity and Access Management) in C5:2020 was renamed IAM in C5:2026, which also added a new GC domain (\"General Conditions\" — CSP transparency/contractual disclosures, e.g. applicable law and recovery parameters; lives on its own \"C5_Conditions\" tab in the editable workbook, distinct from the audited-criteria \"C5_Criteria\" tab, but still addressed as GC-NN) and expanded several existing domains (e.g. CRY grew from 4 to 19 criteria). Domain examples for 2026 verified directly against BSI's official editable workbook (C5_2026_Editable_en.xlsx); confirmed BCM (Business Continuity Management) is correct — an earlier draft mistakenly carried a \"BC\" domain from a PDF text-extraction artifact, and \"BCS\" does not appear anywhere in the source. 2020 domain/criterion IDs verified only against extracted PDF text, not the 2020 editable workbook. General Conditions evolved across versions: C5:2020 numbered them BC-01…BC-06, C5:2026 renumbers them GC-01…GC-06 — both on a separate Conditions sheet, not part of the audited criteria count. C5:2026 (document version 1.0.1) is licensed CC BY-ND 4.0.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html"
+          }
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "2026",
+            "release_date": "2026-04-07",
+            "status": "current",
+            "note": "Document version 1.0.1 (initial publication 1.0.0, 2026-04-07). 168 criteria across 17 audited domains (AM, BCM, COM, COS, CRY, DEV, HR, IAM, INQ, OIS, OPS, PI, PS, PSS, SIM, SP, SSO), expanded into 623 sub-criteria (Basic/Additional). Plus 6 General Conditions (GC-01…GC-06) on a separate sheet. Licensed CC BY-ND 4.0.",
+            "urls": [
+              {
+                "type": "document",
+                "url": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2026/C5_2026.pdf?__blob=publicationFile&v=7",
+                "parsability": "scraped"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-01-01",
+            "status": "superseded",
+            "note": "121 criteria. Domain set includes IDM (later renamed IAM in 2026) and no GC domain. Most existing third-party cross-mappings (ISO/IEC 27001, CSA CCM) target this version.",
+            "urls": [
+              {
+                "type": "document",
+                "url": "https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2020/C5_2020.pdf?__blob=publicationFile&v=3",
+                "parsability": "scraped"
+              }
+            ]
+          }
+        ],
+        "examples": ["OIS-01", "IAM-01", "CRY-04", "OPS-24", "GC-01"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2,4}$"
+          ],
+          "description": "Control domain (e.g., OIS, CRY, IAM/IDM, OPS, GC). Contains multiple criteria.",
+          "weight": 100,
+          "data": {
+            "examples": ["OIS", "CRY", "IAM", "OPS", "GC"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}-\\d{2}$"
+          ],
+          "description": "Specific criterion (e.g., OIS-01, CRY-05, OPS-24, GC-01).",
+          "weight": 100,
+          "data": {
+            "examples": ["OIS-01", "CRY-05", "OPS-24", "GC-01", "IDM-09"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}-\\d{2}\\.\\d{2}[A-Z]{1,2}$"
+          ],
+          "description": "Sub-criterion under a parent criterion (C5:2026 only), suffixed by type: Basic (B), Additional/Complementing (AC), or Additional/Sharpening (AS) — e.g. OIS-01.01B, OIS-01.01AC, OIS-01.01AS. C5:2026's 168 criteria expand into 623 such sub-criteria (verified against BSI's official editable workbook C5_2026_editable.xlsx). C5:2020 has no sub-numbering.",
+          "weight": 100,
+          "data": {
+            "examples": ["OIS-01.01B", "OIS-01.01AC", "OIS-01.01AS"]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "(?i)^ai-?c4$",
+        "(?i)^c4-?ai$",
+        "(?i)^c4$"
+      ],
+      "description": "AI Cloud Service Compliance Criteria Catalogue (AIC4)",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Cloud Service Compliance Criteria Catalogue (AIC4)",
+        "common_name": "AIC4",
+        "alternate_names": ["AI-C4", "C4-AI", "C4"],
+        "notes": "BSI's AI-specific companion to C5: attestation criteria for the security and trustworthiness of AI-based cloud services, attested under ISAE 3000 like C5. Canonical abbreviation is AIC4; BSI's editable workbook files are named 'C4-AI' and the catalogue is informally shortened to 'C4', so aic4/ai-c4/c4-ai/c4 all resolve here. 40 audited criteria across 8 areas — PC (Preliminary Criteria), SR (Security & Robustness), PF (Performance & Functionality), RE (Reliability), DQ (Data Quality), DM (Data Management), EX (Explainability), BI (Bias). A separate General Conditions dimension (BC-01…BC-06) describes the AI service context rather than audited controls; BC-NN IDs share the DOMAIN-NN format. Area/BC codes and criterion format verified against BSI's official editable AIC4 workbook.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/AIC4/aic4_node.html"
+          }
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-02-01",
+            "status": "current",
+            "note": "First and current edition (published 2021-02; no document version number stated). 40 criteria across 8 areas (BI, DM, DQ, EX, PC, PF, RE, SR)."
+          }
+        ],
+        "examples": ["SR-01", "DQ-03", "EX-02", "BI-01"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2}$"
+          ],
+          "description": "Criteria area (PC, SR, PF, RE, DQ, DM, EX, BI) or the General Conditions series (BC).",
+          "weight": 100,
+          "data": {
+            "examples": ["SR", "DQ", "EX", "BI", "DM", "PF", "RE", "PC", "BC"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2}-\\d{2}$"
+          ],
+          "description": "Specific criterion (e.g., SR-01, DQ-03, EX-02, BI-01), or General Conditions item (BC-01…BC-06).",
+          "weight": 100,
+          "data": {
+            "examples": ["SR-01", "DQ-03", "EX-02", "BI-01", "DM-04", "BC-03"]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "(?i)^a5$"
+      ],
+      "description": "AI Audit and Assurance Assessment Architecture (A5) — Community Draft",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Audit and Assurance Assessment Architecture (A5)",
+        "common_name": "A5",
+        "status": "draft",
+        "notes": "BSI's modular, expandable audit architecture for trustworthy AI systems — targets all actors along the AI value chain (providers, operators, overseers) and is broader in scope than AIC4, which is limited to AI cloud services. The draft ships as distinct modules, each published as a PDF plus machine-readable OSCAL JSON: a horizontal Trustworthiness baseline module (Basismodul, technology-/application-independent) and a Cloud-Infrastructure operational module (Betriebsmodul-Cloud-Infrastruktur), accompanied by a separate audit-methodology document (Prüfmethodik). Positioned against EU AI Act / Cyber Resilience Act requirements. Published July 2026 as a Community Draft for public comment (feedback via the Kommentierungstabelle to aisecurity@bsi.bund.de until 2026-08-31); German only at the draft stage. BSI does not state A5 supersedes AIC4 — reconfirm that relationship on final publication. Provisionally classified as control (OSCAL criteria modules) alongside C5/AIC4; the separate Prüfmethodik (methodology) may warrant a companion methodology entry once finalized.",
+        "urls": [
+          {"type": "website", "url": "https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/A5/A5_node.html"},
+          {"type": "docs", "url": "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2026/260706_KI_A5-Community-Draft.html"}
+        ],
+        "version_required": false,
+        "unversioned_behavior": "current_with_history",
+        "versions_available": [
+          {
+            "version": "community-draft-2026",
+            "release_date": "2026-07-06",
+            "status": "draft",
+            "note": "Community Draft, document version 0.9 (Basismodul dated 2026-06-30); public comments until 2026-08-31. German only. Criteria published in OSCAL.",
+            "urls": [
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul.pdf?__blob=publicationFile&v=5", "lang": "de", "note": "Horizontal Trustworthiness baseline module (criteria) — PDF"},
+              {"type": "bulk_data", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Horizontales-Trustworthiness-Basismodul_JSON.zip?__blob=publicationFile&v=3", "lang": "de", "note": "Horizontal Trustworthiness baseline module — OSCAL JSON (zip)"},
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Betriebsmodul-Cloud-Infrastruktur.pdf?__blob=publicationFile&v=5", "lang": "de", "note": "Cloud-infrastructure operational module (criteria) — PDF"},
+              {"type": "bulk_data", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Betriebsmodul-Cloud-Infrastruktur_JSON.zip?__blob=publicationFile&v=4", "lang": "de", "note": "Cloud-infrastructure operational module — OSCAL JSON (zip)"},
+              {"type": "document", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5-Pruefmethodik.pdf?__blob=publicationFile&v=4", "lang": "de", "note": "Prüfmethodik — audit methodology (PDF)"},
+              {"type": "docs", "url": "https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/KI/A5/A5_Community_Draft_Kommentierungstabelle.xlsx?__blob=publicationFile&v=5", "lang": "de", "note": "Comment-submission form (feedback template — not criteria content)"}
+            ]
+          }
+        ],
+        "examples": ["GCS.1.1", "GCS.2.5", "OPS.3.1"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[A-Z]{2,4}$"
+          ],
+          "description": "A5 group — GCS (Governance, Compliance & Scope), DEI (Design, Development & Integration), VAV (Verification & Validation), DEP (Deployment), OPS (Operations & Monitoring), RET (Retirement).",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS", "DEI", "VAV", "DEP", "OPS", "RET"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}\\.\\d+$"
+          ],
+          "description": "A5 subgroup (group.N), e.g. GCS.1 (Stakeholder & Impact Scoping).",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS.1", "GCS.2", "DEI.1", "OPS.3"]
+          }
+        },
+        {
+          "patterns": [
+            "^[A-Z]{2,4}\\.\\d+\\.\\d+$"
+          ],
+          "description": "A5 control / requirement (group.subgroup.N), e.g. GCS.1.1. Basismodul defines 57 controls; the Cloud-Infrastructure module adds cloud-specific controls (e.g. GCS.2.5). Verified against BSI's official OSCAL catalogs.",
+          "weight": 100,
+          "data": {
+            "examples": ["GCS.1.1", "GCS.2.4", "OPS.3.1", "RET.1.1", "GCS.2.5"]
+          }
+        }
+      ]
     }
   ]
 }
