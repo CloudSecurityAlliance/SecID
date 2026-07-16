@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ismap.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Control Criteria hierarchy (governance/management/controls tiers) added 2026-07-16 from the 2022-04-01 English reference translation. ISMAP-LIU (Low-Impact-Use) not yet covered as a separate source. License terms for the source document are unresolved (see CloudSecurityAlliance-DataSets TODO.md) so this entry cites the Japanese-government portal directly rather than a redistributed copy.",
+  "official_name": "Information system Security Management and Assessment Program",
+  "common_name": "ISMAP",
+  "alternate_names": [
+    "ISMAP-CSM",
+    "Information system Security Management and Assessment Program"
+  ],
+  "notes": "Japan's government cloud security assessment and registration program — the direct analogue to FedRAMP (US) or BSI C5 (Germany). Government agencies are, in principle, required to procure cloud services from the ISMAP Cloud Service List. Jointly operated by NISC, the Digital Agency, the Ministry of Internal Affairs and Communications (MIC), and the Ministry of Economy, Trade and Industry (METI). ISMAP-LIU (Low-Impact-Use), introduced 2022, is a streamlined variant for lower-risk SaaS and is not yet separately modeled here.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ismap.go.jp/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^control-criteria$"
+      ],
+      "description": "Control Criteria of ISMAP — governance, management, and controls tiers cloud service providers must implement to register on the ISMAP Cloud Service List",
+      "weight": 100,
+      "data": {
+        "official_name": "Control Criteria of ISMAP",
+        "notes": "Structured as Chapter 3 Governance criteria (JIS Q 27014 / ISO/IEC 27014:2013), Chapter 4 Management criteria (JIS Q 27001 / ISO/IEC 27001:2013), and Chapter 5 Controls criteria (JIS Q 27002 / ISO/IEC 27002:2013 domains 5-18, with ISO/IEC 27017:2015 cloud-specific additions marked by a .P/.B/.PB suffix on the control ID).",
+        "versions_available": ["2022-04-01"],
+        "version_required": false,
+        "urls": [
+          {
+            "type": "document",
+            "url": "https://www.ismap.go.jp/csm/sys_attachment.do?sys_id=bb71912b1b985910f18c65fa234bcb9f",
+            "parsability": "scraped",
+            "note": "English reference translation PDF. Original Japanese governs interpretation."
+          }
+        ],
+        "examples": ["control-criteria"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^\\d+(?:\\.\\d+){1,4}(?:\\.(?:PB|P|B))?$"
+          ],
+          "description": "Individual governance/management/controls-criteria item, e.g. 9.2.1 (base control, cross-references ISO/IEC 27002:2013), 9.2.3.11.PB (cloud-provider-specific sub-control layered from ISO/IEC 27017:2015 Annex A), or 3.1.2.1 (governance criteria item)",
+          "weight": 100,
+          "data": {
+            "notes": "IDs follow ISO/IEC 27002:2013 clause numbering for domains 5-18 (Chapter 5, Controls criteria); 3.x is Governance criteria; 4.x is Management criteria. A .P/.B/.PB suffix marks a cloud-specific sub-control (Provider-implemented / Baseline / both) layered on top of the base ISO clause. Full control text is only reproduced here for the cloud-specific additions — base-control text is defined by cross-reference to the copyrighted ISO/IEC 27001/27002/27014/27017 standards and is not included.",
+            "url": "https://www.ismap.go.jp/csm/sys_attachment.do?sys_id=bb71912b1b985910f18c65fa234bcb9f",
+            "examples": ["9.2.1", "9.2.3.11.PB", "3.1.2.1", "18.2.3"]
+          }
+        }
+      ]
+    }
+  ]
+}
