@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fsa.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entry only, no article subpaths.",
+  "official_name": "Financial Services Agency, Japan",
+  "common_name": "FSA",
+  "alternate_names": null,
+  "notes": "See also registry/control/jp/go/fsa.json for FSA's guideline-type publications (Cybersecurity Guidelines for the Financial Sector, Comprehensive Guidelines for Supervision of Major Banks) under the same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.fsa.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^payment-services-act$"],
+      "description": "Payment Services Act — payment/crypto-asset information security obligations",
+      "weight": 100,
+      "data": {
+        "official_name": "Payment Services Act",
+        "alternate_names": ["PSA", "Funds Settlement Act"],
+        "notes": "Act No. 59 of 2009, effective April 2010, most recently amended by Act No. 66 of 2025 (stablecoin/EPI provisions, effective June 2026). Chapters cover Prepaid Payment Instruments, Funds Transfer Services, Crypto-Asset Exchange, Electronic Payment Instruments (stablecoins), and Funds Transfer Transaction Clearing. Article 21 requires prepaid-instrument issuers to take measures against information leakage/loss/damage and ensure security management; Article 21-3 requires user-complaint handling and protection measures. Japan's core statute for data/security controls over consumer payment credentials, e-money, and virtual-currency custody.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3965", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."}
+        ],
+        "examples": ["payment-services-act"]
+      }
+    }
+  ]
+}

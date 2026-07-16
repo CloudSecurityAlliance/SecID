@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cryptrec.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Freely available at www.cryptrec.go.jp (note: the bare domain without 'www.' throws a TLS certificate mismatch — always use the www subdomain).",
+  "official_name": "CRYPTREC (Cryptography Research and Evaluation Committees)",
+  "common_name": "CRYPTREC",
+  "alternate_names": null,
+  "notes": "Jointly run by the Digital Agency, the Ministry of Internal Affairs and Communications (MIC), and METI. Defines Japan's government-approved cryptographic algorithms.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cryptrec.go.jp/en/list.html"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ciphers-list$"],
+      "description": "CRYPTREC Ciphers List — Japan's government-approved cryptographic algorithms",
+      "weight": 100,
+      "data": {
+        "official_name": "CRYPTREC Ciphers List",
+        "notes": "Three tiers: e-Government Recommended Ciphers List (31 classical specs + 6 post-quantum specs), Candidate Recommended Ciphers List (9 specs), Monitored Ciphers List (4 specs). Most recent revision March 30, 2026 (doc CRYPTREC LS-0001-2022R2); post-quantum cryptography algorithms now included. Foundational for crypto-agility and compliance assessments in cloud/IoT security.",
+        "urls": [
+          {"type": "document", "url": "https://www.cryptrec.go.jp/en/list.html", "note": "Ciphers List, English. Freely accessible."},
+          {"type": "document", "url": "https://www.cryptrec.go.jp/en/method.html", "note": "Specifications/breakdown, English."}
+        ],
+        "examples": ["ciphers-list"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fsa.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Both documents have official English translations freely published by the FSA itself, no paywall. PDF text extraction failed on this pass (binary/compressed streams) but the documents are confirmed to exist and be linked directly from FSA's own pages.",
+  "official_name": "Financial Services Agency, Japan",
+  "common_name": "FSA",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/jp/go/fsa.json (Payment Services Act) for the regulation-type file under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.fsa.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cybersecurity-guidelines-financial-sector$"],
+      "description": "Guidelines on Cybersecurity for the Financial Sector — core operational cybersecurity control catalogue for Japanese financial institutions",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines on Cybersecurity for the Financial Sector",
+        "notes": "Effective October 4, 2024, following public comment (June-July 2024) and coordinated with 16 revised sector-specific supervisory guidelines. Three sections: (1) Fundamental Principles, (2) Cybersecurity Management Posture (governance, identification, protection/defense, detection, response, recovery, third-party risk — NIST-CSF-like framing), (3) Cooperation between FSA and related organizations. Widely reported (via secondary sources, not independently verified against primary text) to contain ~176 discrete response items, each split into 'Fundamental/Basic response measures' vs. 'Recommended/Desirable response measures'. The core operational cybersecurity control catalogue for all Japanese financial institutions supervised by the FSA — banks, insurers, securities firms.",
+        "urls": [
+          {"type": "document", "url": "https://www.fsa.go.jp/common/law/cybersecurity_guideline_en.pdf", "note": "Official FSA English translation. Freely accessible; PDF text extraction failed in this pass."}
+        ],
+        "examples": ["cybersecurity-guidelines-financial-sector"]
+      }
+    },
+    {
+      "patterns": ["(?i)^supervision-major-banks$"],
+      "description": "Comprehensive Guidelines for Supervision of Major Banks, etc. — banking supervisory rulebook including cyber-incident reporting",
+      "weight": 100,
+      "data": {
+        "official_name": "Comprehensive Guidelines for the Supervision of Major Banks, etc.",
+        "notes": "First English preliminary-version translation published June 8, 2022; the Japanese original remains the only legally authoritative text. Content since amended (further amendments finalized October 2024 alongside the Cybersecurity Guidelines for the Financial Sector). A large multi-chapter bank-supervision manual; the cybersecurity-specific content sits in a dedicated subsection reported as III-3-7 'Cybersecurity', covering requirements to designate a cybersecurity-responsible manager, establish an incident-response/emergency organization, maintain multi-layered defenses, conduct periodic security assessments, and report cyber incidents to the FSA immediately upon awareness.",
+        "urls": [
+          {"type": "document", "url": "https://www.fsa.go.jp/common/law/guide/en_city.pdf", "note": "FSA-labeled 'preliminary version' English translation. Freely accessible; PDF text extraction failed in this pass."}
+        ],
+        "examples": ["supervision-major-banks"]
+      }
+    }
+  ]
+}

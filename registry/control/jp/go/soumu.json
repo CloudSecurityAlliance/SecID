@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "soumu.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Japanese only — no English translation located as of 2026-07-16.",
+  "official_name": "Ministry of Internal Affairs and Communications, Japan",
+  "common_name": "MIC",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/jp/go/soumu.json (Telecommunications Business Act) for the regulation-type file under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.soumu.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-security-guideline$"],
+      "description": "Guideline on Technical Measures for Ensuring AI Security — Japan's first dedicated technical AI-security guideline",
+      "weight": 100,
+      "data": {
+        "official_name": "Guideline on Technical Measures for Ensuring AI Security",
+        "notes": "Developed by MIC's AI Security Subcommittee starting September 2025. Draft published December 5, 2025; public comment ran December 26, 2025 - January 29, 2026 (52 comments received); subsequently finalized (status as of 2026-07-16: finalized, not still draft, superseding the earlier 'draft' framing). Focuses on concrete technical measures AI developers/operators should implement against AI-specific cybersecurity threats: unauthorized/malicious output generation, system malfunction, and confidential-information leakage via manipulation of AI systems. Distinct from the broader AI Guidelines for Business (secid:control/meti.go.jp/ai-business-guidelines) in being technical/security-specific rather than general AI-governance principles. Japanese-only; no English translation located.",
+        "urls": [
+          {"type": "website", "url": "https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00282.html", "note": "Finalized-guideline announcement page."},
+          {"type": "website", "url": "https://www.soumu.go.jp/menu_news/s-news/02cyber01_04000001_00337.html", "note": "Original public-comment announcement (draft stage)."}
+        ],
+        "examples": ["ai-security-guideline"]
+      }
+    }
+  ]
+}

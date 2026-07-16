@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "soumu.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entry only, no article subpaths.",
+  "official_name": "Ministry of Internal Affairs and Communications, Japan",
+  "common_name": "MIC",
+  "alternate_names": null,
+  "notes": "See also registry/control/jp/go/soumu.json for MIC's AI Security Guideline (a control-type document under the same namespace).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.soumu.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^telecommunications-business-act$"],
+      "description": "Telecommunications Business Act — Japan's secrecy-of-communications guarantee for carriers/ISPs",
+      "weight": 100,
+      "data": {
+        "official_name": "Telecommunications Business Act",
+        "notes": "Act No. 86 of 1984, heavily amended (most recently for 2022/2023 cookie-consent-style amendments). Large act (200+ articles): Chapter I General Provisions (Art. 1-5, includes Art. 4 secrecy-of-communications guarantee and Art. 3 no-censorship provision) and Chapter II Telecommunications Business (Art. 6-40+, registration and business conduct), plus further chapters on facilities, dispute resolution, penalties. Article 4's secrecy guarantee is the primary legal constraint on carriers/ISPs inspecting, retaining, or disclosing traffic content or metadata — directly relevant to lawful-intercept limits, deep packet inspection, and threat-monitoring programs, and explicitly implicated by the Active Cyber Defense Act's communications-monitoring provisions (secid:regulation/cyber.go.jp/basic-act-cybersecurity).",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3390", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."},
+          {"type": "alternate_official", "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/Resources/laws/pdf/090204_2.pdf", "note": "MIC-hosted English PDF, likely an older/possibly outdated version; not fetch-tested."}
+        ],
+        "examples": ["telecommunications-business-act"]
+      }
+    }
+  ]
+}

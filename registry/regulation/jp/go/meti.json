@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meti.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entries only, no article subpaths. meti.go.jp returned HTTP 403 to every automated fetch attempted during research (2026-07-16), including plain HTML pages — appears to be domain-wide bot/WAF protection, not a genuine block on humans.",
+  "official_name": "Ministry of Economy, Trade and Industry, Japan",
+  "common_name": "METI",
+  "alternate_names": null,
+  "notes": "See also registry/control/jp/go/meti.json for METI's guideline-type publications (Cybersecurity Management Guidelines, AI Business Guidelines, supply-chain guidance) under the same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.meti.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^unfair-competition-prevention$"],
+      "description": "Unfair Competition Prevention Act — Japan's primary trade-secret protection statute",
+      "weight": 100,
+      "data": {
+        "official_name": "Unfair Competition Prevention Act",
+        "alternate_names": ["UCPA"],
+        "notes": "Act No. 47 of 1993 (as amended). 9 chapters, 40 articles: I General Provisions (Arts. 1-2, incl. trade-secret definition), II Injunctions/Damages (3-15), III International-Agreement Prohibited Acts (16-18), IV Miscellaneous (19-20), V Penal Provisions (21-22, criminal trade-secret theft up to 10 years/JPY20M fine), VI Criminal Procedure Special Provisions (23-31), VII Confiscation Procedures (32-34), VIII Preservation Proceedings (35-36), IX International Mutual Legal Assistance (37-40). The primary civil/criminal statute for trade-secret theft — covers unauthorized acquisition/use/disclosure of confidential business/technical information, directly relevant to insider exfiltration and industrial-espionage cyber incidents.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4709", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."},
+          {"type": "third_party_mirror", "url": "https://www.wipo.int/wipolex/en/legislation/details/19229", "note": "WIPO Lex mirror; fetched but content wasn't text-extractable in this pass."}
+        ],
+        "examples": ["unfair-competition-prevention"]
+      }
+    },
+    {
+      "patterns": ["(?i)^installment-sales$"],
+      "description": "Installment Sales Act — credit card number protection provisions",
+      "weight": 100,
+      "data": {
+        "official_name": "Installment Sales Act",
+        "alternate_names": ["ISA"],
+        "notes": "Act No. 159 of 1961 (last amended Act No. 64 of 2020). Chapter III-4 'Proper Management of Credit Card Numbers' (Arts. 35-16 to ~35-17-15) mandates merchants/acquirers manage and protect card-number data — Japan's statutory basis (alongside PCI DSS industry self-regulation) for mandatory credit-card-number security management, directly relevant to payment-card-data breach prevention.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4499/en", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."}
+        ],
+        "examples": ["installment-sales"]
+      }
+    }
+  ]
+}

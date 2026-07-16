@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meti.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "meti.go.jp returned HTTP 403 to every automated fetch attempted during research (2026-07-16), including plain HTML pages, across /english/press/, /policy/, and /shingikai/ paths — appears to be domain-wide bot/WAF protection; pages are publicly indexed and human-browsable.",
+  "official_name": "Ministry of Economy, Trade and Industry, Japan",
+  "common_name": "METI",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/jp/go/meti.json (Unfair Competition Prevention Act, Installment Sales Act) for the regulation-type file under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.meti.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cybersecurity-management-guidelines$"],
+      "description": "Cybersecurity Management Guidelines — executive/CISO-level cybersecurity governance guidance",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybersecurity Management Guidelines",
+        "alternate_names": ["CMG", "CSM Guidelines"],
+        "notes": "Jointly issued by METI and IPA. First issued 2015; current Ver. 3.0 issued March 2023. Built around 3 principles management must recognize (own-initiative promotion; supply-chain-wide attention; proactive stakeholder communication) and 10 important items CISOs should direct (risk-management system, resourcing, risk identification/response planning, supply-chain security, incident response, stakeholder communication). Japan's flagship executive-level cybersecurity governance framework, widely cited alongside NIST CSF and ISO 27001 in Japanese compliance work.",
+        "urls": [
+          {"type": "document", "url": "https://www.meti.go.jp/policy/netsecurity/downloadfiles/CSM_Guideline_v3.0_en.pdf", "note": "English version, titled 'for Japanese Enterprise Executives'. Blocked (HTTP 403) to automated fetch as of 2026-07-16; freely available to human browsers, not paywalled."}
+        ],
+        "examples": ["cybersecurity-management-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^ai-business-guidelines$"],
+      "description": "AI Guidelines for Business — Japan's central soft-law AI governance instrument",
+      "weight": 100,
+      "data": {
+        "official_name": "AI Guidelines for Business",
+        "notes": "Jointly issued by METI and MIC. Ver 1.0 released April 19, 2024; updated to Ver 1.1 around March 2025. Organized around 10 cross-sector guiding principles (human-centricity, safety, fairness, privacy, security, transparency, accountability, education/literacy, fair competition, innovation) in a foundational-values/principles/practical-tools three-tier structure, consolidating the 2019 Cabinet Office Social Principles of Human-Centric AI, 2021 METI AI Governance Guidelines, and 2019 MIC AI R&D/Utilisation Guidelines. Sets expectations for AI developer/provider/user security and safety practices.",
+        "urls": [
+          {"type": "document", "url": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20240419_14.pdf", "note": "Ver 1.1 provisional English translation. Blocked (HTTP 403) to automated fetch as of 2026-07-16; freely available to human browsers."}
+        ],
+        "examples": ["ai-business-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^supply-chain-partnership$"],
+      "description": "Toward Building Partnerships with Business Partners to Enhance Cybersecurity Across the Entire Supply Chain",
+      "weight": 100,
+      "data": {
+        "official_name": "Toward Building Partnerships with Business Partners to Enhance Cybersecurity Across the Entire Supply Chain",
+        "notes": "Jointly issued by METI and the Japan Fair Trade Commission (JFTC), October 28, 2022; supplemented December 2025 with additional case-based Q&A guidance. Addresses how ordering companies can request/support suppliers' cybersecurity measures without violating the Antimonopoly Act or Subcontract Act — flags three risk areas: unilateral pricing, cost-burden requests for security measures, and forced purchase/use of specific tools. Governs the legal/contractual mechanics of supply-chain cybersecurity requirements between large enterprises and SME suppliers. Japanese-only; no English version located.",
+        "urls": [
+          {"type": "document", "url": "https://www.jftc.go.jp/dk/guideline/unyoukijun/cyber_security/cyber_security_02.pdf", "note": "Original document (Japanese only). JFTC hosting was not confirmed blocked; meti.go.jp mirror returned HTTP 403."}
+        ],
+        "examples": ["supply-chain-partnership"]
+      }
+    },
+    {
+      "patterns": ["(?i)^scs-evaluation-system$"],
+      "description": "Security Measures Evaluation System for Supply Chain Strengthening — forthcoming tiered supply-chain security certification",
+      "weight": 90,
+      "data": {
+        "official_name": "Security Measures Evaluation System for Strengthening Supply Chains",
+        "alternate_names": ["SCS Evaluation System"],
+        "notes": "METI, jointly with the Cabinet Secretariat's National Cybersecurity Office. Timeline: interim report April 14, 2025 -> draft 'System Construction Policy' for public comment December 26, 2025 -> finalized System Construction Policy published March 27, 2026. Tiered star-3/star-4/star-5 assessment based on supply-chain importance/connectivity, self-assessment (with expert verification) or third-party evaluation; explicitly targets IT infrastructure including cloud environments. Full operational launch now targeted around end of FY2026 (Jan-Mar 2027); FY2026 used for demonstration projects and platform build-out. Designed to complement SECURITY ACTION (star-1/star-2, see registry/control/jp/go/ipa.json), JAMA/JAPIA automotive cybersecurity guidelines, and ISMS certification. Status: not yet operational — revisit once finalized assessment criteria are published.",
+        "urls": [
+          {"type": "website", "url": "https://www.meti.go.jp/policy/netsecurity/scs.html", "note": "Overview page. Blocked (HTTP 403) to automated fetch as of 2026-07-16; freely available to human browsers."},
+          {"type": "document", "url": "https://www.meti.go.jp/english/press/2025/0414_003.html", "note": "English interim-report coverage (April 2025) — the finalized March 2026 construction policy has no English coverage yet."}
+        ],
+        "examples": ["scs-evaluation-system"]
+      }
+    }
+  ]
+}

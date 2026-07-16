@@ -3,11 +3,11 @@
   "namespace": "cyber.go.jp",
   "type": "regulation",
   "status": "draft",
-  "status_notes": "Source-level entry only — no article subpaths. The authoritative English translation (japaneselawtranslation.go.jp/en/laws/view/3677/en) returns HTTP 403 to both plain HTTP fetches and a real browser (Playwright), even with browser-realistic headers; appears to be a network/WAF-level block rather than a JS-rendering issue. Structure below is sourced from secondary legal-summary sources (ICLG, Chambers Global Practice Guides), not the primary text. Revisit if the official translation becomes reachable.",
-  "official_name": "Basic Act on Cybersecurity",
-  "common_name": "Basic Act on Cybersecurity (BAC)",
-  "alternate_names": ["Cybersecurity Basic Act"],
-  "notes": "Japan's foundational cybersecurity law, enacted November 2014 (Act No. 104 of 2014), effective January 2015. Establishes the Cybersecurity Strategic Headquarters (CSHQ) within the Cabinet, requires the government to formulate a Cybersecurity Strategy, defines 'cybersecurity' for purposes of Japanese law, and sets out (non-detailed) obligations for the national government, local governments, critical information infrastructure operators, cyberspace-related business operators, and universities/research institutions to make efforts toward cybersecurity. It does not impose direct technical requirements on most businesses — those come from sector-specific guidelines issued under its authority (e.g. the FSA's financial-sector cybersecurity guidelines, METI/IPA's Cybersecurity Management Guidelines). The National Center of Incident Readiness and Strategy for Cybersecurity (NISC) served as the CSHQ's secretariat from 2015; per the Cybersecurity Capability Enhancement Act (May 2025, effective from Oct 2026 for most provisions), NISC was reorganized into the National Cybersecurity Office (NCO) in July 2025, headed by a National Cyber Director. The Common Standards for Cybersecurity Measures of Governmental Entities (CSHQ/NCO) is issued under Article 26(1) of this Act as the government-agency security baseline (structurally analogous to a FedRAMP moderate baseline for federal agencies rather than cloud vendors).",
+  "status_notes": "Source-level entries only — no article subpaths. Official translations (japaneselawtranslation.go.jp) return HTTP 403 to both plain HTTP fetches and a real browser (Playwright), even with browser-realistic headers; appears to be a network/WAF-level block rather than a JS-rendering issue. Structure below is sourced from secondary legal-summary sources (ICLG, Chambers Global Practice Guides), not the primary text. Revisit if the official translation becomes reachable.",
+  "official_name": "National Cybersecurity Office (NCO)",
+  "common_name": "NCO",
+  "alternate_names": ["NISC (predecessor name, 2015-2025)"],
+  "notes": "See also registry/entity/jp/go/cyber.json (the NCO/NISC organization itself) and registry/control/jp/go/cyber.json (its control-type publications: Common Standards for Government Entities, Cybersecurity Policy for Critical Infrastructure Protection) for the other type-specific files under this same namespace. This regulation file covers the two laws administered through the NCO/Cybersecurity Strategic Headquarters: the Basic Act on Cybersecurity and the Active Cyber Defense Act.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -35,6 +35,21 @@
           }
         ],
         "examples": ["basic-act-cybersecurity"]
+      }
+    },
+    {
+      "patterns": ["(?i)^active-cyber-defense-act$"],
+      "description": "Active Cyber Defense Act — Japan's first proactive/active cyber-defense law",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on Prevention of Damage Caused by Unauthorized Acts Against Important Computers",
+        "alternate_names": ["Active Cyber Defense Act", "Cyber Response Capability Enhancement Act", "ACD Law"],
+        "notes": "Act No. 42 of Reiwa 7 (2025). Promulgated/enacted May 2025; general provisions took effect July 1, 2025, with core incident-reporting obligations expected around October 1, 2026 and full operational deployment targeted FY2027. A companion 'arrangement act' (Act No. 43 of 2025) amends related laws, including interplay with the Telecommunications Business Act's secrecy-of-communications guarantee (secid:regulation/soumu.go.jp/telecommunications-business-act). Four main components: (1) government authority to acquire/analyze communications data for threat detection, (2) mandatory incident reporting by 'Special Social Infrastructure Operators' / critical-infrastructure operators, (3) public-private information-sharing agreements, (4) government authority to counter-access and neutralize attacker infrastructure, under new oversight by a Cyber Communications Information Management Committee (established April 2026). Japan's first 'active defense' law — structurally comparable to the EU's NIS2 Directive in its reporting-obligation scope, but distinct in authorizing government network monitoring and counter-access.",
+        "urls": [
+          {"type": "official_japanese", "url": "https://laws.e-gov.go.jp/law/507AC0000000042", "note": "No official English statutory translation located as of 2026-07-16 (too recently enacted); japaneselawtranslation.go.jp does not yet list it."},
+          {"type": "secondary_summary", "url": "https://practiceguides.chambers.com/practice-guides/cybersecurity-2026/japan/trends-and-developments", "note": "Law-firm practice guide summary — fetched successfully, no block."}
+        ],
+        "examples": ["active-cyber-defense-act"]
       }
     }
   ]

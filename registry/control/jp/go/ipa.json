@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ipa.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "ipa.go.jp was not blocked in research (2026-07-16) — all documents below fetched successfully. English currency varies by document; see individual notes.",
+  "official_name": "Information-technology Promotion Agency, Japan",
+  "common_name": "IPA",
+  "alternate_names": ["Information-technology Promotion Agency (also styled 'IPA Innovation Platform Agency, Japan' on its current site)"],
+  "notes": "IPA operates several distinct programs registered here as separate match_nodes: SME security guidance, insider-threat guidance, the JC-STAR IoT labeling scheme, the JISEC Common Criteria scheme, and the J-CSIP threat-information-sharing partnership.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.ipa.go.jp/en/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^sme-security-guidelines$"],
+      "description": "Information Security Measures Guidelines for Small and Medium-sized Enterprises, and the SECURITY ACTION self-declaration program",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Security Measures Guidelines for Small and Medium-sized Enterprises",
+        "notes": "Originally published 2009. Current Japanese edition is v4.0 (March 2026); the English translation is v3.1 (older, not yet updated to v4.0). Main guideline body + Appendix 1 ('5 To-dos') + Appendix 2 ('5-Minute Self-Assessment'). SECURITY ACTION (launched April 2017) is a two-tier self-declaration program: One-Star (declare the 5 To-dos) and Two-Star (self-assessment + documented policy). Baseline cyber-hygiene framework for Japan's SME population and a gateway credential for IT-subsidy eligibility.",
+        "urls": [
+          {"type": "document", "url": "https://www.ipa.go.jp/en/about/activities/gg62ps000000103j-att/Information_Security_Measures_Guidelines_for_Small_and_Medium-sized_Enterprises_Version_3-1.pdf", "note": "English v3.1 (outdated vs. current Japanese v4.0). Freely accessible."},
+          {"type": "website", "url": "https://www.ipa.go.jp/en/about/activities/security-action.html", "note": "SECURITY ACTION program overview, English."}
+        ],
+        "examples": ["sme-security-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^insider-breach-guidelines$"],
+      "description": "Guidelines for the Prevention of Internal Improprieties in Organizations — insider-threat control design",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines for the Prevention of Internal Improprieties in Organizations",
+        "notes": "Originally published 2013. Current Japanese edition is v5 (April 2022); English translation is only v3.0 (older). v5 covers 33 concrete countermeasures across 10 perspectives (basic policy, asset management, technical controls, workplace environment, post-incident response, etc.), plus case studies, a 33-item checklist, and Q&A appendices. Addresses telework, employment mobility, and Personal Information Protection Act/Unfair Competition Prevention Act amendments. Directly addresses insider-threat control design (access management, data-handling, monitoring).",
+        "urls": [
+          {"type": "website", "url": "https://www.ipa.go.jp/security/guide/insider.html", "note": "Landing page linking both the current Japanese v5 and the older English v3.0."}
+        ],
+        "examples": ["insider-breach-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^jc-star$"],
+      "description": "JC-STAR (Japan Cyber-Security Technical Assessment Requirements) — IoT product security labeling scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "Japan Cyber-Security Technical Assessment Requirements",
+        "alternate_names": ["JC-STAR", "Japan Cyber STAR"],
+        "notes": "Established per METI's August 2024 policy; officially launched September 30, 2024; STAR-1 applications opened March 25, 2025; STAR-3 requirements released July 2026. Mutual recognition with Singapore's Cybersecurity Labelling Scheme (CLS) began June 1, 2026. Four conformance levels: STAR-1 (baseline, self-declared), STAR-2 (category-specific, self-declared), STAR-3 (third-party evaluated, for procurement/critical use), STAR-4 (highest tier, government/critical infrastructure). Labels carry a 2D barcode linking to product/security info. Harmonized with ETSI EN 303 645 and NIST IR 8425.",
+        "urls": [
+          {"type": "website", "url": "https://www.ipa.go.jp/en/security/jc-star/index.html", "note": "Overview, English. Freely accessible."},
+          {"type": "document", "url": "https://www.ipa.go.jp/en/security/jc-star/tekigou-kizyun-guide/label1/s6ckaf000000ggej-att/STAR-1_Conformance_Requirements_and_Assessment_Methods.pdf", "note": "STAR-1 conformance requirements, English."}
+        ],
+        "examples": ["jc-star"]
+      }
+    },
+    {
+      "patterns": ["(?i)^jisec$"],
+      "description": "JISEC (Japan IT Security Evaluation and Certification Scheme) — Common Criteria national scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "IT Security Evaluation and Certification Scheme",
+        "alternate_names": ["JISEC"],
+        "notes": "IPA acts as the sole Certification Body; NITE (National Institute of Technology and Evaluation) is the Accreditation Body (accredits evaluation facilities per JIS Q 17025); three commercial Evaluation Facilities (ITSC, ECSEC, TUViT) perform evaluations. Based on ISO/IEC 15408 (Common Criteria); certifies software (since 2001), hardware, and Protection Profiles. Japan joined CCRA as a Certificate Authorizing Participant in October 2003. Scheme documents (CCS-01, CCM-01) revised September 2025.",
+        "urls": [
+          {"type": "website", "url": "https://www.ipa.go.jp/en/security/jisec/index.html", "note": "Main page, English. Freely accessible."},
+          {"type": "website", "url": "https://www.ipa.go.jp/en/security/jisec/scheme_jisec.html", "note": "Scheme overview, English."}
+        ],
+        "examples": ["jisec"]
+      }
+    },
+    {
+      "patterns": ["(?i)^j-csip$"],
+      "description": "J-CSIP (Initiative for Cyber Security Information Sharing Partnership of Japan) — public-private threat-intelligence sharing partnership",
+      "weight": 90,
+      "data": {
+        "official_name": "Initiative for Cyber Security Information Sharing Partnership of Japan",
+        "alternate_names": ["J-CSIP"],
+        "notes": "Founded October 25, 2011, in cooperation with METI, centered on critical-infrastructure equipment manufacturers. Per secondary sources (not independently verified via an English primary source): 14 Special Interest Groups (SIGs), 306 participating organizations, plus 3 information-coordination systems; IPA acts as the central information-sharing hub, with NDAs allowing anonymized threat-info sharing. Documentation status: English-limited — only a single brief overview page exists in English (bundled with the related J-CRAT program); detailed annual reports and SIG lists are Japanese-only.",
+        "urls": [
+          {"type": "website", "url": "https://www.ipa.go.jp/en/about/activities/jcsip-jcrat.html", "note": "The only English-language page found for this program."}
+        ],
+        "examples": ["j-csip"]
+      }
+    }
+  ]
+}
