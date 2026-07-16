@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.go.jp",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "National Cybersecurity Office",
+  "common_name": "NCO",
+  "alternate_names": [
+    "National Center of Incident Readiness and Strategy for Cybersecurity",
+    "NISC (predecessor name, in use 2015-2025)"
+  ],
+  "notes": "Japan's central cybersecurity policy coordination body and government CERT. Serves as secretariat of the Cybersecurity Strategic Headquarters (CSHQ), a Cabinet body established under the Basic Act on Cybersecurity (secid:regulation/cyber.go.jp/basic-act-cybersecurity). Monitors/analyzes threats to government information systems, publishes the national Cybersecurity Strategy and the Common Standards for Cybersecurity Measures of Governmental Entities, and coordinates with JPCERT/CC (which handles private-sector incident response) to form Japan's national CERT structure. Originally established 2005 as the National Information Security Center; took its NISC form in 2015 alongside the Basic Act on Cybersecurity; reorganized into the National Cybersecurity Office (NCO), headed by a National Cyber Director, in July 2025 following the Cybersecurity Capability Enhancement Act (May 2025). The legacy nisc.go.jp domain remains live as an archive.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cyber.go.jp/eng/"
+    },
+    {
+      "type": "predecessor_archive",
+      "url": "https://www.nisc.go.jp/eng/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^nco$"
+      ],
+      "description": "National Cybersecurity Office — Japan's central cybersecurity policy body and government CERT (successor to NISC, July 2025)",
+      "weight": 100,
+      "data": {
+        "official_name": "National Cybersecurity Office",
+        "notes": "Headed by the National Cyber Director. Secretariat of the Cybersecurity Strategic Headquarters.",
+        "urls": [
+          {"type": "website", "url": "https://www.cyber.go.jp/eng/"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^nisc$"
+      ],
+      "description": "National Center of Incident Readiness and Strategy for Cybersecurity — predecessor name of the NCO (2015-2025)",
+      "weight": 90,
+      "data": {
+        "official_name": "National Center of Incident Readiness and Strategy for Cybersecurity",
+        "notes": "Reorganized into the National Cybersecurity Office (NCO) in July 2025. Kept as a separate, lower-weight match_node since 'NISC' remains the name widely used in pre-2025 sources and citations.",
+        "urls": [
+          {"type": "website", "url": "https://www.nisc.go.jp/eng/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
