@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entry only — no article subpaths. The authoritative English translation (japaneselawtranslation.go.jp/en/laws/view/3677/en) returns HTTP 403 to both plain HTTP fetches and a real browser (Playwright), even with browser-realistic headers; appears to be a network/WAF-level block rather than a JS-rendering issue. Structure below is sourced from secondary legal-summary sources (ICLG, Chambers Global Practice Guides), not the primary text. Revisit if the official translation becomes reachable.",
+  "official_name": "Basic Act on Cybersecurity",
+  "common_name": "Basic Act on Cybersecurity (BAC)",
+  "alternate_names": ["Cybersecurity Basic Act"],
+  "notes": "Japan's foundational cybersecurity law, enacted November 2014 (Act No. 104 of 2014), effective January 2015. Establishes the Cybersecurity Strategic Headquarters (CSHQ) within the Cabinet, requires the government to formulate a Cybersecurity Strategy, defines 'cybersecurity' for purposes of Japanese law, and sets out (non-detailed) obligations for the national government, local governments, critical information infrastructure operators, cyberspace-related business operators, and universities/research institutions to make efforts toward cybersecurity. It does not impose direct technical requirements on most businesses — those come from sector-specific guidelines issued under its authority (e.g. the FSA's financial-sector cybersecurity guidelines, METI/IPA's Cybersecurity Management Guidelines). The National Center of Incident Readiness and Strategy for Cybersecurity (NISC) served as the CSHQ's secretariat from 2015; per the Cybersecurity Capability Enhancement Act (May 2025, effective from Oct 2026 for most provisions), NISC was reorganized into the National Cybersecurity Office (NCO) in July 2025, headed by a National Cyber Director. The Common Standards for Cybersecurity Measures of Governmental Entities (CSHQ/NCO) is issued under Article 26(1) of this Act as the government-agency security baseline (structurally analogous to a FedRAMP moderate baseline for federal agencies rather than cloud vendors).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cyber.go.jp/eng/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^basic-act-cybersecurity$"
+      ],
+      "description": "Basic Act on Cybersecurity — Japan's foundational cybersecurity law",
+      "weight": 100,
+      "data": {
+        "official_name": "Basic Act on Cybersecurity",
+        "common_name": "Basic Act on Cybersecurity (BAC)",
+        "notes": "Act No. 104 of 2014, effective January 2015. Establishes the Cybersecurity Strategic Headquarters, mandates a national Cybersecurity Strategy, and authorizes the Common Standards for Cybersecurity Measures of Governmental Entities (Article 26(1)). Full-text article-level structure not yet extracted (see status_notes on the parent namespace).",
+        "urls": [
+          {
+            "type": "official_translation",
+            "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3677/en",
+            "note": "Returns HTTP 403 to automated and browser-based fetches as of 2026-07-16."
+          }
+        ],
+        "examples": ["basic-act-cybersecurity"]
+      }
+    }
+  ]
+}
