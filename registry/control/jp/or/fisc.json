@@ -24,17 +24,57 @@
       "description": "FISC Security Guidelines for Financial Institutions",
       "weight": 100,
       "data": {
-        "official_name": "FISC Security Guidelines on Computer Systems for Banking and Related Financial Institutions",
-        "notes": "Members-only / paid. The dominant security framework for Japanese FIs; periodically revised.",
+        "official_name": "FISC Security Guidelines on Computer Systems for Financial Institutions",
+        "notes": "Members-only / paid — the primary text is not freely available (13th edition published November 2025; a companion FISC System Audit Guidelines, 2nd edition, published June 2025). The dominant security framework for Japanese banks and financial institutions, developed jointly with the Financial Services Agency (FSA) and the Bank of Japan. Comprises roughly 300 individual controls across three category groups; a third-party mapping (Open Security Architecture, opensecurityarchitecture.org/frameworks/fisc/) describes these as Facility Standards, Operational Standards, and Technical Standards, cross-walked to NIST SP 800-53 — but that mapping is unofficial and its exact clause numbering has not been verified against FISC's own (paywalled) text. Children below use that category grouping as a coarse, low-confidence starting point.",
         "urls": [
           {
             "type": "website",
             "url": "https://www.fisc.or.jp"
+          },
+          {
+            "type": "third_party_mapping",
+            "url": "https://www.opensecurityarchitecture.org/frameworks/fisc/",
+            "note": "Unofficial community mapping to NIST SP 800-53 — not FISC's own text."
           }
         ],
-        "versions_available": [],
-        "examples": []
-      }
+        "versions_available": ["13th edition (2025-11)"],
+        "examples": ["security-guidelines"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "(?i)^facility-standards$"
+          ],
+          "description": "Facility Standards — physical security: data centers, environmental controls, equipment maintenance, media handling, recovery facilities",
+          "weight": 80,
+          "data": {
+            "notes": "Category grouping per third-party (OSA) mapping, not verified against FISC's own paywalled clause numbering. Confidence: low.",
+            "examples": []
+          }
+        },
+        {
+          "patterns": [
+            "(?i)^operational-standards$"
+          ],
+          "description": "Operational Standards — IT governance, monitoring, change management, incident response, business continuity, outsourcing, audit, personnel security",
+          "weight": 80,
+          "data": {
+            "notes": "Category grouping per third-party (OSA) mapping, not verified against FISC's own paywalled clause numbering. Confidence: low.",
+            "examples": []
+          }
+        },
+        {
+          "patterns": [
+            "(?i)^technical-standards$"
+          ],
+          "description": "Technical Standards — system design, access control, network architecture, cryptography, database/application security, cloud computing",
+          "weight": 80,
+          "data": {
+            "notes": "Category grouping per third-party (OSA) mapping, not verified against FISC's own paywalled clause numbering. Confidence: low.",
+            "examples": []
+          }
+        }
+      ]
     }
   ]
 }
