@@ -27,7 +27,7 @@
         "official_name": "Act on the Protection of Personal Information",
         "common_name": "APPI",
         "alternate_names": null,
-        "description": "Japan's primary data protection statute; last amended 2022.",
+        "description": "Japan's primary data protection statute, originally enacted 2003, most recently amended 2020/2022. 8 chapters, Articles 1-88.",
         "notes": "",
         "urls": [
           {
@@ -35,13 +35,43 @@
             "url": "https://www.ppc.go.jp/en/legal/"
           }
         ],
-        "examples": [
-          {
-            "input": "appi",
-            "note": ""
+        "examples": ["appi"]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^art-\\d+(-\\d+)?$"
+          ],
+          "description": "APPI article reference (e.g. art-20, art-16-2). Hyphenated numbers (e.g. art-58-2) are supplementary articles inserted between existing ones by later amendments.",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ppc.go.jp/en/legal/",
+            "notes": "No stable per-article anchor URL is published; the URL resolves to the full Act. Structured per-article text is available in the CloudSecurityAlliance-DataSets repo (dataset-public-laws-regulations-standards, regulation/ppc.go.jp/appi/appi-articles.json) for 81 of 88 articles — 17 numbers (7, 18, 23, 27, 28, 30, 36, 42, 44, 53, 58, 59, 63, 68, 71, 76, 87) are not yet recovered from the source PDF extraction; see that repo's TODO.md.",
+            "examples": [
+              {
+                "input": "art-1",
+                "note": "Purpose"
+              },
+              {
+                "input": "art-16-2",
+                "note": "Prohibition of Inappropriate Utilization (supplementary article inserted by amendment)"
+              },
+              {
+                "input": "art-20",
+                "note": "Security Control Action — the core security-obligations article for a personal information handling business operator"
+              },
+              {
+                "input": "art-58-2",
+                "note": "Service section supplementary article"
+              },
+              {
+                "input": "art-88",
+                "note": "Penal provisions — final article"
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     }
   ]
 }
