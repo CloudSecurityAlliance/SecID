@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Both documents are freely available in English with no bot-block on cyber.go.jp, but their PDFs use GPKI digital-signature/encryption that resisted this pass's automated text extraction — a real browser/PDF reader opens them fine. No structured control-level extraction yet.",
+  "official_name": "National Cybersecurity Office (NCO)",
+  "common_name": "NCO",
+  "alternate_names": ["NISC (predecessor name, 2015-2025)"],
+  "notes": "See also registry/regulation/jp/go/cyber.json (Basic Act on Cybersecurity, Active Cyber Defense Act) and registry/entity/jp/go/cyber.json (the organization itself) for other type-specific files under this namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cyber.go.jp/eng/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^common-standards$"],
+      "description": "Common Standards for Cybersecurity Measures for Government Agencies and Related Agencies — the government-agency security baseline",
+      "weight": 100,
+      "data": {
+        "official_name": "Common Standards for Cybersecurity Measures for Government Agencies and Related Agencies",
+        "notes": "Issued by the Cybersecurity Strategic Headquarters under Article 26(1) of the Basic Act on Cybersecurity (secid:regulation/cyber.go.jp/basic-act-cybersecurity). Most recently revised June 27, 2025 (FY2025/Reiwa 7 edition). Structured as Chapter 1 General Provisions (purpose, scope, revision process, compliance) followed by a Basic Framework of Information Security Measures covering organizational structure/promotion systems, asset/ledger management, risk assessment, incident response systems, and agency-specific standards. Recent amendments added cloud (ISMAP-aligned) controls, mobile-device access policy, and CDN/EDR provisions. Japan's baseline/mandatory information-security control set for all central government ministries and incorporated administrative agencies — analogous to a national government security baseline (comparable in role to NIST SP 800-53 for the US federal government).",
+        "urls": [
+          {"type": "document", "url": "https://www.cyber.go.jp/pdf/policy/general/kijyunr7-en.pdf", "note": "Current (FY2025/R7) full text, English. Freely accessible; GPKI-signed PDF resisted automated text extraction."},
+          {"type": "document", "url": "https://www.cyber.go.jp/pdf/policy/general/kijyungun-gaiyor7-en.pdf", "note": "Overview/summary version, English."}
+        ],
+        "examples": ["common-standards"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cip-policy$"],
+      "description": "Cybersecurity Policy for Critical Infrastructure Protection — defines Japan's critical infrastructure sectors",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybersecurity Policy for Critical Infrastructure Protection",
+        "notes": "Issued by the Cybersecurity Strategic Headquarters; current edition dated 2024 (revision path running from June 2022). Designates roughly 14-15 critical infrastructure sectors: information & communications, finance, aviation, airports, railways, electric power, gas, government/administrative services, medical, water, logistics, chemical, credit cards, petroleum, and (added in a recent revision) ports/harbours. Japan's sector-designation document, equivalent in role to the CISA 16-sector list in the US, and the umbrella policy under which the sector-specific safety guidelines in registry/control/jp/go/mlit.json and registry/control/jp/go/mhlw.json operate.",
+        "urls": [
+          {"type": "document", "url": "https://www.cyber.go.jp/eng/pdf/cip_policy_2024_eng.pdf", "note": "Current (2024) full text, English. Freely accessible; GPKI-signed PDF resisted automated text extraction."},
+          {"type": "document", "url": "https://www.cyber.go.jp/eng/pdf/cip_policy_abst_2022_eng.pdf", "note": "Overview/abstract version, English."}
+        ],
+        "examples": ["cip-policy"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ppc.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "No official English translation exists for the General Rules edition (the one with concrete security-control detail) as of 2026-07-16 — Japanese only. A few narrower PPC guideline documents (e.g. on transparency, data portability) do have provisional English translations, but not this one.",
+  "official_name": "Personal Information Protection Commission, Japan",
+  "common_name": "PPC",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/jp/go/ppc.json (the Act on the Protection of Personal Information itself) for the regulation-type file under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.ppc.go.jp/en/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^appi-guidelines$"],
+      "description": "Guidelines for the Act on the Protection of Personal Information (General Rules) — PPC's implementing/interpretive guidance with concrete security-control detail",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines for the Act on the Protection of Personal Information (General Rules)",
+        "notes": "Originally issued November 2016, most recently partially revised December 2024. Covers definitions and operator obligations, with a dedicated 'Security Control Measures' section requiring organizational, personnel, physical, and technical safeguards, plus supervision-of-outsourcing/sub-entrustment requirements. Turns the APPI's (secid:regulation/ppc.go.jp/appi) high-level statutory language into concrete, auditable security-control expectations — the practical compliance reference for any organization handling personal data in Japan. No official English translation exists for this General Rules edition as of 2026-07-16.",
+        "urls": [
+          {"type": "document", "url": "https://www.ppc.go.jp/files/pdf/241202_guidelines01.pdf", "note": "Japanese original, most current revision (Dec 2024)."}
+        ],
+        "examples": ["appi-guidelines"]
+      }
+    }
+  ]
+}

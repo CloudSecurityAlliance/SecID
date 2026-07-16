@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "namespace": "jipdec.or.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Freely available; English versions confirmed working, no blocks.",
+  "official_name": "Japan Institute for Promotion of Digital Economy and Community",
+  "common_name": "JIPDEC",
+  "alternate_names": ["Japan Information Processing and Development Corporation (historical name)"],
+  "notes": "Operates the PrivacyMark certification system. English-facing sites: english.jipdec.or.jp and privacymark.org.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://english.jipdec.or.jp/"},
+    {"type": "website", "url": "https://privacymark.org/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^privacymark$", "(?i)^privacy-mark$"],
+      "description": "PrivacyMark (P Mark) — Japan's privacy/PII-management trust-mark certification",
+      "weight": 100,
+      "data": {
+        "official_name": "PrivacyMark System",
+        "alternate_names": ["P Mark"],
+        "notes": "Based on JIS Q 15001:2017 (Personal Information Protection Management System — Requirements). Certification issued via JIPDEC or 19 designated assessment bodies (e.g. Japan Data Communications Association, Japan Federation of Printing Industries). Running since April 1, 1998; approximately 17,700+ certified entities as of mid-2026 per aggregated Japanese-language sources. Japan's privacy/PII-management trust mark, roughly analogous in role to an ISO 27701/privacy-management certification, relevant to data-protection compliance for cloud services handling personal information in Japan.",
+        "urls": [
+          {"type": "website", "url": "https://english.jipdec.or.jp/activities/pmark.html", "note": "JIPDEC English overview."},
+          {"type": "website", "url": "https://privacymark.org/about/outline_and_purpose.html", "note": "PrivacyMark program English site."}
+        ],
+        "examples": ["privacymark"]
+      }
+    }
+  ]
+}

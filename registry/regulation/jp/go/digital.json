@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "namespace": "digital.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entry only, no article subpaths.",
+  "official_name": "Digital Agency (Japan)",
+  "common_name": "Digital Agency",
+  "alternate_names": null,
+  "notes": "See also registry/control/jp/go/digital.json (My Number Card technical specs) and registry/entity/jp/go/digital.json (the agency itself) for the other type-specific files under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.digital.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^my-number-act$", "(?i)^mynumberact$"],
+      "description": "Act on the Use of Numbers to Identify a Specific Individual in Administrative Procedures — the law establishing Japan's national ID-number system",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on the Use of Numbers to Identify a Specific Individual in Administrative Procedures",
+        "alternate_names": ["My Number Act", "Numbers Use Act"],
+        "notes": "Act No. 27 of 2013, effective January 2016, since amended (2023 round expanding uses). Distinct from APPI (secid:regulation/ppc.go.jp/appi) — a dedicated data-protection regime layered on top for 'Specific Personal Information'. Chapters: I General Provisions, II Individual Number, III Individual Number Card, IV Provision of Specific Personal Information, V Specific Personal Information Protection, VI Personal Information Protection Commission (roughly 57+ articles with supplementary provisions). Oversight split between the Digital Agency (My Number Card operations) and PPC (data protection). Relevant to identity-proofing, national ID data breaches, and cloud services handling 'Specific Personal Information'.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/2755", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."},
+          {"type": "alternate_official", "url": "https://www.ppc.go.jp/files/pdf/en3.pdf", "note": "PPC-hosted English PDF — downloaded successfully (not bot-blocked) but text extraction failed in this pass; worth retrying with a proper PDF tool."}
+        ],
+        "examples": ["my-number-act"]
+      }
+    }
+  ]
+}

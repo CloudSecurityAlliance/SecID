@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cao.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entries only, no article subpaths. See per-node urls for access status.",
+  "official_name": "Cabinet Office, Japan",
+  "common_name": "Cabinet Office",
+  "alternate_names": null,
+  "notes": "Administers Japan's economic security legislation, including critical-infrastructure operator designation and the security-clearance system for economic-security-sensitive information.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cao.go.jp/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^economic-security-information$"],
+      "description": "Act on the Protection and Use of Critical Economic Security Information — security clearance system",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on the Protection and Use of Critical Economic Security Information",
+        "notes": "Act No. 27 of Reiwa 6 (2024), published May 2024, effective May 16, 2025. 8 chapters: I General Provisions, II Critical Economic Security Information (designation/scope), III Provision of Information, IV Management of Information, V Restrictions on Handlers, VI Suitability Assessment (security-clearance vetting, 10-year validity), VII Miscellaneous, VIII Penal Provisions. Establishes Japan's first formal security-clearance system for economic-security-sensitive government information — relevant to any cloud/vendor handling classified-adjacent economic-security data or seeking clearance-gated government contracts.",
+        "urls": [
+          {"type": "official_summary", "url": "https://www.japaneselawtranslation.go.jp/outline/127/905R626.pdf", "note": "Government-produced English OUTLINE only, not a full statutory translation. Returned HTTP 403 to automated fetch as of 2026-07-16."}
+        ],
+        "examples": ["economic-security-information"]
+      }
+    },
+    {
+      "patterns": ["(?i)^economic-security-promotion$"],
+      "description": "Act on the Promotion of Ensuring National Security through Integrated Implementation of Economic Measures — critical infrastructure operator designation",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on the Promotion of Ensuring National Security through Integrated Implementation of Economic Measures",
+        "alternate_names": ["Economic Security Promotion Act", "ESPA"],
+        "notes": "Act No. 43 of Reiwa 4 (2022), enacted May 2022, phased in through 2023-2024. Chapter I General Provisions, then 4 pillars: Ch. II stable supply of specified critical products (supply-chain resilience), Ch. III stable provision of specified critical infrastructure services (critical-infrastructure operator designation — 14-15 designated sectors incl. electricity, gas, water, rail, telecom, finance, credit cards; ~257 designated 'Specified Essential Infrastructure Service Providers' as of April 2026), Ch. IV support for critical/advanced technology development, Ch. V non-publication (secrecy) system for sensitive patent applications. Chapter III's designated operators must pre-notify and undergo government screening before introducing or outsourcing critical facilities/systems — a major supply-chain/vendor-risk control directly relevant to cloud providers serving Japanese critical infrastructure.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4523/en", "note": "Full English translation listed on the portal; returned HTTP 403 to automated fetch as of 2026-07-16."},
+          {"type": "official_summary", "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/infra/doc/infra_gaiyou_eng.pdf", "note": "Cabinet Office English overview PDF, not fetch-tested — separate domain from the blocked translation portal."}
+        ],
+        "examples": ["economic-security-promotion"]
+      }
+    }
+  ]
+}

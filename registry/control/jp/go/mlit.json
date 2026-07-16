@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mlit.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "All 6 documents are genuinely separate PDFs (confirmed via research 2026-07-16) issued by different MLIT bureaus, not chapters of one umbrella document — 'logistics' in particular splits into 3 independent sub-sector guidelines (truck/motor freight, warehousing, maritime shipping), not one. All PDFs fetched successfully (not blocked) but are graphics/scan-heavy and resisted automated text extraction; a proper PDF/OCR tool would be needed for full parsing. No English versions were found for any of the 6.",
+  "official_name": "Ministry of Land, Infrastructure, Transport and Tourism, Japan",
+  "common_name": "MLIT",
+  "alternate_names": null,
+  "notes": "All 6 guidelines share a common title pattern ('Safety Guideline for Ensuring Information Security in the [sector]') and operate under Japan's Cybersecurity Policy for Critical Infrastructure Protection (secid:control/cyber.go.jp/cip-policy). Master index: https://www.mlit.go.jp/sogoseisaku/jouhouka/sosei_jouhouka9999.html (also lists a Water Supply and a Ports guideline not yet added here).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.mlit.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^aviation-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Aviation Sector (air transport operators)",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Aviation Sector",
+        "notes": "Published by MLIT's Civil Aviation Bureau. Currently 6th-7th edition (revised April 2024/2026 depending on snapshot). Organized around organizational governance / risk management / crisis management / control-item categories. Covers cybersecurity requirements for airline operational systems (flight ops, reservation systems) as designated critical infrastructure. Japanese-only.",
+        "urls": [
+          {"type": "website", "url": "https://www.mlit.go.jp/koku/koku_CyberSecurity.html", "note": "Landing page."},
+          {"type": "document", "url": "https://www.mlit.go.jp/koku/content/20240425-koku-CyberSecurity.pdf", "note": "Fetched successfully (200 OK); image/scan-heavy, text extraction failed in this pass."}
+        ],
+        "examples": ["aviation-security"]
+      }
+    },
+    {
+      "patterns": ["(?i)^airport-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Airport Sector",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Airport Sector",
+        "notes": "Published by MLIT's Civil Aviation Bureau (same bureau as aviation-security, a separate document). Currently 4th edition (as of the April 2024/2026 revision cycle). Covers airport-operator systems (baggage, ground ops, facility management) distinct from airline-operator systems. Japanese-only.",
+        "urls": [
+          {"type": "website", "url": "https://www.mlit.go.jp/koku/koku_CyberSecurity.html", "note": "Same landing page as aviation-security."},
+          {"type": "document", "url": "https://www.mlit.go.jp/koku/content/20240425-kuko-CyberSecurity.pdf", "note": "Not individually fetch-tested; hosted identically to the aviation PDF."}
+        ],
+        "examples": ["airport-security"]
+      }
+    },
+    {
+      "patterns": ["(?i)^railway-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Railway Sector",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Railway Sector",
+        "notes": "Published by MLIT's Railway Bureau. Currently 6th edition. Scope explicitly names train operation management, power management, and seat-reservation systems as protection targets. Japanese-only. Note: PDF URLs change between editions (link rot observed) — use the landing page to find the current file.",
+        "urls": [
+          {"type": "website", "url": "https://www.mlit.go.jp/tetudo/tetudo_fr1_000092.html", "note": "Landing page (use this for the current link)."},
+          {"type": "document", "url": "https://www.mlit.go.jp/tetudo/content/001998629.pdf", "note": "6th edition. Fetched successfully (200 OK); image/scan-heavy, text extraction failed in this pass."}
+        ],
+        "examples": ["railway-security"]
+      }
+    },
+    {
+      "patterns": ["(?i)^logistics-truck-freight-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Truck/Motor Freight Transport)",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Truck/Motor Freight Transport)",
+        "notes": "Published by MLIT's Road Bureau/Automobile Bureau. Currently 2nd edition. One of 3 independent logistics sub-sector guidelines (see also logistics-warehousing-security and logistics-maritime-security) — 'logistics' is not a single document. Japanese-only.",
+        "urls": [
+          {"type": "website", "url": "https://www.mlit.go.jp/jidosha/jidosha_tk4_000121.html", "note": "Landing page (lists truck-transport and warehousing guidelines together)."},
+          {"type": "document", "url": "https://www.mlit.go.jp/jidosha/content/002010708.pdf", "note": "Fetched successfully (200 OK); image/scan-heavy, text extraction failed in this pass."}
+        ],
+        "examples": ["logistics-truck-freight-security"]
+      }
+    },
+    {
+      "patterns": ["(?i)^logistics-warehousing-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Warehousing)",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Warehousing)",
+        "notes": "Published by MLIT's Road Bureau/Automobile Bureau. Currently 2nd edition. One of 3 independent logistics sub-sector guidelines. Japanese-only.",
+        "urls": [
+          {"type": "website", "url": "https://www.mlit.go.jp/jidosha/jidosha_tk4_000121.html", "note": "Landing page."},
+          {"type": "document", "url": "https://www.mlit.go.jp/jidosha/content/002010718.pdf", "note": "Not individually fetch-tested; hosted the same way as the truck-freight PDF."}
+        ],
+        "examples": ["logistics-warehousing-security"]
+      }
+    },
+    {
+      "patterns": ["(?i)^logistics-maritime-security$"],
+      "description": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Maritime Shipping Operations)",
+      "weight": 100,
+      "data": {
+        "official_name": "Safety Guideline for Ensuring Information Security in the Logistics Sector (Maritime Shipping Operations)",
+        "notes": "Published by MLIT's Maritime Bureau (distinct from the Road/Automobile Bureau, which publishes the other 2 logistics sub-guidelines). 1st edition, established April 2024. Japanese-only.",
+        "urls": [
+          {"type": "document", "url": "https://www.mlit.go.jp/maritime/content/001744764.pdf", "note": "Not individually fetch-tested in this pass."}
+        ],
+        "examples": ["logistics-maritime-security"]
+      }
+    }
+  ]
+}

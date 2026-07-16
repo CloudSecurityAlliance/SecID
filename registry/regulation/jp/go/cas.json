@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cas.go.jp",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Source-level entries only, no article subpaths. Official translations (japaneselawtranslation.go.jp) returned HTTP 403 to automated fetch during research (2026-07-16) — appears to be bot/WAF protection rather than genuine unavailability (search engines index the pages; a human browser likely succeeds). Structure below is from secondary/summary sources.",
+  "official_name": "Cabinet Secretariat, Japan",
+  "common_name": "Cabinet Secretariat",
+  "alternate_names": null,
+  "notes": "General administrative body of the Prime Minister's Cabinet; hosts English translations/overviews of several laws that lack a single dedicated regulatory-agency website.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cas.go.jp/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ucal$"],
+      "description": "Act on Prohibition of Unauthorized Computer Access — Japan's core anti-hacking statute",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on Prohibition of Unauthorized Computer Access",
+        "notes": "Act No. 128 of 1999, last amended by Act No. 28 of 2013. ~13 articles, no chapter divisions: Art. 3 prohibits unauthorized access, Art. 4 prohibits obtaining ID codes/credentials, Art. 5 prohibits supplying credentials to others, Art. 6 prohibits storing wrongfully obtained credentials, Art. 7 prohibits phishing-style impersonation of access administrators, Art. 10 requires annual public reporting. Directly criminalizes unauthorized access, credential theft/trafficking, and phishing.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3933/en", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."}
+        ],
+        "examples": ["ucal"]
+      }
+    },
+    {
+      "patterns": ["(?i)^specified-secret-protection$"],
+      "description": "Act on the Protection of Specially Designated Secrets — governs national-security classified information",
+      "weight": 100,
+      "data": {
+        "official_name": "Act on the Protection of Specially Designated Secrets",
+        "alternate_names": ["Specified Secret Protection Act", "State Secrecy Law (informal)"],
+        "notes": "Act No. 108 of 2013, effective December 2014. Organizes secrets into 4 categories (Defense, Diplomacy, Prevention of Specified Harmful Activities, Prevention of Terrorism) via an Appended Table with ~23 items/55 sub-items. Covers designation of secrets, restrictions on and security-clearance vetting of persons handling them, and penalties. Explicitly lists unauthorized computer access and interception of wired communications among prohibited methods of acquiring designated secrets, making it directly relevant to cyber-espionage and insider-threat scenarios involving classified government/defense systems.",
+        "urls": [
+          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/2543", "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."},
+          {"type": "official_summary", "url": "https://www.cas.go.jp/jp/tokuteihimitsu/gaiyou_en.pdf", "note": "Cabinet Secretariat's own 5-page overview slide deck (not full text) — fetched successfully."}
+        ],
+        "examples": ["specified-secret-protection"]
+      }
+    }
+  ]
+}

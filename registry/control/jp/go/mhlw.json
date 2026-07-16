@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mhlw.go.jp",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Japanese full text is freely accessible for the MHLW guideline. No usable English full text found for either document — MHLW's English site root returned HTTP 403 to automated fetch (bot-protection); METI's hosting of the companion provider-facing guideline also returned HTTP 403 on every attempt.",
+  "official_name": "Ministry of Health, Labour and Welfare, Japan",
+  "common_name": "MHLW",
+  "alternate_names": null,
+  "notes": "These two guidelines are informally known together as the '3 Ministries / 2 Guidelines' framework for healthcare information security (MHLW + METI + MIC).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.mhlw.go.jp"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^medical-info-systems-safety$"],
+      "description": "Guidelines on Safety Management of Medical Information Systems — healthcare-provider-facing information security guideline",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines on Safety Management of Medical Information Systems",
+        "notes": "First issued 2005, continuously revised. Current edition (as of research, 2026-07-16): Version 7.0 (June 2026), superseding Version 6.0 (May 2023). Multi-volume: Overview, Management, Planning & Administration, System Operations, Maintenance Outsourcing (5 companion PDFs). The foundational healthcare-sector guideline mandating cybersecurity, access control, and business-continuity requirements for medical institutions (hospitals/clinics) handling patient information systems. Companion to the provider-facing 'medical-info-provider-safety' node below.",
+        "urls": [
+          {"type": "website", "url": "https://www.mhlw.go.jp/stf/shingi/0000516275_00006.html", "note": "Japanese-language source page hosting the current 5-volume PDF set. Freely accessible."}
+        ],
+        "examples": ["medical-info-systems-safety"]
+      }
+    },
+    {
+      "patterns": ["(?i)^medical-info-provider-safety$"],
+      "description": "Guideline for Safety Management of Information Systems and Services Provided by Operators Handling Medical Information — extends healthcare security requirements to third-party IT/cloud vendors",
+      "weight": 100,
+      "data": {
+        "official_name": "Guideline for Safety Management of Information Systems and Services Provided by Operators Handling Medical Information",
+        "notes": "Jointly published by METI and MIC (not MHLW, despite being grouped here as the companion healthcare-sector document). First published August 2020; revised to v1.1 July 2023; a v2.0 draft/revision cycle ran Oct 2024 public comment through publication around March 2025. Extends the MHLW guideline's requirements (medical-info-systems-safety node above) to third-party IT/cloud vendors and system integrators hosting or processing medical information on behalf of healthcare providers — directly relevant to cloud security since it covers cloud service providers' shared-responsibility obligations. Japanese-only; no English version found.",
+        "urls": [
+          {"type": "document", "url": "https://www.meti.go.jp/policy/mono_info_service/healthcare/01gl_20250328.pdf", "note": "Version 2.0 (March 2025). Blocked (HTTP 403) to automated fetch as of 2026-07-16 on meti.go.jp."},
+          {"type": "alternate_official", "url": "https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000427.html", "note": "MIC's companion notice page — not confirmed blocked."}
+        ],
+        "examples": ["medical-info-provider-safety"]
+      }
+    }
+  ]
+}
