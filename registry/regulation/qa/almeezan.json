@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "namespace": "almeezan.qa",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched. Compliance oversight for the PDPPL is now via NCSA (secid:control/ncsa.gov.qa) rather than this legal-text portal — cited here as the legislative source per this repo's convention of registering laws under the publisher of record.",
+  "official_name": "Al Meezan — Qatar Legal Portal",
+  "common_name": "Al Meezan",
+  "alternate_names": null,
+  "notes": "Qatar's official legal-text portal.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.almeezan.qa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdppl$"],
+      "description": "Personal Data Privacy Protection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Law No. 13 of 2016 concerning Personal Data Privacy Protection",
+        "common_name": "PDPPL",
+        "notes": "Sets fines up to QAR 1M/5M. Compliance oversight now via the National Cyber Security Agency (NCSA).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.almeezan.qa/LawPage.aspx?id=6236"},
+          {"type": "website", "url": "https://assurance.ncsa.gov.qa/en/privacy/law", "note": "NCSA compliance guidance"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

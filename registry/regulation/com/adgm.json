@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "adgm.com",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Abu Dhabi Global Market",
+  "common_name": "ADGM",
+  "alternate_names": null,
+  "notes": "UAE financial free zone with its own independent legal/regulatory system, separate from UAE federal law.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.adgm.com"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^data-protection-regulations$"],
+      "description": "ADGM Data Protection Regulations 2021",
+      "weight": 100,
+      "data": {
+        "official_name": "ADGM Data Protection Regulations 2021",
+        "notes": "GDPR-aligned data protection regime for the ADGM free zone, independent of UAE federal PDPL (secid:regulation/uaelegislation.gov.ae/pdpl). Enforced by the ADGM Office of Data Protection.",
+        "urls": [
+          {"type": "website", "url": "https://www.adgm.com/operating-in-adgm/office-of-data-protection"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

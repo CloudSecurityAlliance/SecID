@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pdp.gov.bh",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Personal Data Protection Authority",
+  "common_name": "PDPA (Bahrain)",
+  "alternate_names": null,
+  "notes": "Bahrain's data protection regulator, established via the Ministry of Legal Affairs.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.pdp.gov.bh"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdpl$"],
+      "description": "Bahrain Personal Data Protection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Law No. 30 of 2018 with respect to Personal Data Protection",
+        "common_name": "Bahrain PDPL",
+        "notes": "In force August 2019. Covers telecom/banking/insurance/healthcare and any entity processing personal data in or targeting Bahrain.",
+        "urls": [
+          {"type": "document", "url": "https://www.pdp.gov.bh/en/assets/pdf/regulations.pdf"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
