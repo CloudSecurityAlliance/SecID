@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cisa.gov",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched, added to capture the source for later processing.",
+  "official_name": "Cybersecurity and Infrastructure Security Agency",
+  "common_name": "CISA",
+  "alternate_names": null,
+  "notes": "See also registry/entity/gov/cisa.json (the agency itself) and registry/disclosure/gov/cisa.json (CVE CNA program).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cisa.gov"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^secure-by-design$"],
+      "description": "CISA Secure by Design principles and pledge program",
+      "weight": 100,
+      "data": {
+        "official_name": "Secure by Design",
+        "notes": "Voluntary, non-binding initiative with two parts: a set of principles urging software manufacturers to build security in at the design phase rather than bolt it on, and a companion Pledge structured around concrete one-year goals (e.g. MFA by default, reducing default passwords, reducing common vulnerability classes like path traversal/SQLi/XSS, CVE quality, vulnerability disclosure policies). 68+ manufacturers had signed as of the initial 2024 announcement.",
+        "urls": [
+          {"type": "website", "url": "https://www.cisa.gov/securebydesign"},
+          {"type": "website", "url": "https://www.cisa.gov/securebydesign/pledge", "note": "The pledge itself"}
+        ],
+        "examples": ["secure-by-design"]
+      }
+    },
+    {
+      "patterns": ["(?i)^directives$"],
+      "description": "CISA Binding Operational Directives (BODs) and Emergency Directives (EDs)",
+      "weight": 90,
+      "data": {
+        "official_name": "Cybersecurity Directives",
+        "notes": "BODs are compulsory, statute-backed directives to federal civilian executive branch agencies establishing ongoing security requirements (e.g. vulnerability remediation timelines, asset inventory); EDs are used for rapid, short-fuse mitigation of an actively-exploited critical threat. This is a landing-page-level citation, not a specific directive — individual BODs/EDs are numbered and superseded frequently (e.g. BOD 26-04 on risk-based vulnerability remediation consolidated earlier directives in early 2026).",
+        "urls": [
+          {"type": "website", "url": "https://www.cisa.gov/news-events/directives"},
+          {"type": "website", "url": "https://www.cisa.gov/news-events/directives/archive", "note": "Archived/retired directives"}
+        ],
+        "examples": ["directives"]
+      }
+    }
+  ]
+}

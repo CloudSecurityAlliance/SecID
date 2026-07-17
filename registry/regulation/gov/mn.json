@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mn.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Minnesota",
+  "common_name": "Minnesota",
+  "alternate_names": null,
+  "notes": "Minnesota state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mn.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^mcdpa$"
+      ],
+      "description": "Minnesota Consumer Data Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Minnesota Consumer Data Privacy Act",
+        "common_name": "MCDPA",
+        "alternate_names": null,
+        "description": "Minnesota's comprehensive consumer privacy law. HF 4757 (2024), signed May 24 2024, effective July 31 2025.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.revisor.mn.gov/bills/93/2024/0/HF/4757/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

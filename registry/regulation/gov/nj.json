@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nj.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of New Jersey",
+  "common_name": "New Jersey",
+  "alternate_names": null,
+  "notes": "New Jersey state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nj.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^njdpa$"
+      ],
+      "description": "New Jersey Data Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "New Jersey Data Privacy Act",
+        "common_name": "NJDPA",
+        "alternate_names": null,
+        "description": "New Jersey's comprehensive consumer privacy law. SB/S332 (2024), signed January 16 2024, effective January 15 2025.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.njleg.state.nj.us/bill-search/2022/S332/bill-text?f=S0500&n=332_R6"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

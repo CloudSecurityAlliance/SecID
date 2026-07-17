@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nsa.gov",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Security Agency",
+  "common_name": "NSA",
+  "alternate_names": null,
+  "notes": "See also registry/entity/gov/nsa.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.nsa.gov"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^aisc$"],
+      "description": "NSA Artificial Intelligence Security Center",
+      "weight": 100,
+      "data": {
+        "official_name": "Artificial Intelligence Security Center",
+        "common_name": "AISC",
+        "notes": "Stood up in 2023, housed within NSA's Cybersecurity Collaboration Center. Mission is to promote secure development, integration, and adoption of AI within National Security Systems (NSS) and the Defense Industrial Base (DIB), primarily by publishing security guidelines and joint Cybersecurity Information Sheets (CSIs) with CISA, FBI, and Five-Eyes cyber agencies (e.g. joint guidance on deploying AI systems securely, AI data security best practices, MCP-based AI-driven automation security considerations).",
+        "urls": [
+          {"type": "website", "url": "https://www.nsa.gov/AISC/"}
+        ],
+        "examples": ["aisc"]
+      }
+    }
+  ]
+}

@@ -85,6 +85,20 @@
           }
         }
       ]
+    },
+
+    {
+      "patterns": ["(?i)^benchmarks$"],
+      "description": "CIS Benchmarks — prescriptive secure-configuration guides",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Benchmarks",
+        "notes": "Distinct from CIS Controls (the 18 organizational safeguards above). Prescriptive, consensus-developed secure-configuration recommendations for 100+ specific technologies across 25+ vendor product families (cloud platforms, containers, databases, operating systems, mobile devices, network devices), produced through open CIS Benchmarks Communities and freely downloadable as PDFs for non-commercial use.",
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/cis-benchmarks"}
+        ],
+        "examples": ["benchmarks"]
+      }
     }
   ]
 }

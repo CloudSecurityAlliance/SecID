@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ri.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Rhode Island",
+  "common_name": "Rhode Island",
+  "alternate_names": null,
+  "notes": "Rhode Island state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ri.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^dtppa$"
+      ],
+      "description": "Rhode Island Data Transparency and Privacy Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Rhode Island Data Transparency and Privacy Protection Act",
+        "common_name": "DTPPA",
+        "alternate_names": null,
+        "description": "Rhode Island's comprehensive consumer privacy law. H 7787 / S 2500 (2024), effective January 1 2026.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://webserver.rilegislature.gov/BillText24/HouseText24/H7787A.htm"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

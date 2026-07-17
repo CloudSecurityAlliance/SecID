@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ftc.gov",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched. FTC has no dedicated AI statute; enforcement runs through Section 5 of the FTC Act (unfair or deceptive acts or practices) plus informal guidance. Fast-moving area — reverify before relying on details.",
+  "official_name": "Federal Trade Commission",
+  "common_name": "FTC",
+  "alternate_names": null,
+  "notes": "See also registry/entity/gov/ftc.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.ftc.gov"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-guidance$"],
+      "description": "FTC guidance and policy statements on AI, enforced via Section 5 unfair/deceptive practices authority",
+      "weight": 90,
+      "data": {
+        "official_name": "FTC AI-related business guidance and policy statements",
+        "notes": "No AI-specific statute exists; the FTC applies Section 5 of the FTC Act (15 U.S.C. 45) to AI-related conduct, supplemented by sector laws (FCRA, ECOA) and informal guidance. Key documents: 'Aiming for truth, fairness, and equity in your company's use of AI' (business-guidance blog, April 2021); proposed 'Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems' (Federal Register notice, July 2026, comment period closing July 31 2026) asserting that AI systems whose outputs are deliberately steered/distorted toward undisclosed objectives can constitute Section 5 deception.",
+        "urls": [
+          {"type": "document", "url": "https://www.ftc.gov/business-guidance/blog/2021/04/aiming-truth-fairness-equity-your-companys-use-ai", "note": "2021 business guidance blog"},
+          {"type": "document", "url": "https://www.federalregister.gov/documents/2026/07/07/2026-13628/policy-statement-concerning-the-suppression-of-accuracy-in-artificial-intelligence-systems", "note": "2026 proposed policy statement, not yet final as of registration"}
+        ],
+        "examples": ["ai-guidance"]
+      }
+    }
+  ]
+}

@@ -273,6 +273,61 @@
         ],
         "examples": []
       }
+    },
+
+    {
+      "patterns": ["(?i)^privacy-framework$"],
+      "description": "NIST Privacy Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "NIST Privacy Framework: A Tool for Improving Privacy through Enterprise Risk Management",
+        "common_name": "NIST Privacy Framework",
+        "alternate_names": ["NIST CSWP 01162020"],
+        "description": "Voluntary, risk-based tool for identifying and managing privacy risk when building products/services. Deliberately mirrors the structure of the NIST Cybersecurity Framework (Core functions Identify-P/Govern-P/Control-P/Communicate-P/Protect-P, Profiles, Implementation Tiers) so organizations can run privacy and security risk management side by side.",
+        "notes": "v1.0 published January 2020. A v1.1 update realigning with CSF 2.0 was reported in progress as of 2026 but not yet confirmed final at time of registration.",
+        "urls": [
+          {"type": "website", "url": "https://www.nist.gov/privacy-framework"},
+          {"type": "document", "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.01162020.pdf"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ai-600-1$"],
+      "description": "NIST AI RMF Generative AI Profile",
+      "weight": 100,
+      "data": {
+        "official_name": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+        "common_name": "GenAI Profile",
+        "alternate_names": ["NIST AI 600-1"],
+        "description": "Companion profile to the AI RMF (secid:control/nist.gov/ai-rmf) mapping the RMF's Govern/Map/Measure/Manage functions onto 12 generative-AI-specific risk categories (e.g. confabulation, CBRN uplift, data privacy, information integrity, IP, value-chain risk), giving concrete suggested actions for generative-AI-specific risk.",
+        "notes": "Published July 26, 2024 in response to Executive Order 14110.",
+        "urls": [
+          {"type": "website", "url": "https://www.nist.gov/itl/ai-risk-management-framework"},
+          {"type": "document", "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ssdf$", "(?i)^800-218$"],
+      "description": "NIST Secure Software Development Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities",
+        "common_name": "SSDF",
+        "alternate_names": ["NIST SP 800-218"],
+        "description": "Core set of high-level secure software development practices, organized into 4 groups (Prepare the Organization, Protect the Software, Produce Well-Secured Software, Respond to Vulnerabilities), meant to be layered onto any existing SDLC. Includes mappings from Executive Order 14028 Section 4e to specific SSDF tasks.",
+        "notes": "Version 1.1 is current. A companion community profile, SP 800-218A, extends SSDF 1.1 to generative AI/dual-use foundation model development. A draft SP 800-218 Rev. 1 (SSDF v1.2) was in public comment as of 2026, not yet final.",
+        "urls": [
+          {"type": "website", "url": "https://csrc.nist.gov/projects/ssdf"},
+          {"type": "document", "url": "https://csrc.nist.gov/pubs/sp/800/218/final"}
+        ],
+        "versions_available": ["1.1"],
+        "examples": []
+      }
     }
   ]
 }

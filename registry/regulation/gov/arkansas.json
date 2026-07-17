@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "arkansas.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Arkansas",
+  "common_name": "Arkansas",
+  "alternate_names": null,
+  "notes": "Arkansas state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.arkansas.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^apdpa$"
+      ],
+      "description": "Arkansas Personal Data Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Arkansas Personal Data Protection Act",
+        "common_name": "APDPA",
+        "alternate_names": null,
+        "description": "Arkansas's comprehensive consumer privacy law. Ark. Code Ann. 4-110-101 et seq. (2023), signed April 11 2023, effective July 1 2025.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://law.justia.com/codes/arkansas/title-4/subtitle-7/chapter-110/"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

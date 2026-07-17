@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "alabama.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Alabama",
+  "common_name": "Alabama",
+  "alternate_names": null,
+  "notes": "Alabama state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.alabama.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^apdpa$"
+      ],
+      "description": "Alabama Personal Data Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Alabama Personal Data Protection Act",
+        "common_name": "APDPA",
+        "alternate_names": null,
+        "description": "Alabama's comprehensive consumer privacy law. HB 351 (2026), signed April 17 2026, effective May 1 2027.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "vermont.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Vermont",
+  "common_name": "Vermont",
+  "alternate_names": null,
+  "notes": "Vermont state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.vermont.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^vdpa$"
+      ],
+      "description": "Vermont Data Privacy and Online Surveillance Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Vermont Data Privacy and Online Surveillance Act",
+        "common_name": "VDPA",
+        "alternate_names": null,
+        "description": "Vermont's comprehensive consumer privacy law. S.71 / Act 145 (2026), signed June 16 2026, effective January 1 2028.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://legislature.vermont.gov/bill/status/2026/S.71"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

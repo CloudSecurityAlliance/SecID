@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oklahoma.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Oklahoma",
+  "common_name": "Oklahoma",
+  "alternate_names": null,
+  "notes": "Oklahoma state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.oklahoma.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^okcdpa$"
+      ],
+      "description": "Oklahoma Consumer Data Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Oklahoma Consumer Data Privacy Act",
+        "common_name": "OKCDPA",
+        "alternate_names": null,
+        "description": "Oklahoma's comprehensive consumer privacy law. SB 546 (2026), signed March 20 2026, effective January 1 2027.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=sb546&Session=2600"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
