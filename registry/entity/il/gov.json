@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.il",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Government of Israel",
+  "common_name": "Israel",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/il/gov.json and registry/control/il/gov.json for other type-specific files under this same general government-portal namespace. See registry/entity/il/gov/cyber.json for the National Cyber Directorate (a distinct cyber.gov.il sub-namespace).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.gov.il"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^privacy-protection-authority$"],
+      "description": "Privacy Protection Authority",
+      "weight": 100,
+      "data": {
+        "official_name": "Privacy Protection Authority",
+        "common_name": "PPA",
+        "notes": "Statutory regulator under the Ministry of Justice supervising compliance with the Protection of Privacy Law (secid:regulation/gov.il/privacy-protection-law); issues guidelines, handles registration/enforcement.",
+        "urls": [
+          {"type": "website", "url": "https://www.gov.il/en/departments/the_privacy_protection_authority/govil-landing-page"}
+        ],
+        "examples": ["privacy-protection-authority"]
+      }
+    }
+  ]
+}

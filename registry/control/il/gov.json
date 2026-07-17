@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.il",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Government of Israel",
+  "common_name": "Israel",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/il/gov.json and registry/entity/il/gov.json for other type-specific files under this same namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.gov.il"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-policy$"],
+      "description": "Israel's Policy on Artificial Intelligence Regulation and Ethics",
+      "weight": 100,
+      "data": {
+        "official_name": "Israel's Policy on Artificial Intelligence Regulation and Ethics (\"Responsible Innovation\")",
+        "common_name": "Israel Responsible AI Policy",
+        "notes": "Published December 2023 jointly by the Ministry of Innovation, Science and Technology and the Ministry of Justice. Sectoral, risk-based, non-binding soft-law approach (vs. the EU AI Act's horizontal binding approach) -- a five-part regulator toolkit (risk assessment, sandboxes, soft instruments, targeted binding rules for high-risk uses, coordination center).",
+        "urls": [
+          {"type": "document", "url": "https://www.gov.il/BlobFolder/policy/ai_2023/en/Israels%20AI%20Policy%202023.pdf"}
+        ],
+        "examples": ["ai-policy"]
+      }
+    }
+  ]
+}

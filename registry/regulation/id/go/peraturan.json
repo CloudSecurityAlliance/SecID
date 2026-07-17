@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "namespace": "peraturan.go.id",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Legal Database (JDIH)",
+  "common_name": "Peraturan.go.id",
+  "alternate_names": null,
+  "notes": "Indonesia's national legal database.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://peraturan.go.id"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^uu-pdp$"],
+      "description": "Personal Data Protection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+        "common_name": "UU PDP",
+        "alternate_names": ["Law No. 27/2022 on Personal Data Protection"],
+        "notes": "Enacted by the House of Representatives (DPR) September 20, 2022, promulgated October 17, 2022 (State Gazette No. 196/2022). Two-year transition period ended October 17, 2024. Requires a national supervisory body, still being stood up as of this sweep entry.",
+        "urls": [
+          {"type": "website", "url": "https://peraturan.go.id"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

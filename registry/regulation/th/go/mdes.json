@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mdes.go.th",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Ministry of Digital Economy and Society",
+  "common_name": "MDES",
+  "alternate_names": null,
+  "notes": "Oversees the Personal Data Protection Committee (PDPC) which enforces Thailand's PDPA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.mdes.go.th"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdpa$"],
+      "description": "Personal Data Protection Act B.E. 2562",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Data Protection Act B.E. 2562 (2019)",
+        "common_name": "Thailand PDPA",
+        "notes": "7 chapters, 96 sections. Fully effective June 1, 2022. Enforced by the Personal Data Protection Committee (PDPC) / Office of the PDPC.",
+        "urls": [
+          {"type": "website", "url": "https://www.mdes.go.th"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

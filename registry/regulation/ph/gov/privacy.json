@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "namespace": "privacy.gov.ph",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Privacy Commission",
+  "common_name": "NPC",
+  "alternate_names": null,
+  "notes": "See also registry/entity/ph/gov/privacy.json for the commission itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://privacy.gov.ph"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^dpa$"],
+      "description": "Data Privacy Act of 2012",
+      "weight": 100,
+      "data": {
+        "official_name": "Republic Act No. 10173, Data Privacy Act of 2012",
+        "common_name": "Philippines Data Privacy Act",
+        "notes": "Took effect September 8, 2012. Congress-enacted, GDPR-like scope with extraterritorial reach. Created the National Privacy Commission (NPC), attached to the Department of Information and Communications Technology (DICT).",
+        "urls": [
+          {"type": "website", "url": "https://privacy.gov.ph/data-privacy-act/"},
+          {"type": "legal_text", "url": "https://officialgazette.gov.ph/2012/08/15/republic-act-no-10173/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

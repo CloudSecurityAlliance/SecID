@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "chinhphu.vn",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Government of Vietnam",
+  "common_name": "Vietnam",
+  "alternate_names": null,
+  "notes": "",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://chinhphu.vn"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdpd$"],
+      "description": "Personal Data Protection Decree",
+      "weight": 100,
+      "data": {
+        "official_name": "Decree No. 13/2023/ND-CP on Personal Data Protection",
+        "common_name": "PDPD",
+        "notes": "Issued by the Government (a decree, not a National Assembly statute) April 17, 2023, effective July 1, 2023. Vietnam's first comprehensive personal-data law, GDPR-influenced, 4 chapters/44 articles, 72-hour breach notification to the Cybersecurity Department (Ministry of Public Security).",
+        "urls": [
+          {"type": "legal_text", "url": "https://thuvienphapluat.vn"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

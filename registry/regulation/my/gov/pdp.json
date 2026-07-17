@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pdp.gov.my",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Department of Personal Data Protection",
+  "common_name": "JPDP",
+  "alternate_names": null,
+  "notes": "Malaysia's data protection regulator.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.pdp.gov.my"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdpa$"],
+      "description": "Personal Data Protection Act 2010",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Data Protection Act 2010 (Act 709)",
+        "common_name": "Malaysia PDPA",
+        "notes": "Passed June 2, 2010, in force November 15, 2013. Amended by the Personal Data Protection (Amendment) Act 2024 (phased in through 2025, adding DPO/breach-notification/portability requirements).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.pdp.gov.my/ppdpv1/en/akta/pdp-act-2010-en/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
