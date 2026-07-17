@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.gc.ca",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Canadian Centre for Cyber Security",
+  "common_name": "CCCS / Cyber Centre",
+  "alternate_names": null,
+  "notes": "See also registry/entity/ca/gc/cyber.json and registry/reference/ca/gc/cyber.json (glossary, already existed).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cyber.gc.ca"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^itsg-33$"],
+      "description": "ITSG-33 — IT Security Risk Management security control catalogue",
+      "weight": 100,
+      "data": {
+        "official_name": "IT Security Risk Management: A Lifecycle Approach (ITSG-33)",
+        "common_name": "ITSG-33",
+        "notes": "Canada's federal security control catalogue and risk-management methodology, roughly analogous in role to NIST SP 800-53/800-37 for the US federal government.",
+        "urls": [
+          {"type": "website", "url": "https://www.cyber.gc.ca/en/guidance/it-security-risk-management-lifecycle-approach-itsg-33"}
+        ],
+        "examples": ["itsg-33"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cloud-guardrails$"],
+      "description": "Protected B cloud guardrails",
+      "weight": 100,
+      "data": {
+        "official_name": "Government of Canada Cloud Guardrails",
+        "notes": "Jointly published with Treasury Board Secretariat and Shared Services Canada under the GC Cloud Adoption Strategy. Defines mandatory security controls for hosting Protected B (medium-sensitivity) government data in public cloud.",
+        "urls": [
+          {"type": "website", "url": "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html"}
+        ],
+        "examples": ["cloud-guardrails"]
+      }
+    }
+  ]
+}

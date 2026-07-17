@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "osfi-bsif.gc.ca",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Office of the Superintendent of Financial Institutions",
+  "common_name": "OSFI",
+  "alternate_names": null,
+  "notes": "Federal regulator of banks and insurance companies.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.osfi-bsif.gc.ca"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^b-10$"],
+      "description": "Third-Party Risk Management Guideline",
+      "weight": 100,
+      "data": {
+        "official_name": "Guideline B-10: Third-Party Risk Management",
+        "common_name": "OSFI B-10",
+        "notes": "Effective 2024. Governs federally regulated financial institutions' outsourcing/third-party arrangements — criticality assessment, concentration risk, contractual clauses, and ongoing monitoring.",
+        "urls": [
+          {"type": "website", "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/third-party-risk-management-guideline"}
+        ],
+        "examples": ["b-10"]
+      }
+    },
+    {
+      "patterns": ["(?i)^b-13$"],
+      "description": "Technology and Cyber Risk Management Guideline",
+      "weight": 100,
+      "data": {
+        "official_name": "Guideline B-13: Technology and Cyber Risk Management",
+        "common_name": "OSFI B-13",
+        "notes": "Effective 2024. Sets expectations for governance, technology resilience, cyber-incident response, and third-party technology risk for federally regulated financial institutions. Complements B-10 and E-21 (Operational Risk).",
+        "urls": [
+          {"type": "website", "url": "https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management"}
+        ],
+        "examples": ["b-13"]
+      }
+    }
+  ]
+}

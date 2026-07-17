@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "priv.gc.ca",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Office of the Privacy Commissioner of Canada",
+  "common_name": "OPC",
+  "alternate_names": null,
+  "notes": "Federal privacy regulator, enforces PIPEDA. See also registry/entity/ca/gc/priv.json for the regulator itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.priv.gc.ca"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pipeda$"],
+      "description": "Personal Information Protection and Electronic Documents Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Information Protection and Electronic Documents Act",
+        "common_name": "PIPEDA",
+        "alternate_names": ["S.C. 2000, c. 5"],
+        "description": "Canada's baseline federal private-sector data-protection law, in force since 2001. Governs collection, use, and disclosure of personal information in the course of commercial activity.",
+        "notes": "The federal government has made multiple attempts to replace PIPEDA (CPPA under Bill C-27, died on the order paper Jan 2025; now Bill C-36 / PPCDA as of June 2026) — see secid:regulation/priv.gc.ca/ppcda-bill-c36. PIPEDA remains in force until a successor passes.",
+        "urls": [
+          {"type": "legal_text", "url": "https://laws-lois.justice.gc.ca/eng/acts/p-8.6/"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^ppcda-bill-c36$"],
+      "description": "Protecting Privacy and Consumer Data Act (Bill C-36) — proposed PIPEDA successor",
+      "weight": 90,
+      "data": {
+        "official_name": "Protecting Privacy and Consumer Data Act",
+        "common_name": "PPCDA / Bill C-36",
+        "alternate_names": ["Bill C-36"],
+        "description": "Third federal attempt at private-sector privacy reform (after the CPPA in the prior Bill C-27, which died on the order paper January 2025). First reading June 15, 2026. Would replace PIPEDA, introduce a new enforcement body (the Digital Safety and Data Protection Commission of Canada), and penalties up to CAD 25M or 5% of global revenue.",
+        "notes": "Status: proposed, pre-second-reading as of this sweep entry (2026). Not yet in force — track alongside PIPEDA (secid:regulation/priv.gc.ca/pipeda) which remains current law. Revisit as the bill progresses.",
+        "urls": [
+          {"type": "website", "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

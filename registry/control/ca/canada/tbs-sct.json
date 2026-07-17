@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "tbs-sct.canada.ca",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Treasury Board of Canada Secretariat",
+  "common_name": "TBS",
+  "alternate_names": null,
+  "notes": "See also registry/methodology/ca/gc/tbs-sct.json for the Algorithmic Impact Assessment tool.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.tbs-sct.canada.ca"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^directive-automated-decision-making$"],
+      "description": "Directive on Automated Decision-Making",
+      "weight": 100,
+      "data": {
+        "official_name": "Directive on Automated Decision-Making",
+        "notes": "Mandatory federal-government policy instrument (not a statute) governing use of automated decision systems in federal administrative decisions. Requires Algorithmic Impact Assessments (secid:methodology/tbs-sct.canada.ca/algorithmic-impact-assessment) scaled to risk level, transparency, and human-in-the-loop safeguards for higher-impact systems.",
+        "urls": [
+          {"type": "website", "url": "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32592"}
+        ],
+        "examples": ["directive-automated-decision-making"]
+      }
+    }
+  ]
+}
