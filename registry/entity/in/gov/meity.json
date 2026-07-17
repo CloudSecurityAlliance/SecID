@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meity.gov.in",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Ministry of Electronics and Information Technology",
+  "common_name": "MeitY",
+  "alternate_names": null,
+  "notes": "Government of India ministry (established 2016, successor to DeitY). Owns/administers the DPDP Act, IT Act 2000, IT Rules, CERT-In, UIDAI, GI Cloud MeghRaj, IndiaAI Mission, and Digital India programs. See registry/regulation/in/gov/meity.json for the laws/rules it administers and registry/control/in/gov/meity.json for its programs.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.meity.gov.in"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^data-protection-board$"],
+      "description": "Data Protection Board of India — adjudicating body for DPDP Act complaints",
+      "weight": 90,
+      "data": {
+        "official_name": "Data Protection Board of India",
+        "common_name": "DPBI",
+        "notes": "Established under Sections 18-19 of the DPDP Act (secid:regulation/meity.gov.in/dpdp); formally constituted November 13, 2025 (headquartered New Delhi, 4 members). Envisioned as a 'digital-by-design' adjudicating body for DPDP Act complaints and penalties. No independent public website confirmed as of this sweep entry — likely to launch under its own .gov.in domain; revisit.",
+        "urls": [
+          {"type": "reference", "url": "https://en.wikipedia.org/wiki/Data_Protection_Board_of_India"}
+        ],
+        "examples": ["data-protection-board"]
+      }
+    }
+  ]
+}

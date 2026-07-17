@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meity.gov.in",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Ministry of Electronics and Information Technology",
+  "common_name": "MeitY",
+  "alternate_names": null,
+  "notes": "See also registry/entity/in/gov/meity.json (the ministry itself) and registry/regulation/in/gov/meity.json (laws/rules) for other type-specific files under this namespace.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.meity.gov.in"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^indiaai-mission$"],
+      "description": "IndiaAI Mission — national AI program",
+      "weight": 100,
+      "data": {
+        "official_name": "IndiaAI Mission",
+        "common_name": "INDIAai",
+        "notes": "Jointly run by MeitY, the National e-Governance Division (NeGD), and NASSCOM; portal launched March 7, 2024. Umbrella national AI program covering compute access, datasets platform, indigenous foundation models, startup funding, safe/trusted AI, and AI skilling.",
+        "urls": [
+          {"type": "website", "url": "https://indiaai.gov.in"}
+        ],
+        "examples": ["indiaai-mission"]
+      }
+    },
+    {
+      "patterns": ["(?i)^gi-cloud-meghraj$"],
+      "description": "GI Cloud (MeghRaj) — government cloud service provider empanelment",
+      "weight": 100,
+      "data": {
+        "official_name": "GI Cloud (MeghRaj) empanelment of Cloud Service Providers",
+        "common_name": "MeghRaj",
+        "notes": "Assessed via STQC (Standardisation Testing and Quality Certification Directorate). Requires India-hosted/India-resident data and compliance with ISO 27001/27017/27018/20000. A procurement gate for government departments, PSUs, and financial institutions — analogous in role to FedRAMP (US) or ISMAP (Japan).",
+        "urls": [
+          {"type": "website", "url": "https://www.meity.gov.in/content/gi-cloud-meghraj"},
+          {"type": "website", "url": "https://ambud.meity.gov.in/", "note": "Empanelment portal"}
+        ],
+        "examples": ["gi-cloud-meghraj"]
+      }
+    }
+  ]
+}

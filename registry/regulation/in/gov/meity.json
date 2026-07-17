@@ -102,6 +102,38 @@
           {"type": "legal_text", "url": "https://www.meity.gov.in/writereaddata/files/Information%20Technology%20%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20%28updated%2006.04.2023%29-.pdf"}
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^dpdp-rules$"],
+      "description": "Digital Personal Data Protection Rules 2025",
+      "weight": 100,
+      "data": {
+        "official_name": "Digital Personal Data Protection Rules, 2025",
+        "common_name": "DPDP Rules",
+        "alternate_names": null,
+        "description": "Implementing rules for the DPDP Act (secid:regulation/meity.gov.in/dpdp), notified in the Gazette of India November 13-14, 2025. Operationalizes itemized notices, breach notification, and DPO/audit obligations for Significant Data Fiduciaries.",
+        "notes": "Most substantive provisions phase in over 18 months from notification (~May 2027).",
+        "urls": [
+          {"type": "website", "url": "https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^national-cyber-security-policy$"],
+      "description": "National Cyber Security Policy 2013",
+      "weight": 90,
+      "data": {
+        "official_name": "National Cyber Security Policy-2013",
+        "common_name": "NCSP 2013",
+        "alternate_names": null,
+        "description": "India's first comprehensive cybersecurity policy framework — critical-infrastructure protection, capability building, and public-private collaboration. Published by the Department of Electronics and IT (now MeitY), effective July 2, 2013.",
+        "notes": "A newer 'National Cyber Security Strategy' has reportedly been drafted by the National Security Council Secretariat but was not formally released as of this sweep entry — revisit.",
+        "urls": [
+          {"type": "website", "url": "https://www.meity.gov.in/static/uploads/2024/02/National_cyber_security_policy-2013_0.pdf"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
