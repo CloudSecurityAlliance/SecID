@@ -298,6 +298,176 @@
           {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0030"}
         ]
       }
+    },
+
+    {
+      "patterns": ["(?i)^data-act$"],
+      "description": "Data Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2023/2854 on harmonised rules on fair access to and use of data",
+        "common_name": "Data Act",
+        "alternate_names": ["Regulation (EU) 2023/2854"],
+        "description": "Establishes rights for users of connected products/IoT devices to access data they generate and share it with third parties, sets conditions for B2B and B2G data sharing, includes safeguards against unlawful third-country government access to non-personal data, and imposes switching obligations on cloud/data-processing service providers.",
+        "notes": "Entered into force January 11, 2024; generally applicable from September 12, 2025.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^data-governance-act$", "(?i)^dga$"],
+      "description": "Data Governance Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2022/868 on European data governance",
+        "common_name": "DGA",
+        "alternate_names": ["Regulation (EU) 2022/868"],
+        "description": "Creates a framework to increase trust in voluntary data sharing by regulating 'data intermediation services' (neutral brokers connecting data holders and reusers), setting conditions for public-sector bodies to allow reuse of protected data (trade secrets, personal data, IP), and establishing 'data altruism' organisations for voluntary donation of data for the public good.",
+        "notes": "Entered into force June 23, 2022; applicable since September 24, 2023.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32022R0868"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dsa$"],
+      "description": "Digital Services Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2022/2065 establishing rules for a safer digital space",
+        "common_name": "DSA",
+        "alternate_names": ["Regulation (EU) 2022/2065"],
+        "description": "Imposes tiered obligations on intermediary/hosting services, online platforms, and especially Very Large Online Platforms/Search Engines (>45M EU monthly users) — covering illegal-content takedown, transparency of recommender systems and ads, risk assessments, and independent audits.",
+        "notes": "Entered into force November 2022; VLOP/VLOSE obligations applied from August 2023, full applicability from February 17, 2024.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^dma$"],
+      "description": "Digital Markets Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2022/1925 on contestable and fair markets in the digital sector",
+        "common_name": "DMA",
+        "alternate_names": ["Regulation (EU) 2022/1925"],
+        "description": "Targets designated 'gatekeeper' platforms with ex-ante obligations and prohibitions (interoperability, anti-self-preferencing, data-combination limits) enforced solely by the European Commission, with fines up to 10% (20% for repeat offences) of worldwide turnover.",
+        "notes": "Entered into force November 1, 2022; applicable from May 2, 2023.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2022/1925/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cybersecurity-act$"],
+      "description": "Cybersecurity Act (ENISA mandate + EU cybersecurity certification framework)",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2019/881 on ENISA and on ICT cybersecurity certification",
+        "common_name": "Cybersecurity Act",
+        "alternate_names": ["Regulation (EU) 2019/881"],
+        "description": "Establishes ENISA as a permanent EU agency and creates the EU cybersecurity certification framework — voluntary schemes for ICT products, services, and processes (e.g. EUCC, EUCS in progress).",
+        "notes": "Applicable since June 27, 2019, with authority/penalty/complaint provisions applying from June 28, 2021. See secid:entity/enisa.europa.eu for the agency itself.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2019/881/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^cyber-solidarity-act$"],
+      "description": "Cyber Solidarity Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2025/38 strengthening solidarity and capacities in the Union to detect, prepare for and respond to cybersecurity threats and incidents",
+        "common_name": "Cyber Solidarity Act",
+        "alternate_names": ["Regulation (EU) 2025/38"],
+        "description": "Establishes a European Cybersecurity Alert System (interconnected National and Cross-Border Cyber Hubs) and a Cybersecurity Emergency Mechanism (stockpiling, incident response support, mutual assistance).",
+        "notes": "Published January 15, 2025; entered into force February 4, 2025.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2025/38/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^product-liability-directive$"],
+      "description": "Product Liability Directive (revised, 2024)",
+      "weight": 100,
+      "data": {
+        "official_name": "Directive (EU) 2024/2853 on liability for defective products",
+        "common_name": "Product Liability Directive",
+        "alternate_names": ["Directive (EU) 2024/2853"],
+        "description": "Replaces the 1985 Product Liability Directive (85/374/EEC). Extends strict (no-fault) liability to software, AI systems, and digital manufacturing files as 'products', eases the claimant's burden of proof (including for AI's technical complexity), and covers damage from defective updates.",
+        "notes": "Published November 18, 2024; member states must transpose by December 9, 2026.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^gpsr$"],
+      "description": "General Product Safety Regulation",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2023/988 on general product safety",
+        "common_name": "GPSR",
+        "alternate_names": ["Regulation (EU) 2023/988"],
+        "description": "Replaces Directive 2001/95/EC. Requires consumer products not covered by sector-specific EU law to be safe, addressing risks from digitalisation, connected devices, and cybersecurity as safety factors, with new obligations for online marketplaces.",
+        "notes": "Entered into force June 12, 2023; applicable from December 13, 2024.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R0988"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^machinery-regulation$"],
+      "description": "Machinery Regulation",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2023/1230 on machinery",
+        "common_name": "Machinery Regulation",
+        "alternate_names": ["Regulation (EU) 2023/1230"],
+        "description": "Replaces the Machinery Directive 2006/42/EC. Sets health/safety requirements for machinery design and construction, adding explicit cybersecurity obligations — safety-related control systems and software must resist both accidental faults and deliberate cyberattacks, with manufacturers required to provide security updates for up to 10 years.",
+        "notes": "Applies from January 20, 2027.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"}
+        ],
+        "examples": []
+      }
+    },
+
+    {
+      "patterns": ["(?i)^ehds$"],
+      "description": "European Health Data Space",
+      "weight": 100,
+      "data": {
+        "official_name": "Regulation (EU) 2025/327 on the European Health Data Space",
+        "common_name": "EHDS",
+        "alternate_names": ["Regulation (EU) 2025/327"],
+        "description": "Creates an EU-wide legal, technical, and governance framework for electronic health data — giving individuals control over/access to their own health data and enabling secondary use (research, policymaking, innovation) under strict security/governance controls.",
+        "notes": "Entered into force March 26, 2025; primary-use provisions (patient summaries, ePrescriptions) phase in by March 2029.",
+        "urls": [
+          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
