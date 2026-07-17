@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "namespace": "apra.gov.au",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Australian Prudential Regulation Authority",
+  "common_name": "APRA",
+  "alternate_names": null,
+  "notes": "Prudential regulator of banks, insurers, and superannuation funds.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.apra.gov.au"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cps-230$"],
+      "description": "Operational Risk Management",
+      "weight": 100,
+      "data": {
+        "official_name": "Prudential Standard CPS 230: Operational Risk Management",
+        "common_name": "CPS 230",
+        "notes": "Cross-industry prudential standard, effective July 2025. Requires APRA-regulated entities to manage operational risk, maintain business continuity plans, and oversee material service-provider (including cloud/tech) arrangements.",
+        "urls": [
+          {"type": "website", "url": "https://www.apra.gov.au/operational-risk-management"}
+        ],
+        "examples": ["cps-230"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cps-234$"],
+      "description": "Information Security",
+      "weight": 100,
+      "data": {
+        "official_name": "Prudential Standard CPS 234: Information Security",
+        "common_name": "CPS 234",
+        "notes": "Requires regulated entities to maintain information security capability commensurate with vulnerabilities/threats, test controls, and notify APRA of material information security incidents within 72 hours.",
+        "urls": [
+          {"type": "website", "url": "https://www.apra.gov.au/information-security-cps-234"}
+        ],
+        "examples": ["cps-234"]
+      }
+    }
+  ]
+}

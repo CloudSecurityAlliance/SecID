@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "homeaffairs.gov.au",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Department of Home Affairs",
+  "common_name": "Home Affairs",
+  "alternate_names": null,
+  "notes": "Administers the Security of Critical Infrastructure Act 2018.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.homeaffairs.gov.au"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^soci-act$"],
+      "description": "Security of Critical Infrastructure Act 2018",
+      "weight": 100,
+      "data": {
+        "official_name": "Security of Critical Infrastructure Act 2018",
+        "common_name": "SOCI Act",
+        "alternate_names": null,
+        "description": "Establishes obligations for owners/operators of critical infrastructure assets across 11 sectors — asset registration, mandatory cyber incident reporting, and enhanced government assistance powers.",
+        "notes": "See also secid:regulation/homeaffairs.gov.au/cirmp-rules for the risk-management-program rules made under this Act.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.au/C2018A00029/latest/text"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^cirmp-rules$"],
+      "description": "Critical Infrastructure Risk Management Program Rules",
+      "weight": 100,
+      "data": {
+        "official_name": "Security of Critical Infrastructure (Critical Infrastructure Risk Management Program) Rules 2023",
+        "common_name": "CIRMP Rules",
+        "alternate_names": null,
+        "description": "Made under SOCI Act s.30AH (secid:regulation/homeaffairs.gov.au/soci-act). Requires responsible entities to establish, maintain, and comply with a written risk management program addressing cyber/physical/personnel/supply-chain hazards.",
+        "notes": "",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.au/F2023L00485"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
