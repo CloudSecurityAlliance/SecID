@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "namespace": "msit.go.kr",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Ministry of Science and ICT",
+  "common_name": "MSIT",
+  "alternate_names": null,
+  "notes": "See also registry/control/kr/or/kisa.json for KISA (a MSIT-affiliated agency that certifies K-ISMS/ISMS-P and CSAP).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.msit.go.kr"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-basic-act$"],
+      "description": "AI Basic Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Framework Act on the Development of Artificial Intelligence and the Establishment of a Foundation for Trustworthiness",
+        "common_name": "AI Basic Act",
+        "alternate_names": null,
+        "description": "Korea's first comprehensive AI statute. Establishes a risk-based framework (with a 'high-impact AI' category), obligations for AI business operators (transparency, safety, human oversight), and a national AI policy/promotion structure. Took effect January 22, 2026, with MSIT as lead regulator.",
+        "notes": "",
+        "urls": [
+          {"type": "website", "url": "https://elaw.klri.re.kr"},
+          {"type": "reference", "url": "https://www.law.go.kr"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^network-act$"],
+      "description": "Network Act",
+      "weight": 90,
+      "data": {
+        "official_name": "Act on Promotion of Information and Communications Network Utilization and Information Protection, Etc.",
+        "common_name": "Network Act",
+        "alternate_names": null,
+        "description": "Korea's foundational network-utilization and cybersecurity-incident-reporting statute, enacted 1986 (Act No. 3848), heavily amended since (most recent amendments effective August 14, 2024 strengthening breach-reporting obligations). Predates and complements PIPA (secid:regulation/pipc.go.kr/pipa) — most personal-information provisions moved to PIPA in the 2020 'Data 3 Laws' reform; this Act still covers ISP obligations, spam/malware provisions, and network breach notification.",
+        "notes": "",
+        "urls": [
+          {"type": "website", "url": "https://www.law.go.kr"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

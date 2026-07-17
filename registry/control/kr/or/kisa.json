@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kisa.or.kr",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Korea Internet & Security Agency",
+  "common_name": "KISA",
+  "alternate_names": null,
+  "notes": "See also registry/entity/kr/or/kisa.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.kisa.or.kr/EN/"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^isms-p$"],
+      "description": "ISMS-P — Korea's integrated information security and personal-information management-system certification",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Security Management System - Personal information (ISMS-P)",
+        "common_name": "ISMS-P",
+        "alternate_names": ["K-ISMS"],
+        "notes": "K-ISMS was merged in 2018 with the Personal Information Management System (PIMS) into the integrated ISMS-P. Mandatory/voluntary certification scheme for Korean and foreign companies operating online services in Korea, assessing 80 information-security controls plus 22 personal-information-protection controls. Widely treated as Korea's domestic analogue to ISO 27001. Certified/supervised jointly with PIPC (secid:entity/pipc.go.kr) for the personal-information controls.",
+        "urls": [
+          {"type": "website", "url": "https://www.pipc.go.kr/eng/user/lgp/bnp/certification.do"}
+        ],
+        "examples": ["isms-p"]
+      }
+    },
+    {
+      "patterns": ["(?i)^csap$"],
+      "description": "Cloud Security Assurance Program",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Security Assurance Program",
+        "common_name": "CSAP",
+        "alternate_names": ["클라우드컴퓨팅서비스 보안인증제"],
+        "notes": "Authorized under Article 23-2 of the Act on the Development of Cloud Computing and Protection of Its Users. Korea's government-cloud security certification (analogous to FedRAMP/ISMAP) — three tiers (High/Medium/Low), five-year validity with follow-up assessments, mandatory for cloud services used by Korean government/public-sector bodies, requiring in-country data/infrastructure/personnel for higher tiers.",
+        "urls": [
+          {"type": "website", "url": "https://www.kisa.or.kr/EN/"}
+        ],
+        "examples": ["csap"]
+      }
+    }
+  ]
+}
