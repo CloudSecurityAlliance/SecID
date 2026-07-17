@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.za",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Government of South Africa",
+  "common_name": "South Africa",
+  "alternate_names": null,
+  "notes": "See also registry/entity/za/org/inforegulator.json (inforegulator.org.za) for the Information Regulator that enforces POPIA.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.gov.za"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^popia$"],
+      "description": "Protection of Personal Information Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Protection of Personal Information Act, 2013 (Act 4 of 2013)",
+        "common_name": "POPIA",
+        "alternate_names": null,
+        "description": "South Africa's comprehensive data-protection statute, GDPR-like in scope. Signed November 19, 2013; effective July 1, 2020 (one-year compliance grace period ending mid-2021). Enforced by the Information Regulator.",
+        "notes": "",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.gov.za/documents/protection-personal-information-act"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^cybercrimes-act$"],
+      "description": "Cybercrimes Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybercrimes Act 19 of 2020",
+        "common_name": "Cybercrimes Act",
+        "alternate_names": null,
+        "description": "Promulgated December 1, 2021. Consolidates cybercrime offenses (unlawful access, data interference, cyber-fraud/extortion/forgery), imposes reporting duties on electronic communications service providers and financial institutions.",
+        "notes": "",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.gov.za/documents/acts/cybercrimes-act-19-2020-english-afrikaans-01-jun-2021"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
