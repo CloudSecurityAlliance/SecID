@@ -92,6 +92,54 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^cyber-security-resilience-bill$"],
+      "description": "Cyber Security and Resilience Bill",
+      "weight": 90,
+      "data": {
+        "official_name": "Cyber Security and Resilience Bill",
+        "common_name": "CSR Bill",
+        "alternate_names": null,
+        "description": "Proposed UK legislation (not yet enacted as of registration), sponsored by the Department for Science, Innovation and Technology (DSIT), expanding UK NIS Regulations 2018 (secid:regulation/gov.uk/nis-regs-2018) coverage to more digital services/supply chains, with stronger regulator enforcement and incident-reporting powers, and covering managed service providers.",
+        "notes": "Status: proposed/in progress, not yet Royal Assent as of this sweep entry (2026). Revisit once enacted.",
+        "urls": [
+          {"type": "website", "url": "https://www.gov.uk/government/publications/cyber-security-and-resilience-bill"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^atrs$"],
+      "description": "Algorithmic Transparency Recording Standard",
+      "weight": 90,
+      "data": {
+        "official_name": "Algorithmic Transparency Recording Standard",
+        "common_name": "ATRS",
+        "alternate_names": null,
+        "description": "Published by DSIT/Central Digital and Data Office. A structured template for publicly documenting how an algorithmic/AI tool used by a public sector body works, its data, oversight, and risks — the UK's answer to a public AI system-card registry. Mandatory since February 2024 for UK government departments/public bodies using algorithmic tools affecting the public.",
+        "notes": "",
+        "urls": [
+          {"type": "website", "url": "https://www.gov.uk/government/publications/algorithmic-transparency-recording-standard-guidance-for-public-sector-bodies"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^critical-third-parties-regime$"],
+      "description": "Critical Third Parties regime (financial sector operational resilience)",
+      "weight": 90,
+      "data": {
+        "official_name": "Operational Resilience: Critical Third Parties to the UK Financial Sector",
+        "common_name": "CTP Regime",
+        "alternate_names": ["PS16/24"],
+        "description": "Joint rules from the Bank of England, Prudential Regulation Authority (PRA), and Financial Conduct Authority (FCA), under powers granted by the Financial Services and Markets Act 2023. Designates and regulates systemically important third-party service providers (cloud/tech vendors) to UK financial firms — operational resilience, incident notification, and testing requirements.",
+        "notes": "Effective January 2025. Publishing bodies (Bank of England, PRA, FCA) do not yet have their own SecID entity entries -- this citation lives under the general gov.uk namespace as a sweep placeholder.",
+        "urls": [
+          {"type": "website", "url": "https://www.bankofengland.co.uk/prudential-regulation/publication/2024/november/operational-resilience-critical-third-parties-uk-financial-sector-ps"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
