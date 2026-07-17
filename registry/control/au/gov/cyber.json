@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyber.gov.au",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Australian Cyber Security Centre",
+  "common_name": "ACSC",
+  "alternate_names": null,
+  "notes": "Part of the Australian Signals Directorate (ASD). See also registry/entity/au/gov/cyber.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cyber.gov.au"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ism$"],
+      "description": "Australian Information Security Manual",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Security Manual",
+        "common_name": "ISM",
+        "notes": "Published by ASD/ACSC. Cybersecurity framework of principles and controls for Australian government and industry to protect systems/data, updated quarterly.",
+        "urls": [
+          {"type": "website", "url": "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism"}
+        ],
+        "examples": ["ism"]
+      }
+    },
+    {
+      "patterns": ["(?i)^essential-eight$"],
+      "description": "Essential Eight maturity model",
+      "weight": 100,
+      "data": {
+        "official_name": "Essential Eight",
+        "notes": "A prioritized maturity-model baseline of eight mitigation strategies (application control, patching, MFA, restricting admin privileges, etc.), mandatory for non-corporate Commonwealth entities and widely adopted voluntarily elsewhere.",
+        "urls": [
+          {"type": "website", "url": "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight"}
+        ],
+        "examples": ["essential-eight"]
+      }
+    },
+    {
+      "patterns": ["(?i)^irap$"],
+      "description": "Information Security Registered Assessors Program",
+      "weight": 100,
+      "data": {
+        "official_name": "Information Security Registered Assessors Program",
+        "common_name": "IRAP",
+        "notes": "Accreditation program certifying independent assessors who evaluate government/cloud-provider systems against the ISM (secid:control/cyber.gov.au/ism); IRAP assessment is a common prerequisite for government cloud accreditation, analogous to FedRAMP 3PAO assessors (US) or ISMAP assessors (Japan).",
+        "urls": [
+          {"type": "website", "url": "https://www.cyber.gov.au/irap"}
+        ],
+        "examples": ["irap"]
+      }
+    }
+  ]
+}

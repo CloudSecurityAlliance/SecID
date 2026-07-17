@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "industry.gov.au",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Department of Industry, Science and Resources",
+  "common_name": "DISR",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/au/gov/industry.json (AI Action Plan) for the regulation-type file under this same namespace. National AI Centre operates within this department.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.industry.gov.au"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-safety-standard$"],
+      "description": "Voluntary AI Safety Standard",
+      "weight": 100,
+      "data": {
+        "official_name": "Voluntary AI Safety Standard",
+        "notes": "Published by the National AI Centre (within DISR), September 2024. Sets 10 guardrails (accountability, risk management, testing, transparency, human oversight, etc.) for organizations using/developing AI. A companion Proposals Paper outlines a planned mandatory framework for 'high-risk' AI settings, distinct from the already-registered AI Action Plan (secid:regulation/industry.gov.au/ai-action-plan).",
+        "urls": [
+          {"type": "website", "url": "https://www.industry.gov.au/publications/voluntary-ai-safety-standard"},
+          {"type": "website", "url": "https://www.industry.gov.au/proposals-paper-introducing-mandatory-guardrails-ai-high-risk-settings", "note": "Proposals paper for mandatory guardrails"}
+        ],
+        "examples": ["ai-safety-standard"]
+      }
+    }
+  ]
+}

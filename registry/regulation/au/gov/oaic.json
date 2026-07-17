@@ -42,6 +42,22 @@
           }
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^ndb$"],
+      "description": "Notifiable Data Breaches scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "Notifiable Data Breaches scheme",
+        "common_name": "NDB",
+        "alternate_names": null,
+        "description": "Mandatory breach-notification scheme under Privacy Act 1988 (secid:regulation/oaic.gov.au/privacy-act) Part IIIC, in force since February 2018. Requires APP entities to notify OAIC and affected individuals of eligible data breaches likely to cause serious harm.",
+        "notes": "",
+        "urls": [
+          {"type": "website", "url": "https://www.oaic.gov.au/privacy/notifiable-data-breaches"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
