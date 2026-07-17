@@ -42,6 +42,38 @@
           }
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^marco-civil$"],
+      "description": "Marco Civil da Internet",
+      "weight": 100,
+      "data": {
+        "official_name": "Marco Civil da Internet",
+        "common_name": "Marco Civil",
+        "alternate_names": ["Lei 12.965/2014"],
+        "description": "Brazil's foundational internet-rights law, sanctioned April 23, 2014 -- often called the 'Constitution of the Internet.' Establishes net neutrality, freedom of expression online, and privacy/personal-data protection principles predating the LGPD (secid:regulation/planalto.gov.br/lgpd). Regulated further by Decreto 8.771/2016.",
+        "notes": "",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^ai-bill-pl2338$"],
+      "description": "Brazilian AI Bill (Marco Legal da IA) — pending legislation",
+      "weight": 80,
+      "data": {
+        "official_name": "Projeto de Lei 2338/2023",
+        "common_name": "Marco Legal da IA",
+        "alternate_names": ["PL 2338/2023"],
+        "description": "Comprehensive AI-regulation bill modeled on the EU AI Act: risk-tiered classification (excessive/high/low-moderate risk), rights for affected persons (transparency, explanation, contestation), creation of a National AI Regulation and Governance System (SIA), and fines up to R$50 million per violation.",
+        "notes": "Status: NOT YET ENACTED as of this sweep entry. Approved unanimously by the Federal Senate December 10, 2024; still pending final Chamber of Deputies plenary vote as of mid-2026. Revisit once sanctioned into law -- track via camara.leg.br tramitação page.",
+        "urls": [
+          {"type": "website", "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/157233"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
