@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "iga.gov.bh",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched. A separate 'data classification' policy was researched but could not be confirmed with a canonical URL in this pass (may be tied to Law No. 16 of 2014 on State Documents/Secrets classification, or to the CBB Rulebook's Operational Risk Module for the financial sector, which sits behind a paywalled portal) — deliberately not registered rather than asserting an unverified title/URL. Revisit.",
+  "official_name": "Information & eGovernment Authority",
+  "common_name": "iGA",
+  "alternate_names": null,
+  "notes": "Bahrain's e-government authority.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.iga.gov.bh"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cloud-first-policy$"],
+      "description": "Cloud First Policy",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud First Policy",
+        "notes": "Published 2017. Bahrain government policy mandating cloud-first consideration for new government IT deployments.",
+        "urls": [
+          {"type": "document", "url": "https://iga.gov.bh/Media/Agencies/CloudFirstPolicy.pdf"}
+        ],
+        "examples": ["cloud-first-policy"]
+      }
+    }
+  ]
+}

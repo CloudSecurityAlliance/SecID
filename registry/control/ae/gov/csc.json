@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csc.gov.ae",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Cyber Security Council",
+  "common_name": "CSC",
+  "alternate_names": null,
+  "notes": "UAE's federal apex cybersecurity governance body.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://csc.gov.ae"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^national-cybersecurity-strategy$"],
+      "description": "UAE National Cybersecurity Strategy 2025-2031",
+      "weight": 100,
+      "data": {
+        "official_name": "National Cybersecurity Strategy",
+        "notes": "Current strategy (2025-2031), superseding the 2019 TDRA-led strategy.",
+        "urls": [
+          {"type": "website", "url": "https://csc.gov.ae"}
+        ],
+        "examples": ["national-cybersecurity-strategy"]
+      }
+    }
+  ]
+}

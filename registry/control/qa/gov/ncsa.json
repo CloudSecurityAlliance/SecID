@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ncsa.gov.qa",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Cyber Security Agency",
+  "common_name": "NCSA",
+  "alternate_names": null,
+  "notes": "Qatar's national cybersecurity agency; also provides PDPPL compliance guidance (secid:regulation/almeezan.qa/pdppl).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://ncsa.gov.qa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^national-cybersecurity-strategy$"],
+      "description": "Qatar National Cyber Security Strategy 2024-2030",
+      "weight": 100,
+      "data": {
+        "official_name": "National Cyber Security Strategy",
+        "notes": "Five-pillar strategy aligned with Qatar National Vision 2030. Qatar ranked Tier-1 in ITU Global Cybersecurity Index 2024.",
+        "urls": [
+          {"type": "website", "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy"}
+        ],
+        "examples": ["national-cybersecurity-strategy"]
+      }
+    }
+  ]
+}

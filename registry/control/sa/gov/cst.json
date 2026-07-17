@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cst.gov.sa",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Communications, Space & Technology Commission",
+  "common_name": "CST",
+  "alternate_names": ["CITC (former name)"],
+  "notes": "Formerly the Communications and Information Technology Commission (CITC).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.cst.gov.sa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ccrf$"],
+      "description": "Cloud Computing Regulatory Framework",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Computing Regulatory Framework (CCRF v4, 2023)",
+        "common_name": "CCRF",
+        "notes": "Governs CSP licensing tiers and Government/Non-Government data classification with residency rules for cloud services operating in Saudi Arabia.",
+        "urls": [
+          {"type": "website", "url": "https://www.cst.gov.sa/en/regulations-and-licenses/regulations/Document-1550"}
+        ],
+        "examples": ["ccrf"]
+      }
+    }
+  ]
+}

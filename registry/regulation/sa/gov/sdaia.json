@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sdaia.gov.sa",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Saudi Data and AI Authority",
+  "common_name": "SDAIA",
+  "alternate_names": null,
+  "notes": "Saudi Arabia's national data and AI authority. See also registry/control/sa/gov/sdaia.json for its AI ethics/governance guidance.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://sdaia.gov.sa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^pdpl$"],
+      "description": "Saudi Personal Data Protection Law",
+      "weight": 100,
+      "data": {
+        "official_name": "Personal Data Protection Law (Royal Decree M/19)",
+        "common_name": "Saudi PDPL",
+        "notes": "Enacted 2021, amended 2023, effective September 2023. Saudi Arabia's first comprehensive data-protection law, enforced via SDAIA's National Data Governance Platform.",
+        "urls": [
+          {"type": "website", "url": "https://sdaia.gov.sa"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

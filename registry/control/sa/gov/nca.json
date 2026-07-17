@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nca.gov.sa",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Cybersecurity Authority",
+  "common_name": "NCA",
+  "alternate_names": null,
+  "notes": "Saudi Arabia's national cybersecurity regulator.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://nca.gov.sa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ecc$"],
+      "description": "Essential Cybersecurity Controls",
+      "weight": 100,
+      "data": {
+        "official_name": "Essential Cybersecurity Controls (ECC-2:2024)",
+        "common_name": "ECC",
+        "notes": "114-control mandatory baseline for Saudi government entities and Critical National Infrastructure.",
+        "urls": [
+          {"type": "website", "url": "https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/"}
+        ],
+        "examples": ["ecc"]
+      }
+    }
+  ]
+}

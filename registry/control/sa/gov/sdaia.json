@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sdaia.gov.sa",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Saudi Data and AI Authority",
+  "common_name": "SDAIA",
+  "alternate_names": null,
+  "notes": "See also registry/regulation/sa/gov/sdaia.json for the Saudi PDPL, which this same authority enforces.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://sdaia.gov.sa"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-ethics-principles$"],
+      "description": "AI Ethics Principles and Controls",
+      "weight": 100,
+      "data": {
+        "official_name": "Principles and Controls of AI Ethics",
+        "notes": "Published 2023. Saudi Arabia's national AI ethics framework.",
+        "urls": [
+          {"type": "website", "url": "https://sdaia.gov.sa/en/SDAIA/about/Pages/AboutAI.aspx"}
+        ],
+        "examples": ["ai-ethics-principles"]
+      }
+    },
+    {
+      "patterns": ["(?i)^genai-government-guidelines$"],
+      "description": "Generative AI Guidelines for Government",
+      "weight": 100,
+      "data": {
+        "official_name": "Generative AI Guidelines for Government",
+        "notes": "Published 2024. Guidance for Saudi government bodies adopting generative AI.",
+        "urls": [
+          {"type": "website", "url": "https://sdaia.gov.sa/en/SDAIA/about/Pages/AboutAI.aspx"}
+        ],
+        "examples": ["genai-government-guidelines"]
+      }
+    }
+  ]
+}
