@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ico.org.uk",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Information Commissioner's Office",
+  "common_name": "ICO",
+  "alternate_names": null,
+  "notes": "See also registry/entity/uk/org/ico.json for the regulator itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://ico.org.uk"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-guidance$"],
+      "description": "ICO Guidance on AI and data protection",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidance on AI and data protection",
+        "notes": "Interprets UK GDPR obligations (fairness, lawfulness, transparency, DPIAs, automated decision-making under Article 22) as applied to AI/ML systems.",
+        "urls": [
+          {"type": "website", "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"}
+        ],
+        "examples": ["ai-guidance"]
+      }
+    }
+  ]
+}

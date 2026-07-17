@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ncsc.gov.uk",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "National Cyber Security Centre",
+  "common_name": "NCSC",
+  "alternate_names": null,
+  "notes": "See also registry/entity/uk/gov/ncsc.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.ncsc.gov.uk"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^secure-ai-development$"],
+      "description": "Guidelines for Secure AI System Development",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines for Secure AI System Development",
+        "notes": "Co-authored with CISA and ~20 international partner agencies, published November 2023. Lifecycle guidance (secure design, development, deployment, operation and maintenance) for AI/ML systems.",
+        "urls": [
+          {"type": "website", "url": "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"}
+        ],
+        "examples": ["secure-ai-development"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cloud-security-principles$"],
+      "description": "NCSC Cloud Security Principles",
+      "weight": 100,
+      "data": {
+        "official_name": "Cloud Security Principles",
+        "notes": "14 principles for evaluating cloud service security. Long-standing UK government cloud-assurance framework, analogous in scope to CSA's CCM.",
+        "urls": [
+          {"type": "website", "url": "https://www.ncsc.gov.uk/collection/cloud-security"}
+        ],
+        "examples": ["cloud-security-principles"]
+      }
+    },
+    {
+      "patterns": ["(?i)^cyber-essentials$"],
+      "description": "Cyber Essentials / Cyber Essentials Plus certification scheme",
+      "weight": 100,
+      "data": {
+        "official_name": "Cyber Essentials",
+        "notes": "UK government-backed certification scheme, originally launched by the Department for Business, Innovation & Skills (now DSIT), technically administered by the IASME Consortium as accreditation body. Self-assessment (Cyber Essentials) or externally-audited (Cyber Essentials Plus) baseline technical controls (boundary firewalls, secure configuration, access control, malware protection, patch management), required for many UK government contracts.",
+        "urls": [
+          {"type": "website", "url": "https://www.ncsc.gov.uk/cyberessentials/overview"}
+        ],
+        "examples": ["cyber-essentials"]
+      }
+    }
+  ]
+}
