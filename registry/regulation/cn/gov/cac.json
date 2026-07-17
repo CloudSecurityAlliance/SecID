@@ -77,6 +77,88 @@
           {"type": "website", "url": "https://www.cac.gov.cn/2016-11/07/c_1119867116.htm"}
         ]
       }
+    },
+    {
+      "patterns": ["(?i)^cybersecurity-review-measures$"],
+      "description": "Cybersecurity Review Measures",
+      "weight": 100,
+      "data": {
+        "official_name": "Measures for Cybersecurity Review",
+        "common_name": "Cybersecurity Review Measures",
+        "alternate_names": ["网络安全审查办法"],
+        "description": "Establishes a mandatory pre-clearance security-review regime for critical information infrastructure operators (CIIOs) procuring network products/services that could affect national security, and for network platform operators holding personal data of over 1 million users seeking a listing abroad. Reviews conducted by the Cybersecurity Review Office under CAC, jointly with 12 other departments (NDRC, MIIT, MPS, MSS, MOF, MOFCOM, PBOC, SAMR, and others).",
+        "notes": "First issued 2020, revised 2021. Current version effective February 15, 2022.",
+        "urls": [
+          {"type": "website", "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm"},
+          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/17598-2/", "note": "China Law Translate English translation, 2022 revised version"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^cross-border-data-transfer-security-assessment$"],
+      "description": "Measures for Security Assessment of Outbound Data Transfer",
+      "weight": 100,
+      "data": {
+        "official_name": "Measures for Security Assessment of Outbound Data Transfer",
+        "common_name": "Data Export Security Assessment Measures",
+        "alternate_names": ["数据出境安全评估办法"],
+        "description": "Implements PIPL Article 40 and DSL cross-border provisions. Requires a CAC security assessment before export of 'important data' or personal information above defined thresholds (e.g. CIIOs, processors handling PI of 1M+ individuals, or sensitive PI of 10,000+ individuals) collected/generated in China. Companion lower-threshold mechanisms (standard contract, certification) were introduced in later 2023 relaxation rules.",
+        "notes": "Effective September 1, 2022, with a compliance grace period to March 1, 2023.",
+        "urls": [
+          {"type": "translation", "url": "https://digichina.stanford.edu/work/translation-outbound-data-transfer-security-assessment-measures-effective-sept-1-2022/", "note": "DigiChina/Stanford English translation"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^algorithm-recommendation-provisions$"],
+      "description": "Algorithm Recommendation Management Provisions",
+      "weight": 100,
+      "data": {
+        "official_name": "Provisions on the Administration of Algorithm Recommendation for Internet Information Services",
+        "common_name": "Algorithm Recommendation Provisions",
+        "alternate_names": ["互联网信息服务算法推荐管理规定"],
+        "description": "China's first dedicated algorithm-governance regulation, grounded in the CSL, DSL, and PIPL. Regulates recommendation-algorithm use in internet information services (search, feeds, e-commerce, gig platforms): requires algorithm filing/registration with CAC for services with public-opinion or social-mobilization capability, mandates user opt-out/control over recommendation profiling, bans algorithmic price discrimination, and requires labor-rights protections for algorithm-managed gig workers. Jointly issued by CAC, MIIT, MPS, and SAMR.",
+        "notes": "Adopted January 4, 2022; effective March 1, 2022.",
+        "urls": [
+          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/algorithms/", "note": "China Law Translate English translation"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^deep-synthesis-provisions$"],
+      "description": "Deep Synthesis Provisions",
+      "weight": 100,
+      "data": {
+        "official_name": "Provisions on the Administration of Deep Synthesis of Internet-Based Information Services",
+        "common_name": "Deep Synthesis Provisions",
+        "alternate_names": ["互联网信息服务深度合成管理规定"],
+        "description": "Regulates 'deep synthesis' technology (deep learning/VR/generative-synthetic algorithms producing text, images, audio, video, or virtual scenes/persons). Requires provider security assessments, real-name verification of users, conspicuous labeling of synthetic content (predecessor to the 2025 AI-content labeling measures below), bans use for spreading disinformation or impersonation without consent, and requires algorithm filing with CAC similar to the Algorithm Recommendation Provisions. Jointly issued by CAC, MIIT, and MPS.",
+        "notes": "Issued November 25, 2022; effective January 10, 2023.",
+        "urls": [
+          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/deep-synthesis/", "note": "China Law Translate English translation"}
+        ],
+        "examples": []
+      }
+    },
+    {
+      "patterns": ["(?i)^ai-content-labeling-measures$"],
+      "description": "Measures for Labeling of AI-Generated Synthetic Content",
+      "weight": 100,
+      "data": {
+        "official_name": "Measures for the Labeling of AI-Generated and Synthetic Content",
+        "common_name": "AI Content Labeling Measures",
+        "alternate_names": ["人工智能生成合成内容标识办法"],
+        "description": "Requires 'explicit' (visible text/audio/graphic) and 'implicit' (embedded metadata) labeling of AI-generated/synthetic content — text, image, audio, video, virtual scenes — by internet information service providers and content-distribution platforms. Paired with mandatory national standard GB 45438-2025 (Cybersecurity Technology — Labeling Method for Content Generated by Artificial Intelligence). Jointly issued by CAC, MPS, SAMR, and NRTA (National Radio and Television Administration).",
+        "notes": "Issued March 14, 2025; effective September 1, 2025.",
+        "urls": [
+          {"type": "website", "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm"},
+          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/ai-labeling/", "note": "China Law Translate English translation"}
+        ],
+        "examples": []
+      }
     }
   ]
 }
