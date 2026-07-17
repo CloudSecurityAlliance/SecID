@@ -45,6 +45,59 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": ["(?i)^genai-governance-framework$"],
+      "description": "Model AI Governance Framework for Generative AI",
+      "weight": 100,
+      "data": {
+        "official_name": "Model AI Governance Framework for Generative AI",
+        "notes": "Published by IMDA/AI Verify Foundation in 2024 as the second generation of Singapore's Model AI Governance Framework (first gen: Traditional AI, secid:control/imda.gov.sg/model-governance, 2020). Organized around 9 focus areas: accountability, data, trusted development/deployment, incident reporting, testing/assurance, security, content provenance, safety/alignment R&D, and AI for public good.",
+        "urls": [
+          {"type": "website", "url": "https://www.pdpc.gov.sg/help-and-resources/2024/05/model-ai-governance-framework-for-generative-ai"}
+        ],
+        "examples": ["genai-governance-framework"]
+      }
+    },
+    {
+      "patterns": ["(?i)^agentic-ai-governance-framework$"],
+      "description": "Model AI Governance Framework for Agentic AI",
+      "weight": 100,
+      "data": {
+        "official_name": "Model AI Governance Framework for Agentic AI",
+        "notes": "Launched January 22, 2026 by the Ministry of Digital Development and Information (MDDI)/IMDA — described as the world's first governance framework specifically for autonomous AI agents. Structured around 4 pillars: bounding risk upfront, human accountability, technical controls across the agent lifecycle, and end-user transparency/training.",
+        "urls": [
+          {"type": "document", "url": "https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf"}
+        ],
+        "examples": ["agentic-ai-governance-framework"]
+      }
+    },
+    {
+      "patterns": ["(?i)^project-moonshot$"],
+      "description": "Project Moonshot — LLM red-teaming and evaluation toolkit",
+      "weight": 100,
+      "data": {
+        "official_name": "Project Moonshot",
+        "notes": "Open-source LLM red-teaming/evaluation toolkit developed by IMDA's AI Verify Foundation, billed as the first open-source toolkit combining benchmarking and red-teaming for LLMs. Companion tool to AI Verify (secid:control/imda.gov.sg/ai-verify), used to operationalize testing under the GenAI/Agentic AI governance frameworks.",
+        "urls": [
+          {"type": "website", "url": "https://aiverifyfoundation.sg/project-moonshot/"}
+        ],
+        "examples": ["project-moonshot"]
+      }
+    },
+    {
+      "patterns": ["(?i)^mtcs-ss584$"],
+      "description": "Multi-Tier Cloud Security Standard (SS 584)",
+      "weight": 100,
+      "data": {
+        "official_name": "Specification for Multi-Tiered Cloud Computing Security (SS 584)",
+        "common_name": "MTCS SS 584",
+        "notes": "Singapore Standard developed under the Information Technology Standards Committee (ITSC), overseen by IMDA, built on ISO/IEC 27001. World's first tiered cloud-security certification standard (2013, revised SS 584:2020). 3 certification tiers (535 controls total); mandatory for CSPs bidding on Singapore government tenders.",
+        "urls": [
+          {"type": "reference", "url": "https://en.wikipedia.org/wiki/SS584"}
+        ],
+        "examples": ["mtcs-ss584"]
+      }
     }
   ]
 }

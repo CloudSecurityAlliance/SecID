@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mas.gov.sg",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Monetary Authority of Singapore",
+  "common_name": "MAS",
+  "alternate_names": null,
+  "notes": "See also registry/entity/sg/gov/mas.json for the regulator itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.mas.gov.sg"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^trm-guidelines$"],
+      "description": "Technology Risk Management Guidelines",
+      "weight": 100,
+      "data": {
+        "official_name": "Technology Risk Management Guidelines",
+        "common_name": "TRMG",
+        "notes": "Last major revision January 18, 2021 (with subsequent advisories). Non-statutory but supervisory-expectation guidelines covering technology risk governance, system resilience, and cyber hygiene for financial institutions.",
+        "urls": [
+          {"type": "document", "url": "https://www.mas.gov.sg/-/media/MAS/Regulations-and-Financial-Stability/Regulatory-and-Supervisory-Framework/Risk-Management/TRM-Guidelines-18-January-2021.pdf"}
+        ],
+        "examples": ["trm-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^outsourcing-guidelines$"],
+      "description": "Guidelines on Outsourcing",
+      "weight": 100,
+      "data": {
+        "official_name": "Guidelines on Outsourcing",
+        "notes": "Sets expectations for outsourcing/cloud arrangements by financial institutions, with 'material outsourcing' triggering stricter obligations (audit rights, annual review). As of March 2026, MAS has a consultation paper proposing to supersede these with broader Third-Party Risk Management (TPRM) Guidelines covering all FIs relying on third parties, not just those with formal outsourcing arrangements.",
+        "urls": [
+          {"type": "website", "url": "https://www.mas.gov.sg/regulation/third-party-risk-management"}
+        ],
+        "examples": ["outsourcing-guidelines"]
+      }
+    }
+  ]
+}
