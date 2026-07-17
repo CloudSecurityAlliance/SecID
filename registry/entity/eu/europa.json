@@ -16,5 +16,20 @@
       "url": "https://digital-strategy.ec.europa.eu"
     }
   ],
-  "match_nodes": []
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ai-office$"],
+      "description": "European AI Office — implements and enforces the EU AI Act",
+      "weight": 100,
+      "data": {
+        "official_name": "European AI Office",
+        "notes": "Established by Commission Decision of January 24, 2024 (published February 14, 2024, entered into force February 21, 2024); sits within DG CONNECT. Develops evaluation tools for general-purpose AI models, coordinates enforcement with national/EU bodies, runs the AI Board secretariat, and supports standardisation and regulatory sandboxes for secid:regulation/europa.eu/ai-act.",
+        "urls": [
+          {"type": "website", "url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office"},
+          {"type": "legal_text", "url": "https://digital-strategy.ec.europa.eu/en/library/commission-decision-establishing-european-ai-office"}
+        ],
+        "examples": ["ai-office"]
+      }
+    }
+  ]
 }
