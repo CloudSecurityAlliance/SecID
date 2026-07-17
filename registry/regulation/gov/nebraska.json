@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nebraska.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Nebraska",
+  "common_name": "Nebraska",
+  "alternate_names": null,
+  "notes": "Nebraska state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nebraska.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ndpa$"
+      ],
+      "description": "Nebraska Data Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Nebraska Data Privacy Act",
+        "common_name": "NDPA",
+        "alternate_names": null,
+        "description": "Nebraska's comprehensive consumer privacy law, part of omnibus LB 1074 (Neb. Rev. Stat. 87-1101 et seq.). Signed April 17 2024, effective January 1 2025.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1101"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

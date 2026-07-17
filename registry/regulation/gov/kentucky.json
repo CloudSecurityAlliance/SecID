@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kentucky.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Kentucky",
+  "common_name": "Kentucky",
+  "alternate_names": null,
+  "notes": "Kentucky state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.kentucky.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^kcdpa$"
+      ],
+      "description": "Kentucky Consumer Data Protection Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Kentucky Consumer Data Protection Act",
+        "common_name": "KCDPA",
+        "alternate_names": null,
+        "description": "Kentucky's comprehensive consumer privacy law. HB 15 (2024), effective January 1, 2026.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://apps.legislature.ky.gov/record/24rs/hb15.html"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

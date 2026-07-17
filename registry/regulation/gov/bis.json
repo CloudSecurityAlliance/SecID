@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bis.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched. This area is unusually unsettled: the Jan 2025 AI Diffusion Rule was rescinded before its compliance date and no consolidated replacement existed as of mid-2026 research. Treat as a placeholder citation pending a real policy landscape, not a stable regulation.",
+  "official_name": "Bureau of Industry and Security",
+  "common_name": "BIS",
+  "alternate_names": null,
+  "notes": "See also registry/entity/gov/bis.json for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.bis.gov"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^ear-advanced-computing$"],
+      "description": "Export Administration Regulations — advanced computing / AI model weight export controls",
+      "weight": 80,
+      "data": {
+        "official_name": "Export Administration Regulations (EAR) — advanced computing and semiconductor manufacturing items controls",
+        "notes": "Complicated, fast-moving area as of mid-2026. The 'Framework for Artificial Intelligence Diffusion' rule (Jan 15, 2025) revised EAR advanced-computing controls and added ECCN 4E091 (a worldwide license requirement for closed model weights of the most advanced dual-use AI models) but was RESCINDED by the following administration before its May 15 2025 compliance date, with no consolidated replacement rule as of this registration. Current posture is a patchwork: pre-existing EAR Entity List / ECCN 3A090 controls, non-regulatory guidance warning against supporting Chinese AI model training/inference, and a narrower Jan 2026 rule adjusting license-review policy for advanced-computing semiconductor exports to China/Macau. Cite the original Diffusion Rule as historical/superseded context; do not treat as the current rule.",
+        "urls": [
+          {"type": "document", "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00636/framework-for-artificial-intelligence-diffusion", "note": "Original rule, superseded/rescinded"},
+          {"type": "document", "url": "https://www.bis.gov/press-release/department-commerce-rescinds-biden-era-artificial-intelligence-diffusion-rule-strengthens-chip-related", "note": "Rescission announcement"}
+        ],
+        "examples": ["ear-advanced-computing"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "louisiana.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of Louisiana",
+  "common_name": "Louisiana",
+  "alternate_names": null,
+  "notes": "Louisiana state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.louisiana.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^ldpa$"
+      ],
+      "description": "Louisiana Data Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Louisiana Data Privacy Act",
+        "common_name": "LDPA",
+        "alternate_names": null,
+        "description": "Louisiana's comprehensive consumer privacy law. SB 386 / Act 502 (2026), signed May 29 2026, effective January 1 2027.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.legis.la.gov/legis/BillInfo.aspx?s=26rs&b=SB386&sbi=y"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

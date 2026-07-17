@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nh.gov",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched beyond confirming the act exists and its citation.",
+  "official_name": "State of New Hampshire",
+  "common_name": "New Hampshire",
+  "alternate_names": null,
+  "notes": "New Hampshire state privacy and data protection laws.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nh.gov"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^privacy-act$"
+      ],
+      "description": "New Hampshire Privacy Act",
+      "weight": 100,
+      "data": {
+        "official_name": "New Hampshire Privacy Act",
+        "common_name": "NHPA",
+        "alternate_names": null,
+        "description": "New Hampshire's comprehensive consumer privacy law. SB 255 (2024), signed March 6 2024, effective January 1 2025.",
+        "notes": "",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://gc.nh.gov/bill_status/billinfo.aspx?id=865&inflect=1"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
