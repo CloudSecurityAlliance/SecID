@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csa.gov.sg",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Initial sweep entry — not deeply researched.",
+  "official_name": "Cyber Security Agency of Singapore",
+  "common_name": "CSA",
+  "alternate_names": null,
+  "notes": "See also registry/entity/sg/gov/csa.json (already existed) for the agency itself.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {"type": "website", "url": "https://www.csa.gov.sg"}
+  ],
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cybersecurity-act$"],
+      "description": "Cybersecurity Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Cybersecurity Act 2018",
+        "common_name": "Cybersecurity Act",
+        "alternate_names": ["Act No. 9 of 2018"],
+        "description": "Establishes the legal framework for Critical Information Infrastructure (CII) oversight, incident reporting, and licensing of cybersecurity service providers. CSA designates computer systems in 11 essential-service sectors (Energy, Water, Banking & Finance, Healthcare, Transport, Infocomm, Media, Security & Emergency Services, Government) as CII, imposing audit, incident-reporting, and Code of Practice obligations on owners.",
+        "notes": "A Cybersecurity (Amendment) Act took effect October 31, 2025, extending scope (e.g. to cloud/foundational digital infrastructure).",
+        "urls": [
+          {"type": "legal_text", "url": "https://sso.agc.gov.sg/Acts-Supp/9-2018/"},
+          {"type": "website", "url": "https://www.csa.gov.sg/legislation/cybersecurity-act/"}
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
