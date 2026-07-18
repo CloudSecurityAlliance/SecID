@@ -108,6 +108,10 @@
       "description": "Pattern tree for matching SecID name/subpath components. Each node matches a portion of the SecID string and optionally has children for deeper matching.",
       "type": "array",
       "items": { "$ref": "#/$defs/MatchNode" }
+    },
+    "tags": {
+      "description": "Optional filterable metadata (country, sector, etc.) for this namespace as a whole. Same shape as a match_node's data.tags (see MatchNode). Resolution is per-level, not merged: a query for the namespace gets these tags; a query for a specific source/subpath gets that node's own data.tags if present, otherwise falls back to these. Keys are open/uncontrolled for now — see docs/reference/REGISTRY-JSON-FORMAT.md.",
+      "$ref": "#/$defs/Tags"
     }
   },
   "additionalProperties": true,
@@ -183,6 +187,14 @@
         }
       },
       "additionalProperties": false
+    },
+    "Tags": {
+      "type": "object",
+      "description": "Filterable metadata: a dict of key -> array of string values (always an array, even for a single value). Keys are open/uncontrolled for now (e.g. 'country' with ISO 3166-1 alpha-2 codes plus 'EU'/'INTL', 'sector'). Not validated beyond shape — see docs/reference/REGISTRY-JSON-FORMAT.md for the current starter conventions. Can appear at the namespace's top-level 'tags' field or inside any match_node's 'data.tags' field (the latter is not schema-enforced since MatchNode.data is open-ended, but should follow this same shape).",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
     }
   }
 }
