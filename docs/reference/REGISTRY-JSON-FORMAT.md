@@ -380,6 +380,50 @@ A formal JSON Schema file is ideal, but API documentation qualifies too. If the 
 | Source-level `urls` | `match_nodes[].data.urls[]` | Access methods for the source as a whole |
 | Per-item child `data` | `match_nodes[].children[].data` | Resolution URLs for specific items |
 
+## Tags (Filtering Metadata)
+
+An optional `tags` field supports filtering the registry by dimensions that aren't part of identity/resolution — country, sector, and similar facets. This exists because a lot of the registry's real-world structure (which country a law is from, which sector a guideline covers) was previously only implicit in the directory path, not queryable.
+
+### Shape
+
+```json
+"tags": {
+  "country": ["JP"],
+  "sector": ["financial"]
+}
+```
+
+A dict of key → array of strings. Values are always arrays, even for a single value, so a key can hold multiple values without a shape change (e.g. `"country": ["DE", "FR", "IT"]` for something that spans several countries).
+
+### Where it can appear
+
+`tags` can appear in two places, with the identical shape:
+
+1. **At the namespace's top level** — describes the org/source as a whole (e.g. `secid:control/ismap.go.jp/control-criteria` is Japan-scoped, so the namespace-level `tags` carries `"country": ["JP"]`).
+2. **Inside any match_node's `data.tags`** — describes that specific document, when it differs from (or adds to) the namespace default. A single organization can publish documents with different sector scope even though they're the same country — e.g. a ministry that issues both a broad AI guideline and a financial-sector-specific one.
+
+### Resolution: per-level, not merged
+
+There is no merge/override logic between the two levels. A query resolves to whichever level it names, and reads tags from that level:
+
+- `secid:control/some-org.example` (namespace-level query) → namespace `tags`.
+- `secid:control/some-org.example/some-item` (source-level query) → that match_node's own `data.tags` if present; if the match_node doesn't declare `tags` at all, it falls back to the namespace-level `tags` (the same "closest-defined-ancestor" behavior already implicit elsewhere in the registry, e.g. how `notes` and `urls` work when a child doesn't repeat what the parent already said).
+
+This means a document that applies to a different country/sector than its parent namespace just declares its own `tags` — no override syntax needed.
+
+### Keys are open, not enumerated (for now)
+
+There's no fixed schema enum of allowed keys yet — the JSON Schema (`schemas/registry-namespace.schema.json`, `$defs/Tags`) only validates the *shape* (an object of string arrays), not specific keys or values. This is deliberate: the key/value vocabulary that's actually useful will only be clear after enough entries are tagged to see the real spread, so locking it down now would mean guessing.
+
+**Starter convention** (documented, not enforced):
+- `country` — ISO 3166-1 alpha-2 codes (e.g. `"JP"`, `"US"`, `"DE"`), plus `"EU"` for supra-national EU-wide sources and `"INTL"` for genuinely international/global ones.
+- `sector` — free text for now (e.g. `"financial"`, `"healthcare"`, `"critical-infrastructure"`). No controlled vocabulary yet.
+- Other keys can be added ad hoc as real needs emerge (e.g. `entity_size`, `extraterritorial`) — revisit enumeration once usage shows what's actually needed.
+
+### Scope: registry metadata, not a compliance engine
+
+Per PRINCIPLES.md's three-layer model (Registry / Relationship / Data), `tags` is meant to stay lightweight and filterable — "this is Japan-scoped" or "this is financial-sector" — not a rules engine for answering "does this law apply to my organization" (entity-size thresholds, extraterritorial-reach logic, and similar richer applicability questions lean toward the future Data Enrichment layer instead). Adding `tags` to registry entries doesn't itself expose a "browse by country" API — that's a query/filter capability that would need to be built in SecID-Service, a separate concern from tagging the underlying data.
+
 ## Schema Structure
 
 ### Top-Level Fields
