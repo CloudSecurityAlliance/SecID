@@ -44,22 +44,16 @@
             "note": "207 controls, 283 CAIQ questions. Incremental update from the 4.0.x line. CSA also labels this release 4.1.0; that variant cannot be registered as an alias until CCM has version-level tree nodes, since aliases resolve through the tree."
           },
           {
-            "version": "4.0.13",
-            "release_date": null,
-            "status": "superseded",
-            "note": "Supersedes CCM 4.0 through 4.0.12. A distinct release from 4.0 — not an alias of it. 197 controls across 17 domains -- the same count as 4.0."
-          },
-          {
             "version": "4.0",
             "release_date": "2021-06-01",
             "status": "superseded",
-            "note": "197 controls. Original v4 release, later superseded within the 4.0.x line by 4.0.13."
+            "note": "197 controls across 17 domains. Original v4 release, since patched within the 4.0.x line: the artifact CSA currently serves under the \"v4.0\" title is internally stamped 4.0.13, which supersedes 4.0 through 4.0.12. CSA's own API exposes only \"4.0\" and \"4.1\" as version labels -- there is no separately addressable 4.0.13 -- so SecID follows the publisher and records 4.0."
           },
           {
             "version": "3.0.1",
-            "release_date": "2014-09-16",
+            "release_date": null,
             "status": "superseded",
-            "note": "Still referenced in older compliance documentation. Different domain structure from v4. 133 controls across 16 domains."
+            "note": "Still referenced in older compliance documentation. Different domain structure from v4. 133 controls across 16 domains. Release date not asserted: upstream encodes 2014-09-16 in its publication ID while CSA's own announcement dates the release to July 2014; the year is agreed, the month is not."
           }
         ],
         "examples": ["IAM-01", "DSP-07", "GRC-01", "A&A-01"]

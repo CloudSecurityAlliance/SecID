@@ -129,8 +129,13 @@ def test_aicaiq_requires_a_version():
 
 # ---------- CCM ----------
 
-def test_ccm_has_4_0_13():
-    assert "4.0.13" in versions("ccm"), sorted(versions("ccm"))
+def test_ccm_uses_the_publishers_own_version_labels():
+    # CSA's API exposes only "4.0" and "4.1"; the artifact served as v4.0 is
+    # internally stamped 4.0.13, which is a patch level, not a separate
+    # addressable version. PRINCIPLES #6: follow the source's naming.
+    v = versions("ccm")
+    assert set(v) == {"4.1", "4.0", "3.0.1"}, sorted(v)
+    assert "4.0.13" not in v
 
 
 def test_ccm_4_0_is_a_real_version_never_an_alias():
