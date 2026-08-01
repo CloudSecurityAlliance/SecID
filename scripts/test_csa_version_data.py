@@ -127,6 +127,32 @@ def test_aicaiq_requires_a_version():
     assert d["unversioned_behavior"] == "all_with_guidance"
 
 
+# ---------- CCM ----------
+
+def test_ccm_has_4_0_13():
+    assert "4.0.13" in versions("ccm"), sorted(versions("ccm"))
+
+
+def test_ccm_4_0_is_a_real_version_never_an_alias():
+    # 4.0.13 supersedes "CCM 4.0 through 4.0.12", so 4.0 is a distinct release.
+    assert "4.0" in versions("ccm")
+    for entry in versions("ccm").values():
+        for alias in entry.get("aliases", []):
+            assert alias["label"] != "4.0", "4.0 must never be an alias"
+
+
+def test_ccm_declares_no_aliases_without_tree_nodes():
+    # Aliases only resolve via version tree patterns; CCM has none by choice.
+    assert not version_nodes_are_versions("ccm")
+    for entry in versions("ccm").values():
+        assert not entry.get("aliases"), "CCM cannot carry aliases until it has version nodes"
+
+
+def version_nodes_are_versions(name: str) -> bool:
+    """True if any child of the source node is a declared version."""
+    return bool(set(version_nodes(name)) & set(versions(name)))
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:

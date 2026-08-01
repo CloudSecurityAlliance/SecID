@@ -37,9 +37,30 @@
         "version_required": false,
         "unversioned_behavior": "current_with_history",
         "versions_available": [
-          {"version": "4.1", "release_date": "2024-01-01", "status": "current", "note": "207 controls, 283 CAIQ questions. Incremental update from v4.0."},
-          {"version": "4.0", "release_date": "2021-06-01", "status": "superseded", "note": "197 controls. Original v4 release."},
-          {"version": "3.0.1", "release_date": "2017-06-01", "status": "superseded", "note": "Still referenced in older compliance documentation. Different domain structure from v4."}
+          {
+            "version": "4.1",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "note": "207 controls, 283 CAIQ questions. Incremental update from the 4.0.x line. CSA also labels this release 4.1.0; that variant cannot be registered as an alias until CCM has version-level tree nodes, since aliases resolve through the tree."
+          },
+          {
+            "version": "4.0.13",
+            "release_date": null,
+            "status": "superseded",
+            "note": "Supersedes CCM 4.0 through 4.0.12. A distinct release from 4.0 — not an alias of it."
+          },
+          {
+            "version": "4.0",
+            "release_date": "2021-06-01",
+            "status": "superseded",
+            "note": "197 controls. Original v4 release, later superseded within the 4.0.x line by 4.0.13."
+          },
+          {
+            "version": "3.0.1",
+            "release_date": "2017-06-01",
+            "status": "superseded",
+            "note": "Still referenced in older compliance documentation. Different domain structure from v4."
+          }
         ],
         "examples": ["IAM-01", "DSP-07", "GRC-01", "A&A-01"]
       },
