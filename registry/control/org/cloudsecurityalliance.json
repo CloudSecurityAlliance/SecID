@@ -323,54 +323,126 @@
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "AI-CAIQ ships in the same ZIP bundle as AICM."}
         ],
-        "version_required": false,
-        "unversioned_behavior": "current_with_history",
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "AI-CAIQ question IDs are derived from AICM control IDs (XXX-NN.M), so they inherit AICM's renumbering. Between 1.0.2 and 1.1.0 the underlying control IDs moved and the question IDs moved with them — LOG-15.1 in 1.0.2 and LOG-15.1 in 1.1.0 are questions about different controls. Always cite AI-CAIQ questions with an explicit version, and never migrate references by string match; the mapping has to be derived from the underlying AICM control changes, since CSA publishes no crosswalk for either artifact.",
         "versions_available": [
-          {"version": "1.0", "release_date": "2025-07-01", "status": "current", "note": "Pairs with AICM v1.0/v1.0.3."}
+          {
+            "version": "1.1.0",
+            "release_date": "2026-06-22",
+            "status": "current",
+            "note": "320 questions. Ships as a standalone workbook inside the AICM v1.1 bundle. Pairs with AICM 1.1.0.",
+            "aliases": [
+              {
+                "label": "1.1",
+                "on_match": "resolve",
+                "note": "CSA brands the containing bundle v1.1; the questionnaire stamps itself 1.1.0."
+              },
+              {
+                "label": "v1.1",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "1.0.2",
+            "release_date": null,
+            "status": "superseded",
+            "note": "Paired with AICM 1.0.3. Question IDs are not interchangeable with 1.1.0."
+          }
         ],
         "examples": ["IAM-01.1", "MDS-01.1", "DSP-03.2"]
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
-          "description": "AICM control domain — returns all AI-CAIQ questions in this domain. 18 domains (17 CCM + MDS).",
+          "patterns": ["^1\\.1\\.0$", "^1\\.1$", "^v1\\.1$"],
+          "description": "AI-CAIQ v1.1.0 (current). Ships in the AICM v1.1 bundle.",
           "weight": 100,
           "data": {
-            "type": "domain",
-            "note": "AI-CAIQ uses the same 17 CCM domains plus MDS (Model Security). Returns the AICM download URL with instructions to filter by domain code.",
-            "examples": [
-              {"input": "MDS", "note": "All Model Security questions — AICM-only domain"},
-              {"input": "IAM", "note": "All Identity & Access Management questions"}
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1",
+            "urls": [
+              {
+                "type": "bulk_data",
+                "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix-v1-1",
+                "format": "zip",
+                "note": "AI-CAIQ v1.1.0 ships as a standalone workbook inside the AICM v1.1 ZIP bundle."
+              }
             ],
-            "known_values": {
-              "MDS": "Model Security (AICM-only domain)"
+            "note": "320 questions."
+          },
+          "children": [
+            {
+              "patterns": ["^[A-Z&]{2,3}$"],
+              "description": "Domain — returns all AI-CAIQ v1.1.0 questions in this domain. 18 domains (17 CCM + MDS).",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain page. Filter the AI-CAIQ v1.1.0 workbook by domain code.",
+                "known_values": {"MDS": "Model Security (AICM-only domain)"}
+              }
+            },
+            {
+              "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+              "description": "Parent AICM v1.1.0 control — returns all its AI-CAIQ questions.",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "WARNING: this control ID may designate a different control in 1.0.2's numbering. Do not carry references across versions by string match."
+              }
+            },
+            {
+              "patterns": ["^[A-Z&]{2,3}-\\d{2}\\.\\d+$"],
+              "description": "Specific AI-CAIQ v1.1.0 question (e.g., MDS-01.1, IAM-01.2).",
+              "weight": 100,
+              "data": {
+                "type": "question",
+                "note": "No per-question web page. Download the v1.1 bundle and find the row in the AI-CAIQ workbook.",
+                "examples": [
+                  {"input": "MDS-01.1", "note": "No per-question URL — resolve via the v1.1 bundle download"}
+                ]
+              }
             }
-          }
+          ]
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
-          "description": "Parent AICM control — returns all AI-CAIQ questions for this control.",
-          "weight": 100,
+          "patterns": ["^1\\.0\\.2$"],
+          "description": "AI-CAIQ v1.0.2 (superseded). Pairs with AICM 1.0.3.",
+          "weight": 90,
           "data": {
-            "type": "control_questions",
-            "note": "Returns the set of all AI-CAIQ questions for this AICM control. Cross-reference: see secid:control/cloudsecurityalliance.org/aicm for the underlying control specification.",
-            "examples": [
-              {"input": "MDS-01", "note": "Returns all AI-CAIQ questions for MDS-01"},
-              {"input": "IAM-01", "note": "Returns all AI-CAIQ questions for IAM-01 (distinct from CCM CAIQ IAM-01)"}
-            ]
-          }
-        },
-        {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}\\.\\d+$"],
-          "description": "Specific AI-CAIQ question (e.g., MDS-01.1, IAM-01.2).",
-          "weight": 100,
-          "data": {
-            "type": "question",
-            "note": "No per-question web page exists. Download the AICM bundle, open the AI-CAIQ sheet, find the matching Question ID.",
-            "examples": [
-              {"input": "MDS-01.1", "note": "First AI-CAIQ question for MDS-01"}
-            ]
-          }
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
+            "note": "CSA publishes no version-specific page; the generic artifact URL now serves v1.1, so obtaining 1.0.2 requires an archived copy."
+          },
+          "children": [
+            {
+              "patterns": ["^[A-Z&]{2,3}$"],
+              "description": "Domain — returns all AI-CAIQ v1.0.2 questions in this domain.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "known_values": {"MDS": "Model Security (AICM-only domain)"}
+              }
+            },
+            {
+              "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+              "description": "Parent AICM v1.0.3 control — returns all its AI-CAIQ v1.0.2 questions.",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "WARNING: this control ID may designate a different control in 1.1.0's numbering."
+              }
+            },
+            {
+              "patterns": ["^[A-Z&]{2,3}-\\d{2}\\.\\d+$"],
+              "description": "Specific AI-CAIQ v1.0.2 question (e.g., MDS-01.1, IAM-01.2).",
+              "weight": 100,
+              "data": {
+                "type": "question",
+                "note": "No per-question web page. Requires an archived copy of the 1.0.2 workbook."
+              }
+            }
+          ]
         }
       ]
     },

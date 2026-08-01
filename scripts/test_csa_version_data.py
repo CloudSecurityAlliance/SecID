@@ -96,6 +96,37 @@ def test_aicm_disambiguation_states_the_renumbering():
     assert "LOG-15" in text and "string match" in text
 
 
+# ---------- AI-CAIQ ----------
+
+def test_aicaiq_has_version_tree_nodes():
+    nodes = version_nodes("aicm-caiq")
+    assert "1.1.0" in nodes and "1.0.2" in nodes, sorted(nodes)
+
+
+def test_aicaiq_version_nodes_carry_all_three_item_levels():
+    for v in ("1.1.0", "1.0.2"):
+        pats = [k["patterns"][0] for k in version_nodes("aicm-caiq")[v]["children"]]
+        assert "^[A-Z&]{2,3}$" in pats, (v, pats)
+        assert "^[A-Z&]{2,3}-\\d{2}$" in pats, (v, pats)
+        assert "^[A-Z&]{2,3}-\\d{2}\\.\\d+$" in pats, (v, pats)
+
+
+def test_aicaiq_aliases_match_tree_and_metadata():
+    pats = version_nodes("aicm-caiq")["1.1.0"]["patterns"]
+    assert pats[0] == "^1\\.1\\.0$", pats
+    assert alias_labels("aicm-caiq", "1.1.0") == {"1.1", "v1.1"}
+
+
+def test_aicaiq_declares_only_resolvable_versions():
+    assert "1.0" not in versions("aicm-caiq")
+
+
+def test_aicaiq_requires_a_version():
+    d = data("aicm-caiq")
+    assert d["version_required"] is True
+    assert d["unversioned_behavior"] == "all_with_guidance"
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for fn in fns:
