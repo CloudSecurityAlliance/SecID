@@ -216,8 +216,7 @@ two flagship frameworks:
 | CCM 4.1 | `4.1` | `4.1.0` (2-part canonical, 3-part alias) |
 
 No rule derives both. And rule 3 has a live trap: CCM `4.0` is a **genuine release** —
-`4.0.13`'s metadata records that it "supersedes CCM 4.0 through 4.0.12" — so `4.0` must
-never be registered as an alias of `4.0.13`.
+CSA's published CCM version labels are `4.0` and `4.1`; the artifact served as v4.0 is internally stamped `4.0.13`, and CSA's API exposes no addressable `4.0.13`. Registering the published label `4.0` as an alias of an internal patch stamp would invert the relationship, so an alias must never shadow a real version.
 
 ### D5 — Resolution order; the tree decides
 
@@ -537,10 +536,11 @@ control IDs, so `LOG-15.1` moved too. Add `1.1.0` (current) and `1.0.2` (superse
 Its existing `1.0` entry is likewise an outdated label rather than a resolvable release. Same D10 change as AICM.
 
 **CCM** (same file) — separate defect from AICM's: SecID lists `4.0`, a real release with
-no extraction, and omits `4.0.13`, which does have one. Add `4.0.13`. Add `4.1.0` as an
+no *separate* extraction. Do **not** add `4.0.13` as a version: CSA's API returns zero
+controls for it and the full set for `4.0`, so it is the patch stamp of the published v4.0
+artifact, not a peer release. Record it in `4.0`'s note instead. Add `4.1.0` as an
 alias of `4.1`, and `CCM v3` as an alias of `3.0.1` — a closed major track that has
-collapsed onto a fixed version. **Do not** alias `4.0` to `4.0.13`; they are distinct
-releases.
+collapsed onto a fixed version. **Do not** alias `4.0` to `4.0.13`.
 
 **Crosswalk as a citable reference** — give the crosswalk CSV and
 `aicm-1.1.0-changelog.json` `reference`-type registry entries so

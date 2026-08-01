@@ -285,7 +285,8 @@ def test_duplicate_version_rejected():
 
 
 def test_alias_label_colliding_with_real_version_rejected():
-    # The CCM trap: 4.0 is a genuine release that 4.0.13 supersedes.
+    # The CCM trap: 4.0 is CSA's published label; 4.0.13 is an internal patch
+    # stamp. Aliasing the published label to the stamp inverts the relationship.
     va = [
         {"version": "4.0.13", "aliases": [{"label": "4.0", "on_match": "resolve"}]},
         {"version": "4.0"},
@@ -807,8 +808,8 @@ Enforces what JSON Schema cannot reach: versions_available lives inside
 match_nodes[].data, which is additionalProperties:true.
 
 Two load-bearing checks. An alias label may never equal a real version in
-the same source (CCM 4.0 is a real release superseded by 4.0.13, so
-aliasing it would silently repoint it). And an alias declared without
+the same source (CCM 4.0 is CSA's published label; 4.0.13 is an internal
+patch stamp, so aliasing 4.0 to it would invert the relationship). And an alias declared without
 version-level tree nodes is rejected, because matching happens in the tree
 — metadata alone would be documentation that never resolves."
 ```
@@ -1487,7 +1488,7 @@ outdated 1.0 label, and requires an explicit version."
 
 ### Task 7: CCM version metadata (metadata only, deliberately no tree nodes)
 
-CCM has a different defect: SecID lists `4.0`, a real release with no published extraction, and omits `4.0.13`, which has one.
+CCM has a different defect: two of its recorded release dates are wrong or unestablishable, and its relationship to the 4.0.x patch line is undocumented. Note `4.0.13` is deliberately NOT added as a version -- CSA's API returns zero controls for it and the full set for `4.0`, so it is the patch stamp of the published v4.0 artifact.
 
 **CCM deliberately does not get version tree nodes.** Adding them would make `ccm#IAM-12` drop the subpath and demand a version — a usability regression for a source whose IDs are broadly stable across 4.0/4.1. That also means CCM's `4.1.0` variant label **cannot be recorded as an alias yet**: aliases only function via tree patterns, and Task 2's validator rejects aliases declared without version nodes. Revisit once R1 lands.
 
@@ -1505,11 +1506,13 @@ CCM has a different defect: SecID lists `4.0`, a real release with no published 
 # ---------- CCM ----------
 
 def test_ccm_has_4_0_13():
-    assert "4.0.13" in versions("ccm"), sorted(versions("ccm"))
+    v = versions("ccm")
+    assert set(v) == {"4.1", "4.0", "3.0.1"}, sorted(v)
+    assert "4.0.13" not in v
 
 
 def test_ccm_4_0_is_a_real_version_never_an_alias():
-    # 4.0.13 supersedes "CCM 4.0 through 4.0.12", so 4.0 is a distinct release.
+    # CSA's API exposes only 4.0 and 4.1; 4.0.13 is a patch stamp, so 4.0 is the release.
     assert "4.0" in versions("ccm")
     for entry in versions("ccm").values():
         for alias in entry.get("aliases", []):
@@ -1536,32 +1539,26 @@ Expected: FAIL on `test_ccm_has_4_0_13`.
 - [ ] **Step 3: Update CCM's `versions_available`**
 
 ```json
-        "versions_available": [
-          {
-            "version": "4.1",
-            "release_date": "2024-01-01",
-            "status": "current",
-            "note": "207 controls, 283 CAIQ questions. Incremental update from the 4.0.x line. CSA also labels this release 4.1.0; that variant cannot be registered as an alias until CCM has version-level tree nodes, since aliases resolve through the tree."
-          },
-          {
-            "version": "4.0.13",
-            "release_date": null,
-            "status": "superseded",
-            "note": "Supersedes CCM 4.0 through 4.0.12. A distinct release from 4.0 — not an alias of it."
-          },
-          {
-            "version": "4.0",
-            "release_date": "2021-06-01",
-            "status": "superseded",
-            "note": "197 controls. Original v4 release, later superseded within the 4.0.x line by 4.0.13."
-          },
-          {
-            "version": "3.0.1",
-            "release_date": "2017-06-01",
-            "status": "superseded",
-            "note": "Still referenced in older compliance documentation. Different domain structure from v4."
-          }
-        ],
+          "versions_available": [
+            {
+              "version": "4.1",
+              "release_date": "2024-01-01",
+              "status": "current",
+              "note": "207 controls, 283 CAIQ questions. Incremental update from the 4.0.x line. CSA also labels this release 4.1.0; that variant cannot be registered as an alias until CCM has version-level tree nodes, since aliases resolve through the tree."
+            },
+            {
+              "version": "4.0",
+              "release_date": "2021-06-01",
+              "status": "superseded",
+              "note": "197 controls across 17 domains. Original v4 release, since patched within the 4.0.x line: the artifact CSA currently serves under the \"v4.0\" title is internally stamped 4.0.13, which supersedes 4.0 through 4.0.12. CSA's own API exposes only \"4.0\" and \"4.1\" as version labels -- there is no separately addressable 4.0.13 -- so SecID follows the publisher and records 4.0."
+            },
+            {
+              "version": "3.0.1",
+              "release_date": null,
+              "status": "superseded",
+              "note": "Still referenced in older compliance documentation. Different domain structure from v4. 133 controls across 16 domains. Release date not asserted: upstream encodes 2014-09-16 in its publication ID while CSA's own announcement dates the release to July 2014; the year is agreed, the month is not."
+            }
+          ]
 ```
 
 - [ ] **Step 4: Run every check**
@@ -1578,7 +1575,7 @@ Expected: all pass, 15 `ok` lines.
 
 ```bash
 git add registry/control/org/cloudsecurityalliance.json scripts/test_csa_version_data.py
-git commit -m "Add CCM 4.0.13; keep 4.0 as a distinct release
+git commit -m "Correct CCM version dates and document the 4.0.x patch line
 
 CCM listed 4.0, a real release with no published extraction, and omitted
 4.0.13, which has one. 4.0.13's own metadata records that it supersedes
@@ -1692,7 +1689,7 @@ This mattered because AICM 1.1.0 renumbered controls in place: 54 of the 242 IDs
 3. **`patterns[0]` must be a clean literal.** No optional groups: `^2(\.0)?$` matches both `2` and `2.0` but leaves nothing to canonicalize to.
 4. **Each alias carries a required `on_match`:** `"resolve"` returns data inline (`found`); `"redirect"` returns empty results (`corrected`) with the canonical SecID in the message.
 5. **Aliases are curated, never derived.** AICM and CCM canonicalize in opposite directions, so no rule derives both.
-6. **An alias may never shadow a real version.** CCM `4.0` is a genuine release superseded by `4.0.13`.
+6. **An alias may never shadow a real version.** CCM `4.0` is CSA's published label; `4.0.13` is an internal patch stamp with no addressable version of its own.
 7. **An alias without version tree nodes is rejected** — it would be documentation that never resolves.
 8. **The resolver never returns item data from a version the caller did not ask for.**
 9. **Where item IDs are unstable across releases, omitting the version returns all of them** (`version_required: true`, `unversioned_behavior: "all_with_guidance"`). Applied to AICM and AI-CAIQ.
@@ -1767,7 +1764,7 @@ nodes whose `patterns[0]` is the canonical string and whose remaining patterns
 are its aliases. Because the direction of canonicalization is inconsistent even
 within one publisher, aliases are curated data — never derived by prefix
 matching or `v`-stripping — and an alias may never shadow a real version.
-CCM `4.0` is a genuine release superseded by `4.0.13`, not a short form of it.
+CCM `4.0` is CSA's published label, not a short form of the internal `4.0.13` patch stamp.
 
 **Unknown versions fail rather than guess.** A version matching no node returns
 `not_found` when a subpath is present. The resolver never substitutes item data
@@ -1887,7 +1884,7 @@ Giving AICM and AI-CAIQ version nodes makes `@9.9` return `not_found` and
   2026-06-22, 247 controls) and dates 1.0.3; adds AI-CAIQ 1.1.0 and 1.0.2
 - Sets `version_required` + `all_with_guidance` on both, because 54 of the 242
   control IDs shared between AICM 1.0.3 and 1.1.0 designate a different control
-- Adds CCM 4.0.13, keeping 4.0 as the distinct release it is
+- Corrects CCM's 3.0.1 date to unasserted (sources disagree on the month) and documents that the published v4.0 artifact is internally stamped 4.0.13
 - Repoints 19 outdated `@1.0` references across README, SPEC, RATIONALE and 3 registry files
 - Adds ADR-009; removes the nearest-version substitution from VERSIONING.md
 
@@ -1909,8 +1906,8 @@ patterns are copied verbatim under each version node.
 CSA canonicalizes in opposite directions across its two flagship frameworks:
 AICM's canonical is the 3-part `1.1.0` with `1.1` the alias; CCM's is the 2-part
 `4.1` with `4.1.0` the alias. No rule derives both. And CCM `4.0` is a genuine
-release that `4.0.13` supersedes, so prefix-matching would have silently
-repointed it. The validator rejects any alias shadowing a real version.
+published label whose artifact is internally stamped `4.0.13`, so
+prefix-matching would have inverted the relationship. The validator rejects any alias shadowing a real version.
 EOF
 )"
 ```
