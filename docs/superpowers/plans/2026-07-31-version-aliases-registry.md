@@ -1712,7 +1712,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Aliases in `versions_available` only** — metadata does not match; the tree does. They would never resolve.
 - **Aliases as tree patterns only** — no home for dates, status, notes, or `on_match`, none of which a regex can carry.
 - **Deriving `versions_available` from the tree** — impossible for the same reason.
-- **Deriving aliases by prefix or `v`-stripping** — unsound on SecID's own data; it would have aliased CCM `4.0` to `4.0.13`, silently repointing a real release.
+- **Deriving aliases by prefix or `v`-stripping** — unsound on SecID's own data; it would have aliased CCM's published label `4.0` to the internal patch stamp `4.0.13`, inverting the relationship.
 - **Pure redirect with no data for all aliases** — doubles round trips in the MCP channel where each costs an inference step, and empirically fails to change client behavior.
 - **Returning the nearest version's item data** (previously documented in `docs/reference/VERSIONING.md`) — its own example used `IAM-12`, one of the 54 renumbered AICM IDs.
 - **Version tree nodes for CCM** — would make `ccm#IAM-12` demand a version, for a source whose IDs are broadly stable.
