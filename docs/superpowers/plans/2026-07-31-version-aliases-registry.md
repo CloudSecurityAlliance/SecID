@@ -869,7 +869,7 @@ Then record the aliases in that source's `versions_available`, on the `2.0` and 
               {
                 "label": "2",
                 "on_match": "resolve",
-                "note": "243 controls. CSA maintains a separate artifact record per major line: the URL above is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
+                "note": "Major-version-only form, widely used in legacy vulnerability data. This source has version_required: false, so this binds to the child subpath-document node's pattern (`^2$`) rather than a version node \u2014 it resolves via `cvss#2`, not `cvss@2`."
               }
             ]
 ```
@@ -1361,7 +1361,7 @@ Expected: FAIL on `test_aicaiq_has_version_tree_nodes`.
             "version": "1.0.2",
             "release_date": null,
             "status": "superseded",
-            "note": "Paired with AICM 1.0.3. Question IDs are not interchangeable with 1.1.0."
+            "note": "Paired with AICM 1.0.3. Question IDs are not interchangeable with 1.1.0. 311 questions across 243 controls."
           }
         ],
 ```
@@ -1430,7 +1430,7 @@ Replace the `(?i)^aicm-caiq$` node's `children` with two version nodes, each car
           "data": {
             "type": "version",
             "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
-            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA maintains a separate artifact record per major line: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it. CSA's v1 artifact record shows \"Updated: 2025-10-30\", a third candidate."AI Controls Matrix v1\\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
+            "note": "CSA maintains a separate artifact record per major line: the URL above is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
           },
           "children": [
             {
