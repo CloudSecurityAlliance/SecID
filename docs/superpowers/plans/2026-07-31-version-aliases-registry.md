@@ -995,7 +995,9 @@ for u in "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1" \
   printf "  %s  %s\n" "$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 15 "$u")" "$u"
 done
 ```
-Expected, as measured 2026-07-31: `200`, `200`, **`404`**, `404`. The last line is the negative control proving CSA returns real 404s. **There is no version-specific page for 1.0.3** — do not invent one.
+Expected, as measured 2026-07-31: `200`, `200`, `404`, `404`. The last line is the negative control proving CSA returns real 404s.
+
+**Do not read the third 404 as "1.0.3 has no page."** That slug guess is simply wrong. CSA keeps one artifact record per major line — `.../artifacts/ai-controls-matrix` is "AI Controls Matrix v1" (released 2025-07-09, updated 2025-10-30), covering 1.0.x — and version-specific companions use an `aicmv1-0-3-*` slug convention. Verify a slug convention before concluding a page does not exist.
 
 - [ ] **Step 2: Write the failing data assertions**
 
@@ -1142,7 +1144,7 @@ In the `(?i)^aicm$` node's `data`, replace `version_required`, `unversioned_beha
             "version": "1.0.3",
             "release_date": null,
             "status": "superseded",
-            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it."
+            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA maintains a separate artifact record per major line: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix is \\"AI Controls Matrix v1\\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \\"2024\\" in the release metadata), and CSA publishes no changelog that settles it. CSA's v1 artifact record shows \\"Updated: 2025-10-30\\", a third candidate."2024\" in the release metadata), and CSA publishes no changelog that settles it."
           }
         ],
 ```
@@ -1211,7 +1213,7 @@ Replace the `(?i)^aicm$` node's entire `children` array with two version nodes, 
           "data": {
             "type": "version",
             "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
-            "note": "243 controls. CSA publishes no version-specific page for 1.0.3; the generic artifact URL above now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy."
+            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA maintains a separate artifact record per major line: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix is \\"AI Controls Matrix v1\\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \\"2024\\" in the release metadata), and CSA publishes no changelog that settles it. CSA's v1 artifact record shows \\"Updated: 2025-10-30\\", a third candidate."
           },
           "children": [
             {
@@ -1428,7 +1430,7 @@ Replace the `(?i)^aicm-caiq$` node's `children` with two version nodes, each car
           "data": {
             "type": "version",
             "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
-            "note": "CSA publishes no version-specific page; the generic artifact URL now serves v1.1, so obtaining 1.0.2 requires an archived copy."
+            "note": "243 controls. CSA maintains a separate artifact record per major line: the URL above is \\"AI Controls Matrix v1\\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
           },
           "children": [
             {
@@ -1455,7 +1457,7 @@ Replace the `(?i)^aicm-caiq$` node's `children` with two version nodes, each car
               "weight": 100,
               "data": {
                 "type": "question",
-                "note": "No per-question web page. Requires an archived copy of the 1.0.2 workbook."
+                "note": "No per-question web page. See the AI-CAIQ v1.0.2 version node's note for CSA's separate v1 artifact record."
               }
             }
           ]
@@ -1839,7 +1841,7 @@ None of these has a current requirement; none should be built speculatively.
 - [ ] **`missing-version` feedback category** in `submit_feedback` (its enum is `missing-namespace | correction | suggestion`; a missing version is none of those).
 - [ ] **A human feedback channel** distinct from URLs embedded in machine responses.
 - [ ] **Per-item "this ID changed meaning" metadata**, for when SecID hosts AICM content rather than only describing how to fetch it. Precision matters: 188 of the 242 shared IDs did *not* change meaning, so a blanket per-ID warning would be crying wolf. Gated on CSA legal confirmation (`DATA-HOSTING-RULES.md` line 79) and on Rule 0's license matrix gaining a row for the CC BY-**NC** non-commercial clause, which it currently lacks.
-- [ ] **AICM 1.0.3 has no live source.** CSA publishes no version-specific page (`.../artifacts/ai-controls-matrix-v1-0-3` returns 404) and the generic URL now serves v1.1. This is exactly the persistence risk in DATA-HOSTING-RULES Rule 1.
+- [ ] **Map CSA's per-version artifact slugs.** CSA keeps one artifact record per major line plus version-specific companions under an `aicmv1-0-3-*` convention. Recording those would give per-version resolvable URLs instead of a single generic one.
 - [ ] **Resolve the 208 `versions_available: []` entries** to `null` or real data. An empty array is neither "researched, found nothing" (`null`) nor "not researched" (absent) — most likely a YAML→JSON conversion artifact.
 - [ ] **Audit the 139 single-version sources** before giving any of them version tree nodes. Where the single entry means "current only, history not enumerated", the history is incomplete.
 - [ ] **Stale-format doc cleanup** (separate PR): `REGISTRY-FORMAT.md` still says "Current Format: YAML + Markdown", "will migrate to JSON", and "Seven pilot `.json` files already exist"; `REGISTRY-JSON-FORMAT.md` calls JSON the "target" format; `CLAUDE.md` calls `.md` authoritative. Reality: 2,130 JSON files at 100% coverage, deployed to KV.
