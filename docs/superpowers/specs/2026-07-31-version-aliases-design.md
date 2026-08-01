@@ -42,6 +42,21 @@ The resolver already rejects unknown versions and already lists the available on
 returns `found` for `@9.9` only because **AICM's tree has no version level** — there is
 nothing to match the version against, so it is ignored.
 
+**The precise trigger**, established by four live probes:
+
+| Query | Version nodes? | Subpath? | Result |
+|---|---|---|---|
+| `owasp.org/top10@9999#A01` | yes | yes | `not_found` |
+| `owasp.org/top10@9999` | yes | no | `found` — version ignored |
+| `first.org/cvss@9.9` | yes | no | `found` — version ignored |
+| `cloudsecurityalliance.org/aicm@9.9#LOG-15` | no | yes | `found` — version ignored |
+
+A version is validated only when the source has version-level nodes **and** the query
+carries a subpath, because only a subpath forces the tree walk to traverse the version
+level. Without one, the walk stops at the name node and the version component is never
+consumed. Notably `version_required` does not gate this at all — `top10` has
+`version_required: true` and still answers `top10@9999` with `found`.
+
 The registry format already models everything needed. OWASP's `2021` child is
 `^A0[1-9]$` while its `2017` child is `^A[1-9]$` — per-version *pattern* differences,
 which is precisely the AICM renumbering problem already expressed in production data.
@@ -220,6 +235,16 @@ For `name@version`, the resolver walks the name node's children:
 Step 4 is what makes this safe: enforcement is **opt-in by tree structure**. A source only
 gains version validation when someone gives it version nodes. Nothing changes for a source
 that has not been restructured, regardless of what its `versions_available` says.
+
+Today step 3 only fires when the query also carries a subpath, since that is what forces
+the walk through the version level. Closing that gap for subpath-less queries is R2 below;
+it is a status-and-message change, not a structural one, because the resolver already
+returns `versions_available` in the payload for those queries.
+
+**Canonicalization requires a clean literal at `patterns[0]`.** Express aliases as separate
+OR-patterns (`["^1\\.1\\.0$", "^1\\.1$"]`), never as an optional group. `first.org/cvss`
+uses `^2(\\.0)?$` to accept both `2` and `2.0`, which matches correctly but leaves no
+literal string to canonicalize to — and indeed `cvss@2` echoes `@2` back unchanged.
 
 A real version can never be shadowed by another node's alias, because a canonical version
 string is always `patterns[0]` of its own node and D4 rule 3 forbids any alias from
@@ -560,14 +585,24 @@ a **separate cleanup PR**, not folded in here, to keep the alias change reviewab
 
 | Repo | Change |
 |---|---|
-| **SecID** | Registry data, schema `$defs`, validation, docs, ADR-009 |
-| **SecID-Service** | Alias resolution, version enforcement, `did_you_mean`, `version_matched_alias`; optional `missing-version` feedback category |
+| **SecID** | Registry data (incl. AICM tree restructure), schema `$defs`, validation, docs, ADR-009 |
+| **SecID-Service** | R1–R4 below; optional `missing-version` feedback category |
 | **SecID-Server-API** | Same resolver behavior for the self-hosted path |
 | **SecID-Client-SDK** | Optional strict mode that warns or refuses on alias hits, for callers writing durable references |
 
-Registry data alone changes none of the three live failing queries — the resolver does not
-gate on `versions_available` today. **SecID-Service work is required for any of this to
-take effect.**
+**Registry data alone fixes two of the three failing AICM queries.** Restructuring AICM's
+tree makes `@9.9#LOG-15` return `not_found` and `@1.1#LOG-15` resolve, with no code change.
+An earlier draft of this spec claimed data changes nothing without SecID-Service; that was
+wrong.
+
+Remaining resolver work, in priority order:
+
+| | Change | Size |
+|---|---|---|
+| **R1** | Unversioned query **with a subpath** returns per-version results. Today the subpath is dropped and a single source-level result comes back (`top10#A01`). This is the only genuinely missing capability. | Large |
+| **R2** | Unknown version **without a subpath** returns `related` plus an explicit "not a known version" message, instead of `found`. The payload already carries `versions_available`. | Small |
+| **R3** | Alias canonicalization — echo `patterns[0]` in `results[].secid` and set `version_matched_alias`. | Small |
+| **R4** | `on_match: "redirect"` behavior. Not needed until a `redirect` alias exists; none is planned. | Small |
 
 **Strict mode** is the npm-lockfile and Docker-digest pattern: permissive at read time,
 strict at write time. It is where the "teach the client" goal is actually met. Empirically,
