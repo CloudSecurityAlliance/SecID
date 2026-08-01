@@ -195,6 +195,58 @@
         "type": "array",
         "items": { "type": "string" }
       }
+    },
+    "VersionAlias": {
+      "type": "object",
+      "description": "An alternate label for the version entry this object is nested under. Publishers routinely label one release two ways: CSA stamps the AICM workbook 1.1.0 while branding the same release 'v1.1' on its download page, and does the reverse for CCM where 4.1 is canonical and 4.1.0 is the variant. Nesting encodes the target, so there is no pointer to dangle. IMPORTANT: this object is metadata only. Matching is done by the pattern tree — the alias label must also appear as an OR-pattern on the corresponding version node, or it will never resolve. scripts/validate-version-aliases.py enforces that binding.",
+      "required": ["label", "on_match"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The alias exactly as the publisher writes it. Never normalized — no case folding, no 'v' stripping, no semver inference. Must not equal a real version string in the same source."
+        },
+        "on_match": {
+          "type": "string",
+          "enum": ["resolve", "redirect"],
+          "description": "What a resolver does when this label matches. 'resolve' returns full data inline with status 'found' and version_matched_alias set — for co-equal publisher labels. 'redirect' returns empty results with status 'corrected' and the canonical SecID in the message — for labels that should be retired. Reserved and deliberately unimplemented: 'track' (a moving pointer to the latest matching version). Resolvers must ignore alias entries whose on_match they do not recognize, so reserved values can ship later without breaking deployed resolvers."
+        },
+        "note": {
+          "type": "string",
+          "description": "Where this label appears, or why it exists."
+        }
+      },
+      "additionalProperties": false
+    },
+    "VersionEntry": {
+      "type": "object",
+      "description": "One known version of a source, in a match_node's data.versions_available array. Each entry must correspond to a version-level node in that source's pattern tree whose patterns[0] is the canonical version string; the validator enforces this both ways. Not schema-enforced here, because versions_available lives inside match_nodes[].data and data is additionalProperties:true — see scripts/validate-version-aliases.py.",
+      "required": ["version"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The canonical version string, exactly as the artifact identifies itself. Where a publisher's download page and the artifact disagree, the artifact wins and the page's label becomes an alias."
+        },
+        "release_date": {
+          "oneOf": [{ "type": "string" }, { "type": "null" }],
+          "description": "ISO date, or null if researched and unknown."
+        },
+        "status": {
+          "type": "string",
+          "description": "Lifecycle state, e.g. 'current', 'superseded', 'draft'."
+        },
+        "note": {
+          "type": "string",
+          "description": "What a consumer needs to know about this specific version — item counts, mapping changes, ID-stability warnings, sourcing caveats."
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Alternate labels for this version. Each must also appear as an OR-pattern on the corresponding version node in the tree.",
+          "items": { "$ref": "#/$defs/VersionAlias" }
+        }
+      },
+      "additionalProperties": true
     }
   }
 }

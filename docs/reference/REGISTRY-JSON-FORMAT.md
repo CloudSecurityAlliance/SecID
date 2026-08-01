@@ -1285,7 +1285,7 @@ These fields live in the name-level node's `data` object. They control what happ
 | `version_required` | boolean, optional | `true` if unversioned references are ambiguous. Default: `false`. When `true`, the resolver should not silently return a single version. |
 | `unversioned_behavior` | string, optional | One of `"current"` (default), `"current_with_history"`, `"all_with_guidance"`. How the resolver should respond when version is omitted. |
 | `version_disambiguation` | string, optional | AI-readable instructions for determining which version was intended based on available context (publication date, ID format, surrounding references, etc.). |
-| `versions_available` | array, optional | Array of objects documenting known versions. Each object has: `version` (string, required), `release_date` (string, ISO date, optional), `status` (string: `"current"`, `"superseded"`, `"draft"`, optional), `note` (string, optional). |
+| `versions_available` | array, optional | Known versions of this source. Each object has `version` (string, required), `release_date`, `status`, `note`, and `aliases`. Must correspond 1:1 with the source's version-level tree nodes — see `$defs/VersionEntry` and Version Aliases below. |
 
 ##### Unversioned Behavior Values
 
@@ -1294,6 +1294,38 @@ These fields live in the name-level node's `data` object. They control what happ
 | `"current"` | Return the current/latest version. No ambiguity signal. | IDs are unique across all versions, or the source doesn't meaningfully version (CVE, CWE, GHSA). This is the default. |
 | `"current_with_history"` | Return the current version, plus a note that other versions exist. | The current version is a sensible default, but older versions are still actively referenced (CCM, ISO 27001). |
 | `"all_with_guidance"` | Return **all matching versions** with disambiguation instructions from `version_disambiguation`. | Item identifiers are reused across versions with different meanings (OWASP Top 10 — A01 means something different in each edition). |
+
+##### Version Aliases
+
+Publishers routinely label one release two ways. CSA stamps `{"specification_version":"1.1.0"}` in cell A1 of the AICM workbook while branding the same release "v1.1" on its download page — and does the reverse for CCM, where `4.1` is canonical and `4.1.0` is the variant. Because the direction is inconsistent even within one publisher, aliases are curated data. They are never derived by prefix matching or `v`-stripping.
+
+Aliases live in **two places with different jobs**:
+
+**The tree matches.** A versioned source gets version-level nodes between its name node and its item nodes. `patterns` is an OR-list, so the canonical string and its aliases are alternatives on one node:
+
+```json
+{
+  "patterns": ["^1\\.1\\.0$", "^1\\.1$", "^v1\\.1$"],
+  "description": "AICM v1.1.0 — CSA brands this release v1.1",
+  "children": [ /* this version's item patterns */ ]
+}
+```
+
+`patterns[0]` is the canonical form. Write aliases as **separate patterns**, never as an optional group: `^2(\.0)?$` matches both `2` and `2.0` but leaves no literal to canonicalize to.
+
+**`versions_available` describes.** Release dates, status, notes and `on_match` cannot be derived from a regex:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `label` | string | yes | The alias exactly as the publisher writes it. Never normalized. |
+| `on_match` | string | yes | `"resolve"` (data inline, status `found`) or `"redirect"` (empty results, status `corrected`, canonical SecID in the message). |
+| `note` | string | no | Where the label appears, or why. |
+
+**The validator binds them.** `scripts/validate-version-aliases.py` asserts every declared version has a tree node whose `patterns[0]` matches it, every alias label appears as a pattern on that node, and every version node has a metadata entry. An alias declared without tree nodes is rejected, because it would be documentation that never resolves.
+
+**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CCM `4.0` is a genuine release that `4.0.13` supersedes, so `4.0` may not be an alias of `4.0.13`.
+
+**When versions get enforced.** A version is validated only when the source has version-level tree nodes **and** the query carries a subpath — only a subpath forces the walk to traverse the version level. Adding version nodes to a source therefore also changes its unversioned behavior: `source#ITEM` with no version returns source-level data and drops the subpath. Do not add version nodes to a source whose item IDs are stable across releases and whose unversioned queries are useful.
 
 ##### Disambiguation Guidance
 
