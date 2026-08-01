@@ -240,6 +240,19 @@ def test_pattern_literal_rejects_real_regex():
     assert pattern_literal("^A0[1-9]$") is None
 
 
+def test_pattern_literal_rejects_character_class_escapes():
+    # \d is a character class, not a literal "d". Live example:
+    # registry/control/org/aicpa.json has (?i)^A\d\.\d$ for SOC 2 criteria.
+    assert pattern_literal("^\\d$") is None
+    assert pattern_literal("^\\d\\d\\d\\d$") is None
+    assert pattern_literal("^\\w+$") is None
+    assert pattern_literal("^\\s$") is None
+    assert pattern_literal("(?i)^A\\d\\.\\d$") is None
+    # Escaped punctuation is still a literal.
+    assert pattern_literal("^1\\.1$") == "1.1"
+    assert pattern_literal("^a\\-b$") == "a-b"
+
+
 def test_node_label_strips_regex_furniture():
     assert node_label({"patterns": ["(?i)^aicm$"]}) == "aicm"
     assert node_label({"patterns": []}) == "<unnamed>"
@@ -486,7 +499,11 @@ def pattern_literal(pattern: str) -> str | None:
         if ch == "\\":
             if i + 1 >= len(core):
                 return None
-            out.append(core[i + 1])
+            nxt = core[i + 1]
+            # \d \w \s \b and backreferences are character classes, not literals.
+            if nxt.isalnum():
+                return None
+            out.append(nxt)
             i += 2
             continue
         if ch in _REGEX_META:
@@ -588,13 +605,14 @@ def _looks_versionish(s: str) -> bool:
 def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
     """Binding rules 6-10: the tree and versions_available must agree.
 
-    Version nodes are identified by MATCHING, not by literal comparison: a child
-    is the node for version V if any of its patterns matches V. That is what lets
-    this bind a non-literal pattern such as CVSS's ^2(\\.0)?$ to its declared
-    version "2" — and then correctly report that its patterns[0] is not a clean
-    canonical literal.
+    Version nodes are identified by LITERAL: a child is the node for version V
+    only when pattern_literal(patterns[0]) == V. Binding by regex match instead
+    would capture item patterns that merely look like versions -- CIS safeguard
+    IDs (8.1) and PCI requirement IDs (1.2) -- producing false positives.
     """
-    data = source_node.get("data") or {}
+    data = source_node.get("data")
+    if not isinstance(data, dict):
+        data = {}
     versions_available = data.get("versions_available")
     if not isinstance(versions_available, list) or not versions_available:
         return []
@@ -687,7 +705,9 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
 def check_source(source_node: dict) -> list[str]:
     """Run both layers for one source node."""
     label = node_label(source_node)
-    data = source_node.get("data") or {}
+    data = source_node.get("data")
+    if not isinstance(data, dict):
+        data = {}
     errs = check_source_versions(data.get("versions_available"), label)
     errs += check_tree_binding(source_node, label)
     return errs

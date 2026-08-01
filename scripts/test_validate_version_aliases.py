@@ -37,6 +37,19 @@ def test_pattern_literal_rejects_real_regex():
     assert pattern_literal("^A0[1-9]$") is None
 
 
+def test_pattern_literal_rejects_character_class_escapes():
+    # \d is a character class, not a literal "d". Live example:
+    # registry/control/org/aicpa.json has (?i)^A\d\.\d$ for SOC 2 criteria.
+    assert pattern_literal("^\\d$") is None
+    assert pattern_literal("^\\d\\d\\d\\d$") is None
+    assert pattern_literal("^\\w+$") is None
+    assert pattern_literal("^\\s$") is None
+    assert pattern_literal("(?i)^A\\d\\.\\d$") is None
+    # Escaped punctuation is still a literal.
+    assert pattern_literal("^1\\.1$") == "1.1"
+    assert pattern_literal("^a\\-b$") == "a-b"
+
+
 def test_node_label_strips_regex_furniture():
     assert node_label({"patterns": ["(?i)^aicm$"]}) == "aicm"
     assert node_label({"patterns": []}) == "<unnamed>"
