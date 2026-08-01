@@ -1073,7 +1073,7 @@ def test_aicm_metadata_matches_the_tree():
     assert v["1.1.0"]["status"] == "current"
     assert v["1.1.0"]["release_date"] == "2026-06-22"
     assert v["1.0.3"]["status"] == "superseded"
-    assert v["1.0.3"]["release_date"] == "2025-11-10"
+    assert v["1.0.3"]["release_date"] is None
 
 
 def test_aicm_declares_only_resolvable_versions():
@@ -1122,7 +1122,7 @@ In the `(?i)^aicm$` node's `data`, replace `version_required`, `unversioned_beha
             "version": "1.1.0",
             "release_date": "2026-06-22",
             "status": "current",
-            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. NIST AI 600-1:2024 mappings were withdrawn in this release; BSI AI C4, EU AI Act, and ISO/IEC 42001:2023 remain.",
+            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. The workbook's Scope Applicability (Mappings) sheet dropped from 16 columns to 13: it carries BSI AI C4, the EU AI Act, and ISO/IEC 42001:2023, and no longer carries the NIST AI 600-1:2024 block that the 1.0.3 workbook included. CSA does publish a standalone NIST mapping artifact, but it is titled \"AICM v1.0 mapping to NIST 600-1\" and is keyed to pre-1.1.0 control IDs, which do not carry over.",
             "aliases": [
               {
                 "label": "1.1",
@@ -1137,9 +1137,9 @@ In the `(?i)^aicm$` node's `data`, replace `version_required`, `unversioned_beha
           },
           {
             "version": "1.0.3",
-            "release_date": "2025-11-10",
+            "release_date": null,
             "status": "superseded",
-            "note": "243 controls. The last release carrying NIST AI 600-1:2024 mappings, so it remains the only source for those. Its control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining 1.0.3 requires an archived copy."
+            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it."
           }
         ],
 ```
@@ -1203,7 +1203,7 @@ Replace the `(?i)^aicm$` node's entire `children` array with two version nodes, 
         },
         {
           "patterns": ["^1\\.0\\.3$"],
-          "description": "AICM v1.0.3 (superseded). Last release carrying NIST AI 600-1 mappings.",
+          "description": "AICM v1.0.3 (superseded). Last release whose workbook carries NIST AI 600-1 mappings.",
           "weight": 90,
           "data": {
             "type": "version",
@@ -1724,7 +1724,7 @@ Version miss (requested version doesn't exist):
 Query:    secid:control/cloudsecurityalliance.org/aicm@9.9#LOG-15
 Response: Version "9.9" is not a known version of aicm.
           Known versions: 1.1.0 (current, 2026-06-22; aliases 1.1, v1.1),
-                          1.0.3 (superseded, 2025-11-10).
+                          1.0.3 (superseded).
           To list versions, describe the source without a version.
           Report a genuinely missing release via the submit_feedback tool
           (include a source URL) or https://github.com/CloudSecurityAlliance/SecID/issues

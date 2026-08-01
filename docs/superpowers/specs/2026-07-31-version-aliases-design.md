@@ -290,7 +290,7 @@ The message must carry everything needed to act:
   "secid_query": "secid:control/cloudsecurityalliance.org/aicm@9.9#LOG-15",
   "status": "not_found",
   "results": [],
-  "message": "Version \"9.9\" is not a known version of aicm. Known versions: 1.1.0 (current, 2026-06-22; aliases: 1.1, v1.1), 1.0.3 (superseded, 2025-11-10), 0.0.2 (draft). To list all versions and aliases, describe the source without a version: secid:control/cloudsecurityalliance.org/aicm. If 9.9 is a real release we are missing, report it — MCP clients: use the submit_feedback tool and include a source URL for the release. Humans and REST clients: https://github.com/CloudSecurityAlliance/SecID/issues",
+  "message": "Version \"9.9\" is not a known version of aicm. Known versions: 1.1.0 (current, 2026-06-22; aliases: 1.1, v1.1), 1.0.3 (superseded), 0.0.2 (draft). To list all versions and aliases, describe the source without a version: secid:control/cloudsecurityalliance.org/aicm. If 9.9 is a real release we are missing, report it — MCP clients: use the submit_feedback tool and include a source URL for the release. Humans and REST clients: https://github.com/CloudSecurityAlliance/SecID/issues",
   "did_you_mean": ["1.1.0"]
 }
 ```
@@ -506,8 +506,12 @@ plausible rather than hypothetical.
   correctness improvement over silently answering, and D10's richer all-versions response
   is a later enhancement rather than a prerequisite.
 - Add `1.1.0` — current, released 2026-06-22, 247 controls, aliases `1.1` and `v1.1`
-- Mark `1.0.3` superseded, add `release_date: 2025-11-10`, note it is the last release
-  carrying NIST AI 600-1 mappings
+- Mark `1.0.3` superseded. Do **not** assert a release date: upstream conflicts (2025-11-10
+  in one index, a bare "2024" in the release metadata, which is impossible since 1.0.0
+  shipped July 2025), so `release_date` is `null` with the conflict recorded in the note.
+  Note that its *workbook* carries the NIST AI 600-1:2024 mappings the 1.1.0 workbook
+  dropped — but CSA also publishes a standalone "AICM v1.0 mapping to NIST 600-1"
+  artifact, keyed to pre-1.1.0 IDs, so 1.0.3 is not the only source
 - Add `0.0.2` as a pre-release draft
 - Set `version_required: true` and `unversioned_behavior: "all_with_guidance"` per D10,
   replacing today's `false` / `current_with_history`
