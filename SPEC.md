@@ -848,6 +848,33 @@ secid:weakness/owasp.org/top10@2021#A01        # Unambiguous — Broken Access C
 
 The registry controls this via three `unversioned_behavior` values: `"current"` (default), `"current_with_history"`, and `"all_with_guidance"`. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for field definitions.
 
+#### Version Aliases
+
+One release can carry more than one official label. CSA stamps the AICM
+workbook `1.1.0` in cell A1 of every sheet while branding the same release
+"v1.1" on its download page — and does the reverse for CCM, where `4.1` is
+canonical and `4.1.0` is the variant. Both labels circulate; neither is wrong.
+
+The registry records the canonical version plus its aliases, so both resolve:
+
+```
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#LOG-15   # canonical
+secid:control/cloudsecurityalliance.org/aicm@1.1#LOG-15     # alias — same control
+```
+
+Matching happens in the pattern tree: a versioned source has version-level
+nodes whose `patterns[0]` is the canonical string and whose remaining patterns
+are its aliases. Because the direction of canonicalization is inconsistent even
+within one publisher, aliases are curated data — never derived by prefix
+matching or `v`-stripping — and an alias may never shadow a real version.
+CCM `4.0` is CSA's published label, not a short form of the internal `4.0.13` patch stamp.
+
+**Unknown versions fail rather than guess.** A version matching no node returns
+`not_found` when a subpath is present. The resolver never substitutes item data
+from a version the caller did not name — for sources like AICM, where 54 control
+IDs changed meaning between releases, a substitute answer would be confidently
+wrong. See [DECISIONS.md ADR-009](DECISIONS.md).
+
 ### 5.1b Item Version (`#subpath@item_version`)
 
 Pins a specific revision of an individual item within a source. Use item version when the **item itself changes over time** independently of the source as a whole.

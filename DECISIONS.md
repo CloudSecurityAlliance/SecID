@@ -141,6 +141,8 @@ See [docs/explanation/DESIGN-DECISIONS.md "When to Split"](docs/explanation/DESI
 
 **Decision:** JSON is the authoritative format for v1.0+. YAML+Markdown contributions remain accepted (and the templates and human docs still use that format), but the JSON file is what the resolver reads, what the JSON Schema validates, and what gets uploaded to KV. The two formats coexist on disk; CI verifies they don't drift.
 
+(Correction, 2026-07-31: this originally claimed "CI verifies they don't drift." No such check exists — all three workflows trigger only on `registry/**/*.json` and nothing watches `.md`. The AICM entry proved it: `.md` read `versions: ["1.0"]` while `.json` read `1.0.3`, unflagged. Treat `.md` as legacy; JSON is the format that ships.)
+
 **Rationale:** Letting contributors author in YAML lowers the barrier to participation. Letting the resolver consume JSON lets us use JSON Schema (Draft 2020-12) for validation and standard JSON tooling everywhere. Conversion is mechanical (see [`docs/guides/YAML-TO-JSON.md`](docs/guides/YAML-TO-JSON.md)).
 
 **Rejected alternatives:**
@@ -193,5 +195,49 @@ See [docs/explanation/DESIGN-DECISIONS.md "When to Split"](docs/explanation/DESI
 - **MCP-only, no REST endpoint** — Skips the website's own consumption; homepage would still need to hardcode
 
 See [SecID-Service ADR-equivalent in their type-registry.ts header comment](https://github.com/CloudSecurityAlliance/SecID-Service/blob/main/src/type-registry.ts) for the SecID-Service-side framing, and [docs/reference/TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) for the conceptual model.
+
+---
+
+## ADR-009: Version aliases, and making the version qualifier load-bearing
+
+**Date:** 2026-07-31
+**Status:** Accepted
+**Decision method:** Design session, recorded in [`docs/superpowers/specs/2026-07-31-version-aliases-design.md`](docs/superpowers/specs/2026-07-31-version-aliases-design.md)
+
+**Goal:** Let one release carry more than one official label, and make `@version` mean something.
+
+**Context:** Publishers label releases inconsistently. CSA stamps the AICM workbook `1.1.0` while branding the same release "v1.1" on its download page; for CCM it does the reverse, with `4.1` canonical and `4.1.0` the variant. SecID had no way to express this — the schema's only alias field, `alias_of`, is namespace-level and unused across all 2,130 files.
+
+Separately, `aicm@9.9#LOG-15` returned `found` at weight 100. Live probing showed this is a *data* defect, not a resolver one: `owasp.org/top10@9999#A01` correctly returns `not_found` with the available versions listed. A version is validated only when the source has version-level tree nodes **and** the query carries a subpath, since only a subpath forces the walk through the version level. AICM's tree had no version level.
+
+This mattered because AICM 1.1.0 renumbered controls in place: 54 of the 242 IDs present in both 1.0.3 and 1.1.0 designate a different control, while only one ID disappeared — so an ID set-difference reports six changed rows and misses all 54. CSA published no crosswalk, and the mapping had to be reconstructed from specification-text similarity with 9 rows still unresolved. Once a renumbering ships unmapped, it is not fully recoverable.
+
+**Decision:**
+
+1. **The registry layer owns label aliases.** One authority labelling one artifact two ways is disambiguation. Cross-release *control* mapping is equivalence and succession, and belongs to the Relationship layer. MITRE ATT&CK draws the same line (`revoked-by` is a relationship; the ID stays resolvable), as does library authority control (MARC `4XX` variant labels versus `5XX` related entities).
+2. **Two layers, bound by a validator.** The pattern tree matches — version nodes carry the canonical string as `patterns[0]` and aliases as further OR-alternatives. `versions_available` describes — dates, status, notes, `on_match`. `scripts/validate-version-aliases.py` asserts they agree in both directions.
+3. **`patterns[0]` must be a clean literal.** No optional groups: `^2(\.0)?$` matches both `2` and `2.0` but leaves nothing to canonicalize to.
+4. **Each alias carries a required `on_match`:** `"resolve"` returns data inline (`found`); `"redirect"` returns empty results (`corrected`) with the canonical SecID in the message.
+5. **Aliases are curated, never derived.** AICM and CCM canonicalize in opposite directions, so no rule derives both.
+6. **An alias may never shadow a real version.** CCM `4.0` is CSA's published label; `4.0.13` is an internal patch stamp with no addressable version of its own.
+7. **An alias without version tree nodes is rejected** — it would be documentation that never resolves.
+8. **The resolver never returns item data from a version the caller did not ask for.**
+9. **Where item IDs are unstable across releases, omitting the version returns all of them** (`version_required: true`, `unversioned_behavior: "all_with_guidance"`). Applied to AICM and AI-CAIQ.
+
+**Rationale:** Prior art converges on one rule — if the loose form should never be used again, redirect; if it is legitimately reachable, serve the data and declare the canonical form. That is HTTP's `301` versus `rel="canonical"` distinction, and it recurs in npm dist-tags, Go module queries, Docker tags, and Debian codenames. CSA's "v1.1" is on CSA's own download page, so `resolve` is the normal case.
+
+Loud failure on unknown versions is chosen over a plausible-looking answer because a wrong version is a wrong control. A failure gets reported and fixed; a wrong control gets cited.
+
+**Rejected alternatives:**
+- **A fifth response status (`alias`)** — breaks PRINCIPLES #4's four outcomes and forces a coordinated release across four repos.
+- **Aliases in `versions_available` only** — metadata does not match; the tree does. They would never resolve.
+- **Aliases as tree patterns only** — no home for dates, status, notes, or `on_match`, none of which a regex can carry.
+- **Deriving `versions_available` from the tree** — impossible for the same reason.
+- **Deriving aliases by prefix or `v`-stripping** — unsound on SecID's own data; it would have aliased CCM's published label `4.0` to the internal patch stamp `4.0.13`, inverting the relationship.
+- **Pure redirect with no data for all aliases** — doubles round trips in the MCP channel where each costs an inference step, and empirically fails to change client behavior.
+- **Returning the nearest version's item data** (previously documented in `docs/reference/VERSIONING.md`) — its own example used `IAM-12`, one of the 54 renumbered AICM IDs.
+- **Version tree nodes for CCM** — would make `ccm#IAM-12` demand a version, for a source whose IDs are broadly stable.
+
+**Deferred:** alias chains; one label on multiple versions; tracking aliases (`v1` → latest `1.y.z`) as a source-level `version_tracks` field; an explicit `@*` version wildcard; a `missing-version` feedback category; per-item "this ID changed meaning" metadata, which needs SecID to host AICM content and is gated on CSA legal confirmation ([`DATA-HOSTING-RULES.md`](docs/reference/DATA-HOSTING-RULES.md) line 79) plus a license-matrix row for the CC BY-NC **non-commercial** clause.
 
 ---

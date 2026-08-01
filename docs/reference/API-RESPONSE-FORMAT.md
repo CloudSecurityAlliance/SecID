@@ -381,7 +381,7 @@ GET /api/v1/resolve?secid=secid:advisory/totallyinvented.com/whatever
 }
 ```
 
-On a **namespace-level** `not_found` (a recognized type naming a namespace that isn't registered — the actionable "this should be covered" case), the resolver records the miss server-side (aggregated by `type/namespace`) so the most-requested missing sources surface as a backlog. Feedback intake is **MCP-only**: AI/MCP clients request the missing source with the `submit_feedback` tool. There is no web-form submission link in the response.
+On a **namespace-level** `not_found` (a recognized type naming a namespace that isn't registered — the actionable "this should be covered" case), the resolver records the miss server-side (aggregated by `type/namespace`) so the most-requested missing sources surface as a backlog. Feedback intake is **MCP-only**: AI/MCP clients request the missing source with the `submit_feedback` tool. As of ADR-009, `not_found` responses also carry https://github.com/CloudSecurityAlliance/SecID/issues, because raw API and bulk-data consumers include humans who otherwise had no channel at all. MCP clients should still prefer the `submit_feedback` tool, which records the miss server-side for backlog aggregation; a GitHub issue does not.
 
 ```
 GET /api/v1/resolve?secid=secid:frobnicate/mitre.org/cve
