@@ -2,8 +2,8 @@
 """Assert the CSA control registry records AICM/AI-CAIQ/CCM versions correctly.
 
 Data assertions, not logic tests. They exist because the AICM version record
-was wrong in a way no structural validator could catch: it listed a version
-(1.0) that was never released while omitting both that were.
+was wrong in a way no structural validator could catch: it declared `1.0`,
+which it cannot resolve, while omitting both releases it can.
 
 Run: python3 scripts/test_csa_version_data.py   (also discoverable by pytest)
 """
@@ -75,8 +75,10 @@ def test_aicm_metadata_matches_the_tree():
     assert v["1.0.3"]["release_date"] == "2025-11-10"
 
 
-def test_aicm_has_no_phantom_1_0():
-    # 1.0 was never released; the lineage is 1.0.3 -> 1.1.0.
+def test_aicm_declares_only_resolvable_versions():
+    # AICM 1.0.0-1.0.2 were real releases -- 1.0.3's upstream metadata records
+    # that it supersedes "AICM 1.0.0-1.0.2" -- but none has a retrievable
+    # artifact, so SecID declares only what it can resolve: 1.0.3 and 1.1.0.
     assert "1.0" not in versions("aicm")
     assert "1.0" not in version_nodes("aicm")
 
