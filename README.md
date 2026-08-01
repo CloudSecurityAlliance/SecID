@@ -168,7 +168,7 @@ secid:weakness/mitre.org/cwe#CWE-79/potential-mitigations   # Mitigations sectio
 **Encoding:** The SecID string is human-readable - no percent-encoding required:
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.0#A&A-01                       # A&A-01 control (no encoding)
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#A&A-01                       # A&A-01 control (no encoding)
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/Auditing Guidelines    # Section with space (no encoding)
 secid:advisory/redhat.com/errata#RHSA-2024:1234             # Colon in ID (no encoding)
 ```
@@ -267,7 +267,7 @@ secid:advisory/mitre.org/cve#CVE-2024-1234            # CVE record
 secid:weakness/mitre.org/cwe#CWE-79                   # CWE weakness
 secid:ttp/mitre.org/attack#T1059.003                  # ATT&CK technique
 secid:control/nist.gov/csf@2.0#PR.AC-1               # NIST CSF control
-secid:control/cloudsecurityalliance.org/aicm@1.0#A&A-01                # CSA AICM control
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#A&A-01                # CSA AICM control
 secid:advisory/redhat.com/errata#RHSA-2024:1234      # Red Hat advisory (colon in ID)
 secid:regulation/europa.eu/gdpr#art-32                  # GDPR Article 32
 secid:methodology/nist.gov/ir-8477#strm                  # NIST mapping methodology

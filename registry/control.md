@@ -25,7 +25,7 @@ Track and reference things that define security requirements - what you need to 
 ```
 secid:control/<namespace>/<name>[@version][#subpath]
 
-secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12
 secid:control/nist.gov/csf@2.0#PR.AC-1
 secid:control/cisecurity.org/controls@8.0#1.1
@@ -112,7 +112,7 @@ Use `#subpath` with `/` for hierarchy to reference specific controls and section
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12                   # Specific control
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/audit             # Audit guidance within control
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/implementation    # Implementation guidance
-secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01/Auditing%20Guidelines  # Section with spaces (percent-encoded)
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01/Auditing%20Guidelines  # Section with spaces (percent-encoded)
 ```
 
 ## Relationships
@@ -121,7 +121,7 @@ Controls mitigate weaknesses:
 
 ```json
 {
-  "from": "secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01",
+  "from": "secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01",
   "to": "secid:weakness/owasp.org/llm-top10@2.0#LLM01",
   "type": "mitigates",
   "strength": "partial",

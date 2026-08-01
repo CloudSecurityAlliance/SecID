@@ -112,7 +112,7 @@ secid:ttp/mitre.org/attack#T1059/detection                  # Detection guidance
 | `?` | `%3F` | Only encode if literal (not the qualifier prefix) |
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.0#A%26A-01                     # A&A-01 control (& encoded)
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#A%26A-01                     # A&A-01 control (& encoded)
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/Auditing%20Guidelines  # Section with space
 secid:control/nist.gov/800-53#AC-1/Control%20Enhancements  # Section with space
 ```
@@ -373,7 +373,7 @@ secid:advisory/redhat.com/errata#RHSA-2024:1234
 secid:weakness/mitre.org/cwe#CWE-79
 secid:ttp/mitre.org/attack#T1059.003
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12
-secid:control/cloudsecurityalliance.org/aicm@1.0#IAM-12/Auditing%20Guidelines
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#IAM-12/Auditing%20Guidelines
 secid:regulation/europa.eu/gdpr@2016-04-27
 secid:regulation/europa.eu/gdpr#art-32
 secid:methodology/first.org/cvss@4.0
@@ -480,7 +480,7 @@ Security requirements (from frameworks) or capabilities (from vendors).
 ```
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12              # CSA CCM control
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/audit        # Audit guidance within control
-secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01             # CSA AI Controls Matrix control
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01             # CSA AI Controls Matrix control
 secid:control/nist.gov/csf@2.0#PR.AC-1            # NIST CSF subcategory
 secid:control/cisecurity.org/controls@8.0#1.1            # CIS Control
 secid:control/iso.org/27001@2022#A.8.1            # ISO 27001 Annex A control
@@ -690,7 +690,7 @@ nvd         # Not "national-vulnerability-database"
 **Framework examples:**
 ```
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12    # CSA Cloud Controls Matrix
-secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01   # CSA AI Controls Matrix
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01   # CSA AI Controls Matrix
 secid:control/nist.gov/csf@2.0#PR.AC-1                    # NIST Cybersecurity Framework
 secid:weakness/owasp.org/top10@2021#A03                    # OWASP Top 10
 secid:weakness/owasp.org/llm-top10@2.0#LLM01              # OWASP LLM Top 10
@@ -969,7 +969,7 @@ secid:regulation/govinfo.gov/sox#section-404        # Section 404
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/audit-guidance
 secid:control/cloudsecurityalliance.org/ccm@4.0#IAM-12/implementation-guidance
-secid:control/cloudsecurityalliance.org/aicm@1.0#INP-01/Auditing%20Guidelines
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#INP-01/Auditing%20Guidelines
 
 # NIST sections
 secid:control/nist.gov/csf@2.0#PR.AC-1

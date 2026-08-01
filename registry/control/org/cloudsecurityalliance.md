@@ -33,9 +33,9 @@ sources:
       - "1.0"
     id_pattern: "[A-Z&]{2,3}-\\d{2}"
     examples:
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#IAM-01"
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#MDS-01"
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#DSP-03"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#IAM-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#MDS-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#DSP-03"
 
   ccm-caiq:
     full_name: "Consensus Assessments Initiative Questionnaire"
@@ -62,8 +62,8 @@ sources:
       - "1.0"
     id_pattern: "[A-Z&]{2,3}-\\d{2}\\.\\d+"
     examples:
-      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1"
-      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#IAM-01.1"
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#MDS-01.1"
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#IAM-01.1"
 
   star:
     full_name: "Security, Trust, Assurance and Risk Registry"
@@ -148,7 +148,7 @@ The AI Controls Matrix provides security controls specific to AI/ML systems.
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.0#XXX-NN
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#XXX-NN
 ```
 
 Same ID format as CCM (domain code + two-digit number). AICM shares all 17 CCM domains and adds MDS (Model Security) for 18 total.
@@ -230,7 +230,7 @@ The AI Consensus Assessments Initiative Questionnaire — yes/no assessment ques
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1
+secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#MDS-01.1
 ```
 
 Same `XXX-NN.M` format as CCM CAIQ. Includes the MDS (Model Security) domain unique to AICM.
