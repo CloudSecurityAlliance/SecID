@@ -318,7 +318,7 @@
         "common_name": "AI-CAIQ",
         "alternate_names": ["AICM CAIQ", "AI CAIQ"],
         "description": "Standardized self-assessment questionnaire mapping yes/no questions to AICM controls. One or more questions per AICM control.",
-        "notes": "AI-CAIQ is the assessment-question form of AICM controls. Each AICM control has one or more yes/no questions used for AI cloud provider self-assessment.\n\nQuestion IDs follow the format XXX-NN.M, identical to CAIQ format. Includes the MDS (Model Security) domain unique to AICM.\n\nDistributed in the same ZIP bundle as AICM. The AI-CAIQ is a separate sheet within the AICM Excel file.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction: (1) Download the AICM ZIP bundle. (2) Open the AICM spreadsheet. (3) Go to the AI-CAIQ sheet. (4) Find the row where Question ID matches. The question text column contains the assessment question.\n\nUsed alongside CAIQ for comprehensive AI cloud security assessment.",
+        "notes": "AI-CAIQ is the assessment-question form of AICM controls. Each AICM control has one or more yes/no questions used for AI cloud provider self-assessment.\n\nQuestion IDs follow the format XXX-NN.M, identical to CAIQ format. Includes the MDS (Model Security) domain unique to AICM.\n\nDistributed in the same ZIP bundle as AICM, as its own workbook file rather than a sheet inside the AICM spreadsheet: the v1.1 bundle contains AI_CAIQv1.1.0-star_security_questionnaire-...xlsx alongside the AICM workbook. Packaging for releases before 1.1.0 is not recorded here.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction: (1) Download the AICM ZIP bundle from the version node's download URL. (2) Open the AI-CAIQ workbook (AI_CAIQv...-star_security_questionnaire-...xlsx). (3) Find the row where Question ID matches. The question text column contains the assessment question.\n\nUsed alongside CAIQ for comprehensive AI cloud security assessment.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "AI-CAIQ ships in the same ZIP bundle as AICM."}
@@ -348,7 +348,7 @@
             "version": "1.0.2",
             "release_date": null,
             "status": "superseded",
-            "note": "Paired with AICM 1.0.3. Question IDs are not interchangeable with 1.1.0."
+            "note": "Paired with AICM 1.0.3. Question IDs are not interchangeable with 1.1.0. 311 questions across 243 controls."
           }
         ],
         "examples": ["IAM-01.1", "MDS-01.1", "DSP-03.2"]
