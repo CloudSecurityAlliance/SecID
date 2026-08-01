@@ -141,7 +141,7 @@ See [docs/explanation/DESIGN-DECISIONS.md "When to Split"](docs/explanation/DESI
 
 **Decision:** JSON is the authoritative format for v1.0+. YAML+Markdown contributions remain accepted (and the templates and human docs still use that format), but the JSON file is what the resolver reads, what the JSON Schema validates, and what gets uploaded to KV. The two formats coexist on disk; CI verifies they don't drift.
 
-(Correction, 2026-07-31: this originally claimed "CI verifies they don't drift." No such check exists — all three workflows trigger only on `registry/**/*.json` and nothing watches `.md`. The AICM entry proved it: `.md` read `versions: ["1.0"]` while `.json` read `1.0.3`, unflagged. Treat `.md` as legacy; JSON is the format that ships.)
+(Correction, 2026-07-31: this originally claimed "CI verifies they don't drift." No such check exists — all three workflows trigger only on `registry/**/*.json` and nothing watches `.md`. The AICM entry proved it: `.md` read `versions: ["1.0"]` while `.json` read `1.0.3`, unflagged (both corrected in the same change that added ADR-009). Treat `.md` as legacy; JSON is the format that ships.)
 
 **Rationale:** Letting contributors author in YAML lowers the barrier to participation. Letting the resolver consume JSON lets us use JSON Schema (Draft 2020-12) for validation and standard JSON tooling everywhere. Conversion is mechanical (see [`docs/guides/YAML-TO-JSON.md`](docs/guides/YAML-TO-JSON.md)).
 
