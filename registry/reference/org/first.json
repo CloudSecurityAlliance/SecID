@@ -37,7 +37,7 @@
               {
                 "label": "2",
                 "on_match": "resolve",
-                "note": "Major-version-only form, widely used in legacy vulnerability data."
+                "note": "Major-version-only form, widely used in legacy vulnerability data. This source has version_required: false, so this binds to the child subpath-document node's pattern (`^2$`) rather than a version node — it resolves via `cvss#2`, not `cvss@2`."
               }
             ]
           },
@@ -46,7 +46,7 @@
               {
                 "label": "1",
                 "on_match": "resolve",
-                "note": "Major-version-only form, widely used in legacy vulnerability data."
+                "note": "Major-version-only form, widely used in legacy vulnerability data. This source has version_required: false, so this binds to the child subpath-document node's pattern (`^1$`) rather than a version node — it resolves via `cvss#1`, not `cvss@1`."
               }
             ]
           }

@@ -141,7 +141,7 @@
             "version": "1.0.3",
             "release_date": null,
             "status": "superseded",
-            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it."
+            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA maintains a separate artifact record per major line: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it. CSA's v1 artifact record shows \"Updated: 2025-10-30\", a third candidate."
           }
         ],
         "notes": "Current release is 1.1.0 (247 controls, 2026-06-22). 1.0.3 (243 controls) is superseded; its workbook still carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook dropped. Releases 1.0.0 (July 2025) through 1.0.2 existed and were superseded by 1.0.3; none has a retrievable artifact or a CSA version-specific page, so they are not declared as resolvable versions here. Control IDs are NOT stable between 1.0.3 and 1.1.0 -- see version_disambiguation. Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the version node's download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
@@ -208,7 +208,7 @@
           "data": {
             "type": "version",
             "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
-            "note": "243 controls. CSA publishes no version-specific page for 1.0.3; the generic artifact URL above now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy."
+            "note": "243 controls. CSA maintains a separate artifact record per major line: the URL above is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
           },
           "children": [
             {
@@ -333,7 +333,7 @@
         "common_name": "AI-CAIQ",
         "alternate_names": ["AICM CAIQ", "AI CAIQ"],
         "description": "Standardized self-assessment questionnaire mapping yes/no questions to AICM controls. One or more questions per AICM control.",
-        "notes": "AI-CAIQ is the assessment-question form of AICM controls. Each AICM control has one or more yes/no questions used for AI cloud provider self-assessment.\n\nQuestion IDs follow the format XXX-NN.M, identical to CAIQ format. Includes the MDS (Model Security) domain unique to AICM.\n\nDistributed in the same ZIP bundle as AICM, as its own workbook file rather than a sheet inside the AICM spreadsheet: the v1.1 bundle contains AI_CAIQv1.1.0-star_security_questionnaire-...xlsx alongside the AICM workbook. Packaging for releases before 1.1.0 is not recorded here.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction: (1) Download the AICM ZIP bundle from the version node's download URL where one is recorded; 1.0.2 has none, so obtaining that release requires an archived copy -- see that version node's note. (2) Open the AI-CAIQ workbook (AI_CAIQv...-star_security_questionnaire-...xlsx). (3) Find the row where Question ID matches. The question text column contains the assessment question.\n\nUsed alongside CAIQ for comprehensive AI cloud security assessment.",
+        "notes": "AI-CAIQ is the assessment-question form of AICM controls. Each AICM control has one or more yes/no questions used for AI cloud provider self-assessment.\n\nQuestion IDs follow the format XXX-NN.M, identical to CAIQ format. Includes the MDS (Model Security) domain unique to AICM.\n\nDistributed in the same ZIP bundle as AICM, as its own workbook file rather than a sheet inside the AICM spreadsheet: the v1.1 bundle contains AI_CAIQv1.1.0-star_security_questionnaire-...xlsx alongside the AICM workbook. Packaging for releases before 1.1.0 is not recorded here.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction: (1) Download the AICM ZIP bundle from the version node's download URL where one is recorded; 1.0.2 has none -- see that version node's note for CSA's separate v1 artifact record. (2) Open the AI-CAIQ workbook (AI_CAIQv...-star_security_questionnaire-...xlsx). (3) Find the row where Question ID matches. The question text column contains the assessment question.\n\nUsed alongside CAIQ for comprehensive AI cloud security assessment.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "AI-CAIQ ships in the same ZIP bundle as AICM."}
@@ -427,7 +427,7 @@
           "data": {
             "type": "version",
             "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix",
-            "note": "CSA publishes no version-specific page; the generic artifact URL now serves v1.1, so obtaining 1.0.2 requires an archived copy."
+            "note": "CSA maintains a separate artifact record per major line: the URL above is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention."
           },
           "children": [
             {
@@ -454,7 +454,7 @@
               "weight": 100,
               "data": {
                 "type": "question",
-                "note": "No per-question web page. Requires an archived copy of the 1.0.2 workbook."
+                "note": "No per-question web page. See the AI-CAIQ v1.0.2 version node's note for CSA's separate v1 artifact record."
               }
             }
           ]

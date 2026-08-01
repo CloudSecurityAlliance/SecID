@@ -155,8 +155,12 @@ substitute answer would be confidently wrong. A wrong version is a wrong
 control. See [ADR-009](../../DECISIONS.md).
 
 Without a subpath the same query is a discovery question rather than a
-resolution one, so `secid:control/cloudsecurityalliance.org/aicm@9.9` returns
-`related` with the version list rather than `not_found`.
+resolution one, so `secid:control/cloudsecurityalliance.org/aicm@9.9` is specified to
+return `related` with the version list rather than `not_found`. Today the resolver
+returns `found` with source-level data instead: a subpath-less query never reaches
+version matching, so the version component is echoed back unvalidated. The
+reference case `owasp.org/top10@9999` behaves the same way. Aligning this is part of
+the SecID-Service work described in [ADR-009](../../DECISIONS.md).
 
 Wildcard exploration:
 ```
