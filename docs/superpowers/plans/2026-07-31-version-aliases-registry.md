@@ -160,7 +160,7 @@ Aliases live in **two places with different jobs**:
 
 **The validator binds them.** `scripts/validate-version-aliases.py` asserts every declared version has a tree node whose `patterns[0]` matches it, every alias label appears as a pattern on that node, and every version node has a metadata entry. An alias declared without tree nodes is rejected, because it would be documentation that never resolves.
 
-**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CCM `4.0` is a genuine release that `4.0.13` supersedes, so `4.0` may not be an alias of `4.0.13`.
+**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CSA's published CCM labels are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13, and CSA exposes no addressable 4.0.13. Aliasing the published label 4.0 to that internal stamp would invert the relationship.
 
 **When versions get enforced.** A version is validated only when the source has version-level tree nodes **and** the query carries a subpath — only a subpath forces the walk to traverse the version level. Adding version nodes to a source therefore also changes its unversioned behavior: `source#ITEM` with no version returns source-level data and drops the subpath. Do not add version nodes to a source whose item IDs are stable across releases and whose unversioned queries are useful.
 ```
@@ -1577,10 +1577,17 @@ Expected: all pass, 15 `ok` lines.
 git add registry/control/org/cloudsecurityalliance.json scripts/test_csa_version_data.py
 git commit -m "Correct CCM version dates and document the 4.0.x patch line
 
-CCM listed 4.0, a real release with no published extraction, and omitted
-4.0.13, which has one. 4.0.13's own metadata records that it supersedes
-'CCM 4.0 through 4.0.12', so 4.0 is a separate release and must never be
-aliased to it.
+CSA's published CCM labels are 4.0 and 4.1; the artifact served as v4.0 is
+internally stamped 4.0.13, and CSA's API exposes no separately addressable
+4.0.13. That fact is now documented in 4.0's note rather than registered
+as a peer version, since aliasing the published label to an internal patch
+stamp would invert the relationship.
+
+Also corrected 3.0.1's release_date: sources disagree on the month (an
+upstream publication ID encodes September, CSA's own announcement points
+to July), so the date is left unasserted (null) rather than guessed, with
+both the conflict and the independently confirmed control/domain counts
+recorded in the note.
 
 No version tree nodes for CCM by choice: adding them would make ccm#IAM-12
 demand a version, and CCM's IDs are broadly stable across 4.0/4.1. That

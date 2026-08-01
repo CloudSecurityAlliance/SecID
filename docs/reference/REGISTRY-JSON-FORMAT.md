@@ -1323,7 +1323,7 @@ Aliases live in **two places with different jobs**:
 
 **The validator binds them.** `scripts/validate-version-aliases.py` asserts every declared version has a tree node whose `patterns[0]` matches it, every alias label appears as a pattern on that node, and every version node has a metadata entry. An alias declared without tree nodes is rejected, because it would be documentation that never resolves.
 
-**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CCM `4.0` is a genuine release that `4.0.13` supersedes, so `4.0` may not be an alias of `4.0.13`.
+**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CSA's published CCM labels are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13, and CSA exposes no addressable 4.0.13. Aliasing the published label 4.0 to that internal stamp would invert the relationship.
 
 **When versions get enforced.** A version is validated only when the source has version-level tree nodes **and** the query carries a subpath — only a subpath forces the walk to traverse the version level. Adding version nodes to a source therefore also changes its unversioned behavior: `source#ITEM` with no version returns source-level data and drops the subpath. Do not add version nodes to a source whose item IDs are stable across releases and whose unversioned queries are useful.
 

@@ -215,8 +215,8 @@ two flagship frameworks:
 | AICM | `1.1.0` | `1.1` (3-part canonical, 2-part alias) |
 | CCM 4.1 | `4.1` | `4.1.0` (2-part canonical, 3-part alias) |
 
-No rule derives both. And rule 3 has a live trap: CCM `4.0` is a **genuine release** —
-CSA's published CCM version labels are `4.0` and `4.1`; the artifact served as v4.0 is internally stamped `4.0.13`, and CSA's API exposes no addressable `4.0.13`. Registering the published label `4.0` as an alias of an internal patch stamp would invert the relationship, so an alias must never shadow a real version.
+No rule derives both. And rule 3 has a live trap: CSA's published CCM version labels
+are `4.0` and `4.1`; the artifact served as v4.0 is internally stamped `4.0.13`, and CSA's API exposes no addressable `4.0.13`. Registering the published label `4.0` as an alias of that internal patch stamp would invert the relationship, so an alias must never shadow a real version.
 
 ### D5 — Resolution order; the tree decides
 

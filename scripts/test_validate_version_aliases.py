@@ -82,7 +82,8 @@ def test_duplicate_version_rejected():
 
 
 def test_alias_label_colliding_with_real_version_rejected():
-    # The CCM trap: 4.0 is a genuine release that 4.0.13 supersedes.
+    # The CCM trap: 4.0 is CSA's published label, 4.0.13 an internal patch
+    # stamp. Aliasing the published label to the stamp inverts the relationship.
     va = [
         {"version": "4.0.13", "aliases": [{"label": "4.0", "on_match": "resolve"}]},
         {"version": "4.0"},

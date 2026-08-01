@@ -34,9 +34,11 @@ Binding rules, per source:
  10. a source that declares aliases must have version-level tree nodes at all,
      since an alias with no node is documentation that never resolves
 
-Rule 5 is the one that catches real mistakes: CSA's CCM 4.0 is a genuine
-release that 4.0.13 supersedes, so aliasing 4.0 -> 4.0.13 would silently
-repoint a real version.
+Rule 5 is the one that catches real mistakes: CSA's published CCM labels
+are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13,
+and CSA exposes no addressable 4.0.13. Aliasing 4.0 -> 4.0.13 would invert
+that relationship, silently repointing the published label to an internal
+patch stamp.
 
 Absent or null versions_available is valid — per the null-vs-absent
 convention, absent means "not yet researched" and null means "researched,

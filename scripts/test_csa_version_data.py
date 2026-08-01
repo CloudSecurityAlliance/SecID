@@ -139,7 +139,8 @@ def test_ccm_uses_the_publishers_own_version_labels():
 
 
 def test_ccm_4_0_is_a_real_version_never_an_alias():
-    # 4.0.13 supersedes "CCM 4.0 through 4.0.12", so 4.0 is a distinct release.
+    # 4.0 is CSA's published label; 4.0.13 is an internal patch stamp with no
+    # addressable version of its own. 4.0 must never become an alias.
     assert "4.0" in versions("ccm")
     for entry in versions("ccm").values():
         for alias in entry.get("aliases", []):
