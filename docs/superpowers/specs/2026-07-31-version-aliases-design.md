@@ -16,7 +16,7 @@ format — the schema's only alias field, `alias_of`, is namespace-level and is 
 all 2,130 registry files. So the string a user is most likely to type, straight off the
 publisher's download page, has no defined relationship to the canonical form.
 
-Worse, the live resolver does not validate `@version` at all:
+Worse, the live resolver does not validate AICM's `@version` at all:
 
 | Query | Live status | Weight |
 |---|---|---|
@@ -24,10 +24,32 @@ Worse, the live resolver does not validate `@version` at all:
 | `...aicm@1.1#LOG-15` | `found` | 100 |
 | `...aicm@9.9#LOG-15` | `found` | 100 |
 
-All three return identical payloads. `@9.9` has never existed. The version qualifier is
-accepted, discarded, and never checked against `versions_available`. A caller who did the
-right thing and pinned `@1.0.3` gets the same undifferentiated answer as one who pinned
+All three return identical payloads. `@9.9` has never existed. A caller who did the right
+thing and pinned `@1.0.3` gets the same undifferentiated answer as one who pinned
 `@1.1.0`, so pinning currently buys nothing.
+
+### This is a data defect, not a resolver defect
+
+Verified against the live resolver on 2026-07-31. OWASP Top 10 models versions as **tree
+levels** — `top10` → `2021` → `^A0[1-9]$` — and the resolver handles it correctly:
+
+| Query | Live result |
+|---|---|
+| `secid:weakness/owasp.org/top10@2021#A01` | `found`, weight 100, correct per-version URL |
+| `secid:weakness/owasp.org/top10@9999#A01` | **`not_found`** — *"Version \"9999\" not found. Available: 2021, 2017, 2013"* |
+
+The resolver already rejects unknown versions and already lists the available ones. AICM
+returns `found` for `@9.9` only because **AICM's tree has no version level** — there is
+nothing to match the version against, so it is ignored.
+
+The registry format already models everything needed. OWASP's `2021` child is
+`^A0[1-9]$` while its `2017` child is `^A[1-9]$` — per-version *pattern* differences,
+which is precisely the AICM renumbering problem already expressed in production data.
+
+One capability genuinely is missing. `secid:weakness/owasp.org/top10#A01` — versioned
+source, no version, with a subpath — returns `status: related` with a single
+**source-level** result and **the subpath dropped entirely**. It does not return
+per-version resolutions for `A01`. That gap is real resolver work (D10).
 
 ### Why this matters more than a cosmetic gap
 
@@ -95,16 +117,42 @@ technique ID resolvable and puts its successor in a `revoked-by` **relationship*
 authority control distinguishes MARC `4XX` "see from" (a variant label of the same entity)
 from `5XX` "see also" (a different, related entity). Same line, drawn a century apart.
 
-### D2 — Aliases nest inside `versions_available[]`
+### D2 — Two layers: the tree matches, `versions_available` describes, the validator binds them
 
-Colocated with the version they describe, so they cannot drift from it, and no second
-keying scheme is needed.
+Aliases live in **both** places, with distinct jobs and a validator making disagreement
+impossible.
 
-Nesting also encodes the target implicitly: `1.1` sits under `1.1.0`, so that is what it
-means. This is why a *tracking* alias cannot live here — its target moves, and nesting it
-under `1.1.0` would become false the moment `1.1.1` ships. Tracks therefore need a
-separate source-level field if they are ever built (see [Deferred](#deferred)), which is a
-feature of this shape rather than a limitation of it.
+**The tree matches.** A versioned source gets version-level nodes between its name node
+and its item nodes, exactly as OWASP already does. `patterns` is an OR-list, so a version
+node's canonical string and its aliases are simply alternatives on one node:
+
+```json
+{
+  "patterns": ["^1\\.1\\.0$", "^1\\.1$", "^v1\\.1$"],
+  "description": "AICM v1.1.0 (CSA brands this release v1.1)",
+  "children": [ /* this version's control patterns */ ]
+}
+```
+
+`patterns[0]` is the canonical form — an existing convention in this registry, and what
+makes canonicalization possible without inventing a marker. This layer costs no resolver
+work: OR-patterns already match, and an unknown version already fails to match any node
+and produces `not_found` with the available list.
+
+**`versions_available` describes.** Release dates, status, notes, and per-alias `on_match`
+cannot be derived from a regex, so they stay hand-authored. This is also why the tree
+cannot simply *generate* `versions_available` — derivation was never fully possible.
+
+**The validator binds them.** Every `versions_available[].version` must have a version
+node whose `patterns[0]` canonicalizes to it; every alias `label` must appear as a pattern
+on that same node; every version node must have a `versions_available` entry. Redundancy
+becomes a consistency guarantee rather than a drift risk.
+
+Nesting aliases under a version entry also encodes the target implicitly: `1.1` sits under
+`1.1.0`, so that is what it means. This is why a *tracking* alias cannot live here — its
+target moves, and nesting it under `1.1.0` would become false the moment `1.1.1` ships.
+Tracks would need a separate source-level field if ever built (see
+[Deferred](#deferred)), which is a feature of this shape rather than a limitation.
 
 ### D3 — `on_match` selects behavior per alias, and is required
 
@@ -156,19 +204,26 @@ No rule derives both. And rule 3 has a live trap: CCM `4.0` is a **genuine relea
 `4.0.13`'s metadata records that it "supersedes CCM 4.0 through 4.0.12" — so `4.0` must
 never be registered as an alias of `4.0.13`.
 
-### D5 — Resolution order; real versions win
+### D5 — Resolution order; the tree decides
 
-For `name@version`:
+For `name@version`, the resolver walks the name node's children:
 
-1. Exact match against a real `version` string → resolve. `status: found`.
-2. Exact match against an alias `label` → resolve to that alias's version, one hop.
-   `on_match` selects `found` or `corrected`. Unrecognized `on_match` → skip entry.
-3. No match, and `versions_available` is populated → unknown version, see D6.
-4. `versions_available` absent or `null` → resolve as today, no version enforcement.
+1. The version component is matched against each version node's `patterns`. First node
+   with any matching pattern wins.
+2. If the match was on `patterns[0]`, the version was canonical → `status: found`.
+   If it was any later pattern, an alias matched → canonicalize the echoed `secid` to
+   `patterns[0]`, set `version_matched_alias` to the caller's input, and let the alias's
+   `on_match` in `versions_available` select `found` or `corrected`.
+3. No version node matches → unknown version, see D6.
+4. **The source has no version-level nodes → no enforcement.** Resolve as today.
 
-Step 4 is what keeps this safe for most of the registry. Per the null-vs-absent
-convention, absent means "not yet researched", so the registry cannot claim a version is
-invalid where versions were never documented.
+Step 4 is what makes this safe: enforcement is **opt-in by tree structure**. A source only
+gains version validation when someone gives it version nodes. Nothing changes for a source
+that has not been restructured, regardless of what its `versions_available` says.
+
+A real version can never be shadowed by another node's alias, because a canonical version
+string is always `patterns[0]` of its own node and D4 rule 3 forbids any alias from
+duplicating it.
 
 ### D6 — Unknown versions fail loudly, and never substitute
 
@@ -239,22 +294,39 @@ result detects the alias regardless of this field.
 make alias resolution genuinely invisible, which is the one substantive objection to
 resolving transparently.
 
-### D9 — Enforcement applies wherever `versions_available` is populated
+### D9 — Enforcement is opt-in by tree structure, so the blast radius is nil
 
-No per-source opt-in flag. Measured blast radius as of 2026-07-31:
+No global flag and no mass migration. A source enforces versions only once it has
+version-level tree nodes. Measured across all 2,130 namespace files on 2026-07-31:
 
 | Category | Source nodes |
 |---|---|
-| `versions_available` populated — **enforcement applies** | 375 |
+| **Have version-level tree nodes — enforcement already active** | **6** |
+| ...of which have item children under the version | 2 (`owasp.org/top10`, `owasp.org/llm-top10`) |
+| `versions_available` populated (metadata only, no tree nodes) | 167 |
+| ...listing exactly one version | 139 |
+| `versions_available: []` — empty list | 208 |
 | `versions_available: null` | 5 |
 | `versions_available` absent | 1,688 |
-| Populated with more than one version | 28 |
 
-**Risk:** 347 of the 375 populated sources list exactly one version. Where that single
-entry means "current release only, history not enumerated" rather than "this is the only
-release", enforcement converts working historical-version queries into `not_found`. The
-implementation plan must audit those 347 before enabling enforcement. This is a stated,
-accepted risk with a mitigation task, not an unknown.
+Restructuring AICM and AI-CAIQ takes the enforcing set from 6 to 8. Every other source is
+untouched.
+
+**Two data-quality findings**, neither blocking:
+
+- **208 sources carry `versions_available: []`.** An empty array is neither `null`
+  ("researched, found nothing") nor absent ("not researched") — it is a third, undefined
+  state, most likely an artifact of the YAML→JSON conversion. These should be resolved to
+  `null` or to real data. Scoped to the data track.
+- **139 of the 167 populated sources list exactly one version.** Where that means "current
+  release only, history not enumerated," those histories are incomplete. This is *not* a
+  correctness risk today — with no version tree nodes, those sources enforce nothing — but
+  each is a latent AICM waiting to happen, and each must be audited before that source is
+  restructured. Also scoped to the data track.
+
+An earlier draft of this spec put these figures at 375 and 347 and treated them as a
+blocking risk. That was wrong on both counts: it counted the 208 empty arrays as populated,
+and it assumed enforcement keyed off `versions_available` rather than tree structure.
 
 ### D10 — Omitting the version is how a caller asks for all of them
 
@@ -398,6 +470,16 @@ plausible rather than hypothetical.
 
 **AICM** (`registry/control/org/cloudsecurityalliance.json`)
 
+- **Restructure the tree to add version-level nodes**, following `owasp.org/top10`. Today
+  the tree is `aicm` → `^[A-Z&]{2,3}-\d{2}$` with no version level, which is the entire
+  reason `@9.9` resolves. After restructuring: `aicm` → version node → control patterns,
+  with each version node's `patterns[0]` the canonical string and aliases as further
+  OR-alternatives. **This single change makes `@9.9` return `not_found` and `@1.1` resolve,
+  with no resolver work.**
+- Note the interim consequence: once AICM has version nodes, `aicm#LOG-15` behaves like
+  `top10#A01` does today — `related`, "specify a version", subpath dropped. That is a
+  correctness improvement over silently answering, and D10's richer all-versions response
+  is a later enhancement rather than a prerequisite.
 - Add `1.1.0` — current, released 2026-06-22, 247 controls, aliases `1.1` and `v1.1`
 - Mark `1.0.3` superseded, add `release_date: 2025-11-10`, note it is the last release
   carrying NIST AI 600-1 mappings
@@ -537,6 +619,18 @@ current requirement; none should be built speculatively.
    the version list. Extending frozen grammar would need its own ADR.
 5. **`missing-version` feedback category** in `submit_feedback`.
 6. **A human feedback channel** distinct from URLs embedded in machine responses.
+7. **Per-item "this ID changed meaning" metadata**, for when SecID hosts AICM content
+   itself rather than only telling callers how to fetch it. Today the registry can say
+   *"item IDs are unstable between 1.0.3 and 1.1.0"* at source level; saying *"LOG-15
+   specifically moved"* requires the per-control crosswalk as data. Precision matters here:
+   188 of the 242 shared IDs did **not** change meaning, so a blanket per-ID warning would
+   be crying wolf and callers would learn to ignore it.
+
+   Two prerequisites, both real: `docs/reference/DATA-HOSTING-RULES.md` line 79 lists
+   CSA CCM / AICM as **"Confirm with CSA legal"**, and AICM ships under CC BY-NC-SA 4.0 —
+   whose **non-commercial clause has no row in Rule 0's license matrix** at all. That gap
+   should be closed in the rules doc independently of AICM, since it will recur.
+8. **Resolve the 208 `versions_available: []` entries** to `null` or real data.
 
 ## Prior art
 
