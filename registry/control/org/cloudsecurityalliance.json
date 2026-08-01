@@ -109,7 +109,7 @@
             "version": "1.1.0",
             "release_date": "2026-06-22",
             "status": "current",
-            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. NIST AI 600-1:2024 mappings were withdrawn in this release; BSI AI C4, EU AI Act, and ISO/IEC 42001:2023 remain.",
+            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. The workbook's Scope Applicability (Mappings) sheet dropped from 16 columns to 13: it carries BSI AI C4, the EU AI Act, and ISO/IEC 42001:2023, and no longer carries the NIST AI 600-1:2024 block that the 1.0.3 workbook included. CSA does publish a standalone NIST mapping artifact, but it is titled \"AICM v1.0 mapping to NIST 600-1\" and is keyed to pre-1.1.0 control IDs, which do not carry over.",
             "aliases": [
               {
                 "label": "1.1",
@@ -124,12 +124,12 @@
           },
           {
             "version": "1.0.3",
-            "release_date": "2025-11-10",
+            "release_date": null,
             "status": "superseded",
-            "note": "243 controls. The last release carrying NIST AI 600-1:2024 mappings, so it remains the only source for those. Its control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining 1.0.3 requires an archived copy."
+            "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA publishes no version-specific page for this release — the generic artifact URL now serves v1.1, so obtaining the 1.0.3 workbook requires an archived copy. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it."
           }
         ],
-        "notes": "Current release is 1.1.0 (247 controls, 2026-06-22). 1.0.3 (243 controls, 2025-11-10) is superseded but remains the only source of the NIST AI 600-1:2024 mappings that 1.1.0 withdrew. Releases 1.0.0 (July 2025) through 1.0.2 existed and were superseded by 1.0.3; none has a retrievable artifact or a CSA version-specific page, so they are not declared as resolvable versions here. Control IDs are NOT stable between 1.0.3 and 1.1.0 -- see version_disambiguation. Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the version node's download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
+        "notes": "Current release is 1.1.0 (247 controls, 2026-06-22). 1.0.3 (243 controls) is superseded; its workbook still carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook dropped. Releases 1.0.0 (July 2025) through 1.0.2 existed and were superseded by 1.0.3; none has a retrievable artifact or a CSA version-specific page, so they are not declared as resolvable versions here. Control IDs are NOT stable between 1.0.3 and 1.1.0 -- see version_disambiguation. Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the version node's download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "Direct download (no account required). ZIP bundle containing AICM spreadsheet, AI-CAIQ, guidelines, and mappings."}
@@ -188,7 +188,7 @@
         },
         {
           "patterns": ["^1\\.0\\.3$"],
-          "description": "AICM v1.0.3 (superseded). Last release carrying NIST AI 600-1 mappings.",
+          "description": "AICM v1.0.3 (superseded). Last release whose workbook carries NIST AI 600-1 mappings.",
           "weight": 90,
           "data": {
             "type": "version",

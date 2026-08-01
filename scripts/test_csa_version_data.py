@@ -72,7 +72,7 @@ def test_aicm_metadata_matches_the_tree():
     assert v["1.1.0"]["status"] == "current"
     assert v["1.1.0"]["release_date"] == "2026-06-22"
     assert v["1.0.3"]["status"] == "superseded"
-    assert v["1.0.3"]["release_date"] == "2025-11-10"
+    assert v["1.0.3"]["release_date"] is None
 
 
 def test_aicm_declares_only_resolvable_versions():
