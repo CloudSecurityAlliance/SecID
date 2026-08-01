@@ -512,12 +512,12 @@ plausible rather than hypothetical.
 - Set `version_required: true` and `unversioned_behavior: "all_with_guidance"` per D10,
   replacing today's `false` / `current_with_history`
 - Add `version_disambiguation` recording the renumbering (text below)
-- Replace the **19** phantom references — 16 `aicm@1.0` and 3 `aicm-caiq@1.0` — spanning
+- Repoint the **19** outdated references — 16 `aicm@1.0` and 3 `aicm-caiq@1.0` — spanning
   six files: `README.md`, `SPEC.md`, `docs/explanation/RATIONALE.md`,
   `registry/regulation.md`, `registry/control.md`, and
-  `registry/control/org/cloudsecurityalliance.md`. There is no 1.0 release; the lineage is
-  `0.0.2` → `1.0.3` → `1.1.0`. Note these appear in user-facing docs (`README.md`,
-  `SPEC.md`), so the wrong version is currently SecID's most visible AICM example.
+  `registry/control/org/cloudsecurityalliance.md`. AICM 1.0.0 was a real release (July 2025), followed by 1.0.1 and 1.0.2; 1.0.3's own metadata records that it supersedes `AICM 1.0.0-1.0.2`. None of 1.0.0-1.0.2 has a retrievable artifact or a CSA version-specific page, so SecID does not declare them as resolvable versions - but it must not claim they never existed. The examples should cite
+  the current release. Note they appear in user-facing docs (`README.md`, `SPEC.md`), so a
+  long-superseded version is currently SecID's most visible AICM example.
 
 ```
 "version_disambiguation": "AICM control IDs are NOT stable across releases. Between 1.0.3
@@ -530,7 +530,7 @@ between versions by string match — use the published crosswalk."
 
 **AI-CAIQ** (same file) — versions in lockstep with AICM, and question IDs derive from
 control IDs, so `LOG-15.1` moved too. Add `1.1.0` (current) and `1.0.2` (superseded).
-The existing `1.0` entry is phantom, like AICM's. Same D10 change as AICM.
+Its existing `1.0` entry is likewise an outdated label rather than a resolvable release. Same D10 change as AICM.
 
 **CCM** (same file) — separate defect from AICM's: SecID lists `4.0`, a real release with
 no extraction, and omits `4.0.13`, which does have one. Add `4.0.13`. Add `4.1.0` as an

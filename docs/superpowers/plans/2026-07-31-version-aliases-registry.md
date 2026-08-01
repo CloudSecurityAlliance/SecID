@@ -1004,7 +1004,7 @@ Create `scripts/test_csa_version_data.py`:
 
 Data assertions, not logic tests. They exist because the AICM version record
 was wrong in a way no structural validator could catch: it listed a version
-(1.0) that was never released while omitting both that were.
+(1.0) it cannot resolve, while omitting both releases it can.
 
 Run: python3 scripts/test_csa_version_data.py   (also discoverable by pytest)
 """
@@ -1076,8 +1076,10 @@ def test_aicm_metadata_matches_the_tree():
     assert v["1.0.3"]["release_date"] == "2025-11-10"
 
 
-def test_aicm_has_no_phantom_1_0():
-    # 1.0 was never released; the lineage is 1.0.3 -> 1.1.0.
+def test_aicm_declares_only_resolvable_versions():
+    # AICM 1.0.0-1.0.2 were real releases -- 1.0.3's metadata records that it
+    # supersedes "AICM 1.0.0-1.0.2" -- but none has a retrievable artifact, so
+    # SecID declares only what it can resolve: 1.0.3 and 1.1.0.
     assert "1.0" not in versions("aicm")
     assert "1.0" not in version_nodes("aicm")
 
@@ -1258,7 +1260,8 @@ aicm@9.9#LOG-15 returned found at weight 100. Adding version nodes makes
 unknown versions return not_found and makes @1.1 resolve, with no resolver
 change — the same structure owasp.org/top10 already uses.
 
-Also corrects the record: 1.0 was never released. Adds 1.1.0 (current,
+Also corrects the record. AICM 1.0.0-1.0.2 were real but have no retrievable
+artifact, so SecID declares only what it can resolve. Adds 1.1.0 (current,
 2026-06-22, 247 controls) with 1.1/v1.1 aliases, and dates 1.0.3.
 
 Sets version_required and all_with_guidance because 54 of the 242 control
@@ -1310,7 +1313,7 @@ def test_aicaiq_aliases_match_tree_and_metadata():
     assert alias_labels("aicm-caiq", "1.1.0") == {"1.1", "v1.1"}
 
 
-def test_aicaiq_has_no_phantom_1_0():
+def test_aicaiq_declares_only_resolvable_versions():
     assert "1.0" not in versions("aicm-caiq")
 
 
@@ -1477,7 +1480,7 @@ git commit -m "Give AI-CAIQ version-level tree nodes and correct its version rec
 AI-CAIQ question IDs derive from AICM control IDs, so the 1.0.3 -> 1.1.0
 renumbering moved them too: LOG-15.1 in 1.0.2 and in 1.1.0 are questions
 about different controls. Adds 1.1.0 (current) and 1.0.2, removes the
-phantom 1.0, and requires an explicit version."
+outdated 1.0 label, and requires an explicit version."
 ```
 
 ---
@@ -1589,7 +1592,7 @@ also defers the 4.1.0 variant label, since aliases resolve via the tree."
 
 ---
 
-### Task 8: Replace the 19 phantom `@1.0` references
+### Task 8: Repoint the 19 outdated `@1.0` references
 
 `aicm@1.0` and `aicm-caiq@1.0` name a release that never existed, and they appear in `README.md` and `SPEC.md` — so the wrong version is SecID's most visible AICM example.
 
@@ -1615,7 +1618,7 @@ grep -rEl "aicm(-caiq)?@1\.0([^.0-9]|$)" --include="*.md" --include="*.json" . \
 - [ ] **Step 3: Verify**
 
 ```bash
-echo "--- remaining phantoms (want none) ---"
+echo "--- remaining @1.0 refs (want none) ---"
 grep -rEn "aicm(-caiq)?@1\.0([^.0-9]|$)" --include="*.md" --include="*.json" . \
   | grep -v docs/superpowers || echo "  none"
 echo "--- new refs (want 19) ---"
@@ -1640,9 +1643,11 @@ python3 scripts/validate-registry-schema.py
 
 ```bash
 git add -u
-git commit -m "Replace 19 phantom aicm@1.0 references with @1.1.0
+git commit -m "Repoint 19 outdated aicm@1.0 references to @1.1.0
 
-AICM 1.0 was never released. These 19 references (16 aicm, 3 aicm-caiq)
+aicm@1.0 names AICM 1.0.0 (July 2025), a real release long superseded --
+1.0.3 supersedes 1.0.0-1.0.2 -- with no retrievable artifact. Examples
+should cite the current release. These 19 references (16 aicm, 3 aicm-caiq)
 spanned README.md, SPEC.md, RATIONALE.md and three registry files, so the
 project's most visible AICM example cited a nonexistent version."
 ```
@@ -1877,12 +1882,13 @@ Giving AICM and AI-CAIQ version nodes makes `@9.9` return `not_found` and
   (19 offline tests), wired into CI
 - Restructures AICM and AI-CAIQ trees with version-level nodes; aliases are
   OR-patterns on those nodes, with `patterns[0]` the canonical literal
-- Corrects the records: AICM 1.0 was never released. Adds 1.1.0 (current,
+- Corrects the records. AICM 1.0.0-1.0.2 were real releases with no retrievable
+  artifact, so SecID declares only resolvable ones. Adds 1.1.0 (current,
   2026-06-22, 247 controls) and dates 1.0.3; adds AI-CAIQ 1.1.0 and 1.0.2
 - Sets `version_required` + `all_with_guidance` on both, because 54 of the 242
   control IDs shared between AICM 1.0.3 and 1.1.0 designate a different control
 - Adds CCM 4.0.13, keeping 4.0 as the distinct release it is
-- Replaces 19 phantom `@1.0` references across README, SPEC, RATIONALE and 3 registry files
+- Repoints 19 outdated `@1.0` references across README, SPEC, RATIONALE and 3 registry files
 - Adds ADR-009; removes the nearest-version substitution from VERSIONING.md
 
 ## Known interim behavior change
