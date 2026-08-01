@@ -357,7 +357,7 @@ lossily normalized.
 
 | Case | Behavior |
 |---|---|
-| Alias points to a nonexistent version | Validator rejects at PR time; resolver skips the entry |
+| Alias points to a nonexistent version | Structurally impossible — nesting encodes the target (D2), so there is no separate pointer to dangle |
 | Alias label equals a real version string | Validator rejects (D4 rule 3 — the CCM `4.0` trap) |
 | Same label on two version entries | Validator rejects |
 | Alias chain | Structurally prevented; resolver never follows more than one hop |
@@ -374,6 +374,15 @@ Add `$defs/VersionEntry` and `$defs/VersionAlias` to
 [`schemas/registry-namespace.schema.json`](../../../schemas/registry-namespace.schema.json),
 following the existing `$defs/Tags` precedent from PR #131. `match_nodes[].data` stays
 `additionalProperties: true` — that openness is deliberate and is not changed here.
+
+**Consequence: the `$defs` alone enforce nothing.** `versions_available` lives inside
+`match_nodes[].data`, and because `data` is `additionalProperties: true`, a `$ref` there is
+not reachable by the schema validator. This is the same situation the `Tags` `$def` already
+documents: `Tags` *is* enforced at the top-level `tags` property via `$ref`, but explicitly
+not inside `data.tags`. So the `$defs` here are the documented shape, and a dedicated
+script — `scripts/validate-version-aliases.py` — does the actual enforcement, walking
+`match_nodes` and validating each `versions_available` entry against the `$def`. Without
+that script the rules in D4 are documentation, not constraints.
 
 `skills/registry-validation` gains checks for:
 
@@ -396,9 +405,12 @@ plausible rather than hypothetical.
 - Set `version_required: true` and `unversioned_behavior: "all_with_guidance"` per D10,
   replacing today's `false` / `current_with_history`
 - Add `version_disambiguation` recording the renumbering (text below)
-- Replace the seven phantom `aicm@1.0` references across `registry/control.md`,
-  `registry/regulation.md`, and `registry/control/org/cloudsecurityalliance.md`. There is
-  no 1.0 release; the lineage is `0.0.2` → `1.0.3` → `1.1.0`.
+- Replace the **19** phantom references — 16 `aicm@1.0` and 3 `aicm-caiq@1.0` — spanning
+  six files: `README.md`, `SPEC.md`, `docs/explanation/RATIONALE.md`,
+  `registry/regulation.md`, `registry/control.md`, and
+  `registry/control/org/cloudsecurityalliance.md`. There is no 1.0 release; the lineage is
+  `0.0.2` → `1.0.3` → `1.1.0`. Note these appear in user-facing docs (`README.md`,
+  `SPEC.md`), so the wrong version is currently SecID's most visible AICM example.
 
 ```
 "version_disambiguation": "AICM control IDs are NOT stable across releases. Between 1.0.3
@@ -424,6 +436,13 @@ releases.
 `version_disambiguation` can point at them by SecID. This is identity and resolution, so
 it is registry work, and it makes the renumbering lesson shareable through data
 immediately rather than waiting on the Relationship layer.
+
+**Blocked, and deferred for that reason.** A `reference` entry needs a resolvable URL.
+These artifacts currently exist only as local files in the DataSets working tree — which is
+not a git repository — and the only distribution path its README names is an `s3://` URI.
+Until they are published at an agreed canonical location, `version_disambiguation` states
+plainly that CSA publishes no crosswalk, which is accurate, rather than citing something a
+consumer cannot fetch.
 
 ## Documentation changes
 
