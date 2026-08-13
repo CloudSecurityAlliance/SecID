@@ -33,23 +33,23 @@
         "versions_available": [
           {"version": "2021", "release_date": "2021-12-01", "status": "current", "note": "Initial ENISA ML threat taxonomy publication."}
         ],
-        "examples": ["evasion", "poisoning", "model-extraction"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "ML threat category slug (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — threat categories described in the ENISA publication. No per-item URLs.",
-            "examples": [
-              {"input": "evasion", "note": "Adversarial evasion attacks on ML models"},
-              {"input": "poisoning", "note": "Training data or model poisoning attacks"},
-              {"input": "model-extraction", "note": "Attacks aimed at extracting or stealing ML models"}
-            ]
+        "examples": ["evasion", "poisoning", "model-extraction"],
+        "_item_pattern_note": "Item-level IDs — ML threat category slug (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — threat categories described in the ENISA publication. No per-item URLs. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "evasion",
+            "note": "Adversarial evasion attacks on ML models"
+          },
+          {
+            "input": "poisoning",
+            "note": "Training data or model poisoning attacks"
+          },
+          {
+            "input": "model-extraction",
+            "note": "Attacks aimed at extracting or stealing ML models"
           }
-        }
-      ]
+        ]
+      }
     },
 
     {
@@ -68,22 +68,19 @@
         "versions_available": [
           {"version": "2023", "release_date": "2023-07-01", "status": "current", "note": "Initial publication of the multilayer AI cybersecurity framework."}
         ],
-        "examples": ["data-integrity", "model-security"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "AI framework practice category slug (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — cybersecurity practice categories described in the ENISA framework. No per-item URLs.",
-            "examples": [
-              {"input": "data-integrity", "note": "Practices for ensuring AI training and operational data integrity"},
-              {"input": "model-security", "note": "Practices for securing AI models against attacks and tampering"}
-            ]
+        "examples": ["data-integrity", "model-security"],
+        "_item_pattern_note": "Item-level IDs — AI framework practice category slug (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — cybersecurity practice categories described in the ENISA framework. No per-item URLs. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "data-integrity",
+            "note": "Practices for ensuring AI training and operational data integrity"
+          },
+          {
+            "input": "model-security",
+            "note": "Practices for securing AI models against attacks and tampering"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

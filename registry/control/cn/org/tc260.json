@@ -35,22 +35,19 @@
           {"version": "2.0", "release_date": "2025-09-01", "status": "current", "note": "Strengthened loss of control and catastrophic risks, added open-source governance clauses."},
           {"version": "1.0", "release_date": "2024-09-01", "status": "superseded", "note": "Initial framework. Endemic and application risks, CBRN coverage."}
         ],
-        "examples": ["endemic-risks", "open-source-governance"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "AI Safety Governance Framework topic area (lowercase kebab-case)",
-          "weight": 100,
-          "data": {
-            "note": "No per-topic URL. Framework topics are sections within the published document. Refer to the TC260 website for the full framework PDF.",
-            "examples": [
-              {"input": "endemic-risks", "note": "Risks inherent to generative AI by its nature"},
-              {"input": "open-source-governance", "note": "Open-source AI governance clauses — added in v2.0"}
-            ]
+        "examples": ["endemic-risks", "open-source-governance"],
+        "_item_pattern_note": "Item-level IDs — AI Safety Governance Framework topic area (lowercase kebab-case) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: No per-topic URL. Framework topics are sections within the published document. Refer to the TC260 website for the full framework PDF. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "endemic-risks",
+            "note": "Risks inherent to generative AI by its nature"
+          },
+          {
+            "input": "open-source-governance",
+            "note": "Open-source AI governance clauses — added in v2.0"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }
