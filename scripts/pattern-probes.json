@@ -1,0 +1,83 @@
+{
+  "_comment": [
+    "Probe corpus for scripts/check-pattern-breadth.py.",
+    "",
+    "Each group is a SHAPE class, not an owner. Regexes see shapes, so two",
+    "identifiers belong to the same group when they look alike to a regex —",
+    "RFC numbers and Bugzilla IDs are both 'bare-numeric' even though they come",
+    "from unrelated sources.",
+    "",
+    "A pattern matching probes from more than max_groups distinct groups is",
+    "accepting identifiers it has no business accepting. That is the defect this",
+    "corpus exists to catch: a CCM control pattern must not also swallow CVE IDs.",
+    "",
+    "Legitimate cross-source overlap stays under the threshold by construction —",
+    "every CVE-shaped probe is in one group, so a CVE pattern matching all of",
+    "them scores 1 no matter how many namespaces publish CVE data."
+  ],
+  "max_groups": 2,
+  "groups": {
+    "nonsense": {
+      "note": "Tokens no identifier scheme would ever issue. Matching ANY of these is a violation on its own, regardless of group count.",
+      "fatal": true,
+      "probes": ["qxzjvwk", "Qx9Zjvwk7", "zzqqxxjj", "Zq7Xv9Kw", "wkqzjxvq"]
+    },
+    "cve": { "probes": ["CVE-2021-44228", "CVE-2024-1234", "CVE-1999-0001"] },
+    "cwe": { "probes": ["CWE-79", "CWE-1234"] },
+    "attack-technique": { "probes": ["T1059.003", "T1059"] },
+    "attack-object": { "probes": ["TA0001", "S0001", "G0001", "M1049"] },
+    "capec": { "probes": ["CAPEC-66"] },
+    "ghsa": { "probes": ["GHSA-jfh8-c2jp-5v3q"] },
+    "errata-colon": {
+      "probes": ["RHSA-2026:0932", "RHBA-2024:1234", "SUSE-SU-2024:1234-1"]
+    },
+    "debian-advisory": { "probes": ["DSA-5678-1", "DLA-3456-1"] },
+    "csf-dotted-alpha": {
+      "note": "NIST CSF function/category IDs",
+      "probes": ["PR.AC-1", "GV.OC", "ID.AM-1"]
+    },
+    "alpha-dash-numeric-control": {
+      "note": "NIST 800-53 and CSA CCM control IDs",
+      "probes": ["AC-2", "SC-7", "IAM-01", "CEK-03", "DCS-12"]
+    },
+    "ampersand-control": {
+      "note": "CCM domains containing '&' — the encoding edge case",
+      "probes": ["A&A-01"]
+    },
+    "annex-clause": {
+      "note": "ISO 27001 Annex A clause numbering",
+      "probes": ["A.5.1", "A.8.12"]
+    },
+    "dotted-numeric": {
+      "note": [
+        "PCI DSS requirements, ISO clauses, ISMAP controls (incl. the .P/.B/.PB",
+        "suffix form), and arXiv IDs. These are ONE group on purpose: to a regex",
+        "'2303.08774' and '9.2.3.11' are the same shape, and no pattern can tell",
+        "an arXiv paper from a PCI requirement by form alone. Splitting them made",
+        "ISMAP's correct pattern score three groups and fail."
+      ],
+      "probes": [
+        "1.2.3", "9.2.3.11", "3.1.2.1", "12.10.1",
+        "9.2.3.11.PB", "6.1.5.2.P",
+        "2303.08774", "1706.03762v5"
+      ]
+    },
+    "owasp-rank": { "probes": ["A01", "ML01", "ASI01", "LLM01"] },
+    "bare-numeric": {
+      "note": "RFC numbers, Bugzilla/Zenodo/launchpad IDs",
+      "probes": ["123456", "8446", "44228"]
+    },
+    "doi": {
+      "note": "Distinct shape from dotted-numeric — contains a slash",
+      "probes": ["10.1145/3319535.3363216"]
+    },
+    "kebab-slug": {
+      "note": "URL slugs used by CSA artifacts, NDSS papers, and similar",
+      "probes": ["cloud-threat-modeling-2025", "ai-controls-matrix"]
+    },
+    "brand-word": {
+      "note": "Bare source/organisation names — what a human types into search",
+      "probes": ["ismap", "fedramp", "nist", "ccm", "owasp"]
+    }
+  }
+}

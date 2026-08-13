@@ -19,9 +19,11 @@
   "match_nodes": [
     {
       "patterns": ["^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$"],
+      "open_pattern": true,
       "description": "GitHub username or organization name",
       "weight": 100,
       "data": {
+        "_open_pattern_note": "Any GitHub account name is valid by construction; no enumeration can exist. Declared open so free-text search does not treat every query term as a username.",
         "url": "https://github.com/{id}",
         "examples": [
           {

@@ -1,0 +1,56 @@
+name: Validate pattern breadth
+
+# Gate: no match_node pattern may accept identifiers it has no business
+# accepting. A pattern is the registry's only mechanism for saying "no", and a
+# permissive regex asserts the opposite — that every string is a valid
+# identifier. Because cross-source search walks every namespace, one such
+# pattern degrades every query in the system, not just its own namespace.
+#
+# This exists because of a real incident: searching "ismap" returned 19 results,
+# every one of them fabricated by patterns like ^.+$ and ^[a-z]+(-[a-z]+)*$,
+# while the actual ismap.go.jp namespace was nowhere in the list.
+#
+# Safety note: this workflow does not interpolate any untrusted GitHub event
+# data (issue titles, PR bodies, commit messages, etc.) into shell commands. It
+# only runs Python scripts with no arguments derived from user input.
+#
+# See scripts/check-pattern-breadth.py for the rules and scripts/pattern-probes.json
+# for the corpus. The advisory companion, scripts/audit-pattern-breadth.py, is
+# deliberately NOT run here — it ranks breadth for triage and would flag
+# legitimately broad patterns.
+
+on:
+  pull_request:
+    paths:
+      - "registry/**/*.json"
+      - "scripts/check-pattern-breadth.py"
+      - "scripts/pattern-probes.json"
+      - ".github/workflows/validate-pattern-breadth.yml"
+  push:
+    branches: [main]
+    paths:
+      - "registry/**/*.json"
+      - "scripts/check-pattern-breadth.py"
+      - "scripts/pattern-probes.json"
+      - ".github/workflows/validate-pattern-breadth.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Verify the detector before trusting its verdict: if the probe corpus is
+      # edited such that a known catch-all stops being flagged, the gate has
+      # silently stopped protecting anything.
+      - name: Self-test the breadth detector
+        run: python3 scripts/check-pattern-breadth.py --self-test
+      - name: Check registry patterns for over-breadth
+        run: python3 scripts/check-pattern-breadth.py

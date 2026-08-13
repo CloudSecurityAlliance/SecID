@@ -47,9 +47,11 @@
         },
         {
           "patterns": ["^[A-Z]+-\\d+$"],
+          "open_pattern": true,
           "description": "Atlassian Jira issue ID (PROJECT-NUMBER)",
           "weight": 100,
           "data": {
+            "_open_pattern_note": "Jira project keys are chosen per Jira instance and are not enumerable \u2014 any uppercase prefix is potentially valid. Declared open so cross-source search does not answer CWE-79 or CAPEC-66 with a fabricated Jira link; scoped resolution is unaffected.",
             "url": "https://jira.atlassian.com/browse/{id}",
             "examples": [
               {"input": "CONFSERVER-92475", "url": "https://jira.atlassian.com/browse/CONFSERVER-92475", "note": "Confluence Server security issue"}

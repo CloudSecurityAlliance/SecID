@@ -67,9 +67,11 @@
       "children": [
         {
           "patterns": ["^[A-Z][A-Z0-9]+-\\d+$"],
+          "open_pattern": true,
           "description": "Apache Jira issue ID (PROJECT-NUMBER)",
           "weight": 100,
           "data": {
+            "_open_pattern_note": "Apache Jira project keys (HADOOP, SPARK, ...) grow with the project roster and are not enumerated here. Declared open so cross-source search does not answer CWE-79 or CAPEC-66 with a fabricated Jira link; scoped resolution is unaffected.",
             "url": "https://issues.apache.org/jira/browse/{id}",
             "examples": [
               {"input": "LOG4J2-3201", "url": "https://issues.apache.org/jira/browse/LOG4J2-3201", "note": "Log4j project issue tracker"},
