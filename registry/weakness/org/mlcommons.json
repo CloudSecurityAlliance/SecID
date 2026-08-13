@@ -34,23 +34,23 @@
         "versions_available": [
           {"version": "1.0", "release_date": "2025-02-01", "status": "current", "note": "First edition of AILuminate safety benchmark."}
         ],
-        "examples": ["violent-crimes", "hate-speech", "weapons"]
-      },
-      "children": [
-        {
-          "patterns": ["^[A-Za-z]+(-[a-z]+)*$"],
-          "description": "AILuminate hazard category slug",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — hazard categories defined in the AILuminate benchmark. No per-item URLs.",
-            "examples": [
-              {"input": "violent-crimes", "note": "Hazard category for violent crime content"},
-              {"input": "hate-speech", "note": "Hazard category for hate speech content"},
-              {"input": "weapons", "note": "Hazard category for weapons-related content"}
-            ]
+        "examples": ["violent-crimes", "hate-speech", "weapons"],
+        "_item_pattern_note": "Item-level IDs — AILuminate hazard category slug — are not yet enumerated. A catch-all pattern ^[A-Za-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — hazard categories defined in the AILuminate benchmark. No per-item URLs. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "violent-crimes",
+            "note": "Hazard category for violent crime content"
+          },
+          {
+            "input": "hate-speech",
+            "note": "Hazard category for hate speech content"
+          },
+          {
+            "input": "weapons",
+            "note": "Hazard category for weapons-related content"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

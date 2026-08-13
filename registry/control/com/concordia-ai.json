@@ -35,23 +35,23 @@
         "versions_available": [
           {"version": "1.0", "release_date": "2025-07-01", "status": "current", "note": "First edition. Seven risk areas, E-T-C analysis, Red/Yellow/Green zone system."}
         ],
-        "examples": ["cyber-offense", "biological-risks", "self-replication"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "Frontier AI RMF risk area (lowercase kebab-case)",
-          "weight": 100,
-          "data": {
-            "note": "No per-risk-area URL. Risk areas are sections within the framework document. Seven risk areas: cyber offense, biological & chemical risks, persuasion & manipulation, uncontrolled autonomous AI R&D, strategic deception & scheming, self-replication, and collusion.",
-            "examples": [
-              {"input": "cyber-offense", "note": "AI-enabled cyberattacks risk area"},
-              {"input": "biological-risks", "note": "CBRN-related AI risks"},
-              {"input": "self-replication", "note": "AI systems that copy themselves"}
-            ]
+        "examples": ["cyber-offense", "biological-risks", "self-replication"],
+        "_item_pattern_note": "Item-level IDs — Frontier AI RMF risk area (lowercase kebab-case) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: No per-risk-area URL. Risk areas are sections within the framework document. Seven risk areas: cyber offense, biological & chemical risks, persuasion & manipulation, uncontrolled autonomous AI R&D, strategic deception & scheming, self-replication, and collusion. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "cyber-offense",
+            "note": "AI-enabled cyberattacks risk area"
+          },
+          {
+            "input": "biological-risks",
+            "note": "CBRN-related AI risks"
+          },
+          {
+            "input": "self-replication",
+            "note": "AI systems that copy themselves"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

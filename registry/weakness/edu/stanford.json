@@ -34,22 +34,19 @@
         "versions_available": [
           {"version": "2024", "release_date": "2024-07-01", "status": "current", "note": "Initial publication of AIR-Bench."}
         ],
-        "examples": ["privacy-pii", "manipulation-persuasion"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "AIR-Bench risk category slug (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — risk categories defined in the AIR-Bench paper and GitHub repository. No per-item URLs.",
-            "examples": [
-              {"input": "privacy-pii", "note": "Privacy risks related to personally identifiable information"},
-              {"input": "manipulation-persuasion", "note": "Risks related to AI-driven manipulation and persuasion"}
-            ]
+        "examples": ["privacy-pii", "manipulation-persuasion"],
+        "_item_pattern_note": "Item-level IDs — AIR-Bench risk category slug (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — risk categories defined in the AIR-Bench paper and GitHub repository. No per-item URLs. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "privacy-pii",
+            "note": "Privacy risks related to personally identifiable information"
+          },
+          {
+            "input": "manipulation-persuasion",
+            "note": "Risks related to AI-driven manipulation and persuasion"
           }
-        }
-      ]
+        ]
+      }
     },
 
     {
@@ -68,22 +65,19 @@
         "versions_available": [
           {"version": "1.0", "release_date": "2024-01-01", "status": "current", "note": "Initial HELM Safety evaluation framework."}
         ],
-        "examples": ["toxicity", "bias"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "HELM Safety evaluation category slug (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — safety evaluation categories within the HELM framework. No per-item URLs.",
-            "examples": [
-              {"input": "toxicity", "note": "Evaluation of toxic content generation"},
-              {"input": "bias", "note": "Evaluation of biased model outputs"}
-            ]
+        "examples": ["toxicity", "bias"],
+        "_item_pattern_note": "Item-level IDs — HELM Safety evaluation category slug (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — safety evaluation categories within the HELM framework. No per-item URLs. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "toxicity",
+            "note": "Evaluation of toxic content generation"
+          },
+          {
+            "input": "bias",
+            "note": "Evaluation of biased model outputs"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

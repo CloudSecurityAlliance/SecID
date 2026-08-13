@@ -27,22 +27,23 @@
           {"type": "website", "url": "https://smart.mcpshark.sh"},
           {"type": "docs", "url": "https://smart.mcpshark.sh/docs"}
         ],
-        "examples": ["agent-analysis", "privilege-escalation-detection", "owasp-mapping"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "Smart Scan control identifier — lowercase hyphenated words",
-          "weight": 100,
-          "data": {
-            "examples": [
-              {"input": "agent-analysis", "note": "Agent behavior analysis control"},
-              {"input": "privilege-escalation-detection", "note": "Privilege escalation detection control"},
-              {"input": "owasp-mapping", "note": "OWASP framework mapping control"}
-            ]
+        "examples": ["agent-analysis", "privilege-escalation-detection", "owasp-mapping"],
+        "_item_pattern_note": "Item-level IDs — Smart Scan control identifier — lowercase hyphenated words — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "agent-analysis",
+            "note": "Agent behavior analysis control"
+          },
+          {
+            "input": "privilege-escalation-detection",
+            "note": "Privilege escalation detection control"
+          },
+          {
+            "input": "owasp-mapping",
+            "note": "OWASP framework mapping control"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

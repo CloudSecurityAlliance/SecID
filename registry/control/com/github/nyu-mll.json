@@ -35,22 +35,19 @@
         "versions_available": [
           {"version": "2022", "release_date": "2022-01-01", "status": "current", "note": "First edition. 58,492 examples across 9 bias categories."}
         ],
-        "examples": ["age", "gender"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "BBQ bias category (lowercase kebab-case)",
-          "weight": 100,
-          "data": {
-            "note": "No per-category URL. Categories are subsets within the BBQ dataset. Nine categories: age, disability, gender, nationality, physical-appearance, race-ethnicity, religion, socioeconomic-status, sexual-orientation.",
-            "examples": [
-              {"input": "age", "note": "Ageism and generational stereotypes evaluation"},
-              {"input": "gender", "note": "Sexism and gender role stereotypes evaluation"}
-            ]
+        "examples": ["age", "gender"],
+        "_item_pattern_note": "Item-level IDs — BBQ bias category (lowercase kebab-case) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: No per-category URL. Categories are subsets within the BBQ dataset. Nine categories: age, disability, gender, nationality, physical-appearance, race-ethnicity, religion, socioeconomic-status, sexual-orientation. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "age",
+            "note": "Ageism and generational stereotypes evaluation"
+          },
+          {
+            "input": "gender",
+            "note": "Sexism and gender role stereotypes evaluation"
           }
-        }
-      ]
+        ]
+      }
     },
 
     {

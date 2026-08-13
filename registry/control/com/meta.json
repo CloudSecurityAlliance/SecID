@@ -30,23 +30,23 @@
         "urls": [
           {"type": "website", "url": "https://github.com/meta-llama/PurpleLlama"}
         ],
-        "examples": ["llama-guard", "prompt-guard", "code-shield"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "Purple Llama component (lowercase kebab-case)",
-          "weight": 100,
-          "data": {
-            "note": "No per-component URL. Components are subdirectories and tools within the Purple Llama GitHub repository. Key components: llama-guard (content safety classifier), prompt-guard (prompt injection detector), code-shield (insecure code detection).",
-            "examples": [
-              {"input": "llama-guard", "note": "Content safety classifier — classifies LLM inputs/outputs against safety taxonomy"},
-              {"input": "prompt-guard", "note": "Prompt injection detector — detects direct and indirect injection attempts"},
-              {"input": "code-shield", "note": "Insecure code detection — static analysis for generated code patterns"}
-            ]
+        "examples": ["llama-guard", "prompt-guard", "code-shield"],
+        "_item_pattern_note": "Item-level IDs — Purple Llama component (lowercase kebab-case) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: No per-component URL. Components are subdirectories and tools within the Purple Llama GitHub repository. Key components: llama-guard (content safety classifier), prompt-guard (prompt injection detector), code-shield (insecure code detection). Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "llama-guard",
+            "note": "Content safety classifier — classifies LLM inputs/outputs against safety taxonomy"
+          },
+          {
+            "input": "prompt-guard",
+            "note": "Prompt injection detector — detects direct and indirect injection attempts"
+          },
+          {
+            "input": "code-shield",
+            "note": "Insecure code detection — static analysis for generated code patterns"
           }
-        }
-      ]
+        ]
+      }
     },
 
     {
@@ -70,23 +70,23 @@
           {"version": "2.0", "release_date": null, "status": "superseded", "note": "Added prompt injection."},
           {"version": "1.0", "release_date": null, "status": "superseded", "note": "Initial release."}
         ],
-        "examples": ["insecure-code", "cyberattack-helpfulness", "prompt-injection"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "CyberSecEval benchmark category (lowercase kebab-case)",
-          "weight": 100,
-          "data": {
-            "note": "No per-category URL. Benchmark categories: insecure-code (does model generate vulnerable code?), cyberattack-helpfulness (does model assist with attacks?), prompt-injection (is model susceptible to injection?), code-interpreter (can code interpreter be abused?), auto-patch (can model patch vulnerabilities?).",
-            "examples": [
-              {"input": "insecure-code", "note": "Tests whether LLMs generate code with SQL injection, XSS, buffer overflow, and other vulnerabilities"},
-              {"input": "cyberattack-helpfulness", "note": "Tests model compliance with malware generation, exploit development, social engineering requests"},
-              {"input": "prompt-injection", "note": "Tests susceptibility to direct injection, indirect injection, and jailbreak attempts"}
-            ]
+        "examples": ["insecure-code", "cyberattack-helpfulness", "prompt-injection"],
+        "_item_pattern_note": "Item-level IDs — CyberSecEval benchmark category (lowercase kebab-case) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: No per-category URL. Benchmark categories: insecure-code (does model generate vulnerable code?), cyberattack-helpfulness (does model assist with attacks?), prompt-injection (is model susceptible to injection?), code-interpreter (can code interpreter be abused?), auto-patch (can model patch vulnerabilities?). Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "insecure-code",
+            "note": "Tests whether LLMs generate code with SQL injection, XSS, buffer overflow, and other vulnerabilities"
+          },
+          {
+            "input": "cyberattack-helpfulness",
+            "note": "Tests model compliance with malware generation, exploit development, social engineering requests"
+          },
+          {
+            "input": "prompt-injection",
+            "note": "Tests susceptibility to direct injection, indirect injection, and jailbreak attempts"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

@@ -34,23 +34,23 @@
         "versions_available": [
           {"version": "2025", "release_date": "2025-01-01", "status": "current", "note": "Continuously updated database."}
         ],
-        "examples": ["discrimination", "privacy-violation", "misuse-military"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "AI risk slug name (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Browsable risk database — risks can be explored at airisk.mit.edu/risks. No stable per-item URL scheme with formal identifiers.",
-            "examples": [
-              {"input": "discrimination", "note": "Risks related to discriminatory AI outcomes"},
-              {"input": "privacy-violation", "note": "Risks related to AI privacy breaches"},
-              {"input": "misuse-military", "note": "Risks related to military misuse of AI"}
-            ]
+        "examples": ["discrimination", "privacy-violation", "misuse-military"],
+        "_item_pattern_note": "Item-level IDs — AI risk slug name (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Browsable risk database — risks can be explored at airisk.mit.edu/risks. No stable per-item URL scheme with formal identifiers. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "discrimination",
+            "note": "Risks related to discriminatory AI outcomes"
+          },
+          {
+            "input": "privacy-violation",
+            "note": "Risks related to AI privacy breaches"
+          },
+          {
+            "input": "misuse-military",
+            "note": "Risks related to military misuse of AI"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

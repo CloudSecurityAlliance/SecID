@@ -34,23 +34,23 @@
         "versions_available": [
           {"version": "2024", "release_date": "2024-10-01", "status": "current", "note": "Initial publication on arXiv."}
         ],
-        "examples": ["training-data-risks", "deployment-risks", "societal-risks"]
-      },
-      "children": [
-        {
-          "patterns": ["^[a-z]+(-[a-z]+)*$"],
-          "description": "Risk source slug name (lowercase hyphenated)",
-          "weight": 50,
-          "data": {
-            "note": "Conceptual taxonomy — risk source categories are described by slug names. No per-item URLs; refer to the parent paper for full descriptions.",
-            "examples": [
-              {"input": "training-data-risks", "note": "Risks related to training data quality, bias, and provenance"},
-              {"input": "deployment-risks", "note": "Risks arising from deployment context and environment"},
-              {"input": "societal-risks", "note": "Broader societal impact risks from general-purpose AI"}
-            ]
+        "examples": ["training-data-risks", "deployment-risks", "societal-risks"],
+        "_item_pattern_note": "Item-level IDs — Risk source slug name (lowercase hyphenated) — are not yet enumerated. A catch-all pattern ^[a-z]+(-[a-z]+)*$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Conceptual taxonomy — risk source categories are described by slug names. No per-item URLs; refer to the parent paper for full descriptions. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern).",
+        "_item_examples_unconfirmed": [
+          {
+            "input": "training-data-risks",
+            "note": "Risks related to training data quality, bias, and provenance"
+          },
+          {
+            "input": "deployment-risks",
+            "note": "Risks arising from deployment context and environment"
+          },
+          {
+            "input": "societal-risks",
+            "note": "Broader societal impact risks from general-purpose AI"
           }
-        }
-      ]
+        ]
+      }
     }
   ]
 }

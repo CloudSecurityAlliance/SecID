@@ -30,19 +30,9 @@
         "urls": [
           {"type": "website", "url": "https://www.ibm.com/thought-leadership/institute-business-value/report/generative-ai-controls"}
         ],
-        "examples": []
-      },
-      "children": [
-        {
-          "patterns": ["^.+$"],
-          "description": "Control identifier within the IBM Generative AI Controls Framework. Exact ID format not yet documented — pattern accepts any non-empty string pending further research.",
-          "weight": 50,
-          "data": {
-            "note": "Control ID format requires further research. The framework is published as a whitepaper; control identifiers may follow a domain-code plus number pattern but this has not been confirmed.",
-            "examples": []
-          }
-        }
-      ]
+        "examples": [],
+        "_item_pattern_note": "Item-level IDs — Control identifier within the IBM Generative AI Controls Framework. Exact ID format not yet documented — pattern accepts any non-empty string pending further research. — are not yet enumerated. A catch-all pattern ^.+$ was removed 2026-08-13: it matched any arbitrary token, fabricating resolution results for unrelated queries and polluting free-text search. Prior research note: Control ID format requires further research. The framework is published as a whitepaper; control identifiers may follow a domain-code plus number pattern but this has not been confirmed. Restore an item-level match_node once the real identifier list is confirmed (prefer known_values over an open pattern)."
+      }
     }
   ]
 }
