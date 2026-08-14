@@ -21,8 +21,16 @@ A node may be exempt in two ways:
 
   * `"open_pattern": true` on the node — the identifier space is genuinely
     unbounded (GitHub usernames, conference paper slugs) and this was reviewed.
-  * `data.known_values` — the enumeration closes the set, so the regex's
-    breadth does not matter.
+  * `data.known_values` larger than MAX_ENUMERABLE AND an open pattern — the set
+    is too big to inline (CSA's 1131 artifact slugs), so the resolver closes it
+    instead. A SMALL enumeration earns no exemption at all: if the values can be
+    listed, the pattern must be that list.
+
+That second condition is narrower than it first appears, and deliberately so.
+Blanket-exempting `known_values` left a gap — `^[A-Z&]{2,3}$` is loose enough to
+admit FOO but not loose enough to count as open, so nothing enforced the 17
+enumerated CCM domains and secid:control/FOO returned seven fabricated results
+in production.
 
 Usage:
     python3 scripts/check-pattern-breadth.py            # check the registry
@@ -44,6 +52,13 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PROBES_PATH = Path(__file__).resolve().parent / "pattern-probes.json"
+
+# An enumeration at or below this size must be expressed IN the pattern, as an
+# alternation. Only larger sets may lean on known_values plus an open pattern —
+# CSA's 1131 artifact slugs are not going into a regex, but 17 CCM domains are.
+# If you have the list, use the list: an enumerated pattern discriminates on its
+# own and does not depend on a resolver honouring known_values.
+MAX_ENUMERABLE = 50
 
 
 def load_probes(path: Path = PROBES_PATH) -> tuple[dict[str, list[str]], set[str], int]:
@@ -82,12 +97,40 @@ def iter_nodes(nodes, path=()):
         yield from iter_nodes(node.get("children"), path + (label,))
 
 
-def is_exempt(node: dict) -> str | None:
-    """Return the exemption reason, or None if the node must satisfy the rules."""
+def is_open(patterns: list[str], groups: dict[str, list[str]], fatal: set[str]) -> bool:
+    """Does this pattern set accept tokens no scheme would issue?
+
+    This is the same test resolvers use to decide whether `known_values` closes a
+    node, so the two must agree — see SecID-Service src/resolver.ts isOpenPattern.
+    """
+    tokens = [t for g in fatal for t in groups.get(g, [])]
+    for pat in patterns:
+        rx = compile_pattern(pat)
+        if rx and any(rx.search(t) for t in tokens):
+            return True
+    return False
+
+
+def is_exempt(node: dict, groups, fatal) -> str | None:
+    """Return the exemption reason, or None if the node must satisfy the rules.
+
+    `known_values` is NOT a blanket exemption. Resolvers treat an enumeration as
+    a closed set only where the pattern is open, because a tight pattern is
+    assumed to be doing real validation. That leaves a gap this check used to
+    share: a pattern loose enough to admit garbage but not loose enough to count
+    as open — nothing enforced the enumeration, and secid:control/FOO resolved to
+    seven fabricated results while every one of those nodes was "exempt".
+
+    So an enumeration excuses a pattern only when the resolver would actually
+    enforce it. Otherwise the pattern must stand on its own, which for an
+    enumerable set means being the enumeration.
+    """
     if node.get("open_pattern") is True:
         return "open_pattern"
-    if (node.get("data") or {}).get("known_values"):
-        return "known_values"
+    known = (node.get("data") or {}).get("known_values")
+    patterns = node.get("patterns") or []
+    if known and len(known) > MAX_ENUMERABLE and is_open(patterns, groups, fatal):
+        return "known_values+open"
     return None
 
 
@@ -163,7 +206,7 @@ def scan(ref: str | None = None) -> tuple[list[dict], int, int]:
             continue
         ns, typ = doc.get("namespace"), doc.get("type")
         for node, ancestors in iter_nodes(doc.get("match_nodes")):
-            reason = is_exempt(node)
+            reason = is_exempt(node, groups, fatal)
             if reason:
                 exempt += 1
                 continue
@@ -196,6 +239,13 @@ SELF_TEST_CASES = [
     (r"^\d+(?:\.\d+){1,4}(?:\.(?:PB|P|B))?$", False, "ISMAP — dotted-numeric is one shape"),
     (r"^\d+$", False, "bare numeric IDs are legitimately broad"),
     (r"^RHSA-\d{4}:\d{4,}$", False, "Red Hat errata"),
+    # the gap that let secid:control/FOO fabricate seven results: loose enough
+    # to admit garbage, not loose enough for a resolver to enforce known_values
+    (r"^[A-Z&]{2,3}$", True, "short uppercase wildcard — the CCM/AICM domain gap"),
+    (r"^[A-Z]+$", True, "any uppercase run"),
+    (r"^[A-Z]{1,3}$", True, "short uppercase wildcard"),
+    (r"^(?:A&A|AIS|IAM|IVS)-\d{2}$", False, "enumerated CCM control"),
+    (r"^(?:A&A|AIS|IAM|IVS)$", False, "enumerated CCM domain"),
 ]
 
 

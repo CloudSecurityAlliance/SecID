@@ -188,7 +188,7 @@
       "children": [
         {
           "patterns": [
-            "^[A-Z]{2}$"
+            "^(?:BC|BI|DM|DQ|EX|PC|PF|RE|SR)$"
           ],
           "description": "Criteria area (PC, SR, PF, RE, DQ, DM, EX, BI) or the General Conditions series (BC).",
           "weight": 100,
@@ -246,7 +246,7 @@
       "children": [
         {
           "patterns": [
-            "^[A-Z]{2,4}$"
+            "^(?:DEI|DEP|GCS|OPS|RET|VAV)$"
           ],
           "description": "A5 group — GCS (Governance, Compliance & Scope), DEI (Design, Development & Integration), VAV (Verification & Validation), DEP (Deployment), OPS (Operations & Monitoring), RET (Retirement).",
           "weight": 100,

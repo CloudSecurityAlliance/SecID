@@ -18,9 +18,24 @@
   "max_groups": 2,
   "groups": {
     "nonsense": {
-      "note": "Tokens no identifier scheme would ever issue. Matching ANY of these is a violation on its own, regardless of group count.",
+      "note": [
+        "Tokens no identifier scheme would ever issue. Matching ANY of these is a",
+        "violation on its own, regardless of group count.",
+        "",
+        "Coverage matters as much as content. The first version of this list held",
+        "only long lower/mixed-case tokens, so ^[A-Z&]{2,3}$ sailed through and",
+        "secid:control/FOO returned seven fabricated results in production. Short",
+        "all-uppercase and short all-lowercase forms are therefore mandatory: a",
+        "nonsense probe only tests the patterns whose length and character class it",
+        "can actually reach."
+      ],
       "fatal": true,
-      "probes": ["qxzjvwk", "Qx9Zjvwk7", "zzqqxxjj", "Zq7Xv9Kw", "wkqzjxvq"]
+      "probes": [
+        "qxzjvwk", "Qx9Zjvwk7", "zzqqxxjj", "Zq7Xv9Kw", "wkqzjxvq",
+        "QZX", "XQ", "ZQJ", "QQ9", "QZXJ",
+        "qzx", "zj", "qqj",
+        "ZQ.XJ", "QZX-99"
+      ]
     },
     "cve": { "probes": ["CVE-2021-44228", "CVE-2024-1234", "CVE-1999-0001"] },
     "cwe": { "probes": ["CWE-79", "CWE-1234"] },

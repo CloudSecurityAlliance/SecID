@@ -45,7 +45,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
           "description": "Control domain (e.g., IAM, A&A). Contains multiple controls.",
           "weight": 100,
           "data": {
@@ -115,7 +115,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)$"],
           "description": "AICM control domain. 18 domains: 16 shared with CCM, plus I&S (replacing CCM's IVS) and MDS.",
           "weight": 100,
           "data": {
@@ -193,7 +193,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
           "description": "Control domain — returns all CAIQ questions in this domain.",
           "weight": 100,
           "data": {
@@ -276,7 +276,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)$"],
           "description": "AICM control domain — returns all AI-CAIQ questions in this domain. 18 domains (17 CCM + MDS).",
           "weight": 100,
           "data": {
