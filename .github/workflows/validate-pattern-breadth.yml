@@ -25,6 +25,7 @@ on:
       - "registry/**/*.json"
       - "scripts/check-pattern-breadth.py"
       - "scripts/pattern-probes.json"
+      - "scripts/pattern-breadth-todo.json"
       - ".github/workflows/validate-pattern-breadth.yml"
   push:
     branches: [main]
@@ -32,6 +33,7 @@ on:
       - "registry/**/*.json"
       - "scripts/check-pattern-breadth.py"
       - "scripts/pattern-probes.json"
+      - "scripts/pattern-breadth-todo.json"
       - ".github/workflows/validate-pattern-breadth.yml"
   workflow_dispatch:
 

@@ -418,6 +418,7 @@ python3 scripts/check-pattern-breadth.py             # check the working tree
 python3 scripts/check-pattern-breadth.py --self-test # verify the detector itself
 python3 scripts/check-pattern-breadth.py --ref REV   # check a past revision
 python3 scripts/audit-pattern-breadth.py --top 40    # advisory breadth ranking (never fails)
+# Tracked debt lives in scripts/pattern-breadth-todo.json (stale entries fail the gate)
 ```
 
 ### Pattern breadth: the one rule that protects every query
@@ -450,6 +451,13 @@ data. That overlap is the feature SecID exists to provide.
 | Tighten the regex | The identifier set has structure you can express | Best — restores discrimination |
 | `data.known_values` | The values are enumerable | Closes the set; resolvers treat an open pattern as closed |
 | `"open_pattern": true` | The space is genuinely unbounded (GitHub usernames, Jira project keys, paper slugs) | Declares it reviewed; resolvers exclude the node from **unscoped** search while namespace-scoped resolution still works |
+| Entry in `scripts/pattern-breadth-todo.json` | Last resort: the set is finite but you could not enumerate it from a trustworthy source | Records debt with a tracking issue. Printed on every run; does not fail CI. A **stale** entry fails, so fixes must delete their entry |
+
+An enumeration of 50 values or fewer earns no exemption at all — if the values
+can be listed, the pattern must be that list. An enumerated pattern discriminates
+on its own instead of depending on a resolver honouring `known_values`. Only
+larger sets (CSA's 1131 artifact slugs) may lean on `known_values` plus an open
+pattern.
 
 Never reach for `open_pattern` to silence the gate on a set you simply have not
 researched yet. Removing the item-level node is the honest state — absent means

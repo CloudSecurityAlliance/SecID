@@ -52,6 +52,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PROBES_PATH = Path(__file__).resolve().parent / "pattern-probes.json"
+TODO_PATH = Path(__file__).resolve().parent / "pattern-breadth-todo.json"
 
 # An enumeration at or below this size must be expressed IN the pattern, as an
 # alternation. Only larger sets may lean on known_values plus an open pattern —
@@ -134,6 +135,17 @@ def is_exempt(node: dict, groups, fatal) -> str | None:
     return None
 
 
+def load_todo() -> list[dict]:
+    """Known-broad patterns awaiting research. Debt, not permission."""
+    if not TODO_PATH.exists():
+        return []
+    return json.loads(TODO_PATH.read_text(encoding="utf-8")).get("entries", [])
+
+
+def todo_key(d: dict) -> tuple:
+    return (d.get("type"), d.get("namespace"), d.get("pattern"))
+
+
 def check_pattern(pat: str, groups, fatal, max_groups) -> dict | None:
     """Return a violation dict, or None if the pattern is acceptable."""
     rx = compile_pattern(pat)
@@ -195,8 +207,8 @@ def registry_files(ref: str | None):
                 continue
 
 
-def scan(ref: str | None = None) -> tuple[list[dict], int, int]:
-    """Return (violations, patterns_checked, exempt_nodes)."""
+def scan(ref: str | None = None):
+    """Return (violations, tracked, stale_todo, patterns_checked, exempt_nodes)."""
     groups, fatal, max_groups = load_probes()
     violations: list[dict] = []
     checked = exempt = 0
@@ -220,7 +232,24 @@ def scan(ref: str | None = None) -> tuple[list[dict], int, int]:
                         parent="/".join(ancestors) or None,
                     )
                     violations.append(bad)
-    return violations, checked, exempt
+
+    todo = load_todo()
+    allowed = {todo_key(t): t for t in todo}
+    tracked, fatal_violations = [], []
+    for v in violations:
+        entry = allowed.get(todo_key(v))
+        if entry:
+            tracked.append({**v, "tracking": entry.get("tracking"),
+                            "reason": entry.get("reason", "")})
+        else:
+            fatal_violations.append(v)
+
+    # An entry matching nothing means the pattern was fixed but the excuse was
+    # left behind. Fail, so the file cannot accumulate stale exemptions.
+    seen = {todo_key(v) for v in violations}
+    stale = [t for t in todo if todo_key(t) not in seen]
+
+    return fatal_violations, tracked, stale, checked, exempt
 
 
 # ── Self-test ──────────────────────────────────────────────────────────────
@@ -283,44 +312,67 @@ def main() -> int:
     if args.self_test:
         return self_test()
 
-    violations, checked, exempt = scan(args.ref)
+    violations, tracked, stale, checked, exempt = scan(args.ref)
 
     if args.json:
         print(json.dumps(
             {"checked": checked, "exempt_nodes": exempt,
-             "violation_count": len(violations), "violations": violations},
+             "violation_count": len(violations), "violations": violations,
+             "tracked_count": len(tracked), "tracked": tracked,
+             "stale_todo": stale},
             indent=2,
         ))
-        return 1 if violations else 0
+        return 1 if (violations or stale) else 0
 
     where = f"at {args.ref}" if args.ref else "in the working tree"
     print(f"Checked {checked} patterns {where} ({exempt} node(s) exempt).\n")
 
-    if not violations:
-        print("PASS — no overly broad patterns.")
-        return 0
+    if tracked:
+        print(f"KNOWN-BROAD, pending research ({len(tracked)}) " + "-" * 34)
+        for t in tracked:
+            print(f"  {t['type']}/{t['namespace']}  {t['pattern']}")
+            print(f"    {t['node']}")
+            print(f"    tracking: {t.get('tracking')}")
+        print()
 
-    by_kind: dict[str, list[dict]] = {}
-    for v in violations:
-        by_kind.setdefault(v["kind"], []).append(v)
+    if stale:
+        print(f"STALE todo entries ({len(stale)}) " + "-" * 40)
+        print("  These match no current violation — the pattern was fixed but the")
+        print("  excuse was left behind. Delete them from pattern-breadth-todo.json.")
+        for t in stale:
+            print(f"    {t.get('type')}/{t.get('namespace')}  {t.get('pattern')}")
+        print()
 
-    for kind, items in sorted(by_kind.items()):
-        print(f"── {kind} ({len(items)}) " + "─" * 40)
-        for v in items:
-            print(f"  {v['type']}/{v['namespace']}")
-            print(f"    pattern : {v['pattern']}")
-            print(f"    node    : {v['node']}")
-            if v.get("groups"):
-                print(f"    groups  : {', '.join(v['groups'])}")
-            print(f"    matched : {', '.join(v['matched'][:8])}")
-            print(f"    file    : {v['file']}")
-            print()
+    if violations:
+        by_kind: dict[str, list[dict]] = {}
+        for v in violations:
+            by_kind.setdefault(v["kind"], []).append(v)
+        for kind, items in sorted(by_kind.items()):
+            print(f"-- {kind} ({len(items)}) " + "-" * 40)
+            for v in items:
+                print(f"  {v['type']}/{v['namespace']}")
+                print(f"    pattern : {v['pattern']}")
+                print(f"    node    : {v['node']}")
+                if v.get("groups"):
+                    print(f"    groups  : {', '.join(v['groups'])}")
+                print(f"    matched : {', '.join(v['matched'][:8])}")
+                print(f"    file    : {v['file']}")
+                print()
 
-    print(f"FAIL — {len(violations)} overly broad pattern(s).")
-    print("Fix by tightening the regex, adding data.known_values, or — if the")
-    print('identifier space really is unbounded — setting "open_pattern": true')
-    print("on the node with a note explaining why.")
-    return 1
+    if violations or stale:
+        n = len(violations)
+        if n:
+            print(f"FAIL - {n} overly broad pattern(s).")
+            print("Fix by tightening the regex, adding data.known_values, or - if the")
+            print('identifier space really is unbounded - setting "open_pattern": true')
+            print("on the node with a note explaining why.")
+        if stale:
+            print(f"FAIL - {len(stale)} stale entry(ies) in pattern-breadth-todo.json.")
+        return 1
+
+    suffix = f" ({len(tracked)} tracked exception(s))" if tracked else ""
+    print(f"PASS - no untracked overly broad patterns{suffix}.")
+    return 0
 
 
 if __name__ == "__main__":
