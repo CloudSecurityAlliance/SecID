@@ -385,7 +385,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z]+$"],
+          "patterns": ["^(?:MODELINVERSIONANDMEMBERSHIP|INDIRECTPROMPTINJECTION|DIRECTPROMPTINJECTION|AIRESOURCEEXHAUSTION|DISCLOSUREUSEOUTPUT|RUNTIMEMODELPOISON|RUNTIMEMODELTHEFT|SUPPLYMODELPOISON|DEVMODELPOISON|INSECUREOUTPUT|MODELTHEFTUSE|DEVMODELLEAK|DEVDATALEAK|DATAPOISON|LEAKINPUT|EVASION)$"],
           "description": "AI Exchange threat/control ID — uppercase concatenated words",
           "weight": 100,
           "data": {
@@ -441,7 +441,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z]{1,3}$"],
+          "patterns": ["^(?:SIR|AC|AD|AR|AV|CR|DC|DS|EI|IR|MR|PR|RC|RL|SI|UI|A|C|E|I|S)$"],
           "description": "AIVSS metric abbreviation (e.g., AV, MR, DS, SI)",
           "weight": 100,
           "data": {

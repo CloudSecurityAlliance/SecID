@@ -1,0 +1,56 @@
+{
+  "_comment": [
+    "Known-broad patterns awaiting primary-source research.",
+    "",
+    "This is DEBT, not permission. Each entry says: we know this pattern is too",
+    "broad, we could not enumerate its values from a source we trust, and here is",
+    "the issue tracking the fix. scripts/check-pattern-breadth.py prints every",
+    "entry on every run and reports the count, but does not fail on them.",
+    "",
+    "This is deliberately NOT the same as \"open_pattern\": true on a node. That",
+    "flag asserts an identifier space is genuinely unbounded — GitHub usernames,",
+    "Jira project keys. These three are finite and enumerable; we simply have not",
+    "done the work yet. Using open_pattern here would record a falsehood in the",
+    "registry to silence a checker.",
+    "",
+    "A stale entry — one matching no current violation — FAILS the check. That is",
+    "the point: when someone fixes a pattern they must delete its entry, so this",
+    "file cannot quietly accumulate excuses for problems that no longer exist.",
+    "",
+    "Adding an entry is a last resort. Prefer, in order: tighten the regex, add",
+    "data.known_values, or remove the item-level node entirely (absent means",
+    "'not yet researched', which is the honest state — see PR #156)."
+  ],
+  "entries": [
+    {
+      "type": "control",
+      "namespace": "bsi.bund.de",
+      "pattern": "^[A-Z]{2,4}$",
+      "node": "C5 control domain",
+      "reason": "C5 domain codes differ between the 2020 and 2026 editions (IDM renamed to IAM; GC added) and are published only inside the catalogue PDF. Web sources contradict each other on the codes (OS vs OPS, placement of HR) and conflate the editions.",
+      "needed": "Extract the authoritative per-edition domain list from the BSI C5 PDF, then replace with an explicit alternation and add known_values.",
+      "tracking": "https://github.com/CloudSecurityAlliance/SecID/issues/158",
+      "added": "2026-08-13"
+    },
+    {
+      "type": "control",
+      "namespace": "bsi.bund.de",
+      "pattern": "^[A-Z]{2,4}-\\d{2}$",
+      "node": "C5 specific criterion",
+      "reason": "Same root cause as the C5 domain pattern above — the criterion prefix is the domain code, so this cannot be tightened until the domain list is settled.",
+      "needed": "Reuse the domain alternation established for issue #158.",
+      "tracking": "https://github.com/CloudSecurityAlliance/SecID/issues/158",
+      "added": "2026-08-13"
+    },
+    {
+      "type": "control",
+      "namespace": "owasp.org",
+      "pattern": "^[A-Z]+$",
+      "node": "OWASP AI Exchange control ID",
+      "reason": "The published AI Exchange page has no consolidated control list — controls are scattered across the Essentials section, periodic table, controls overview, and individual threat sections. An aggregate assembled from those returned duplicates, so it is not trustworthy as an enumeration. The sibling threat node in weakness/owasp.json HAS been enumerated from its 16 known_values.",
+      "needed": "Derive the complete control-ID list from the AI Exchange source repo rather than the rendered page, add as known_values, then replace with an explicit alternation.",
+      "tracking": "https://github.com/CloudSecurityAlliance/SecID/issues/159",
+      "added": "2026-08-13"
+    }
+  ]
+}

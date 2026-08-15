@@ -412,7 +412,56 @@ python3 scripts/scan-mcp-endpoints.py     # Detect MCP endpoints + API/MCP menti
 
 # Subtype validation against SecID-Service's type-registry.ts (CI check)
 python3 scripts/validate-subtypes.py
+
+# Pattern breadth gate (CI check) — fails on overly broad match_node regexes
+python3 scripts/check-pattern-breadth.py             # check the working tree
+python3 scripts/check-pattern-breadth.py --self-test # verify the detector itself
+python3 scripts/check-pattern-breadth.py --ref REV   # check a past revision
+python3 scripts/audit-pattern-breadth.py --top 40    # advisory breadth ranking (never fails)
+# Tracked debt lives in scripts/pattern-breadth-todo.json (stale entries fail the gate)
 ```
+
+### Pattern breadth: the one rule that protects every query
+
+A pattern is the registry's **only** mechanism for saying "no". A permissive
+regex does not defer the claim that an identifier is valid — it asserts the
+opposite, which removes the resolver's ability to answer `not_found`. Because
+cross-source search walks every namespace, a single catch-all degrades every
+query in the system, not just its own namespace. Searching `ismap` once returned
+19 results, all fabricated by patterns like `^.+$` and `^[a-z]+(-[a-z]+)*$`,
+while the real `ismap.go.jp` namespace appeared nowhere.
+
+`scripts/check-pattern-breadth.py` enforces two rules against the probe corpus
+in `scripts/pattern-probes.json`:
+
+1. **Nonsense** — no pattern may match a token no scheme would ever issue.
+2. **Cross-class** — no pattern may match identifiers from more than
+   `max_groups` unrelated *shape* classes. Probe groups are shape-based, not
+   owner-based: `2303.08774` (arXiv) and `9.2.3.11` (ISMAP) are the same group,
+   because no regex can tell them apart by form.
+
+Legitimate cross-source overlap is unaffected — every CVE-shaped probe sits in
+one group, so a CVE pattern scores 1 no matter how many namespaces publish CVE
+data. That overlap is the feature SecID exists to provide.
+
+**Three ways to satisfy the gate**, in order of preference:
+
+| Approach | When | Effect |
+|---|---|---|
+| Tighten the regex | The identifier set has structure you can express | Best — restores discrimination |
+| `data.known_values` | The values are enumerable | Closes the set; resolvers treat an open pattern as closed |
+| `"open_pattern": true` | The space is genuinely unbounded (GitHub usernames, Jira project keys, paper slugs) | Declares it reviewed; resolvers exclude the node from **unscoped** search while namespace-scoped resolution still works |
+| Entry in `scripts/pattern-breadth-todo.json` | Last resort: the set is finite but you could not enumerate it from a trustworthy source | Records debt with a tracking issue. Printed on every run; does not fail CI. A **stale** entry fails, so fixes must delete their entry |
+
+An enumeration of 50 values or fewer earns no exemption at all — if the values
+can be listed, the pattern must be that list. An enumerated pattern discriminates
+on its own instead of depending on a resolver honouring `known_values`. Only
+larger sets (CSA's 1131 artifact slugs) may lean on `known_values` plus an open
+pattern.
+
+Never reach for `open_pattern` to silence the gate on a set you simply have not
+researched yet. Removing the item-level node is the honest state — absent means
+"not yet researched", a permissive pattern means "everything is valid".
 
 The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](working-data/cna/known-broken.json) — a v2.0 schema, AI-consumable, JSON-Patch-like validation overlay. Each entry asserts "at this JMESPath `field_path` in upstream `CNAsList.json`, the `current_value` is broken — here is the `failure`, the `evidence`, and the `upstream_issue` tracking the fix." Matching URL/email values in the disclosure entries are annotated with `_broken: true` plus per-entry metadata (`_broken_verified`, `_broken_failure`, `_broken_note`, `_broken_source`). URL entries carry `_broken_source: CVEProject/cve-website#3937`; email entries carry `_broken_source: CVEProject/cve-website#3938`. Idempotent: removing an entry from the overlay and re-running the script strips the corresponding `_broken_*` fields automatically.
 

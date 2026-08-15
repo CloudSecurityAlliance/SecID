@@ -44,7 +44,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z]{2}$"],
+          "patterns": ["^(?:AC|AT|AU|CA|CM|CP|IA|IR|MA|MP|PE|PL|PM|PS|PT|RA|SA|SC|SI|SR)$"],
           "description": "Control family (e.g., AC, SI, PT). Contains multiple controls.",
           "weight": 100,
           "data": {
@@ -131,7 +131,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z]{2}$"],
+          "patterns": ["^(?:DE|GV|ID|PR|RC|RS)$"],
           "description": "CSF function (e.g., GV, ID, PR). Top-level organizing concept.",
           "weight": 100,
           "data": {
@@ -151,7 +151,7 @@
           }
         },
         {
-          "patterns": ["^[A-Z]{2}\\.[A-Z]{2}$"],
+          "patterns": ["^(?:DE\\.AE|DE\\.CM|GV\\.OC|GV\\.OV|GV\\.PO|GV\\.RM|GV\\.RR|GV\\.SC|ID\\.AM|ID\\.IM|ID\\.RA|PR\\.AA|PR\\.AT|PR\\.DS|PR\\.IR|PR\\.PS|RC\\.CO|RC\\.RP|RS\\.AN|RS\\.CO|RS\\.MA|RS\\.MI)$"],
           "description": "CSF category (e.g., GV.RM, ID.AM, PR.AC). Groups related subcategories.",
           "weight": 100,
           "data": {

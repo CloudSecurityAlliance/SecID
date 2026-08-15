@@ -19,9 +19,11 @@
   "match_nodes": [
     {
       "patterns": ["^[a-z0-9-]+$"],
+      "open_pattern": true,
       "description": "NDSS paper slug (URL-friendly identifier)",
       "weight": 100,
       "data": {
+        "_open_pattern_note": "NDSS paper slugs are minted per accepted paper and are not enumerated here. Declared open so free-text search does not treat every query term as a paper slug.",
         "official_name": "NDSS Paper",
         "common_name": null,
         "alternate_names": null,

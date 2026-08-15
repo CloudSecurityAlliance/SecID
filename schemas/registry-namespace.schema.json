@@ -184,6 +184,10 @@
           "type": "array",
           "description": "Child nodes for matching the next portion of the SecID string. Recursive structure.",
           "items": { "$ref": "#/$defs/MatchNode" }
+        },
+        "open_pattern": {
+          "type": "boolean",
+          "description": "Declares that this node's identifier space is genuinely unbounded (GitHub usernames, Jira project keys, conference paper slugs) and the permissive pattern is intentional and reviewed. Resolvers exclude such nodes from unscoped cross-source search — an unbounded pattern cannot discriminate between a real identifier and an arbitrary search term — while namespace-scoped resolution still works. Absence means the pattern is expected to be discriminating; scripts/check-pattern-breadth.py fails an undeclared open pattern. Prefer data.known_values where the values can be enumerated."
         }
       },
       "additionalProperties": false

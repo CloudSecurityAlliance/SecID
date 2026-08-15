@@ -45,7 +45,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
           "description": "Control domain (e.g., IAM, A&A). Contains multiple controls.",
           "weight": 100,
           "data": {
@@ -77,7 +77,7 @@
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
           "description": "Specific control (e.g., IAM-01, DSP-07, A&A-01). Belongs to a domain.",
           "weight": 100,
           "data": {
@@ -115,22 +115,45 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
-          "description": "AICM control domain. Shares all 17 CCM domains plus MDS (Model Security).",
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)$"],
+          "description": "AICM control domain. 18 domains: 16 shared with CCM, plus I&S (replacing CCM's IVS) and MDS.",
           "weight": 100,
           "data": {
             "type": "domain",
-            "note": "AICM reuses CCM domain codes and adds MDS. No per-domain web pages. Return the AICM download URL from the parent node with instructions to filter by domain code. The known_values below show only the MDS domain unique to AICM; for the other 17 domains, see the CCM entry above.",
+            "note": "AICM is NOT simply CCM plus MDS. It carries 16 of CCM's 17 domain codes, renames IVS (Infrastructure & Virtualization Security) to I&S, and adds MDS (Model Security) — 18 in total. No per-domain web pages; return the AICM download URL from the parent node with instructions to filter by domain code.",
             "examples": [
-              {"input": "MDS", "note": "Model Security — AICM-only domain (not in CCM)"}
+              {"input": "MDS", "note": "Model Security — AICM-only domain (not in CCM)"},
+              {"input": "I&S", "note": "Infrastructure & Virtualization Security — AICM's code for CCM's IVS"}
             ],
             "known_values": {
-              "MDS": "Model Security (AICM-only domain)"
+              "A&A": "Audit & Assurance",
+              "AIS": "Application & Interface Security",
+              "BCR": "Business Continuity Management & Operational Resilience",
+              "CCC": "Change Control & Configuration Management",
+              "CEK": "Cryptography, Encryption & Key Management",
+              "DCS": "Datacenter Security",
+              "DSP": "Data Security & Privacy Lifecycle Management",
+              "GRC": "Governance, Risk & Compliance",
+              "HRS": "Human Resources",
+              "I&S": "Infrastructure & Virtualization Security (CCM calls this IVS)",
+              "IAM": "Identity & Access Management",
+              "IPY": "Interoperability & Portability",
+              "LOG": "Logging & Monitoring",
+              "MDS": "Model Security (AICM-only domain)",
+              "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
+              "STA": "Supply Chain Management, Transparency & Accountability",
+              "TVM": "Threat & Vulnerability Management",
+              "UEM": "Universal Endpoint Management"
+            },
+            "_known_values_provenance": {
+              "method": "csa-mcp csa_get_controls(family=aicm, verbosity=minimal)",
+              "date": "2026-08-13",
+              "note": "243 controls enumerated across 18 distinct domain codes."
             }
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)-\\d{2}$"],
           "description": "Specific AICM control (e.g., IAM-01, MDS-01). Same ID format as CCM.",
           "weight": 100,
           "data": {
@@ -170,7 +193,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
           "description": "Control domain — returns all CAIQ questions in this domain.",
           "weight": 100,
           "data": {
@@ -202,7 +225,7 @@
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
           "description": "Parent CCM control — returns all CAIQ questions for this control (typically 1-5 questions).",
           "weight": 100,
           "data": {
@@ -215,7 +238,7 @@
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}\\.\\d+$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}\\.\\d+$"],
           "description": "Specific CAIQ question (e.g., IAM-01.1, A&A-01.2). Sub-number identifies the question within the parent control.",
           "weight": 100,
           "data": {
@@ -253,7 +276,7 @@
       },
       "children": [
         {
-          "patterns": ["^[A-Z&]{2,3}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)$"],
           "description": "AICM control domain — returns all AI-CAIQ questions in this domain. 18 domains (17 CCM + MDS).",
           "weight": 100,
           "data": {
@@ -264,12 +287,29 @@
               {"input": "IAM", "note": "All Identity & Access Management questions"}
             ],
             "known_values": {
-              "MDS": "Model Security (AICM-only domain)"
+              "A&A": "Audit & Assurance",
+              "AIS": "Application & Interface Security",
+              "BCR": "Business Continuity Management & Operational Resilience",
+              "CCC": "Change Control & Configuration Management",
+              "CEK": "Cryptography, Encryption & Key Management",
+              "DCS": "Datacenter Security",
+              "DSP": "Data Security & Privacy Lifecycle Management",
+              "GRC": "Governance, Risk & Compliance",
+              "HRS": "Human Resources",
+              "I&S": "Infrastructure & Virtualization Security (CCM calls this IVS)",
+              "IAM": "Identity & Access Management",
+              "IPY": "Interoperability & Portability",
+              "LOG": "Logging & Monitoring",
+              "MDS": "Model Security (AICM-only domain)",
+              "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
+              "STA": "Supply Chain Management, Transparency & Accountability",
+              "TVM": "Threat & Vulnerability Management",
+              "UEM": "Universal Endpoint Management"
             }
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)-\\d{2}$"],
           "description": "Parent AICM control — returns all AI-CAIQ questions for this control.",
           "weight": 100,
           "data": {
@@ -282,7 +322,7 @@
           }
         },
         {
-          "patterns": ["^[A-Z&]{2,3}-\\d{2}\\.\\d+$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)-\\d{2}\\.\\d+$"],
           "description": "Specific AI-CAIQ question (e.g., MDS-01.1, IAM-01.2).",
           "weight": 100,
           "data": {
