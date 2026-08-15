@@ -88,6 +88,32 @@ Items intentionally not scheduled. Promote to an issue if/when a forcing functio
 - **llms.txt for AI Discoverability** — implement llms.txt standard on the website.
 - **Automated processing of the feedback backlog** — `secid_FEEDBACK` KV captures namespace-level misses + AI-submitted feedback (`miss:<type>/<namespace>` aggregates, plus MCP-submitted entries). Today it's read-only via raw `wrangler kv` (acceptable for now). Longer term: scheduled jobs read the backlog and process it with AI — rank demand, auto-research the most-requested missing sources, and draft registry entries / PRs for human review. Feedback intake is **MCP-only by design** (AI/MCP clients, not web forms), so the backlog is an AI-to-AI loop end to end.
 
+## Version aliases (from ADR-009, 2026-07-31)
+
+See [the design spec](../superpowers/specs/2026-07-31-version-aliases-design.md).
+None of these has a current requirement; none should be built speculatively.
+
+- [ ] **Alias chains.** One hop only. Revisit only on a concrete need.
+- [ ] **One label on multiple versions.** Currently a hard validation error. If a need appears, the natural shape is resolving to all matching versions with disambiguation — which `unversioned_behavior: "all_with_guidance"` already does.
+- [ ] **Tracking aliases** (`v1` → latest `1.y.z`). A source-level `version_tracks` field, *not* an `aliases[]` entry — nesting fixes the target, so a moving pointer cannot live there. A track collapses into a fixed alias once its major line closes (`CCM v3` → `3.0.1`). Deliberately unbuilt: moving pointers are the hazard ADR-009 addresses; Maven removed `LATEST` and Debian warns against `stable` for the same reason.
+- [ ] **CCM version tree nodes**, which would then allow registering `4.1.0` as an alias of `4.1`. Blocked on R1: today, adding version nodes makes `ccm#IAM-12` drop the subpath and demand a version. Note: CCM `4.0.13` is **not** a version to register — it is the internal patch stamp on the artifact CSA publishes as v4.0, and CSA's API exposes no addressable `4.0.13`.
+- [ ] **Decide the CCM v3 alias.** The v3 line is closed, so `3` or `v3` could safely alias `3.0.1` — but `3.0` was itself a real release that `3.0.1` supersedes, so which string may alias needs a judgment call.
+- [ ] **`@*` version wildcard.** Unnecessary for now: omitting the version returns all versions, and `describe` returns the list. Extending frozen grammar needs its own ADR.
+- [ ] **`missing-version` feedback category** in `submit_feedback` (its enum is `missing-namespace | correction | suggestion`; a missing version is none of those).
+- [ ] **A human feedback channel** distinct from URLs embedded in machine responses.
+- [ ] **Per-item "this ID changed meaning" metadata**, for when SecID hosts AICM content rather than only describing how to fetch it. Precision matters: 188 of the 242 shared IDs did *not* change meaning, so a blanket per-ID warning would be crying wolf. Gated on CSA legal confirmation (`DATA-HOSTING-RULES.md` line 79) and on Rule 0's license matrix gaining a row for the CC BY-**NC** non-commercial clause, which it currently lacks.
+- [ ] **AICM 1.0.3 has no dedicated version-specific artifact page** (`.../artifacts/ai-controls-matrix-v1-0-3` 404s). CSA does maintain a separate v1 artifact record (`.../artifacts/ai-controls-matrix`, "AI Controls Matrix v1", covering the 1.0.x line) distinct from the v1.1 record, plus version-specific companion artifacts under the `aicmv1-0-3-*` slug convention — see the registry note. The persistence risk in DATA-HOSTING-RULES Rule 1 is reduced but not eliminated: the 1.0.3 workbook itself has no confirmed version-specific page of its own.
+- [ ] **Resolve the 208 `versions_available: []` entries** to `null` or real data. An empty array is neither "researched, found nothing" (`null`) nor "not researched" (absent) — most likely a YAML→JSON conversion artifact.
+- [ ] **Audit the 139 single-version sources** before giving any of them version tree nodes. Where the single entry means "current only, history not enumerated", the history is incomplete.
+- [ ] **Stale-format doc cleanup** (separate PR): `REGISTRY-FORMAT.md` still says "Current Format: YAML + Markdown", "will migrate to JSON", and "Seven pilot `.json` files already exist"; `REGISTRY-JSON-FORMAT.md` calls JSON the "target" format; `CLAUDE.md` calls `.md` authoritative. Reality: 2,130 JSON files at 100% coverage, deployed to KV.
+- [ ] **Status vocabulary drift** (separate PR): `PRINCIPLES.md` and `VERSIONING.md` use `exact_match`/`corrected_match`/`no_match_but_related`; `API-RESPONSE-FORMAT.md` and the live API use `found`/`corrected`/`related`/`not_found`.
+- [ ] **CVSS alias `note` calls `"2"` a legacy-data form.** FIRST does not publish `"2"` as an official label — it comes from NVD-style `cvssMetricV2` data. Editorial, schema-permitted, but unsourced.
+- [ ] **`.github/workflows/validate-registry.yml`'s header comment** still says "Two data-quality checks"; there are now three plus a unit-test step.
+- [ ] **The AICM `1.1.0` version tree node's `data.note`** omits the NIST/workbook caveat its `versions_available` note carries — asymmetric with the `1.0.3` node, though not inaccurate.
+- [ ] **CCM `4.1` (`2024-01-01`) and `4.0` (`2021-06-01`) release dates look approximated** — both first-of-month, and upstream records no `published` date for either. Nothing contradicts them, so they were left rather than guessed at. Worth establishing properly.
+- [ ] **`registry/control.md` and `registry/regulation.md` use example control IDs `INP-01` and `GOV-01`**, which are not valid AICM domain codes (17 CCM domains plus MDS; the nearest real code is `GRC`). Pre-existing.
+- [ ] **AICM `1.0.3` and AI-CAIQ `1.0.2` release dates are unasserted** because upstream sources conflict; CCM `3.0.1`'s likewise (upstream encodes 2014-09-16, CSA's announcement says July 2014).
+
 ## Done (v1.0)
 
 See git history and merged PRs for the full list. Selected highlights:

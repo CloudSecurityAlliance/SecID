@@ -27,6 +27,8 @@ on:
       - "scripts/validate-urls.py"
       - "scripts/http-exception-allowlist.txt"
       - "scripts/validate-type-list.py"
+      - "scripts/validate-version-aliases.py"
+      - "scripts/test_validate_version_aliases.py"
       - ".github/workflows/validate-registry.yml"
   push:
     branches: [main]
@@ -37,6 +39,8 @@ on:
       - "scripts/validate-urls.py"
       - "scripts/http-exception-allowlist.txt"
       - "scripts/validate-type-list.py"
+      - "scripts/validate-version-aliases.py"
+      - "scripts/test_validate_version_aliases.py"
       - ".github/workflows/validate-registry.yml"
   workflow_dispatch:
 
@@ -59,3 +63,7 @@ jobs:
         run: python3 scripts/validate-urls.py
       - name: Validate type-list consistency with SecID-Service
         run: python3 scripts/validate-type-list.py
+      - name: Validate version aliases
+        run: python3 scripts/validate-version-aliases.py
+      - name: Unit-test the version-alias gate
+        run: python3 scripts/test_validate_version_aliases.py

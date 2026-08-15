@@ -137,13 +137,30 @@ Status:   no_match_but_related
 
 Version miss (requested version doesn't exist):
 ```
-Query:    secid:control/cloudsecurityalliance.org/ccm@4.1#IAM-12
-Response: Version 4.1 not found for CCM.
-          Available versions: 4.0 (current, 2021-06-01), 3.0.1 (superseded).
-          Nearest: Here's IAM-12 from v4.0.
-          Note: Cross-version compatibility is uncertain — IDs may have changed.
-Status:   no_match_but_related
+Query:    secid:control/cloudsecurityalliance.org/aicm@9.9#LOG-15
+Response: Version "9.9" is not a known version of aicm.
+          Known versions: 1.1.0 (current, 2026-06-22; aliases 1.1, v1.1),
+                          1.0.3 (superseded).
+          To list versions, describe the source without a version.
+          Report a genuinely missing release via the submit_feedback tool
+          (include a source URL) or https://github.com/CloudSecurityAlliance/SecID/issues
+Status:   not_found
 ```
+
+**The resolver does not substitute a nearby version's item data.** An earlier
+version of this document returned "Nearest: here's IAM-12 from v4.0" with a
+soft compatibility warning. That is unsafe: `IAM-12` is one of the 54 AICM
+control IDs that designate a different control in 1.1.0 than in 1.0.3, so the
+substitute answer would be confidently wrong. A wrong version is a wrong
+control. See [ADR-009](../../DECISIONS.md).
+
+Without a subpath the same query is a discovery question rather than a
+resolution one, so `secid:control/cloudsecurityalliance.org/aicm@9.9` is specified to
+return `related` with the version list rather than `not_found`. Today the resolver
+returns `found` with source-level data instead: a subpath-less query never reaches
+version matching, so the version component is echoed back unvalidated. The
+reference case `owasp.org/top10@9999` behaves the same way. Aligning this is part of
+the SecID-Service work described in [ADR-009](../../DECISIONS.md).
 
 Wildcard exploration:
 ```

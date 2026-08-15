@@ -30,12 +30,13 @@ sources:
       website: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"
       download: "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix"
     versions:
-      - "1.0"
+      - "1.1.0"
+      - "1.0.3"
     id_pattern: "[A-Z&]{2,3}-\\d{2}"
     examples:
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#IAM-01"
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#MDS-01"
-      - "secid:control/cloudsecurityalliance.org/aicm@1.0#DSP-03"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#IAM-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#MDS-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#DSP-03"
 
   ccm-caiq:
     full_name: "Consensus Assessments Initiative Questionnaire"
@@ -59,11 +60,12 @@ sources:
       website: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"
       download: "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix"
     versions:
-      - "1.0"
+      - "1.1.0"
+      - "1.0.2"
     id_pattern: "[A-Z&]{2,3}-\\d{2}\\.\\d+"
     examples:
-      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1"
-      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#IAM-01.1"
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#MDS-01.1"
+      - "secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#IAM-01.1"
 
   star:
     full_name: "Security, Trust, Assurance and Risk Registry"
@@ -148,7 +150,7 @@ The AI Controls Matrix provides security controls specific to AI/ML systems.
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.0#XXX-NN
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#XXX-NN
 ```
 
 Same ID format as CCM (domain code + two-digit number). AICM shares all 17 CCM domains and adds MDS (Model Security) for 18 total.
@@ -182,13 +184,15 @@ Same as CCM: no per-control web pages. Download the AICM bundle, open the spread
 | Matrix | Scope | Domains | Controls |
 |--------|-------|---------|----------|
 | CCM v4.1 | General cloud security | 17 | 207 |
-| AICM v1.0 | AI-specific (extends CCM) | 18 (adds MDS) | 243 |
+| AICM v1.1.0 (current) | AI-specific (extends CCM) | 18 (adds MDS) | 247 |
+| AICM v1.0.3 (superseded) | AI-specific (extends CCM) | 18 (adds MDS) | 243 |
 
 Use both for comprehensive AI cloud security.
 
 ### Notes
 
-- Version 1.0 released July 2025 (243 controls, updated to v1.0.3)
+- 1.1.0 (2026-06-22, 247 controls) is current; control IDs were renumbered in place from 1.0.3, so IDs are not interchangeable across versions
+- 1.0.3 (243 controls) is superseded
 - Complements CCM for AI workloads
 - Aligns with NIST AI RMF, ISO 42001, BSI AI C4
 - Spreadsheet format (ZIP bundle download)
@@ -230,7 +234,7 @@ The AI Consensus Assessments Initiative Questionnaire — yes/no assessment ques
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/aicm-caiq@1.0#MDS-01.1
+secid:control/cloudsecurityalliance.org/aicm-caiq@1.1.0#MDS-01.1
 ```
 
 Same `XXX-NN.M` format as CCM CAIQ. Includes the MDS (Model Security) domain unique to AICM.
@@ -243,7 +247,8 @@ Bare control IDs resolve to the full set of questions for that control. For the 
 
 ### Notes
 
-- v1.0 (released July 2025); pairs with AICM v1.0/v1.0.3
+- 1.1.0 (2026-06-22) is current; pairs with AICM 1.1.0
+- 1.0.2 (superseded) pairs with AICM 1.0.3; question IDs are not interchangeable with 1.1.0
 - AI-specific assessment questions including MDS (Model Security)
 
 ---
