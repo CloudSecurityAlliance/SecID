@@ -200,6 +200,106 @@ A SecID isn't just an identifier - it's a handle that gives you everything you n
 
 This response is **self-describing** - an AI receiving it knows what it has, how to interpret it, and what to do with it. The raw content stays raw; we add context through metadata, not transformation.
 
+## Upstream Tracking (Cross-Cutting Goal)
+
+**Track upstream sources closely enough that the registry holds the real
+identifiers, not an approximation of their shape.**
+
+`secid:control/cloudsecurityalliance.org/aicm#IAM-12` should resolve because we
+know AICM contains IAM-12 — not because `IAM-12` happens to look like
+`^[A-Z&]{2,3}-\d{2}$`. A pattern that merely describes the *shape* of an
+identifier cannot tell a real one from a plausible one, and shape-matching
+fails in both directions at once.
+
+### Why this is a registry concern, not only a content concern
+
+The Content Track below is about returning control *text*. This is different and
+comes first: it is about knowing which identifiers **exist**. That is Layer 1
+work — identity, resolution, disambiguation — and getting it wrong breaks
+resolution itself, whatever content sits behind it.
+
+The evidence is concrete. Shape patterns produced these:
+
+- `^[A-Z&]{2,3}-\d{2}$` for CCM/AICM controls also matched `CWE-79`, so
+  searching for a weakness returned a fabricated CSA control.
+- `^[A-Z&]{2,3}$` for CCM/AICM domains matched `FOO`, `QZX`, and every other
+  short uppercase token.
+- `^.+$` for the IBM AI Controls Framework matched literally anything, including
+  `CVE-2021-44228`.
+
+And in the other direction, an enumeration nobody maintained went stale
+silently: AICM's `known_values` listed **1 of its 18 domains** until the real
+list was pulled from `csa-mcp`, at which point it also emerged that AICM does
+not simply reuse CCM's domains — it renames `IVS` to `I&S` and adds `MDS`. The
+registry's own prose said otherwise.
+
+**A stale enumeration is worse than an honest wildcard**, because it answers
+`not_found` with confidence. That is the failure mode a pipeline exists to
+prevent.
+
+### Why a pipeline rather than one-off extraction
+
+Upstream identifier sets move, and they move quietly:
+
+| Source | Movement observed |
+|---|---|
+| CSA AICM | v1.0 → v1.0.3; 243 controls across 18 domains |
+| BSI C5 | C5:2020 → C5:2026 renamed `IDM` to `IAM` and added a `GC` domain |
+| CSA artifacts | 1,131 publication slugs, growing continuously |
+
+A hand-extraction is correct on the day it is done and decays from then on.
+[Issues #158 and #159](https://github.com/CloudSecurityAlliance/SecID/issues)
+exist precisely because BSI C5 and the OWASP AI Exchange controls could not be
+enumerated from a source worth trusting, and they are tracked as debt in
+[`scripts/pattern-breadth-todo.json`](scripts/pattern-breadth-todo.json) rather
+than guessed at.
+
+### The pattern is already proven here
+
+The CNA disclosure pipeline is this shape and works today:
+
+```
+fetch-cna-pages.sh  →  generate-cna-disclosure.py  →  enrich-cna-from-cnalist.py
+                    →  apply-known-broken.py       →  audit-known-broken.py
+```
+
+It fetches upstream, generates registry entries, enriches from a second source,
+applies a reviewed overlay of known-bad upstream values, and audits that overlay
+against fresh upstream data — classifying every entry as still-present,
+replaced, disappeared, or stale. Generalising that shape is the work; inventing
+it is not.
+
+### What any such pipeline must do
+
+1. **Idempotent** — re-running with unchanged upstream produces no diff.
+2. **Provenance-stamped** — every derived value records method, date and source,
+   so a later reader can tell derived from verified. See
+   `_country_provenance` and `_known_values_provenance` for the existing shape.
+3. **Diff-reporting** — say what appeared, disappeared and changed. A silent
+   pipeline is how a renamed domain code goes unnoticed.
+4. **Staleness-aware** — flag entries not re-verified within some window, the
+   way `audit-known-broken.py` already does.
+5. **Non-destructive** — never overwrite a curated value with a derived one.
+6. **Licence-aware** — record what may be redistributed. Identifiers are facts;
+   control text often is not.
+
+### Relationship to the Content Track
+
+Same machinery, two consumers. Fetching AICM to learn that `IAM-12` exists is
+the same request that yields IAM-12's control text — identifiers are simply the
+slice that can be published without a licensing conversation, which is why they
+come first. Building ingestion for identifiers is not a detour on the way to
+content; it is the first half of it.
+
+### Success criteria
+
+- No registry pattern stands in for an enumerable identifier set (the
+  `check-pattern-breadth.py` gate already enforces this for sets of ≤50).
+- Every large enumeration carries provenance and a last-verified date.
+- Upstream drift is detected by a scheduled audit rather than by a user
+  reporting a bad answer.
+- `scripts/pattern-breadth-todo.json` is empty.
+
 ## Content Track (Parallel Development)
 
 ### Phase 1: URL + Description (v1.0)
@@ -442,6 +542,20 @@ Registry quality depends on validation. Our approach uses AI as a first-class pa
 - **Maintenance**: AI can detect URL rot and resolution failures over time
 
 This isn't "AI does everything" - it's AI as a team member that handles the tedious verification work that humans would skip or do inconsistently.
+
+### Version 1.x: Upstream Identifier Tracking
+
+Identifiers before content — see [Upstream Tracking](#upstream-tracking-cross-cutting-goal).
+These are Layer 1 (identity and resolution), so they gate everything below.
+
+| Deliverable | Status | Success Criteria |
+|-------------|--------|------------------|
+| Ingest framework | Planned | Idempotent, provenance-stamped, diff-reporting; generalises the CNA pipeline |
+| Identifier ingest (CSA CCM/AICM) | Planned | All 243 AICM and 207 CCM control IDs enumerated, not shape-matched |
+| Identifier ingest (BSI C5) | Planned | Per-edition domain codes resolve [#158](https://github.com/CloudSecurityAlliance/SecID/issues/158) |
+| Identifier ingest (OWASP AI Exchange) | Planned | Control IDs enumerated from source repo, resolves [#159](https://github.com/CloudSecurityAlliance/SecID/issues/159) |
+| Drift audit | Planned | Scheduled re-check reports appeared/disappeared/changed IDs |
+| `pattern-breadth-todo.json` empty | Planned | No pattern stands in for an enumerable set |
 
 ### Version 1.x: Raw Content
 
