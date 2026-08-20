@@ -127,10 +127,16 @@ full corpus and run better search than the hosted service offers. Gating hosted 
 lock-in even in principle — it is cost management plus a membership benefit. Worth stating openly, because it is what
 keeps the tiering compatible with SecID's neutrality and openness claims.
 
-**Compatible with principle 3, but it stretches it.** *Helpful over correct* says never return a bare error. A gated
-response must therefore still be useful — naming the credential required and how to obtain it, which is what
-ADR-027 §9 already specifies. But the principles currently assume every caller gets the same quality of answer, and
-that will no longer be true. Say so explicitly rather than letting it be discovered.
+**Consistent with principle 3, not a stretch of it.** *Helpful over correct* requires that a caller is never left
+stuck — not that every query is served from CSA's infrastructure. A gated response that names the credential needed
+and how to obtain it (ADR-027 §9) leaves the caller with a path, and so does "download the index and run it
+yourself," because the corpus is CC0 and syncable. The capability is relocated, not withheld.
+
+**Precomputed facets are what carry this for agents, though.** A human can go and stand up a local resolver; an agent
+mid-task cannot, so for the primary consumer the local fallback is real but not immediate. The mitigation is to
+serve common search dimensions — country, type, subtype, jurisdiction — as precomputed facets on the free tier, so
+the queries agents actually make are answered without hitting the gate at all. Choosing those facets from observed
+agent behaviour (the `secid_FEEDBACK` miss log is the obvious input) matters more than the tiering mechanics.
 
 Two documented pieces of reasoning still need rewriting, because they assume unscoped cross-source search is
 universally available:
