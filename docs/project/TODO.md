@@ -132,11 +132,14 @@ stuck — not that every query is served from CSA's infrastructure. A gated resp
 and how to obtain it (ADR-027 §9) leaves the caller with a path, and so does "download the index and run it
 yourself," because the corpus is CC0 and syncable. The capability is relocated, not withheld.
 
-**Precomputed facets are what carry this for agents, though.** A human can go and stand up a local resolver; an agent
-mid-task cannot, so for the primary consumer the local fallback is real but not immediate. The mitigation is to
-serve common search dimensions — country, type, subtype, jurisdiction — as precomputed facets on the free tier, so
-the queries agents actually make are answered without hitting the gate at all. Choosing those facets from observed
-agent behaviour (the `secid_FEEDBACK` miss log is the obvious input) matters more than the tiering mechanics.
+**An agent with sufficient privilege can stand up its own instance**, so the local fallback is immediate for agents
+too, not only for humans — provided we make it trivial. That is a packaging problem, not a principles problem: see
+*Distribution formats for the resolver* below. The gated response should carry the runnable instruction, not just
+the suggestion.
+
+**Precomputed facets remain worth doing** — common search dimensions like country, type, subtype and jurisdiction
+served free means the queries agents make most often never reach the gate at all. Choose them from observed
+behaviour; the `secid_FEEDBACK` miss log is the obvious input.
 
 Two documented pieces of reasoning still need rewriting, because they assume unscoped cross-source search is
 universally available:
@@ -158,6 +161,43 @@ from R2 and searchable with FTS5 out of the box?
 
 Also revisit: [API-RESPONSE-FORMAT.md](../reference/API-RESPONSE-FORMAT.md) documents cross-source search as a
 response mode available to all callers.
+
+### Distribution formats for the resolver
+
+Local-first only works if standing up a local instance is trivial. Every tier of the search design assumes a consumer
+— human or agent — can go from "I need better search" to a running resolver without a project. That makes packaging
+load-bearing rather than a convenience, and it means a gated response should carry a **runnable instruction**, not a
+suggestion.
+
+Formats to provide, roughly by who needs them:
+
+| Format | For |
+|---|---|
+| **Docker image**, multi-arch (amd64 + arm64) | The universal "just run it" answer; what an agent reaches for first |
+| **Local MCP server** — stdio, plus an MCPB bundle | The AI-first case. If the primary consumer is agents, a locally runnable MCP server *is* the distribution format |
+| **Terraform module for Cloudflare** | Replicates CSA's own production topology; the reference deployment |
+| **Single static binary** | No runtime dependencies; simplest thing to fetch and execute in a constrained environment |
+| **Helm chart** | Enterprises already running Kubernetes |
+| **docker-compose** | Resolver plus data volume plus index, as one unit |
+| Terraform / Pulumi for AWS, Azure, GCP | Organizations standardised elsewhere |
+| Homebrew, and OS packages | A CLI, for humans |
+
+**Ship the supply-chain metadata we catalogue.** SecID registers Sigstore, SLSA, in-toto, CycloneDX and SPDX in its
+own corpus. Distributing unsigned containers with no SBOM would be a poor look, and fixing it is cheap: sign images
+with cosign, publish an SBOM per artifact, and reference our own releases by SecID. Dogfooding here is both
+credibility and a working example of the corpus in use.
+
+**Air-gapped installation deserves first-class treatment.** SecID's regulation and control coverage implies a
+government, defence and critical-infrastructure audience, and those consumers frequently cannot reach the internet
+from the environment where they need answers. A single tarball — image, data, index, checksums — that installs with
+no network turns local-first from a cost measure into a genuine capability nobody else offers. It is also the extreme
+case that validates the whole design: if the corpus cannot be handed over on a disk, it is not really portable.
+
+**Open questions.** Which artifacts carry the data versus fetch it on first run (an image with the corpus baked in is
+large but works offline immediately). Whether the master index ships as SQLite inside the image or alongside it.
+Whether image builds should be reproducible in the ADR-012 sense — likely yes, for the same continuity reason. And
+what the smallest useful deployment is, since "run the whole thing" and "run enough to resolve my jurisdiction"
+are different products.
 
 ### Vocabulary survey — what do the schemas and ontologies actually enumerate?
 
