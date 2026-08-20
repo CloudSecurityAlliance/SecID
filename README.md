@@ -469,7 +469,7 @@ Being explicit about scope helps set expectations. SecID is deliberately limited
 | **Not a vulnerability disclosure program** | CVE, vendors, and coordinated disclosure programs handle this. SecID references their work. |
 | **Not an authority on severity or truth** | CVSS scores, exploitability assessments, and validity judgments are the domain of NVD, vendors, and security researchers. SecID points to their assessments without adjudicating. |
 | **Not a replacement for CVE/CWE/ATT&CK/NIST** | These are authoritative within their domains. SecID is a coordination layer that makes them easier to reference together. |
-| **Not a universal content mirror** | Licensing, copyright, and data ownership vary. SecID provides resolution (where to find things), not redistribution. |
+| **Not a universal content mirror** | Licensing, copyright, and data ownership vary. SecID 2.0 serves content where redistribution is permitted and documents how to obtain it where it is not — but it never mirrors a source the publisher already hosts authoritatively (CVE, ATT&CK), and it does not copy what it has no right to copy. |
 | **Not a policy engine** | "Should we patch this?" is a business decision. SecID helps you find the information; it doesn't make the call. |
 | **Not a knowledge graph (yet)** | Relationships and enrichment are future layers, deliberately deferred until we understand real usage patterns. |
 
@@ -506,6 +506,13 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python, TypeScript, Docker. Run your own SecID server. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
 | **SecID-Website** | Cloudflare Pages documentation site (planned) |
+| **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0) |
+
+Content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
+identically-named private repositories under
+[CloudSecurityAlliance-Internal](https://github.com/CloudSecurityAlliance-Internal), served by an internal resolver.
+Visibility is an organization property rather than a naming convention, so the same shard rule and tooling apply to
+both. See [ROADMAP.md](ROADMAP.md) for what SecID 2.0 sets out to accomplish.
 
 ## Getting Started
 
@@ -521,7 +528,12 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 
 ## Current Status
 
-**Version 1.0 — Live (April 2026)**
+**Version 1.0 — Live (April 2026). Version 2.0 — in design.**
+
+v1.0 answers *where is it*. [SecID 2.0](ROADMAP.md#secid-20--from-pointers-to-data) answers *how do I get it, what will
+it cost me, how often does it change, and can I verify what you gave me* — serving the content itself where licensing
+permits, documenting acquisition honestly where it does not, and making the whole corpus syncable so anyone can run a
+resolver of their own.
 
 The identifier grammar, type list, and registry format are stable. The resolver is live at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/). Feedback and contributions still welcome via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues) — the spec is frozen for v1.0, but the registry grows continuously and post-1.0 layers are under active design.
 

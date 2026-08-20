@@ -195,3 +195,74 @@ See [docs/explanation/DESIGN-DECISIONS.md "When to Split"](docs/explanation/DESI
 See [SecID-Service ADR-equivalent in their type-registry.ts header comment](https://github.com/CloudSecurityAlliance/SecID-Service/blob/main/src/type-registry.ts) for the SecID-Service-side framing, and [docs/reference/TYPES-AND-SUBTYPES.md](docs/reference/TYPES-AND-SUBTYPES.md) for the conceptual model.
 
 ---
+
+## ADR-010: SecID 2.0 serves content; the registry is unchanged
+
+**Date:** 2026-08-19
+**Status:** Accepted
+**Decision method:** Collaborative — worked through against measured registry and corpus data
+
+**Goal:** Add the content itself to SecID without disturbing a frozen v1.0 registry format or the three-layer model.
+
+**Context:** v1.0 returns URLs. The next thing consumers want is the content behind them — and CSA already holds most of it, scattered across roughly nineteen one-off dataset repositories, one of which already mirrors SecID's `type/namespace/name/version/` layout and carries license, lifecycle, and extraction-provenance metadata. The question was whether serving content requires the registry to grow: new fields for acquisition constraints, volatility, extractor pointers, cache policy.
+
+**Decision:** It does not. **The registry keeps holding exactly what it holds today** — identity, resolution, disambiguation — and refers out to separate data repositories. All content, and all metadata about acquiring that content, lives on the data side. No new registry fields are introduced for v2.0.
+
+**Rationale:** The registry's job is to answer "should I even try, and where do I look" for every namespace in a single pass, which is why it fits in KV and why unscoped cross-source search is possible at all. Extraction provenance is per-artifact and only matters once you have decided to fetch. Keeping the split on that functional line preserves both properties, and it keeps the v1.0 format frozen as promised. Serving content is still *labeling and finding* under PRINCIPLES.md §1 — what stays out is enrichment and relationships, exactly as before.
+
+**Rejected alternatives:**
+- **An `acquisition:` block on registry entries** — Puts access notes, volatility, and extractor pointers where cross-source search would carry their weight on every query; also reopens a frozen format
+- **Split on function: cheap/stable facts in the registry, churny provenance with the data** — Defensible, and the split does fall on a real line, but it still means a v2.0 registry schema change and two places to look
+- **Content in the registry repo itself** — Would put hundreds of megabytes of extracted text behind every registry clone and every deploy
+
+**Implementation:** Not yet started. Lifecycle and publishing model deliberately left open — see [docs/project/TODO.md](docs/project/TODO.md) and [ROADMAP.md](ROADMAP.md#secid-20--from-pointers-to-data).
+
+---
+
+## ADR-011: Data repositories shard by region, keyed by the authority behind the material
+
+**Date:** 2026-08-19
+**Status:** Accepted
+**Decision method:** Collaborative — several partition schemes modelled against registry and corpus measurements before choosing
+
+**Goal:** Choose a partition for the data repositories that survives reclassification, supports delegated ownership, and lets consumers sync only what they need.
+
+**Context:** Several schemes were measured. Sharding by publisher domain concentrates badly — one publisher is roughly half the corpus. Sharding by country leaves ~80% of namespaces with no country signal at all, since most sit on `.com` or `.org`. Sharding by type is unstable, because an item's type can be reclassified — is this a control, a disclosure, or both? — and reclassification would move bytes between repositories.
+
+**Decision:** Data shards into region repositories — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania` — plus `Staging` for material acquired but not yet classified. Placement follows **the authority behind the instrument**: if a state or sub-state body owns it, it belongs to that state's region regardless of who adopts it; if the body is constituted across states, it is International regardless of where its office is. In practice the region derives from the namespace's country tag where present and from the TLD otherwise. Private counterparts live under `CloudSecurityAlliance-Internal` with identical names, so visibility is an organization property rather than a naming convention.
+
+**Rationale:** The publishing domain never changes when an item is reclassified, so the shard key is stable by construction. Authority resolves the cases that address and reach get wrong in opposite directions — a Japanese government standard is Asian even when globally adopted; SWIFT is International despite being Belgian. Regions map onto structures that already exist (CSA chapters, national bodies), giving delegated ownership a natural home, and they let a consumer sync one jurisdiction plus the global bodies instead of the world. `Staging` is named for transience deliberately: an entry sitting in a bucket called "Other" is unremarkable, whereas one sitting in "Staging" is visibly overdue.
+
+**Rejected alternatives:**
+- **Per-publisher-domain repositories** — Power-law distribution; a handful of whales and hundreds of near-empty repositories
+- **Per-country repositories** — 80% of namespaces have no country signal; would produce dozens of shards holding fewer than five entries each
+- **Per-type repositories (`SecID-{type}`)** — Reclassification moves bytes, which is the specific failure the shard key must avoid
+- **A single repository with CODEOWNERS paths** — Delegates review but cannot delegate read access, and forces every consumer to sync everything
+- **An `Other` catch-all** — Would silently accumulate misfiled material; a residual bucket that is allowed to have contents cannot also serve as an alarm
+
+**Implementation:** Not yet started.
+
+---
+
+## ADR-012: Extraction equivalence is tiered; extractions are reproduced or attested
+
+**Date:** 2026-08-19
+**Status:** Accepted
+**Decision method:** Collaborative — resolved a tension between reproducible builds and AI-assisted extraction
+
+**Goal:** Let CSA accept extracted content from contributors without either trusting them blindly or redoing their work.
+
+**Context:** Contributors will submit extractors alongside extracted data, and CSA needs to confirm the two agree. Byte-identical reproduction is achievable for deterministic pipelines but impossible where an LLM is in the extraction path — and AI extraction is exactly what makes large-scale ingestion affordable. Treating this as binary would either bar AI extraction entirely or reduce every verification claim to "trust us."
+
+**Decision:** Equivalence is **tiered**. Identifiers, hierarchical structure, and normative text must match exactly; formatting, line wrapping, and extraction incidentals need not match at all. Extractions are labelled by grade: **reproduced** where a deterministic pipeline can be re-run and compared, **attested** where AI was in the path and the output is instead checked against invariants and its provenance recorded. Both grades are legitimate and both are stated to consumers.
+
+**Rationale:** The strictness follows what is load-bearing. A dropped article number or mangled control ID is a wrong answer delivered silently, whereas a rewrapped paragraph harms nobody — so binding the check to the semantic layers makes it both meaningful and achievable across tool versions. Grading rather than gating keeps AI extraction available while remaining honest, which is PRINCIPLES.md §5 applied to content. The preferred pattern that falls out is to use AI to *build* a deterministic extractor and then ship the extractor, paying the expensive step once and earning the stronger grade. Reproducibility is also a continuity property: a corpus intended to outlive its authors must be re-derivable by people who were not there.
+
+**Rejected alternatives:**
+- **Byte-identical reproduction required** — Bars AI extraction, and fails on ordinary tool-version drift
+- **Trust contributor assertions** — No defence against error or malice in an open contribution model
+- **Human review only** — Does not scale, and reviewers do not reliably notice a single missing identifier in a long document
+
+**Implementation:** Not yet started. Note that running contributor-supplied extractors is untrusted code execution and will need isolation designed in from the start.
+
+---

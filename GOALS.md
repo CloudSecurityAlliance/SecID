@@ -6,6 +6,8 @@ What SecID is trying to achieve and how we'll know if it worked.
 
 SecID is the universal address book for security knowledge. Every meaningful artifact in the security ecosystem — a CVE, a CWE weakness, an ATT&CK technique, a NIST control, a regulation, a vendor advisory — has a single canonical reference that humans can read, AI agents can parse, and resolvers can convert to authoritative URLs. The fragmentation of security knowledge across dozens of databases, identifier formats, and APIs becomes navigable rather than blocking. The grammar is stable, the registry covers everything an analyst would reasonably reference, and federation lets organizations contribute their own data without a central gatekeeper.
 
+With SecID 2.0 the handle stops being only an address. Where licensing permits, resolving a SecID returns the content itself — structured, attributed, citable at the item level. Where licensing does not permit, it returns an honest account of how to obtain the material and what it will cost. Either way the answer is complete, and anyone can sync the whole corpus and run it themselves.
+
 ## Near-term goals (now → 2026-Q3)
 
 - **Repair the live deploy chain.** Registry contributions are not reaching production since 2026-04-30. Until this is fixed, every other piece of work has a smaller blast radius than it should. See [FRICTION-001](../SecID-Service/FRICTION/FRICTION-001.md) and [WAITING-FOR-001](../SecID-Service/WAITING-FOR/WAITING-FOR-001.md) in SecID-Service.
@@ -22,6 +24,38 @@ SecID is the universal address book for security knowledge. Every meaningful art
 - **Compliance test suite operational.** A canonical test suite that any resolver implementation can run to claim conformance. Catches drift between SecID-Service (Cloudflare) and SecID-Server-API (Python/TypeScript) before it ships.
 - **Relationship Data Layer V1 design locked.** Format, query API, federation model, vocabulary scope — published as a proposal with at least one prototype demonstrating CCM↔NIST 800-53 mappings.
 - **Enrichment Data Layer V1 design locked.** Hyperscaler remediation mapping (AWS/Azure/GCP fix actions) is the first concrete enrichment shipped.
+
+## SecID 2.0 goals — from pointers to data
+
+What the second major version is for. Outcomes only; the lifecycle and publishing model are deliberately unsettled
+(see [docs/project/TODO.md](docs/project/TODO.md)) and will be answered by building.
+
+- **A SecID returns the content, not just a link.** Where redistribution is permitted, resolution yields structured,
+  attributed text addressable at the subpath level — an article, a control, a term — rather than a URL to a PDF.
+- **What we cannot serve, we explain.** Licensed and restricted material carries metadata, acquisition instructions,
+  and an access or purchase route. A source we may not redistribute is a documented state, never a silent gap.
+- **Acquisition is recorded knowledge.** Whether a source needs a browser, an account, or in-country access; how fast
+  it changes and in what way; whether its identifiers are stable across versions. Today this lives in people's heads.
+- **Extraction is verifiable.** A contributor submits an extractor with their data and we can confirm the two agree.
+  Identifiers, structure, and normative text must match exactly; formatting need not. Where AI is in the path,
+  extractions are attested against invariants rather than reproduced, and labelled as such.
+- **Anyone can run the whole thing.** Sync the regions you care about, run a local resolver, get comprehensive search
+  over content, layer your own private data on top, and send no queries to anyone.
+- **Coverage is global and its gaps are visible.** Measured per jurisdiction — which countries have their cyber
+  authority, data protection authority, financial regulator, and CERT registered — so absence is a stated result.
+- **CSA's own data consolidates.** The one-off dataset repositories migrate into the SecID data repositories or get an
+  explicit disposition, so there is one way to find CSA security data rather than a dozen.
+
+### What this creates
+
+| Repository | Purpose |
+|---|---|
+| `SecID-Data-{International, North-America, Latin-America, Europe, Asia, Middle-East, Africa, Oceania}` | Extracted content, sharded by the authority behind it |
+| `SecID-Data-Staging` | Acquired but not yet classified; everything here has an exit |
+| Private counterparts under `CloudSecurityAlliance-Internal` | Material CSA holds under agreement and may not redistribute |
+
+Object storage carries what git should not: R2 for serving source originals and extraction artifacts, S3 with
+requester-pays for bulk and archival access.
 
 ## Long-term goals (2027+)
 
@@ -44,6 +78,11 @@ Concrete, observable signals that the project worked:
 | Compliance test suite | Used by at least one non-CSA resolver implementation |
 | Stable spec | Zero breaking changes to the v1.0 grammar after 2027-Q1 |
 | Relationship + Enrichment layers | First production consumer outside CSA itself |
+| Content served, not just linked | Every document-bearing namespace either serves structured content or states why it cannot |
+| Jurisdictional coverage | Every country with a national cyber authority has it registered; Africa, Latin America, and the Middle East no longer under-represented |
+| Verified extraction | Contributed extractions pass conformance automatically; every stored extraction is labelled `reproduced` or `attested` |
+| Local resolvers in use | Organizations run their own synced resolver in production, including at least one that never queries the hosted service |
+| Dataset consolidation | The one-off dataset repositories are retired or have a documented disposition |
 
 Goals expressed as outcomes, not procedures. An AI agent or contributor with the *intent* can adapt to changing conditions; one with only a checklist cannot.
 
