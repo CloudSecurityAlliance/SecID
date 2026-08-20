@@ -21,7 +21,9 @@ Examples:
 
 The resolver is live at secid.cloudsecurityalliance.org with 2,030 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
-See ROADMAP.md for details.
+**SecID 2.0 and 3.0 are in design.** v1.0 answers *where is it*. v2.0 answers *what is it* — the content itself where licensing permits, plus the toolchain that produces and verifies it. v3.0 answers *can I run it myself* — sync, caching, comprehensive local search, and the private/internal resolver. Crucially for registry work: **neither adds anything to the registry format.** The registry keeps holding identity, resolution, and disambiguation, and refers out to separate `SecID-Data-*` repositories (ADR-010).
+
+See ROADMAP.md ("SecID 2.0 and 3.0") for goals, GOALS.md for outcomes, and DECISIONS.md ADR-010/011/012 for the decisions and their rejected alternatives.
 
 ## Three Layers
 
@@ -88,6 +90,7 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python, TypeScript, Docker. Run your own SecID server. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
 | **SecID-Website** | Cloudflare Pages documentation site (planned) |
+| **SecID-Data-\*** | Extracted content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, `Staging` (planned, v2.0), plus `Vendor` for product capabilities (sharded by vendor, not region — capability data has no jurisdiction). Private counterparts with identical names arrive with v3.0 under `CloudSecurityAlliance-Internal`. |
 
 ## Repository Structure
 
