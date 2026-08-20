@@ -77,6 +77,42 @@ Other standards worth eventual placement decisions (no committed work; promote t
 
 **Working rule** (now codified as ADR-009 candidate in [#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)): a methodology provides standalone judgement guidance citable independent of any output format. A reference specifies how data should be formatted, with judgement-involved-incidental.
 
+### v2 — data lifecycle and publishing (open question)
+
+v2 adds the data itself, not just pointers to it. The repo split is settled:
+**the data repo holds all the data, including its acquisition metadata; the SecID
+registry keeps holding exactly what it holds today** and refers out to the data
+repo. Nothing new goes into a registry entry to support this.
+
+What is deliberately *not* settled is the lifecycle: how data is versioned,
+refreshed, superseded, archived, and published once it lives in the data repo.
+Related threads, all unresolved:
+
+- **Volatility is multi-dimensional.** Additions, updates, and removals happen at
+  different rates for the same source. GDPR is near-frozen; CVE grows constantly.
+  AICM 1.1.0 is the cautionary case — moderate *content* churn but high
+  *identifier* churn (54 IDs designate a different control than in 1.0.3), so
+  ID stability and content stability are separate axes.
+- **Not every source needs stored data.** Where the publisher already hosts
+  version-tagged authoritative data (CVE, ATT&CK STIX), pointing upstream is a
+  complete answer, not a gap. The dataset repo already models this as
+  `desired_end_state.reason: upstream-only`.
+- **Reproducibility vs. AI extraction.** The goal is that a third party can run
+  our extractor and get the same structured output. Deterministic pipelines can
+  promise that; LLM extractors cannot. Unresolved whether AI is used to *build*
+  deterministic extractors (reproducible) or to *do* the extraction (attestable
+  but not reproducible).
+- **Notes beyond SecID's scope.** Access constraints (geo-restricted sites needing
+  an in-country VPN, SPAs needing a real browser) and semantic warnings (the AICM
+  ID-reuse trap) are useful but sit outside "labeling and finding." Where they
+  live and how they surface is open.
+- **Caching for self-hosted resolvers.** Local servers need a cache layer for
+  outage tolerance and speed; TTL policy likely derives from the volatility
+  profile above.
+
+Answer empirically — build v2 and see what the data demands, rather than
+specifying the lifecycle up front.
+
 ## Deferred
 
 Items intentionally not scheduled. Promote to an issue if/when a forcing function appears.
