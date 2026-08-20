@@ -77,6 +77,53 @@ Other standards worth eventual placement decisions (no committed work; promote t
 
 **Working rule** (now codified as ADR-009 candidate in [#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)): a methodology provides standalone judgement guidance citable independent of any output format. A reference specifies how data should be formatted, with judgement-involved-incidental.
 
+### AI-reported link rot and dead namespaces
+
+A namespace that resolves to a dead URL is worse than one that does not exist: it returns an authoritative-looking
+answer that is wrong. There are 2,130 namespaces of URLs, and programs end, organisations get acquired, and portals
+move. Today the only systematic coverage is `working-data/cna/known-broken.json`, which handles CNA disclosure data
+only — roughly a quarter of the registry, and nothing else is monitored.
+
+Two halves:
+
+1. **Track and test.** Periodic reachability checks across registry URLs, with results recorded rather than
+   auto-applied — the same posture `audit-known-broken.py` already takes (report, do not reprobe-and-rewrite).
+   Generalise the known-broken overlay beyond CNA data.
+2. **Let AI report it.** An agent that resolves a SecID and finds a dead link, a moved portal, or a program that has
+   plainly ended should be able to say so — filing an issue, or submitting through the existing `submit_feedback`
+   MCP tool (which already carries a `correction` category and lands in `secid_FEEDBACK`).
+
+The second half is the higher-yield one. Agents resolve SecIDs constantly and hit link rot in the course of real
+work; they are a far denser sampling of the registry than any crawler we would run, and the report arrives with the
+context of what the agent was actually trying to do. Feedback intake is MCP-only by design, so this fits the existing
+AI-to-AI loop rather than needing a new channel.
+
+Open: whether dead-link reports become issues, feedback entries, or both; what evidence an agent must supply for a
+report to be actionable; and how a confirmed-dead namespace is represented — the `_broken: true` annotation pattern
+from the CNA overlay is the obvious candidate.
+
+### Removing cross-source search — the consequences
+
+Direction: **drop cross-source search**, serve direct resolution only, and offer a master index
+(`type/namespace-domain/`) that consumers can download and search themselves. This fits the local-first posture in
+3.0 — comprehensive search is what running your own resolver buys you — and it bounds hosted cost.
+
+Two pieces of documented reasoning depend on the thing being removed, and need rewriting rather than deleting:
+
+- **The pattern-breadth gate's stated justification.** CLAUDE.md argues a catch-all is dangerous because *"cross-source
+  search walks every namespace, so a single catch-all degrades every query in the system."* With no cross-source
+  search that argument lapses — but **the gate is still needed**, for a narrower reason: a namespace patterned `^.+$`
+  will affirm *any* identifier presented to it directly, so `secid:control/ibm.com/anything` resolves to a fabricated
+  answer. The blast radius shrinks from the whole system to one namespace; the defect does not go away. Rewrite the
+  rationale, keep the gate.
+- **`open_pattern` loses its defined behaviour.** The JSON Schema says resolvers *"exclude such nodes from unscoped
+  cross-source search."* With that gone, the field declares something reviewed but has no effect. Its natural new
+  meaning is **exclusion from the master index** — an unbounded space cannot be enumerated, so it cannot be indexed —
+  which preserves the intent and gives the field a job again.
+
+Also revisit: [API-RESPONSE-FORMAT.md](../reference/API-RESPONSE-FORMAT.md) documents cross-source search as a
+response mode, and `data.known_values` was partly justified as making an open set searchable.
+
 ### Vocabulary survey — what do the schemas and ontologies actually enumerate?
 
 STIX defines 18 domain objects and 2 relationship objects. Mapping them against SecID's types was
