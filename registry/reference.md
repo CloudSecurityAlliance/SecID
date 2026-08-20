@@ -22,7 +22,7 @@ References are for citing source materials that aren't covered by other types. I
 | NIST SP 800-53 | `secid:control/nist.gov/800-53#AC-1` |
 | NIST CSF | `secid:control/nist.gov/csf@2.0#GV.RM-01` |
 | ISO 27001 | `secid:control/iso.org/27001@2022#A.8.1` |
-| IETF RFCs | `secid:control/ietf.org/...` or specific protocol |
+| An RFC that defines a *process* | `secid:methodology/ietf.org/rfc-3227` (evidence collection) — but RFCs are `reference` by default: `secid:reference/ietf.org/9116` |
 | GDPR, HIPAA | `secid:regulation/europa.eu/gdpr`, `secid:regulation/govinfo.gov/hipaa` |
 | CWE, OWASP Top 10 | `secid:weakness/mitre.org/cwe#CWE-79`, `secid:weakness/owasp.org/top10#A01` |
 | CVE, NVD | `secid:advisory/mitre.org/cve#...`, `secid:advisory/nist.gov/nvd#...` |
