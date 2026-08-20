@@ -233,6 +233,33 @@ content rather than to resolution.
 Reproducibility is also how something survives its authors. A corpus meant to last decades must be re-derivable by
 people who were not there when it was built.
 
+## 13. Sustainable by Design
+
+**No part of SecID should be so expensive that losing the budget kills it.**
+
+This is not thrift for its own sake. A resource that disappears when one organization's funding changes is not
+infrastructure, and people are right not to build on it. Sustainability is what makes the promise of a permanent
+reference layer credible.
+
+Three rules follow:
+
+- **Cost must not scale with adoption on our side.** A thousand new consumers should not mean a thousand times the
+  bill. Where a capability is genuinely expensive, move it to where the demand is: the consumer runs it, on their
+  own copy.
+- **Prefer infrastructure the consumer already pays for.** Distribution through git, object storage, and
+  requester-pays buckets means bulk consumers carry their own egress. Nobody is subsidising a crawler.
+- **Never mirror what the publisher already hosts well.** CVE and ATT&CK are authoritative, version-tagged, and
+  free at the source. Copying them costs storage, invites staleness, and buys nothing.
+
+The corollary is that the hosted service is deliberately modest — direct resolution, listing, wildcards, and
+precomputed facets over common dimensions like country and type — while the expensive capabilities live in the
+local tier. That is not a limitation grudgingly accepted; it is the design that lets the free tier stay free
+indefinitely.
+
+This principle explains decisions already made rather than constraining future ones: region sharding so consumers
+sync one jurisdiction instead of the world, git for text and object storage for bulk, requester-pays for archives,
+upstream-only for sources the publisher hosts, and local-first for search.
+
 ## Applying These Principles
 
 When making a design decision, check it against these principles in order:
@@ -246,3 +273,4 @@ When making a design decision, check it against these principles in order:
 7. Are we staying PURL-compatible? (If we're breaking grammar, we need a very good reason.)
 8. Can someone run this themselves? (If a capability only works on our servers, ask why.)
 9. Can someone else check it? (If we're asserting content is faithful without a way to verify, say so plainly.)
+10. Does this cost scale with adoption? (If yes, move it to the consumer's side.)
