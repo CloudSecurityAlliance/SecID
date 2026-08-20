@@ -151,6 +151,21 @@ secid:advisory/debian.org/dla#DLA-3456-1         # Debian LTS Advisory (extended
 secid:advisory/debian.org/tracker#CVE-2024-1234  # Debian Security Tracker (CVE status)
 ```
 
+## Advisory vs Weakness vs Reference
+
+- **Advisory** (advisory): A publication about a *specific* vulnerability or event — CVE-2021-44228, RHSA-2026:0932
+- **Weakness** (weakness): The *category* of mistake that instance belongs to — CWE-79
+- **Reference** (reference): A document *about* vulnerabilities generally — a threat report, a research paper
+
+The test is specificity plus event-hood. An advisory says "this happened, here, to this" and carries an
+identifier issued when it was published. A report discussing a class of vulnerabilities is `reference`,
+even when it names CVEs; a paper proposing a new attack technique is `reference`, even when the technique
+later earns a `ttp` entry.
+
+Incident reports — an AI system caused harm, a vehicle behaved unsafely — are `advisory` with
+`subtype: ["incident"]`. They differ from vulnerability advisories in *what happened* (an event occurred, as
+against a flaw being disclosed) but are identical in resolution shape: a publication with an ID and a URL.
+
 ## Relationships
 
 Advisories connect through aliasing and enrichment:
