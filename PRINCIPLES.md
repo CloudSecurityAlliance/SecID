@@ -203,9 +203,10 @@ This is intuitive (everyone knows what `*` means) and solves the discovery probl
 
 **The hosted resolver is a convenience. The corpus is the product.**
 
-Anyone can sync SecID's data and run their own resolver — for privacy, for speed, for offline operation, or to layer
-private data on top of public. This is not a fallback for when the service is down; it is a supported, documented,
-equal way to use SecID.
+SecID is designed so that anyone can sync its data and run their own resolver — for privacy, for speed, for offline
+operation, or to layer private data on top of public. This is not a fallback for when the service is down; it is a
+supported, documented, equal way to use SecID. (Delivered in 3.0; the design choices that make it possible are being
+made now.)
 
 Two things follow. The hosted service offers *basic* resolution — exact lookup, listing, wildcard exploration, metadata
 filters — and comprehensive search over content is what running your own gets you. That boundary is honest about cost,
@@ -213,6 +214,7 @@ and it means an organization's queries need never leave its network. And CSA's o
 we hold under agreement, is the same software pointed at different repositories — not a separate system.
 
 Sharding by region exists partly to serve this: nobody should have to sync the world to use their own jurisdiction.
+It is a 2.0 decision made for a 3.0 reason, which is why it belongs in the principles rather than in a roadmap entry.
 
 ## 12. Verifiable, Not Merely Asserted
 

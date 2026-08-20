@@ -6,7 +6,7 @@ What SecID is trying to achieve and how we'll know if it worked.
 
 SecID is the universal address book for security knowledge. Every meaningful artifact in the security ecosystem — a CVE, a CWE weakness, an ATT&CK technique, a NIST control, a regulation, a vendor advisory — has a single canonical reference that humans can read, AI agents can parse, and resolvers can convert to authoritative URLs. The fragmentation of security knowledge across dozens of databases, identifier formats, and APIs becomes navigable rather than blocking. The grammar is stable, the registry covers everything an analyst would reasonably reference, and federation lets organizations contribute their own data without a central gatekeeper.
 
-With SecID 2.0 the handle stops being only an address. Where licensing permits, resolving a SecID returns the content itself — structured, attributed, citable at the item level. Where licensing does not permit, it returns an honest account of how to obtain the material and what it will cost. Either way the answer is complete, and anyone can sync the whole corpus and run it themselves.
+With SecID 2.0 the handle stops being only an address. Where licensing permits, resolving a SecID returns the content itself — structured, attributed, citable at the item level. Where licensing does not permit, it returns an honest account of how to obtain the material and what it will cost. Either way the answer is complete. With SecID 3.0 that corpus becomes something anyone can sync and run themselves — for privacy, for speed, or to layer their own private data alongside the public record.
 
 ## Near-term goals (now → 2026-Q3)
 
@@ -25,9 +25,10 @@ With SecID 2.0 the handle stops being only an address. Where licensing permits, 
 - **Relationship Data Layer V1 design locked.** Format, query API, federation model, vocabulary scope — published as a proposal with at least one prototype demonstrating CCM↔NIST 800-53 mappings.
 - **Enrichment Data Layer V1 design locked.** Hyperscaler remediation mapping (AWS/Azure/GCP fix actions) is the first concrete enrichment shipped.
 
-## SecID 2.0 goals — from pointers to data
+## SecID 2.0 goals — content and the tools that produce it
 
-What the second major version is for. Outcomes only; the lifecycle and publishing model are deliberately unsettled
+Three versions, three questions: **1.0** asks *where is it* (shipped), **2.0** asks *what is it*, **3.0** asks
+*can I run it myself*. Outcomes only below; the lifecycle and publishing model are deliberately unsettled
 (see [docs/project/TODO.md](docs/project/TODO.md)) and will be answered by building.
 
 - **A SecID returns the content, not just a link.** Where redistribution is permitted, resolution yields structured,
@@ -36,26 +37,42 @@ What the second major version is for. Outcomes only; the lifecycle and publishin
   and an access or purchase route. A source we may not redistribute is a documented state, never a silent gap.
 - **Acquisition is recorded knowledge.** Whether a source needs a browser, an account, or in-country access; how fast
   it changes and in what way; whether its identifiers are stable across versions. Today this lives in people's heads.
+- **We build tools that build extractors.** The deliverable is a toolchain, not a pile of one-off scripts. Most sources
+  are extracted once and never again, so what compounds is the tooling that makes the next source cheap.
 - **Extraction is verifiable.** A contributor submits an extractor with their data and we can confirm the two agree.
   Identifiers, structure, and normative text must match exactly; formatting need not. Where AI is in the path,
   extractions are attested against invariants rather than reproduced, and labelled as such.
-- **Anyone can run the whole thing.** Sync the regions you care about, run a local resolver, get comprehensive search
-  over content, layer your own private data on top, and send no queries to anyone.
-- **Coverage is global and its gaps are visible.** Measured per jurisdiction — which countries have their cyber
-  authority, data protection authority, financial regulator, and CERT registered — so absence is a stated result.
 - **CSA's own data consolidates.** The one-off dataset repositories migrate into the SecID data repositories or get an
   explicit disposition, so there is one way to find CSA security data rather than a dozen.
+- **Coverage is global and its gaps are visible.** Measured per jurisdiction — which countries have their cyber
+  authority, data protection authority, financial regulator, and CERT registered — so absence is a stated result.
 
-### What this creates
+### What 2.0 creates
 
 | Repository | Purpose |
 |---|---|
 | `SecID-Data-{International, North-America, Latin-America, Europe, Asia, Middle-East, Africa, Oceania}` | Extracted content, sharded by the authority behind it |
 | `SecID-Data-Staging` | Acquired but not yet classified; everything here has an exit |
-| Private counterparts under `CloudSecurityAlliance-Internal` | Material CSA holds under agreement and may not redistribute |
 
 Object storage carries what git should not: R2 for serving source originals and extraction artifacts, S3 with
 requester-pays for bulk and archival access.
+
+## SecID 3.0 goals — run it yourself
+
+Everything in 2.0 assumes a hosted resolver. 3.0 removes that assumption.
+
+- **Sync what you need, not everything.** Clone the regions you care about plus the global bodies. Nobody should have
+  to sync the world to work in their own jurisdiction.
+- **Stay current without effort.** An update mechanism that is incremental, integrity-checked, and version-pinnable.
+- **Comprehensive local search.** Full text over content, semantic and vector search, cross-document ranking — over the
+  corpus you hold. The hosted service stays deliberately basic; this is what running your own buys you.
+- **Survive outages and latency.** A caching layer, so a local resolver is fast and keeps working when upstream does not.
+- **Layer your own data on top.** Private, internal, or purchased content resolving alongside public content.
+- **Serve what CSA cannot publish.** Restricted material — ISO standards and similar — in identically-named private
+  repositories under `CloudSecurityAlliance-Internal`, served by an internal resolver that is the same software pointed
+  at different repositories, not a second system.
+- **Keep the demand signal without the surveillance.** Local resolvers optionally report *misses only* — searched for,
+  not found — which is what drives registry growth and reveals nothing about what an organization holds.
 
 ## Long-term goals (2027+)
 
@@ -81,8 +98,10 @@ Concrete, observable signals that the project worked:
 | Content served, not just linked | Every document-bearing namespace either serves structured content or states why it cannot |
 | Jurisdictional coverage | Every country with a national cyber authority has it registered; Africa, Latin America, and the Middle East no longer under-represented |
 | Verified extraction | Contributed extractions pass conformance automatically; every stored extraction is labelled `reproduced` or `attested` |
-| Local resolvers in use | Organizations run their own synced resolver in production, including at least one that never queries the hosted service |
 | Dataset consolidation | The one-off dataset repositories are retired or have a documented disposition |
+| Extractor toolchain | A new source can be taken from discovery to verified structured content without writing bespoke tooling |
+| Local resolvers in use (3.0) | Organizations run their own synced resolver in production, including at least one that never queries the hosted service |
+| Private tier live (3.0) | CSA serves its restricted corpus internally using the same software as the public resolver |
 
 Goals expressed as outcomes, not procedures. An AI agent or contributor with the *intent* can adapt to changing conditions; one with only a checklist cannot.
 

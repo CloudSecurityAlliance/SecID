@@ -508,7 +508,7 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 | **SecID-Website** | Cloudflare Pages documentation site (planned) |
 | **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0) |
 
-Content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
+From 3.0, content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
 identically-named private repositories under
 [CloudSecurityAlliance-Internal](https://github.com/CloudSecurityAlliance-Internal), served by an internal resolver.
 Visibility is an organization property rather than a naming convention, so the same shard rule and tooling apply to
@@ -528,12 +528,13 @@ both. See [ROADMAP.md](ROADMAP.md) for what SecID 2.0 sets out to accomplish.
 
 ## Current Status
 
-**Version 1.0 — Live (April 2026). Version 2.0 — in design.**
+**Version 1.0 — Live (April 2026). Versions 2.0 and 3.0 — in design.**
 
-v1.0 answers *where is it*. [SecID 2.0](ROADMAP.md#secid-20--from-pointers-to-data) answers *how do I get it, what will
-it cost me, how often does it change, and can I verify what you gave me* — serving the content itself where licensing
-permits, documenting acquisition honestly where it does not, and making the whole corpus syncable so anyone can run a
-resolver of their own.
+Three versions, three questions: **1.0** answers *where is it* — grammar, registry, URL resolution, shipped.
+[**2.0**](ROADMAP.md#secid-20-content-and-the-tools-that-produce-it) answers *what is it* — the content itself where
+licensing permits, an honest account of how to obtain it where it does not, and the toolchain that produces and
+verifies both. [**3.0**](ROADMAP.md#secid-30-run-it-yourself) answers *can I run it myself* — sync, caching,
+comprehensive local search, and private/internal deployment.
 
 The identifier grammar, type list, and registry format are stable. The resolver is live at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/). Feedback and contributions still welcome via [GitHub Issues](https://github.com/CloudSecurityAlliance/SecID/issues) — the spec is frozen for v1.0, but the registry grows continuously and post-1.0 layers are under active design.
 

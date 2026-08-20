@@ -202,7 +202,7 @@ See [SecID-Service ADR-equivalent in their type-registry.ts header comment](http
 **Status:** Accepted
 **Decision method:** Collaborative — worked through against measured registry and corpus data
 
-**Goal:** Add the content itself to SecID without disturbing a frozen v1.0 registry format or the three-layer model.
+**Goal:** Add the content itself to SecID (v2.0) — and later a local/private deployment story (v3.0) — without disturbing a frozen v1.0 registry format or the three-layer model.
 
 **Context:** v1.0 returns URLs. The next thing consumers want is the content behind them — and CSA already holds most of it, scattered across roughly nineteen one-off dataset repositories, one of which already mirrors SecID's `type/namespace/name/version/` layout and carries license, lifecycle, and extraction-provenance metadata. The question was whether serving content requires the registry to grow: new fields for acquisition constraints, volatility, extractor pointers, cache policy.
 
@@ -215,7 +215,7 @@ See [SecID-Service ADR-equivalent in their type-registry.ts header comment](http
 - **Split on function: cheap/stable facts in the registry, churny provenance with the data** — Defensible, and the split does fall on a real line, but it still means a v2.0 registry schema change and two places to look
 - **Content in the registry repo itself** — Would put hundreds of megabytes of extracted text behind every registry clone and every deploy
 
-**Implementation:** Not yet started. Lifecycle and publishing model deliberately left open — see [docs/project/TODO.md](docs/project/TODO.md) and [ROADMAP.md](ROADMAP.md#secid-20--from-pointers-to-data).
+**Implementation:** Not yet started. Lifecycle and publishing model deliberately left open — see [docs/project/TODO.md](docs/project/TODO.md) and [ROADMAP.md](ROADMAP.md#secid-20-content-and-the-tools-that-produce-it).
 
 ---
 
