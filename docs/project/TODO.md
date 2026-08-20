@@ -77,6 +77,53 @@ Other standards worth eventual placement decisions (no committed work; promote t
 
 **Working rule** (now codified as ADR-009 candidate in [#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)): a methodology provides standalone judgement guidance citable independent of any output format. A reference specifies how data should be formatted, with judgement-involved-incidental.
 
+### Vocabulary survey — what do the schemas and ontologies actually enumerate?
+
+STIX defines 18 domain objects and 2 relationship objects. Mapping them against SecID's types was
+unexpectedly productive: it confirmed that ATT&CK groups/software/mitigations are already reachable
+(`ttp/mitre.org/attack#G0007`, `#S0154`, `#M1036`), showed that STIX's two *relationship* objects land
+exactly on SecID's Relationship and Data layers, and left only three objects with no home —
+**Indicator** (a detection pattern), **Malware Analysis**, and **Opinion** (both recorded findings).
+
+Do that survey properly, across every vocabulary of comparable weight. Two reasons it is worth the effort:
+
+1. **It is the empirical basis for the v2 type decisions.** The "when to split" gate's fourth criterion is
+   *volume justifies it*. Counting how many independent vocabularies define an object kind SecID cannot
+   reach is far better evidence than intuition — and STIX already found the executable and evidential gaps
+   from a direction we had reached independently.
+2. **These vocabularies should themselves be in SecID.** Each object-type name is an enumerable, closed,
+   citable set: `secid:reference/oasis-open.org/stix@2.1#attack-pattern`. `oasis-open.org` registers `stix`
+   today with no children. Adding them is purely additive and needs no new vocabulary.
+
+**Candidates**, grouped roughly. Not exhaustive — extending the list is part of the task:
+
+| Domain | Vocabularies |
+|---|---|
+| Threat intel | STIX 2.1 (SDO/SRO/SCO), MISP object templates + taxonomies + galaxies, MAEC, OpenCTI data model, UCO/CASE, IODEF (RFC 7970), VERIS, CACAO, OpenC2 |
+| Detection & telemetry | OCSF event classes, Elastic Common Schema, OSSEM, Sigma logsource taxonomy, MITRE CAR, D3FEND |
+| Vulnerability | CVE JSON 5.x, OSV schema, CSAF + VEX profiles, OpenVEX, SARIF, CVSS/EPSS/SSVC, KEV schema, CWE view & category structure |
+| Controls & assessment | OSCAL model set (catalog, profile, SSP, assessment-plan, assessment-results, POA&M), SCAP suite (XCCDF, OVAL, CCE, OCIL, ARF), CCM/AICM structure |
+| Supply chain | SPDX elements, CycloneDX component types, in-toto attestation predicates, SLSA, OmniBOR/gitoid |
+| Identity & crypto | PKIX/X.509 OID arcs, WebAuthn, SCIM, OpenID/OAuth registries, IANA protocol registries |
+| AI | ATLAS, NIST AI RMF, Model Card / System Card schemas, MLCommons taxonomy, OWASP LLM Top 10 |
+
+**Per vocabulary, capture:**
+
+- The object/class/element types it defines, and whether that set is closed and enumerable
+- What identifier each carries (UUID, numeric, structured string, name) and whether it is stable across producers
+- Which SecID type each maps to — and where the publisher's *packaging* overrides the object's ontology
+  (ATT&CK is the precedent: a group is really an organization, but it lives under `ttp` because ATT&CK
+  ships it inside a TTP framework)
+- What has no home, which is the actual finding
+
+**Output:** a coverage map plus registry entries adding object-type subpaths to each vocabulary already
+registered. Expect the map to settle the open type questions — the executable type (Sigma/Semgrep/Nuclei
+/Atomic Red Team, and STIX Indicator) and the evidential one (certifications, malware analyses, opinions).
+
+**Watch for:** vocabularies whose object types are deliberately *not* SecID material — STIX Observed Data,
+Note, and Grouping are telemetry, annotation, and data-structuring rather than knowledge. Cataloguing what
+is out of scope is as useful as cataloguing what is in.
+
 ### v2 — data lifecycle and publishing (open question)
 
 v2 adds the data itself, not just pointers to it. The repo split is settled:
