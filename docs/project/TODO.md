@@ -102,27 +102,56 @@ Open: whether dead-link reports become issues, feedback entries, or both; what e
 report to be actionable; and how a confirmed-dead namespace is represented — the `_broken: true` annotation pattern
 from the CNA overlay is the obvious candidate.
 
-### Removing cross-source search — the consequences
+### Search tiering — anonymous, gated, and local
 
-Direction: **drop cross-source search**, serve direct resolution only, and offer a master index
-(`type/namespace-domain/`) that consumers can download and search themselves. This fits the local-first posture in
-3.0 — comprehensive search is what running your own resolver buys you — and it bounds hosted cost.
+Direction: search becomes **tiered** rather than removed.
 
-Two pieces of documented reasoning depend on the thing being removed, and need rewriting rather than deleting:
+| Tier | Gets |
+|---|---|
+| **Anonymous / hosted** | Direct resolution only, plus a downloadable master index (`type/namespace-domain/`) |
+| **Authenticated / gated** | Better hosted search — likely CSA membership or token-scoped |
+| **Local** | Whatever you want: SQLite FTS, vector search, custom enrichment, over your own synced copy |
 
-- **The pattern-breadth gate's stated justification.** CLAUDE.md argues a catch-all is dangerous because *"cross-source
-  search walks every namespace, so a single catch-all degrades every query in the system."* With no cross-source
-  search that argument lapses — but **the gate is still needed**, for a narrower reason: a namespace patterned `^.+$`
-  will affirm *any* identifier presented to it directly, so `secid:control/ibm.com/anything` resolves to a fabricated
-  answer. The blast radius shrinks from the whole system to one namespace; the defect does not go away. Rewrite the
-  rationale, keep the gate.
-- **`open_pattern` loses its defined behaviour.** The JSON Schema says resolvers *"exclude such nodes from unscoped
-  cross-source search."* With that gone, the field declares something reviewed but has no effect. Its natural new
-  meaning is **exclusion from the master index** — an unbounded space cannot be enumerated, so it cannot be indexed —
-  which preserves the intent and gives the field a job again.
+This bounds hosted cost, gives membership a concrete benefit, and keeps the best experience available to anyone
+willing to run their own resolver.
+
+**Reuse CSA's existing audience model.** The CSA MCP server already implements exactly this shape: `anonymous` as a
+recognised tier alongside authenticated tiers 1–4 and revoked tier 5, with capability gating by working-group /
+chapter / staff membership, and a documented convention (ADR-027 §9) for how a gated capability announces itself —
+structured errors carrying required-credential and how-to-resolve fields. SecID should adopt the same tiers and the
+same error convention rather than inventing a parallel scheme, so a client that understands one CSA service
+understands the other.
+
+**The gate is on convenience, not access.** Because the registry and data are CC0 and syncable, anyone can obtain the
+full corpus and run better search than the hosted service offers. Gating hosted search therefore cannot function as
+lock-in even in principle — it is cost management plus a membership benefit. Worth stating openly, because it is what
+keeps the tiering compatible with SecID's neutrality and openness claims.
+
+**Compatible with principle 3, but it stretches it.** *Helpful over correct* says never return a bare error. A gated
+response must therefore still be useful — naming the credential required and how to obtain it, which is what
+ADR-027 §9 already specifies. But the principles currently assume every caller gets the same quality of answer, and
+that will no longer be true. Say so explicitly rather than letting it be discovered.
+
+Two documented pieces of reasoning still need rewriting, because they assume unscoped cross-source search is
+universally available:
+
+- **The pattern-breadth gate's justification.** CLAUDE.md argues a catch-all is dangerous because *"cross-source search
+  walks every namespace, so a single catch-all degrades every query in the system."* Once search is tiered, that
+  argument holds only for callers who have search — but **the gate is still needed**, for a narrower reason: a
+  namespace patterned `^.+$` will affirm *any* identifier presented to it directly, so
+  `secid:control/ibm.com/anything` resolves to a fabricated answer. Blast radius shrinks; the defect does not.
+- **`open_pattern`.** The JSON Schema defines it as "resolvers exclude such nodes from unscoped cross-source search."
+  Its natural extended meaning is **exclusion from the master index** as well — an unbounded space cannot be
+  enumerated, so it cannot be indexed.
+
+**Open questions for the local tier.** Vector search needs embeddings, and embeddings are model-dependent derived
+data. Does CSA generate and ship them (large, and pinned to whatever model produced them — the reproducibility
+question from ADR-012 again), or does each local resolver generate its own (compute at the consumer's end, but no
+model lock-in)? And is the shipped master index simply a SQLite file, which would make it a single artifact servable
+from R2 and searchable with FTS5 out of the box?
 
 Also revisit: [API-RESPONSE-FORMAT.md](../reference/API-RESPONSE-FORMAT.md) documents cross-source search as a
-response mode, and `data.known_values` was partly justified as making an open set searchable.
+response mode available to all callers.
 
 ### Vocabulary survey — what do the schemas and ontologies actually enumerate?
 
