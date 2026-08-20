@@ -231,6 +231,8 @@ See [SecID-Service ADR-equivalent in their type-registry.ts header comment](http
 
 **Decision:** Data shards into region repositories — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania` — plus `Staging` for material acquired but not yet classified. Placement follows **the authority behind the instrument**: if a state or sub-state body owns it, it belongs to that state's region regardless of who adopts it; if the body is constituted across states, it is International regardless of where its office is. In practice the region derives from the namespace's country tag where present and from the TLD otherwise. Private counterparts live under `CloudSecurityAlliance-Internal` with identical names, so visibility is an organization property rather than a naming convention.
 
+**Capability data is exempt, and shards by vendor.** The region axis serves *jurisdictional relevance*, which product capabilities lack — AWS S3 encryption is identical everywhere. Sharding them geographically would place AWS, Azure and GCP together in `North-America` (their publishers are US companies), where a projected 10,000–20,000 entries would outweigh every standards body in that repository. They live in `SecID-Data-Vendor` instead, promoting to `SecID-Data-<domain>` at a published, mechanical size threshold. The generalised rule: **data that is not jurisdictional does not shard jurisdictionally.**
+
 **Rationale:** The publishing domain never changes when an item is reclassified, so the shard key is stable by construction. Authority resolves the cases that address and reach get wrong in opposite directions — a Japanese government standard is Asian even when globally adopted; SWIFT is International despite being Belgian. Regions map onto structures that already exist (CSA chapters, national bodies), giving delegated ownership a natural home, and they let a consumer sync one jurisdiction plus the global bodies instead of the world. `Staging` is named for transience deliberately: an entry sitting in a bucket called "Other" is unremarkable, whereas one sitting in "Staging" is visibly overdue.
 
 **Rejected alternatives:**
@@ -239,6 +241,9 @@ See [SecID-Service ADR-equivalent in their type-registry.ts header comment](http
 - **Per-type repositories (`SecID-{type}`)** — Reclassification moves bytes, which is the specific failure the shard key must avoid
 - **A single repository with CODEOWNERS paths** — Delegates review but cannot delegate read access, and forces every consumer to sync everything
 - **An `Other` catch-all** — Would silently accumulate misfiled material; a residual bucket that is allowed to have contents cannot also serve as an alarm
+- **Sharding capability data by region alongside everything else** — Correct by the letter of the rule and wrong in effect: it would make `North-America` roughly 90% AWS configuration data
+- **A repository per vendor from the start** — Premature; a repo explosion ahead of the evidence. `SecID-Data-Vendor` first, promotion on a threshold
+- **An editorial list of which vendors get repositories** — Not vendor-neutral. A mechanical threshold means a vendor earns a repository by arithmetic, and any vendor can earn one
 
 **Implementation:** Not yet started.
 

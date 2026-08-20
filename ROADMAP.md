@@ -170,13 +170,40 @@ Data shards by the **authority** behind the material, grouped into regions:
 | `SecID-Data-Africa` | |
 | `SecID-Data-Oceania` | |
 | `SecID-Data-Staging` | Acquired but not yet classified — type, authority, or extraction still unresolved. **Everything here has an exit.** |
+| `SecID-Data-Vendor` | Product security capabilities — AWS, Azure, GCP and every other vendor's configurable security features |
 
 **Why authority, not address or reach.** A Japanese government standard belongs to Asia even when the world adopts it,
 because the Japanese state owns and amends it. SWIFT is International despite being headquartered in Belgium, because
 its authority comes from its member network rather than from Belgian law. A local company's supplier standard belongs
 to its own region. One question — *whose authority does this instrument derive from?* — answers all three.
 
-**Why shard at all.** Not for storage; the extracted corpus is small. Sharding buys three things: regional bodies and
+**Why capability data is not sharded by region.** The region axis exists to serve *jurisdictional relevance*, and
+product capabilities have none — AWS S3 encryption is identical in every country. Nobody syncs `Europe` to obtain AWS
+configuration data, and nobody syncing AWS configuration data cares about jurisdiction. Sharding it geographically
+would also put AWS, Azure and GCP all in `North-America` (their publishers are US companies), where a projected
+10,000–20,000 capability entries would outweigh every standards body in the repository by an order of magnitude.
+
+So the rule generalises: **data that is not jurisdictional does not shard jurisdictionally.** Capability is the only
+type where this matters at scale — `weakness` and `ttp` are also global but are 13 and 4 namespaces respectively.
+
+Two placement rules result, both still derivable from the SecID with no lookup:
+
+```
+secid:capability/<domain>/…   →  SecID-Data-Vendor  (or SecID-Data-<domain> once promoted)
+everything else               →  its region, by authority
+```
+
+`SecID-Data-Vendor` starts as a single repository to avoid a repo explosion. A vendor is promoted to its own
+`SecID-Data-<domain>` repository — `SecID-Data-amazon.com` — when its capability set crosses a **published size
+threshold**. The threshold is deliberately mechanical rather than editorial: a vendor earns a repository by arithmetic,
+not by anyone's judgement about its importance, and any vendor can earn one by documenting its own product. Promotion
+is free because the shard key is the publishing domain, which never changes.
+
+Vendor promotion also carries the strongest ownership case in the design. A national CERT maintaining a regional
+repository is speculative; a vendor maintaining the documentation of its own security features is how vendor
+documentation already works.
+
+**Why shard the rest at all.** Not for storage; the extracted corpus is small. Sharding buys three things: regional bodies and
 CSA chapters can own their own material outright, reclassifying an item's *type* never moves bytes because the shard
 key is the publishing domain and that never changes, and — looking ahead to 3.0 — consumers can sync only the
 jurisdictions they care about rather than the whole world.

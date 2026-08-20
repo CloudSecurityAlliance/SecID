@@ -506,7 +506,7 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python, TypeScript, Docker. Run your own SecID server. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
 | **SecID-Website** | Cloudflare Pages documentation site (planned) |
-| **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0) |
+| **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0), plus `Vendor` for product capabilities (sharded by vendor, not region — capability data has no jurisdiction). |
 
 From 3.0, content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
 identically-named private repositories under

@@ -53,6 +53,7 @@ Three versions, three questions: **1.0** asks *where is it* (shipped), **2.0** a
 |---|---|
 | `SecID-Data-{International, North-America, Latin-America, Europe, Asia, Middle-East, Africa, Oceania}` | Extracted content, sharded by the authority behind it |
 | `SecID-Data-Staging` | Acquired but not yet classified; everything here has an exit |
+| `SecID-Data-Vendor` | Product security capabilities (AWS, Azure, GCP, others) — sharded by vendor rather than region, because capability data has no jurisdiction. Promotes to `SecID-Data-<domain>` at a published size threshold |
 
 Object storage carries what git should not: R2 for serving source originals and extraction artifacts, S3 with
 requester-pays for bulk and archival access.
