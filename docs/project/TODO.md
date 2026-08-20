@@ -199,6 +199,49 @@ Whether image builds should be reproducible in the ADR-012 sense — likely yes,
 what the smallest useful deployment is, since "run the whole thing" and "run enough to resolve my jurisdiction"
 are different products.
 
+### Private types and subtypes in self-hosted data
+
+Once organisations run their own resolvers over their own private corpora (3.0), they will need vocabulary SecID does
+not have — a bank with internal policy classes, a vendor with product-line categories, a research group with
+experiment kinds. The central vocabulary is deliberately closed; a private deployment is deliberately not. Both are
+right, and nothing today reconciles them.
+
+**What actually blocks it, precisely:**
+
+| Layer | State |
+|---|---|
+| Client SDKs | **No blocker.** They do not validate types and pass values through |
+| Registry JSON Schema | `type` is a hard `enum` of the ten |
+| `scripts/validate-subtypes.py` | Fails any subtype not declared in SecID-Service's `type-registry.ts` |
+| Parser / resolver | Rejects unknown types outright |
+
+So the SDKs are already permissive and the gates are all on the authoring and resolving side — which is the easier
+problem, since a private deployment controls both.
+
+**Naming is the part to get right, and there is a clear precedent to avoid.** A flat private prefix (`x-`) is the
+obvious move and it is the one the industry regretted: RFC 6648 deprecated `X-` precisely because private extensions
+escape their origin, get adopted publicly, and then the ugly provisional name is permanent. IANA's media-type tree
+solved it better with owner-qualified subtrees (`vnd.`, `prs.`).
+
+SecID already has the right mechanism and uses it everywhere else: **DNS qualification.** Namespaces are domains
+because ownership is verifiable and collisions are impossible. Extending that to vocabulary is consistent and
+self-documenting — a private subtype named `bank.example.com/internal-policy` can never collide with an official
+value, and its origin is legible to anyone who encounters it after it leaks. Because it will leak; the design should
+assume a privately-minted SecID gets pasted into an email, a ticket, or a model prompt and read somewhere else
+entirely.
+
+**Likely asymmetry: subtypes yes, types no.** A subtype is a data field, so a private one costs a validation hook. A
+type is in the grammar and hardcoded across five repositories, and the parser rejects unknown values — so private
+types are a much larger change for a much rarer need. Worth testing whether owner-qualified subtypes plus the
+`reference` catch-all covers the real use cases before contemplating private types at all.
+
+**Open questions.** Whether `validate-subtypes.py` grows a config hook for locally-declared vocabulary, or private
+deployments simply skip it. How a private value behaves when a public resolver encounters it — resolve as unknown
+with guidance, or refuse, and what principle 3 requires there. Whether a private vocabulary can be *published*, so a
+consortium can share one without it becoming global. And what the promotion path looks like when a private value
+proves broadly useful: the four-criteria gate should apply, with real-world usage as the evidence for criterion 4 —
+which would make private extension a **feeder** for the official vocabulary rather than a fork of it.
+
 ### Vocabulary survey — what do the schemas and ontologies actually enumerate?
 
 STIX defines 18 domain objects and 2 relationship objects. Mapping them against SecID's types was
