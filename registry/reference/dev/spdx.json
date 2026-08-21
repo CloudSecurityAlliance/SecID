@@ -4,49 +4,415 @@
   "type": "reference",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Software Package Data Exchange",
   "common_name": "SPDX",
-  "alternate_names": ["ISO/IEC 5962:2021"],
-  "notes": "SPDX is a Linux Foundation project. The project domain is spdx.dev. SPDX is also an ISO standard (ISO/IEC 5962:2021) for SPDX 2.2.1. The Linux Foundation governs the working group; the spec is developed in the open at github.com/spdx/spdx-spec.",
+  "alternate_names": [
+    "ISO/IEC 5962:2021"
+  ],
+  "notes": "SPDX is a Linux Foundation project. The project domain is spdx.dev. SPDX 2.2.1 is published as ISO/IEC 5962:2021. The Linux Foundation governs the working group; the spec is developed in the open at github.com/spdx/spdx-spec.\n\nSPDX 3.x replaced the flat 2.x document format with an RDF/OWL model partitioned into profiles. Model terms below are addressable as subpaths in the source's own capitalisation (e.g. #AI/AIPackage), matching the IRI path under https://spdx.org/rdf/3.0.1/terms/ and the documentation path under /model/. Item-level subpath nodes resolve against SPDX 3.0.1 and describe terms introduced in 3.0; they do not apply to SPDX 2.x, which has no profile model. Each node records since_version so that constraint is explicit rather than implied.",
   "wikidata": null,
   "wikipedia": null,
-
+  "checked": "2026-08-21",
+  "updated": "2026-08-21",
   "urls": [
-    {"type": "website", "url": "https://spdx.dev/"},
-    {"type": "github", "url": "https://github.com/spdx"}
+    {
+      "type": "website",
+      "url": "https://spdx.dev/"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/spdx"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^spdx$"],
+      "patterns": [
+        "(?i)^spdx$"
+      ],
       "description": "Software Package Data Exchange (SPDX) specification",
       "weight": 100,
       "data": {
         "official_name": "Software Package Data Exchange",
         "common_name": "SPDX",
-        "alternate_names": ["ISO/IEC 5962:2021"],
+        "alternate_names": [
+          "ISO/IEC 5962:2021"
+        ],
         "description": "Open standard for communicating SBOM information, including provenance, license, security, and other related information. Provides a common format for describing the components, licenses, and copyrights associated with software packages.",
-        "notes": "Two related ID systems live within SPDX: (1) SPDX identifiers for software packages and files within an SBOM document, and (2) SPDX license identifiers (e.g., MIT, Apache-2.0, GPL-3.0-only) which are widely used outside SBOM contexts. The SPDX License List is the canonical license-identifier registry referenced by many tools. SPDX 2.3 is current; SPDX 3.0 is in development. A data format; placed under reference.",
+        "notes": "Two related ID systems live within SPDX: (1) SPDX identifiers for software packages and files within an SBOM document, and (2) SPDX license identifiers (e.g., MIT, Apache-2.0, GPL-3.0-only) which are widely used outside SBOM contexts. The SPDX License List is the canonical license-identifier registry referenced by many tools. A data format; placed under reference.\n\nSPDX 3.0 (2024-04-15) is a breaking redesign: an RDF/OWL model split into profiles, of which AI and Dataset are the AI-BOM-relevant pair. 3.0.1 (2024-12-17) is the current stable release and the version the item-level nodes here resolve against. 3.1 is in release-candidate stage (3.1-RC1, 2025-01-24) and adds Hardware, Service, SupplyChain, Operations and FunctionalSafety profiles; it is not yet reflected in the subpath nodes below.",
         "version_required": false,
+        "unversioned_behavior": "current_with_history",
         "versions_available": [
-          {"version": "3.0", "status": "draft", "note": "Major revision in development"},
-          {"version": "2.3", "status": "current"},
-          {"version": "2.2.1", "status": "active", "note": "ISO/IEC 5962:2021 ratified version"},
-          {"version": "2.2", "status": "superseded"},
-          {"version": "2.1", "status": "superseded"},
-          {"version": "2.0", "status": "superseded"}
+          {
+            "version": "3.1-RC1",
+            "status": "draft",
+            "note": "Release candidate, 2025-01-24. Adds Hardware, Service, SupplyChain, Operations, FunctionalSafety profiles.",
+            "url": "https://spdx.github.io/spdx-spec/v3.1/"
+          },
+          {
+            "version": "3.0.1",
+            "status": "current",
+            "note": "Released 2024-12-17. Patch release supporting OMG and ISO submission.",
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/"
+          },
+          {
+            "version": "3.0",
+            "status": "active",
+            "note": "Released 2024-04-15. First release of the profile-based RDF/OWL model.",
+            "url": "https://spdx.github.io/spdx-spec/v3.0/"
+          },
+          {
+            "version": "2.3",
+            "status": "active",
+            "note": "Last of the 2.x line, released 2023-11-03.",
+            "url": "https://spdx.github.io/spdx-spec/v2.3/"
+          },
+          {
+            "version": "2.2.1",
+            "status": "active",
+            "note": "ISO/IEC 5962:2021 ratified version"
+          },
+          {
+            "version": "2.2",
+            "status": "superseded"
+          },
+          {
+            "version": "2.1",
+            "status": "superseded"
+          },
+          {
+            "version": "2.0",
+            "status": "superseded"
+          }
         ],
         "urls": [
-          {"type": "website", "url": "https://spdx.dev/"},
-          {"type": "spec", "url": "https://spdx.github.io/spdx-spec/"},
-          {"type": "github", "url": "https://github.com/spdx/spdx-spec"},
-          {"type": "license_list", "url": "https://spdx.org/licenses/", "note": "SPDX License List — canonical license-identifier registry"}
+          {
+            "type": "website",
+            "url": "https://spdx.dev/"
+          },
+          {
+            "type": "spec",
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/",
+            "parsability": "scraped",
+            "note": "SPDX 3.0.1 specification (current stable)"
+          },
+          {
+            "type": "spec",
+            "url": "https://spdx.github.io/spdx-spec/latest/",
+            "parsability": "scraped",
+            "note": "Alias that always serves the newest published spec — unpinned, use for browsing only"
+          },
+          {
+            "type": "spec",
+            "url": "https://spdx.github.io/spdx-spec/v2.3/",
+            "parsability": "scraped",
+            "note": "SPDX 2.3 specification (2.x line)"
+          },
+          {
+            "type": "schema",
+            "url": "https://spdx.org/schema/3.0.1/spdx-json-schema.json",
+            "parsability": "structured",
+            "content_type": "application/schema+json",
+            "note": "SPDX 3.0.1 JSON Schema. AI profile terms appear as ai_* keys in $defs (ai_AIPackage, prop_ai_AIPackage_ai_safetyRiskAssessment, ...)."
+          },
+          {
+            "type": "context",
+            "url": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld",
+            "parsability": "structured",
+            "content_type": "application/ld+json",
+            "note": "JSON-LD context for SPDX 3.0.1"
+          },
+          {
+            "type": "model",
+            "url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl",
+            "parsability": "structured",
+            "content_type": "text/turtle",
+            "note": "Normative OWL/SHACL model in Turtle. Source of the term definitions carried in known_values below."
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/spdx/spdx-spec"
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/spdx/spdx-3-model",
+            "note": "Machine-readable model source for SPDX 3.x"
+          },
+          {
+            "type": "license_list",
+            "url": "https://spdx.org/licenses/",
+            "note": "SPDX License List — canonical license-identifier registry"
+          }
         ],
         "examples": [
-          {"input": "spdx", "note": "SPDX specification suite"}
+          {
+            "input": "spdx",
+            "note": "SPDX specification suite"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(AI|Build|Core|Dataset|ExpandedLicensing|Extension|Licensing|Lite|Security|SimpleLicensing|Software)$",
+            "^(ai|build|core|dataset|expandedLicensing|extension|lite|security|simpleLicensing|software)$"
+          ],
+          "description": "SPDX 3.x profile. Profiles partition the model into domains; a document declares which ones it conforms to via core:profileConformance.",
+          "weight": 100,
+          "data": {
+            "type": "profile",
+            "since_version": "3.0",
+            "description": "One of the profiles that partition the SPDX 3.x model.",
+            "notes": "Two spellings are accepted because the source uses both: the capitalised form is the model namespace and documentation path (AI, ExpandedLicensing), the camelCase form is the core:ProfileIdentifierType enumeration value written into a document's profileConformance field (ai, expandedLicensing). The lookup_table maps the enumeration spellings; the {profile} template handles the capitalised ones. Licensing is accepted only in the capitalised form: it is a documentation grouping over SimpleLicensing and ExpandedLicensing, not a ProfileIdentifierType value.",
+            "variables": {
+              "profile": {
+                "extract": "^([A-Za-z]+)$",
+                "description": "Profile name as used in the model documentation path"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/{profile}/{profile}/",
+            "lookup_table": {
+              "ai": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+              "build": "https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Build/",
+              "core": "https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Core/",
+              "dataset": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
+              "expandedLicensing": "https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/ExpandedLicensing/",
+              "extension": "https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/",
+              "lite": "https://spdx.github.io/spdx-spec/v3.0.1/model/Lite/Lite/",
+              "security": "https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Security/",
+              "simpleLicensing": "https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/SimpleLicensing/",
+              "software": "https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Software/"
+            },
+            "known_values": {
+              "Core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
+              "Software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types.",
+              "Security": "Vulnerability and VEX modelling — Vulnerability, VexNotAffectedVulnAssessmentRelationship, CVSS/EPSS/SSVC severity assessments.",
+              "Licensing": "Documentation grouping over SimpleLicensing and ExpandedLicensing. It has a /model/Licensing/ page but is NOT a core:ProfileIdentifierType value, so it never appears in a document's profileConformance field — only the capitalised documentation spelling resolves.",
+              "SimpleLicensing": "License expressions as strings — LicenseExpression and SimpleLicensingText.",
+              "ExpandedLicensing": "The structured license model — ListedLicense, CustomLicense, ConjunctiveLicenseSet, DisjunctiveLicenseSet, WithAdditionOperator.",
+              "Dataset": "Training and evaluation data — DatasetPackage plus provenance, collection-process, confidentiality and bias properties. The data half of an AI BOM.",
+              "AI": "AI models and their transparency metadata — AIPackage plus energy consumption, safety risk, explainability, hyperparameters and standards compliance.",
+              "Build": "Build provenance — Build element capturing build type, parameters, environment and start/end times.",
+              "Lite": "A minimal conformance profile: the reduced field set intended for lightweight SPDX 3.x producers.",
+              "Extension": "The extension mechanism — Extension and CdxPropertyEntry — for carrying data the core model does not define."
+            },
+            "provenance": {
+              "method": "Profile enumeration read from core:ProfileIdentifierType individuals in the normative Turtle model; every /model/<Profile>/<Profile>/ page confirmed HTTP 200.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "AI",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+                "note": "AI profile overview"
+              },
+              {
+                "input": "ai",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+                "note": "ProfileIdentifierType spelling as written in profileConformance"
+              },
+              {
+                "input": "Dataset",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
+                "note": "Dataset profile — the data half of an AI BOM"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^AI/(AIPackage|EnergyConsumption|EnergyConsumptionDescription)$"
+          ],
+          "description": "SPDX 3.x AI profile class",
+          "weight": 100,
+          "data": {
+            "type": "class",
+            "profile": "AI",
+            "since_version": "3.0",
+            "description": "A class defined by the SPDX 3.x AI profile.",
+            "notes": "RDF IRI form is https://spdx.org/rdf/3.0.1/terms/AI/<Class> (an identifier, not a dereferenceable page). In the JSON serialisation these are the ai_<Class> keys in $defs of spdx-json-schema.json. AIPackage is a subclass of software:Package. EnergyConsumption holds the three lifecycle-stage properties (training, finetuning, inference); EnergyConsumptionDescription holds a quantity and a unit.",
+            "variables": {
+              "term": {
+                "extract": "^AI/([A-Za-z]+)$",
+                "description": "Class name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/{term}/",
+            "known_values": {
+              "AI/AIPackage": "Specifies an AI package and its associated information.",
+              "AI/EnergyConsumption": "A class for describing the energy consumption incurred by an AI model in different stages of its lifecycle.",
+              "AI/EnergyConsumptionDescription": "The class that helps note down the quantity of energy consumption and the unit used for measurement."
+            },
+            "provenance": {
+              "method": "Class list and definitions taken verbatim from rdfs:comment on the ns4 (AI) owl:Class stanzas in the normative Turtle model; each Classes/<name>/ page confirmed HTTP 200.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "AI/AIPackage",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/",
+                "note": "The central AI profile class — an AI model packaged as an SPDX Package"
+              },
+              {
+                "input": "AI/EnergyConsumption",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/EnergyConsumption/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^AI/(EnergyUnitType|SafetyRiskAssessmentType)$"
+          ],
+          "description": "SPDX 3.x AI profile vocabulary (closed enumeration)",
+          "weight": 100,
+          "data": {
+            "type": "vocabulary",
+            "profile": "AI",
+            "since_version": "3.0",
+            "description": "A closed enumeration defined by the SPDX 3.x AI profile.",
+            "notes": "Members are addressable one level deeper, e.g. #AI/SafetyRiskAssessmentType/serious.",
+            "variables": {
+              "term": {
+                "extract": "^AI/([A-Za-z]+)$",
+                "description": "Vocabulary name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/{term}/",
+            "known_values": {
+              "AI/EnergyUnitType": "Specifies the unit of energy consumption.",
+              "AI/SafetyRiskAssessmentType": "Specifies the safety risk level."
+            },
+            "provenance": {
+              "method": "Vocabulary list and definitions taken verbatim from rdfs:comment in the normative Turtle model; each Vocabularies/<name>/ page confirmed HTTP 200.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "AI/SafetyRiskAssessmentType",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/SafetyRiskAssessmentType/"
+              },
+              {
+                "input": "AI/EnergyUnitType",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/EnergyUnitType/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^AI/EnergyUnitType/(kilowattHour|megajoule|other)$",
+            "^AI/SafetyRiskAssessmentType/(high|low|medium|serious)$"
+          ],
+          "description": "Member of an SPDX 3.x AI profile vocabulary",
+          "weight": 100,
+          "data": {
+            "type": "vocabulary_member",
+            "profile": "AI",
+            "since_version": "3.0",
+            "description": "A single permitted value of an AI profile enumeration.",
+            "notes": "The IRI form is https://spdx.org/rdf/3.0.1/terms/AI/<Vocabulary>/<member>. There is no per-member documentation page, so resolution returns the vocabulary page that lists every member with its definition.",
+            "variables": {
+              "vocab": {
+                "extract": "^AI/([A-Za-z]+)/[A-Za-z]+$",
+                "description": "Vocabulary name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/{vocab}/",
+            "known_values": {
+              "AI/EnergyUnitType/kilowattHour": "Kilowatt-hour.",
+              "AI/EnergyUnitType/megajoule": "Megajoule.",
+              "AI/EnergyUnitType/other": "Any other units of energy measurement.",
+              "AI/SafetyRiskAssessmentType/high": "The second-highest level of risk posed by an AI system.",
+              "AI/SafetyRiskAssessmentType/low": "Low/no risk is posed by an AI system.",
+              "AI/SafetyRiskAssessmentType/medium": "The third-highest level of risk posed by an AI system.",
+              "AI/SafetyRiskAssessmentType/serious": "The highest level of risk posed by an AI system."
+            },
+            "provenance": {
+              "method": "Members and definitions taken verbatim from the owl:NamedIndividual stanzas under terms/AI/<Vocabulary>/ in the normative Turtle model.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "AI/SafetyRiskAssessmentType/serious",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/SafetyRiskAssessmentType/",
+                "note": "Highest safety risk level an SPDX AI package can declare"
+              },
+              {
+                "input": "AI/EnergyUnitType/kilowattHour",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Vocabularies/EnergyUnitType/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^AI/(autonomyType|domain|energyConsumption|energyQuantity|energyUnit|finetuningEnergyConsumption|hyperparameter|inferenceEnergyConsumption|informationAboutApplication|informationAboutTraining|limitation|metric|metricDecisionThreshold|modelDataPreprocessing|modelExplainability|safetyRiskAssessment|standardCompliance|trainingEnergyConsumption|typeOfModel|useSensitivePersonalInformation)$"
+          ],
+          "description": "SPDX 3.x AI profile property",
+          "weight": 100,
+          "data": {
+            "type": "property",
+            "profile": "AI",
+            "since_version": "3.0",
+            "description": "A property defined by the SPDX 3.x AI profile.",
+            "notes": "Fifteen of the twenty attach to AIPackage (autonomyType, domain, energyConsumption, hyperparameter, informationAboutApplication, informationAboutTraining, limitation, metric, metricDecisionThreshold, modelDataPreprocessing, modelExplainability, safetyRiskAssessment, standardCompliance, typeOfModel, useSensitivePersonalInformation). Three attach to EnergyConsumption (trainingEnergyConsumption, finetuningEnergyConsumption, inferenceEnergyConsumption) and two to EnergyConsumptionDescription (energyQuantity, energyUnit). RDF IRI form: https://spdx.org/rdf/3.0.1/terms/AI/<property>.",
+            "variables": {
+              "term": {
+                "extract": "^AI/([A-Za-z]+)$",
+                "description": "Property name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/{term}/",
+            "known_values": {
+              "AI/autonomyType": "Indicates whether the system can perform a decision or action without human involvement or guidance.",
+              "AI/domain": "Captures the domain in which the AI package can be used.",
+              "AI/energyConsumption": "Indicates the amount of energy consumption incurred by an AI model.",
+              "AI/energyQuantity": "Represents the energy quantity.",
+              "AI/energyUnit": "Specifies the unit in which energy is measured.",
+              "AI/finetuningEnergyConsumption": "Specifies the amount of energy consumed when finetuning the AI model that is being used in the AI system.",
+              "AI/hyperparameter": "Records a hyperparameter used to build the AI model contained in the AI package.",
+              "AI/inferenceEnergyConsumption": "Specifies the amount of energy consumed during inference time by an AI model that is being used in the AI system.",
+              "AI/informationAboutApplication": "Provides relevant information about the AI software, not including the model description.",
+              "AI/informationAboutTraining": "Describes relevant information about different steps of the training process.",
+              "AI/limitation": "Captures a limitation of the AI software.",
+              "AI/metric": "Records the measurement of prediction quality of the AI model.",
+              "AI/metricDecisionThreshold": "Captures the threshold that was used for computation of a metric described in the metric field.",
+              "AI/modelDataPreprocessing": "Describes all the preprocessing steps applied to the training data before the model training.",
+              "AI/modelExplainability": "Describes methods that can be used to explain the results from the AI model.",
+              "AI/safetyRiskAssessment": "Records the results of general safety risk assessment of the AI system.",
+              "AI/standardCompliance": "Captures a standard that is being complied with.",
+              "AI/trainingEnergyConsumption": "Specifies the amount of energy consumed when training the AI model that is being used in the AI system.",
+              "AI/typeOfModel": "Records the type of the model used in the AI software.",
+              "AI/useSensitivePersonalInformation": "Records if sensitive personal information is used during model training or could be used during the inference."
+            },
+            "provenance": {
+              "method": "Property list and definitions taken verbatim from rdfs:comment on the ns4 (AI) owl:ObjectProperty and owl:DatatypeProperty stanzas in the normative Turtle model; each Properties/<name>/ page confirmed HTTP 200.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "AI/safetyRiskAssessment",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/safetyRiskAssessment/",
+                "note": "Ranges over the SafetyRiskAssessmentType vocabulary"
+              },
+              {
+                "input": "AI/useSensitivePersonalInformation",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/useSensitivePersonalInformation/"
+              },
+              {
+                "input": "AI/trainingEnergyConsumption",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/trainingEnergyConsumption/",
+                "note": "Attaches to EnergyConsumption, not AIPackage"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
