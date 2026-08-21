@@ -2,6 +2,8 @@
 
 Tracking exploratory work and rough notes. **Committed work lives in GitHub issues**, not here — see [open issues](https://github.com/CloudSecurityAlliance/SecID/issues). Updated 2026-05-21 (second sweep).
 
+**For the v2/v3 work specifically, start at [V2-V3-PROGRAM.md](V2-V3-PROGRAM.md)** — it indexes every workstream, what is already decided, what is still open, and the order things depend on. The entries below hold the research detail it points at.
+
 This file is for:
 - Research/exploration not yet ready for an issue
 - Items intentionally deferred until evidence appears
