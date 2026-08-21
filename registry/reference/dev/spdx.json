@@ -153,16 +153,15 @@
       "children": [
         {
           "patterns": [
-            "^(AI|Build|Core|Dataset|ExpandedLicensing|Extension|Licensing|Lite|Security|SimpleLicensing|Software)$",
-            "^(ai|build|core|dataset|expandedLicensing|extension|lite|security|simpleLicensing|software)$"
+            "^(AI|Build|Core|Dataset|ExpandedLicensing|Extension|Licensing|Lite|Security|SimpleLicensing|Software)$"
           ],
-          "description": "SPDX 3.x profile. Profiles partition the model into domains; a document declares which ones it conforms to via core:profileConformance.",
+          "description": "SPDX 3.x profile, in the capitalisation used by the model namespace and documentation path.",
           "weight": 100,
           "data": {
             "type": "profile",
             "since_version": "3.0",
             "description": "One of the profiles that partition the SPDX 3.x model.",
-            "notes": "Two spellings are accepted because the source uses both: the capitalised form is the model namespace and documentation path (AI, ExpandedLicensing), the camelCase form is the core:ProfileIdentifierType enumeration value written into a document's profileConformance field (ai, expandedLicensing). The lookup_table maps the enumeration spellings; the {profile} template handles the capitalised ones. Licensing is accepted only in the capitalised form: it is a documentation grouping over SimpleLicensing and ExpandedLicensing, not a ProfileIdentifierType value.",
+            "notes": "This node matches the capitalised spelling — the model namespace and the /model/<Profile>/ documentation path (AI, ExpandedLicensing). The lowercase core:ProfileIdentifierType spellings that appear in a document's profileConformance field are handled by the sibling node below. Licensing is accepted only here: it has a /model/Licensing/ page but is not a ProfileIdentifierType value, so it never appears in profileConformance.",
             "variables": {
               "profile": {
                 "extract": "^([A-Za-z]+)$",
@@ -170,18 +169,6 @@
               }
             },
             "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/{profile}/{profile}/",
-            "lookup_table": {
-              "ai": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
-              "build": "https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Build/",
-              "core": "https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Core/",
-              "dataset": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
-              "expandedLicensing": "https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/ExpandedLicensing/",
-              "extension": "https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/",
-              "lite": "https://spdx.github.io/spdx-spec/v3.0.1/model/Lite/Lite/",
-              "security": "https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Security/",
-              "simpleLicensing": "https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/SimpleLicensing/",
-              "software": "https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Software/"
-            },
             "known_values": {
               "Core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
               "Software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types.",
@@ -196,7 +183,7 @@
               "Extension": "The extension mechanism — Extension and CdxPropertyEntry — for carrying data the core model does not define."
             },
             "provenance": {
-              "method": "Profile enumeration read from core:ProfileIdentifierType individuals in the normative Turtle model; every /model/<Profile>/<Profile>/ page confirmed HTTP 200.",
+              "method": "Profile list cross-checked against core:ProfileIdentifierType individuals in the normative Turtle model and the /model/ documentation index; every /model/<Profile>/<Profile>/ page confirmed HTTP 200.",
               "date": "2026-08-21",
               "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
             },
@@ -207,14 +194,92 @@
                 "note": "AI profile overview"
               },
               {
-                "input": "ai",
-                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
-                "note": "ProfileIdentifierType spelling as written in profileConformance"
-              },
-              {
                 "input": "Dataset",
                 "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
                 "note": "Dataset profile — the data half of an AI BOM"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(ai|build|core|dataset|expandedLicensing|extension|lite|security|simpleLicensing|software)$"
+          ],
+          "description": "SPDX 3.x profile, in the core:ProfileIdentifierType spelling written into a document's profileConformance field.",
+          "weight": 100,
+          "data": {
+            "type": "profile",
+            "since_version": "3.0",
+            "description": "One of the ten values of the core:ProfileIdentifierType enumeration.",
+            "notes": "These are the exact strings that appear in an SPDX 3.x document's profileConformance field. They differ in case from the model namespace and documentation path, so resolution goes through a lookup_table rather than a template — the enumeration spelling cannot be mechanically transformed into the documentation path. Licensing is absent here because it is a documentation grouping, not a ProfileIdentifierType value.",
+            "lookup_table": {
+              "ai": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+                "title": "AI"
+              },
+              "build": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Build/Build/",
+                "title": "Build"
+              },
+              "core": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Core/Core/",
+                "title": "Core"
+              },
+              "dataset": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
+                "title": "Dataset"
+              },
+              "expandedLicensing": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/ExpandedLicensing/ExpandedLicensing/",
+                "title": "ExpandedLicensing"
+              },
+              "extension": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/",
+                "title": "Extension"
+              },
+              "lite": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Lite/Lite/",
+                "title": "Lite"
+              },
+              "security": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Security/Security/",
+                "title": "Security"
+              },
+              "simpleLicensing": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/SimpleLicensing/SimpleLicensing/",
+                "title": "SimpleLicensing"
+              },
+              "software": {
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Software/Software/",
+                "title": "Software"
+              }
+            },
+            "known_values": {
+              "ai": "AI models and their transparency metadata — AIPackage plus energy consumption, safety risk, explainability, hyperparameters and standards compliance.",
+              "build": "Build provenance — Build element capturing build type, parameters, environment and start/end times.",
+              "core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
+              "dataset": "Training and evaluation data — DatasetPackage plus provenance, collection-process, confidentiality and bias properties. The data half of an AI BOM.",
+              "expandedLicensing": "The structured license model — ListedLicense, CustomLicense, ConjunctiveLicenseSet, DisjunctiveLicenseSet, WithAdditionOperator.",
+              "extension": "The extension mechanism — Extension and CdxPropertyEntry — for carrying data the core model does not define.",
+              "lite": "A minimal conformance profile: the reduced field set intended for lightweight SPDX 3.x producers.",
+              "security": "Vulnerability and VEX modelling — Vulnerability, VexNotAffectedVulnAssessmentRelationship, CVSS/EPSS/SSVC severity assessments.",
+              "simpleLicensing": "License expressions as strings — LicenseExpression and SimpleLicensingText.",
+              "software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types."
+            },
+            "provenance": {
+              "method": "Enumeration values read from the core:ProfileIdentifierType named individuals in the normative Turtle model; each mapped documentation page confirmed HTTP 200.",
+              "date": "2026-08-21",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "ai",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+                "note": "profileConformance spelling of the AI profile"
+              },
+              {
+                "input": "dataset",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/"
               }
             ]
           }
