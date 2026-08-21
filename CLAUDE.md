@@ -57,6 +57,7 @@ With 20+ markdown files, know which document answers which question:
 | How does versioning work? | [VERSIONING.md](docs/reference/VERSIONING.md) - analysis, API behavior, response outcomes |
 | Edge cases with domains? | [EDGE-CASES.md](docs/reference/EDGE-CASES.md) |
 | When do we host data ourselves? | [DATA-HOSTING-RULES.md](docs/reference/DATA-HOSTING-RULES.md) - the 3 rules, licensing, data repo structure |
+| **What's the plan for v2/v3?** | **[V2-V3-PROGRAM.md](docs/project/V2-V3-PROGRAM.md)** - the index of every workstream, what's decided, what's open, and the order things depend on |
 | What's deferred? | [TODO.md](docs/project/TODO.md), [registry/_deferred/](registry/_deferred/) |
 | What's proposed? | [docs/proposals/](docs/proposals/) - proposals for registry schema changes |
 | Multi-repo architecture? | [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) |
