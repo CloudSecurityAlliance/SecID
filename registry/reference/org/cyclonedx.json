@@ -4,51 +4,455 @@
   "type": "reference",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "CycloneDX",
   "common_name": "CycloneDX",
-  "alternate_names": ["OWASP CycloneDX"],
-  "notes": "CycloneDX is a Software Bill of Materials (SBOM) standard. Originally created within OWASP; now stewarded by the OWASP CycloneDX Working Group. The canonical project home is cyclonedx.org. CycloneDX supports SBOM, SaaSBOM, HBOM (hardware), ML-BOM, OBOM (operations), and CBOM (cryptography).",
+  "alternate_names": [
+    "OWASP CycloneDX",
+    "ECMA-424"
+  ],
+  "notes": "CycloneDX is a Bill of Materials (BOM) standard. Originally created within OWASP; now developed jointly by the OWASP Foundation and Ecma International Technical Committee 54 (TC54) and published as ECMA-424 (2025-12-10). The canonical project home is cyclonedx.org. CycloneDX supports SBOM, SaaSBOM, HBOM (hardware), ML-BOM (machine learning), OBOM (operations), MBOM (manufacturing), CBOM (cryptography), VDR and VEX.\n\nML-BOM is a capability of the one BOM schema rather than a separate schema file: it is expressed through the machine-learning-model and data component types plus the modelCard and componentData objects. Those elements are addressable here as #mlbom/... subpaths mirroring the schema's own field paths. Item-level nodes resolve against 1.7 documentation and record since_version 1.5 — the release that introduced model cards. CycloneDX 1.4 and earlier have no ML-BOM support.",
   "wikidata": null,
   "wikipedia": null,
-
+  "checked": "2026-08-21",
+  "updated": "2026-08-21",
   "urls": [
-    {"type": "website", "url": "https://cyclonedx.org/"},
-    {"type": "spec", "url": "https://cyclonedx.org/specification/overview/"},
-    {"type": "github", "url": "https://github.com/CycloneDX"}
+    {
+      "type": "website",
+      "url": "https://cyclonedx.org/"
+    },
+    {
+      "type": "spec",
+      "url": "https://cyclonedx.org/specification/overview/"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/CycloneDX"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^cyclonedx$"],
-      "description": "CycloneDX SBOM standard",
+      "patterns": [
+        "(?i)^cyclonedx$"
+      ],
+      "description": "CycloneDX BOM standard",
       "weight": 100,
       "data": {
         "official_name": "CycloneDX",
         "common_name": "CycloneDX",
-        "alternate_names": ["OWASP CycloneDX"],
-        "description": "A lightweight Software Bill of Materials (SBOM) standard designed for application security contexts and supply chain component analysis. Supports SBOM, SaaSBOM, HBOM, ML-BOM, OBOM, CBOM, and VDR (Vulnerability Disclosure Report).",
-        "notes": "Multiple format encodings (JSON, XML, Protocol Buffers). Widely used in modern SBOM tooling — Trivy, Syft, Anchore, Dependency-Track all produce or consume CycloneDX. Companion/alternative to SPDX. A data format; the value-add is in the tools that produce/consume CycloneDX, not in standalone judgement guidance — placed under reference.",
+        "alternate_names": [
+          "OWASP CycloneDX",
+          "ECMA-424"
+        ],
+        "description": "A lightweight Bill of Materials (BOM) standard designed for application security contexts and supply chain component analysis. Supports SBOM, SaaSBOM, HBOM, ML-BOM, OBOM, MBOM, CBOM, and VDR (Vulnerability Disclosure Report).",
+        "notes": "Multiple format encodings (JSON, XML, Protocol Buffers). Widely used in modern SBOM tooling — Trivy, Syft, Anchore, Dependency-Track all produce or consume CycloneDX. Companion/alternative to SPDX. A data format; the value-add is in the tools that produce/consume CycloneDX, not in standalone judgement guidance — placed under reference.\n\nStandardised as ECMA-424 under Ecma TC54. Version 1.7 (2025-10-21) is current. Schema files for each version are listed in urls below and follow the stable pattern https://cyclonedx.org/schema/bom-<version>.{schema.json,xsd,proto}.",
         "version_required": false,
+        "unversioned_behavior": "current_with_history",
         "versions_available": [
-          {"version": "1.6", "status": "current", "note": "Latest spec version"},
-          {"version": "1.5", "status": "active"},
-          {"version": "1.4", "status": "active"},
-          {"version": "1.3", "status": "superseded"},
-          {"version": "1.2", "status": "superseded"},
-          {"version": "1.1", "status": "superseded"},
-          {"version": "1.0", "status": "superseded"}
+          {
+            "version": "1.7",
+            "status": "current",
+            "note": "Released 2025-10-21. Basis of ECMA-424.",
+            "url": "https://cyclonedx.org/docs/1.7/json/"
+          },
+          {
+            "version": "1.6",
+            "status": "active",
+            "url": "https://cyclonedx.org/docs/1.6/json/"
+          },
+          {
+            "version": "1.5",
+            "status": "active",
+            "note": "Introduced modelCard and the machine-learning-model / data component types (ML-BOM).",
+            "url": "https://cyclonedx.org/docs/1.5/json/"
+          },
+          {
+            "version": "1.4",
+            "status": "active",
+            "note": "Last version without ML-BOM support.",
+            "url": "https://cyclonedx.org/docs/1.4/json/"
+          },
+          {
+            "version": "1.3",
+            "status": "superseded"
+          },
+          {
+            "version": "1.2",
+            "status": "superseded"
+          },
+          {
+            "version": "1.1",
+            "status": "superseded"
+          },
+          {
+            "version": "1.0",
+            "status": "superseded"
+          }
         ],
         "urls": [
-          {"type": "website", "url": "https://cyclonedx.org/"},
-          {"type": "spec", "url": "https://cyclonedx.org/specification/overview/"},
-          {"type": "github", "url": "https://github.com/CycloneDX/specification"},
-          {"type": "schema", "url": "https://cyclonedx.org/schema/", "note": "JSON Schema and XML XSD per spec version"}
+          {
+            "type": "website",
+            "url": "https://cyclonedx.org/"
+          },
+          {
+            "type": "spec",
+            "url": "https://cyclonedx.org/specification/overview/",
+            "parsability": "scraped"
+          },
+          {
+            "type": "spec",
+            "url": "https://cyclonedx.org/docs/1.7/json/",
+            "parsability": "scraped",
+            "note": "Field-by-field JSON documentation for 1.7. /docs/latest/json/ serves the newest release."
+          },
+          {
+            "type": "capability",
+            "url": "https://cyclonedx.org/capabilities/mlbom/",
+            "parsability": "scraped",
+            "note": "AI/ML-BOM capability overview"
+          },
+          {
+            "type": "schema",
+            "url": "https://cyclonedx.org/schema/bom-1.7.schema.json",
+            "parsability": "structured",
+            "content_type": "application/schema+json",
+            "note": "CycloneDX 1.7 JSON Schema (Draft-07). Carries the modelCard and componentData definitions."
+          },
+          {
+            "type": "schema",
+            "url": "https://cyclonedx.org/schema/bom-1.7.xsd",
+            "parsability": "structured",
+            "content_type": "application/xml",
+            "note": "CycloneDX 1.7 XML Schema"
+          },
+          {
+            "type": "schema",
+            "url": "https://cyclonedx.org/schema/bom-1.7.proto",
+            "parsability": "structured",
+            "note": "CycloneDX 1.7 Protocol Buffers definition"
+          },
+          {
+            "type": "schema",
+            "url": "https://cyclonedx.org/schema/bom-1.6.schema.json",
+            "parsability": "structured",
+            "content_type": "application/schema+json"
+          },
+          {
+            "type": "schema",
+            "url": "https://cyclonedx.org/schema/bom-1.5.schema.json",
+            "parsability": "structured",
+            "content_type": "application/schema+json",
+            "note": "First schema version containing modelCard"
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/CycloneDX/specification"
+          }
         ],
         "examples": [
-          {"input": "cyclonedx", "note": "CycloneDX SBOM standard"}
+          {
+            "input": "cyclonedx",
+            "note": "CycloneDX BOM standard"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "(?i)^(mlbom|ml-bom)$"
+          ],
+          "description": "ML-BOM — the CycloneDX machine learning bill of materials capability",
+          "weight": 100,
+          "data": {
+            "type": "capability",
+            "since_version": "1.5",
+            "description": "Machine Learning Bill of Materials. Provides model and dataset transparency for security, privacy, safety and ethical considerations by describing models, the datasets they were trained and evaluated on, and their dependencies.",
+            "notes": "ML-BOM is not a separate schema file. It is the subset of the BOM schema comprising the machine-learning-model and data component types, the modelCard object attached to a machine-learning-model component, and the componentData object attached to a data component. Model card support is derived from the TensorFlow Model Card Toolkit and portions of VerifyML, both Apache-2.0.",
+            "url": "https://cyclonedx.org/capabilities/mlbom/",
+            "provenance": {
+              "method": "Capability page and schema cross-checked; modelCard confirmed present in bom-1.5, 1.6 and 1.7 schemas and absent from 1.4.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/capabilities/mlbom/"
+            },
+            "examples": [
+              {
+                "input": "mlbom",
+                "url": "https://cyclonedx.org/capabilities/mlbom/"
+              },
+              {
+                "input": "ml-bom",
+                "url": "https://cyclonedx.org/capabilities/mlbom/",
+                "note": "Hyphenated spelling used in CycloneDX prose"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/component/(machine-learning-model|data)$"
+          ],
+          "description": "Component type that makes a CycloneDX BOM an ML-BOM",
+          "weight": 100,
+          "data": {
+            "type": "component_type",
+            "since_version": "1.5",
+            "description": "Specifies the type of component. For software components, classify as application if no more specific appropriate classification is available or cannot be determined for the component.",
+            "notes": "These are two values of the components[].type enumeration. A machine-learning-model component SHOULD carry a modelCard; a data component SHOULD carry componentData. Neither object may be attached to any other component type.",
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_type",
+            "known_values": {
+              "mlbom/component/machine-learning-model": "A model based on training data that can make predictions or decisions without being explicitly programmed to do so.",
+              "mlbom/component/data": "A collection of discrete values that convey information."
+            },
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "examples": [
+              {
+                "input": "mlbom/component/machine-learning-model",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_type"
+              },
+              {
+                "input": "mlbom/component/data",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_type"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/modelCard$"
+          ],
+          "description": "The CycloneDX model card object",
+          "weight": 100,
+          "data": {
+            "type": "object",
+            "since_version": "1.5",
+            "description": "A model card describes the intended uses of a machine learning model and potential limitations, including biases and ethical considerations. Model cards typically contain the training parameters, which datasets were used to train the model, performance metrics, and other relevant data useful for ML transparency. This object SHOULD be specified for any component of type `machine-learning-model` and must not be specified for other component types.",
+            "notes": "Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard",
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "schema_pointer": "#/definitions/modelCard",
+            "examples": [
+              {
+                "input": "mlbom/modelCard",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/modelCard/(modelParameters|quantitativeAnalysis|considerations)$"
+          ],
+          "description": "Top-level section of a CycloneDX model card",
+          "weight": 100,
+          "data": {
+            "type": "object",
+            "since_version": "1.5",
+            "description": "One of the three substantive sections of a model card.",
+            "notes": "Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "variables": {
+              "section": {
+                "extract": "^mlbom/modelCard/([A-Za-z]+)$",
+                "description": "Model card section name"
+              }
+            },
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_{section}",
+            "known_values": {
+              "mlbom/modelCard/modelParameters": "Hyper-parameters for construction of the model.",
+              "mlbom/modelCard/quantitativeAnalysis": "A quantitative analysis of the model",
+              "mlbom/modelCard/considerations": "What considerations should be taken into account regarding the model's construction, training, and application?"
+            },
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "examples": [
+              {
+                "input": "mlbom/modelCard/considerations",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations"
+              },
+              {
+                "input": "mlbom/modelCard/modelParameters",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/modelCard/modelParameters/(approach|task|architectureFamily|modelArchitecture|datasets|inputs|outputs)$",
+            "^mlbom/modelCard/quantitativeAnalysis/(performanceMetrics|graphics)$",
+            "^mlbom/modelCard/considerations/(users|useCases|technicalLimitations|performanceTradeoffs|ethicalConsiderations|environmentalConsiderations|fairnessAssessments)$"
+          ],
+          "description": "Field within a CycloneDX model card section",
+          "weight": 100,
+          "data": {
+            "type": "field",
+            "since_version": "1.5",
+            "description": "A field of modelParameters, quantitativeAnalysis or considerations.",
+            "notes": "considerations/* is the block most often cited in AI governance work — intended users, use cases, technical limitations, performance tradeoffs, ethical risks, environmental impact and fairness assessments. Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "variables": {
+              "section": {
+                "extract": "^mlbom/modelCard/([A-Za-z]+)/[A-Za-z]+$",
+                "description": "Model card section name"
+              },
+              "field": {
+                "extract": "^mlbom/modelCard/[A-Za-z]+/([A-Za-z]+)$",
+                "description": "Field name within the section"
+              }
+            },
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_{section}_{field}",
+            "known_values": {
+              "mlbom/modelCard/modelParameters/approach": "The overall approach to learning used by the model for problem solving.",
+              "mlbom/modelCard/modelParameters/task": "Directly influences the input and/or output. Examples include classification, regression, clustering, etc.",
+              "mlbom/modelCard/modelParameters/architectureFamily": "The model architecture family such as transformer network, convolutional neural network, residual neural network, LSTM neural network, etc.",
+              "mlbom/modelCard/modelParameters/modelArchitecture": "The specific architecture of the model such as GPT-1, ResNet-50, YOLOv3, etc.",
+              "mlbom/modelCard/modelParameters/datasets": "The datasets used to train and evaluate the model.",
+              "mlbom/modelCard/modelParameters/inputs": "The input format(s) of the model",
+              "mlbom/modelCard/modelParameters/outputs": "The output format(s) from the model",
+              "mlbom/modelCard/quantitativeAnalysis/performanceMetrics": "The model performance metrics being reported. Examples may include accuracy, F1 score, precision, top-3 error rates, MSC, etc.",
+              "mlbom/modelCard/quantitativeAnalysis/graphics": "A collection of graphics that represent various measurements.",
+              "mlbom/modelCard/considerations/users": "Who are the intended users of the model?",
+              "mlbom/modelCard/considerations/useCases": "What are the intended use cases of the model?",
+              "mlbom/modelCard/considerations/technicalLimitations": "What are the known technical limitations of the model? E.g. What kind(s) of data should the model be expected not to perform well on? What are the factors that might degrade model performance?",
+              "mlbom/modelCard/considerations/performanceTradeoffs": "What are the known tradeoffs in accuracy/performance of the model?",
+              "mlbom/modelCard/considerations/ethicalConsiderations": "What are the ethical risks involved in the application of this model?",
+              "mlbom/modelCard/considerations/environmentalConsiderations": "What are the various environmental impacts the corresponding machine learning model has exhibited across its lifecycle?",
+              "mlbom/modelCard/considerations/fairnessAssessments": "How does the model affect groups at risk of being systematically disadvantaged? What are the harms and benefits to the various affected groups?"
+            },
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "examples": [
+              {
+                "input": "mlbom/modelCard/considerations/ethicalConsiderations",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations_ethicalConsiderations",
+                "note": "Ethical risks involved in applying the model"
+              },
+              {
+                "input": "mlbom/modelCard/considerations/fairnessAssessments",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations_fairnessAssessments"
+              },
+              {
+                "input": "mlbom/modelCard/modelParameters/datasets",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets",
+                "note": "Training and evaluation datasets — inline componentData or a bom-ref to a data component"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/modelCard/considerations/environmentalConsiderations/energyConsumptions$"
+          ],
+          "description": "Per-activity energy consumption records inside a model card",
+          "weight": 100,
+          "data": {
+            "type": "field",
+            "since_version": "1.6",
+            "description": "Describes energy consumption information incurred for one or more component lifecycle activities.",
+            "notes": "Each entry names a lifecycle activity (design, data-collection, training, fine-tuning, inference, other) with its energy cost, CO2 equivalent and any offsets. This is the CycloneDX counterpart to the SPDX AI profile's EnergyConsumption class. Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations_environmentalConsiderations_energyConsumptions",
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "schema_pointer": "#/definitions/modelCard/properties/considerations/properties/environmentalConsiderations/properties/energyConsumptions",
+            "examples": [
+              {
+                "input": "mlbom/modelCard/considerations/environmentalConsiderations/energyConsumptions",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations_environmentalConsiderations_energyConsumptions"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/componentData$"
+          ],
+          "description": "The CycloneDX dataset (component data) object",
+          "weight": 100,
+          "data": {
+            "type": "object",
+            "since_version": "1.5",
+            "description": "This object SHOULD be specified for any component of type `data` and must not be specified for other component types.",
+            "notes": "componentData describes a dataset: its contents, classification, sensitive data and governance. It appears in two places — as components[].data on a data component, and inline under modelCard.modelParameters.datasets. The documentation page only expands it under the datasets path, so resolution URLs point there. Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0",
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "schema_pointer": "#/definitions/componentData",
+            "examples": [
+              {
+                "input": "mlbom/componentData",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/componentData/(type|name|contents|classification|sensitiveData|graphics|description|governance)$"
+          ],
+          "description": "Field of the CycloneDX componentData (dataset) object",
+          "weight": 100,
+          "data": {
+            "type": "field",
+            "since_version": "1.5",
+            "description": "A field describing a dataset carried in an ML-BOM.",
+            "notes": "componentData.type enumerates configuration, dataset, definition, other, source-code. governance captures data owners, stewards and custodians — the fields auditors reach for when asking who is accountable for a training set. Anchor paths on the CycloneDX documentation page are generated by walking $refs, and modelCard is fully expanded at exactly one place in that walk — under metadata.tools. That is why resolution URLs carry the metadata_tools_oneOf_i0_components_items_ prefix even though the field being described is components[].modelCard. It is the real link target; a tidier-looking anchor would resolve to nothing.",
+            "variables": {
+              "field": {
+                "extract": "^mlbom/componentData/([A-Za-z]+)$",
+                "description": "componentData field name"
+              }
+            },
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_{field}",
+            "known_values": {
+              "mlbom/componentData/type": "The general theme or subject matter of the data being specified.",
+              "mlbom/componentData/name": "The name of the dataset.",
+              "mlbom/componentData/contents": "The contents or references to the contents of the data being described.",
+              "mlbom/componentData/classification": "Data classification tags data according to its type, sensitivity, and value if altered, stolen, or destroyed.",
+              "mlbom/componentData/sensitiveData": "A description of any sensitive data in a dataset.",
+              "mlbom/componentData/graphics": "A collection of graphics that represent various measurements.",
+              "mlbom/componentData/description": "A description of the dataset. Can describe size of dataset, whether it's used for source code, training, testing, or validation, etc.",
+              "mlbom/componentData/governance": "Data governance captures information regarding data ownership, stewardship, and custodianship, providing insights into the individuals or entities responsible for managing, overseeing, and safeguarding the data throughout its lifecycle."
+            },
+            "provenance": {
+              "method": "Field paths, titles and descriptions read from bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-08-21",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "examples": [
+              {
+                "input": "mlbom/componentData/governance",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_governance",
+                "note": "Data ownership, stewardship and custodianship"
+              },
+              {
+                "input": "mlbom/componentData/classification",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_classification"
+              },
+              {
+                "input": "mlbom/componentData/sensitiveData",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_sensitiveData"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
