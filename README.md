@@ -15,6 +15,8 @@ project_source: github:CloudSecurityAlliance/SecID
 
 **SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities.**
 
+**Scope is security and security-adjacent.** Alongside CVE, CWE and ATT&CK, that includes the risk and assurance frameworks security findings get expressed through in safety-critical industries — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C. The test is in [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
+
 **Live service: [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/)**
 
 ## SecID MCP Server
@@ -25,7 +27,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 1,150+ other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 2,100+ other security knowledge sources.
 
 ## What SecID Does
 

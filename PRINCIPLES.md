@@ -23,6 +23,13 @@ is that control. What stays out of the registry is what always stayed out: enric
 severe it is) and relationships (this control maps to that one). The content itself, and the record of how to obtain
 it, live in the data repositories; the registry keeps holding identity, resolution, and disambiguation, and refers out.
 
+**"Security knowledge" includes security-adjacent risk and assurance frameworks.** ISO 14971, ISO 26262
+(ASIL), IEC 61508 (SIL) and DO-178C are safety standards rather than security standards — and they are in
+scope, because security findings in medical devices, vehicles, industrial control and avionics are expressed
+and adjudicated in their terms. A vulnerability nobody can state in ASIL terms is a vulnerability nobody in
+that industry can act on. The test lives in [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0. What "that's it"
+rules out is enrichment and relationships, not adjacent domains.
+
 ## 2. AI-First, Human-Legible
 
 **The primary consumer is AI agents. But humans must be able to read, write, and understand everything.**

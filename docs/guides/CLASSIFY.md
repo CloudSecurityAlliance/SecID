@@ -11,7 +11,8 @@ what exists; `registry/<type>.md` holds each type's definition and its boundarie
 
 ## TL;DR
 
-Given something new, decide three things:
+First confirm the thing is in scope at all ([Step 0](#step-0--is-it-in-scope)). Then decide
+three things:
 
 1. **Type** — one of `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`,
    `regulation`, `entity`, `reference`.
@@ -20,6 +21,42 @@ Given something new, decide three things:
 3. **Name** — what the publisher calls it (`csf`, `pci-dss`, `ccm`, `cwe`).
 
 Then `secid:<type>/<namespace>/<name>[@version][#subpath]`.
+
+## Step 0 — Is it in scope?
+
+SecID covers **security and security-adjacent knowledge**. The name is a name, not a boundary.
+
+Most material passes or fails this obviously. The hard cases are risk, severity, and assurance frameworks
+from safety-critical industries — functional safety, medical devices, aviation, process control. The test:
+
+> **A risk, severity, or assurance framework is in scope when security findings in its domain are
+> *expressed through* it.**
+
+Not *"is this a security standard?"* but *"does a security finding here have to be stated in this
+framework's terms before anyone can act on it?"*
+
+| Framework | In scope? | Why |
+|---|---|---|
+| ISO 26262 / ASIL | Yes | An ECU vulnerability's remediation urgency *is* an ASIL judgement |
+| IEC 61508, IEC 61511 / SIL | Yes | ICS vulnerability consequence is stated in SIL terms |
+| ISO 14971 | Yes | A medical device vulnerability becomes a recall decision through its risk matrix |
+| DO-178C, DO-326A | Yes | Avionics software assurance; DO-326A is explicitly airworthiness security |
+| ISO 9001 | No | Generic quality management; no security finding routes through it |
+| A generic 5×5 risk matrix | No | No issuing authority and no stable identifier — it would also fail the pattern-breadth gate |
+
+Three consequences worth stating plainly:
+
+- **In scope is not the same as being a security standard.** ISO 14971 is a safety standard. It is in scope
+  because medical device security findings are adjudicated in its terms.
+- **The test can say no to things already registered.** IEC 60601 (electrical safety) and ISO 13485 (medical
+  device quality management) predate this test and sit at its edge. They stay for now, flagged rather than
+  ratified — a test that only ever says yes is not a test.
+- **Scope is not a licensing question.** Whether SecID may serve a framework's *content* is separate and
+  decided later; being unable to redistribute ISO 26262 has no bearing on whether it belongs in the registry.
+
+When the answer is genuinely unclear, [ask](#when-to-stop-and-ask) rather than guessing. Scope drift is
+harder to notice than a wrong type, because both still resolve — but a wrong type resolves somewhere
+plausible, while out-of-scope material makes the registry mean something different than it claims.
 
 ## Step 1 — Determine the type
 
