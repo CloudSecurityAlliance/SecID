@@ -152,6 +152,52 @@ The `consortium` subtype is now in use (see *Named subtypes in use today* above)
 | `"product"` | Products from an org (Office 365, AWS S3, Chrome browser) |
 | `"service"` | Service offerings (AWS, Azure, GCP as overall services) |
 
+### `reference` — document kinds (SecID 2.0 corpus expansion)
+
+SecID 2.0 sets out to capture the material practitioners and researchers actually reach for — papers, blogs, reports,
+talks, datasets, vendor documentation. All of it is already `reference` ("Documents, research, identifier systems"), so
+none of it needs a new type. What it needs is a discriminator, because "show me the academic papers" and "show me the
+vendor blogs" are different questions.
+
+| `subtype:` value (candidate) | What it would identify |
+|------------------------------|------------------------|
+| `"paper"` | Academic papers and preprints (arXiv, DOI, IEEE, ACM, SSRN, USENIX) |
+| `"blog"` | Vendor and researcher blog posts (Project Zero, Unit 42, Talos) |
+| `"report"` | Industry and threat reports (Verizon DBIR, M-Trends, ENISA Threat Landscape, CSA reports) |
+| `"presentation"` | Conference talks and slide decks (Black Hat, DEF CON, RSA, FIRST) |
+| `"dataset"` | Evaluation sets and benchmarks (HarmBench, WMDP) — currently sitting implicitly under `control` |
+| `"documentation"` | Vendor product and API documentation |
+| `"format-spec"` | Data and exchange formats (SARIF, CycloneDX, SPDX, OSCAL, STIX) — already `reference`, untagged |
+
+**Identifier-space warning.** Several of these have genuinely unbounded identifier spaces — a blog post's ID is a URL
+slug, and new ones appear daily. Those nodes must declare `open_pattern: true`, which keeps namespace-scoped resolution
+working while excluding them from unscoped cross-source search. Bounded sets must *not*: a publisher issues one DBIR a
+year, so an enumerated pattern discriminates and stays searchable. See the pattern-breadth rules in
+[CLAUDE.md](../../CLAUDE.md).
+
+### `control` and `entity` — scope of obligation
+
+A standard published by a single company binds only those who do business with it; one published by a consortium binds
+its members. Both differ from a public standard anyone may adopt, and the distinction answers a question consumers
+genuinely have: *can I just implement this, or do I need a relationship first?* Roughly 72 company- and
+consortium-published entries currently sit in `control/` and `methodology/` untagged — SWIFT CSP, the card-brand
+programs, EMVCo, ENX/TISAX, the ISACs, and the market-infrastructure operators among them.
+
+| `subtype:` value (candidate) | What it would identify |
+|------------------------------|------------------------|
+| `"corporate"` | One company's requirements, binding on those who transact with it (SWIFT CSP, Visa, Microsoft SDL) |
+| `"consortium"` | A member body's requirements, binding on members (EMVCo, ENX/TISAX, the ISACs) — composes with the existing `entity: consortium` |
+
+### `regulation` — enforcement
+
+Statutes say what the law requires; enforcement actions say what it has actually meant in practice, which is a
+different research question. Fines, consent decrees, and regulator decisions (GDPR penalties, FTC actions, ICO
+enforcement) sit alongside the `law` / `directive` / `transposition` candidates above.
+
+| `subtype:` value (candidate) | What it would identify |
+|------------------------------|------------------------|
+| `"enforcement"` | Regulatory enforcement actions, fines, and consent decrees |
+
 ## Implicit overloads (subtypes-in-spirit, not yet tagged)
 
 Patterns that predate the `subtype:` convention and are documented in [DESIGN-DECISIONS.md §"Current Overloading"](../explanation/DESIGN-DECISIONS.md). They behave like subtypes — distinct sub-categories within a type — but they don't currently carry a `subtype:` tag in registry data. They're identified by *which namespace* they live in, not by a discriminator field.

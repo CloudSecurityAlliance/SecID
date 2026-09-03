@@ -18,6 +18,11 @@ Three layers, cleanly separated:
 
 If you're debating whether something belongs in the registry, ask: "Is this about finding the thing, or about describing the thing?" If the latter, it belongs elsewhere.
 
+**SecID 2.0 does not change this.** Serving the content of a document is still *finding* — you asked for a control, here
+is that control. What stays out of the registry is what always stayed out: enrichment (what this CVE affects, how
+severe it is) and relationships (this control maps to that one). The content itself, and the record of how to obtain
+it, live in the data repositories; the registry keeps holding identity, resolution, and disambiguation, and refers out.
+
 ## 2. AI-First, Human-Legible
 
 **The primary consumer is AI agents. But humans must be able to read, write, and understand everything.**
@@ -194,6 +199,67 @@ secid:*                                       → All types
 
 This is intuitive (everyone knows what `*` means) and solves the discovery problem without a separate API. If someone doesn't know what's available, they can explore.
 
+## 11. Local-First Is a First-Class Mode
+
+**The hosted resolver is a convenience. The corpus is the product.**
+
+SecID is designed so that anyone can sync its data and run their own resolver — for privacy, for speed, for offline
+operation, or to layer private data on top of public. This is not a fallback for when the service is down; it is a
+supported, documented, equal way to use SecID. (Delivered in 3.0; the design choices that make it possible are being
+made now.)
+
+Two things follow. The hosted service offers *basic* resolution — exact lookup, listing, wildcard exploration, metadata
+filters — and comprehensive search over content is what running your own gets you. That boundary is honest about cost,
+and it means an organization's queries need never leave its network. And CSA's own internal resolver, serving content
+we hold under agreement, is the same software pointed at different repositories — not a separate system.
+
+Sharding by region exists partly to serve this: nobody should have to sync the world to use their own jurisdiction.
+It is a 2.0 decision made for a 3.0 reason, which is why it belongs in the principles rather than in a roadmap entry.
+
+## 12. Verifiable, Not Merely Asserted
+
+**A claim about extracted content should be checkable by someone who does not trust us.**
+
+When we say a control's text is what that source says, a third party should be able to take the same source, run the
+same extractor, and confirm it. Equivalence is tiered rather than byte-exact: identifiers, structure, and normative
+text must match exactly, because a dropped article number is a wrong answer delivered silently; formatting and
+extraction incidentals need not match at all.
+
+Where the pipeline is deterministic, an extraction is **reproduced**. Where AI is in the path, byte-reproduction is
+impossible and the extraction is **attested** instead — invariants checked, provenance recorded. Both are legitimate;
+what matters is that consumers are told which one they hold. This is principle 5 (honest uncertainty) applied to
+content rather than to resolution.
+
+Reproducibility is also how something survives its authors. A corpus meant to last decades must be re-derivable by
+people who were not there when it was built.
+
+## 13. Sustainable by Design
+
+**No part of SecID should be so expensive that losing the budget kills it.**
+
+This is not thrift for its own sake. A resource that disappears when one organization's funding changes is not
+infrastructure, and people are right not to build on it. Sustainability is what makes the promise of a permanent
+reference layer credible.
+
+Three rules follow:
+
+- **Cost must not scale with adoption on our side.** A thousand new consumers should not mean a thousand times the
+  bill. Where a capability is genuinely expensive, move it to where the demand is: the consumer runs it, on their
+  own copy.
+- **Prefer infrastructure the consumer already pays for.** Distribution through git, object storage, and
+  requester-pays buckets means bulk consumers carry their own egress. Nobody is subsidising a crawler.
+- **Never mirror what the publisher already hosts well.** CVE and ATT&CK are authoritative, version-tagged, and
+  free at the source. Copying them costs storage, invites staleness, and buys nothing.
+
+The corollary is that the hosted service is deliberately modest — direct resolution, listing, wildcards, and
+precomputed facets over common dimensions like country and type — while the expensive capabilities live in the
+local tier. That is not a limitation grudgingly accepted; it is the design that lets the free tier stay free
+indefinitely.
+
+This principle explains decisions already made rather than constraining future ones: region sharding so consumers
+sync one jurisdiction instead of the world, git for text and object storage for bulk, requester-pays for archives,
+upstream-only for sources the publisher hosts, and local-first for search.
+
 ## Applying These Principles
 
 When making a design decision, check it against these principles in order:
@@ -205,3 +271,6 @@ When making a design decision, check it against these principles in order:
 5. Are we following the source? (If we're mangling identifiers, stop.)
 6. Are we preserving data? (If a transformation is lossy, don't do it.)
 7. Are we staying PURL-compatible? (If we're breaking grammar, we need a very good reason.)
+8. Can someone run this themselves? (If a capability only works on our servers, ask why.)
+9. Can someone else check it? (If we're asserting content is faithful without a way to verify, say so plainly.)
+10. Does this cost scale with adoption? (If yes, move it to the consumer's side.)

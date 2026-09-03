@@ -107,10 +107,228 @@ SecID changes this. When you have a SecID, you can:
 AI agents accelerate adoption because they can consume SecID immediately without organizational buy-in. But the long-term value is infrastructure that humans, traditional tools, and AI all use together.
 
 We're building this in layers:
-- **v1.0**: URL resolution + descriptions (where to find it, what it is)
-- **v1.x**: Raw content with licensing (the actual text, properly attributed)
-- **v2.x**: Metadata wrapper (interpretation and usage guidance for AI)
+- **v1.0**: URL resolution + descriptions (where to find it, what it is) — **shipped**
+- **v2.0**: The content itself, where licensing permits — plus the tooling that produces and verifies it
+- **v3.0**: Run it yourself — sync, caching, comprehensive local search, private/internal deployment
 - **Future**: Relationships and overlays (connections and enrichment)
+
+## SecID 2.0 and 3.0
+
+Three versions, three questions:
+
+| Version | Question it answers | Status |
+|---|---|---|
+| **1.0** | *Where is it?* — grammar, registry, URL resolution | **Shipped** |
+| **2.0** | *What is it?* — the content itself, and the tooling that produces it | In design |
+| **3.0** | *Can I run it myself?* — sync, cache, comprehensive local search, private deployment | Planned |
+
+Each is useful on its own. 2.0 is worth having even if nobody ever runs a local resolver; 3.0 is what makes 2.0
+practical at scale, private, and fast.
+
+Both documents below state **what** we want to accomplish. Neither states how to build it — the lifecycle and
+publishing model are open questions to be answered empirically (see [docs/project/TODO.md](docs/project/TODO.md)).
+
+## SecID 2.0: Content and the Tools That Produce It
+
+**v1.0 hands you an address. v2.0 hands you the thing.**
+
+Where licensing permits, resolving a SecID returns the actual text — structured, attributed, citable at the item
+level. Where licensing does not permit, it returns an honest account of how to obtain the material and what that will
+take. And for a source the publisher already hosts well — CVE, ATT&CK STIX — the complete and correct answer stays
+"here is where it lives," with SecID shipping no copy at all.
+
+Getting there means three things: somewhere to put the content, tooling to produce it, and the content itself.
+
+### What we want to accomplish
+
+| Goal | Meaning |
+|---|---|
+| **Serve content, not just links** | Where redistribution is permitted, a SecID resolves to real text — structured, attributed, addressable at the subpath level |
+| **Say honestly what we cannot serve** | Licensed and restricted material carries metadata, acquisition instructions, and an access or purchase route — never silence |
+| **Make acquisition legible** | Access constraints, volatility, and redistribution status become recorded facts rather than tribal knowledge |
+| **Build tools that build extractors** | The deliverable is the toolchain, not a pile of one-off scripts. Most sources are extracted once and never again; the tooling is what makes the next one cheap |
+| **Make extraction verifiable** | A third party can re-derive our structured output from the same source, or see clearly why they cannot |
+| **Consolidate CSA's scattered data** | One way to find CSA security data, instead of a dozen one-off dataset repositories |
+| **Cover the world, not just the anglosphere** | Coverage is measured per jurisdiction, and its gaps are visible rather than implicit |
+
+### The data repositories
+
+Registry and data separate cleanly. **The SecID registry keeps holding exactly what it holds today** — identity,
+resolution, disambiguation — and refers out. All content, and all metadata about acquiring that content, lives in the
+data repositories.
+
+Data shards by the **authority** behind the material, grouped into regions:
+
+| Repository | Holds |
+|---|---|
+| `SecID-Data-International` | Bodies whose authority spans states — ISO, PCI SSC, MITRE, SWIFT, EMVCo, IETF, CSA |
+| `SecID-Data-North-America` | United States, Canada |
+| `SecID-Data-Latin-America` | Mexico, Central America, the Caribbean, South America |
+| `SecID-Data-Europe` | EU institutions and European national authorities |
+| `SecID-Data-Asia` | |
+| `SecID-Data-Middle-East` | |
+| `SecID-Data-Africa` | |
+| `SecID-Data-Oceania` | |
+| `SecID-Data-Staging` | Acquired but not yet classified — type, authority, or extraction still unresolved. **Everything here has an exit.** |
+| `SecID-Data-Vendor` | Product security capabilities — AWS, Azure, GCP and every other vendor's configurable security features |
+
+**Why authority, not address or reach.** A Japanese government standard belongs to Asia even when the world adopts it,
+because the Japanese state owns and amends it. SWIFT is International despite being headquartered in Belgium, because
+its authority comes from its member network rather than from Belgian law. A local company's supplier standard belongs
+to its own region. One question — *whose authority does this instrument derive from?* — answers all three.
+
+**Why capability data is not sharded by region.** The region axis exists to serve *jurisdictional relevance*, and
+product capabilities have none — AWS S3 encryption is identical in every country. Nobody syncs `Europe` to obtain AWS
+configuration data, and nobody syncing AWS configuration data cares about jurisdiction. Sharding it geographically
+would also put AWS, Azure and GCP all in `North-America` (their publishers are US companies), where a projected
+10,000–20,000 capability entries would outweigh every standards body in the repository by an order of magnitude.
+
+So the rule generalises: **data that is not jurisdictional does not shard jurisdictionally.** Capability is the only
+type where this matters at scale — `weakness` and `ttp` are also global but are 13 and 4 namespaces respectively.
+
+Two placement rules result, both still derivable from the SecID with no lookup:
+
+```
+secid:capability/<domain>/…   →  SecID-Data-Vendor  (or SecID-Data-<domain> once promoted)
+everything else               →  its region, by authority
+```
+
+`SecID-Data-Vendor` starts as a single repository to avoid a repo explosion. A vendor is promoted to its own
+`SecID-Data-<domain>` repository — `SecID-Data-amazon.com` — when its capability set crosses a **published size
+threshold**. The threshold is deliberately mechanical rather than editorial: a vendor earns a repository by arithmetic,
+not by anyone's judgement about its importance, and any vendor can earn one by documenting its own product. Promotion
+is free because the shard key is the publishing domain, which never changes.
+
+Vendor promotion also carries the strongest ownership case in the design. A national CERT maintaining a regional
+repository is speculative; a vendor maintaining the documentation of its own security features is how vendor
+documentation already works.
+
+**Why shard the rest at all.** Not for storage; the extracted corpus is small. Sharding buys three things: regional bodies and
+CSA chapters can own their own material outright, reclassifying an item's *type* never moves bytes because the shard
+key is the publishing domain and that never changes, and — looking ahead to 3.0 — consumers can sync only the
+jurisdictions they care about rather than the whole world.
+
+**Where the bytes go.** Structured, human-legible output — Markdown, JSON, CSV — lives in git, where it is diffable,
+reviewable, and cheap to clone. Source originals and extraction artifacts live in object storage: R2 for serving, S3
+with requester-pays for bulk and archival access.
+
+### Consolidating the existing datasets
+
+CSA's security data currently lives across many one-off dataset repositories. v2.0 brings the SecID-shaped material
+into the structure above and states a disposition for everything else:
+
+| Material | Disposition |
+|---|---|
+| `dataset-public-laws-regulations-standards` | Migrates into the region repositories; the original becomes a pointer to its successors and is retired |
+| `dataset-private-laws-regulations-standards` | Unchanged through 2.0. Migrates to private data repositories in 3.0, once the internal resolver exists |
+| NVD, CPE, cvelistV5 | **Upstream-only.** The publisher hosts authoritative, version-tagged data. SecID points; it never mirrors |
+| Papers and preprints | In scope, later phase — already SecID-shaped as `reference` entries |
+| Entity crawl products | Stay whole. Keyed by domain but produced by a single pipeline, so the pipeline is the unit |
+| CSA internal content, website archives, video extractions | Not SecID data |
+
+### Tools that build extractors
+
+The point is not to extract a thousand documents. It is to build the tooling that makes extracting the thousand-and-first
+cheap, and to make every extraction re-derivable by someone who was not there.
+
+Most of this corpus is extracted once and never again — a published regulation does not change — so the recurring
+cost sits in the tooling and the few sources that genuinely churn. AI belongs in *building* the extractor, not in being
+it: pay the expensive step of understanding a document's structure once, then ship a deterministic extractor that
+anyone can re-run.
+
+### Verifiable extraction
+
+Contributors will submit extractors alongside extracted data. We must be able to re-run the extractor and confirm the
+data is what that source, processed that way, actually yields.
+
+Equivalence is **tiered, not byte-exact**. Identifiers, structure, and normative text must match exactly — a missing
+article number or a mangled control ID is a wrong answer delivered silently. Formatting, line wrapping, and extraction
+incidentals need not match at all.
+
+Where the pipeline is deterministic, an extraction is **reproduced** — machine-verified, no human required. Where AI is
+in the extraction path, byte-reproduction is impossible and the extraction is **attested** instead: invariants checked,
+provenance signed. Both are honest; consumers are told which they hold.
+
+Reproducibility here is a **continuity** requirement more than a verification one. Something intended to run for
+decades must be re-derivable by people who were not there when it was built.
+
+### What we want to capture
+
+Everything a security practitioner or researcher reaches for. Beyond the standards, regulations, and taxonomies
+already covered:
+
+- Academic papers and preprints; vendor and researcher blogs; threat and industry reports
+- Conference presentations; evaluation datasets and benchmarks; vendor product and API documentation
+- Corporate and consortium standards — the requirements that bind you only if you do business with someone
+- Regulatory enforcement actions, which say what the law has actually *meant* in practice
+- Threat intelligence — adversary groups, malware families, campaigns (the deferred `cti` type)
+
+The type list stays frozen at ten. Nearly all of this is expressed as `subtype:` refinement of existing types, which is
+cheap; adding a type is not.
+
+### How we find what nobody asked for
+
+Demand alone is not enough — people cannot request what they do not know exists. Discovery runs four ways, in rough
+order of yield:
+
+1. **The institutional grid.** Artifacts are unbounded; authorities are not. Roughly 200 jurisdictions times a handful
+   of authority kinds — national cyber agency, data protection authority, financial regulator, national CERT, standards
+   body — is a finite, fillable matrix, and its empty cells name whole countries we are missing.
+2. **Publisher watch.** Feeds, release channels, official gazettes, sitemap deltas. New publications arrive rather than
+   being hunted.
+3. **Citation following.** Standards cite standards and papers cite papers; the graph surfaces material no query would
+   reach.
+4. **Demand signal.** Recorded misses — someone looked for this and found nothing. Lowest volume, highest precision.
+
+## SecID 3.0: Run It Yourself
+
+**Everything in 2.0 assumes a hosted resolver. 3.0 removes that assumption.**
+
+The hosted service stays what it is: cheap, fast, free, and deliberately basic — exact resolution, namespace and prefix
+listing, wildcard exploration, metadata filters. All key lookups, all things KV is good at.
+
+Comprehensive search is what you get by running your own. This is a deliberate boundary rather than a limitation to
+apologise for: it bounds hosted cost, and it means an organization's queries never leave its network — which for many
+adopters is the reason to use SecID at all.
+
+### What we want to accomplish
+
+| Goal | Meaning |
+|---|---|
+| **Sync what you need, not everything** | Clone the regions you care about plus the global bodies. Nobody should sync the world to use their own jurisdiction |
+| **Stay current without effort** | An update mechanism that is incremental, integrity-checked, and version-pinnable |
+| **Comprehensive local search** | Full text over content, semantic and vector search, cross-document ranking — over the corpus you hold |
+| **Survive outages and latency** | A caching layer so a local resolver is fast and keeps working when upstream does not |
+| **Layer your own data on top** | Private, internal, or purchased content resolving alongside public content in one namespace |
+| **Serve what we cannot publish** | CSA's own restricted material — ISO standards and similar — served internally by the same software pointed at private repositories |
+
+### Private and internal SecID
+
+Content CSA holds under agreement but may not redistribute lives in identically-named private repositories under
+`CloudSecurityAlliance-Internal`, served by an internal resolver. Visibility is an **organization** property, not a
+naming convention, so the same shard rule and the same tooling apply to public and private alike.
+
+That is what makes the internal tier cheap: it is not a second system. It is the local resolver from 3.0, pointed at
+different repositories. Build the local resolver well and the private tier follows.
+
+### Keeping the demand signal
+
+Local-first costs us visibility into what people look for. The fix is to report **misses only** — "I searched for this
+and found nothing" — optionally and anonymously. That is the signal that drives registry growth, and it reveals nothing
+about what an organization holds, which is the part adopters care about.
+
+## An institution, not a project
+
+There is no completion criterion, and there should not be one. The model is Wikipedia: permanently unfinished, and
+useful at every stage.
+
+That makes per-item maintenance cost the thing to optimise, not ingest throughput. Most of this corpus is frozen — a
+published regulation does not change — so once captured it costs nothing to keep. The recurring cost concentrates in
+the few sources that genuinely churn, which is why recording *how* something changes (additions, updates, removals,
+identifier stability) matters as much as recording what it says.
+
+Progress is therefore measured as **coverage**, not completion: which jurisdictions have their authorities registered,
+which authorities have their publications captured, which captures are verified. A visible gap is a working result.
 
 ## What We're Building (Full Stack)
 
