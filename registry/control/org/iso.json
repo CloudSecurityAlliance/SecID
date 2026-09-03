@@ -326,7 +326,7 @@
       }
     },
     {
-      "patterns": ["(?i)^26262(?:-(\\d+))?$"],
+      "patterns": ["(?i)^26262$", "(?i)^26262-(\\d+)$"],
       "description": "ISO 26262 — Road vehicles: Functional safety",
       "weight": 100,
       "data": {
