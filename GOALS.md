@@ -11,7 +11,7 @@ With SecID 2.0 the handle stops being only an address. Where licensing permits, 
 ## Near-term goals (now → 2026-Q3)
 
 - **~~Repair the live deploy chain.~~ Done.** Registry contributions reach production again: a push to `main` touching `registry/**/*.json` dispatches to SecID-Service and syncs KV in ~1m20s. Verified end-to-end 2026-08-21. Historical context in [FRICTION-001](../SecID-Service/FRICTION/FRICTION-001.md) and [WAITING-FOR-001](../SecID-Service/WAITING-FOR/WAITING-FOR-001.md).
-- **Land the 14 new CSAF advisory entries + format metadata fields** to the live resolver once the deploy chain is repaired.
+- **Land the 14 new CSAF advisory entries + format metadata fields** to the live resolver — unblocked now the deploy chain is repaired.
 - **Complete client SDK reference implementations** in the priority languages (Python, npm/TypeScript, Go) and verify the AI-generation instructions produce working clients in Rust, Java, C#.
 - **Verify type-list consistency** across all four repos (SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK) on every type addition. The current process is manual and the spec note in CLAUDE.md says CI/CD does not auto-detect.
 - **Ship Course 1 (Introduction)** training materials in a deliverable form (self-paced or instructor-led pilot).
