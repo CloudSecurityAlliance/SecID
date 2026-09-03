@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities (MITRE, NIST, etc.).
 
-**Scope is security *and security-adjacent*.** Risk and assurance frameworks that security findings are expressed through — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C — are in scope even though they are safety rather than security standards. Apply [CLASSIFY.md Step 0](docs/guides/CLASSIFY.md#step-0-is-it-in-scope) before classifying anything.
+**Scope is deliberately broad.** The test is *would an infosec practitioner benefit from being able to find this easily?* — if yes, it is in scope. That includes the risk and assurance frameworks of safety-critical industries (ISO 26262/ASIL, IEC 61508/SIL, ISO 14971, DO-178C); being a safety rather than a security standard is not grounds for exclusion. Scope is a separate question from **registrability** — whether an issuing authority and an enumerable identifier space exist. See [CLASSIFY.md Step 0](docs/guides/CLASSIFY.md#step-0-is-it-in-scope).
 
 Format: `secid:type/namespace/name[@version][?qualifiers][#subpath[@item_version][?qualifiers]]`
 
@@ -50,7 +50,7 @@ With 20+ markdown files, know which document answers which question:
 | Why does SecID exist? | [RATIONALE.md](docs/explanation/RATIONALE.md) |
 | Why was X designed this way? | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) - longer-form explanations |
 | When was X decided, what were the alternatives? | [DECISIONS.md](DECISIONS.md) - chronological ADR log with rejected alternatives |
-| **Is this in scope, and what type is it?** | **[CLASSIFY.md](docs/guides/CLASSIFY.md)** - Step 0 scope test (security and security-adjacent), then the classification procedure: type, subtype, namespace, name; boundary tests; worked examples; how to spot gaps |
+| **Is this in scope, and what type is it?** | **[CLASSIFY.md](docs/guides/CLASSIFY.md)** - Step 0 scope test (would a practitioner benefit from finding it?), then the classification procedure: type, subtype, namespace, name; boundary tests; worked examples; how to spot gaps |
 | How do I add a namespace? | [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) - principles, patterns, process |
 | How do I add a namespace (step-by-step)? | [ADD-NAMESPACE.md](docs/guides/ADD-NAMESPACE.md) - task-oriented walkthrough |
 | How do I update an existing namespace? | [UPDATE-NAMESPACE.md](docs/guides/UPDATE-NAMESPACE.md) |

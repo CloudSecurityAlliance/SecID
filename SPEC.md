@@ -303,10 +303,10 @@ Each registry file documents its subpath patterns and how to resolve them to URL
 - Reference documents (standards, research papers, executive orders)
 
 **This section is about *structural* scope — what is shaped like a SecID.** Subject-matter scope is
-separate: SecID covers security **and security-adjacent** knowledge, so risk and assurance frameworks that
-security findings are expressed through — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971 — are in scope even
-though they are safety rather than security standards. The list above is illustrative, not exhaustive; the
-subject-matter test is [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
+separate and deliberately broad: *would an infosec practitioner benefit from being able to find this
+easily?* That admits the risk and assurance frameworks of safety-critical industries — ISO 26262 (ASIL),
+IEC 61508 (SIL), ISO 14971 — even though they are safety rather than security standards. The list above is
+illustrative, not exhaustive; the subject-matter test is [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
 
 **SecID does not assign identifiers.** SecID maintains a registry of identifier *systems* (CVE, GHSA, CWE, etc.) and provides a grammar to reference identifiers within those systems. The identifiers themselves (CVE-2024-1234, CWE-79, T1059) are assigned by their respective authorities (MITRE, GitHub, NIST, etc.).
 

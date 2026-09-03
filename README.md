@@ -15,7 +15,7 @@ project_source: github:CloudSecurityAlliance/SecID
 
 **SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities.**
 
-**Scope is security and security-adjacent.** Alongside CVE, CWE and ATT&CK, that includes the risk and assurance frameworks security findings get expressed through in safety-critical industries — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C. The test is in [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
+**Scope is deliberately broad: would an infosec practitioner benefit from finding it easily?** If yes, it belongs. Alongside CVE, CWE and ATT&CK that includes the risk and assurance frameworks of safety-critical industries — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C. The test is in [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
 
 **Live service: [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/)**
 

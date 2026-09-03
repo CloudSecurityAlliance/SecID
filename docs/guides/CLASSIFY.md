@@ -24,42 +24,41 @@ Then `secid:<type>/<namespace>/<name>[@version][#subpath]`.
 
 ## Step 0: Is it in scope?
 
-SecID covers **security and security-adjacent knowledge**. The name is a name, not a boundary.
+**Would an infosec practitioner benefit from being able to find this easily? If yes, it is in scope.**
 
-Most material passes or fails this obviously. The hard cases are risk, severity, and assurance frameworks
-from safety-critical industries — functional safety, medical devices, aviation, process control. The test:
+That is the whole test. SecID exists to label and find things, so scope is a usefulness question, not a
+subject-matter one. "Security knowledge" is read **broadly and deliberately**.
 
-> **A risk, severity, or assurance framework is in scope when security findings in its domain are
-> *expressed through* it.**
+In particular, the risk and assurance frameworks of safety-critical industries are in scope — ISO 26262
+(ASIL), IEC 61508 and 61511 (SIL), ISO 14971, ISO 13485, IEC 60601, DO-178C, DO-326A. Practitioners working
+on medical devices, vehicles, industrial control and avionics need to find them, and a security finding in
+those industries is stated in their terms. **Being a safety standard rather than a security standard is not
+a reason to exclude something.**
 
-Not *"is this a security standard?"* but *"does a security finding here have to be stated in this
-framework's terms before anyone can act on it?"*
+### Scope is not the same question as registrability
 
-| Framework | In scope? | Why |
+Something can be plainly in scope and still not registerable yet. Keep the two apart — they fail differently
+and they are fixed differently:
+
+| Question | Test | Enforced by |
 |---|---|---|
-| ISO 26262 / ASIL | Yes | An ECU vulnerability's remediation urgency *is* an ASIL judgement |
-| IEC 61508, IEC 61511 / SIL | Yes | ICS vulnerability consequence is stated in SIL terms |
-| ISO 14971 | Yes | A medical device vulnerability becomes a recall decision through its risk matrix |
-| DO-178C, DO-326A | Yes | Avionics software assurance; DO-326A is explicitly airworthiness security |
-| ISO 9001 | No | Generic quality management; no security finding routes through it |
-| A generic 5×5 risk matrix | No | No issuing authority and no stable identifier — it would also fail the pattern-breadth gate |
+| **In scope?** | Would an infosec practitioner benefit from finding it? | This step |
+| **Registerable?** | Is there an issuing authority, and can its identifiers be enumerated or given a discriminating pattern? | The pattern-breadth gate — `scripts/check-pattern-breadth.py` |
 
-Three consequences worth stating plainly:
+A generic 5×5 risk matrix shows why this matters. It passes the first test easily: practitioners use them
+constantly. It fails the second — nobody issues them, and there is no identifier to resolve. That is a
+**registrability** failure, not a scope failure. Out of scope means never; not registerable means not until
+someone defines the identifier space.
 
-- **In scope is not the same as being a security standard.** ISO 14971 is a safety standard. It is in scope
-  because medical device security findings are adjudicated in its terms.
-- **The test can say no to things already registered.** Most of the safety material already held passes it:
-  ISO 13849 and IEC 62061 (machinery functional safety) work like SIL, and ISO/IEC 80001 covers IT networks
-  carrying medical devices. Three sit at the edge — **IEC 60601** (electrical safety), **IEC 62366**
-  (usability engineering) and **ISO 13485** (quality management) — where no security finding is obviously
-  expressed in their terms. They predate this test and stay for now, flagged rather than ratified: a test
-  that only ever says yes is not a test.
-- **Scope is not a licensing question.** Whether SecID may serve a framework's *content* is separate and
-  decided later; being unable to redistribute ISO 26262 has no bearing on whether it belongs in the registry.
+Reaching for "out of scope" to reject something that is really an identifier problem hides the actual
+blocker, and the entry never gets revisited once the space *is* definable.
 
-When the answer is genuinely unclear, [ask](#when-to-stop-and-ask) rather than guessing. Scope drift is
-harder to notice than a wrong type, because both still resolve — but a wrong type resolves somewhere
-plausible, while out-of-scope material makes the registry mean something different than it claims.
+### When it is genuinely unclear
+
+Default to **yes**. A registry that is slightly too broad costs a reader one irrelevant search result; one
+that is too narrow costs them the answer entirely, and they have no way to tell the difference between
+"not here" and "not anywhere". [Principle 3](../../PRINCIPLES.md) — helpful over correct — points the same
+way.
 
 ## Step 1 — Determine the type
 
@@ -194,10 +193,9 @@ See [registry/README.md](../../registry/README.md).
 
 ## When to stop and ask
 
-- **Scope is unclear** → ask, and **do not register meanwhile**. This is the one case where the interim
-  default is inaction: a wrongly-typed entry resolves somewhere plausible and can be moved, but
-  out-of-scope material changes what the registry claims to be, and every catalogue that admits it
-  makes the next admission easier to justify
+- **Scope is unclear** → default to **yes**; scope is deliberately broad ([Step 0](#step-0-is-it-in-scope)).
+  Stop only when there is no issuing authority or no enumerable identifier space — that is a *registrability*
+  problem, and the fix is to define the identifier space, not to register a permissive placeholder pattern
 - **Type cannot be determined** after working through this guide → ask, and default to `reference` meanwhile
 - **Publisher naming conflicts with an existing registry entry** → ask; propose a registry update
 - **Licence terms unclear** → do not host content; metadata-only with a link to the source
