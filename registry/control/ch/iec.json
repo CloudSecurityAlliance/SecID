@@ -50,7 +50,7 @@
       }
     },
     {
-      "patterns": ["(?i)^61508(-\\d+)?$"],
+      "patterns": ["(?i)^61508$", "(?i)^61508-(\\d+)$"],
       "description": "IEC 61508 — Foundational functional safety standard",
       "weight": 100,
       "data": {
