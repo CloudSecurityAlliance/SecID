@@ -179,7 +179,7 @@ secid:advisory/redhat.com/errata#RHSA-2024:1234             # Colon in ID (no en
 - As filenames: `secid%3Aadvisory%2Fmitre%2Fcve%23CVE-2024-1234`
 - In URL query strings: `?secid=secid%3Aadvisory%2F...`
 
-See [SPEC.md Section 8.2](SPEC.md#82-percent-encoding) for encoding rules when storing/transporting.
+See [SPEC.md Section 8.4](SPEC.md#84-percent-encoding) for encoding rules when storing/transporting.
 
 ## Relationship to PURL
 

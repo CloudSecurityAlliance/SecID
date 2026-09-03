@@ -89,7 +89,7 @@ Concrete, observable signals that the project worked:
 | Signal | Measure |
 |---|---|
 | Live resolver uptime | ≥99.5% over rolling 90 days |
-| Registry coverage | 1,000+ by 2027-Q2 — **met 2026, now 2,130**. The live measure is the second half: <5% of common security identifiers in active use with no SecID resolver |
+| Registry coverage | 1,000+ by 2027-Q2 — met well ahead of schedule; current totals live in the CLAUDE.md counts table, not here. The measure that still bites is the second half: <5% of common security identifiers in active use with no SecID resolver |
 | External adoption | 5+ external organizations actively using SecID in production tooling, identifiable in commits, issues, or public forums |
 | AI-agent integration | SecID MCP server is one of the top 50 most-used remote MCP servers (per Anthropic / Cloudflare directories) |
 | Federation | 3+ organizations run public SecID resolvers registered in CSA's namespace entries |

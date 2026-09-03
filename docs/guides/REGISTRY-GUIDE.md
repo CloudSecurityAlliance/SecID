@@ -307,7 +307,11 @@ Before adding anything, study how the source is **presented** and how people **u
 
 ### Step 2: Decision Tree
 
-1. **Is this security knowledge?** If not, it doesn't belong in SecID.
+1. **Is it in scope?** SecID covers security **and security-adjacent** knowledge — including risk and
+   assurance frameworks that security findings are expressed through (ISO 26262/ASIL, IEC 61508/SIL,
+   ISO 14971), which are safety rather than security standards. Apply
+   [CLASSIFY.md Step 0](CLASSIFY.md#step-0-is-it-in-scope); if it fails that test, it does not belong
+   in SecID.
 
 2. **What type is it?**
    - Publications about vulnerabilities → `advisory`

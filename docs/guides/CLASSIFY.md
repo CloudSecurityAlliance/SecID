@@ -11,7 +11,7 @@ what exists; `registry/<type>.md` holds each type's definition and its boundarie
 
 ## TL;DR
 
-First confirm the thing is in scope at all ([Step 0](#step-0--is-it-in-scope)). Then decide
+First confirm the thing is in scope at all ([Step 0](#step-0-is-it-in-scope)). Then decide
 three things:
 
 1. **Type** — one of `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`,
@@ -22,7 +22,7 @@ three things:
 
 Then `secid:<type>/<namespace>/<name>[@version][#subpath]`.
 
-## Step 0 — Is it in scope?
+## Step 0: Is it in scope?
 
 SecID covers **security and security-adjacent knowledge**. The name is a name, not a boundary.
 
@@ -48,9 +48,12 @@ Three consequences worth stating plainly:
 
 - **In scope is not the same as being a security standard.** ISO 14971 is a safety standard. It is in scope
   because medical device security findings are adjudicated in its terms.
-- **The test can say no to things already registered.** IEC 60601 (electrical safety) and ISO 13485 (medical
-  device quality management) predate this test and sit at its edge. They stay for now, flagged rather than
-  ratified — a test that only ever says yes is not a test.
+- **The test can say no to things already registered.** Most of the safety material already held passes it:
+  ISO 13849 and IEC 62061 (machinery functional safety) work like SIL, and ISO/IEC 80001 covers IT networks
+  carrying medical devices. Three sit at the edge — **IEC 60601** (electrical safety), **IEC 62366**
+  (usability engineering) and **ISO 13485** (quality management) — where no security finding is obviously
+  expressed in their terms. They predate this test and stay for now, flagged rather than ratified: a test
+  that only ever says yes is not a test.
 - **Scope is not a licensing question.** Whether SecID may serve a framework's *content* is separate and
   decided later; being unable to redistribute ISO 26262 has no bearing on whether it belongs in the registry.
 
@@ -191,6 +194,10 @@ See [registry/README.md](../../registry/README.md).
 
 ## When to stop and ask
 
+- **Scope is unclear** → ask, and **do not register meanwhile**. This is the one case where the interim
+  default is inaction: a wrongly-typed entry resolves somewhere plausible and can be moved, but
+  out-of-scope material changes what the registry claims to be, and every catalogue that admits it
+  makes the next admission easier to justify
 - **Type cannot be determined** after working through this guide → ask, and default to `reference` meanwhile
 - **Publisher naming conflicts with an existing registry entry** → ask; propose a registry update
 - **Licence terms unclear** → do not host content; metadata-only with a link to the source
