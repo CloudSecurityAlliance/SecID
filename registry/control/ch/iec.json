@@ -59,7 +59,19 @@
         "urls": [{"type": "website", "url": "https://webstore.iec.ch/publication/5515"}],
         "versions_available": [{"version": "2010", "release_date": "2010-04-01", "status": "current", "note": "IEC 61508:2010 (Edition 2.0)."}],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^SIL$"],
+          "description": "SIL — Safety Integrity Level. The risk-reduction rating scheme defined by IEC 61508.",
+          "weight": 100,
+          "data": {
+            "official_name": "Safety Integrity Level",
+            "note": "Four levels, SIL 1 (lowest) through SIL 4 (highest), expressed as a required risk reduction factor and a corresponding probability of failure on demand. Defined in IEC 61508 and applied by its sector derivations: IEC 61511 (process industry), IEC 62061 (machinery), IEC 61513 (nuclear), EN 50128 (rail). IEC 61511 determines the SIL required of a safety instrumented function through Layer of Protection Analysis (LOPA), in which each independent protection layer credits risk reduction. Whether a security control such as a firewall can earn independent-protection-layer credit is contested, since an IPL is expected to carry a characterisable probability of failure on demand.",
+            "examples": [{"input": "SIL", "note": "The scheme itself; individual levels (SIL 1-4) are not separately addressable yet."}]
+          }
+        }
+      ]
     },
     {
       "patterns": ["(?i)^61511(-\\d+)?$"],
