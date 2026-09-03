@@ -522,6 +522,7 @@ both. See [ROADMAP.md](ROADMAP.md) for what SecID 2.0 sets out to accomplish.
 - **Browse namespaces:** [registry/](registry/)
 - **Give feedback:** use the `submit_feedback` tool on the [live MCP server](https://secid.cloudsecurityalliance.org/) (AI/MCP-only — request a missing source, report wrong data, suggest improvements)
 - **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- **Classify something new:** [CLASSIFY.md](docs/guides/CLASSIFY.md) — how we decide what type a thing is, and how you can decide the same way
 - **Hands-on guides:** [docs/guides/](docs/guides/) — step-by-step walkthroughs for adding namespaces, writing patterns, and converting formats
 
 **Using AI tools?** We encourage it. See [AGENTS.md](AGENTS.md) for general agent instructions. If you're using Claude Code, Gemini, or similar tools, run `/init` to pick up the repo-specific configuration files automatically.
