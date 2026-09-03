@@ -15,6 +15,8 @@ project_source: github:CloudSecurityAlliance/SecID
 
 **SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities.**
 
+**Scope is deliberately broad: would an infosec practitioner benefit from finding it easily?** If yes, it belongs. Alongside CVE, CWE and ATT&CK that includes the risk and assurance frameworks of safety-critical industries — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C. The test is in [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
+
 **Live service: [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/)**
 
 ## SecID MCP Server
@@ -25,7 +27,7 @@ Add SecID to your AI assistant as a remote MCP server:
 https://secid.cloudsecurityalliance.org/mcp
 ```
 
-That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 1,150+ other security knowledge sources.
+That's it. No API keys, no local install, no configuration. Works with Claude Desktop, Claude Code, Cursor, Windsurf, and any MCP client that supports remote servers. Your AI assistant gets three tools (`resolve`, `lookup`, `describe`) and can immediately look up CVEs, CWEs, ATT&CK techniques, NIST controls, and 2,100+ other security knowledge sources.
 
 ## What SecID Does
 
@@ -177,7 +179,7 @@ secid:advisory/redhat.com/errata#RHSA-2024:1234             # Colon in ID (no en
 - As filenames: `secid%3Aadvisory%2Fmitre%2Fcve%23CVE-2024-1234`
 - In URL query strings: `?secid=secid%3Aadvisory%2F...`
 
-See [SPEC.md Section 8.2](SPEC.md#82-percent-encoding) for encoding rules when storing/transporting.
+See [SPEC.md Section 8.4](SPEC.md#84-percent-encoding) for encoding rules when storing/transporting.
 
 ## Relationship to PURL
 

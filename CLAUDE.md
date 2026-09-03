@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SecID provides a grammar and registry for referencing security knowledge. SecID does not assign identifiers—those come from their respective authorities (MITRE, NIST, etc.).
 
+**Scope is deliberately broad.** The test is *would an infosec practitioner benefit from being able to find this easily?* — if yes, it is in scope. That includes the risk and assurance frameworks of safety-critical industries (ISO 26262/ASIL, IEC 61508/SIL, ISO 14971, DO-178C); being a safety rather than a security standard is not grounds for exclusion. Scope is a separate question from **registrability** — whether an issuing authority and an enumerable identifier space exist. See [CLASSIFY.md Step 0](docs/guides/CLASSIFY.md#step-0-is-it-in-scope).
+
 Format: `secid:type/namespace/name[@version][?qualifiers][#subpath[@item_version][?qualifiers]]`
 
 Examples:
@@ -19,7 +21,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 2,030 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 2,130 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 **SecID 2.0 and 3.0 are in design.** v1.0 answers *where is it*. v2.0 answers *what is it* — the content itself where licensing permits, plus the toolchain that produces and verifies it. v3.0 answers *can I run it myself* — sync, caching, comprehensive local search, and the private/internal resolver. Crucially for registry work: **neither adds anything to the registry format.** The registry keeps holding identity, resolution, and disambiguation, and refers out to separate `SecID-Data-*` repositories (ADR-010).
 
@@ -48,7 +50,7 @@ With 20+ markdown files, know which document answers which question:
 | Why does SecID exist? | [RATIONALE.md](docs/explanation/RATIONALE.md) |
 | Why was X designed this way? | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) - longer-form explanations |
 | When was X decided, what were the alternatives? | [DECISIONS.md](DECISIONS.md) - chronological ADR log with rejected alternatives |
-| **How do I decide what type something is?** | **[CLASSIFY.md](docs/guides/CLASSIFY.md)** - the classification procedure: type, subtype, namespace, name; boundary tests; worked examples; how to spot gaps |
+| **Is this in scope, and what type is it?** | **[CLASSIFY.md](docs/guides/CLASSIFY.md)** - Step 0 scope test (would a practitioner benefit from finding it?), then the classification procedure: type, subtype, namespace, name; boundary tests; worked examples; how to spot gaps |
 | How do I add a namespace? | [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) - principles, patterns, process |
 | How do I add a namespace (step-by-step)? | [ADD-NAMESPACE.md](docs/guides/ADD-NAMESPACE.md) - task-oriented walkthrough |
 | How do I update an existing namespace? | [UPDATE-NAMESPACE.md](docs/guides/UPDATE-NAMESPACE.md) |
@@ -105,7 +107,7 @@ secid/
 │   ├── <type>.json          # Type description in JSON (10 files, the .json counterpart of <type>.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (2,030 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (2,130 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
 ├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (JSON validation source of truth)
 ├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners, stub generators)

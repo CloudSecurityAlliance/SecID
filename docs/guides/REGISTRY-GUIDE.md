@@ -307,7 +307,13 @@ Before adding anything, study how the source is **presented** and how people **u
 
 ### Step 2: Decision Tree
 
-1. **Is this security knowledge?** If not, it doesn't belong in SecID.
+1. **Is it in scope?** Ask: *would an infosec practitioner benefit from being able to find this easily?*
+   If yes, it is in scope. Scope is deliberately broad and includes the risk and assurance frameworks of
+   safety-critical industries (ISO 26262/ASIL, IEC 61508/SIL, ISO 14971) — being a safety rather than a
+   security standard is not grounds for exclusion. See
+   [CLASSIFY.md Step 0](CLASSIFY.md#step-0-is-it-in-scope). A separate question is whether it is
+   *registerable*: does an issuing authority exist, and can its identifiers be enumerated or given a
+   discriminating pattern?
 
 2. **What type is it?**
    - Publications about vulnerabilities → `advisory`

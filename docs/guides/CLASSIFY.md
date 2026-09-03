@@ -11,7 +11,8 @@ what exists; `registry/<type>.md` holds each type's definition and its boundarie
 
 ## TL;DR
 
-Given something new, decide three things:
+First confirm the thing is in scope at all ([Step 0](#step-0-is-it-in-scope)). Then decide
+three things:
 
 1. **Type** — one of `advisory`, `weakness`, `ttp`, `control`, `capability`, `methodology`, `disclosure`,
    `regulation`, `entity`, `reference`.
@@ -20,6 +21,44 @@ Given something new, decide three things:
 3. **Name** — what the publisher calls it (`csf`, `pci-dss`, `ccm`, `cwe`).
 
 Then `secid:<type>/<namespace>/<name>[@version][#subpath]`.
+
+## Step 0: Is it in scope?
+
+**Would an infosec practitioner benefit from being able to find this easily? If yes, it is in scope.**
+
+That is the whole test. SecID exists to label and find things, so scope is a usefulness question, not a
+subject-matter one. "Security knowledge" is read **broadly and deliberately**.
+
+In particular, the risk and assurance frameworks of safety-critical industries are in scope — ISO 26262
+(ASIL), IEC 61508 and 61511 (SIL), ISO 14971, ISO 13485, IEC 60601, DO-178C, DO-326A. Practitioners working
+on medical devices, vehicles, industrial control and avionics need to find them, and a security finding in
+those industries is stated in their terms. **Being a safety standard rather than a security standard is not
+a reason to exclude something.**
+
+### Scope is not the same question as registrability
+
+Something can be plainly in scope and still not registerable yet. Keep the two apart — they fail differently
+and they are fixed differently:
+
+| Question | Test | Enforced by |
+|---|---|---|
+| **In scope?** | Would an infosec practitioner benefit from finding it? | This step |
+| **Registerable?** | Is there an issuing authority, and can its identifiers be enumerated or given a discriminating pattern? | The pattern-breadth gate — `scripts/check-pattern-breadth.py` |
+
+A generic 5×5 risk matrix shows why this matters. It passes the first test easily: practitioners use them
+constantly. It fails the second — nobody issues them, and there is no identifier to resolve. That is a
+**registrability** failure, not a scope failure. Out of scope means never; not registerable means not until
+someone defines the identifier space.
+
+Reaching for "out of scope" to reject something that is really an identifier problem hides the actual
+blocker, and the entry never gets revisited once the space *is* definable.
+
+### When it is genuinely unclear
+
+Default to **yes**. A registry that is slightly too broad costs a reader one irrelevant search result; one
+that is too narrow costs them the answer entirely, and they have no way to tell the difference between
+"not here" and "not anywhere". [Principle 3](../../PRINCIPLES.md) — helpful over correct — points the same
+way.
 
 ## Step 1 — Determine the type
 
@@ -154,6 +193,9 @@ See [registry/README.md](../../registry/README.md).
 
 ## When to stop and ask
 
+- **Scope is unclear** → default to **yes**; scope is deliberately broad ([Step 0](#step-0-is-it-in-scope)).
+  Stop only when there is no issuing authority or no enumerable identifier space — that is a *registrability*
+  problem, and the fix is to define the identifier space, not to register a permissive placeholder pattern
 - **Type cannot be determined** after working through this guide → ask, and default to `reference` meanwhile
 - **Publisher naming conflicts with an existing registry entry** → ask; propose a registry update
 - **Licence terms unclear** → do not host content; metadata-only with a link to the source

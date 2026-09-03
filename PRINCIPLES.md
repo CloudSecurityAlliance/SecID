@@ -23,6 +23,13 @@ is that control. What stays out of the registry is what always stayed out: enric
 severe it is) and relationships (this control maps to that one). The content itself, and the record of how to obtain
 it, live in the data repositories; the registry keeps holding identity, resolution, and disambiguation, and refers out.
 
+**"Security knowledge" is read broadly.** The scope test is a usefulness test: *would an infosec
+practitioner benefit from being able to find this easily?* If yes, it is in scope. That admits the risk and
+assurance frameworks of safety-critical industries — ISO 26262 (ASIL), IEC 61508 (SIL), ISO 14971, DO-178C —
+because people doing medical device, automotive, ICS and avionics security need to find them. Being a safety
+standard rather than a security standard is not a reason to exclude something. What "that's it" rules out is
+enrichment and relationships, not adjacent subject matter. See [CLASSIFY.md](docs/guides/CLASSIFY.md) Step 0.
+
 ## 2. AI-First, Human-Legible
 
 **The primary consumer is AI agents. But humans must be able to read, write, and understand everything.**

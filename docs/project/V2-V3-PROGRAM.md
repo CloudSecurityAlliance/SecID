@@ -52,8 +52,9 @@ outcomes live in [GOALS.md](../../GOALS.md) and [ROADMAP.md](../../ROADMAP.md).
 
 A documentation sweep on 2026-08-20 found twelve state-drift items. All are objective corrections.
 
-- CLAUDE.md states **2,030 namespaces** twice in prose; actual is 2,130. `update-counts.sh` only edits between
-  `REGISTRY-COUNTS` markers, so prose drifts silently — fix the numbers *and* the mechanism
+- ~~CLAUDE.md states **2,030 namespaces** twice in prose; actual is 2,130.~~ Numbers corrected; **the mechanism
+  is still open** — `update-counts.sh` only edits between `REGISTRY-COUNTS` markers, so any prose count drifts
+  silently. README.md:30 and GOALS.md carry the same exposure
 - `CAPABILITY-TYPE.md` and `METHODOLOGY-TYPE.md` are marked "Research / proposal"; both types shipped
 - `CONSORTIUM-AND-COORDINATOR-SUBTYPES.md` and `DISCLOSURE-TYPE-FIELDS.md` marked "Draft / discussion"; both landed
 - Six proposals carry no status line at all
