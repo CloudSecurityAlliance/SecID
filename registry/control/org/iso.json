@@ -335,7 +335,19 @@
         "urls": [{"type": "website", "url": "https://www.iso.org/standard/68383.html"}],
         "versions_available": [{"version": "2018", "release_date": "2018-12-01", "status": "current", "note": "ISO 26262:2018 (2nd edition, multi-part)."}],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": ["(?i)^ASIL$"],
+          "description": "ASIL — Automotive Safety Integrity Level. The risk classification scheme defined by ISO 26262.",
+          "weight": 100,
+          "data": {
+            "official_name": "Automotive Safety Integrity Level",
+            "note": "Four levels, ASIL A (lowest) through ASIL D (highest), plus QM (quality management — no ISO 26262 safety requirement applies). Assigned per hazardous event from Severity x Exposure x Controllability (ISO 26262-3). ISO 26262-9 permits ASIL decomposition: an ASIL D requirement may be discharged by two sufficiently independent elements at lower ASILs, given demonstrated freedom from interference — so the rating reflects system architecture, not the raw hazard alone.",
+            "examples": [{"input": "ASIL", "note": "The scheme itself; individual levels (ASIL A-D, QM) are not separately addressable yet."}]
+          }
+        }
+      ]
     },
     {
       "patterns": ["(?i)^27003$"],
