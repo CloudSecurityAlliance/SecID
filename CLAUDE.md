@@ -94,6 +94,7 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details. This repo
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python, TypeScript, Docker. Run your own SecID server. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
 | **SecID-Website** | Cloudflare Pages documentation site (planned) |
+| **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | **Live.** DISA STIG/SRG content — 511 document-releases, 53,674 rules, quarterly ingests tagged `vYYYY.MM`. First data repo; sets the standard layout (ADR-014) and the promote-out-of-region rule (ADR-013). |
 | **SecID-Data-\*** | Extracted content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, `Staging` (planned, v2.0), plus `Vendor` for product capabilities (sharded by vendor, not region — capability data has no jurisdiction). Private counterparts with identical names arrive with v3.0 under `CloudSecurityAlliance-Internal`. |
 
 ## Repository Structure

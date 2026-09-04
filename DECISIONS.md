@@ -271,3 +271,77 @@ See [SecID-Service ADR-equivalent in their type-registry.ts header comment](http
 **Implementation:** Not yet started. Note that running contributor-supplied extractors is untrusted code execution and will need isolation designed in from the start.
 
 ---
+## ADR-013: A single-source corpus promotes out of its region repository at a size threshold
+
+**Date:** 2026-09-04
+**Status:** Accepted
+**Decision method:** Empirical — six quarterly ingests were built and measured before deciding
+
+**Goal:** Keep the region repositories legible when one publisher's corpus is an order of magnitude larger than everything else in its region.
+
+**Context:** ADR-011 shards data by region, keyed by the authority behind the instrument, and exempts capability data because it is not jurisdictional. DISA STIGs fit neither case cleanly. They are unambiguously US instruments, so the letter of ADR-011 places them in `North-America` — but the measured corpus is 174 documents and ~14,150 rules per release, retained across releases. Six quarters produce 511 document-release pairs and 53,674 rule records. That is the same magnitude ADR-011 refused for capability data, where "a projected 10,000-20,000 entries would outweigh every standards body in that repository". Placing STIGs in `North-America` would make it predominantly DISA, drowning NIST, FedRAMP and CISA.
+
+Size alone is not the sharpest argument, because storage is cheap. **Cadence** is. STIGs refresh quarterly as one synchronised batch of ~175 documents; statutes, regulations and agency guidance change irregularly and one item at a time. Mixed in one repository, each damages the other: the quarterly bulk-replace drowns the commit history, and "did a US regulation change this week" becomes unanswerable by inspection.
+
+**Decision:** A single publisher's corpus **promotes out of its region repository** into `SecID-Data-<domain>` when it exceeds a published, mechanical threshold. The repository is named for the authority's DNS domain — `SecID-Data-disa.mil` — matching the identifier used everywhere else in SecID, so promotion requires no naming debate. This is the same promotion mechanism ADR-011 already defines for `SecID-Data-Vendor`, applied in the opposite direction.
+
+Promotion does not change how anything resolves. The registry namespace stays `disa.mil`, the SecID string is unchanged, and the data path is identical to what it would have been inside the region repository (ADR-014). Only the repository boundary moves.
+
+**Rationale:** Measurement settled the storage question that motivated the alternatives. Six quarters of STIG data — 54,185 files, 245 MB checked out — pack to **18 MiB**, because git deduplicates identical rule records across release directories and stores every blob as a delta. Extrapolated at the measured ~2 MiB per quarter, a decade lands near 100 MiB: about 10% of GitHub's soft warning threshold. A single repository is therefore not merely acceptable but comfortable, and the reasons to split are legibility and delegated ownership rather than capacity.
+
+Naming by domain keeps promotion mechanical rather than editorial, which is the property ADR-011 insisted on when it rejected "an editorial list of which vendors get repositories".
+
+**Rejected alternatives:**
+- **Leave STIGs in `SecID-Data-North-America`** — Correct by the letter of ADR-011 and wrong in effect, the same way sharding capability data by region was: one publisher would dominate the region
+- **A repository per quarterly compilation** (`SecID-Data-disa.mil-2026-07`) — Measured and rejected. Deduplication and delta compression only operate within a single packfile, so six repositories store six copies of every unchanged rule: roughly 150 MiB against 18 MiB, growing by four repositories a year. It also destroys `git diff v2026.04 v2026.07`, the single most useful query over this corpus. Immutability, the property this was reaching for, is delivered by tags and per-quarter Releases at no cost
+- **Retain only the current release** — Rejected on evidence. SCAP Compliance Checker ships SCAP content one release behind the manual STIG (RHEL 9 manual V2R9 against SCAP V2R8), so latest-1 is not history, it is what practitioners' scanners are running today
+- **A size threshold expressed in bytes** — Storage compresses unpredictably; 245 MB of files became 18 MiB. Record and document counts are the stable signal
+- **Exempting STIGs by declaring them "not jurisdictional"** — They plainly are. Stretching ADR-011's existing exemption to cover this would have been motivated reasoning, and would have made the rule mean nothing
+
+**Implementation:** `SecID-Data-disa.mil` created 2026-09-04 with six quarterly ingests tagged `v2025.04` through `v2026.07`.
+
+---
+
+## ADR-014: Every SecID-Data-* repository uses one layout, mirroring the registry
+
+**Date:** 2026-09-04
+**Status:** Accepted
+**Decision method:** Collaborative — settled while creating the first data repository, before it was published
+
+**Goal:** Let one path-derivation algorithm read every data repository, so a resolver needs no per-source knowledge.
+
+**Context:** The first data repository was built with `stigs/` and `srgs/` at the top level, following the publisher's own vocabulary. Two problems surfaced immediately. It does not generalise — `SecID-Data-Europe` holds nothing called a STIG. And it is wrong by SecID's own model: STIGs and SRGs both resolve as `secid:control/...`, so the split encoded a distinction the identifier does not make.
+
+**Decision:** Every `SecID-Data-*` repository uses:
+
+```
+data/         extracted content, addressed by SecID
+schemas/      JSON Schema for the record formats
+scripts/      acquisition and extraction tooling
+indexes/      generated cross-references, never hand-edited
+docs/         how it works, source quirks, provenance
+```
+
+Content under `data/` is keyed on the **SecID type**, then the publisher domain in **reverse-DNS**, exactly as `registry/<type>/<tld>/<domain>` already does:
+
+```
+secid:control/disa.mil/rhel-9@V2R9#V-257505
+  -> data/control/mil/disa/rhel-9/V2R9/rules/V-257505.json
+```
+
+The domain appears even in a single-domain repository, where it is redundant, so that the derivation is identical in regional repositories that hold many.
+
+**Rationale:** Path derivation from the identifier is what makes a local resolver a filesystem lookup rather than an index scan, which is the 3.0 goal. The moment a layout encodes publisher vocabulary, every consumer needs a per-source lookup table. Keying on type rather than source vocabulary also survives the publisher reorganising: DISA could rename SRGs tomorrow without moving a byte.
+
+Mirroring the registry's existing reverse-DNS convention means contributors moving between repositories already know the furniture, and one documented algorithm covers both.
+
+**Rejected alternatives:**
+- **Publisher vocabulary at top level** (`stigs/`, `srgs/`) — Does not generalise, and encodes a distinction the SecID type does not make. `kind` survives as a field
+- **Omitting the domain in single-domain repositories** — Shorter, but regional repositories must carry it, producing two path shapes and a rule about which applies where
+- **Flat content at the repository root** — No room for tooling, schemas or documentation without colliding with data
+- **A top-level `research/`** — Provisional material belongs at `docs/research/`, where it reads as provisional; SecID's own documentation sweep flagged a stray top-level equivalent for archiving
+
+**Implementation:** Applied to `SecID-Data-disa.mil` before publication, so the layout is correct from its first commit.
+
+---
+
