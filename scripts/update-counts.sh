@@ -59,5 +59,13 @@ for file in CLAUDE.md README.md; do
 
   rm -f "$tmpdata"
   mv "${file}.tmp" "$file"
-  echo "Updated $file: $total namespaces across 10 types"
+
+  # Also refresh prose counts that sit OUTSIDE the markers, e.g. "2,130 namespaces".
+  # The marker block only covers the table, so without this the table and the
+  # surrounding prose drift apart on every namespace batch.
+  formatted=$(python3 -c "print(f'{$total:,}')")
+  sed -i.bak -E "s/[0-9]{1,3}(,[0-9]{3})+ namespaces/${formatted} namespaces/g; s/[0-9]{4,} namespaces/${formatted} namespaces/g" "$file"
+  rm -f "${file}.bak"
+
+  echo "Updated $file: $total namespaces across 10 types (table + prose)"
 done
