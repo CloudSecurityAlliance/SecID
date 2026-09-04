@@ -152,7 +152,8 @@ def build_node(d, compilation, checked, data_repo=None):
             "notes": (f"Current release {d['version']}. Published as XCCDF XML inside {d['file']}. "
                       f"The per-document download URL is pinned to the current revision and 404s once "
                       f"superseded; the quarterly compilation is the stable citation. "
-                      f"Rule identifiers within this document (V-IDs, rule IDs, STIG IDs) are not yet enumerated."),
+                      f"V-IDs for this release are enumerated below and resolve to structured records in "
+                      f"SecID-Data-disa.mil; rule IDs and STIG IDs are recorded there but are not subpaths."),
             "urls": [
                 {"type": "bulk_data", "url": f"{BASE}/{d['file']}", "format": "zip",
                  "parsability": "structured", "note": "XCCDF XML inside a ZIP. Revision-pinned URL.",
@@ -176,7 +177,7 @@ def build_node(d, compilation, checked, data_repo=None):
             # ^V-\d+$ is identical across all 174 documents, so in UNSCOPED search this node
             # would match every one of them and fabricate 173 wrong answers for any V-token.
             # known_values below carries the real set and should close the pattern, but the
-            # resolver does not yet honour it (SecID issue #189). open_pattern keeps these
+            # resolver does not yet honour it (SecID issue #190). open_pattern keeps these
             # nodes out of unscoped search while namespace-scoped resolution keeps working.
             # Remove this flag once known_values is enforced -- the data is already correct.
             "open_pattern": True,
