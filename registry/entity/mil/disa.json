@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "namespace": "disa.mil",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Defense Information Systems Agency",
+  "common_name": "DISA",
+  "alternate_names": [
+    "DoD Cyber Exchange",
+    "DISA IASE"
+  ],
+  "notes": "The Defense Information Systems Agency (DISA) authors the Security Technical Implementation Guides (STIGs) and Security Requirements Guides (SRGs) that DoD systems are configured and audited against. Content is distributed through the DoD Cyber Exchange (public.cyber.mil), with downloads served from dl.dod.cyber.mil. STIGs are US Government work and in the public domain — one of the few large control corpora with no redistribution restriction, which makes them a strong candidate for SecID 2.0 content extraction.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Defense_Information_Systems_Agency"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.disa.mil"
+    }
+  ],
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "sector": [
+      "government",
+      "defense"
+    ]
+  },
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^disa$"
+      ],
+      "description": "Defense Information Systems Agency — US DoD combat support agency, author of the STIGs",
+      "weight": 100,
+      "data": {
+        "official_name": "Defense Information Systems Agency",
+        "notes": "STIGs, SRGs and CCIs are registered at secid:control/disa.mil. Content is distributed via the DoD Cyber Exchange at public.cyber.mil.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.disa.mil"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
