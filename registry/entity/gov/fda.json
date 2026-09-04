@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "namespace": "fda.gov",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "U.S. Food and Drug Administration",
+  "common_name": "FDA",
+  "alternate_names": [
+    "Food and Drug Administration",
+    "US FDA"
+  ],
+  "notes": "The US Food and Drug Administration regulates medical devices, including their cybersecurity. Its guidance documents are non-binding recommendations that describe FDA's current thinking, but in practice they set the expectations a premarket submission is reviewed against. Section 524B of the FD&C Act (added by the Consolidated Appropriations Act, 2023) made cybersecurity information a statutory submission requirement for 'cyber devices' — the binding obligation is the statute; these documents are how FDA says it will be met. All FDA guidance is US Government work and in the public domain.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Food_and_Drug_Administration"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.fda.gov"
+    }
+  ],
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "sector": [
+      "healthcare"
+    ]
+  },
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^fda$"
+      ],
+      "description": "U.S. Food and Drug Administration — medical device regulator, including device cybersecurity",
+      "weight": 100,
+      "data": {
+        "official_name": "U.S. Food and Drug Administration",
+        "notes": "Cybersecurity guidance is registered at secid:control/fda.gov; device databases (MAUDE, recalls, AI/ML device list) at secid:advisory/fda.gov.",
+        "issues_type": "advisory",
+        "issues_namespace": "fda.gov",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.fda.gov"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
