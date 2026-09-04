@@ -16,6 +16,8 @@ outcomes live in [GOALS.md](../../GOALS.md) and [ROADMAP.md](../../ROADMAP.md).
 |---|---|
 | v2.0 serves content; the registry format is unchanged | ADR-010 |
 | Data shards by region, keyed by the authority behind the material | ADR-011 |
+| A single-source corpus promotes out of its region repo at a threshold; named `SecID-Data-<domain>` | ADR-013 |
+| Every `SecID-Data-*` repo uses one layout, mirroring the registry's reverse-DNS | ADR-014 |
 | Capability data shards by vendor, not region (`SecID-Data-Vendor`) | ADR-011 |
 | Extraction equivalence is tiered; extractions are *reproduced* or *attested* | ADR-012 |
 | Structured text in git; originals and extraction artifacts in R2, S3 requester-pays for bulk | ROADMAP |
@@ -41,6 +43,7 @@ outcomes live in [GOALS.md](../../GOALS.md) and [ROADMAP.md](../../ROADMAP.md).
 | Does `cti` survive as a type, or dissolve into `entity` + `advisory` subtypes? | Same | Same |
 | Where do benchmarks live — `control`, `methodology`, or `reference`? | `dataset` subtype | TYPES-AND-SUBTYPES |
 | Vendor promotion threshold (entries before a vendor earns its own repo) | Vendor repo creation | ADR-011 |
+| Where the promotion threshold sits numerically for non-vendor corpora | Future promotions | ADR-013 |
 | Private vocabulary naming and validation hooks | 3.0 private tier | TODO "Private types and subtypes" |
 | Which facets to precompute for the free tier | Search tiering | TODO "Search tiering" |
 | Ship embeddings, or generate locally? | 3.0 local search | TODO "Search tiering" |
@@ -86,6 +89,8 @@ The test: **SecID owns what defines the system; everything else owns what instan
 
 ### W3 — Repository architecture and migration *(depends on W2 tagging)*
 
+- ~~Create the first data repository~~ — **`SecID-Data-disa.mil` created 2026-09-04**: 6 quarterly ingests
+  (`v2025.04`-`v2026.07`), 511 document-releases, 53,674 rule records, 18 MiB packed. Sets the layout (ADR-014)
 - Create the region repositories, `SecID-Data-Vendor`, and `SecID-Data-Staging`
 - Migrate `dataset-public-laws-regulations-standards` (167 MB in git; originals already gitignored) and retire it
   behind a README pointing at successors
