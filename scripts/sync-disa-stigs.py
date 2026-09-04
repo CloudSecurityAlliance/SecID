@@ -173,6 +173,13 @@ def build_node(d, compilation, checked, data_repo=None):
             "patterns": ["^V-\\d+$"],
             "description": f"A single requirement within the {d['product']} {d['kind']}, by DISA Vuln ID.",
             "weight": 100,
+            # ^V-\d+$ is identical across all 174 documents, so in UNSCOPED search this node
+            # would match every one of them and fabricate 173 wrong answers for any V-token.
+            # known_values below carries the real set and should close the pattern, but the
+            # resolver does not yet honour it (SecID issue #189). open_pattern keeps these
+            # nodes out of unscoped search while namespace-scoped resolution keeps working.
+            # Remove this flag once known_values is enforced -- the data is already correct.
+            "open_pattern": True,
             "data": {
                 "note": ("DISA publishes no per-rule permalink; rules exist only inside the XCCDF. "
                          "Structured records are served from SecID-Data-disa.mil. Each rule also carries a "
