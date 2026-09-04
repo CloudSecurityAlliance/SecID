@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sae.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Source-level entries only. Item-level identifiers (clauses, appendices) not yet researched.",
+  "official_name": "SAE International",
+  "common_name": "SAE",
+  "alternate_names": [
+    "Society of Automotive Engineers"
+  ],
+  "notes": "SAE International is a US standards body for aerospace and automotive engineering, publishing Aerospace Recommended Practices (ARP), Aerospace Standards (AS) and Aerospace Information Reports (AIR). Note that ISO/SAE 21434 (road vehicle cybersecurity engineering) is jointly published and is registered under the ISO namespace at secid:control/iso.org/21434. Documents are paywalled.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/SAE_International"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sae.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^arp4754a$"
+      ],
+      "description": "ARP4754A — Guidelines for Development of Civil Aircraft and Systems",
+      "weight": 100,
+      "data": {
+        "official_name": "SAE ARP4754A / EUROCAE ED-79A",
+        "notes": "System-level development assurance for civil aircraft. Defines Development Assurance Level (DAL) and its Function (FDAL) and Item (IDAL) variants, and permits allocating a lower IDAL to individual items where architecture provides sufficient independence. Revision B was published in 2023. Paired with EUROCAE ED-79A.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.sae.org/standards/content/arp4754a/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      },
+      "children": [
+        {
+          "patterns": [
+            "(?i)^DAL$"
+          ],
+          "description": "DAL — Development Assurance Level. The assurance-rigour classification used across the ARP4754A / ARP4761 / DO-178C set.",
+          "weight": 100,
+          "data": {
+            "official_name": "Development Assurance Level",
+            "notes": "Five levels, A (most rigorous, catastrophic failure condition) through E (no safety effect), assigned from the failure-condition severity established by the ARP4761 safety assessment. Terminology varies by document and this is a common source of confusion: ARP4754A defines Development Assurance Level and its Function (FDAL) and Item (IDAL) variants; DO-178C itself says \"software level\"; DO-254 says \"hardware design assurance level\". Unlike CVSS, DAL carries no environmental adjustment — it is not lowered by adding a perimeter control, only by architectural change that alters the failure-condition classification, which ARP4754A permits via IDAL allocation across sufficiently independent items.",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.sae.org/standards/content/arp4754a/"
+              }
+            ],
+            "versions_available": [],
+            "examples": []
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "(?i)^arp4761$"
+      ],
+      "description": "ARP4761 — Guidelines and Methods for Conducting the Safety Assessment Process on Civil Airborne Systems and Equipment",
+      "weight": 100,
+      "data": {
+        "official_name": "SAE ARP4761 / EUROCAE ED-135",
+        "notes": "The safety assessment methods that feed ARP4754A and DO-178C: Functional Hazard Assessment (FHA), Preliminary System Safety Assessment (PSSA), System Safety Assessment (SSA), plus fault tree analysis, FMEA and common cause analysis. Establishes the five-tier failure-condition severity classification (Catastrophic, Hazardous/Severe-Major, Major, Minor, No Safety Effect) from which DAL is derived. Revision A was published in 2023.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.sae.org/standards/content/arp4761/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}

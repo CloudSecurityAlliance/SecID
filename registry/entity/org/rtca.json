@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "namespace": "rtca.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "RTCA, Inc.",
+  "common_name": "RTCA",
+  "alternate_names": [
+    "Radio Technical Commission for Aeronautics"
+  ],
+  "notes": "RTCA, Inc. is a US private, not-for-profit association that develops consensus-based technical guidance for aviation, published as DO-series documents and adopted by the FAA through Technical Standard Orders and Advisory Circulars. EUROCAE is its European counterpart; most DO documents have a paired ED document with equivalent content. Documents are paywalled.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/RTCA"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.rtca.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^rtca$"
+      ],
+      "description": "RTCA, Inc. — US aviation technical standards association",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA, Inc.",
+        "notes": "Publishes the DO-series guidance adopted by the FAA. Standards are registered under secid:control/rtca.org.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

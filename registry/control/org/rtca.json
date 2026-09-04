@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "namespace": "rtca.org",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Source-level entries only. Item-level identifiers (objectives, tables, annexes) not yet researched.",
+  "official_name": "RTCA, Inc.",
+  "common_name": "RTCA",
+  "alternate_names": [
+    "Radio Technical Commission for Aeronautics"
+  ],
+  "notes": "RTCA, Inc. is a US private, not-for-profit association that develops consensus-based technical guidance for aviation, published as DO-series documents and adopted by the FAA through Technical Standard Orders and Advisory Circulars. EUROCAE is its European counterpart; most DO documents have a paired ED document with equivalent content. Documents are paywalled.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/RTCA"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.rtca.org"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^do-178c$"
+      ],
+      "description": "DO-178C — Software Considerations in Airborne Systems and Equipment Certification",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA DO-178C / EUROCAE ED-12C",
+        "notes": "The airborne software assurance standard. Objectives are scoped by software level A-E, derived from failure-condition severity via the ARP4761 safety assessment. Supplements: DO-330 (tool qualification), DO-331 (model-based development), DO-332 (object-oriented technology), DO-333 (formal methods). Paired with EUROCAE ED-12C.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org/products/do-178c-software-considerations-in-airborne-systems-and-equipment-certification/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^do-254$"
+      ],
+      "description": "DO-254 — Design Assurance Guidance for Airborne Electronic Hardware",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA DO-254 / EUROCAE ED-80",
+        "notes": "The hardware counterpart to DO-178C, covering complex custom micro-coded components such as ASICs and FPGAs. Uses hardware design assurance levels A-E on the same failure-condition basis.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org/products/do-254-design-assurance-guidance-for-airborne-electronic-hardware/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^do-326a$"
+      ],
+      "description": "DO-326A — Airworthiness Security Process Specification",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA DO-326A / EUROCAE ED-202A",
+        "notes": "The airworthiness **security** standard — explicitly cybersecurity rather than functional safety. Establishes the Airworthiness Security Process for showing that intentional unauthorised electronic interaction does not adversely affect airworthiness. Companions: DO-356A / ED-203A (security methods and considerations) and DO-355 / ED-204 (continuing airworthiness security in service). Paired with EUROCAE ED-202A.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org/products/do-326a-airworthiness-security-process-specification/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^do-356a$"
+      ],
+      "description": "DO-356A — Airworthiness Security Methods and Considerations",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA DO-356A / EUROCAE ED-203A",
+        "notes": "Methods and techniques supporting the DO-326A process: security risk assessment, threat identification, and security-measure effectiveness. Paired with EUROCAE ED-203A.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org/products/do-356a-airworthiness-security-methods-and-considerations/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^do-355$"
+      ],
+      "description": "DO-355 — Information Security Guidance for Continuing Airworthiness",
+      "weight": 100,
+      "data": {
+        "official_name": "RTCA DO-355 / EUROCAE ED-204",
+        "notes": "Covers information security for aircraft already in service — the continuing-airworthiness half of the DO-326A family, including operator and maintainer responsibilities. Paired with EUROCAE ED-204.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rtca.org/products/do-355-information-security-guidance-for-continuing-airworthiness/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    }
+  ]
+}
