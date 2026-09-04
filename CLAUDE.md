@@ -21,7 +21,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 2,136 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 2,138 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 **SecID 2.0 and 3.0 are in design.** v1.0 answers *where is it*. v2.0 answers *what is it* — the content itself where licensing permits, plus the toolchain that produces and verifies it. v3.0 answers *can I run it myself* — sync, caching, comprehensive local search, and the private/internal resolver. Crucially for registry work: **neither adds anything to the registry format.** The registry keeps holding identity, resolution, and disambiguation, and refers out to separate `SecID-Data-*` repositories (ADR-010).
 
@@ -107,7 +107,7 @@ secid/
 │   ├── <type>.json          # Type description in JSON (10 files, the .json counterpart of <type>.md)
 │   ├── <type>/_template.md  # Template for new namespace files
 │   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (2,136 namespaces — 100% coverage)
+│   ├── <type>/<tld>/<domain>.json  # JSON format (2,138 namespaces — 100% coverage)
 │   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
 ├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (JSON validation source of truth)
 ├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners, stub generators)
@@ -274,14 +274,14 @@ All registry namespaces have been converted to JSON format. These `.json` files 
 | Advisory | 56 |
 | Weakness | 13 |
 | Ttp | 4 |
-| Control | 245 |
+| Control | 246 |
 | Capability | 54 |
 | Methodology | 24 |
 | Disclosure | 487 |
 | Regulation | 85 |
-| Entity | 980 |
+| Entity | 981 |
 | Reference | 188 |
-| **Total** | **2136** |
+| **Total** | **2138** |
 
 <!-- REGISTRY-COUNTS-END -->
 

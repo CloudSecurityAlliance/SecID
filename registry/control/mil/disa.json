@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "namespace": "disa.mil",
+  "type": "control",
+  "status": "draft",
+  "status_notes": "Programme-level entries only. The individual STIGs and SRGs (several hundred documents) and their rule identifiers are not yet enumerated - see issue #59.",
+  "official_name": "Defense Information Systems Agency",
+  "common_name": "DISA",
+  "alternate_names": [
+    "DoD Cyber Exchange",
+    "DISA IASE"
+  ],
+  "notes": "The Defense Information Systems Agency (DISA) authors the Security Technical Implementation Guides (STIGs) and Security Requirements Guides (SRGs) that DoD systems are configured and audited against. Content is distributed through the DoD Cyber Exchange (public.cyber.mil), with downloads served from dl.dod.cyber.mil. STIGs are US Government work and in the public domain — one of the few large control corpora with no redistribution restriction, which makes them a strong candidate for SecID 2.0 content extraction.",
+  "wikidata": null,
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Defense_Information_Systems_Agency"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.disa.mil"
+    },
+    {
+      "type": "website",
+      "url": "https://public.cyber.mil/stigs/"
+    }
+  ],
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "sector": [
+      "government",
+      "defense"
+    ]
+  },
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^stig$"
+      ],
+      "description": "STIG — Security Technical Implementation Guide. DISA's product-specific secure-configuration standards.",
+      "weight": 100,
+      "data": {
+        "official_name": "Security Technical Implementation Guide (STIG)",
+        "notes": "Product-specific hardening standards: one STIG per operating system, application, database, network device or cloud service. Each STIG is versioned V<major>R<minor> (e.g. V2R4) and revised on a roughly quarterly release cycle. Rules within a STIG carry a V-ID (V-260469), a rule ID (SV-260469r991589_rule), a per-benchmark STIG ID (RHEL-09-211010), a severity category CAT I-III, and one or more CCI references. Published as XCCDF XML inside a per-STIG ZIP; the current release of each is downloadable from dl.dod.cyber.mil as U_<Product>_V<major>R<minor>_STIG.zip. Individual STIGs are not yet enumerated in SecID - see issue #59.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://public.cyber.mil/stigs/downloads/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^srg$"
+      ],
+      "description": "SRG — Security Requirements Guide. The technology-class requirements a STIG implements for a specific product.",
+      "weight": 100,
+      "data": {
+        "official_name": "Security Requirements Guide (SRG)",
+        "notes": "Technology-class requirements written one level above a STIG: an SRG states what any web server or any operating system must do, and a STIG states how a specific product does it. Where no product STIG exists, the applicable SRG governs. Same XCCDF format and V<major>R<minor> versioning as STIGs.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://public.cyber.mil/stigs/srg-stig-library-compilations/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^cci$"
+      ],
+      "description": "CCI — Control Correlation Identifier. The bridge between STIG rules and NIST 800-53 controls.",
+      "weight": 100,
+      "data": {
+        "official_name": "Control Correlation Identifier (CCI)",
+        "notes": "A list of IT security requirements decomposed from NIST SP 800-53, each with a six-digit identifier (CCI-000366). CCIs are what let a STIG rule be traced to the 800-53 control it satisfies, and are the join key in most DoD compliance tooling. Published as a standalone XML list separate from the STIG library.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://public.cyber.mil/stigs/cci/"
+          }
+        ],
+        "versions_available": [],
+        "examples": []
+      },
+      "children": [
+        {
+          "patterns": [
+            "^CCI-\\d{6}$"
+          ],
+          "description": "A single Control Correlation Identifier",
+          "weight": 100,
+          "data": {
+            "note": "Six-digit zero-padded CCI identifier. Each CCI is one decomposed IT security requirement, linking STIG rules to the NIST 800-53 control they satisfy.",
+            "examples": [
+              {
+                "input": "CCI-000366",
+                "note": "Implement the security configuration settings"
+              },
+              {
+                "input": "CCI-001764",
+                "note": "Prevent program execution in accordance with policy"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
