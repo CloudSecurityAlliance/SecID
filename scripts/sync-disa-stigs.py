@@ -122,9 +122,27 @@ def parse(names):
     return docs, skipped
 
 
-def build_node(d, compilation, checked):
+def rule_ids(data_repo, slug, version):
+    """V-IDs for one document release, read from the data repository.
+
+    The registry's job is disambiguation, and V-IDs are the case that needs it: the
+    pattern ^V-\\d+$ is identical across every STIG, so without an enumerated set a
+    bare search for V-257505 would match all 174 nodes and fabricate 173 wrong answers
+    -- the failure the pattern-breadth gate exists to prevent. known_values closes the
+    set so only the owning document matches.
+    """
+    f = Path(data_repo) / "data" / "control" / "mil" / "disa" / slug / version / "stig.json"
+    if not f.is_file():
+        return None
+    try:
+        return json.loads(f.read_text()).get("rule_index") or None
+    except Exception:
+        return None
+
+
+def build_node(d, compilation, checked, data_repo=None):
     label = f"{d['product']} {d['kind']}"
-    return {
+    node = {
         "patterns": [f"(?i)^{d['slug']}$"],
         "description": f"{label} — DISA {'Security Technical Implementation Guide' if d['kind']=='STIG' else 'Security Requirements Guide'}",
         "weight": 100,
@@ -149,12 +167,38 @@ def build_node(d, compilation, checked):
             GENERATED_KEY: compilation,
         },
     }
+    vids = rule_ids(data_repo, d["slug"], d["version"]) if data_repo else None
+    if vids:
+        node["children"] = [{
+            "patterns": ["^V-\\d+$"],
+            "description": f"A single requirement within the {d['product']} {d['kind']}, by DISA Vuln ID.",
+            "weight": 100,
+            "data": {
+                "note": ("DISA publishes no per-rule permalink; rules exist only inside the XCCDF. "
+                         "Structured records are served from SecID-Data-disa.mil. Each rule also carries a "
+                         "rule ID (SV-...r..._rule, revision-bearing), a per-benchmark STIG ID, and one or "
+                         "more CCI references."),
+                "known_values": vids,
+                "urls": [{
+                    "type": "bulk_data",
+                    "url": (f"https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/"
+                            f"data/control/mil/disa/{d['slug']}/{d['version']}/rules/{{id}}.json"),
+                    "format": "json",
+                    "parsability": "structured",
+                    "note": "Structured rule record.",
+                }],
+                "examples": [{"input": vids[0], "note": "First requirement in this document."}],
+            },
+        }]
+    return node
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--compilation")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--data-repo", default=str(Path.home() / "GitHub/CloudSecurityAlliance/SecID-Data-disa.mil"),
+                    help="Path to SecID-Data-disa.mil, used to enumerate rule identifiers.")
     args = ap.parse_args()
 
     if args.compilation:
@@ -188,7 +232,7 @@ def main():
     if len(kept) != len(PROGRAMME_PATTERNS):
         raise SystemExit("programme nodes (stig/srg/cci) missing; refusing to write.")
     checked = datetime.now(timezone.utc).date().isoformat()
-    generated = [build_node(d, name, checked) for d in docs]
+    generated = [build_node(d, name, checked, args.data_repo) for d in docs]
 
     before = len(doc["match_nodes"])
     doc["match_nodes"] = kept + generated
