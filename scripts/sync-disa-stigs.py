@@ -170,23 +170,21 @@ def build_node(d, compilation, checked, data_repo=None):
     }
     vids = rule_ids(data_repo, d["slug"], d["version"]) if data_repo else None
     if vids:
+        # Enumerate every V-ID as its own anchored literal rather than "^V-\\d+$" plus
+        # known_values. CLAUDE.md: "if the values can be listed, the pattern must be that
+        # list. An enumerated pattern discriminates on its own instead of depending on a
+        # resolver honouring known_values." That matters here -- the resolver does not
+        # honour it (#190), so a regex would match all 174 documents and fabricate 173
+        # wrong answers for every V-token. Exact patterns need no resolver cooperation.
         node["children"] = [{
-            "patterns": ["^V-\\d+$"],
+            "patterns": [f"^{v}$" for v in vids],
             "description": f"A single requirement within the {d['product']} {d['kind']}, by DISA Vuln ID.",
             "weight": 100,
-            # ^V-\d+$ is identical across all 174 documents, so in UNSCOPED search this node
-            # would match every one of them and fabricate 173 wrong answers for any V-token.
-            # known_values below carries the real set and should close the pattern, but the
-            # resolver does not yet honour it (SecID issue #190). open_pattern keeps these
-            # nodes out of unscoped search while namespace-scoped resolution keeps working.
-            # Remove this flag once known_values is enforced -- the data is already correct.
-            "open_pattern": True,
             "data": {
                 "note": ("DISA publishes no per-rule permalink; rules exist only inside the XCCDF. "
                          "Structured records are served from SecID-Data-disa.mil. Each rule also carries a "
                          "rule ID (SV-...r..._rule, revision-bearing), a per-benchmark STIG ID, and one or "
-                         "more CCI references."),
-                "known_values": vids,
+                         "more CCI references; those are recorded there but are not subpaths."),
                 "urls": [{
                     "type": "bulk_data",
                     "url": (f"https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/"
