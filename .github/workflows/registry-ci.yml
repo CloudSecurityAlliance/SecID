@@ -16,6 +16,7 @@ name: Registry CI
 #
 # Jobs:
 #   validate-schema          JSON Schema + URL scheme policy + type-list consistency
+#                            + subpath URL templates live in data.url
 #   validate-subtypes        subtype values declared in SecID-Service type-registry.ts
 #   validate-pattern-breadth no over-broad match_node patterns (self-tested detector)
 #   tooling-tests            offline unit tests for the validators themselves
@@ -40,7 +41,7 @@ on:
       - "registry/**/*.json"
       - "schemas/registry-namespace.schema.json"
       - "scripts/validate-*.py"
-      - "scripts/check-pattern-breadth.py"
+      - "scripts/check-*.py"
       - "scripts/pattern-probes.json"
       - "scripts/pattern-breadth-todo.json"
       - "scripts/http-exception-allowlist.txt"
@@ -80,6 +81,12 @@ jobs:
         run: python3 scripts/validate-urls.py
       - name: Validate type-list consistency with SecID-Service
         run: python3 scripts/validate-type-list.py
+      # Resolvers build subpath URLs only from data.url; a template left in
+      # data.urls[] resolves "found" with no URL (174 STIG rule nodes did).
+      - name: Self-test the URL-template check
+        run: python3 scripts/check-url-templates.py --self-test
+      - name: Check no URL template is stranded in data.urls[]
+        run: python3 scripts/check-url-templates.py
 
   validate-subtypes:
     name: validate-subtypes

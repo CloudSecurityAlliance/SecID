@@ -140,6 +140,13 @@ def rule_ids(data_repo, slug, version):
         return None
 
 
+DATA_RAW = "https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main"
+
+
+def rule_url_template(d):
+    return f"{DATA_RAW}/data/control/mil/disa/{d['slug']}/{d['version']}/rules/{{id}}.json"
+
+
 def build_node(d, compilation, checked, data_repo=None):
     label = f"{d['product']} {d['kind']}"
     node = {
@@ -151,9 +158,7 @@ def build_node(d, compilation, checked, data_repo=None):
             "kind": d["kind"],
             "notes": (f"Current release {d['version']}. Published as XCCDF XML inside {d['file']}. "
                       f"The per-document download URL is pinned to the current revision and 404s once "
-                      f"superseded; the quarterly compilation is the stable citation. "
-                      f"V-IDs for this release are enumerated below and resolve to structured records in "
-                      f"SecID-Data-disa.mil; rule IDs and STIG IDs are recorded there but are not subpaths."),
+                      f"superseded; the quarterly compilation is the stable citation. "),
             "urls": [
                 {"type": "bulk_data", "url": f"{BASE}/{d['file']}", "format": "zip",
                  "parsability": "structured", "note": "XCCDF XML inside a ZIP. Revision-pinned URL.",
@@ -169,6 +174,15 @@ def build_node(d, compilation, checked, data_repo=None):
         },
     }
     vids = rule_ids(data_repo, d["slug"], d["version"]) if data_repo else None
+    # The note must describe what this node actually carries. Claiming enumerated V-IDs on
+    # a node with no children (EPAS: no data directory in SecID-Data-disa.mil) tells a
+    # reader the rules resolve when every lookup would fall through.
+    node["data"]["notes"] += (
+        "V-IDs for this release are enumerated below and resolve to structured records in "
+        "SecID-Data-disa.mil; rule IDs and STIG IDs are recorded there but are not subpaths."
+        if vids else
+        "Rule identifiers for this release are not yet enumerated: SecID-Data-disa.mil holds no "
+        "extracted records for it, so V-IDs are not resolvable subpaths.")
     if vids:
         # Enumerate every V-ID as its own anchored literal rather than "^V-\\d+$" plus
         # known_values. CLAUDE.md: "if the values can be listed, the pattern must be that
@@ -185,15 +199,17 @@ def build_node(d, compilation, checked, data_repo=None):
                          "Structured records are served from SecID-Data-disa.mil. Each rule also carries a "
                          "rule ID (SV-...r..._rule, revision-bearing), a per-benchmark STIG ID, and one or "
                          "more CCI references; those are recorded there but are not subpaths."),
-                "urls": [{
-                    "type": "bulk_data",
-                    "url": (f"https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/"
-                            f"data/control/mil/disa/{d['slug']}/{d['version']}/rules/{{id}}.json"),
-                    "format": "json",
-                    "parsability": "structured",
-                    "note": "Structured rule record.",
-                }],
-                "examples": [{"input": vids[0], "note": "First requirement in this document."}],
+                # data.url, not data.urls[]: resolvers build a subpath URL only from
+                # data.url. A template left in urls[] resolves to "found" with no URL
+                # (scripts/check-url-templates.py guards this).
+                "url": rule_url_template(d),
+                "format": "json",
+                "parsability": "structured",
+                # The url makes this a SecID-Service test fixture, so a broken template
+                # fails the deploy's test stage instead of going live.
+                "examples": [{"input": vids[0],
+                              "url": rule_url_template(d).replace("{id}", vids[0]),
+                              "note": "First requirement in this document."}],
             },
         }]
     return node
@@ -239,13 +255,24 @@ def main():
         raise SystemExit("programme nodes (stig/srg/cci) missing; refusing to write.")
     checked = datetime.now(timezone.utc).date().isoformat()
     generated = [build_node(d, name, checked, args.data_repo) for d in docs]
+    # This script never fetches the per-document ZIPs, so a fresh `checked` date on every
+    # run would claim a check that did not happen. Carry the previous date forward for any
+    # URL that is unchanged; only a new URL takes today's date.
+    prior = {u["url"]: u["checked"]
+             for n in doc["match_nodes"] for u in n.get("data", {}).get("urls", [])
+             if isinstance(u, dict) and u.get("checked")}
+    for n in generated:
+        for u in n["data"]["urls"]:
+            if "checked" in u and u["url"] in prior:
+                u["checked"] = prior[u["url"]]
 
     before = len(doc["match_nodes"])
     doc["match_nodes"] = kept + generated
     doc["status_notes"] = (
         f"Programme entries plus {len(generated)} STIG/SRG documents generated from {name} "
-        f"by scripts/sync-disa-stigs.py. Rule-level identifiers (V-IDs, rule IDs, STIG IDs) "
-        f"are not yet enumerated - see issue #59.")
+        f"by scripts/sync-disa-stigs.py. V-IDs are enumerated for "
+        f"{sum(1 for n in generated if n.get('children'))} of them and resolve to structured "
+        f"records in SecID-Data-disa.mil; rule IDs and STIG IDs are not subpaths.")
 
     print(f"match_nodes: {before} -> {len(doc['match_nodes'])} ({len(kept)} programme + {len(generated)} documents)")
     if args.dry_run:
