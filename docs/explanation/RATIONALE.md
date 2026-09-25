@@ -213,7 +213,7 @@ secid:ttp/mitre.org/attack#...         # Everyone knows ATT&CK
 secid:weakness/owasp.org/top10@2021#... # OWASP Top 10
 secid:weakness/owasp.org/llm-top10@2.0#... # OWASP LLM Top 10
 secid:control/cloudsecurityalliance.org/ccm@4.0#...      # CSA Cloud Controls Matrix
-secid:control/cloudsecurityalliance.org/aicm@1.0#...    # CSA AI Controls Matrix
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#...    # CSA AI Controls Matrix
 secid:control/nist.gov/csf@2.0#...    # NIST Cybersecurity Framework
 ```
 
