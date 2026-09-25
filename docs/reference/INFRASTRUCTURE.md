@@ -25,15 +25,15 @@ SecID is split across multiple repositories for clear separation of concerns:
 | Repository | Purpose | Contents |
 |------------|---------|----------|
 | **SecID** (this repo) | Spec + Registry + Operations | Specification, registry data, design docs, infrastructure/deployment docs. Source of truth. |
-| **SecID-Service** | API + MCP | Cloudflare Worker code for `/v1/` and `/mcp`. Consumes registry. |
-| **SecID-Website** | Documentation site | Cloudflare Pages. Generated from other repos by Claude skill. |
-| **SecID-Client-SDK** | Official clients | Python, npm, Go libraries. Claude skills for using SecID. |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | API + MCP + website | Cloudflare Worker serving `/api/v1/` and `/mcp`, plus the public website (Astro static site in `website/`, served as Worker static assets). Reads registry data from Cloudflare KV. |
+| **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver | Python reference implementation (REST API + optional MCP, pluggable storage). TypeScript and Go implementations are planned. |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Official clients | Python, TypeScript, Go libraries. Claude skills for using SecID. |
+| **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | Data (SecID 2.0) | DISA STIG/SRG content, ingested quarterly. The first data repository; sets the standard layout for `SecID-Data-*` repos (ADR-013, ADR-014). |
 
 **Why split?**
 - Different release cadences
 - Clear ownership and CI/CD
 - Service can be self-hosted by others
-- Website is derived content, not source
 - Clients are independent of service implementation
 
 **Why operations lives here (not a separate repo):** Operations content is documentation (bootstrap runbook, DNS decisions, CI/CD design), not code with its own build/release lifecycle. See [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md#operations-documentation-lives-in-this-repo). Operations docs live at `docs/operations/`.
@@ -44,8 +44,8 @@ SecID is split across multiple repositories for clear separation of concerns:
 
 ```
 https://secid.cloudsecurityalliance.org/
-├── /              → Static website (Cloudflare Pages)
-├── /mcp/          → MCP endpoint (Cloudflare Worker)
+├── /              → Static website (Worker static assets, built from SecID-Service/website)
+├── /mcp           → MCP endpoint (Cloudflare Worker)
 ├── /api/v1/       → REST API v1 (Cloudflare Worker)
 ├── /api/v2/       → REST API v2 (future)
 └── /llms.txt      → LLM-friendly site summary (llmstxt.org standard)
@@ -60,12 +60,11 @@ We support the [llms.txt standard](https://llmstxt.org/) for LLM-friendly conten
 
 ## Components
 
-### Static Website (Cloudflare Pages)
+### Static Website
 
-- Landing page explaining SecID
-- Documentation
-- Interactive examples
-- Served from Cloudflare Pages (separate from Worker)
+- Landing page explaining SecID, with an interactive resolver
+- `llms.txt`, `robots.txt`, `sitemap.txt`, slides
+- Built with [Astro](https://astro.build/) from the `website/` directory of SecID-Service (`npm run build:website`) and served by the same Worker through Workers static assets (`[assets] directory = "./website/dist"` in `wrangler.toml`). There is no separate website repository or Pages project.
 
 ### MCP Endpoint (`/mcp`)
 
@@ -82,7 +81,9 @@ Model Context Protocol server for AI agent integration.
 - `resolve` tool - Given a SecID, return URL(s)
 - `lookup` tool - Given a partial ID, find matching SecIDs
 - `describe` tool - Return description and metadata for a SecID
-- `registry` resource - Browse available namespaces
+- `submit_feedback` tool - Request a missing source, report wrong data, suggest improvements
+- `secid://registry` and `secid://registry/{type}` resources - Browse available namespaces
+- `secid://docs/...` resources - Instructions for building SecID clients
 
 ### REST API (`/api/v1/`)
 
@@ -128,7 +129,7 @@ Reference: [Hono on Cloudflare Workers](https://hono.dev/docs/getting-started/cl
 
 ### Single Worker
 
-One Cloudflare Worker handles both `/mcp/` and `/api/v1/`:
+One Cloudflare Worker handles both `/mcp` and `/api/v1/` (and serves the static website as assets):
 
 ```typescript
 import { Hono } from 'hono'
@@ -153,47 +154,20 @@ export default app
 
 ### Data Storage
 
-**Approach:** Compile all registry JSON files into a single registry object, embedded in the Worker code.
+**Approach:** Registry data lives in Cloudflare KV (binding `secid_REGISTRY`). The Worker reads only the keys a query needs (`kv-registry.ts`, `kv-resolve.ts`) — one key per `secid:<type>/<namespace>`, plus per-type listing keys and a few index keys (`secid:*`, `secid:registry`, `secid:meta`, `secid:subtypes`).
 
-```typescript
-// registry.ts - generated at build time
-export const REGISTRY = {
-  advisory: {
-    "mitre.org": {
-      official_name: "MITRE Corporation",
-      match_nodes: [
-        {
-          patterns: ["(?i)^cve$"],
-          data: { official_name: "Common Vulnerabilities and Exposures", urls: [...] },
-          children: [...]
-        }
-      ]
-    }
-  },
-  // ...
-}
-```
+The registry was originally compiled into the Worker bundle; it outgrew that approach. SecID-Service still has `scripts/build-registry.ts`, which generates `src/registry.ts`, but that file is a snapshot used by tests only — production never reads it, so tests and the live resolver can disagree if the snapshot is stale.
 
-**Why embedded?**
-- Fast (no external fetch)
-- Simple (no KV/R2 complexity)
-- Discoverable (single endpoint returns everything)
-- Versioned with code
+**Upload process** (`scripts/upload-registry-kv.ts`, run by SecID-Service CI on every registry change):
+1. Read all `registry/**/*.json` files from a SecID checkout
+2. Build the expected set of KV keys and values
+3. `--sync`: upload every expected key and delete orphan keys, so KV exactly matches the registry (a 50-orphan safety threshold blocks accidental mass deletes)
 
-**Build process:**
-1. Read all `registry/**/*.json` files
-2. Merge into single object
-3. Generate `registry.ts`
-4. Bundle with Worker
-
-**Future:** If registry grows too large, migrate to Cloudflare KV.
+See [CLAUDE.md "CI/CD"](../../CLAUDE.md#cicd) for the deploy chain from a merge here to KV.
 
 ### OpenAPI Schema
 
-Use [Chanfana](https://github.com/cloudflare/chanfana) for OpenAPI schema generation:
-- Auto-generates OpenAPI 3.1 spec
-- Request/response validation with Zod
-- Serves `/v1/openapi.json` automatically
+The REST API is described by a hand-maintained OpenAPI document in this repo: [schemas/openapi.yaml](../../schemas/openapi.yaml). The Worker does not generate or serve an OpenAPI document.
 
 ## MCP Implementation
 
@@ -256,37 +230,45 @@ const resources = {
 
 ## Deployment
 
-**Note:** The API and website are in separate repositories. This section describes the planned structure for **SecID-Service** (not this repo).
+**Note:** This section describes **SecID-Service** (not this repo). Its own [CLAUDE.md](https://github.com/CloudSecurityAlliance/SecID-Service/blob/main/CLAUDE.md) is authoritative.
 
-### SecID-Service Repository Structure (Planned)
+### SecID-Service Repository Structure
 
 ```
-secid-service/
+SecID-Service/
 ├── src/
-│   ├── index.ts        # Main entry, Hono app
-│   ├── mcp.ts          # MCP handlers
-│   ├── api.ts          # REST API handlers
-│   ├── resolve.ts      # Resolution logic
-│   └── registry.ts     # Generated from SecID repo registry/
-├── wrangler.toml
-├── package.json
-└── scripts/
-    └── build-registry.ts   # Fetches and compiles registry from SecID repo
+│   ├── index.ts          # Worker entry (Hono) — routes /api/v1/*, /mcp, /health
+│   ├── api.ts            # REST API handlers (resolve, registry.json, types)
+│   ├── mcp.ts            # MCP tools (resolve, lookup, describe, submit_feedback)
+│   ├── parser.ts         # Registry-aware SecID parsing
+│   ├── resolver.ts       # Pattern-tree resolution, URL templates, format metadata
+│   ├── kv-registry.ts    # KV reads for registry data
+│   ├── kv-resolve.ts     # KV-backed resolution path (production)
+│   ├── registry.ts       # Snapshot from build-registry.ts — used by tests only
+│   ├── type-registry.ts  # Canonical TYPE_REGISTRY constant
+│   └── ...               # feedback, observability, sanitize, identity, types
+├── scripts/
+│   ├── build-registry.ts       # SecID JSON → src/registry.ts (test snapshot)
+│   ├── upload-registry-kv.ts   # SecID JSON → KV (--sync deletes orphans)
+│   └── setup-dns.sh
+├── test/                 # vitest; resolver fixtures auto-generated from registry examples
+├── website/              # Astro static site, served as Worker static assets
+├── wrangler.toml         # Worker config (routes, KV bindings, assets)
+└── .github/workflows/registry-kv-upload.yml   # Triggered by repository_dispatch from SecID
 ```
 
 ### Build & Deploy (SecID-Service)
 
+Normally automatic: a registry merge here dispatches SecID-Service's "Upload registry to KV" workflow, which tests, syncs KV, and deploys the Worker. Manually:
+
 ```bash
-# Build registry (fetches from SecID repo, compiles to registry.ts)
-npm run build:registry
+# Sync registry data to KV (audit first with --dry-run)
+npx tsx scripts/upload-registry-kv.ts --sync --dry-run /path/to/SecID
+npx tsx scripts/upload-registry-kv.ts --sync /path/to/SecID
 
-# Deploy worker
-wrangler deploy
+# Build the website and deploy the Worker
+npm run deploy
 ```
-
-### SecID-Website Repository (Planned)
-
-Separate Cloudflare Pages deployment. Structure TBD.
 
 ## Monitoring
 
@@ -320,7 +302,7 @@ These items need decisions before production deployment. Pinned for later discus
 ### Operational
 
 - **Error responses** - Standard error format? Error codes?
-- **Health check endpoint** - `/health` or `/v1/health`?
+- **Health check endpoint** - Decided: `GET /health` returns `{"status":"ok"}`.
 - **Metrics & logging** - What to track? Privacy considerations?
 - **Alerting** - What triggers alerts? Who gets notified?
 

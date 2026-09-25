@@ -9,8 +9,7 @@ Step-by-step instructions for setting up the full SecID infrastructure from scra
 - Cloudflare account with the target zone (`cloudsecurityalliance.org` or your own domain)
 - GitHub organization with repos created (done)
   - [SecID](https://github.com/CloudSecurityAlliance/SecID) (spec + registry)
-  - [SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service) (API + MCP)
-  - [SecID-Website](https://github.com/CloudSecurityAlliance/SecID-Website) (docs site)
+  - [SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service) (API + MCP + website — the site is an Astro build in its `website/` directory, served by the same Worker)
   - [SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (client libraries)
 - `wrangler` CLI installed and authenticated (`wrangler login`)
 - Node.js for building SecID-Service
@@ -26,39 +25,29 @@ secid.cloudsecurityalliance.org    TXT     "v=spf1 -all"
 
 See [DNS.md](DNS.md) for the rationale.
 
-## Step 2: Deploy SecID-Website (Pages)
+## Step 2: (removed)
 
-Deploy the website first because it serves `/*` (the default route). Even a placeholder page confirms the hostname and TLS work.
+An earlier plan deployed a separate website to Cloudflare Pages first. There is no separate website: SecID-Service serves the site as Worker static assets (built from its `website/` directory), so Step 3 deploys everything.
 
-1. Connect SecID-Website repo to Cloudflare Pages
-2. Configure custom domain: `secid.<your-domain>`
-3. Deploy (even if it's just a "coming soon" page)
+## Step 3: Deploy SecID-Service (Worker + website)
 
-**Verify:** `curl https://secid.<your-domain>/` returns the website content.
+Deploy the Worker, which serves the API, the MCP endpoint, and the static website.
 
-## Step 3: Deploy SecID-Service (Worker)
-
-Deploy the Worker and attach it to the API and MCP paths.
-
-1. In SecID-Service repo, configure `wrangler.toml` with the zone and routes
-2. Build the registry data: `npm run build:registry`
-3. Deploy: `wrangler deploy`
-4. Configure Worker Routes in Cloudflare dashboard (or via wrangler.toml):
-   - `secid.<your-domain>/api/*` → SecID-Service worker
-   - `secid.<your-domain>/mcp/*` → SecID-Service worker
+1. In SecID-Service repo, configure `wrangler.toml` with the zone, route (`secid.<your-domain>/*`), KV bindings, and `[assets] directory = "./website/dist"`
+2. Load registry data into KV: `npx tsx scripts/upload-registry-kv.ts --sync /path/to/SecID`
+3. Build the website and deploy: `npm run deploy`
 
 **Verify:**
 - `curl https://secid.<your-domain>/api/v1/resolve?secid=secid:advisory/mitre.org/cve%23CVE-2024-1234` returns a resolution response
-- `curl https://secid.<your-domain>/mcp` returns MCP server info
-- `curl https://secid.<your-domain>/` still returns the website (Pages fallback works)
+- `curl -X POST https://secid.<your-domain>/mcp` with an MCP `initialize` request returns server info
+- `curl https://secid.<your-domain>/` returns the website
 
 ## Step 4: Set Up CI/CD
 
 Configure GitHub Actions in each repo so merges to main trigger automatic deployments.
 
 1. **SecID-Service:** Add `CLOUDFLARE_API_TOKEN` to GitHub Actions secrets. Create workflow that builds and deploys on push to main.
-2. **SecID-Website:** If using Cloudflare Pages git integration, this is automatic. Otherwise, add deploy workflow.
-3. **SecID (this repo):** Add workflow that triggers SecID-Service rebuild when registry data changes (see [DATA-FLOW.md](DATA-FLOW.md)).
+2. **SecID (this repo):** Add workflow that triggers SecID-Service rebuild when registry data changes (see [DATA-FLOW.md](DATA-FLOW.md)).
 
 **Verify:** Push a trivial change to SecID-Service → confirm it auto-deploys.
 

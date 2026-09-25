@@ -504,10 +504,10 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 | Repo | Purpose |
 |------|---------|
 | **[SecID](https://github.com/CloudSecurityAlliance/SecID)** (this repo) | Specification, registry data, design documents |
-| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Cloudflare Worker REST API + MCP server — **live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
-| **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python, TypeScript, Docker. Run your own SecID server. |
-| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, npm, Go, Rust, Java, C#) |
-| **SecID-Website** | Cloudflare Pages documentation site (planned) |
+| **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Cloudflare Worker REST API + MCP server, plus the public website (an Astro static site in its `website/` directory, served by the same Worker) — **live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
+| **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python reference implementation (REST API + optional MCP); TypeScript and Go implementations are planned. Run your own SecID server. |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, TypeScript, Go) |
+| **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | **Live.** DISA STIG/SRG content (document-releases and rules), ingested quarterly. The first SecID 2.0 data repository; it sets the standard data-repo layout. |
 | **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0), plus `Vendor` for product capabilities (sharded by vendor, not region — capability data has no jurisdiction). |
 
 From 3.0, content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
@@ -546,7 +546,7 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Identifier grammar + 10 types | **v1.0 frozen** |
 | Registry namespaces (YAML + JSON, 2,138 namespaces) | **Live** — auto-deploys to production resolver |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
-| [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, npm, Go, etc.) | In progress |
+| [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, TypeScript, Go) | In progress |
 | Registry validation skill | **Active** |
 | Compliance test suite | Not started |
 | Relationship layer | Post-1.0 (active research) |

@@ -40,22 +40,24 @@ All services share the single hostname, differentiated by path:
 ```
 secid.cloudsecurityalliance.org
 ├── /api/*    → SecID-Service (Cloudflare Worker)
-├── /mcp/*    → SecID-Service (Cloudflare Worker)
-└── /*        → SecID-Website (Cloudflare Pages)
+├── /mcp      → SecID-Service (Cloudflare Worker)
+└── /*        → SecID-Service static assets (Astro site built from its website/ directory)
 ```
 
 ### How This Works in Cloudflare
 
-1. **Cloudflare Pages** is the default deployment for the hostname — it serves `/*`.
-2. **Worker Routes** are configured for `/api/*` and `/mcp/*` — these intercept matching requests before they reach Pages.
-3. Both `/api/*` and `/mcp/*` are handled by the **same Worker** (SecID-Service). It's one deployment with path-based routing inside the Hono app.
+1. A single **Worker Route**, `secid.cloudsecurityalliance.org/*`, sends every request on the hostname to the SecID-Service Worker.
+2. **Workers static assets** (`[assets] directory = "./website/dist"` in SecID-Service's `wrangler.toml`) serve the website: a request that matches a built asset file is answered from the asset store.
+3. Everything else reaches the Worker's Hono app, which routes `/api/v1/*`, `/mcp`, and `/health`, and returns a JSON 404 for anything else. It is one deployment for API, MCP, and website.
+
+An earlier design put the website on a separate Cloudflare Pages project with Worker Routes for `/api/*` and `/mcp/*` in front of it. That separate site was never needed; the Worker serves the site itself.
 
 ### Why Single Hostname
 
 - **Simple for consumers.** One domain to remember, one DNS entry, one TLS cert.
 - **No CORS issues.** Website and API on the same origin means no cross-origin configuration needed.
 - **Clean URL structure.** `/api/v1/resolve?secid=...` reads better than `api.secid.cloudsecurityalliance.org/v1/resolve?secid=...`.
-- **Easy to add paths.** Future services (e.g., `/v2/`) just add Worker Routes.
+- **Easy to add paths.** Future services (e.g., `/api/v2/`) are just new routes in the Worker.
 
 ### Why Not Separate Subdomains
 
@@ -69,4 +71,4 @@ Separate subdomains (`api.secid...`, `mcp.secid...`) would mean:
 
 - **Vanity domain:** If `secid.dev` or similar is acquired, it could CNAME to `secid.cloudsecurityalliance.org` or serve as a redirect. No architecture changes needed.
 - **Regional endpoints:** Not planned. Cloudflare's edge network handles geographic distribution automatically.
-- **API versioning:** New API versions (`/v2/`, `/v3/`) are just new Worker Routes on the same hostname. Old versions can coexist indefinitely.
+- **API versioning:** New API versions (`/api/v2/`, `/api/v3/`) are just new routes in the same Worker. Old versions can coexist indefinitely.

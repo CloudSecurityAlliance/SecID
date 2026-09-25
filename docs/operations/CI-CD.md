@@ -45,15 +45,9 @@ This repo has two kinds of changes: documentation and registry data. Only regist
 - Run smoke tests against production URL (basic resolution check)
 - If smoke tests fail: alert (but don't auto-rollback — investigate first)
 
-### SecID-Website
+### Website
 
-**On every PR:**
-- Build the site
-- Deploy to Cloudflare Pages preview URL
-- Report preview URL in PR comment
-
-**On merge to main:**
-- Build and deploy to production (automatic via Cloudflare Pages git integration)
+There is no separate website repository. The public site is an Astro static site in SecID-Service's `website/` directory, built by `npm run build:website` and served as static assets by the same Worker. It ships with every SecID-Service deploy (`npm run deploy` builds the site, then runs `wrangler deploy`), so it follows the SecID-Service pipeline above.
 
 ### SecID-Client-SDK
 
