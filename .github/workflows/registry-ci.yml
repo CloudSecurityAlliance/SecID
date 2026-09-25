@@ -17,6 +17,7 @@ name: Registry CI
 # Jobs:
 #   validate-schema          JSON Schema + URL scheme policy + type-list consistency
 #                            + subpath URL templates live in data.url
+#                            + version aliases point at declared versions
 #   validate-subtypes        subtype values declared in SecID-Service type-registry.ts
 #   validate-pattern-breadth no over-broad match_node patterns (self-tested detector)
 #   tooling-tests            offline unit tests for the validators themselves
@@ -89,6 +90,10 @@ jobs:
         run: python3 scripts/check-url-templates.py --self-test
       - name: Check no URL template is stranded in data.urls[]
         run: python3 scripts/check-url-templates.py
+      # Every version the tree exposes must be declared in versions_available,
+      # and every alias must point at a declared canonical version.
+      - name: Validate version aliases
+        run: python3 scripts/validate-version-aliases.py
 
   validate-subtypes:
     name: validate-subtypes
@@ -156,6 +161,8 @@ jobs:
         run: python3 scripts/test_validate_urls.py
       - name: SSRF guard tests
         run: python3 scripts/test_net_guard.py
+      - name: Version-alias validator tests
+        run: python3 scripts/test_validate_version_aliases.py
 
   ci-passed:
     # One stable check name for branch protection. New gates only need adding to
