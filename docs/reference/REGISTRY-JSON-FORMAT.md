@@ -156,9 +156,12 @@ Substitute variables into the URL template:
 | Placeholder | Source | Example |
 |-------------|--------|---------|
 | `{id}` | Full subpath | `CVE-2024-1234` |
-| `{version}` | From `@version` component | `4.0` |
+| `{id_lower}` | Full subpath, lowercased | `cve-2024-1234` |
+| `{id_upper}` | Full subpath, uppercased | `CVE-2024-1234` |
 | `{year}` | Extracted from subpath (if in variables) | `2024` |
 | `{number}` | Extracted from subpath (if in variables) | `1234` |
+
+See [URL Template Placeholders](#url-template-placeholders) for the full list, including which placeholders SecID-Service does not yet substitute.
 
 **Result:** `https://cve.org/CVERecord?id=CVE-2024-1234`
 
@@ -462,7 +465,7 @@ Per PRINCIPLES.md's three-layer model (Registry / Relationship / Data), `tags` i
 | `status` | string | Registry entry status (see below) |
 | `status_notes` | string \| null | Optional context about status (blockers, gaps, guidance for contributors) |
 | `notes` | string \| null | Free-form context for AI and human readers (see Notes Fields below) |
-| `alias_of` | string \| null | If present, this is an alias stub — namespace redirects to the value. No sources needed. |
+| `alias_of` | string \| null | **Reserved — not yet implemented.** Intended to mark an alias stub whose namespace redirects to the value. Accepted by the schema, but no resolver follows it and no registry file uses it. |
 
 #### Namespace Validation
 
@@ -491,7 +494,7 @@ aws.amazon.com           ✓  Subdomain
 red_hat.com              ✗  Underscore not allowed in segment
 ```
 
-**Alias stubs:** When `alias_of` is present, the entry is a redirect. Resolvers follow it to the target namespace. Used for Punycode/Unicode IDN equivalence (e.g., `xn--mnchen-3ya.de` → `münchen.de`). See [EDGE-CASES.md](EDGE-CASES.md) for details.
+**Alias stubs (reserved, not yet implemented):** `alias_of` is reserved for redirect entries — for example Punycode/Unicode IDN equivalence (`xn--mnchen-3ya.de` → `münchen.de`). The schema accepts the field, but neither SecID-Service nor SecID-Server-API follows it today, and no registry file uses it. Do not rely on it for resolution until a resolver implements it. See [EDGE-CASES.md](EDGE-CASES.md) for the intended use.
 
 **Why these rules:**
 
@@ -684,6 +687,9 @@ The name-level pattern (e.g., `^cve$`) replaces the literal source key. This is 
 | `weight` | integer | no | 0-200, default 0. Higher = more preferred. Returned with results, consumer decides. |
 | `data` | object | no | Result data returned when this node matches (see below) |
 | `children` | array | no | Child nodes for matching the next portion of the string (recursive) |
+| `open_pattern` | boolean | no | Declares that this node's identifier space is genuinely unbounded and the permissive pattern is intentional and reviewed (see below) |
+
+**`open_pattern`:** Some identifier spaces cannot be enumerated or tightly shaped — GitHub usernames, Jira project keys, conference paper slugs. For those, set `"open_pattern": true`. Resolvers **exclude the node from unscoped cross-source search**: a pattern that matches almost anything cannot tell a real identifier from an arbitrary search term. **Namespace-scoped resolution still works.** Absence means the pattern is expected to discriminate, and `scripts/check-pattern-breadth.py` fails an over-broad pattern that is not declared open. Prefer tightening the regex, or listing values in `data.known_values`, whenever the set can be enumerated. Never use `open_pattern` to silence the gate on a set that simply has not been researched; remove the item-level node instead. See CLAUDE.md "Pattern breadth" for the full rules.
 
 **Multiple patterns per node:** A node can have multiple regex alternatives. All share the same children and data. Used when a source is known by multiple names (e.g., `["^top10$", "^top-10$", "^owasp-top-10$"]`).
 
@@ -963,11 +969,17 @@ URLs may contain placeholders for dynamic resolution:
 
 | Placeholder | Description | Example |
 |-------------|-------------|---------|
-| `{id}` | Full identifier from subpath | `CVE-2024-1234` |
-| `{num}` | Numeric portion of identifier | `1234` |
-| `{year}` | Year component of identifier | `2024` |
-| `{version}` | Version from `@version` component | `4.0` |
-| `{item_version}` | Item version from `@item_version` after subpath | `a1b2c3d` |
+| `{id}` | Full identifier from subpath, exactly as given | `CVE-2024-1234` |
+| `{id_lower}` | `{id}` lowercased. Use when the source's URLs are lowercase but its identifiers are not (e.g., Oracle alerts: `alert-{id_lower}.html`) | `cve-2012-1675` |
+| `{id_upper}` | `{id}` uppercased | `CVE-2012-1675` |
+| `{lang}` | Language code, from the `?lang=` qualifier or the node's `data.lang.default` (see [Language Resolution](#language-resolution)) | `en` |
+| `{<name>}` | Any variable defined in the node's `data.variables` and extracted from the subpath — e.g., `{year}`, `{num}`, `{bucket}` (see [Variables](#variables-in-node-data)) | `2024` |
+| `{version}` | Version from `@version` component — **specified but not yet substituted by SecID-Service**; no registry URL uses it today | `4.0` |
+| `{item_version}` | Item version from `@item_version` after subpath — **specified but not yet substituted by SecID-Service**; no registry URL uses it today | `a1b2c3d` |
+
+`{id}`, `{id_lower}`, and `{id_upper}` are always available. `{year}`, `{num}`, and similar exist only when the node defines them in `data.variables`. A placeholder with no value is left in the URL unsubstituted.
+
+`{id_lower}` is a lowercase transform for building URLs only. The SecID itself keeps the source's exact form (principle: never normalize lossily).
 
 #### Tree Matching Algorithm
 

@@ -12,7 +12,7 @@ Why this script exists:
 
 How it works:
     1. Fetches SecID-Service's `src/type-registry.ts` source from a configurable
-       location (default: GitHub raw URL for main branch). Local-path fallback
+       location (default: GitHub raw URL at the pinned SecID-Service commit). Local-path fallback
        lets contributors test without network access.
     2. Extracts declared subtype values per type using regex (sufficient for
        the simple TypeScript object-literal structure we use).
@@ -23,7 +23,7 @@ How it works:
 
 Usage:
     python3 scripts/validate-subtypes.py
-        Fetch type-registry.ts from main branch (default URL).
+        Fetch type-registry.ts at the pinned SecID-Service commit (default URL).
 
     python3 scripts/validate-subtypes.py --type-registry-path /path/to/type-registry.ts
         Use a local copy (useful when SecID-Service is checked out locally).
@@ -158,7 +158,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
         "--type-registry-url",
-        help="Raw URL to SecID-Service's type-registry.ts (default: main branch)",
+        help="Raw URL to SecID-Service's type-registry.ts (default: pinned SecID-Service commit, SECID_SERVICE_PINNED_SHA)",
     )
     parser.add_argument(
         "--type-registry-path",

@@ -2,6 +2,8 @@
 
 > **Status:** Stub — outline only. Contributions welcome.
 
+> **Format note:** `.json` is the authoritative registry format. It is what the resolver serves and what CI validates. Every namespace has a `.json` file, and most (2,016 of 2,138) have no `.md` at all. Where this guide says to create or copy a `.md` file, that describes the older YAML-first workflow: a `.md` file on its own is never served. See [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md).
+
 This guide walks through adding a new namespace to the SecID registry, from initial research to a complete registry file.
 
 ## Prerequisites

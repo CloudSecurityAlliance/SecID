@@ -56,8 +56,8 @@ With 20+ markdown files, know which document answers which question:
 | How do I update an existing namespace? | [UPDATE-NAMESPACE.md](docs/guides/UPDATE-NAMESPACE.md) |
 | How do I convert YAML to JSON? | [YAML-TO-JSON.md](docs/guides/YAML-TO-JSON.md) |
 | How do I write and test regex patterns? | [REGEX-WORKFLOW.md](docs/guides/REGEX-WORKFLOW.md) |
-| What's the JSON schema? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) - target format for v1.0+ |
-| What's the current file format? | [REGISTRY-FORMAT.md](docs/reference/REGISTRY-FORMAT.md) - YAML+Markdown (what's in use now) |
+| What's the JSON schema? | [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) - the authoritative registry format (what the resolver serves) |
+| What's the legacy `.md` format? | [REGISTRY-FORMAT.md](docs/reference/REGISTRY-FORMAT.md) - YAML+Markdown (legacy; 122 namespaces still carry one) |
 | What's being built and when? | [ROADMAP.md](ROADMAP.md) |
 | How does versioning work? | [VERSIONING.md](docs/reference/VERSIONING.md) - analysis, API behavior, response outcomes |
 | Edge cases with domains? | [EDGE-CASES.md](docs/reference/EDGE-CASES.md) |
@@ -105,9 +105,9 @@ secid/
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
 │   ├── <type>.json          # Type description in JSON (10 files, the .json counterpart of <type>.md)
-│   ├── <type>/_template.md  # Template for new namespace files
-│   ├── <type>/<tld>/<domain>.md    # Namespace file (reverse-DNS, e.g., org/mitre.md)
-│   ├── <type>/<tld>/<domain>.json  # JSON format (2,138 namespaces — 100% coverage)
+│   ├── <type>/_template.md  # Legacy YAML+Markdown template (there is no JSON template yet)
+│   ├── <type>/<tld>/<domain>.json  # Namespace file, reverse-DNS (e.g., org/mitre.json) — authoritative, every namespace
+│   ├── <type>/<tld>/<domain>.md    # Optional legacy YAML+Markdown companion (122 namespaces)
 │   └── _deferred/           # Partially researched entries not ready for main registry (e.g., cti/)
 ├── schemas/                 # OpenAPI spec + registry-namespace JSON Schema (JSON validation source of truth)
 ├── scripts/                 # Maintenance/research tooling (CNA pipeline, counts, scanners, stub generators)
@@ -120,15 +120,15 @@ secid/
 
 ## Registry File Format
 
-**Dual format: YAML+Markdown (`.md`) is authoritative for contributions. JSON (`.json`) files exist alongside `.md` for all namespaces** and are the target format for v1.0+. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the JSON schema.
+**JSON (`.json`) is authoritative. YAML+Markdown (`.md`) is legacy and optional.** The resolver (SecID-Service, via the KV upload), the JSON Schema, and every CI gate read only `.json`; nothing reads `.md`. Every namespace has a `.json` file (2,138). Only 122 also have a `.md` companion — 2,016 are JSON-only, including everything bulk-generated (CNA disclosure entries, entity stubs). When a namespace has both and they disagree, the `.json` is what users get. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the format and [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) for validation.
 
-One file per namespace containing all sources from that organization. Use the appropriate template as a starting point for new files: `registry/advisory/_template.md`, `registry/capability/_template.md`, `registry/disclosure/_template.md`, or `registry/reference/_template.md`.
+One file per namespace containing all sources from that organization. There is no JSON template yet; the per-type `registry/<type>/_template.md` files describe the legacy YAML format. The practical starting point for a new `.json` file is an existing file of the same type (see "Key reference files" below).
 
 ### Status Values
 
-**Current YAML files** use: `active`, `draft`, `superseded`, `historical`
+**JSON files** use: `proposed`, `draft`, `pending`, `published` (schema enum). Today every namespace is `draft`.
 
-**Target JSON format** (v1.0+) uses: `proposed`, `draft`, `pending`, `published`
+**Legacy YAML files** use: `active`, `draft`, `superseded`, `historical`
 
 `published` means "reviewed", not "complete". Empty arrays and `null` values are valid—they show we looked and found nothing.
 
@@ -211,21 +211,21 @@ Given a namespace like `github.com/advisories` and type `advisory`:
 2. Split domain on `.` → `github`, `com`
 3. Reverse → `com/github`
 4. Append path portion → `com/github/advisories`
-5. Append `.md` → `com/github/advisories.md`
-6. Prepend `registry/<type>/` → `registry/advisory/com/github/advisories.md`
+5. Append `.json` → `com/github/advisories.json`
+6. Prepend `registry/<type>/` → `registry/advisory/com/github/advisories.json`
 
-Simple cases: `mitre.org` → `registry/<type>/org/mitre.md`, `nist.gov` → `registry/<type>/gov/nist.md`
+Simple cases: `mitre.org` → `registry/<type>/org/mitre.json`, `nist.gov` → `registry/<type>/gov/nist.json`. A legacy `.md` companion, if one exists, sits at the same path with `.md`.
 
 ## Adding New Namespaces
 
 1. Determine type (advisory, weakness, ttp, control, capability, methodology, disclosure, regulation, entity, reference)
 2. Compute the filesystem path using the algorithm above
-3. Check if the file already exists — if so, add a source section to it
-4. If new, copy from `registry/advisory/_template.md` and fill in fields
+3. Check if the `.json` file already exists — if so, add a match_node to it
+4. If new, create the `.json` file, modelled on an existing file of the same type, and validate it with `python3 scripts/validate-registry-schema.py`
 5. Include: urls, pattern tree nodes (match_nodes with descriptions), examples
 6. Use `registry/_deferred/` for incomplete research
 
-See [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) for detailed patterns.
+See [REGISTRY-GUIDE.md](docs/guides/REGISTRY-GUIDE.md) for detailed patterns. Note that [ADD-NAMESPACE.md](docs/guides/ADD-NAMESPACE.md) still walks through the older `.md`-first workflow; a `.md` file alone is never served.
 
 ## Pattern Tree (match_nodes)
 
@@ -265,7 +265,7 @@ See `registry/advisory/com/redhat.json` for a complex example with nested childr
 
 ## JSON Registry Files
 
-All registry namespaces have been converted to JSON format. These `.json` files sit alongside their `.md` counterparts.
+Every registry namespace has a `.json` file; it is the only format the resolver serves. 122 of them also have a legacy `.md` companion.
 
 <!-- REGISTRY-COUNTS-START -->
 
@@ -379,8 +379,8 @@ rg -n '^namespace:' registry/**/*.md
 # Find all files for a specific namespace (e.g., mitre.org appears in multiple types)
 rg -l 'namespace: mitre.org' registry/
 
-# Count registry files per type
-for type in advisory weakness ttp control capability methodology disclosure regulation entity reference; do echo "$type: $(find registry/$type -name '*.md' -not -name '_*' 2>/dev/null | wc -l)"; done
+# Count registry namespaces per type (JSON is authoritative)
+for type in advisory weakness ttp control capability methodology disclosure regulation entity reference; do echo "$type: $(find registry/$type -name '*.json' -not -name '_*' 2>/dev/null | wc -l)"; done
 
 # Validate all JSON registry files parse correctly
 for f in registry/**/*.json; do python3 -c "import json; json.load(open('$f'))" && echo "OK: $f" || echo "FAIL: $f"; done
@@ -417,8 +417,23 @@ python3 scripts/check-security-txt.py     # Fetch security.txt across disclosure
 python3 scripts/scan-well-known.py        # Scan entity domains for well-known files (llms.txt, robots.txt, security.txt)
 python3 scripts/scan-mcp-endpoints.py     # Detect MCP endpoints + API/MCP mentions in entity domains' llms.txt
 
-# Subtype validation against SecID-Service's type-registry.ts (CI check)
-python3 scripts/validate-subtypes.py
+# Registry validation (CI checks — see .github/workflows/)
+python3 scripts/validate-registry-schema.py  # Every registry JSON file against schemas/registry-namespace.schema.json (needs `pip install jsonschema`)
+python3 scripts/validate-urls.py             # URL scheme policy: https only (http only for hosts in scripts/http-exception-allowlist.txt); javascript:/data:/file: etc. always rejected
+python3 scripts/validate-type-list.py        # Schema `type` enum matches SecID-Service's TYPE_REGISTRY (fetches type-registry.ts at a pinned commit)
+python3 scripts/validate-subtypes.py         # Every `subtype:` value is declared in SecID-Service's type-registry.ts (pinned commit)
+
+# Unit tests for the tooling (offline; plain python or pytest)
+python3 scripts/test_validate_urls.py        # Asserts validate-urls.py rejects bad schemes/hosts
+python3 scripts/test_net_guard.py            # Asserts the SSRF guard (_net_guard.py) used by the scan scripts blocks internal addresses
+
+# DISA STIG/SRG sync (reads the quarterly compilation's ZIP directory via HTTP range requests)
+python3 scripts/sync-disa-stigs.py --dry-run # Report changes to registry/control/mil/disa.json
+python3 scripts/sync-disa-stigs.py           # Apply them
+
+# Derive tags.country from ccTLDs (never overwrites a curated value; skips vanity TLDs like .io/.ai)
+python3 scripts/backfill-country-tags.py --dry-run   # Report
+python3 scripts/backfill-country-tags.py --check     # Exit 1 if any derivable tag is missing
 
 # Pattern breadth gate (CI check) — fails on overly broad match_node regexes
 python3 scripts/check-pattern-breadth.py             # check the working tree
@@ -474,7 +489,7 @@ The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](wo
 
 The companion `scripts/audit-known-broken.py` fetches the current upstream `CNAsList.json` (or uses `--cnas-list PATH` for offline runs) and classifies each overlay entry into four buckets: **still_present** (upstream still holds the broken value at the named `field_path`), **replaced** (`field_path` now resolves to a different value — manual re-validation needed), **disappeared** (`field_path` no longer resolves — orphan, candidate for removal), and **partial** (entry has multiple `field_paths` with mixed buckets). Entries whose `evidence.last_verified` is older than `--stale-days` (default 90) get a stale flag orthogonally. The audit reports only — it does not auto-reprobe URLs/emails. Exit code: 0 if every entry is still_present-and-not-stale; 1 otherwise. Supports `--json` for machine-readable output.
 
-This is a **specification-only repository** — no build system, no tests, no compiled code. Validation is manual review + grep/ripgrep over YAML frontmatter and JSON parsing.
+This is a **specification and data repository** — no build system and no compiled code. Validation is the Python scripts above: the CI gates (`validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `validate-subtypes.py`, `check-pattern-breadth.py`) plus offline unit tests for the tooling itself (`scripts/test_*.py`). Anything the scripts do not cover is manual review.
 
 ## CI/CD
 

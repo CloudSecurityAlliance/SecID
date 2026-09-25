@@ -1,18 +1,20 @@
 # Registry File Format
 
-This document describes the format used for SecID registry files.
+This document describes the **legacy** YAML+Markdown format for SecID registry files.
 
-## Current Format: YAML + Markdown (Obsidian-style)
+> **Status:** JSON is the authoritative registry format — see [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md). Every namespace has a `.json` file, and the resolver serves only those. 122 namespaces still carry a `.md` companion in the format below; 2,016 are JSON-only. Nothing reads the `.md` files at runtime.
+
+## Legacy Format: YAML + Markdown (Obsidian-style)
 
 Registry files use YAML frontmatter followed by Markdown content. This format is compatible with [Obsidian](https://obsidian.md/) and other knowledge management tools that support frontmatter.
 
-**Why this format for now:**
+**Why this format was used first:**
 - Human-readable and easy to author
 - Works with existing documentation tools
 - Allows rich narrative content alongside structured data
 - Facilitates exploration and iteration on the schema
 
-**Future direction:** Once the schema stabilizes, registry data will migrate to JSON for programmatic consumption. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) for the target JSON schema specification. The JSON format uses a nested pattern tree (`match_nodes`) instead of the flat `sources`/`id_pattern` structure used in YAML — the data is the same, just restructured for recursive matching. The Markdown narrative content may be retained separately or embedded. Seven pilot `.json` files already exist alongside their `.md` counterparts; see [INDEX.md](../../registry/INDEX.md) for the full list and current status.
+**Migration to JSON (done):** Registry data has migrated to JSON — see [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md). The JSON format uses a nested pattern tree (`match_nodes`) instead of the flat `sources`/`id_pattern` structure used in YAML — the data is the same, just restructured for recursive matching.
 
 ## File Structure
 

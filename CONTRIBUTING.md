@@ -31,7 +31,9 @@ If you're editing registry files directly:
 
 ## File Formats
 
-**Registry files** use YAML frontmatter + markdown (Obsidian-compatible):
+**Registry files** are JSON: `registry/<type>/<tld>/<domain>.json`, validated against [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) and described in [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md). The resolver serves only the `.json` files.
+
+**Legacy YAML+Markdown companions** (`.md`, 122 namespaces) use YAML frontmatter + markdown (Obsidian-compatible). They are optional and are not read by the resolver:
 
 ```markdown
 ---
