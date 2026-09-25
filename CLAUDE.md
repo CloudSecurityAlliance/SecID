@@ -479,12 +479,25 @@ This is a **specification-only repository** — no build system, no tests, no co
 
 ## CI/CD
 
-**JSON registry changes merged to main are automatically deployed to the live resolver at secid.cloudsecurityalliance.org.** Broken patterns or invalid JSON will break live resolution — validate before merging.
+**JSON registry changes merged to main are automatically deployed to the live resolver at secid.cloudsecurityalliance.org — but only after every validation gate passes.** Broken patterns or invalid JSON would break live resolution, so the deploy trigger depends on the gates.
+
+**One workflow, `.github/workflows/registry-ci.yml` ("Registry CI"),** holds every gate and the deploy trigger:
+
+| Job | Checks |
+|---|---|
+| `validate-schema` | `validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py` |
+| `validate-subtypes` | `validate-subtypes.py` |
+| `validate-pattern-breadth` | `check-pattern-breadth.py --self-test`, then `check-pattern-breadth.py` |
+| `tooling-tests` | `scripts/test_*.py` |
+| `ci-passed` | Aggregate: succeeds only if every job above succeeded (the branch-protection check) |
+| `notify-service` | `needs: ci-passed`; main pushes and manual runs on main only |
+
+Gates run on every PR, regardless of paths, so required checks always report. To add a gate, add a job and list it in `ci-passed`'s `needs:`.
 
 **Deploy chain:**
 
-1. Push to `main` touching `registry/**/*.json` triggers `.github/workflows/update-registry.yml` (also has `workflow_dispatch:` for manual testing)
-2. That workflow uses the `SECID_TO_SERVICE_DISPATCH` PAT (fine-grained, scoped to SecID-Service only) to send a `repository_dispatch` event
+1. A push to `main` (touching registry JSON, the schema, or the validators), or a manual `workflow_dispatch` on main, runs Registry CI
+2. If `ci-passed` succeeds and the push changed `registry/**/*.json`, `notify-service` uses the `SECID_TO_SERVICE_DISPATCH` PAT (fine-grained, scoped to SecID-Service only) to send a `repository_dispatch` event. A failing gate means no dispatch.
 3. SecID-Service receives the dispatch and runs its "Upload registry to KV" workflow, which:
    - Builds and tests
    - Runs `scripts/upload-registry-kv.ts --sync` using the `SECID_SERVICE_DEPLOY` Cloudflare token
@@ -496,15 +509,15 @@ This is a **specification-only repository** — no build system, no tests, no co
 
 **For manual operations:**
 
-- Test the auto-trigger chain: `gh workflow run "Notify registry update" -R CloudSecurityAlliance/SecID`
+- Test the auto-trigger chain (runs every gate, then dispatches): `gh workflow run "Registry CI" --ref main -R CloudSecurityAlliance/SecID`
 - Force a fresh KV sync: `gh workflow run "Upload registry to KV" -R CloudSecurityAlliance/SecID-Service`
 - Local audit (no mutations): `npx tsx scripts/upload-registry-kv.ts --sync --dry-run /path/to/SecID` from the SecID-Service repo with `CLOUDFLARE_API_TOKEN` env var set
 
 **Checking deploy-chain health** (do this when a registry change doesn't seem to be reaching the live resolver):
 
 ```bash
-# Should show recent successful runs of "Notify registry update"
-gh run list -R CloudSecurityAlliance/SecID -L 5
+# Should show recent successful runs of "Registry CI" with notify-service succeeded (not skipped)
+gh run list -R CloudSecurityAlliance/SecID --workflow "Registry CI" -L 5
 
 # Should show recent successful runs of "Upload registry to KV" triggered as "registry-updated"
 gh run list -R CloudSecurityAlliance/SecID-Service -L 5
@@ -517,7 +530,8 @@ curl -s 'https://secid.cloudsecurityalliance.org/api/v1/resolve?secid=secid:cont
 ```
 
 Failure modes seen historically (none active as of the last verification):
-- `SECID_TO_SERVICE_DISPATCH` PAT unauthorized — auto-trigger workflow on SecID side fails on the dispatch step
+- `SECID_TO_SERVICE_DISPATCH` PAT unauthorized — Registry CI's `notify-service` job fails on the dispatch step
+- A registry gate fails on main — `ci-passed` fails and `notify-service` is skipped, so nothing deploys until a fix lands
 - `cve-schema` test failures in SecID-Service — manual `Upload registry to KV` runs fail in the test stage
 - `CLOUDFLARE_API_TOKEN` expired/scoped wrong — upload step fails
 

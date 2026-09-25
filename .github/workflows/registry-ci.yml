@@ -1,0 +1,229 @@
+name: Registry CI
+
+# Every registry validation gate, plus the production deploy trigger, in ONE
+# workflow — so the deploy can depend on the gates with `needs:`.
+#
+# Why one workflow instead of separate validators + a notify workflow:
+#   Before this file, "Notify registry update" fired on every push to main in
+#   parallel with the three validation workflows. A push that failed
+#   validation still dispatched the deploy, and SecID-Service synced the broken
+#   registry into production KV. `needs:` is the only mechanism that makes a
+#   job wait for other jobs and skip when any of them fail. `workflow_run` can
+#   chain off ONE upstream workflow per run and cannot express "all of these
+#   succeeded", and it always runs the default-branch copy of the workflow,
+#   which makes it harder to review. Folding everything into one workflow with
+#   `needs:` is the simplest arrangement that is actually fail-closed.
+#
+# Jobs:
+#   validate-schema          JSON Schema + URL scheme policy + type-list consistency
+#   validate-subtypes        subtype values declared in SecID-Service type-registry.ts
+#   validate-pattern-breadth no over-broad match_node patterns (self-tested detector)
+#   tooling-tests            offline unit tests for the validators themselves
+#   ci-passed                single aggregate status: success only if ALL of the above succeeded
+#   notify-service           repository_dispatch to SecID-Service (main pushes / manual only),
+#                            runs only after ci-passed succeeds
+#
+# Pull requests run every gate regardless of which files changed. The gates take
+# about a minute, and branch protection can only require a check that reports on
+# every PR: a path-filtered required check never reports on a docs-only PR and
+# blocks it forever.
+#
+# Safety note: no untrusted GitHub event data (issue titles, PR bodies, commit
+# messages, branch names) is interpolated into shell commands. The only event
+# values used in `run:` are commit SHAs, passed through env vars.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "registry/**/*.json"
+      - "schemas/registry-namespace.schema.json"
+      - "scripts/validate-*.py"
+      - "scripts/check-pattern-breadth.py"
+      - "scripts/pattern-probes.json"
+      - "scripts/pattern-breadth-todo.json"
+      - "scripts/http-exception-allowlist.txt"
+      - "scripts/test_*.py"
+      - "scripts/_net_guard.py"
+      - ".github/workflows/registry-ci.yml"
+  workflow_dispatch:
+
+# Default-deny; each job grants only what it needs.
+permissions: {}
+
+concurrency:
+  group: registry-ci-${{ github.ref }}
+  # Supersede stale PR runs. Never cancel a main run mid-flight: SecID-Service
+  # deploys whatever main holds, so a queued newer run still deploys everything.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate-schema:
+    name: validate-schema
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Install jsonschema
+        run: pip install jsonschema
+      - name: Validate registry JSON files against schema
+        run: python3 scripts/validate-registry-schema.py
+      - name: Validate registry URL scheme/host policy
+        run: python3 scripts/validate-urls.py
+      - name: Validate type-list consistency with SecID-Service
+        run: python3 scripts/validate-type-list.py
+
+  validate-subtypes:
+    name: validate-subtypes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Validate subtype values against SecID-Service type-registry
+        run: python3 scripts/validate-subtypes.py
+
+  validate-pattern-breadth:
+    # A pattern is the registry's only way to say "no". A permissive regex
+    # asserts every string is a valid identifier, and because cross-source
+    # search walks every namespace, one such pattern degrades every query.
+    # See scripts/check-pattern-breadth.py and CLAUDE.md "Pattern breadth".
+    name: validate-pattern-breadth
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      # Verify the detector before trusting its verdict: if the probe corpus is
+      # edited such that a known catch-all stops being flagged, the gate has
+      # silently stopped protecting anything.
+      - name: Self-test the breadth detector
+        run: python3 scripts/check-pattern-breadth.py --self-test
+      - name: Check registry patterns for over-breadth
+        run: python3 scripts/check-pattern-breadth.py
+
+  tooling-tests:
+    # The live registry is clean, so it never exercises the validators'
+    # rejection paths. These offline tests prove the gates would catch a bad entry.
+    name: tooling-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: URL-policy validator tests
+        run: python3 scripts/test_validate_urls.py
+      - name: SSRF guard tests
+        run: python3 scripts/test_net_guard.py
+
+  ci-passed:
+    # One stable check name for branch protection. New gates only need adding to
+    # `needs:` here, not to the protection rule. `if: always()` makes this job
+    # run (and FAIL) when a dependency fails; without it the job would be
+    # skipped, and GitHub treats a skipped required check as passing.
+    name: ci-passed
+    if: always()
+    needs:
+      - validate-schema
+      - validate-subtypes
+      - validate-pattern-breadth
+      - tooling-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    steps:
+      - name: Require every gate to have succeeded
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "Gate results: $RESULTS"
+          for r in $RESULTS; do
+            if [ "$r" != "success" ]; then
+              echo "::error::A registry gate did not succeed ($r); blocking merge and deploy."
+              exit 1
+            fi
+          done
+
+  notify-service:
+    # Deploy trigger. Runs only on the canonical repo, only for a push to main or
+    # a manual run ON main, and only after every gate passed (ci-passed
+    # succeeded). A manual run from another branch validates that branch but
+    # does not dispatch: SecID-Service deploys main, which that run never checked.
+    name: notify-service
+    needs: ci-passed
+    if: >-
+      github.repository == 'CloudSecurityAlliance/SecID' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # Serialize deploy dispatches across runs; never drop one mid-flight.
+    concurrency:
+      group: secid-service-deploy
+      cancel-in-progress: false
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      # The push trigger also fires for validator/script-only changes (so the
+      # gates re-run against the registry). Only registry data changes need a
+      # deploy. A manual run always deploys. Fail open to "deploy": after the
+      # gates have passed, an unnecessary sync is harmless, while a missed one
+      # leaves production stale.
+      - name: Decide whether registry data changed
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" != "push" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if ! changed=$(git diff --name-only "$BEFORE" "$AFTER" 2>/dev/null); then
+            echo "Could not diff $BEFORE..$AFTER; deploying to be safe."
+            echo "deploy=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if printf '%s\n' "$changed" | grep -Eq '^registry/.*\.json$'; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No registry/**/*.json changes; skipping deploy dispatch."
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Trigger SecID-Service registry upload
+        if: steps.changes.outputs.deploy == 'true'
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3.0.0
+        with:
+          token: ${{ secrets.SECID_TO_SERVICE_DISPATCH }}
+          repository: CloudSecurityAlliance/SecID-Service
+          event-type: registry-updated
+          client-payload: '{"ref": "${{ github.sha }}"}'
