@@ -10,7 +10,7 @@
 ## Feedback (MCP-only)
 - Feedback intake is **MCP-only by design** — no web forms. AI/MCP clients call the **`submit_feedback`** tool on the live MCP server (secid.cloudsecurityalliance.org) with `category` (missing-namespace | correction | suggestion) + `secid` + `message`.
 - Agents that discover a security source with no registry coverage should call `submit_feedback` (category `missing-namespace`) rather than inventing an entry or telling the user to file an issue.
-- Submissions land in the `secid_FEEDBACK` KV store (`feedback:<uuid>`) for AI-assisted triage; passive namespace misses are also captured as `miss:<type>/<namespace>` aggregates.
+- Submissions land in the `secid_FEEDBACK` KV store (`feedback:<uuid>`, caller text inside an `untrusted` envelope) for AI-assisted triage. Passive namespace misses — queries naming a valid domain SecID doesn't have — are recorded separately as fixed-shape events in Workers Analytics Engine, with no caller free text, and exported in batches (see SecID-Service `docs/DEMAND-SIGNAL.md`).
 
 ## Build, Test, and Development Commands
 This repo is spec-and-data first; there is no single app build.

@@ -141,7 +141,7 @@ the suggestion.
 
 **Precomputed facets remain worth doing** — common search dimensions like country, type, subtype and jurisdiction
 served free means the queries agents make most often never reach the gate at all. Choose them from observed
-behaviour; the `secid_FEEDBACK` miss log is the obvious input.
+behaviour; the demand-miss digest (SecID-Service `scripts/export-misses.ts`) is the obvious input.
 
 Two documented pieces of reasoning still need rewriting, because they assume unscoped cross-source search is
 universally available:
@@ -336,7 +336,7 @@ Items intentionally not scheduled. Promote to an issue if/when a forcing functio
 - **MCP Interaction Logging** — log every MCP interaction to KV with TTL for usage analytics.
 - **Capability Freshness Monitoring** — monitor cloud provider release notes for new security features.
 - **llms.txt for AI Discoverability** — implement llms.txt standard on the website.
-- **Automated processing of the feedback backlog** — `secid_FEEDBACK` KV captures namespace-level misses + AI-submitted feedback (`miss:<type>/<namespace>` aggregates, plus MCP-submitted entries). Today it's read-only via raw `wrangler kv` (acceptable for now). Longer term: scheduled jobs read the backlog and process it with AI — rank demand, auto-research the most-requested missing sources, and draft registry entries / PRs for human review. Feedback intake is **MCP-only by design** (AI/MCP clients, not web forms), so the backlog is an AI-to-AI loop end to end.
+- **Automated processing of the feedback backlog** — two inputs. (1) Passive demand: queries naming a valid but unregistered domain are written to Workers Analytics Engine as fixed-shape events (type, namespace, channel, status; no caller free text). `scripts/export-misses.ts` in SecID-Service turns a window into a digest of gaps; retention is 3 months, so the export must run regularly (weekly suggested). Typos/invalid domains are deliberately not recorded. (2) AI-submitted feedback via `submit_feedback`, stored in `secid_FEEDBACK` KV with caller text in an `untrusted` envelope. Legacy `miss:*` KV keys from before the switch remain and can be exported then deleted. Longer term: scheduled jobs read the backlog and process it with AI — rank demand, auto-research the most-requested missing sources, and draft registry entries / PRs for human review. Feedback intake is **MCP-only by design** (AI/MCP clients, not web forms), so the backlog is an AI-to-AI loop end to end.
 
 ## Version aliases (from ADR-015, 2026-07-31)
 
