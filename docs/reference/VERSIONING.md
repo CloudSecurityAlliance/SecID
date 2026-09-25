@@ -139,7 +139,8 @@ Version miss (requested version doesn't exist):
 ```
 Query:    secid:control/cloudsecurityalliance.org/aicm@9.9#LOG-15
 Response: Version "9.9" is not a known version of aicm.
-          Known versions: 1.1.0 (current, 2026-06-22; aliases 1.1, v1.1),
+          Known versions: 1.1.1 (current; aliases 1.1, v1.1),
+                          1.1.0 (superseded, 2026-06-22),
                           1.0.3 (superseded).
           To list versions, describe the source without a version.
           Report a genuinely missing release via the submit_feedback tool

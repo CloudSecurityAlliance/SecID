@@ -1311,7 +1311,7 @@ These fields live in the name-level node's `data` object. They control what happ
 
 ##### Version Aliases
 
-Publishers routinely label one release two ways. CSA stamps `{"specification_version":"1.1.0"}` in cell A1 of the AICM workbook while branding the same release "v1.1" on its download page — and does the reverse for CCM, where `4.1` is canonical and `4.1.0` is the variant. Because the direction is inconsistent even within one publisher, aliases are curated data. They are never derived by prefix matching or `v`-stripping.
+Publishers routinely label one release two ways. CSA stamps the exact release (`{"specification_version":"1.1.0"}`, later `1.1.1`) in cell A1 of the AICM workbook while branding the line "v1.1" on its download page — and does the reverse for CCM, where `4.1` is canonical and `4.1.0` is the variant. Because the direction is inconsistent even within one publisher, aliases are curated data. They are never derived by prefix matching or `v`-stripping.
 
 Aliases live in **two places with different jobs**:
 
@@ -1319,8 +1319,8 @@ Aliases live in **two places with different jobs**:
 
 ```json
 {
-  "patterns": ["^1\\.1\\.0$", "^1\\.1$", "^v1\\.1$"],
-  "description": "AICM v1.1.0 — CSA brands this release v1.1",
+  "patterns": ["^1\\.1\\.1$", "^1\\.1$", "^v1\\.1$"],
+  "description": "AICM v1.1.1 — the newest release CSA brands v1.1",
   "children": [ /* this version's item patterns */ ]
 }
 ```
@@ -1337,7 +1337,7 @@ Aliases live in **two places with different jobs**:
 
 **The validator binds them.** `scripts/validate-version-aliases.py` asserts every declared version has a tree node whose `patterns[0]` matches it, every alias label appears as a pattern on that node, and every version node has a metadata entry. An alias declared without tree nodes is rejected, because it would be documentation that never resolves.
 
-**Rules.** An alias is immutable once published and is never re-pointed. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CSA's published CCM labels are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13, and CSA exposes no addressable 4.0.13. Aliasing the published label 4.0 to that internal stamp would invert the relationship.
+**Rules.** An alias is immutable once published and is never re-pointed — with one recorded exception. A *series* label that the publisher itself resolves to the newest member of the series may point at that member and move when a newer one ships: AICM `1.1` and `v1.1` point at `1.1.1` because CSA's own csa-mcp server resolves `1.1` to `1.1.1`, and they will move if CSA ships a 1.1.2. The move is a hand edit, noted on the alias. This is a stopgap for the deferred `version_tracks` field (ADR-015); a second case should build that field rather than repeat the exception. Aliases never chain — one hop to a concrete version. An alias label must be unique within its source and must never equal a real version string there: CSA's published CCM labels are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13, and CSA exposes no addressable 4.0.13. Aliasing the published label 4.0 to that internal stamp would invert the relationship.
 
 **When versions get enforced.** A version is validated only when the source has version-level tree nodes **and** the query carries a subpath — only a subpath forces the walk to traverse the version level. Adding version nodes to a source therefore also changes its unversioned behavior: `source#ITEM` with no version returns source-level data and drops the subpath. Do not add version nodes to a source whose item IDs are stable across releases and whose unversioned queries are useful.
 

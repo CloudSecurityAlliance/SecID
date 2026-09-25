@@ -856,17 +856,23 @@ The registry controls this via three `unversioned_behavior` values: `"current"` 
 
 #### Version Aliases
 
-One release can carry more than one official label. CSA stamps the AICM
-workbook `1.1.0` in cell A1 of every sheet while branding the same release
-"v1.1" on its download page — and does the reverse for CCM, where `4.1` is
-canonical and `4.1.0` is the variant. Both labels circulate; neither is wrong.
+One release can carry more than one official label. CSA stamps the exact
+AICM release (`1.1.0`, later `1.1.1`) in cell A1 of every workbook sheet while
+branding the line "v1.1" on its download page — and does the reverse for CCM,
+where `4.1` is canonical and `4.1.0` is the variant. Both labels circulate;
+neither is wrong.
 
 The registry records the canonical version plus its aliases, so both resolve:
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.1.0#LOG-15   # canonical
-secid:control/cloudsecurityalliance.org/aicm@1.1#LOG-15     # alias — same control
+secid:control/cloudsecurityalliance.org/aicm@1.1.1#LOG-15   # canonical
+secid:control/cloudsecurityalliance.org/aicm@1.1#LOG-15     # alias — resolves to 1.1.1
+secid:control/cloudsecurityalliance.org/aicm@1.1.0#LOG-15   # earlier patch release, still addressable
 ```
+
+`1.1` names a series rather than one release, so it points where the publisher
+points it: CSA's own csa-mcp server resolves AICM `1.1` to the newest 1.1.x,
+`1.1.1`. Cite the three-part version when the exact release matters.
 
 Matching happens in the pattern tree: a versioned source has version-level
 nodes whose `patterns[0]` is the canonical string and whose remaining patterns

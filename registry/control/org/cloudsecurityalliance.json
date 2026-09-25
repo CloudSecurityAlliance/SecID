@@ -118,18 +118,18 @@
         "description": "Security controls specific to AI/ML systems, complementing CCM for AI workloads.",
         "version_required": true,
         "unversioned_behavior": "all_with_guidance",
-        "version_disambiguation": "AICM control IDs are NOT stable across releases. Between 1.0.3 and 1.1.0, CSA renumbered controls in place: 54 of the 242 control IDs present in both releases designate a DIFFERENT control. LOG-15 was Output Monitoring in 1.0.3 and is Input Monitoring in 1.1.0; IAM-12 was Safeguard Logs Integrity and is Unique Identities; TVM-12 was Threat Analysis and Modelling and is Vulnerability Management Metrics. Only one ID (IAM-19) disappeared outright, so comparing ID sets between releases does NOT detect this. Always cite AICM controls with an explicit version. Never migrate a reference between versions by string match — CSA publishes no crosswalk, so the mapping has to be reconstructed by comparing specification text between the two releases.",
+        "version_disambiguation": "AICM control IDs are NOT stable across releases. Between 1.0.3 and 1.1.0, CSA renumbered controls in place: 54 of the 242 control IDs present in both releases designate a DIFFERENT control. LOG-15 was Output Monitoring in 1.0.3 and is Input Monitoring in 1.1.0; IAM-12 was Safeguard Logs Integrity and is Unique Identities; TVM-12 was Threat Analysis and Modelling and is Vulnerability Management Metrics. Only one ID (IAM-19) disappeared outright, so comparing ID sets between releases does NOT detect this. 1.1.1 did NOT renumber: it carries the same 247 control IDs, titles, and 18 domains as 1.1.0, so a 1.1.0 control ID names the same control in 1.1.1. Always cite AICM controls with an explicit version. Never migrate a reference between the 1.0 and 1.1 series by string match — CSA publishes no crosswalk, so the mapping has to be reconstructed by comparing specification text between the two releases.",
         "versions_available": [
           {
-            "version": "1.1.0",
-            "release_date": "2026-06-22",
+            "version": "1.1.1",
+            "release_date": null,
             "status": "current",
-            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. The workbook's Scope Applicability (Mappings) sheet dropped from 16 columns to 13: it carries BSI AI C4, the EU AI Act, and ISO/IEC 42001:2023, and no longer carries the NIST AI 600-1:2024 block that the 1.0.3 workbook included. CSA does publish a standalone NIST mapping artifact, but it is titled \"AICM v1.0 mapping to NIST 600-1\" and is keyed to pre-1.1.0 control IDs, which do not carry over.",
+            "note": "247 controls across 18 domains, with the same control IDs, titles, and domain codes as 1.1.0 -- no renumbering. What changed from 1.1.0, per CSA's own dataset (csa-mcp): every control gains NIST AI RMF / NIST AI 600-1 and AIUC-1 (Q2 2026) cross-framework mappings with gap levels and addenda, restoring the NIST AI 600-1 coverage the 1.1.0 workbook dropped; the Model Provider implementation guidance for GRC-01, IAM-13, and IAM-18 was replaced (1.1.0 carried text written for other roles there); and the SEF-06 assessment question was reworded. The companion questionnaire stays AI-CAIQ 1.1.0 -- CSA did not issue an AI-CAIQ 1.1.1. Release date not asserted: CSA's v1.1 artifact page still reads \"Released: 06/22/2026\" (the 1.1.0 date) and does not name the patch level, and CSA publishes no changelog.",
             "aliases": [
               {
                 "label": "1.1",
                 "on_match": "resolve",
-                "note": "CSA's artifact page, bundle ZIP, and PDF titles all brand this release v1.1. The workbook stamps itself 1.1.0 in cell A1 of every sheet, which is why 1.1.0 is canonical here."
+                "note": "CSA's artifact page, bundle ZIP, and PDF titles brand the 1.1 line \"v1.1\" without a patch level. 1.1 resolves to the newest 1.1.x release, 1.1.1, because that is what CSA's own tooling does: the csa-mcp server resolves the series label aicm 1.1 to 1.1.1. A two-part label pointing at a patch release is a compromise -- it means 1.1 moves when CSA ships a newer 1.1.x. Cite @1.1.0 or @1.1.1 when the exact release matters."
               },
               {
                 "label": "v1.1",
@@ -138,13 +138,19 @@
             ]
           },
           {
+            "version": "1.1.0",
+            "release_date": "2026-06-22",
+            "status": "superseded",
+            "note": "247 controls across 18 domains. Control IDs renumbered in place from 1.0.3 — see version_disambiguation. Superseded by 1.1.1, which keeps every control ID. The workbook's Scope Applicability (Mappings) sheet dropped from 16 columns to 13: it carries BSI AI C4, the EU AI Act, and ISO/IEC 42001:2023, and no longer carries the NIST AI 600-1:2024 block that the 1.0.3 workbook included (1.1.1 restores NIST AI 600-1 mappings). CSA does publish a standalone NIST mapping artifact, but it is titled \"AICM v1.0 mapping to NIST 600-1\" and is keyed to pre-1.1.0 control IDs, which do not carry over. Addressable only as 1.1.0; the 1.1 and v1.1 labels resolve to 1.1.1."
+          },
+          {
             "version": "1.0.3",
             "release_date": null,
             "status": "superseded",
             "note": "243 controls. Its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook does not. Control IDs are not interchangeable with 1.1.0. CSA maintains a separate artifact record per major line: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix is \"AI Controls Matrix v1\" (released 2025-07-09, updated 2025-10-30) and covers the 1.0.x line, while v1.1 has its own record. Version-specific companion artifacts also exist under CSA's aicmv1-0-3-* slug convention. Release date not asserted: upstream sources conflict (2025-11-10 in one index, a bare \"2024\" in the release metadata), and CSA publishes no changelog that settles it. CSA's v1 artifact record shows \"Updated: 2025-10-30\", a third candidate."
           }
         ],
-        "notes": "Current release is 1.1.0 (247 controls, 2026-06-22). 1.0.3 (243 controls) is superseded; its workbook still carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook dropped. Releases 1.0.0 (July 2025) through 1.0.2 existed and were superseded by 1.0.3; none has a retrievable artifact or a CSA version-specific page, so they are not declared as resolvable versions here. Control IDs are NOT stable between 1.0.3 and 1.1.0 -- see version_disambiguation. Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the version node's download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
+        "notes": "Current release is 1.1.1 (247 controls; same control IDs as 1.1.0, adds NIST AI 600-1 and AIUC-1 mappings). 1.1.0 (247 controls, 2026-06-22) is superseded by it. The labels 1.1 and v1.1 resolve to 1.1.1, matching CSA's csa-mcp server. 1.0.3 (243 controls) is superseded; its workbook carries the NIST AI 600-1:2024 mappings that the 1.1.0 workbook dropped. Releases 1.0.0 (July 2025) through 1.0.2 existed and were superseded by 1.0.3; none has a retrievable artifact or a CSA version-specific page, so they are not declared as resolvable versions here. Control IDs are NOT stable between 1.0.3 and 1.1.0 -- see version_disambiguation. Extends CCM for AI workloads. Shares all 17 CCM domains and adds MDS (Model Security) for 18 total. Control ID format is the same as CCM (XXX-NN), NOT the AI-prefixed codes previously assumed. Addresses model training security, data poisoning prevention, inference security, model theft protection, bias and fairness controls, and AI supply chain security. Aligns with NIST AI RMF, ISO 42001, BSI AI C4.\n\nDistinguishes between 'Cloud & AI Related' controls (shared with CCM) and 'Strictly AI Related' controls (AICM-only).\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing: the main AICM spreadsheet, AI-CAIQ questionnaire, implementation guidelines, auditing guidelines, and framework mappings.\n\nExtraction instructions: (1) Download the ZIP from the version node's download URL. (2) Unzip the bundle. (3) Open the main AICM spreadsheet. (4) Go to the controls sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Specifications (full text). Additional columns for five pillars: Control Type, Control Applicability/Ownership, Architectural Relevance, LLM Lifecycle Relevance, Threat Category. (6) Find the row where Control ID matches.\n\nUse both CCM and AICM for comprehensive AI cloud security coverage.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix", "format": "zip", "note": "Direct download (no account required). ZIP bundle containing AICM spreadsheet, AI-CAIQ, guidelines, and mappings."}
@@ -153,8 +159,8 @@
       },
       "children": [
         {
-          "patterns": ["^1\\.1\\.0$", "^1\\.1$", "^v1\\.1$"],
-          "description": "AICM v1.1.0 (current). CSA brands this release v1.1; the workbook stamps itself 1.1.0.",
+          "patterns": ["^1\\.1\\.1$", "^1\\.1$", "^v1\\.1$"],
+          "description": "AICM v1.1.1 (current). The labels 1.1 and v1.1 resolve here, matching CSA's own csa-mcp server. Same control IDs as 1.1.0; adds NIST AI 600-1 and AIUC-1 mappings.",
           "weight": 100,
           "data": {
             "type": "version",
@@ -168,10 +174,79 @@
                 "type": "bulk_data",
                 "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix-v1-1",
                 "format": "zip",
-                "note": "Direct download (no account required). ZIP bundle: AICM v1.1.0 spreadsheet, AI-CAIQ v1.1.0, introductory guidance, AI-CAIQ instructions, STAR for AI Level 1 submission guide."
+                "note": "ZIP bundle for the v1.1 line: AICM spreadsheet, AI-CAIQ v1.1.0, introductory guidance, AI-CAIQ instructions, STAR for AI Level 1 submission guide. CSA serves one v1.1 artifact record for both 1.1.0 and 1.1.1 and does not publish a separate 1.1.1 URL; check the workbook's cell A1 stamp for the patch level you received."
               }
             ],
-            "note": "247 controls across 18 domains."
+            "note": "247 controls across 18 domains. Same control IDs, titles, and domains as 1.1.0. CSA serves the 1.1 line from a single artifact record; the page does not name the patch level."
+          },
+          "children": [
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)$"],
+              "description": "AICM v1.1.1 control domain. 18 domains: 16 shared with CCM, plus I&S (replacing CCM's IVS) and MDS.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain web pages. Download the v1.1 bundle and filter the controls sheet by domain code.",
+                "examples": [
+                  {"input": "MDS", "note": "Model Security — AICM-only domain (not in CCM)"}
+                ],
+                "known_values": {
+                  "A&A": "Audit & Assurance",
+                  "AIS": "Application & Interface Security",
+                  "BCR": "Business Continuity Management & Operational Resilience",
+                  "CCC": "Change Control & Configuration Management",
+                  "CEK": "Cryptography, Encryption & Key Management",
+                  "DCS": "Datacenter Security",
+                  "DSP": "Data Security & Privacy Lifecycle Management",
+                  "GRC": "Governance, Risk & Compliance",
+                  "HRS": "Human Resources",
+                  "I&S": "Infrastructure & Virtualization Security (CCM calls this IVS)",
+                  "IAM": "Identity & Access Management",
+                  "IPY": "Interoperability & Portability",
+                  "LOG": "Logging & Monitoring",
+                  "MDS": "Model Security (AICM-only domain)",
+                  "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
+                  "STA": "Supply Chain Management, Transparency & Accountability",
+                  "TVM": "Threat & Vulnerability Management",
+                  "UEM": "Universal Endpoint Management"
+                },
+                "_known_values_provenance": {"method": "csa-mcp csa_get_controls(family=aicm, version=1.1.1, verbosity=minimal)", "date": "2026-09-25", "note": "247 controls enumerated across 18 distinct domain codes; identical ID and domain set to 1.1.0."}
+              }
+            },
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|MDS|SEF|STA|TVM|UEM)-\\d{2}$"],
+              "description": "Specific AICM v1.1.1 control (e.g., IAM-01, MDS-01).",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "No per-control web page exists. Download the v1.1 bundle, open the AICM spreadsheet, go to the controls sheet, and find the row where 'Control ID' matches; 'Specifications' holds the full text. The ID names the same control as in 1.1.0. WARNING: it may designate a different control in 1.0.3 — 54 of the 242 shared IDs were repointed. Do not carry a 1.0.3 reference over by string match.",
+                "examples": [
+                  {"input": "LOG-15", "note": "Input Monitoring in 1.1.1 (and 1.1.0); no per-control URL — resolve via the v1.1 bundle download"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "patterns": ["^1\\.1\\.0$"],
+          "description": "AICM v1.1.0 (superseded by 1.1.1, which keeps every control ID). Addressable only as 1.1.0; the labels 1.1 and v1.1 resolve to 1.1.1.",
+          "weight": 95,
+          "data": {
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1"
+              },
+              {
+                "type": "bulk_data",
+                "url": "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix-v1-1",
+                "format": "zip",
+                "note": "ZIP bundle for the v1.1 line: AICM spreadsheet, AI-CAIQ v1.1.0, introductory guidance, AI-CAIQ instructions, STAR for AI Level 1 submission guide. CSA serves one v1.1 artifact record for both 1.1.0 and 1.1.1; the 1.1.0 workbook stamps itself 1.1.0 in cell A1."
+              }
+            ],
+            "note": "247 controls across 18 domains. Its workbook's mappings sheet carries BSI AI C4, the EU AI Act, and ISO/IEC 42001:2023 but not NIST AI 600-1; 1.1.1 adds NIST AI 600-1 and AIUC-1 mappings."
           },
           "children": [
             {
@@ -213,7 +288,7 @@
               "weight": 100,
               "data": {
                 "type": "control",
-                "note": "No per-control web page exists. Download the v1.1 bundle, open the AICM spreadsheet, go to the controls sheet, and find the row where 'Control ID' matches; 'Specifications' holds the full text. WARNING: this ID may designate a different control in 1.0.3 — 54 of the 242 shared IDs were repointed. Do not carry a 1.0.3 reference over by string match.",
+                "note": "No per-control web page exists. Download the v1.1 bundle, open the AICM spreadsheet, go to the controls sheet, and find the row where 'Control ID' matches; 'Specifications' holds the full text. The ID names the same control in 1.1.1. WARNING: it may designate a different control in 1.0.3 — 54 of the 242 shared IDs were repointed. Do not carry a 1.0.3 reference over by string match.",
                 "examples": [
                   {"input": "MDS-01", "note": "No per-control URL — resolve via the v1.1 bundle download"}
                 ]
@@ -386,7 +461,7 @@
             "version": "1.1.0",
             "release_date": "2026-06-22",
             "status": "current",
-            "note": "320 questions. Ships as a standalone workbook inside the AICM v1.1 bundle. Pairs with AICM 1.1.0.",
+            "note": "320 questions. Ships as a standalone workbook inside the AICM v1.1 bundle. Pairs with both AICM 1.1.0 and AICM 1.1.1: CSA numbers the questionnaire independently and issued no AI-CAIQ 1.1.1 (its csa-mcp server maps an aicm-caiq request for 1.1.1 to 1.1.0). The labels 1.1 and v1.1 therefore still resolve to AI-CAIQ 1.1.0, again matching csa-mcp.",
             "aliases": [
               {
                 "label": "1.1",

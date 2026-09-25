@@ -163,6 +163,8 @@ jobs:
         run: python3 scripts/test_net_guard.py
       - name: Version-alias validator tests
         run: python3 scripts/test_validate_version_aliases.py
+      - name: CSA AICM/AI-CAIQ/CCM version data assertions
+        run: python3 scripts/test_csa_version_data.py
 
   ci-passed:
     # One stable check name for branch protection. New gates only need adding to

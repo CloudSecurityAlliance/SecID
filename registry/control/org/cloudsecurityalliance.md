@@ -30,12 +30,13 @@ sources:
       website: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix"
       download: "https://cloudsecurityalliance.org/download/artifacts/ai-controls-matrix"
     versions:
+      - "1.1.1"
       - "1.1.0"
       - "1.0.3"
     id_pattern: "[A-Z&]{2,3}-\\d{2}"
     examples:
-      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#IAM-01"
-      - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#MDS-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.1#IAM-01"
+      - "secid:control/cloudsecurityalliance.org/aicm@1.1.1#MDS-01"
       - "secid:control/cloudsecurityalliance.org/aicm@1.1.0#DSP-03"
 
   ccm-caiq:
@@ -150,7 +151,7 @@ The AI Controls Matrix provides security controls specific to AI/ML systems.
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/aicm@1.1.0#XXX-NN
+secid:control/cloudsecurityalliance.org/aicm@1.1.1#XXX-NN
 ```
 
 Same ID format as CCM (domain code + two-digit number). AICM shares all 17 CCM domains and adds MDS (Model Security) for 18 total.
@@ -184,14 +185,16 @@ Same as CCM: no per-control web pages. Download the AICM bundle, open the spread
 | Matrix | Scope | Domains | Controls |
 |--------|-------|---------|----------|
 | CCM v4.1 | General cloud security | 17 | 207 |
-| AICM v1.1.0 (current) | AI-specific (extends CCM) | 18 (adds MDS) | 247 |
+| AICM v1.1.1 (current) | AI-specific (extends CCM) | 18 (adds MDS) | 247 |
+| AICM v1.1.0 (superseded) | AI-specific (extends CCM) | 18 (adds MDS) | 247 |
 | AICM v1.0.3 (superseded) | AI-specific (extends CCM) | 18 (adds MDS) | 243 |
 
 Use both for comprehensive AI cloud security.
 
 ### Notes
 
-- 1.1.0 (2026-06-22, 247 controls) is current; control IDs were renumbered in place from 1.0.3, so IDs are not interchangeable across versions
+- 1.1.1 (247 controls) is current; same control IDs as 1.1.0, adds NIST AI 600-1 and AIUC-1 mappings. `1.1` and `v1.1` resolve to 1.1.1, matching CSA's csa-mcp server
+- 1.1.0 (2026-06-22, 247 controls) is superseded; control IDs were renumbered in place from 1.0.3, so IDs are not interchangeable between the 1.0 and 1.1 series
 - 1.0.3 (243 controls) is superseded
 - Complements CCM for AI workloads
 - Aligns with NIST AI RMF, ISO 42001, BSI AI C4
@@ -247,7 +250,7 @@ Bare control IDs resolve to the full set of questions for that control. For the 
 
 ### Notes
 
-- 1.1.0 (2026-06-22) is current; pairs with AICM 1.1.0
+- 1.1.0 (2026-06-22) is current; pairs with AICM 1.1.0 and 1.1.1 (CSA issued no AI-CAIQ 1.1.1)
 - 1.0.2 (superseded) pairs with AICM 1.0.3; question IDs are not interchangeable with 1.1.0
 - AI-specific assessment questions including MDS (Model Security)
 

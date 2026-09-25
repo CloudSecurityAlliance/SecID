@@ -58,37 +58,58 @@ def version_nodes(name: str) -> dict[str, dict]:
 def test_aicm_has_version_tree_nodes():
     # The whole point: without these, @9.9 resolves.
     nodes = version_nodes("aicm")
+    assert "1.1.1" in nodes, sorted(nodes)
     assert "1.1.0" in nodes, sorted(nodes)
     assert "1.0.3" in nodes, sorted(nodes)
 
 
 def test_aicm_version_nodes_carry_the_control_children():
-    for v in ("1.1.0", "1.0.3"):
+    for v in ("1.1.1", "1.1.0", "1.0.3"):
         kids = version_nodes("aicm")[v].get("children") or []
         pats = [k["patterns"][0] for k in kids]
         assert AICM_DOMAIN in pats and AICM_CONTROL in pats, (v, pats)
         assert not any("[A-Z&]" in p for p in pats), (v, pats)
 
 
-def test_aicm_1_1_is_an_alias_pattern_on_the_tree_node():
-    pats = version_nodes("aicm")["1.1.0"]["patterns"]
-    assert pats[0] == "^1\\.1\\.0$", pats          # canonical first
+def test_aicm_1_1_is_an_alias_pattern_on_the_1_1_1_node():
+    # Kurt's decision (ADR-015 amendment, 2026-09-25): 1.1 / v1.1 follow CSA's
+    # own csa-mcp server, which resolves the series label aicm 1.1 to 1.1.1.
+    pats = version_nodes("aicm")["1.1.1"]["patterns"]
+    assert pats[0] == "^1\\.1\\.1$", pats          # canonical first
     assert "^1\\.1$" in pats and "^v1\\.1$" in pats, pats
 
 
+def test_aicm_1_1_0_is_addressable_only_by_its_own_literal():
+    pats = version_nodes("aicm")["1.1.0"]["patterns"]
+    assert pats == ["^1\\.1\\.0$"], pats
+
+
 def test_aicm_metadata_matches_the_tree():
-    assert alias_labels("aicm", "1.1.0") == {"1.1", "v1.1"}
+    assert alias_labels("aicm", "1.1.1") == {"1.1", "v1.1"}
+    assert alias_labels("aicm", "1.1.0") == set()
     v = versions("aicm")
-    assert v["1.1.0"]["status"] == "current"
+    assert set(v) == {"1.1.1", "1.1.0", "1.0.3"}, sorted(v)
+    assert v["1.1.1"]["status"] == "current"
+    assert v["1.1.1"]["release_date"] is None      # CSA publishes no 1.1.1 date
+    assert v["1.1.0"]["status"] == "superseded"
     assert v["1.1.0"]["release_date"] == "2026-06-22"
     assert v["1.0.3"]["status"] == "superseded"
     assert v["1.0.3"]["release_date"] is None
+    assert [e["status"] for e in data("aicm")["versions_available"]].count("current") == 1
+
+
+def test_aicm_1_1_1_domains_match_1_1_0():
+    # 1.1.1 did not renumber: same 18 domain codes, same item patterns.
+    def kids(v):
+        return [(k["patterns"], sorted(k["data"].get("known_values") or {}))
+                for k in version_nodes("aicm")[v]["children"]]
+    assert kids("1.1.1") == kids("1.1.0")
 
 
 def test_aicm_declares_only_resolvable_versions():
     # AICM 1.0.0-1.0.2 were real releases -- 1.0.3's upstream metadata records
     # that it supersedes "AICM 1.0.0-1.0.2" -- but none has a retrievable
-    # artifact, so SecID declares only what it can resolve: 1.0.3 and 1.1.0.
+    # artifact, so SecID declares only what it can resolve: 1.0.3, 1.1.0, 1.1.1.
     assert "1.0" not in versions("aicm")
     assert "1.0" not in version_nodes("aicm")
 
@@ -123,9 +144,13 @@ def test_aicaiq_version_nodes_carry_all_three_item_levels():
 
 
 def test_aicaiq_aliases_match_tree_and_metadata():
+    # AICM 1.1.0 and 1.1.1 both ship AI-CAIQ 1.1.0; CSA issued no AI-CAIQ
+    # 1.1.1, and csa-mcp resolves aicm-caiq 1.1 to 1.1.0. So 1.1 stays here.
     pats = version_nodes("aicm-caiq")["1.1.0"]["patterns"]
     assert pats[0] == "^1\\.1\\.0$", pats
     assert alias_labels("aicm-caiq", "1.1.0") == {"1.1", "v1.1"}
+    assert "1.1.1" not in versions("aicm-caiq")
+    assert "1.1.1" not in version_nodes("aicm-caiq")
 
 
 def test_aicaiq_declares_only_resolvable_versions():

@@ -514,7 +514,7 @@ This is a **specification and data repository** — no build system and no compi
 
 | Job | Checks |
 |---|---|
-| `validate-schema` | `validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `check-url-templates.py` (+ `--self-test`) |
+| `validate-schema` | `validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `check-url-templates.py` (+ `--self-test`), `validate-version-aliases.py` |
 | `validate-subtypes` | `validate-subtypes.py` |
 | `validate-pattern-breadth` | `check-pattern-breadth.py` and `check-canonical-names.py`, each after its `--self-test` |
 | `tooling-tests` | `scripts/test_*.py` |
