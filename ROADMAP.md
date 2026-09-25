@@ -840,8 +840,10 @@ Our goal is to make SecID as easy to consume as possible. We're building:
 |------------|---------|--------|
 | **SecID** (this repo) | Spec, registry, operations docs | Active |
 | **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Hosted API + MCP server | **Live** |
-| **SecID-Website** | Documentation and registry browser | Planned |
-| **SecID-Client-SDK** | Client libraries + AI instructions | Planned |
+| **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver (Python reference implementation) | Active |
+| **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries (Python, TypeScript, Go) + AI instructions | Active |
+
+The public website is not a separate repository: it is an Astro static site in SecID-Service's `website/` directory, served by the same Worker as the API.
 
 ### SecID-Client-SDK
 

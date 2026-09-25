@@ -349,7 +349,7 @@ Per CLAUDE.md: "adding a new type requires coordinated changes across multiple r
 
 ### SecID-Client-SDK
 
-- Type definitions in: Python, npm, Go, Rust, Java, C#
+- Type definitions in: Python, TypeScript, Go (the three languages the SDK ships)
 - AI instructions documents that enumerate types
 - README examples if applicable
 

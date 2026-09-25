@@ -8,8 +8,7 @@ How each SecID component is deployed, updated, and rolled back.
 
 | Component | Deployment Target | Mechanism |
 |-----------|------------------|-----------|
-| SecID-Service | Cloudflare Worker | `wrangler deploy` (via GitHub Actions) |
-| SecID-Website | Cloudflare Pages | Git integration or `wrangler pages deploy` |
+| SecID-Service (API, MCP, and website) | Cloudflare Worker + Workers static assets | `npm run deploy` = build website, then `wrangler deploy` (via GitHub Actions) |
 | SecID-Client-SDK | Package registries (PyPI, npm, etc.) | Per-language publish workflows |
 
 ## SecID-Service (Worker)
@@ -39,27 +38,14 @@ The previous version is restored immediately at the edge. No rebuild needed.
 
 Worker configuration lives in `wrangler.toml` in the SecID-Service repo:
 - Worker name
-- Route patterns (`/api/*`, `/mcp/*`)
+- Route pattern (`secid.cloudsecurityalliance.org/*`)
 - Compatibility date
-- KV namespace bindings (future, if needed)
+- KV namespace bindings (`secid_REGISTRY`, `secid_OBSERVABILITY`, `secid_FEEDBACK`)
+- Static assets directory (`./website/dist`)
 
-## SecID-Website (Pages)
+## Website
 
-### Deploy
-
-**Option 1: Cloudflare Pages git integration (recommended)**
-- Connect the SecID-Website repo to Cloudflare Pages
-- Every push to main auto-deploys
-- Every PR gets a preview deployment
-- No GitHub Actions needed
-
-**Option 2: Manual/CI deploy**
-- Build the site locally or in CI
-- Deploy via `wrangler pages deploy <directory>`
-
-### Rollback
-
-Cloudflare Pages maintains deployment history. Rollback to any previous deployment via the Cloudflare dashboard or API.
+There is no separate website repository or Pages project. The site is an Astro static build in SecID-Service's `website/` directory, served as Workers static assets (`[assets] directory = "./website/dist"` in `wrangler.toml`). It deploys and rolls back together with the Worker.
 
 ## SecID-Client-SDK (Libraries)
 
@@ -70,9 +56,8 @@ Each language publishes independently:
 | Python | PyPI | `twine upload` or `flit publish` |
 | npm/TypeScript | npm | `npm publish` |
 | Go | Go module proxy | `git tag` (automatic) |
-| Rust | crates.io | `cargo publish` |
-| Java | Maven Central | `mvn deploy` |
-| C#/.NET | NuGet | `dotnet nuget push` |
+
+These are the three languages SecID-Client-SDK currently ships. See its `PUBLISHING.md` for the actual release procedure.
 
 Client releases are **not** triggered by Service or registry changes. They have their own version numbers and release when their code changes warrant it.
 

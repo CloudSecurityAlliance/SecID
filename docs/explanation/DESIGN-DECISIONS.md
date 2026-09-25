@@ -2392,7 +2392,7 @@ All SecID repositories are public.
 
 ### Why
 
-**No secrets exist.** SecID-Service is a Cloudflare Worker that reads public registry data and returns URLs. SecID-Website is a static site. There are no databases, no authentication systems, no API keys baked into application code. The only credential is a Cloudflare deploy token used by CI/CD, which lives in GitHub Actions secrets — never in the repo.
+**No secrets exist.** SecID-Service is a Cloudflare Worker that reads public registry data and returns URLs; the website it also serves is static. There are no databases, no authentication systems, no API keys baked into application code. The only credential is a Cloudflare deploy token used by CI/CD, which lives in GitHub Actions secrets — never in the repo.
 
 **The attack surface doesn't benefit from obscurity.** Knowing that we use a Cloudflare Worker with path-based routing (`/api/*`, `/mcp/*`, `/*`) tells an attacker nothing useful. The infrastructure is a CDN edge function serving public data. There are no internal networks, no database connection strings, no admin endpoints to discover.
 
@@ -2405,9 +2405,10 @@ All SecID repositories are public.
 | Repo | Visibility | Contains |
 |------|-----------|----------|
 | SecID | Public | Spec, registry data, design docs, operations documentation |
-| SecID-Service | Public | Cloudflare Worker (API + MCP server) |
-| SecID-Website | Public | Cloudflare Pages documentation site |
+| SecID-Service | Public | Cloudflare Worker (API + MCP server + static website) |
+| SecID-Server-API | Public | Self-hosted resolver |
 | SecID-Client-SDK | Public | Client libraries |
+| SecID-Data-* | Public | Extracted content (SecID 2.0); private counterparts under CloudSecurityAlliance-Internal from 3.0 |
 
 ## Operations Documentation Lives in This Repo
 
@@ -2448,7 +2449,6 @@ If operations outgrows documentation into actual IaC code with its own build/tes
 | Repo | License | Rationale |
 |------|---------|-----------|
 | **SecID** (spec, registry, docs) | CC0 1.0 | Content. Maximum adoption, zero barriers to use. |
-| **SecID-Website** (documentation site) | CC0 1.0 | Content. Same rationale — it's rendered documentation. |
 | **SecID-Service** (API + MCP server) | Apache 2.0 | Code. Industry-standard for open-source software. |
 | **SecID-Client-SDK** (libraries) | Apache 2.0 | Code. Industry-standard, expected by package registries. |
 
