@@ -44,6 +44,8 @@ on:
       - "scripts/check-*.py"
       - "scripts/pattern-probes.json"
       - "scripts/pattern-breadth-todo.json"
+      - "scripts/check-canonical-names.py"
+      - "scripts/canonical-names-todo.json"
       - "scripts/http-exception-allowlist.txt"
       - "scripts/test_*.py"
       - "scripts/_net_guard.py"
@@ -128,6 +130,12 @@ jobs:
         run: python3 scripts/check-pattern-breadth.py --self-test
       - name: Check registry patterns for over-breadth
         run: python3 scripts/check-pattern-breadth.py
+      # patterns[0] of a name node becomes the canonical SecID the resolver
+      # prints; a non-literal one makes SecID-Service slugify the description.
+      - name: Self-test the canonical-name check
+        run: python3 scripts/check-canonical-names.py --self-test
+      - name: Check top-level patterns[0] are clean literals
+        run: python3 scripts/check-canonical-names.py
 
   tooling-tests:
     # The live registry is clean, so it never exercises the validators'

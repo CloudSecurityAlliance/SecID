@@ -1,0 +1,360 @@
+{
+  "_comment": "Top-level match_nodes whose patterns[0] cannot honestly be a clean literal. Read by scripts/check-canonical-names.py: listed nodes are reported but do not fail; a stale entry (the node is fixed, renamed or gone) fails, so a fix must delete its entry. None of these can be fixed in the registry alone -- each category needs a resolver change, described under 'categories'.",
+  "categories": {
+    "dotted-name": "The source's own name contains '.' (ITU-T X.805, IEEE 802.11). SecID-Service extractNameSlug accepts only [A-Za-z0-9_-], so the correct literal is rejected. Renaming to 'x-805' would break 'follow the source'. Fix: let extractNameSlug accept '.'.",
+    "family-template": "One node matches a numbered series (GLI-11, GLI-19; YD/T 1234; NIST 800-53). No single literal names every member, and a family literal would make every member's canonical SecID the family name. Fix: when patterns[0] is not a literal, echo the matched name instead of slugifying the description.",
+    "name-is-identifier": "The name is itself an open identifier (arXiv ID, DOI, ISBN, commit SHA). The canonical form is the input. Same fix as family-template."
+  },
+  "entries": [
+    {
+      "file": "registry/control/cn/org/ccsa.json",
+      "pattern": "(?i)^yd-?t-?(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/com/gaminglabs.json",
+      "pattern": "(?i)^gli-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/com/gsma.json",
+      "pattern": "(?i)^fs-?(\\d+)?$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/com/lmalloyds.json",
+      "pattern": "(?i)^lma-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/de/bund/bsi.json",
+      "pattern": "(?i)^tr-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/de/din.json",
+      "pattern": "(?i)^iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/eu/cen.json",
+      "pattern": "(?i)^en-iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/foundation/identity.json",
+      "pattern": "(?i)^did-?(\\w+)?$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/in/gov/bis.json",
+      "pattern": "(?i)^is-iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/int/itu.json",
+      "pattern": "(?i)^x\\.805$",
+      "category": "dotted-name"
+    },
+    {
+      "file": "registry/control/int/itu.json",
+      "pattern": "(?i)^x\\.1051$",
+      "category": "dotted-name"
+    },
+    {
+      "file": "registry/control/jp/or/jsa.json",
+      "pattern": "(?i)^jis-?q-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/kr/go/kats.json",
+      "pattern": "(?i)^ks-?x-?iso-?iec-?(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/kr/or/tta.json",
+      "pattern": "(?i)^ttas-?(.+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/aia-aerospace.json",
+      "pattern": "(?i)^nas-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/ansi.json",
+      "pattern": "(?i)^iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/csagroup.json",
+      "pattern": "(?i)^z(\\d+(?:\\.\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/ieee.json",
+      "pattern": "(?i)^802\\.11$",
+      "category": "dotted-name"
+    },
+    {
+      "file": "registry/control/org/ieee.json",
+      "pattern": "(?i)^802\\.1x$",
+      "category": "dotted-name"
+    },
+    {
+      "file": "registry/control/org/iogp.json",
+      "pattern": "(?i)^report-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/kebs.json",
+      "pattern": "(?i)^ks-iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/pda.json",
+      "pattern": "(?i)^tr-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/psacertified.json",
+      "pattern": "(?i)^level-(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/org/uic.json",
+      "pattern": "(?i)^irs-?(\\d+)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/control/za/co/sabs.json",
+      "pattern": "(?i)^sans-iso-iec-(\\d+(?:-\\d+)?)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/com/amazon.json",
+      "pattern": "^[A-Z0-9]{10}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/commit.json",
+      "pattern": "^[0-9a-f]{40}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/commit.json",
+      "pattern": "^[0-9a-f]{7,39}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/discussions.json",
+      "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/issues.json",
+      "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/pull.json",
+      "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/releases.json",
+      "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+/.+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/repo.json",
+      "pattern": "^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/github/users.json",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/com/ssrn.json",
+      "pattern": "^\\d{6,7}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^3pao-.+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^.+-playbook$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^.+-(template|form)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^csp-.+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^fedramp-.+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/fedramp.json",
+      "pattern": "(?i)^ssp-appendix-[a-z]-.+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nih.json",
+      "pattern": "^\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/gov/nist/nvd.json",
+      "pattern": "^cpe:2\\.3:[aho]:[^:]+:[^:]+",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^ir-\\d+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^tn-\\d+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^cswp-.+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^800-\\d+[a-z]?(-pt\\d+)?(-v\\d+)?$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^1800-\\d+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^fips-(140(-\\d)?|180|186|197|198|201|202|203|204|205)$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/nist.json",
+      "pattern": "(?i)^ai-100-\\d+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/whitehouse.json",
+      "pattern": "^eo-\\d{5}$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/whitehouse.json",
+      "pattern": "^m-\\d{2}-\\d{2}$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/whitehouse.json",
+      "pattern": "^nsm-\\d+$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/gov/whitehouse.json",
+      "pattern": "^ncs-\\d{4}$",
+      "category": "family-template"
+    },
+    {
+      "file": "registry/reference/int/itu.json",
+      "pattern": "(?i)^cybex-x.1500$",
+      "category": "dotted-name"
+    },
+    {
+      "file": "registry/reference/org/acm.json",
+      "pattern": "^10\\.1145/\\d+\\.\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/arxiv.json",
+      "pattern": "^\\d{4}\\.\\d{4,5}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/dblp.json",
+      "pattern": "^[a-z]+/[a-zA-Z0-9/]+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/doi.json",
+      "pattern": "^10\\.\\d{4,}/[^\\s]+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/iacr.json",
+      "pattern": "^\\d{4}/\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/ieee.json",
+      "pattern": "^\\d{7,8}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/ietf.json",
+      "pattern": "^\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/isbn.json",
+      "pattern": "^97[89]-?\\d{1,5}-?\\d{1,7}-?\\d{1,7}-?\\d$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/issn.json",
+      "pattern": "^\\d{4}-\\d{3}[\\dX]$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/ndss-symposium.json",
+      "pattern": "^[a-z0-9-]+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/openalex.json",
+      "pattern": "^W\\d+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/semanticscholar.json",
+      "pattern": "^[a-f0-9]{40}$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/techrxiv.json",
+      "pattern": "^\\d+(\\.v\\d+)?$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/usenix.json",
+      "pattern": "^[a-z0-9-]+/presentation/[a-z0-9-]+$",
+      "category": "name-is-identifier"
+    },
+    {
+      "file": "registry/reference/org/zenodo.json",
+      "pattern": "^\\d+$",
+      "category": "name-is-identifier"
+    }
+  ]
+}

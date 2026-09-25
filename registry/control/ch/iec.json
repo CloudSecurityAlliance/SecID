@@ -23,6 +23,7 @@
   "match_nodes": [
     {
       "patterns": [
+        "(?i)^62443$",
         "(?i)^62443(?:-(\\d+(?:-\\d+)?))?$"
       ],
       "description": "IEC 62443 — Security for industrial automation and control systems (jointly with ISA)",
@@ -74,7 +75,7 @@
       ]
     },
     {
-      "patterns": ["(?i)^61511(-\\d+)?$"],
+      "patterns": ["(?i)^61511$", "(?i)^61511(-\\d+)?$"],
       "description": "IEC 61511 — Functional safety for the process industry",
       "weight": 100,
       "data": {
@@ -98,7 +99,7 @@
       }
     },
     {
-      "patterns": ["(?i)^60601(-\\d+(?:-\\d+)?)?$"],
+      "patterns": ["(?i)^60601$", "(?i)^60601(-\\d+(?:-\\d+)?)?$"],
       "description": "IEC 60601 — Medical electrical equipment safety",
       "weight": 100,
       "data": {
@@ -110,7 +111,7 @@
       }
     },
     {
-      "patterns": ["(?i)^62366(-\\d+)?$"],
+      "patterns": ["(?i)^62366$", "(?i)^62366(-\\d+)?$"],
       "description": "IEC 62366 — Usability engineering for medical devices",
       "weight": 100,
       "data": {
