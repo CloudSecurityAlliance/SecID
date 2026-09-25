@@ -117,7 +117,7 @@ The AI Act creates demand for AI-specific controls:
 
 ```json
 {
-  "from": "secid:control/cloudsecurityalliance.org/aicm@1.0#GOV-01",
+  "from": "secid:control/cloudsecurityalliance.org/aicm@1.1.0#GOV-01",
   "to": "secid:regulation/europa.eu/ai-act#art-9",
   "type": "satisfies",
   "description": "AI governance controls address AI Act risk management requirements"
