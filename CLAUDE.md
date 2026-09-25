@@ -261,6 +261,11 @@ The JSON format uses a nested `match_nodes` array (not flat `id_pattern` lists) 
 
 Source-level `data.examples` uses bare strings (representative samples). Child-level `data.examples` uses structured ExampleObject entries (`{input, variables, url, note}`) that serve as test fixtures. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for full schema.
 
+Two rules the resolver depends on, each enforced by a CI gate:
+
+- **A subpath URL template goes in `data.url`, never only in `data.urls[]`.** Resolvers substitute `{id}` into `data.url` alone; below the top level, `urls[]` is passed over. All 14,150 STIG rule nodes once carried their template only in `urls[]` and resolved as `found` with no URL (fixed in #196). `check-url-templates.py` rejects the shape.
+- **A top-level node's `patterns[0]` must be a clean literal** — after stripping `(?i)`, `^`, `$` and unescaping, only `[A-Za-z0-9_-]` (no dots). The resolver uses it as the canonical name; when it is not a literal, the resolver slugifies the description instead, producing names like `iso/iec-27006-—-requirements-…` whose `/` breaks parsing. `check-canonical-names.py` enforces it; nodes that cannot honestly have one name (numbered families, name-is-the-ID references like arXiv, dotted names like `X.805`) are tracked in `scripts/canonical-names-todo.json` pending a SecID-Service change.
+
 See `registry/advisory/com/redhat.json` for a complex example with nested children (RHSA/RHBA/RHEA under errata), and `registry/advisory/org/debian.json` for range-table variable extraction.
 
 ## JSON Registry Files
@@ -441,6 +446,16 @@ python3 scripts/check-pattern-breadth.py --self-test # verify the detector itsel
 python3 scripts/check-pattern-breadth.py --ref REV   # check a past revision
 python3 scripts/audit-pattern-breadth.py --top 40    # advisory breadth ranking (never fails)
 # Tracked debt lives in scripts/pattern-breadth-todo.json (stale entries fail the gate)
+
+# Canonical-name gate (CI check) — top-level patterns[0] must be a clean literal
+python3 scripts/check-canonical-names.py             # check the working tree
+python3 scripts/check-canonical-names.py --self-test # verify the detector itself
+python3 scripts/check-canonical-names.py --list      # list every offending node
+# Tracked debt lives in scripts/canonical-names-todo.json (stale entries fail the gate)
+
+# URL-template gate (CI check) — subpath URL templates must live in data.url
+python3 scripts/check-url-templates.py               # check the working tree
+python3 scripts/check-url-templates.py --self-test   # verify the detector itself
 ```
 
 ### Pattern breadth: the one rule that protects every query
@@ -489,7 +504,7 @@ The `apply-known-broken.py` step reads [`working-data/cna/known-broken.json`](wo
 
 The companion `scripts/audit-known-broken.py` fetches the current upstream `CNAsList.json` (or uses `--cnas-list PATH` for offline runs) and classifies each overlay entry into four buckets: **still_present** (upstream still holds the broken value at the named `field_path`), **replaced** (`field_path` now resolves to a different value — manual re-validation needed), **disappeared** (`field_path` no longer resolves — orphan, candidate for removal), and **partial** (entry has multiple `field_paths` with mixed buckets). Entries whose `evidence.last_verified` is older than `--stale-days` (default 90) get a stale flag orthogonally. The audit reports only — it does not auto-reprobe URLs/emails. Exit code: 0 if every entry is still_present-and-not-stale; 1 otherwise. Supports `--json` for machine-readable output.
 
-This is a **specification and data repository** — no build system and no compiled code. Validation is the Python scripts above: the CI gates (`validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `validate-subtypes.py`, `check-pattern-breadth.py`) plus offline unit tests for the tooling itself (`scripts/test_*.py`). Anything the scripts do not cover is manual review.
+This is a **specification and data repository** — no build system and no compiled code. Validation is the Python scripts above: the CI gates (`validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `validate-subtypes.py`, `check-pattern-breadth.py`, `check-canonical-names.py`, `check-url-templates.py`) plus offline unit tests for the tooling itself (`scripts/test_*.py`). Anything the scripts do not cover is manual review.
 
 ## CI/CD
 
@@ -499,9 +514,9 @@ This is a **specification and data repository** — no build system and no compi
 
 | Job | Checks |
 |---|---|
-| `validate-schema` | `validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py` |
+| `validate-schema` | `validate-registry-schema.py`, `validate-urls.py`, `validate-type-list.py`, `check-url-templates.py` (+ `--self-test`) |
 | `validate-subtypes` | `validate-subtypes.py` |
-| `validate-pattern-breadth` | `check-pattern-breadth.py --self-test`, then `check-pattern-breadth.py` |
+| `validate-pattern-breadth` | `check-pattern-breadth.py` and `check-canonical-names.py`, each after its `--self-test` |
 | `tooling-tests` | `scripts/test_*.py` |
 | `ci-passed` | Aggregate: succeeds only if every job above succeeded (the branch-protection check) |
 | `notify-service` | `needs: ci-passed`; main pushes and manual runs on main only |

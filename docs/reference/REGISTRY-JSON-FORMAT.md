@@ -607,6 +607,8 @@ Two URL mechanisms exist in the registry:
 
 **2. `data.url` string** — on child match_nodes only. THE resolution URL template with `{id}` variable substitution. One per child. For multiple resolution URLs (e.g., HTML page + JSON API), use multiple children matching the same pattern with different weights.
 
+Resolvers substitute variables into `data.url` only. A `{id}`-templated entry in a child's `urls[]` is never filled in, so a child whose only template sits in `urls[]` resolves as `found` with no URL. `scripts/check-url-templates.py` (a CI gate) rejects that shape.
+
 ```json
 "children": [
   {"patterns": ["^CVE-\\d{4}-\\d{4,}$"], "weight": 100, "data": {"url": "https://www.cve.org/CVERecord?id={id}"}},
