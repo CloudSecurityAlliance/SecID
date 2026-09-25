@@ -400,6 +400,30 @@ components:
         lang:
           type: string
           description: ISO 639-1 language code of the resolved resource.
+        parsability:
+          type: string
+          enum: [structured, scraped]
+          description: >-
+            Format metadata copied from the matched registry node. `structured` means the resource at
+            the URL is machine-readable (JSON, XML, CSV); `scraped` means it is HTML or otherwise
+            unstructured. Omitted when the registry does not document it.
+        schema:
+          type: string
+          description: >-
+            SecID reference to the data schema the resource follows. Omitted when not documented.
+          examples:
+            - "secid:reference/cve.org/cve-schema@5.2.0"
+        parsing_instructions:
+          type: string
+          description: >-
+            SecID reference to a parsing instruction document for this format. Omitted when not documented.
+          examples:
+            - "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5"
+        auth:
+          type: string
+          description: >-
+            Free-text description of any authentication needed to fetch the URL. Omitted when not
+            documented (absence does not mean no authentication is needed).
 
     RegistryResult:
       type: object

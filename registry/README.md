@@ -132,9 +132,11 @@ Document in both types when the source provides both perspectives.
 To add a new namespace:
 1. Determine which type it belongs to
 2. Identify the organization (namespace)
-3. Create or update `registry/<type>/<tld>/<domain>.md`
-4. Fill in the frontmatter with resolution info (urls, id_pattern, examples)
-5. Add context in the markdown body (format, resolution rules, notes)
+3. Create or update `registry/<type>/<tld>/<domain>.json` — the authoritative format and the only one the resolver serves (see [REGISTRY-JSON-FORMAT.md](../docs/reference/REGISTRY-JSON-FORMAT.md))
+4. Fill in match_nodes with resolution info (patterns, urls, examples)
+5. Validate with `python3 scripts/validate-registry-schema.py`
+
+A legacy YAML+Markdown `.md` companion is optional; 122 namespaces have one.
 
 **For security tools:** Consider both entity (what it is) and control (what it checks).
 

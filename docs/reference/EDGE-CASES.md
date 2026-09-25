@@ -23,7 +23,7 @@ This keeps SecID human-readable in natural left-to-right order, matching how peo
 
 **Scenario:** An organization uses a deeply nested subdomain like `security.teams.internal.bigcorp.com`. Does this create clutter?
 
-**In theory yes, in practice no.** Public-facing security knowledge comes from well-known, short domains. Cloud providers use subdomains naturally (`aws.amazon.com`) without issue. We have no registry entries deeper than three labels (e.g., `aws.amazon.com`), and there's no reason to expect this will change — organizations that publish security knowledge want to be found, and short domains help with that.
+**In theory yes, in practice no.** Public-facing security knowledge comes from well-known, short domains. Cloud providers use subdomains naturally (`aws.amazon.com`) without issue. Almost every registry entry has two or three labels (e.g., `aws.amazon.com`). The only four-label namespaces are government legal publishers whose official legislation databases sit under the national government's domain: `isap.sejm.gov.pl` (Poland), `ejustice.just.fgov.be` (Belgium), and `ris.bka.gv.at` (Austria). SecID uses those hostnames as-is because that is where the authority publishes. Deeper nesting stays rare because organizations that publish security knowledge want to be found, and short domains help with that.
 
 If it ever became a problem, the namespace is still unambiguous and parseable. It's just long.
 
@@ -136,6 +136,8 @@ sources:
 ```
 
 When a resolver hits an alias stub (a namespace entry with `alias_of` and no sources/rules), it follows the redirect to the canonical namespace and resolves there. The client gets back the result from the canonical entry.
+
+> **Implementation status:** This is the intended design. `alias_of` is reserved in the JSON Schema, but neither SecID-Service nor SecID-Server-API follows it yet, and no registry file uses it. See [REGISTRY-JSON-FORMAT.md](REGISTRY-JSON-FORMAT.md) "Alias stubs".
 
 **Why Unicode as canonical form:** Practitioners in non-Latin-script countries should see their organization's name in their own script. `字节跳动.com` is recognizable; `xn--5tzq62dl23a.com` is not. The whole point of Unicode namespace support is human readability. The Punycode form exists as an alias for systems that can't handle Unicode input.
 

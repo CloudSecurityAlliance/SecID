@@ -74,10 +74,10 @@ When an organization changes domains (e.g., acquisition):
 
 ## Syncing .md and .json When Both Exist
 
-15 namespaces have both `.md` and `.json` files (see [YAML-TO-JSON.md](YAML-TO-JSON.md) for the list):
+122 namespaces have both `.md` and `.json` files; the other 2,016 are JSON-only.
 
-1. The `.md` file remains authoritative during transition
-2. After editing `.md`, update the `.json` to match
+1. The `.json` file is authoritative: it is the only file the resolver serves and CI validates
+2. Make the change in the `.json`; if a `.md` companion exists, update it to match or note where it has fallen behind
 3. Use `registry/CONVERSION-REVIEW-PROMPT.md` for AI-assisted review
 4. See [YAML-TO-JSON.md](YAML-TO-JSON.md) for the conversion workflow
 

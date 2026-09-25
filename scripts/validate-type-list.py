@@ -23,7 +23,7 @@ How it works:
 
 Usage:
     python3 scripts/validate-type-list.py
-        Fetch type-registry.ts from main branch (default URL).
+        Fetch type-registry.ts at the pinned SecID-Service commit (default URL).
 
     python3 scripts/validate-type-list.py --type-registry-path /path/to/type-registry.ts
         Use a local copy (useful when testing changes to SecID-Service
@@ -98,7 +98,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
         "--type-registry-url",
-        help="Raw URL to SecID-Service's type-registry.ts (default: main branch)",
+        help="Raw URL to SecID-Service's type-registry.ts (default: pinned SecID-Service commit, SECID_SERVICE_PINNED_SHA)",
     )
     parser.add_argument(
         "--type-registry-path",

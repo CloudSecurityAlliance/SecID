@@ -90,9 +90,9 @@ aws.amazon.com           ✓  Subdomain
 red_hat.com              ✗  Underscore not allowed in segment
 ```
 
-**Namespace file location:** Namespace files are stored in a reverse-DNS directory hierarchy: `registry/<type>/<tld>/<domain>.md`
-- Simple namespace: `registry/advisory/org/mitre.md`
-- Sub-namespace: `registry/advisory/com/github/advisories.md` (directory + file)
+**Namespace file location:** Namespace files are stored in a reverse-DNS directory hierarchy: `registry/<type>/<tld>/<domain>.json` (the authoritative format; an optional legacy `.md` companion sits at the same path)
+- Simple namespace: `registry/advisory/org/mitre.json`
+- Sub-namespace: `registry/advisory/com/github/advisories.json` (directory + file)
 
 **Why domain names:**
 
@@ -334,12 +334,12 @@ Before adding anything, study how the source is **presented** and how people **u
 ### Step 3: Namespace File Location
 
 ```
-registry/<type>/<tld>/<domain>.md
+registry/<type>/<tld>/<domain>.json
 ```
 
 One file per namespace containing all sources from that organization:
-- `registry/advisory/com/redhat.md` → Red Hat CVE, errata, bugzilla
-- `registry/control/gov/nist.md` → NIST CSF, 800-53, AI RMF
+- `registry/advisory/com/redhat.json` → Red Hat CVE, errata, bugzilla
+- `registry/control/gov/nist.json` → NIST CSF, 800-53, AI RMF
 
 ### Step 4: Required Information
 
