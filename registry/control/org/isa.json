@@ -19,6 +19,7 @@
   "match_nodes": [
     {
       "patterns": [
+        "(?i)^62443$",
         "(?i)^62443(?:-(\\d+(?:-\\d+)?))?$"
       ],
       "description": "ISA 62443 — joint with IEC (Security for industrial automation and control systems)",

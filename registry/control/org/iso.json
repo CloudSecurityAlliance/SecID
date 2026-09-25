@@ -386,7 +386,7 @@
       }
     },
     {
-      "patterns": ["(?i)^27006(?:-(\\d+))?$"],
+      "patterns": ["(?i)^27006$", "(?i)^27006(?:-(\\d+))?$"],
       "description": "ISO/IEC 27006 — Requirements for ISMS certification bodies",
       "weight": 100,
       "data": {
@@ -446,7 +446,7 @@
       }
     },
     {
-      "patterns": ["(?i)^27035(?:-(\\d+))?$"],
+      "patterns": ["(?i)^27035$", "(?i)^27035(?:-(\\d+))?$"],
       "description": "ISO/IEC 27035 — Information security incident management",
       "weight": 100,
       "data": {
@@ -458,7 +458,7 @@
       }
     },
     {
-      "patterns": ["(?i)^27036(?:-(\\d+))?$"],
+      "patterns": ["(?i)^27036$", "(?i)^27036(?:-(\\d+))?$"],
       "description": "ISO/IEC 27036 — Supplier-relationship information security",
       "weight": 100,
       "data": {
@@ -542,7 +542,7 @@
       }
     },
     {
-      "patterns": ["(?i)^27050(?:-(\\d+))?$"],
+      "patterns": ["(?i)^27050$", "(?i)^27050(?:-(\\d+))?$"],
       "description": "ISO/IEC 27050 — Electronic discovery",
       "weight": 100,
       "data": {
@@ -770,7 +770,7 @@
       }
     },
     {
-      "patterns": ["(?i)^31700(-\\d+)?$"],
+      "patterns": ["(?i)^31700$", "(?i)^31700(-\\d+)?$"],
       "description": "ISO 31700 — Consumer protection: Privacy by design for consumer goods and services",
       "weight": 100,
       "data": {
@@ -782,7 +782,7 @@
       }
     },
     {
-      "patterns": ["(?i)^13849(-\\d+)?$"],
+      "patterns": ["(?i)^13849$", "(?i)^13849(-\\d+)?$"],
       "description": "ISO 13849 — Safety of machinery: safety-related parts of control systems",
       "weight": 100,
       "data": {
@@ -818,7 +818,7 @@
       }
     },
     {
-      "patterns": ["(?i)^80001(-\\d+)?$"],
+      "patterns": ["(?i)^80001$", "(?i)^80001(-\\d+)?$"],
       "description": "ISO/IEC 80001 — Risk management for IT networks incorporating medical devices",
       "weight": 100,
       "data": {
