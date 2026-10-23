@@ -2058,7 +2058,7 @@ When version is omitted from a SecID, what should happen? The naive answer — "
 
 Consider:
 - `secid:advisory/mitre.org/cve#CVE-2024-1234` — CVE IDs are globally unique. Version is irrelevant. Just resolve it.
-- `secid:control/cloudsecurityalliance.org/ccm#IAM-12` — CCM 4.0 is current. Return that, but note that v3.0.1 exists (older docs may reference it).
+- `secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01.1` — CAIQ 4.1.0 is current. Return that, but note that 4.0.3 and 3.1 exist (older assessments may reference them). (CCM itself was the original example here; it moved to `all_with_guidance` with version nodes in ADR-015's second amendment, 2026-10-22.)
 - `secid:weakness/owasp.org/top10#A01` — **Genuinely ambiguous.** A01 in 2021 is "Broken Access Control." A01 in 2017 was "Injection." These are completely different weaknesses sharing the same identifier.
 
 ### Three Resolution Behaviors
@@ -2095,8 +2095,8 @@ secid:advisory/mitre.org/cve#CVE-2024-1234           → URL to CVE record
                                                         (unversioned_behavior: current)
 
 # Version significant — sensible default, history noted
-secid:control/cloudsecurityalliance.org/ccm#IAM-12    → URL to v4.0 IAM-12
-                                                        + note: "v3.0.1 also exists"
+secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01.1 → URL to v4.1.0 IAM-01.1
+                                                        + note: "v4.0.3 and v3.1 also exist"
                                                         (unversioned_behavior: current_with_history)
 
 # Version ambiguous — all versions with disambiguation guidance
