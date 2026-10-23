@@ -15,14 +15,15 @@ sources:
       download_v41: "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1"
       machine_readable: "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal"
     versions:
-      - "4.1"
+      - "4.1.1"
+      - "4.1.0"
       - "4.0"
       - "3.0.1"
     id_pattern: "[A-Z&]{2,3}-\\d{2}"
     examples:
-      - "secid:control/cloudsecurityalliance.org/ccm@4.1#IAM-01"
+      - "secid:control/cloudsecurityalliance.org/ccm@4.1.1#IAM-01"
       - "secid:control/cloudsecurityalliance.org/ccm@4.0#DSP-07"
-      - "secid:control/cloudsecurityalliance.org/ccm@4.1#A&A-01"
+      - "secid:control/cloudsecurityalliance.org/ccm@4.1#I&S-01"
 
   aicm:
     full_name: "AI Controls Matrix"
@@ -46,12 +47,13 @@ sources:
       download: "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1"
       machine_readable: "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal"
     versions:
+      - "4.1.0"
       - "4.0.3"
       - "3.1"
       - "3.0.1"
     id_pattern: "[A-Z&]{2,3}-\\d{2}\\.\\d+"
     examples:
-      - "secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#IAM-01.1"
+      - "secid:control/cloudsecurityalliance.org/ccm-caiq@4.1.0#IAM-01.1"
       - "secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#A&A-01.2"
       - "secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01"
 
@@ -102,12 +104,14 @@ The Cloud Controls Matrix (CCM) is the de facto standard for cloud security cont
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/ccm@4.1#XXX-NN
+secid:control/cloudsecurityalliance.org/ccm@4.1.1#XXX-NN
 ```
 
-Domain code (2-3 uppercase letters, or A&A) and two-digit control number. No per-control web pages -- resolution returns a download URL with extraction instructions.
+Domain code (2-3 uppercase letters, or A&A / I&S) and two-digit control number. CCM requires a version: each release has its own version node with its own domain codes. No per-control web pages -- resolution returns a download URL with extraction instructions.
 
 ### Control Domains (17)
+
+The v4.1 codes. 4.1 renamed `IVS` (Infrastructure & Virtualization Security) to `I&S` (Infrastructure Security); v4.0 uses `IVS`. v3.0.1 uses a different set (AAC, DSI, EKM, GRM, MOS and others).
 
 | Code | Domain |
 |------|--------|
@@ -122,7 +126,7 @@ Domain code (2-3 uppercase letters, or A&A) and two-digit control number. No per
 | HRS | Human Resources |
 | IAM | Identity & Access Management |
 | IPY | Interoperability & Portability |
-| IVS | Infrastructure & Virtualization Security |
+| I&S | Infrastructure Security (v4.0: `IVS`, Infrastructure & Virtualization Security) |
 | LOG | Logging & Monitoring |
 | SEF | Security Incident Management, E-Discovery & Cloud Forensics |
 | STA | Supply Chain Management, Transparency & Accountability |
@@ -131,16 +135,19 @@ Domain code (2-3 uppercase letters, or A&A) and two-digit control number. No per
 
 ### Resolution
 
-No per-control web pages exist. The download is a ZIP bundle containing the main Excel spreadsheet, CAIQ questionnaire, implementation/auditing guidelines, and mappings. A machine-readable bundle (JSON/YAML/OSCAL) is also available for programmatic access.
+No per-control web pages exist. The download is a ZIP bundle containing the main Excel spreadsheet, CAIQ questionnaire, implementation/auditing guidelines, and mappings. A machine-readable bundle (JSON/YAML/OSCAL) is also available, but as of 2026-10-23 it is still the 4.1.0 release, so 4.1.1's mappings are only in the spreadsheet.
 
-To find a specific control: download the bundle, open the Excel spreadsheet, go to the "CCM Controls" sheet, find the row where "Control ID" matches. The "Control Specification" column contains the full control text.
+To find a specific control: download the bundle, open the Excel spreadsheet (`CCMv4.1.1-generated_at_2026_10_02.xlsx`), go to the "CCM" sheet, find the row where "Control ID" matches. Check cell A1 for the patch level: CSA serves 4.1.0 and 4.1.1 under the same "v4.1" artifact. The "Control Specification" column contains the full control text.
 
 ### Notes
 
-- Version 4.1 current (207 controls, 283 CAIQ questions); v4.0 superseded (197 controls)
+- 4.1.1 is current (207 controls, 283 CAIQ questions; workbook Change Log dated 2026-10-01). Same control IDs as 4.1.0; adds the first v4.1 mappings (NIST SP 800-171 rev2, MITRE ATT&CK v17.1) and a DORA reverse mapping. `4.1` and `v4.1` resolve to 4.1.1 (ADR-015, second amendment)
+- 4.1.0 (2026-01-27) is superseded; addressable only as `@4.1.0`
+- v4.0 is superseded (197 controls); `4.0.13`, the stamp on the workbook CSA serves as v4.0, resolves to it
+- An unversioned `ccm#XXX-NN` returns the versions with guidance rather than a control
 - Maps to ISO 27001, NIST, PCI-DSS
 - Used for STAR certification
-- A&A domain code contains an ampersand -- patterns must account for this
+- The A&A and (from 4.1) I&S domain codes contain an ampersand -- patterns must account for this
 
 ---
 
@@ -209,7 +216,7 @@ The Consensus Assessments Initiative Questionnaire — yes/no assessment questio
 ### Format
 
 ```
-secid:control/cloudsecurityalliance.org/ccm-caiq@4.0.3#IAM-01.1
+secid:control/cloudsecurityalliance.org/ccm-caiq@4.1.0#IAM-01.1
 ```
 
 Question ID format is `XXX-NN.M` where `XXX-NN` is the parent CCM control and `M` is the question number within that control. One or more questions per control.
@@ -220,11 +227,12 @@ CAIQ ships in the same ZIP bundle as CCM. The CAIQ is a separate sheet within th
 
 To find a specific question: download the CCM bundle, open the spreadsheet, go to the "CAIQ" sheet, and find the row where "Question ID" matches.
 
-Bare control IDs (without `.M` sub-number) resolve to the full set of questions for that control. For the control specification itself, use `secid:control/cloudsecurityalliance.org/ccm#XXX-NN`.
+Bare control IDs (without `.M` sub-number) resolve to the full set of questions for that control. For the control specification itself, use `secid:control/cloudsecurityalliance.org/ccm@4.1.1#XXX-NN` (CCM requires a version).
 
 ### Notes
 
-- v4.0.3 current (283 questions); pairs with CCM v4.1
+- v4.1.0 current (283 questions); pairs with CCM v4.1.0 and v4.1.1. CSA regenerated the workbook on 2026-10-02 under the same 4.1.0 label, and 26 question texts differ from the 2026-01-13 generation
+- v4.0.3 superseded (261 questions); pairs with CCM v4.0
 - Used for STAR Level 1 self-assessments
 - Same ZIP/Excel bundle as CCM
 
