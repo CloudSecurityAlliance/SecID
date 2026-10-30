@@ -165,13 +165,57 @@ def test_aicaiq_requires_a_version():
 
 # ---------- CCM ----------
 
-def test_ccm_uses_the_publishers_own_version_labels():
-    # CSA's API exposes only "4.0" and "4.1"; the artifact served as v4.0 is
-    # internally stamped 4.0.13, which is a patch level, not a separate
-    # addressable version. PRINCIPLES #6: follow the source's naming.
-    v = versions("ccm")
-    assert set(v) == {"4.1", "4.0", "3.0.1"}, sorted(v)
-    assert "4.0.13" not in v
+# Each CCM line enumerates its own domain codes. 4.1 renamed IVS to I&S
+# ("Infrastructure Security"); 3.0.1 is a different domain set entirely.
+CCM41 = "(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|SEF|STA|TVM|UEM)"
+CCM40 = "(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)"
+CCM301 = "(?:AAC|AIS|BCR|CCC|DCS|DSI|EKM|GRM|HRS|IAM|IPY|IVS|MOS|SEF|STA|TVM)"
+
+
+def test_ccm_versions_are_the_four_releases():
+    # CSA shipped 4.1.1 inside the unchanged "v4.1" bundle (workbook Change
+    # Log dated 2026-10-01), so 4.1.0 and 4.1.1 are both real releases.
+    assert set(versions("ccm")) == {"4.1.1", "4.1.0", "4.0", "3.0.1"}, sorted(versions("ccm"))
+    assert set(version_nodes("ccm")) == {"4.1.1", "4.1.0", "4.0", "3.0.1"}, sorted(version_nodes("ccm"))
+    assert [e["status"] for e in data("ccm")["versions_available"]].count("current") == 1
+    assert versions("ccm")["4.1.1"]["status"] == "current"
+    assert versions("ccm")["4.1.1"]["release_date"] == "2026-10-01"
+    assert versions("ccm")["4.1.0"]["release_date"] == "2026-01-27"
+
+
+def test_ccm_4_1_is_an_alias_pattern_on_the_4_1_1_node():
+    # Kurt's decision (ADR-015 second amendment, 2026-10-22): repeat the AICM
+    # exception, so the series label 4.1 / v4.1 follows the newest 4.1.x.
+    pats = version_nodes("ccm")["4.1.1"]["patterns"]
+    assert pats[0] == "^4\\.1\\.1$", pats          # canonical first
+    assert "^4\\.1$" in pats and "^v4\\.1$" in pats, pats
+    assert alias_labels("ccm", "4.1.1") == {"4.1", "v4.1"}
+
+
+def test_ccm_4_1_0_is_addressable_only_by_its_own_literal():
+    assert version_nodes("ccm")["4.1.0"]["patterns"] == ["^4\\.1\\.0$"]
+    assert alias_labels("ccm", "4.1.0") == set()
+
+
+def test_ccm_4_0_13_resolves_as_an_alias_of_4_0():
+    # The workbook CSA serves as v4.0 stamps itself 4.0.13. A fixed alias, not
+    # a moving pointer: 4.0.13 has always meant this release.
+    assert "^4\\.0\\.13$" in version_nodes("ccm")["4.0"]["patterns"]
+    assert alias_labels("ccm", "4.0") == {"4.0.13"}
+
+
+def test_ccm_version_nodes_enumerate_their_own_domains():
+    for v, codes in (("4.1.1", CCM41), ("4.1.0", CCM41), ("4.0", CCM40), ("3.0.1", CCM301)):
+        pats = [k["patterns"][0] for k in version_nodes("ccm")[v].get("children") or []]
+        assert f"^{codes}$" in pats and f"^{codes}-\\d{{2}}$" in pats, (v, pats)
+        assert not any("[A-Z&]" in p for p in pats), (v, pats)
+
+
+def test_ccm_requires_a_version():
+    # SecID-Service resolves version nodes only for version_required sources.
+    d = data("ccm")
+    assert d["version_required"] is True
+    assert d["unversioned_behavior"] == "all_with_guidance"
 
 
 def test_ccm_4_0_is_a_real_version_never_an_alias():
@@ -183,16 +227,23 @@ def test_ccm_4_0_is_a_real_version_never_an_alias():
             assert alias["label"] != "4.0", "4.0 must never be an alias"
 
 
-def test_ccm_declares_no_aliases_without_tree_nodes():
-    # Aliases only resolve via version tree patterns; CCM has none by choice.
-    assert not version_nodes_are_versions("ccm")
-    for entry in versions("ccm").values():
-        assert not entry.get("aliases"), "CCM cannot carry aliases until it has version nodes"
+# ---------- CCM-CAIQ ----------
+
+def test_ccm_caiq_current_is_4_1_0():
+    # The old record called 4.0.3 current with 283 questions; 283 is 4.1.0's
+    # count, and 4.0.3 has 261.
+    v = versions("ccm-caiq")
+    assert v["4.1.0"]["status"] == "current" and "283 questions" in v["4.1.0"]["note"]
+    assert v["4.0.3"]["status"] == "superseded" and "261 questions" in v["4.0.3"]["note"]
+    assert [e["status"] for e in data("ccm-caiq")["versions_available"]].count("current") == 1
 
 
-def version_nodes_are_versions(name: str) -> bool:
-    """True if any child of the source node is a declared version."""
-    return bool(set(version_nodes(name)) & set(versions(name)))
+def test_ccm_caiq_items_accept_both_4_x_infrastructure_codes():
+    # CAIQ 4.0.3 numbers questions under IVS, CAIQ 4.1.0 under I&S (e.g.
+    # I&S-05.1). With no version tree, the item patterns enumerate both.
+    for child in source("ccm-caiq")["children"]:
+        p = child["patterns"][0]
+        assert "I&S" in p and "IVS" in p, p
 
 
 if __name__ == "__main__":

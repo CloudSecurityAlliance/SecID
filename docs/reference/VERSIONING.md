@@ -90,8 +90,8 @@ Status:   exact_match
 
 For versioned sources where version is omitted but unambiguous:
 ```
-Query:    secid:control/cloudsecurityalliance.org/ccm#IAM-12
-Response: Here's IAM-12 from CCM v4.0 (current). Also available: v3.0.1 (superseded).
+Query:    secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01.1
+Response: Here's IAM-01.1 from CAIQ v4.1.0 (current). Also available: v4.0.3, v3.1 (superseded).
 Status:   exact_match (unversioned_behavior: current_with_history)
 ```
 

@@ -840,7 +840,7 @@ secid:control/iso.org/27001@2013#A.8.1         # ISO 27001:2013
 
 When version is omitted, the default behavior is "current" or "latest":
 ```
-secid:control/cloudsecurityalliance.org/ccm#IAM-12               # Current CCM version
+secid:control/cloudsecurityalliance.org/ccm-caiq#IAM-01.1        # Current CAIQ version
 secid:advisory/mitre.org/cve#CVE-2024-1234                       # CVE — version irrelevant
 ```
 

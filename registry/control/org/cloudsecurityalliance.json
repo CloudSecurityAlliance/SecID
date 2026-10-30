@@ -26,28 +26,53 @@
         "common_name": "CCM",
         "alternate_names": null,
         "description": "The de facto standard for cloud security controls, organized by domains containing controls.",
-        "notes": "Version 4.0 released 2021 (197 controls), updated to v4.1 (207 controls, 283 CAIQ questions). 17 domains. Domain code + two-digit control number (e.g., IAM-01). Maps to ISO 27001, NIST, PCI-DSS. Used for STAR certification.\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing multiple files: the main spreadsheet, implementation guidelines, auditing guidelines, mappings, and CAIQ questionnaire.\n\nExtraction instructions: (1) Download the ZIP from the download URL. (2) Unzip the bundle. (3) Open the main Excel file (e.g., 'CCM+CAIQ v4.1.xlsx'). (4) Go to the 'CCM Controls' sheet/tab. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Control Specification (full text). Additional columns contain applicability/ownership matrices, architectural relevance, and organizational relevance. (6) Find the row where Control ID matches.\n\nAlternative: A machine-readable bundle (JSON/YAML/OSCAL) is available for programmatic access — preferred over parsing Excel.\n\nDomain codes are 2-3 uppercase letters, except A&A (Audit & Assurance) which contains an ampersand. The pattern must account for this.",
+        "notes": "Version 4.0 released 2021 (197 controls), updated to v4.1 (207 controls, 283 CAIQ questions). 17 domains. Domain code + two-digit control number (e.g., IAM-01). Maps to ISO 27001, NIST, PCI-DSS. Used for STAR certification.\n\nNo per-control web pages exist. Resolution returns a download URL and extraction instructions. The download is a ZIP bundle containing multiple files: the main spreadsheet, implementation guidelines, auditing guidelines, mappings, and CAIQ questionnaire.\n\nExtraction instructions: (1) Download the ZIP from the download URL. (2) Unzip the bundle. (3) Open the main Excel file (e.g., 'CCMv4.1.1-generated_at_2026_10_02.xlsx'; cell A1 stamps the patch level). (4) Go to the 'CCM' sheet. (5) Columns: Control Domain (full name), Control Title, Control ID (format XXX-NN), Control Specification (full text). Additional columns contain applicability/ownership matrices, architectural relevance, and organizational relevance. (6) Find the row where Control ID matches.\n\nAlternative: A machine-readable bundle (JSON/YAML/OSCAL) is available for programmatic access, but as of 2026-10-23 it is still the 4.1.0 release; 4.1.1's mappings and reworded text are only in the spreadsheet.\n\nDomain codes are 2-3 uppercase letters, except A&A (Audit & Assurance) and, from 4.1, I&S (Infrastructure Security, formerly IVS), which contain an ampersand. The pattern must account for this. Each version node enumerates its own release's domain codes.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix"},
           {"type": "docs", "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1", "note": "Download page for v4.1 (current)"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1", "format": "zip", "note": "Direct download (no account required). ZIP bundle containing Excel spreadsheet, CAIQ, implementation/auditing guidelines, and mappings."},
-          {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal", "format": "json", "note": "Machine-readable bundle (JSON/YAML/OSCAL). Preferred for programmatic access over parsing Excel."},
+          {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal", "format": "json", "note": "Machine-readable bundle (JSON/YAML/OSCAL). Still the 4.1.0 release (generated 2026-02-20) as of 2026-10-23; CSA has not issued one for 4.1.1."},
           {"type": "docs", "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4", "note": "Download page for v4.0 (superseded by v4.1)"}
         ],
-        "version_required": false,
-        "unversioned_behavior": "current_with_history",
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Cite CCM controls with an explicit release. 3.0.1 uses a different domain set from v4 (AAC, DSI, EKM, GRM and MOS have no v4 counterpart under the same code), so a 3.0.1 control ID does not carry into v4. 4.1 renamed the IVS domain to I&S (Infrastructure Security) and has 207 controls against 4.0's 197; whether every 4.0 control ID keeps its meaning in 4.1 has not been verified here. 4.1.0 and 4.1.1 carry the same 207 control IDs and titles, so a 4.1.0 control ID names the same control in 4.1.1; 4.1.1 rewords 101 control specifications (92 of them punctuation only) and adds mappings. The labels 4.1 and v4.1 resolve to 4.1.1, and 4.0.13 resolves to 4.0.",
         "versions_available": [
           {
-            "version": "4.1",
-            "release_date": "2024-01-01",
+            "version": "4.1.1",
+            "release_date": "2026-10-01",
             "status": "current",
-            "note": "207 controls, 283 CAIQ questions. Incremental update from the 4.0.x line. CSA also labels this release 4.1.0; that variant cannot be registered as an alias until CCM has version-level tree nodes, since aliases resolve through the tree."
+            "note": "207 controls across 17 domains, with the same control IDs and titles as 4.1.0 -- no renumbering. Shipped inside CSA's unchanged \"v4.1\" bundle: the artifact page still reads \"Released: 01/27/2026\", and the patch level shows only in the workbook filename (CCMv4.1.1-generated_at_2026_10_02.xlsx) and its cell A1 stamp. Release date from the workbook's own Change Log (\"CCM v4.1.1 | 2026-10-01\"). Adds the first CCM v4.1 cross-framework mappings -- NIST SP 800-171 rev2 and MITRE ATT&CK v17.1 -- and a reverse mapping from DORA to CCM v4.1. Also rewords 101 control specifications (92 of them punctuation only) and 26 CAIQ questions, although the Change Log names only DSP-17 and CCC-03. The companion questionnaire stays CAIQ 4.1.0. CSA's machine-readable bundle (JSON/YAML/OSCAL) is still 4.1.0.",
+            "aliases": [
+              {
+                "label": "4.1",
+                "on_match": "resolve",
+                "note": "CSA's artifact page, bundle name, and copyright text brand the line \"v4.1\" without a patch level. 4.1 resolves to the newest 4.1.x release, 4.1.1 -- the second instance of the AICM 1.1 exception (ADR-015, second amendment, 2026-10-22), and it moves by hand if CSA ships a 4.1.2. Unlike the AICM case, CSA's csa-mcp server still labels its 4.1.0 data \"4.1\" as of 2026-10-22, so SecID and csa-mcp disagree until csa-mcp loads 4.1.1. Cite @4.1.0 or @4.1.1 when the exact release matters."
+              },
+              {
+                "label": "v4.1",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "4.1.0",
+            "release_date": "2026-01-27",
+            "status": "superseded",
+            "note": "207 controls across 17 domains (4.0 had 197; IVS became I&S). Release date from CSA's artifact page; the workbook's own Change Log dates CCM v4.1.0 to 2025-11-01, and the workbook was generated 2026-01-13. Shipped no cross-framework mappings: its Scope Applicability (Mappings) sheet reads \"This dataset is not available yet\". Superseded by 4.1.1, which keeps every control ID; CSA's v4.1 download no longer serves the 4.1.0 workbook. Addressable only as 4.1.0; the 4.1 and v4.1 labels resolve to 4.1.1."
           },
           {
             "version": "4.0",
             "release_date": "2021-06-01",
             "status": "superseded",
-            "note": "197 controls across 17 domains. Original v4 release, since patched within the 4.0.x line: the artifact CSA currently serves under the \"v4.0\" title is internally stamped 4.0.13, which supersedes 4.0 through 4.0.12. CSA's own API exposes only \"4.0\" and \"4.1\" as version labels -- there is no separately addressable 4.0.13 -- so SecID follows the publisher and records 4.0."
+            "note": "197 controls across 17 domains. Original v4 release, since patched within the 4.0.x line: the artifact CSA currently serves under the \"v4.0\" title is internally stamped 4.0.13, which supersedes 4.0 through 4.0.12. CSA's own API exposes only \"4.0\" and \"4.1\" as version labels -- there is no separately addressable 4.0.13 -- so SecID follows the publisher and records 4.0, with 4.0.13 as an alias.",
+            "aliases": [
+              {
+                "label": "4.0.13",
+                "on_match": "resolve",
+                "note": "The workbook CSA serves as v4.0 stamps itself 4.0.13, the last 4.0.x patch. A fixed alias, not a moving pointer: 4.0.13 has only ever meant this release."
+              }
+            ]
           },
           {
             "version": "3.0.1",
@@ -56,53 +81,270 @@
             "note": "Still referenced in older compliance documentation. Different domain structure from v4. 133 controls across 16 domains. Release date not asserted: upstream encodes 2014-09-16 in its publication ID while CSA's own announcement dates the release to July 2014; the year is agreed, the month is not."
           }
         ],
-        "examples": ["IAM-01", "DSP-07", "GRC-01", "A&A-01"]
+        "examples": ["IAM-01", "DSP-07", "GRC-01", "A&A-01", "I&S-01"]
       },
       "children": [
         {
-          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
-          "description": "Control domain (e.g., IAM, A&A). Contains multiple controls.",
+          "patterns": ["^4\\.1\\.1$", "^4\\.1$", "^v4\\.1$"],
+          "description": "CCM v4.1.1 (current). The labels 4.1 and v4.1 resolve here (ADR-015, second amendment). Same control IDs as 4.1.0; adds NIST SP 800-171 rev2 and MITRE ATT&CK mappings and a DORA reverse mapping.",
           "weight": 100,
           "data": {
-            "type": "domain",
-            "note": "No per-domain web pages. Return the CCM download URL from the parent node with instructions to filter by domain code.",
-            "examples": [
-              {"input": "IAM", "note": "Identity & Access Management domain — contains controls IAM-01 through IAM-16"},
-              {"input": "A&A", "note": "Audit & Assurance — domain code contains ampersand"}
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1"
+              },
+              {
+                "type": "bulk_data",
+                "url": "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1",
+                "format": "zip",
+                "note": "Direct download (no account required). ZIP bundle for the v4.1 line: CCM spreadsheet, CAIQ v4.1.0 questionnaire, implementation guidelines, and guidance PDFs. CSA serves one v4.1 artifact record for both 4.1.0 and 4.1.1 and does not publish a separate 4.1.1 URL; check the workbook's cell A1 stamp for the patch level you received."
+              }
             ],
-            "known_values": {
-              "A&A": "Audit & Assurance",
-              "AIS": "Application & Interface Security",
-              "BCR": "Business Continuity Management & Operational Resilience",
-              "CCC": "Change Control & Configuration Management",
-              "CEK": "Cryptography, Encryption & Key Management",
-              "DCS": "Datacenter Security",
-              "DSP": "Data Security & Privacy Lifecycle Management",
-              "GRC": "Governance, Risk & Compliance",
-              "HRS": "Human Resources",
-              "IAM": "Identity & Access Management",
-              "IPY": "Interoperability & Portability",
-              "IVS": "Infrastructure & Virtualization Security",
-              "LOG": "Logging & Monitoring",
-              "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
-              "STA": "Supply Chain Management, Transparency & Accountability",
-              "TVM": "Threat & Vulnerability Management",
-              "UEM": "Universal Endpoint Management"
+            "note": "207 controls across 17 domains. Same control IDs, titles, and domains as 4.1.0. The 4.1.1 mappings exist only in the spreadsheet: CSA's machine-readable bundle is still 4.1.0."
+          },
+          "children": [
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|SEF|STA|TVM|UEM)$"],
+              "description": "CCM v4.1.1 control domain. 17 domains; I&S replaces 4.0's IVS.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain web pages. Download the v4.1 bundle and filter the CCM sheet by domain code.",
+                "examples": [
+                  {"input": "I&S", "note": "Infrastructure Security — 4.1's name for 4.0's IVS"},
+                  {"input": "A&A", "note": "Audit & Assurance — domain code contains ampersand"}
+                ],
+                "known_values": {
+                  "A&A": "Audit & Assurance",
+                  "AIS": "Application & Interface Security",
+                  "BCR": "Business Continuity Management and Operational Resilience",
+                  "CCC": "Change Control and Configuration Management",
+                  "CEK": "Cryptography, Encryption & Key Management",
+                  "DCS": "Datacenter Security",
+                  "DSP": "Data Security and Privacy Lifecycle Management",
+                  "GRC": "Governance, Risk and Compliance",
+                  "HRS": "Human Resources",
+                  "I&S": "Infrastructure Security",
+                  "IAM": "Identity & Access Management",
+                  "IPY": "Interoperability & Portability",
+                  "LOG": "Logging and Monitoring",
+                  "SEF": "Security Incident Management, E-Discovery, & Cloud Forensics",
+                  "STA": "Supply Chain Management, Transparency, and Accountability",
+                  "TVM": "Threat & Vulnerability Management",
+                  "UEM": "Universal Endpoint Management"
+                }
+              }
+            },
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
+              "description": "Specific CCM v4.1.1 control (e.g., IAM-01, I&S-01, A&A-01).",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "No per-control web page exists. Download the v4.1 bundle, open the CCMv4.1.1 spreadsheet, go to the 'CCM' sheet, and find the row where 'Control ID' matches. The 'Control Specification' column contains the full control text; the 'Scope Applicability (Mappings)' sheet carries its NIST SP 800-171 rev2 and MITRE ATT&CK mappings.",
+                "examples": [
+                  {"input": "I&S-01", "note": "Ampersand in domain code — preserved in identifier"},
+                  {"input": "DSP-17", "note": "Specification corrected in 4.1.1 (\"it's lifecycle\" -> \"its lifecycle\")"}
+                ]
+              }
             }
-          }
+          ]
         },
         {
-          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
-          "description": "Specific control (e.g., IAM-01, DSP-07, A&A-01). Belongs to a domain.",
+          "patterns": ["^4\\.1\\.0$"],
+          "description": "CCM v4.1.0 (superseded by 4.1.1, which keeps every control ID). Addressable only as 4.1.0; the labels 4.1 and v4.1 resolve to 4.1.1.",
           "weight": 100,
           "data": {
-            "type": "control",
-            "note": "No per-control web page exists. To find this control: download the CCM bundle (see parent URLs), open the Excel spreadsheet, go to the 'CCM Controls' sheet, and find the row where 'Control ID' matches. The 'Control Specification' column contains the full control text. Alternatively, use the Machine Readable Bundle (JSON/YAML/OSCAL) for programmatic access.",
-            "examples": [
-              {"input": "IAM-01", "note": "No per-control URL — resolve via CCM bundle download"},
-              {"input": "A&A-01", "note": "Ampersand in domain code — preserved in identifier"}
-            ]
-          }
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1",
+                "note": "CSA's v4.1 artifact page. Its download now serves 4.1.1; the 4.1.0 workbook (CCMv4.1.0-generated_at_2026_01_13.xlsx) is no longer offered there."
+              },
+              {
+                "type": "bulk_data",
+                "url": "https://cloudsecurityalliance.org/artifacts/ccm-machine-readable-bundle-json-yaml-oscal",
+                "format": "json",
+                "note": "Machine-readable bundle (JSON/YAML/OSCAL) of 4.1.0, generated 2026-02-20. CSA has not issued one for 4.1.1."
+              }
+            ],
+            "note": "207 controls across 17 domains. Shipped no cross-framework mappings."
+          },
+          "children": [
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|SEF|STA|TVM|UEM)$"],
+              "description": "CCM v4.1.0 control domain. 17 domains; I&S replaces 4.0's IVS.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain web pages. Filter the 4.1.0 CCM sheet, or the machine-readable bundle, by domain code.",
+                "examples": [
+                  {"input": "I&S", "note": "Infrastructure Security — 4.1's name for 4.0's IVS"}
+                ],
+                "known_values": {
+                  "A&A": "Audit & Assurance",
+                  "AIS": "Application & Interface Security",
+                  "BCR": "Business Continuity Management and Operational Resilience",
+                  "CCC": "Change Control and Configuration Management",
+                  "CEK": "Cryptography, Encryption & Key Management",
+                  "DCS": "Datacenter Security",
+                  "DSP": "Data Security and Privacy Lifecycle Management",
+                  "GRC": "Governance, Risk and Compliance",
+                  "HRS": "Human Resources",
+                  "I&S": "Infrastructure Security",
+                  "IAM": "Identity & Access Management",
+                  "IPY": "Interoperability & Portability",
+                  "LOG": "Logging and Monitoring",
+                  "SEF": "Security Incident Management, E-Discovery, & Cloud Forensics",
+                  "STA": "Supply Chain Management, Transparency, and Accountability",
+                  "TVM": "Threat & Vulnerability Management",
+                  "UEM": "Universal Endpoint Management"
+                }
+              }
+            },
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
+              "description": "Specific CCM v4.1.0 control (e.g., IAM-01, I&S-01).",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "No per-control web page exists. Use the 4.1.0 machine-readable bundle, or a 4.1.0 workbook, and find the control by its ID.",
+                "examples": [
+                  {"input": "I&S-01", "note": "Ampersand in domain code — preserved in identifier"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "patterns": ["^4\\.0$", "^4\\.0\\.13$"],
+          "description": "CCM v4.0 (superseded). The workbook CSA serves as v4.0 stamps itself 4.0.13, and that label resolves here.",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4",
+            "urls": [
+              {
+                "type": "docs",
+                "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4",
+                "note": "Download page for v4.0 (superseded by v4.1)"
+              }
+            ],
+            "note": "197 controls across 17 domains. Uses IVS (Infrastructure & Virtualization Security), which 4.1 renamed to I&S."
+          },
+          "children": [
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
+              "description": "CCM v4.0 control domain (e.g., IAM, A&A). Contains multiple controls.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain web pages. Return the CCM v4.0 download URL with instructions to filter by domain code.",
+                "examples": [
+                  {"input": "IAM", "note": "Identity & Access Management domain — contains controls IAM-01 through IAM-16"},
+                  {"input": "A&A", "note": "Audit & Assurance — domain code contains ampersand"}
+                ],
+                "known_values": {
+                  "A&A": "Audit & Assurance",
+                  "AIS": "Application & Interface Security",
+                  "BCR": "Business Continuity Management & Operational Resilience",
+                  "CCC": "Change Control & Configuration Management",
+                  "CEK": "Cryptography, Encryption & Key Management",
+                  "DCS": "Datacenter Security",
+                  "DSP": "Data Security & Privacy Lifecycle Management",
+                  "GRC": "Governance, Risk & Compliance",
+                  "HRS": "Human Resources",
+                  "IAM": "Identity & Access Management",
+                  "IPY": "Interoperability & Portability",
+                  "IVS": "Infrastructure & Virtualization Security",
+                  "LOG": "Logging & Monitoring",
+                  "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
+                  "STA": "Supply Chain Management, Transparency & Accountability",
+                  "TVM": "Threat & Vulnerability Management",
+                  "UEM": "Universal Endpoint Management"
+                }
+              }
+            },
+            {
+              "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
+              "description": "Specific CCM v4.0 control (e.g., IAM-01, DSP-07, A&A-01). Belongs to a domain.",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "No per-control web page exists. To find this control: download the CCM v4.0 bundle, open the Excel spreadsheet, go to the 'CCM Controls' sheet, and find the row where 'Control ID' matches. The 'Control Specification' column contains the full control text.",
+                "examples": [
+                  {"input": "IAM-01", "note": "No per-control URL — resolve via CCM bundle download"},
+                  {"input": "IVS-01", "note": "4.0 domain code; 4.1 renamed IVS to I&S"}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "patterns": ["^3\\.0\\.1$"],
+          "description": "CCM v3.0.1 (superseded). Different domain structure from v4.",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v3-0-1",
+            "urls": [
+              {
+                "type": "docs",
+                "url": "https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v3-0-1",
+                "note": "Download page for v3.0.1"
+              }
+            ],
+            "note": "133 controls across 16 domains. Domain codes AAC, DSI, EKM, GRM and MOS do not exist in v4."
+          },
+          "children": [
+            {
+              "patterns": ["^(?:AAC|AIS|BCR|CCC|DCS|DSI|EKM|GRM|HRS|IAM|IPY|IVS|MOS|SEF|STA|TVM)$"],
+              "description": "CCM v3.0.1 control domain. 16 domains.",
+              "weight": 100,
+              "data": {
+                "type": "domain",
+                "note": "No per-domain web pages. Download the v3.0.1 spreadsheet and filter by domain code.",
+                "examples": [
+                  {"input": "AAC", "note": "Audit Assurance & Compliance — v3.0.1 only"}
+                ],
+                "known_values": {
+                  "AAC": "Audit Assurance & Compliance",
+                  "AIS": "Application & Interface Security",
+                  "BCR": "Business Continuity Management & Operational Resilience",
+                  "CCC": "Change Control & Configuration Management",
+                  "DCS": "Datacenter Security",
+                  "DSI": "Data Security & Information Lifecycle Management",
+                  "EKM": "Encryption & Key Management",
+                  "GRM": "Governance and Risk Management",
+                  "HRS": "Human Resources",
+                  "IAM": "Identity & Access Management",
+                  "IPY": "Interoperability & Portability",
+                  "IVS": "Infrastructure & Virtualization Security",
+                  "MOS": "Mobile Security",
+                  "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
+                  "STA": "Supply Chain Management, Transparency and Accountability",
+                  "TVM": "Threat and Vulnerability Management"
+                }
+              }
+            },
+            {
+              "patterns": ["^(?:AAC|AIS|BCR|CCC|DCS|DSI|EKM|GRM|HRS|IAM|IPY|IVS|MOS|SEF|STA|TVM)-\\d{2}$"],
+              "description": "Specific CCM v3.0.1 control (e.g., AAC-01, MOS-01).",
+              "weight": 100,
+              "data": {
+                "type": "control",
+                "note": "No per-control web page exists. Download the v3.0.1 spreadsheet and find the row where 'Control ID' matches.",
+                "examples": [
+                  {"input": "AAC-01", "note": "v3.0.1 domain code with no v4 counterpart under the same code"}
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -362,7 +604,7 @@
         "common_name": "CAIQ",
         "alternate_names": ["CSA CAIQ", "CCM CAIQ"],
         "description": "Standardized self-assessment questionnaire mapping yes/no questions to CCM controls. One or more questions per CCM control.",
-        "notes": "CAIQ is the assessment-question form of CCM controls. Each CCM control has one or more yes/no questions used for cloud provider self-assessment and customer due diligence. CAIQ v4.0.3 contains 283 questions across the 207 CCM v4.1 controls.\n\nQuestion IDs follow the format XXX-NN.M where XXX-NN is the parent CCM Control ID and M is the question sequence within that control (e.g., IAM-01.1, A&A-01.2). Multiple questions per control are common.\n\nDistributed in the same ZIP bundle as CCM. The CAIQ is a separate sheet/tab within the bundle's main Excel file.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction instructions: (1) Download the CCM ZIP bundle. (2) Open the main Excel file (e.g., 'CCM+CAIQ v4.1.xlsx'). (3) Go to the 'CAIQ' sheet. (4) Columns: Question ID (XXX-NN.M format), Control ID (parent CCM control), Consensus Assessment Questions (the question text), Consensus Assessment Answers (where assessors record yes/no/NA). (5) Find the row where Question ID matches.\n\nUsed for STAR Level 1 self-assessments. Versions track CCM versions but with their own minor numbering.",
+        "notes": "CAIQ is the assessment-question form of CCM controls. Each CCM control has one or more yes/no questions used for cloud provider self-assessment and customer due diligence. CAIQ v4.0.3 contains 283 questions across the 207 CCM v4.1 controls.\n\nQuestion IDs follow the format XXX-NN.M where XXX-NN is the parent CCM Control ID and M is the question sequence within that control (e.g., IAM-01.1, A&A-01.2). Multiple questions per control are common.\n\nDistributed in the same ZIP bundle as CCM. The CAIQ is a separate sheet/tab within the bundle's main Excel file.\n\nNo per-question web pages exist. Resolution returns a download URL and extraction instructions.\n\nExtraction instructions: (1) Download the CCM ZIP bundle. (2) Open the standalone questionnaire ('CAIQv4.1.0-star_security_questionnaire-generated_at_2026_10_02.xlsx', sheet 'CAIQv4.1.0'), or the 'CAIQ' sheet of the CCM workbook ('CCMv4.1.1-generated_at_2026_10_02.xlsx'). (3) Find the question there. (4) Columns: Question ID (XXX-NN.M format), Control ID (parent CCM control), Consensus Assessment Questions (the question text), Consensus Assessment Answers (where assessors record yes/no/NA). (5) Find the row where Question ID matches.\n\nUsed for STAR Level 1 self-assessments. Versions track CCM versions but with their own minor numbering.",
         "urls": [
           {"type": "website", "url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix"},
           {"type": "bulk_data", "url": "https://cloudsecurityalliance.org/download/artifacts/cloud-controls-matrix-v4-1", "format": "zip", "note": "CAIQ ships in the same ZIP bundle as CCM v4.1."},
@@ -371,7 +613,8 @@
         "version_required": false,
         "unversioned_behavior": "current_with_history",
         "versions_available": [
-          {"version": "4.0.3", "release_date": null, "status": "current", "note": "283 questions. Pairs with CCM v4.1."},
+          {"version": "4.1.0", "release_date": "2026-01-27", "status": "current", "note": "283 questions across the 207 CCM v4.1 controls. Pairs with CCM v4.1.0 and 4.1.1. CSA regenerated the workbook 2026-10-02 under the same 4.1.0 label (cell A1 now also records CCM 4.1.1); 26 question texts differ from the 2026-01-13 generation, 7 of them in wording, and the questionnaire's Change Log has no new row."},
+          {"version": "4.0.3", "release_date": null, "status": "superseded", "note": "261 questions. Pairs with CCM v4.0."},
           {"version": "3.1", "release_date": null, "status": "superseded", "note": "Pairs with CCM v3.0.1."},
           {"version": "3.0.1", "release_date": null, "status": "superseded", "note": "Original v3 release."}
         ],
@@ -379,7 +622,7 @@
       },
       "children": [
         {
-          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)$"],
           "description": "Control domain — returns all CAIQ questions in this domain.",
           "weight": 100,
           "data": {
@@ -401,7 +644,8 @@
               "HRS": "Human Resources",
               "IAM": "Identity & Access Management",
               "IPY": "Interoperability & Portability",
-              "IVS": "Infrastructure & Virtualization Security",
+              "I&S": "Infrastructure Security (CAIQ 4.1.0; formerly IVS)",
+              "IVS": "Infrastructure & Virtualization Security (CAIQ 4.0.3)",
               "LOG": "Logging & Monitoring",
               "SEF": "Security Incident Management, E-Discovery & Cloud Forensics",
               "STA": "Supply Chain Management, Transparency & Accountability",
@@ -411,7 +655,7 @@
           }
         },
         {
-          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}$"],
           "description": "Parent CCM control — returns all CAIQ questions for this control (typically 1-5 questions).",
           "weight": 100,
           "data": {
@@ -424,7 +668,7 @@
           }
         },
         {
-          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}\\.\\d+$"],
+          "patterns": ["^(?:A&A|AIS|BCR|CCC|CEK|DCS|DSP|GRC|HRS|I&S|IAM|IPY|IVS|LOG|SEF|STA|TVM|UEM)-\\d{2}\\.\\d+$"],
           "description": "Specific CAIQ question (e.g., IAM-01.1, A&A-01.2). Sub-number identifies the question within the parent control.",
           "weight": 100,
           "data": {
