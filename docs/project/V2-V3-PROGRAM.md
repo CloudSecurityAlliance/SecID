@@ -61,7 +61,7 @@ A documentation sweep on 2026-08-20 found twelve state-drift items. All are obje
 - `CAPABILITY-TYPE.md` and `METHODOLOGY-TYPE.md` are marked "Research / proposal"; both types shipped
 - `CONSORTIUM-AND-COORDINATOR-SUBTYPES.md` and `DISCLOSURE-TYPE-FIELDS.md` marked "Draft / discussion"; both landed
 - Six proposals carry no status line at all
-- ~~`GOVERNANCE.md` does not exist but `GAPS.md` cites it as a resolution~~ (`GOVERNANCE.md` created and expanded in #206 with AI governing agent delegation, merge = deploy policy, and escalation boundaries)
+- ~~`GOVERNANCE.md` does not exist but `GAPS.md` cites it as a resolution~~ (`GOVERNANCE.md` created in `11078ef` on 2026-03-10 and expanded in #206 with AI governing agent delegation, merge = deploy policy, and escalation boundaries)
 - `CONCERNS.md` says the registry schema is unspecified; `schemas/registry-namespace.schema.json` exists
 - "Resolution Instructions for Non-Deterministic Systems" is tracked in both `CONCERNS.md` and `TODO.md`
 - ~~CLAUDE.md's repository-structure listing omits `docs/proposals/` and `docs/research/`~~ (added to canonical `AGENTS.md` in #206)

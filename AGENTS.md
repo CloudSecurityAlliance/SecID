@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Vendor-neutral guidance for AI agents (Gemini, Claude Code, Codex, Copilot, Antigravity) and contributors working in this repository. `CLAUDE.md` and `GEMINI.md` are pointer shims that load this file. For program-wide authority, review rules, and the authoritative repository list, see [`GOVERNANCE.md`](GOVERNANCE.md) and [`CSA-Internal-Governance/SecID`](https://github.com/CSA-Internal-Governance/SecID).
+Vendor-neutral guidance for AI agents (Gemini, Claude Code, Codex, Copilot, Antigravity) and contributors working in this repository. `CLAUDE.md` and `GEMINI.md` are pointer shims that load this file. For program-wide authority and review rules, see [`GOVERNANCE.md`](GOVERNANCE.md) and [`CSA-Internal-Governance/SecID`](https://github.com/CSA-Internal-Governance/SecID); repository membership is decided in [`CSA-Internal-Governance/Charter/PROGRAMS.md`](https://github.com/CSA-Internal-Governance/Charter/blob/main/PROGRAMS.md) and described in [`CSA-Internal-Governance/SecID/README.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/README.md).
 
 ## Project Overview
 
@@ -120,7 +120,7 @@ secid/
 
 ## Registry File Format
 
-**JSON (`.json`) is authoritative. YAML+Markdown (`.md`) is legacy and optional.** The resolver (SecID-Service, via the KV upload), the JSON Schema, and every CI gate read only `.json`; nothing reads `.md`. Every namespace has a `.json` file (2,138). Only 122 also have a `.md` companion — 2,016 are JSON-only, including everything bulk-generated (CNA disclosure entries, entity stubs). When a namespace has both and they disagree, the `.json` is what users get. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the format and [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) for validation.
+**JSON (`.json`) is authoritative. YAML+Markdown (`.md`) is legacy and optional.** The resolver (SecID-Service, via the KV upload), the JSON Schema, and every CI gate read only `.json`; nothing reads `.md`. Every namespace has a `.json` file (all 2,138 namespaces). Only 122 legacy entries also have a `.md` companion — the rest are JSON-only, including everything bulk-generated (CNA disclosure entries, entity stubs). When a namespace has both and they disagree, the `.json` is what users get. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the format and [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) for validation.
 
 One file per namespace containing all sources from that organization. There is no JSON template yet; the per-type `registry/<type>/_template.md` files describe the legacy YAML format. The practical starting point for a new `.json` file is an existing file of the same type (see "Key reference files" below).
 
@@ -420,7 +420,9 @@ python3 scripts/generate-entity-stubs-from-disclosure.py
 # Domain-scanning / annotation utilities
 python3 scripts/check-security-txt.py     # Fetch security.txt across disclosure namespace domains; annotate registry
 python3 scripts/scan-well-known.py        # Scan entity domains for well-known files (llms.txt, robots.txt, security.txt)
+python3 scripts/scan-well-known.py --domains cisco.com,github.com  # Scoped scan for selected domains
 python3 scripts/scan-mcp-endpoints.py     # Detect MCP endpoints + API/MCP mentions in entity domains' llms.txt
+python3 scripts/scan-mcp-endpoints.py --domains cisco.com,github.com  # Scoped probe for selected domains
 
 # Registry validation (CI checks — see .github/workflows/)
 python3 scripts/validate-registry-schema.py  # Every registry JSON file against schemas/registry-namespace.schema.json (needs `pip install jsonschema`)
@@ -578,6 +580,12 @@ If health-check commands show failures, inspect the failing run's logs and check
 - Keep `match_nodes[].patterns` ECMAScript-compatible and anchored (`^...$`).
 - Preserve source identifier formats in subpaths (for example, `RHSA-2026:0932`, `T1059.003`) without normalization.
 - Follow reverse-DNS path conventions when adding namespace files.
+
+## Testing Guidelines
+
+- No standalone unit-test suite is required for routine registry edits; validate modified files directly (`python3 -m json.tool registry/<type>/<tld>/<namespace>.json > /dev/null` and the CI validators above).
+- For pattern changes, include safety checks and example coverage per [`docs/guides/REGEX-WORKFLOW.md`](docs/guides/REGEX-WORKFLOW.md).
+- Verify URL template variable extraction against at least one real identifier example before PR.
 
 ## Agent Contributions, Hand-Off Labels, and Merge = Deploy
 

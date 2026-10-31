@@ -75,7 +75,7 @@ A neutral coordinated-vulnerability-disclosure body that routes reports between 
 1. **The deferral predates the subtype mechanism.** It weighed a boolean *field* (`is_cert`) and reasonably concluded a flag felt entity-ish. A `subtype` classifying the *program archetype* is a different, better-fitting tool that did not exist at the time.
 2. **The coordination role is a property of the disclosure program, not just the org.** "Who coordinates the report, and how" is exactly the question the `disclosure` type answers. INCIBE already carries `organization_type: "CERT"` *inside its disclosure `data` block* — the CERT-ness is already living in disclosure data, not entity data.
 
-An organization that is a coordinator still gets an `entity` record too (per the standards-publishing-org two-file pattern in [CLAUDE.md](../../CLAUDE.md)); `coordinator` just isn't an *entity* subtype.
+An organization that is a coordinator still gets an `entity` record too (per the standards-publishing-org two-file pattern in [AGENTS.md](../../AGENTS.md)); `coordinator` just isn't an *entity* subtype.
 
 ### `disclosure` → `psirt`
 

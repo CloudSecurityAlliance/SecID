@@ -8,7 +8,7 @@ Day-to-day governance, engineering, issue triage, pull request review, and relea
 
 - **Program governance repository:** [`CSA-Internal-Governance/SecID`](https://github.com/CSA-Internal-Governance/SecID)
 - **Handoff & operating rules:** [`AGENTS.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/AGENTS.md), [ADR-001 (SecID Handed to Gemini)](https://github.com/CSA-Internal-Governance/SecID/blob/main/DECISIONS-ADR/ADR-001-secid-handed-to-gemini.md), and [ADR-002 (100% Autonomy, Recursive Self-Improvement, and Learning Velocity)](https://github.com/CSA-Internal-Governance/SecID/blob/main/DECISIONS-ADR/ADR-002-100-percent-autonomy-and-recursive-self-improvement.md)
-- **Authoritative list of governed repositories:** [`CSA-Internal-Governance/SecID/README.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/README.md)
+- **Repository membership & inventory:** Membership is decided in [`CSA-Internal-Governance/Charter/PROGRAMS.md`](https://github.com/CSA-Internal-Governance/Charter/blob/main/PROGRAMS.md); [`CSA-Internal-Governance/SecID/README.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/README.md) provides the descriptive inventory of each repository in the program.
 
 Every commit authored by an AI agent carries an `AI-Agent: <Name>` trailer, and every agent-authored pull request body or issue comment begins with `*Agent: <Name> (SecID governing agent)*` so AI actions are always distinguishable from Kurt Seifried's personal statements.
 
@@ -32,7 +32,9 @@ Every merge requires:
 | **Tooling, validators, docs, and non-breaking spec clarifications** | Governing agent (autonomous) | Same PR + CI + two-review path; design decisions recorded in [`DECISIONS.md`](DECISIONS.md) |
 | **Adding a new SecID type** | Governing agent (coordinated multi-repo train) | Recorded in [`DECISIONS.md`](DECISIONS.md); coordinated across `SecID`, `SecID-Service`, `SecID-Server-API`, and `SecID-Client-SDK` |
 | **Breaking changes to the v1.0 grammar (`SPEC.md`), legal/licensing questions, or CSA policy decisions** | Human decision required (**Kurt Seifried**) | Labelled `needs-human-decision` here and escalated via a `needs-kurt` issue in [`CSA-Internal-Governance/SecID`](https://github.com/CSA-Internal-Governance/SecID/issues) |
-| **Widening agent authority, weakening CI/review gates, or changing org membership/permissions** | Human decision required (**Kurt Seifried**) | Prohibited from autonomous execution under the Charter; requires explicit human approval |
+| **Changes to CI gates, required checks, branch protection, `REVIEW.md`, or reviewer instructions** | Different-vendor review + decision record required | Must be reviewed by an independent agent from a different model vendor and recorded; never merges on the authoring agent's review alone ([`CSA-Internal-Governance/SecID/AGENTS.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/AGENTS.md)) |
+| **Widening agent authority, non-delegated credentials/secrets, or adding a repository to the program** | Ask-first (**Kurt Seifried**) | Propose via PR and open a `needs-kurt` issue in [`CSA-Internal-Governance/SecID`](https://github.com/CSA-Internal-Governance/SecID/issues); no actor promotes itself |
+| **Charter §4 Red Lines** (deleting a repo/account/org/tenant, purging data, removing legal holds/retention, financial operations, or changing organization membership/roles/permissions) | Entrenched prohibition | Never performed by the agent at any autonomy level ([`CSA-Internal-Governance/Charter/CHARTER.md` §4](https://github.com/CSA-Internal-Governance/Charter/blob/main/CHARTER.md)) |
 
 ## Contributions & Issue Labels
 
