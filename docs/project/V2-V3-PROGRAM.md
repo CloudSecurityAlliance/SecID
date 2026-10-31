@@ -55,17 +55,17 @@ outcomes live in [GOALS.md](../../GOALS.md) and [ROADMAP.md](../../ROADMAP.md).
 
 A documentation sweep on 2026-08-20 found twelve state-drift items. All are objective corrections.
 
-- ~~CLAUDE.md states **2,030 namespaces** twice in prose; actual is 2,130.~~ Numbers corrected; **the mechanism
+- ~~CLAUDE.md states **2,030 namespaces** twice in prose; actual is 2,130.~~ Numbers corrected; ~~**the mechanism
   is still open** — `update-counts.sh` only edits between `REGISTRY-COUNTS` markers, so any prose count drifts
-  silently. README.md:30 and GOALS.md carry the same exposure
+  silently. README.md:30 and GOALS.md carry the same exposure~~ (`update-counts.sh` updated in #182 to refresh prose `N,NNN namespaces` counts alongside the marker table, and updated in #206 to target canonical `AGENTS.md` + `README.md`; `GOALS.md` points to `AGENTS.md` instead of hardcoding a count)
 - `CAPABILITY-TYPE.md` and `METHODOLOGY-TYPE.md` are marked "Research / proposal"; both types shipped
 - `CONSORTIUM-AND-COORDINATOR-SUBTYPES.md` and `DISCLOSURE-TYPE-FIELDS.md` marked "Draft / discussion"; both landed
 - Six proposals carry no status line at all
-- `GOVERNANCE.md` does not exist but `GAPS.md` cites it as a resolution
+- ~~`GOVERNANCE.md` does not exist but `GAPS.md` cites it as a resolution~~ (`GOVERNANCE.md` created and expanded in #206 with AI governing agent delegation, merge = deploy policy, and escalation boundaries)
 - `CONCERNS.md` says the registry schema is unspecified; `schemas/registry-namespace.schema.json` exists
 - "Resolution Instructions for Non-Deterministic Systems" is tracked in both `CONCERNS.md` and `TODO.md`
-- CLAUDE.md's repository-structure listing omits `docs/proposals/` and `docs/research/`
-- `AGENTS.md` names none of the ten types and does not link CLASSIFY.md
+- ~~CLAUDE.md's repository-structure listing omits `docs/proposals/` and `docs/research/`~~ (added to canonical `AGENTS.md` in #206)
+- ~~`AGENTS.md` names none of the ten types and does not link CLASSIFY.md~~ (`AGENTS.md` consolidated as canonical agent instructions in #206 with all 10 types and `CLASSIFY.md` links; `CLAUDE.md` and `GEMINI.md` now import `AGENTS.md`)
 - `docs/future/V2-USE-CASES.md` describes a v2 that bundles relationships — contradicts the 2.0/3.0 split
 - `.superpowers/sdd/` holds ~1.5 MB of `review-*.diff` build detritus
 - `REGEX-ECMASCRIPT-MIGRATION-{PLAN,CHECKLIST}.md` describe a migration that was **cancelled**; the filenames mislead

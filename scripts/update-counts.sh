@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Updates namespace counts in CLAUDE.md and README.md
+# Updates namespace counts in AGENTS.md and README.md
 # Run from repo root: ./scripts/update-counts.sh
 
 set -euo pipefail
@@ -25,7 +25,7 @@ TABLE="$TABLE
 | **Total** | **$total** |"
 
 # Update files with markers
-for file in CLAUDE.md README.md; do
+for file in AGENTS.md README.md; do
   if [ ! -f "$file" ]; then
     echo "Skipping $file (not found)"
     continue
