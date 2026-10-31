@@ -85,7 +85,7 @@ Documents in [docs/future/](docs/future/) (RELATIONSHIPS.md, OVERLAYS.md, FUTURE
 
 ## Multi-Repo Architecture
 
-See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details, and [`CSA-Internal-Governance/SecID/README.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/README.md) for the authoritative list of repositories governed by the SecID program. This repo is the spec + registry only:
+See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details; repository membership is decided in [`CSA-Internal-Governance/Charter/PROGRAMS.md`](https://github.com/CSA-Internal-Governance/Charter/blob/main/PROGRAMS.md) and described in [`CSA-Internal-Governance/SecID/README.md`](https://github.com/CSA-Internal-Governance/SecID/blob/main/README.md). This repo is the spec + registry only:
 
 | Repo | Purpose |
 |------|---------|
