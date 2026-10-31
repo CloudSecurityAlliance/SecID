@@ -68,6 +68,7 @@ With 20+ markdown files, know which document answers which question:
 | Multi-repo architecture? | [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) |
 | What does the API return? | [API-RESPONSE-FORMAT.md](docs/reference/API-RESPONSE-FORMAT.md) - envelope, progressive resolution, cross-source search |
 | AI agent instructions? | [AGENTS.md](AGENTS.md) |
+| How are PRs reviewed (Claude Code Review / Codex / Copilot)? | [REVIEW.md](REVIEW.md) and [Code Review Rules](#code-review-rules) |
 | How is SecID deployed? | [docs/operations/](docs/operations/) - DNS, deployment, CI/CD, bootstrap |
 | How do I research a new namespace? | [skills/registry-research/](skills/registry-research/) - research workflow skill |
 | How do I convert .md to .json? | [skills/registry-formalization/](skills/registry-formalization/) - formalization skill |
@@ -100,7 +101,7 @@ See [INFRASTRUCTURE.md](docs/reference/INFRASTRUCTURE.md) for details; repositor
 
 ```
 secid/
-├── SPEC.md, PRINCIPLES.md, ROADMAP.md, DECISIONS.md, GOVERNANCE.md, AGENTS.md   # Top-level specs, governance + ADR log
+├── SPEC.md, PRINCIPLES.md, ROADMAP.md, DECISIONS.md, GOVERNANCE.md, AGENTS.md, REVIEW.md   # Top-level specs, governance, review rules + ADR log
 ├── docs/                    # reference/, explanation/, guides/, proposals/, research/, future/, project/, operations/, parsers/ — see Document Map above
 ├── registry/                # Namespace definitions (one file per namespace)
 │   ├── <type>.md            # Type description (e.g., advisory.md)
@@ -117,6 +118,16 @@ secid/
 ├── slides/                  # Presentation assets (overview deck)
 └── skills/                  # Top-level workflow skills (registry-research, -formalization, -validation, compliance-testing, secid-user)
 ```
+
+## Code Review Rules
+
+For automated and agent code reviews (`codex review`, Claude Code Review via [`REVIEW.md`](REVIEW.md), and GitHub Copilot Code Review), enforce these checks on every pull request:
+
+1. **Authority, Provenance, and Marking Guardrails:** Agent-authored commits must end with `AI-Agent: <Name>`, and agent PR bodies/comments must start with `*Agent: <Name> (SecID governing agent)*`. PRs touching `.github/workflows/registry-ci.yml`, `schemas/registry-namespace.schema.json`, `scripts/validate-*.py`, `scripts/check-*.py`, `scripts/*-todo.json`, `GOVERNANCE.md`, `AGENTS.md`, or `REVIEW.md` must never weaken validation gates or widen authority without an independent cross-vendor review recorded on the PR. Never allow licensed content from `dataset-private-laws-regulations-standards` in this public repository.
+2. **JSON Authoritativeness and Schema Compliance:** `registry/<type>/<tld>/<domain>.json` is authoritative (`.md` alone is never served). Verify reverse-DNS path mapping, JSON Schema compliance (`python3 scripts/validate-registry-schema.py`), and `null` (researched, confirmed empty) vs. absent (not yet researched) semantics.
+3. **Pattern Breadth, Canonical Names, and Regex Safety:** Every `match_nodes[].patterns` entry must be anchored (`^...$`), ECMAScript-compatible, and free of catastrophic backtracking. Enforce `scripts/check-pattern-breadth.py` (no catch-alls; sets ≤ 50 values enumerated directly; `"open_pattern": true` only for genuinely unbounded identifier spaces) and `scripts/check-canonical-names.py` (top-level `patterns[0]` must strip to `[A-Za-z0-9_-]`, no dots or slashes).
+4. **Subpath URL Templates and URL Policy:** Below the top-level source node, URL templates (`{id}`, `{var}`) must live in `data.url`, never only in `data.urls[]` (`scripts/check-url-templates.py`). All URLs must use `https://` unless listed in `scripts/http-exception-allowlist.txt` (`scripts/validate-urls.py`). Preserve exact source identifier formats with no lossy normalization.
+5. **Version Resolution, Examples, and Cross-Repo Lockstep:** Verify `version_required`, `versions_available`, `version_disambiguation`, and `version_aliases` consistency (`scripts/validate-version-aliases.py`). Child-level `data.examples` must use structured `ExampleObject` entries (`{input, url, variables?}`) that pass `SecID-Service`'s auto-generated `test/resolver.test.ts`. If a PR changes a source's versioning or removes/renames a source asserted in `SecID-Service` tests, update `SecID-Service` **first** before merging here. Run `./scripts/update-counts.sh` whenever namespace files are added or removed.
 
 ## Registry File Format
 
