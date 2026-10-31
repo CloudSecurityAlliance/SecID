@@ -163,7 +163,7 @@ The registry was originally compiled into the Worker bundle; it outgrew that app
 2. Build the expected set of KV keys and values
 3. `--sync`: upload every expected key and delete orphan keys, so KV exactly matches the registry (a 50-orphan safety threshold blocks accidental mass deletes)
 
-See [CLAUDE.md "CI/CD"](../../CLAUDE.md#cicd) for the deploy chain from a merge here to KV.
+See [AGENTS.md "CI/CD"](../../AGENTS.md#cicd) for the deploy chain from a merge here to KV.
 
 ### OpenAPI Schema
 
@@ -230,7 +230,7 @@ const resources = {
 
 ## Deployment
 
-**Note:** This section describes **SecID-Service** (not this repo). Its own [CLAUDE.md](https://github.com/CloudSecurityAlliance/SecID-Service/blob/main/CLAUDE.md) is authoritative.
+**Note:** This section describes **SecID-Service** (not this repo). Its own [AGENTS.md](https://github.com/CloudSecurityAlliance/SecID-Service/blob/main/AGENTS.md) is authoritative.
 
 ### SecID-Service Repository Structure
 

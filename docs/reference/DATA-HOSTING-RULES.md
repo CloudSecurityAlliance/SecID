@@ -111,7 +111,7 @@ The path mirrors the SecID string: `secid:weakness/mitre.org/cwe#CWE-79` → `da
 ```
 SecID-weakness/
 ├── README.md                           # Repo overview, rules, how to use
-├── CLAUDE.md                           # AI agent instructions
+├── AGENTS.md                           # AI agent instructions (CLAUDE.md / GEMINI.md import this)
 ├── LICENSE.md                          # Repo-level license for our additions
 ├── LICENSES/                           # Per-source license files
 │   ├── MITRE-CWE-TERMS-OF-USE.md      # CWE ToU reproduced in full

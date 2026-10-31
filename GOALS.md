@@ -13,7 +13,7 @@ With SecID 2.0 the handle stops being only an address. Where licensing permits, 
 - **~~Repair the live deploy chain.~~ Done.** Registry contributions reach production again: a push to `main` touching `registry/**/*.json` dispatches to SecID-Service and syncs KV in ~1m20s. Verified end-to-end 2026-08-21. Historical context in [FRICTION-001](../SecID-Service/FRICTION/FRICTION-001.md) and [WAITING-FOR-001](../SecID-Service/WAITING-FOR/WAITING-FOR-001.md).
 - **Land the 14 new CSAF advisory entries + format metadata fields** to the live resolver — unblocked now the deploy chain is repaired.
 - **Complete client SDK reference implementations** in the priority languages (Python, npm/TypeScript, Go) and verify the AI-generation instructions produce working clients in Rust, Java, C#.
-- **Verify type-list consistency** across all four repos (SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK) on every type addition. The current process is manual and the spec note in CLAUDE.md says CI/CD does not auto-detect.
+- **Verify type-list consistency** across all four repos (SecID, SecID-Service, SecID-Server-API, SecID-Client-SDK) on every type addition. `scripts/validate-type-list.py` enforces in-repo consistency in `Registry CI`; cross-repo coordination is documented in [AGENTS.md](AGENTS.md).
 - **Ship Course 1 (Introduction)** training materials in a deliverable form (self-paced or instructor-led pilot).
 
 ## Medium-term goals (2026-Q4 → 2027-Q1)
@@ -89,7 +89,7 @@ Concrete, observable signals that the project worked:
 | Signal | Measure |
 |---|---|
 | Live resolver uptime | ≥99.5% over rolling 90 days |
-| Registry coverage | 1,000+ by 2027-Q2 — met well ahead of schedule; current totals live in the CLAUDE.md counts table, not here. The measure that still bites is the second half: <5% of common security identifiers in active use with no SecID resolver |
+| Registry coverage | 1,000+ by 2027-Q2 — met well ahead of schedule; current totals live in the [AGENTS.md](AGENTS.md) counts table, not here. The measure that still bites is the second half: <5% of common security identifiers in active use with no SecID resolver |
 | External adoption | 5+ external organizations actively using SecID in production tooling, identifiable in commits, issues, or public forums |
 | AI-agent integration | SecID MCP server is one of the top 50 most-used remote MCP servers (per Anthropic / Cloudflare directories) |
 | Federation | 3+ organizations run public SecID resolvers registered in CSA's namespace entries |

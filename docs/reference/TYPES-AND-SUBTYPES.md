@@ -23,7 +23,7 @@ For full definitions, see [registry/`<type>`.md](../../registry/) (e.g., `regist
 | `entity` | Organizations, products, services |
 | `reference` | Documents, research, identifier systems (arXiv, DOI, ISBN, RFCs) |
 
-Adding a new type requires coordinated changes across SecID, SecID-Service, SecID-Server-API, and SecID-Client-SDK (the type list is hardcoded in each). See [CLAUDE.md](../../CLAUDE.md) "WARNING: Adding a new type" for the full impact list, and *When to add a subtype vs. split into a new type* below for the decision gate.
+Adding a new type requires coordinated changes across SecID, SecID-Service, SecID-Server-API, and SecID-Client-SDK (the type list is hardcoded in each). See [AGENTS.md](../../AGENTS.md) "WARNING: Adding a new type" for the full impact list, and *When to add a subtype vs. split into a new type* below for the decision gate.
 
 ## What a subtype is, mechanically
 
@@ -133,7 +133,7 @@ Resolved by [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-CO
 
 ### `regulation`
 
-EU directives, national transpositions, and US/national laws all currently sit in `regulation/` without a discriminator. The cross-type documentation pattern in [CLAUDE.md](../../CLAUDE.md) already distinguishes these informally.
+EU directives, national transpositions, and US/national laws all currently sit in `regulation/` without a discriminator. The cross-type documentation pattern in [AGENTS.md](../../AGENTS.md) already distinguishes these informally.
 
 | `subtype:` value (candidate) | What it would identify |
 |------------------------------|------------------------|
@@ -173,7 +173,7 @@ vendor blogs" are different questions.
 slug, and new ones appear daily. Those nodes must declare `open_pattern: true`, which keeps namespace-scoped resolution
 working while excluding them from unscoped cross-source search. Bounded sets must *not*: a publisher issues one DBIR a
 year, so an enumerated pattern discriminates and stays searchable. See the pattern-breadth rules in
-[CLAUDE.md](../../CLAUDE.md).
+[AGENTS.md](../../AGENTS.md#pattern-breadth-the-one-rule-that-protects-every-query).
 
 ### `control` and `entity` — scope of obligation
 
