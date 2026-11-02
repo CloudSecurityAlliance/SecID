@@ -188,6 +188,32 @@ def test_binding_ignores_item_patterns_that_merely_look_like_versions():
     assert check_tree_binding(node, "cisecurity") == []
 
 
+def test_binding_allows_multiple_children_for_same_version():
+    # Multiple resolution URLs (e.g., XSD at weight 100 + HTML docs at weight 20)
+    # use sibling child nodes sharing the same canonical version pattern.
+    node = _source(
+        [{"version": "7.3"}, {"version": "7.2"}],
+        [
+            {"patterns": ["^7\\.3$"], "weight": 100, "data": {"url": "https://example.org/v7.3.xsd"}},
+            {"patterns": ["^7\\.3$"], "weight": 20, "data": {"url": "https://example.org/v7.3.html"}},
+            {"patterns": ["^7\\.2$"], "weight": 90, "data": {"url": "https://example.org/v7.2.xsd"}},
+        ],
+    )
+    assert check_tree_binding(node, "cwe-schema") == []
+
+
+def test_binding_rejects_alias_missing_from_secondary_version_child():
+    node = _source(
+        [{"version": "1.7.0", "aliases": [{"label": "1.7", "on_match": "resolve"}]}],
+        [
+            {"patterns": ["^1\\.7\\.0$", "^1\\.7$"], "weight": 100},
+            {"patterns": ["^1\\.7\\.0$"], "weight": 50},
+        ],
+    )
+    errs = check_tree_binding(node, "cyclonedx")
+    assert any("1.7" in e and "not a pattern" in e for e in errs), errs
+
+
 def test_check_source_combines_both_layers():
     node = _source([{"version": "1.1.0", "aliases": [{"label": "1.1"}]}],
                    [{"patterns": ["^1\\.1\\.0$"]}])

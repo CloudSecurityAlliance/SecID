@@ -27,54 +27,346 @@
         "common_name": null,
         "alternate_names": ["CVE JSON Schema", "CVE Record Format"],
         "description": "JSON schema defining the structure of CVE records, maintained by the CVE Project. Used by CVE Services API, cvelistV5 repository, and all CNAs submitting CVE records.",
-        "notes": "The schema accepts any 5.x record — the dataVersion pattern is ^5\\.(0|[1-9][0-9]*)(\\....)$. Older 5.0 and 5.1 records remain valid against the latest schema. The repo also contains bundled schemas, example files, and documentation.\n\nNote on versioning: version_required is false because the schema version IS the subpath identifier (e.g., #5.2.0). There are no items within a version — each version is a leaf. The version_required pattern is for sources where versions wrap a hierarchy of items (e.g., OWASP Top 10 2021 → A01-A10).",
+        "notes": "The 5.x schema accepts any 5.x record — the dataVersion pattern is ^5\\.(0|[1-9][0-9]*)(\\....)$. Older 5.0 and 5.1 records remain valid against the latest 5.x schema. Legacy pre-5.0 formats (1.0–4.0) are archived under schema/archive/ in CVEProject/cve-schema: 4.0 provides three state-specific JSON Schemas (public, reject, reserved) with strong markers (data_type: \"CVE\", data_format: \"MITRE\", data_version: \"4.0\"); 3.1 provides a JSON Schema whose only marker is data_version (string); 1.0 and 2.0 have Markdown specifications only (no JSON Schema — recognise only).\n\nNote on versioning: version_required is false because the schema version IS the subpath identifier (e.g., #5.2.0). There are no items within a version — each version is a leaf. The version_required pattern is for sources where versions wrap a hierarchy of items (e.g., OWASP Top 10 2021 → A01-A10).",
         "version_required": false,
-        "versions_available": [{"version": "5.2.0"}, {"version": "5.1.0"}, {"version": "5.0.0"}],
+        "versions_available": [
+          {
+            "version": "5.2.0",
+            "status": "current",
+            "release_date": "2025-10-08",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/CVE_Record_Format.json",
+            "aliases": [
+              {
+                "label": "5.2",
+                "on_match": "resolve",
+                "note": "Minor-version shorthand for CVE JSON 5.2.0."
+              }
+            ]
+          },
+          {
+            "version": "5.1.1",
+            "status": "superseded",
+            "release_date": "2024-12-10",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.1.1/schema/CVE_Record_Format.json"
+          },
+          {
+            "version": "5.1.0",
+            "status": "superseded",
+            "release_date": "2024-04-29",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/5.1.0/schema/CVE_Record_Format.json",
+            "aliases": [
+              {
+                "label": "5.1",
+                "on_match": "resolve",
+                "note": "Minor-version shorthand for CVE JSON 5.1.0."
+              }
+            ]
+          },
+          {
+            "version": "5.0.0",
+            "status": "superseded",
+            "release_date": "2022-10-04",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json",
+            "aliases": [
+              {
+                "label": "5.0",
+                "on_match": "resolve",
+                "note": "Minor-version shorthand for CVE JSON 5.0.0."
+              }
+            ]
+          },
+          {
+            "version": "4.0",
+            "status": "superseded",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_public.schema",
+            "note": "Archived pre-5.0 format. Three state-specific JSON Schemas (public, reject, reserved) with strong markers: data_type: \"CVE\", data_format: \"MITRE\", data_version: \"4.0\".",
+            "aliases": [
+              {
+                "label": "4.0.0",
+                "on_match": "resolve",
+                "note": "Three-part semver form for CVE JSON 4.0."
+              }
+            ]
+          },
+          {
+            "version": "3.1",
+            "status": "superseded",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v3.1/CVE_JSON_schema-3.1.json",
+            "note": "Archived JSON Schema whose only marker is data_version, typed as a string.",
+            "aliases": [
+              {
+                "label": "3.1.0",
+                "on_match": "resolve",
+                "note": "Three-part semver form for CVE JSON 3.1."
+              }
+            ]
+          },
+          {
+            "version": "2.0",
+            "status": "historical",
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v2.0/JSON-file-format-v2.md",
+            "note": "Markdown specification only; no JSON Schema published (recognise only).",
+            "aliases": [
+              {
+                "label": "2.0.0",
+                "on_match": "resolve",
+                "note": "Three-part semver form for CVE JSON 2.0."
+              }
+            ]
+          },
+          {
+            "version": "1.0",
+            "status": "historical",
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v1.0/JSON-file-format-v1.md",
+            "note": "Markdown specification only; no JSON Schema published (recognise only).",
+            "aliases": [
+              {
+                "label": "1.0.0",
+                "on_match": "resolve",
+                "note": "Three-part semver form for CVE JSON 1.0."
+              }
+            ]
+          }
+        ],
         "urls": [
           {"type": "website", "url": "https://cveproject.github.io/cve-schema", "parsability": "scraped"},
           {"type": "github", "url": "https://github.com/CVEProject/cve-schema"}
         ],
-        "examples": ["5.2.0", "5.2", "5.1.0", "5.0.0"]
+        "examples": ["5.2.0", "5.2", "5.1.1", "5.1.0", "5.0.0", "4.0", "3.1", "2.0", "1.0"]
       },
       "children": [
         {
-          "patterns": ["^5\\.2(\\.0)?$"],
-          "description": "CVE JSON 5.2.0 — current production schema",
+          "patterns": ["^5\\.2\\.0$", "^5\\.2$"],
+          "description": "CVE JSON 5.2.0 — current production schema (raw JSON Schema, pinned to tag v5.2.0)",
           "weight": 100,
           "data": {
-            "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json",
-            "content_type": "application/json",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/CVE_Record_Format.json",
+            "format": "json",
+            "content_type": "text/plain",
             "parsability": "structured",
-            "notes": "Default dataVersion is 5.2.0. Schema on main branch.",
+            "notes": "Default dataVersion is 5.2.0. Pinned to release tag v5.2.0 so validation against 5.2 does not drift when future 5.x releases land on main.",
             "examples": [
-              {"input": "5.2.0", "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json"},
-              {"input": "5.2", "url": "https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json"}
+              {"input": "5.2.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/CVE_Record_Format.json"},
+              {"input": "5.2", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/CVE_Record_Format.json"}
             ]
           }
         },
         {
-          "patterns": ["^5\\.1(\\.0)?$"],
-          "description": "CVE JSON 5.1.0",
+          "patterns": ["^5\\.2\\.0$", "^5\\.2$"],
+          "description": "CVE JSON 5.2.0 — GitHub web view (pinned to tag v5.2.0)",
+          "weight": 50,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/CVE_Record_Format.json",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "5.2.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/CVE_Record_Format.json"},
+              {"input": "5.2", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.1\\.1$"],
+          "description": "CVE JSON 5.1.1 (raw JSON Schema, pinned to tag v5.1.1)",
           "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.1.1/schema/CVE_Record_Format.json",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "examples": [
+              {"input": "5.1.1", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.1.1/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.1\\.1$"],
+          "description": "CVE JSON 5.1.1 — GitHub web view (pinned to tag v5.1.1)",
+          "weight": 50,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.1.1/schema/CVE_Record_Format.json",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "5.1.1", "url": "https://github.com/CVEProject/cve-schema/blob/v5.1.1/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.1\\.0$", "^5\\.1$"],
+          "description": "CVE JSON 5.1.0 (raw JSON Schema, pinned to tag 5.1.0)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/5.1.0/schema/CVE_Record_Format.json",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "examples": [
+              {"input": "5.1.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/5.1.0/schema/CVE_Record_Format.json"},
+              {"input": "5.1", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/5.1.0/schema/CVE_Record_Format.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.1\\.0$", "^5\\.1$"],
+          "description": "CVE JSON 5.1.0 — GitHub web view (pinned to tag 5.1.0)",
+          "weight": 50,
           "data": {
             "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json",
-            "content_type": "application/json",
-            "parsability": "structured",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
             "examples": [
-              {"input": "5.1.0", "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json"}
+              {"input": "5.1.0", "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json"},
+              {"input": "5.1", "url": "https://github.com/CVEProject/cve-schema/blob/5.1.0/schema/CVE_Record_Format.json"}
             ]
           }
         },
         {
-          "patterns": ["^5\\.0(\\.0)?$"],
-          "description": "CVE JSON 5.0.0",
+          "patterns": ["^5\\.0\\.0$", "^5\\.0$"],
+          "description": "CVE JSON 5.0.0 (raw JSON Schema, pinned to tag v5.0.0)",
           "weight": 100,
           "data": {
-            "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/CVE_Record_Format.json",
-            "content_type": "application/json",
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json",
+            "format": "json",
+            "content_type": "text/plain",
             "parsability": "structured",
+            "notes": "In tag v5.0.0 the schema file lived at schema/v5.0/CVE_JSON_5.0_schema.json before being renamed to schema/CVE_Record_Format.json in 5.1.0.",
             "examples": [
-              {"input": "5.0.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/CVE_Record_Format.json"}
+              {"input": "5.0.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json"},
+              {"input": "5.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^5\\.0\\.0$", "^5\\.0$"],
+          "description": "CVE JSON 5.0.0 — GitHub web view (pinned to tag v5.0.0)",
+          "weight": 50,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "5.0.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json"},
+              {"input": "5.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.0.0/schema/v5.0/CVE_JSON_5.0_schema.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^4\\.0$", "^4\\.0\\.0$"],
+          "description": "CVE JSON 4.0 — public state JSON Schema (raw, archived)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_public.schema",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "notes": "CVE JSON 4.0 defines three state-specific JSON Schemas (public, reject, reserved) with strong top-level markers: data_type: \"CVE\", data_format: \"MITRE\", data_version: \"4.0\".",
+            "examples": [
+              {"input": "4.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_public.schema"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^4\\.0$", "^4\\.0\\.0$"],
+          "description": "CVE JSON 4.0 — reject state JSON Schema (raw, archived)",
+          "weight": 80,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_reject.schema",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "notes": "CVE JSON 4.0 schema for REJECT state records (markers: data_type: \"CVE\", data_format: \"MITRE\", data_version: \"4.0\").",
+            "examples": [
+              {"input": "4.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_reject.schema"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^4\\.0$", "^4\\.0\\.0$"],
+          "description": "CVE JSON 4.0 — reserved state JSON Schema (raw, archived)",
+          "weight": 80,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_reserved.schema",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "notes": "CVE JSON 4.0 schema for RESERVED state records (markers: data_type: \"CVE\", data_format: \"MITRE\", data_version: \"4.0\").",
+            "examples": [
+              {"input": "4.0", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v4.0/CVE_JSON_4.0_min_reserved.schema"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^4\\.0$", "^4\\.0\\.0$"],
+          "description": "CVE JSON 4.0 — draft format specification (Markdown on GitHub, archived)",
+          "weight": 40,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v4.0/DRAFT-JSON-file-format-v4.md",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "4.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v4.0/DRAFT-JSON-file-format-v4.md"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.1$", "^3\\.1\\.0$"],
+          "description": "CVE JSON 3.1 — JSON Schema (raw, archived)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v3.1/CVE_JSON_schema-3.1.json",
+            "format": "json",
+            "content_type": "text/plain",
+            "parsability": "structured",
+            "notes": "Archived CVE JSON 3.1 schema. Its only format marker is data_version, typed as a string.",
+            "examples": [
+              {"input": "3.1", "url": "https://raw.githubusercontent.com/CVEProject/cve-schema/v5.2.0/schema/archive/v3.1/CVE_JSON_schema-3.1.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^3\\.1$", "^3\\.1\\.0$"],
+          "description": "CVE JSON 3.1 — GitHub web view (archived)",
+          "weight": 50,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v3.1/CVE_JSON_schema-3.1.json",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {"input": "3.1", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v3.1/CVE_JSON_schema-3.1.json"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^2\\.0$", "^2\\.0\\.0$"],
+          "description": "CVE JSON 2.0 — Markdown specification only, no JSON Schema (recognise only)",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v2.0/JSON-file-format-v2.md",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "notes": "CVE JSON 2.0 has a Markdown format specification only and no machine-readable JSON Schema (recognise only).",
+            "examples": [
+              {"input": "2.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v2.0/JSON-file-format-v2.md"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^1\\.0$", "^1\\.0\\.0$"],
+          "description": "CVE JSON 1.0 — Markdown specification only, no JSON Schema (recognise only)",
+          "weight": 100,
+          "data": {
+            "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v1.0/JSON-file-format-v1.md",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "notes": "CVE JSON 1.0 has a Markdown format specification only and no machine-readable JSON Schema (recognise only).",
+            "examples": [
+              {"input": "1.0", "url": "https://github.com/CVEProject/cve-schema/blob/v5.2.0/schema/archive/v1.0/JSON-file-format-v1.md"}
             ]
           }
         }
