@@ -52,40 +52,44 @@
             "version": "1.7",
             "status": "current",
             "note": "Released 2025-10-21. Basis of ECMA-424.",
-            "url": "https://cyclonedx.org/docs/1.7/json/"
+            "url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
           },
           {
             "version": "1.6",
             "status": "active",
-            "url": "https://cyclonedx.org/docs/1.6/json/"
+            "url": "https://cyclonedx.org/schema/bom-1.6.schema.json"
           },
           {
             "version": "1.5",
             "status": "active",
             "note": "Introduced modelCard and the machine-learning-model / data component types (ML-BOM).",
-            "url": "https://cyclonedx.org/docs/1.5/json/"
+            "url": "https://cyclonedx.org/schema/bom-1.5.schema.json"
           },
           {
             "version": "1.4",
             "status": "active",
             "note": "Last version without ML-BOM support.",
-            "url": "https://cyclonedx.org/docs/1.4/json/"
+            "url": "https://cyclonedx.org/schema/bom-1.4.schema.json"
           },
           {
             "version": "1.3",
-            "status": "superseded"
+            "status": "superseded",
+            "url": "https://cyclonedx.org/schema/bom-1.3.schema.json"
           },
           {
             "version": "1.2",
-            "status": "superseded"
+            "status": "superseded",
+            "url": "https://cyclonedx.org/schema/bom-1.2.schema.json"
           },
           {
             "version": "1.1",
-            "status": "superseded"
+            "status": "superseded",
+            "url": "https://cyclonedx.org/schema/bom-1.1.xsd"
           },
           {
             "version": "1.0",
-            "status": "superseded"
+            "status": "superseded",
+            "url": "https://cyclonedx.org/schema/bom-1.0.xsd"
           }
         ],
         "urls": [
@@ -156,6 +160,404 @@
         ]
       },
       "children": [
+        {
+          "patterns": [
+            "^1\\.7$"
+          ],
+          "description": "CycloneDX 1.7 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.7.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.7",
+                "url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.7$"
+          ],
+          "description": "CycloneDX 1.7 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.7.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.7",
+                "url": "https://cyclonedx.org/schema/bom-1.7.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.7$"
+          ],
+          "description": "CycloneDX 1.7 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.7/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.7",
+                "url": "https://cyclonedx.org/docs/1.7/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.6$"
+          ],
+          "description": "CycloneDX 1.6 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.6.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.6",
+                "url": "https://cyclonedx.org/schema/bom-1.6.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.6$"
+          ],
+          "description": "CycloneDX 1.6 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.6.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.6",
+                "url": "https://cyclonedx.org/schema/bom-1.6.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.6$"
+          ],
+          "description": "CycloneDX 1.6 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.6/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.6",
+                "url": "https://cyclonedx.org/docs/1.6/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.5$"
+          ],
+          "description": "CycloneDX 1.5 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.5.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.5",
+                "url": "https://cyclonedx.org/schema/bom-1.5.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.5$"
+          ],
+          "description": "CycloneDX 1.5 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.5.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.5",
+                "url": "https://cyclonedx.org/schema/bom-1.5.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.5$"
+          ],
+          "description": "CycloneDX 1.5 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.5/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.5",
+                "url": "https://cyclonedx.org/docs/1.5/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.4$"
+          ],
+          "description": "CycloneDX 1.4 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.4.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.4",
+                "url": "https://cyclonedx.org/schema/bom-1.4.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.4$"
+          ],
+          "description": "CycloneDX 1.4 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.4.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.4",
+                "url": "https://cyclonedx.org/schema/bom-1.4.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.4$"
+          ],
+          "description": "CycloneDX 1.4 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.4/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.4",
+                "url": "https://cyclonedx.org/docs/1.4/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.3$"
+          ],
+          "description": "CycloneDX 1.3 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.3.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.3",
+                "url": "https://cyclonedx.org/schema/bom-1.3.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.3$"
+          ],
+          "description": "CycloneDX 1.3 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.3.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.3",
+                "url": "https://cyclonedx.org/schema/bom-1.3.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.3$"
+          ],
+          "description": "CycloneDX 1.3 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.3/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.3",
+                "url": "https://cyclonedx.org/docs/1.3/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.2$"
+          ],
+          "description": "CycloneDX 1.2 JSON Schema",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.2.schema.json",
+            "content_type": "application/schema+json",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.2",
+                "url": "https://cyclonedx.org/schema/bom-1.2.schema.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.2$"
+          ],
+          "description": "CycloneDX 1.2 XML Schema (XSD)",
+          "weight": 80,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.2.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "examples": [
+              {
+                "input": "1.2",
+                "url": "https://cyclonedx.org/schema/bom-1.2.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.2$"
+          ],
+          "description": "CycloneDX 1.2 JSON reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.2/json/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.2",
+                "url": "https://cyclonedx.org/docs/1.2/json/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.1$"
+          ],
+          "description": "CycloneDX 1.1 XML Schema (XSD)",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.1.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "notes": "CycloneDX 1.1 is an XML-only release; JSON Schema support was introduced in CycloneDX 1.2.",
+            "examples": [
+              {
+                "input": "1.1",
+                "url": "https://cyclonedx.org/schema/bom-1.1.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.1$"
+          ],
+          "description": "CycloneDX 1.1 XML reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.1/xml/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.1",
+                "url": "https://cyclonedx.org/docs/1.1/xml/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.0$"
+          ],
+          "description": "CycloneDX 1.0 XML Schema (XSD)",
+          "weight": 100,
+          "data": {
+            "url": "https://cyclonedx.org/schema/bom-1.0.xsd",
+            "content_type": "application/xml",
+            "parsability": "structured",
+            "notes": "CycloneDX 1.0 is an XML-only release; JSON Schema support was introduced in CycloneDX 1.2.",
+            "examples": [
+              {
+                "input": "1.0",
+                "url": "https://cyclonedx.org/schema/bom-1.0.xsd"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1\\.0$"
+          ],
+          "description": "CycloneDX 1.0 XML reference documentation",
+          "weight": 50,
+          "data": {
+            "url": "https://cyclonedx.org/docs/1.0/xml/",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "1.0",
+                "url": "https://cyclonedx.org/docs/1.0/xml/"
+              }
+            ]
+          }
+        },
         {
           "patterns": [
             "(?i)^(mlbom|ml-bom)$"

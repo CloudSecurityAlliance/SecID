@@ -214,14 +214,14 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
     # requirement IDs (1.2) are item patterns that happen to match version
     # strings, and binding by match flags them as version nodes — 5 false
     # positives across cisecurity.org and pcisecuritystandards.org.
-    version_nodes: dict[str, dict] = {}
+    version_nodes: dict[str, list[dict]] = {}
     for child in children:
         pats = [p for p in (child.get("patterns") or []) if isinstance(p, str)]
         if not pats:
             continue
         lit = pattern_literal(pats[0])
         if lit is not None and lit in declared:
-            version_nodes[lit] = child
+            version_nodes.setdefault(lit, []).append(child)
 
     errors: list[str] = []
     any_aliases = any(e.get("aliases") for e in declared.values())
@@ -237,40 +237,41 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
         return errors
 
     for version, entry in declared.items():
-        node = version_nodes.get(version)
-        if node is None:
+        nodes = version_nodes.get(version)
+        if not nodes:
             errors.append(
                 f"{source_label}: version {version!r} is declared in versions_available "
                 f"but has no version node in the tree"
             )
             continue
 
-        patterns = [p for p in (node.get("patterns") or []) if isinstance(p, str)]
+        for node in nodes:
+            patterns = [p for p in (node.get("patterns") or []) if isinstance(p, str)]
 
-        # Rule 7: patterns[0] must be the clean canonical literal.
-        first = patterns[0] if patterns else None
-        if first is None or pattern_literal(first) != version:
-            errors.append(
-                f"{source_label}: version node for {version!r} has patterns[0] {first!r}, "
-                f"which is not the clean canonical literal — there is nothing to "
-                f"canonicalize to. Write separate OR-patterns, not an optional group."
-            )
-
-        # Rule 9: every declared alias must actually match on this node.
-        for alias in entry.get("aliases") or []:
-            if not isinstance(alias, dict):
-                continue
-            label = alias.get("label")
-            if not isinstance(label, str):
-                continue
-            if not any(_pattern_matches(p, label) for p in patterns):
+            # Rule 7: patterns[0] must be the clean canonical literal.
+            first = patterns[0] if patterns else None
+            if first is None or pattern_literal(first) != version:
                 errors.append(
-                    f"{source_label}: alias {label!r} on version {version!r} is not a "
-                    f"pattern on that version node — it would never match"
+                    f"{source_label}: version node for {version!r} has patterns[0] {first!r}, "
+                    f"which is not the clean canonical literal — there is nothing to "
+                    f"canonicalize to. Write separate OR-patterns, not an optional group."
                 )
 
+            # Rule 9: every declared alias must actually match on this node.
+            for alias in entry.get("aliases") or []:
+                if not isinstance(alias, dict):
+                    continue
+                label = alias.get("label")
+                if not isinstance(label, str):
+                    continue
+                if not any(_pattern_matches(p, label) for p in patterns):
+                    errors.append(
+                        f"{source_label}: alias {label!r} on version {version!r} is not a "
+                        f"pattern on that version node — it would never match"
+                    )
+
     # Rule 8, reverse direction: a version-shaped child bound to no declared version.
-    bound = {id(n) for n in version_nodes.values()}
+    bound = {id(n) for nodes in version_nodes.values() for n in nodes}
     for child in children:
         if id(child) in bound:
             continue
