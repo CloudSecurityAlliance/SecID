@@ -199,13 +199,11 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
     if not isinstance(data, dict):
         data = {}
     versions_available = data.get("versions_available")
-    if not isinstance(versions_available, list) or not versions_available:
-        return []
-
     declared: dict[str, dict] = {}
-    for entry in versions_available:
-        if isinstance(entry, dict) and isinstance(entry.get("version"), str):
-            declared[entry["version"]] = entry
+    if isinstance(versions_available, list):
+        for entry in versions_available:
+            if isinstance(entry, dict) and isinstance(entry.get("version"), str):
+                declared[entry["version"]] = entry
 
     children = [c for c in (source_node.get("children") or []) if isinstance(c, dict)]
 
@@ -224,6 +222,28 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
             version_nodes[lit] = child
 
     errors: list[str] = []
+
+    # Rule 8, reverse direction: a version-shaped child bound to no declared
+    # version. Runs even when versions_available is absent, null, or empty so
+    # version-literal child nodes cannot slip past by omitting metadata.
+    bound = {id(n) for n in version_nodes.values()}
+    for child in children:
+        if id(child) in bound:
+            continue
+        patterns = [p for p in (child.get("patterns") or []) if isinstance(p, str)]
+        if not patterns:
+            continue
+        lit = pattern_literal(patterns[0])
+        if lit is None:
+            continue  # a genuine item pattern such as ^(?:IAM|MDS)-\d{2}$
+        if _looks_versionish(lit):
+            errors.append(
+                f"{source_label}: version node {lit!r} is not declared in versions_available"
+            )
+
+    if not declared:
+        return errors
+
     any_aliases = any(e.get("aliases") for e in declared.values())
 
     if not version_nodes:
@@ -269,21 +289,6 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
                     f"pattern on that version node — it would never match"
                 )
 
-    # Rule 8, reverse direction: a version-shaped child bound to no declared version.
-    bound = {id(n) for n in version_nodes.values()}
-    for child in children:
-        if id(child) in bound:
-            continue
-        patterns = [p for p in (child.get("patterns") or []) if isinstance(p, str)]
-        if not patterns:
-            continue
-        lit = pattern_literal(patterns[0])
-        if lit is None:
-            continue  # a genuine item pattern such as ^(?:IAM|MDS)-\d{2}$
-        if _looks_versionish(lit):
-            errors.append(
-                f"{source_label}: version node {lit!r} is not declared in versions_available"
-            )
     return errors
 
 
@@ -334,9 +339,8 @@ def main() -> int:
             if not isinstance(node, dict):
                 continue
             data = node.get("data") or {}
-            if "versions_available" not in data:
-                continue
-            sources += 1
+            if "versions_available" in data:
+                sources += 1
             for err in check_source(node):
                 failures.append(f"{path}: {err}")
 

@@ -144,6 +144,18 @@ def test_binding_rejects_tree_node_with_no_metadata():
     assert any("0.9" in e and "not declared" in e for e in check_tree_binding(node, "aicm"))
 
 
+def test_binding_rejects_version_child_when_versions_available_absent_or_empty():
+    # methodology/first.org/cvss and methodology/cmu.edu/ssvc had version-literal
+    # child nodes (^4\.0$, ^2\.0$) while omitting versions_available entirely.
+    for va in (None, []):
+        node = _source(va, [{"patterns": ["^4\\.0$"]}])
+        errs = check_source(node)
+        assert any("4.0" in e and "not declared in versions_available" in e for e in errs), errs
+    absent_node = {"patterns": ["(?i)^cvss$"], "data": {}, "children": [{"patterns": ["^4\\.0$"]}]}
+    errs = check_source(absent_node)
+    assert any("4.0" in e and "not declared in versions_available" in e for e in errs), errs
+
+
 def test_binding_rejects_alias_missing_from_tree():
     # Declared in metadata but absent from the node's patterns: would never resolve.
     node = _source([{"version": "1.1.0", "aliases": [{"label": "1.1", "on_match": "resolve"}]}],
