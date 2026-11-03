@@ -85,11 +85,11 @@
         "common_name": "AI Act",
         "alternate_names": ["Regulation (EU) 2024/1689"],
         "description": "World's first comprehensive AI regulation (Regulation 2024/1689). Risk-based framework classifying AI systems.",
-        "notes": "Effective August 2025 (phased). Bans certain AI practices, sets requirements for high-risk AI systems. Establishes conformity assessment procedures.",
+        "notes": "Status: In force August 1, 2024 with phased application through 2027 (verified as of 2026-11-03). Prohibitions on unacceptable-risk practices (Article 5, including manipulative/deceptive techniques and exploitation of vulnerabilities of age or disability) applied from February 2, 2025; general-purpose AI rules applied from August 2, 2025; Article 50 transparency obligations for AI systems intended to interact directly with natural persons (chatbots and conversational agents, numbered Article 52 in the 2021 Commission draft) apply from August 2, 2026.",
         "urls": [
           {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
         ],
-        "examples": ["art-6", "annex-III", "art-52"]
+        "examples": ["art-6", "annex-III", "art-50", "art-52"]
       },
       "children": [
         {
@@ -99,8 +99,10 @@
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
             "examples": [
+              {"input": "art-5", "note": "Prohibited AI practices (subliminal/manipulative techniques and exploitation of vulnerable groups)"},
               {"input": "art-6", "note": "Classification rules for high-risk AI systems"},
-              {"input": "art-52", "note": "Transparency obligations for certain AI systems"}
+              {"input": "art-50", "note": "Transparency obligations for providers and deployers of certain AI systems (including chatbots interacting directly with natural persons; numbered art-52 in the 2021 Commission draft)"},
+              {"input": "art-52", "note": "Procedure for the classification of general-purpose AI models with systemic risk in enacted Regulation (EU) 2024/1689 (note: in the 2021 Commission draft proposal, art-52 was the chatbot transparency provision now enacted as art-50)"}
             ]
           }
         },
@@ -467,6 +469,23 @@
           {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng"}
         ],
         "examples": []
+      }
+    },
+
+    {
+      "patterns": ["^eu-kids-act$", "^com-2026-681$"],
+      "description": "EU KIDS Act — EU Keeping Internet Digital Spaces Accountable and Trustworthy (COM(2026) 681 final)",
+      "weight": 95,
+      "data": {
+        "official_name": "EU KIDS ACT — 'EU Keeping Internet Digital Spaces Accountable and Trustworthy' (COM(2026) 681 final)",
+        "common_name": "EU KIDS Act",
+        "alternate_names": ["COM(2026) 681 final", "CELEX:52026PC0681", "Proposal for a Regulation on the protection of minors online"],
+        "description": "European Commission legislative proposal harmonizing child online safety, privacy-preserving age verification (via the EU Digital Identity Wallet), and restrictions on addictive or manipulative design features and AI companion interactions affecting minors.",
+        "notes": "Status: Proposed (adopted by the European Commission September 17, 2026 as COM(2026) 681 final; pending ordinary legislative procedure in the European Parliament and Council as of 2026-11-03). Complements the Digital Services Act (DSA Art. 28) and the EU AI Act (Art. 5 and Art. 50).",
+        "urls": [
+          {"type": "proposal", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52026PC0681"}
+        ],
+        "examples": ["eu-kids-act", "com-2026-681"]
       }
     }
   ],

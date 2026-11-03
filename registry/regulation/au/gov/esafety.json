@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "namespace": "esafety.gov.au",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#208 (Australian Online Safety Act 2021 and eSafety Phase 2 Industry Codes covering AI companion chatbots).",
+  "official_name": "eSafety Commissioner (Australian Government)",
+  "common_name": "eSafety",
+  "alternate_names": [
+    "Office of the eSafety Commissioner"
+  ],
+  "notes": "Australia's independent national regulator for online safety, established under the Online Safety Act 2021 (Cth). Registers and enforces mandatory Industry Codes and Industry Standards under Part 9 of the Act.",
+  "wikidata": [
+    "Q107388187"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/ESafety_Commissioner"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.esafety.gov.au"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.esafety.gov.au/industry/codes"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^online-safety-act-2021$",
+        "^osa-2021$"
+      ],
+      "description": "Online Safety Act 2021 (Cth)",
+      "weight": 100,
+      "data": {
+        "official_name": "Online Safety Act 2021 (No. 76, 2021)",
+        "common_name": "Australian Online Safety Act 2021",
+        "alternate_names": [
+          "C2021A00076"
+        ],
+        "description": "Australian federal statute establishing the eSafety Commissioner, basic online safety expectations (BOSE), cyber-abuse and image-based abuse takedown schemes, the Social Media Minimum Age framework (under-16 restriction enacted via the 2024 Amendment Act), and enforceable Part 9 Industry Codes and Standards.",
+        "notes": "Status: In force (commenced January 23, 2022; amended by the Online Safety Amendment (Social Media Minimum Age) Act 2024; verified as of 2026-11-03).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.au/C2021A00076/latest/text"
+          }
+        ],
+        "examples": [
+          "online-safety-act-2021"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^phase-2-industry-codes$",
+        "^class-1c-2-industry-codes$",
+        "^esafety-industry-codes$"
+      ],
+      "description": "Online Safety Phase 2 Industry Codes (Class 1C and Class 2 Material, including AI Companion and Chatbot Services)",
+      "weight": 100,
+      "data": {
+        "official_name": "Registered Online Safety Industry Codes (Phase 2 — Class 1C and Class 2 Material)",
+        "common_name": "eSafety Phase 2 Industry Codes",
+        "alternate_names": [
+          "Relevant Electronic Services and Designated Internet Services Codes (Phase 2 — Class 1C and Class 2 Material)"
+        ],
+        "description": "Legally enforceable Phase 2 industry codes registered by the Australian eSafety Commissioner under Part 9 of the Online Safety Act 2021 addressing Class 1C and Class 2 material (high-impact pornography, R18+/X18+ content, and self-harm/suicide themes), requiring age assurance, risk assessments, safety-by-design controls, and crisis guardrails across 8 industry sectors explicitly including conversational AI chatbots and AI companions.",
+        "notes": "Status: In force (the Internet Search Engine Services Phase 2 code commenced December 27, 2025, and the remaining 7 Phase 2 codes — Social Media Services, App Distribution Services, Hosting Services, Internet Carriage Services, Equipment, Relevant Electronic Services, and Designated Internet Services including conversational AI companions — commenced March 9, 2026, with specific equipment sub-measures having phased compliance dates in June 2026; verified as of 2026-11-03). Note: Phase 1 Industry Codes covered Class 1A and Class 1B material (CSAM, pro-terror, and extreme crime/violence); Phase 2 covers Class 1C and Class 2 material. Classified under type 'regulation' because registration under Part 9 of the Online Safety Act 2021 makes compliance legally binding and enforceable via eSafety directions, enforceable undertakings, injunctions, and civil penalties up to 50,000 penalty units (~AU$49.5 million).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.esafety.gov.au/industry/codes"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.esafety.gov.au/industry/codes/register-online-industry-codes-standards"
+          }
+        ],
+        "examples": [
+          "phase-2-industry-codes",
+          "class-1c-2-industry-codes"
+        ]
+      }
+    }
+  ],
+  "tags": {
+    "country": [
+      "AU"
+    ]
+  },
+  "_country_provenance": {
+    "method": "verified against primary source (Australian Government statutory agency)",
+    "date": "2026-11-03",
+    "note": "eSafety Commissioner (Australian Government)."
+  }
+}

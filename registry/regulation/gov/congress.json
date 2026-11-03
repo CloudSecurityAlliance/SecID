@@ -32,6 +32,58 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^guard-act-s3062$",
+        "^s-3062$",
+        "^guard-act$"
+      ],
+      "description": "GUARD Act — Guidelines for User Age-verification and Responsible Dialogue Act of 2025 (S.3062)",
+      "weight": 95,
+      "data": {
+        "official_name": "Guidelines for User Age-verification and Responsible Dialogue Act of 2025",
+        "common_name": "GUARD Act (S.3062)",
+        "alternate_names": [
+          "S.3062 (119th Congress)",
+          "H.R. 8623 (119th Congress)"
+        ],
+        "description": "Proposed US federal bipartisan legislation restricting AI companion chatbots for minors, mandating periodic non-human disclosures (at least every 30 minutes), prohibiting chatbots from claiming to be human or licensed mental health professionals, and establishing criminal penalties for designing AI companions that solicit sexually explicit content or encourage self-harm/suicide in minors.",
+        "notes": "Status: Proposed (introduced October 28, 2025 in the 119th Congress by Senators Hawley, Blumenthal, Blackburn, Britt, and Moody; ordered reported favorably by the Senate Judiciary Committee on April 23, 2026; House companion H.R. 8623 introduced May 2026; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "website", "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3062"}
+        ],
+        "examples": [
+          "guard-act-s3062",
+          "s-3062"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^chat-act-s2714$",
+        "^s-2714$",
+        "^chat-act$"
+      ],
+      "description": "CHAT Act — Children Harmed by AI Technology Act of 2025 (S.2714)",
+      "weight": 95,
+      "data": {
+        "official_name": "Children Harmed by AI Technology Act of 2025",
+        "common_name": "CHAT Act (S.2714)",
+        "alternate_names": [
+          "S.2714 (119th Congress)"
+        ],
+        "description": "Proposed US federal bipartisan legislation requiring AI companion chatbot operators to implement age verification, obtain verifiable parental consent for minor accounts, display pop-up disclosures that the companion is not human, and block sexually explicit or self-harm/suicide content for minor users, enforced by the FTC and state attorneys general.",
+        "notes": "Status: Proposed (introduced September 4, 2025 in the 119th Congress by Senators Cassidy,Ossoff, Britt, and Luján; referred to the Senate Committee on Commerce, Science, and Transportation; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "website", "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2714"}
+        ],
+        "examples": [
+          "chat-act-s2714",
+          "s-2714"
+        ]
+      }
     }
-  ]
+  ],
+  "tags": {"country": ["US"]}
 }

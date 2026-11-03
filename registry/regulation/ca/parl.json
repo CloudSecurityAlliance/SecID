@@ -3,53 +3,227 @@
   "namespace": "parl.ca",
   "type": "regulation",
   "status": "draft",
-  "status_notes": null,
-
+  "status_notes": "Updated 2026-11-03 for SecID#215 (National Security Act 2017, NSIRA Act, NSICOP Act statutory review framework) and SecID#208 (Bill C-34 Safe Social Media Act regulating AI chatbots).",
   "official_name": "Parliament of Canada",
   "common_name": null,
-  "alternate_names": ["Parlement du Canada"],
-  "notes": "Parliament of Canada legislation. LEGISinfo provides status and text of federal bills.",
-  "wikidata": null,
-  "wikipedia": null,
-
-  "urls": [
-    {"type": "website", "url": "https://www.parl.ca"}
+  "alternate_names": [
+    "Parlement du Canada",
+    "Department of Justice Canada (Consolidated Federal Acts)"
   ],
-
+  "notes": "Parliament of Canada federal bills and enacted statutes. LEGISinfo (parl.ca/legisinfo) provides bill status and legislative history; Justice Laws (laws-lois.justice.gc.ca) provides consolidated text of enacted federal statutes.",
+  "wikidata": [
+    "Q152052"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Parliament_of_Canada"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.parl.ca"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.parl.ca/legisinfo/en/bills"
+    }
+  ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^aida$"],
+      "patterns": [
+        "^aida$"
+      ],
       "description": "Artificial Intelligence and Data Act",
       "weight": 100,
       "data": {
         "official_name": "Artificial Intelligence and Data Act",
         "common_name": "AIDA",
-        "alternate_names": ["Part 3 of Bill C-27"],
-        "description": "Proposed Canadian federal AI regulation. Part of Bill C-27 (Digital Charter Implementation Act, 2022).",
-        "notes": "Part of Bill C-27 (Digital Charter Implementation Act). Proposes regulation of AI systems in Canada. Includes high-impact AI system requirements: risk assessments, mitigation measures, transparency, record-keeping. Establishes the AI and Data Commissioner. Bill C-27 died on the order paper when Parliament was dissolved in January 2025. May be reintroduced in a future session.",
-        "urls": [
-          {"type": "website", "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-27"},
-          {"type": "source", "url": "https://www.parl.ca/Content/Bills/441/Government/C-27/C-27_1/C-27_E.xml"}
+        "alternate_names": [
+          "Part 3 of Bill C-27"
         ],
-        "examples": []
+        "description": "Proposed Canadian federal AI regulation. Part of Bill C-27 (Digital Charter Implementation Act, 2022).",
+        "notes": "Part of Bill C-27 (Digital Charter Implementation Act). Proposes regulation of AI systems in Canada. Includes high-impact AI system requirements: risk assessments, mitigation measures, transparency, record-keeping. Establishes the AI and Data Commissioner. Status as of 2026-11-03: Bill C-27 died on the Order Paper when the 44th Parliament was prorogued/dissolved in early 2025.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-27"
+          },
+          {
+            "type": "source",
+            "url": "https://www.parl.ca/Content/Bills/441/Government/C-27/C-27_1/C-27_E.xml"
+          }
+        ],
+        "examples": [
+          "aida"
+        ]
       }
     },
     {
-      "patterns": ["(?i)^ccspa$"],
-      "description": "Critical Cyber Systems Protection Act",
+      "patterns": [
+        "^ccspa$",
+        "^bill-c-26$",
+        "^bill-c-8$",
+        "^sc-2026-c-9$"
+      ],
+      "description": "Critical Cyber Systems Protection Act (S.C. 2026, c. 9 / Bill C-8)",
       "weight": 90,
       "data": {
         "official_name": "Critical Cyber Systems Protection Act",
         "common_name": "CCSPA",
-        "alternate_names": ["Part 2 of Bill C-26", "Bill C-8 (renumbered after prior-Parliament dissolution)"],
-        "description": "Mandates cybersecurity programs and incident reporting for designated critical-infrastructure operators across finance, energy, transport, and telecom sectors.",
-        "notes": "Status: still moving through committee (SECU) as of early 2026, renumbered from Bill C-26 to Bill C-8 after a prior Parliament's dissolution. Verify current bill number/status before citing as current law.",
-        "urls": [
-          {"type": "website", "url": "https://www.parl.ca/legisinfo/en/bills"}
+        "alternate_names": [
+          "Part 2 of Bill C-8 (45th Parliament)",
+          "S.C. 2026, c. 9",
+          "Part 2 of Bill C-26 (44th Parliament)"
         ],
-        "examples": []
+        "description": "Mandates cybersecurity programs and incident reporting for designated critical-infrastructure operators across finance, energy, transport, and telecom sectors.",
+        "notes": "Originally introduced in the 44th Parliament as Part 2 of Bill C-26 (which died on the Order Paper upon dissolution in early 2025); reintroduced in the 45th Parliament, 1st Session as Bill C-8 (An Act respecting cyber security, amending the Telecommunications Act and making consequential amendments to other Acts), which received Royal Assent on June 15, 2026 (S.C. 2026, c. 9). Status verified as of 2026-11-03.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-8",
+            "note": "45th Parliament, 1st Session — Bill C-8 (Royal Assent June 15, 2026; S.C. 2026, c. 9)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-26",
+            "note": "44th Parliament, 1st Session predecessor — Bill C-26"
+          }
+        ],
+        "examples": [
+          "ccspa",
+          "bill-c-8"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^bill-c-34$",
+        "^safe-social-media-act$",
+        "^digital-safety-act$"
+      ],
+      "description": "Bill C-34 — Safe Social Media Act (Digital Safety Act)",
+      "weight": 100,
+      "data": {
+        "official_name": "An Act to enact the Digital Safety Act and the Digital Safety Commission of Canada Act and to make consequential and related amendments to other Acts",
+        "common_name": "Safe Social Media Act (Bill C-34)",
+        "alternate_names": [
+          "Digital Safety Act",
+          "Digital Safety Commission of Canada Act",
+          "Bill C-34 (45th Parliament, 1st Session)"
+        ],
+        "description": "Proposed Canadian federal legislation regulating social media platforms and AI chatbot services accessible to Canadians, with a statutory Duty to Act Responsibly toward child users and mandatory safeguards against manipulative AI companion design.",
+        "notes": "Status: Proposed (45th Parliament, 1st Session; First Reading June 10, 2026; verified as of 2026-11-03). Explicitly brings interactive AI chatbot services within the scope of the Digital Safety Act: prohibits bots from deceptively claiming to be human or impersonating licensed medical/mental health professionals, bars design features intended to induce emotional dependency or harm in minors, requires risk assessments and mitigation plans, and establishes the Digital Safety Commission of Canada.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-34"
+          }
+        ],
+        "examples": [
+          "bill-c-34",
+          "safe-social-media-act"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^national-security-act-2017$",
+        "^bill-c-59$",
+        "^sc-2019-c-13$"
+      ],
+      "description": "National Security Act, 2017 (S.C. 2019, c. 13 / Bill C-59)",
+      "weight": 100,
+      "data": {
+        "official_name": "An Act respecting national security matters (National Security Act, 2017)",
+        "common_name": "National Security Act, 2017 (Bill C-59)",
+        "alternate_names": [
+          "Loi de 2017 sur la sécurité nationale",
+          "S.C. 2019, c. 13",
+          "Bill C-59 (42nd Parliament, 1st Session)"
+        ],
+        "description": "Enacted Canadian federal statute overhauling Canada's national security accountability, intelligence oversight, cyber security mandate (Communications Security Establishment Act), and statutory parliamentary review processes.",
+        "notes": "Status: In force (Royal Assent June 21, 2019; S.C. 2019, c. 13; verified as of 2026-11-03). Enacted the National Security and Intelligence Review Agency Act (Part 1) and the Communications Security Establishment Act (Part 3), and established a mandatory comprehensive parliamentary review of the Act's provisions starting in its fourth year (Section 168(1)).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://laws-lois.justice.gc.ca/eng/annualstatutes/2019_13/"
+          },
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/42-1/c-59"
+          }
+        ],
+        "examples": [
+          "national-security-act-2017",
+          "bill-c-59"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^nsira-act$",
+        "^n-16-62$"
+      ],
+      "description": "National Security and Intelligence Review Agency Act (S.C. 2019, c. 13, s. 2)",
+      "weight": 95,
+      "data": {
+        "official_name": "National Security and Intelligence Review Agency Act",
+        "common_name": "NSIRA Act",
+        "alternate_names": [
+          "Loi sur l'Office de surveillance des activités en matière de sécurité nationale et de renseignement",
+          "S.C. 2019, c. 13, s. 2",
+          "N-16.62"
+        ],
+        "description": "Federal statute establishing the National Security and Intelligence Review Agency (NSIRA) with cross-government authority to review any federal department or agency's national security or intelligence activities.",
+        "notes": "Status: In force (enacted via Part 1, s. 2 of the National Security Act, 2017, S.C. 2019, c. 13; Justice Laws chapter N-16.62; verified as of 2026-11-03). Requires annual public reports to the Prime Minister tabled in Parliament and statutory annual reviews of CSIS and CSE activities.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://laws-lois.justice.gc.ca/eng/acts/N-16.62/FullText.html"
+          }
+        ],
+        "examples": [
+          "nsira-act",
+          "n-16-62"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^nsicop-act$",
+        "^bill-c-22$",
+        "^n-16-6$"
+      ],
+      "description": "National Security and Intelligence Committee of Parliamentarians Act (S.C. 2017, c. 15)",
+      "weight": 95,
+      "data": {
+        "official_name": "National Security and Intelligence Committee of Parliamentarians Act",
+        "common_name": "NSICOP Act",
+        "alternate_names": [
+          "Loi sur le Comité des parlementaires sur la sécurité nationale et le renseignement",
+          "S.C. 2017, c. 15",
+          "Bill C-22 (42nd Parliament, 1st Session)"
+        ],
+        "description": "Federal statute establishing the cross-party National Security and Intelligence Committee of Parliamentarians (NSICOP) to review the legislative, regulatory, policy, administrative, and financial framework for national security and intelligence in Canada.",
+        "notes": "Status: In force (Royal Assent June 22, 2017; S.C. 2017, c. 15; verified as of 2026-11-03). Section 8 empowers NSICOP to review the overarching legislative, regulatory, and strategic policy framework for national security and intelligence; Section 21 requires annual and special reports to be tabled in Parliament; Section 34 mandates a comprehensive five-year statutory parliamentary review.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://laws-lois.justice.gc.ca/eng/acts/N-16.6/"
+          },
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/42-1/c-22"
+          }
+        ],
+        "examples": [
+          "nsicop-act"
+        ]
       }
     }
   ],
-  "tags": {"country": ["CA"]}
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  }
 }

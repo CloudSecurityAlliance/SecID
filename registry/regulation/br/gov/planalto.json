@@ -68,11 +68,61 @@
         "common_name": "Marco Legal da IA",
         "alternate_names": ["PL 2338/2023"],
         "description": "Comprehensive AI-regulation bill modeled on the EU AI Act: risk-tiered classification (excessive/high/low-moderate risk), rights for affected persons (transparency, explanation, contestation), creation of a National AI Regulation and Governance System (SIA), and fines up to R$50 million per violation.",
-        "notes": "Status: NOT YET ENACTED as of this sweep entry. Approved unanimously by the Federal Senate December 10, 2024; still pending final Chamber of Deputies plenary vote as of mid-2026. Revisit once sanctioned into law -- track via camara.leg.br tramitação page.",
+        "notes": "Status: Proposed / pending Chamber of Deputies plenary vote as of 2026-11-03 (approved by the Federal Senate December 10, 2024; under review in the Chamber of Deputies Special Committee). Revisit once sanctioned into law.",
         "urls": [
           {"type": "website", "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/157233"}
         ],
-        "examples": []
+        "examples": ["ai-bill-pl2338"]
+      }
+    },
+    {
+      "patterns": [
+        "^eca-digital$",
+        "^lei-15211-2025$"
+      ],
+      "description": "ECA Digital — Child and Adolescent Digital Protection Statute (Lei nº 15.211/2025)",
+      "weight": 100,
+      "data": {
+        "official_name": "Lei nº 15.211, de 17 de setembro de 2025 (Estatuto Digital da Criança e do Adolescente — ECA Digital)",
+        "common_name": "ECA Digital (Law 15.211/2025)",
+        "alternate_names": [
+          "Lei 15.211/2025",
+          "Estatuto Digital da Criança e do Adolescente"
+        ],
+        "description": "Brazilian federal statute protecting children and adolescents in digital environments, establishing safety-by-design duties, privacy-preserving age assurance, parental supervision tools, and protection against emotional manipulation and harmful interactions across online platforms and conversational AI interfaces accessible to minors.",
+        "notes": "Status: In force March 18, 2026 (enacted September 17, 2025; regulated by Decreto nº 12.880 of March 18, 2026, secid:regulation/planalto.gov.br/decreto-12880-2026; enforced by ANPD as lead administrative authority; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15211.htm"}
+        ],
+        "examples": [
+          "eca-digital",
+          "lei-15211-2025"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^decreto-12880-2026$",
+        "^decreto-12880$",
+        "^d12880$"
+      ],
+      "description": "Decreto nº 12.880/2026 — Implementing Decree for the Child and Adolescent Digital Protection Statute (ECA Digital)",
+      "weight": 95,
+      "data": {
+        "official_name": "Decreto nº 12.880, de 18 de março de 2026 — Regulamenta a Lei nº 15.211, de 17 de setembro de 2025 (ECA Digital)",
+        "common_name": "Decreto 12.880/2026 (ECA Digital Implementing Decree)",
+        "alternate_names": [
+          "Decreto 12.880/2026"
+        ],
+        "description": "Brazilian presidential decree regulating Law 15.211/2025 (ECA Digital), designating the National Data Protection Authority (ANPD) as the lead administrative enforcement authority and establishing compliance obligations for digital services, conversational agents, large language models, and natural-language AI interfaces accessible to minors.",
+        "notes": "Status: In force March 18, 2026 (signed March 18, 2026; implements secid:regulation/planalto.gov.br/eca-digital; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/decreto/d12880.htm"}
+        ],
+        "examples": [
+          "decreto-12880-2026",
+          "decreto-12880"
+        ]
       }
     }
   ],

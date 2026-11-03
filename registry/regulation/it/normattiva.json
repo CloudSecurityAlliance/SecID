@@ -76,6 +76,35 @@
           }
         ]
       }
+    },
+    {
+      "patterns": [
+        "^legge-132-2025$",
+        "^law-132-2025$",
+        "^l-132-2025$"
+      ],
+      "description": "Italian Artificial Intelligence Law (Legge 23 settembre 2025, n. 132)",
+      "weight": 100,
+      "data": {
+        "official_name": "Legge 23 settembre 2025, n. 132 — Disposizioni e deleghe al Governo in materia di intelligenza artificiale",
+        "common_name": "Legge 132/2025 (Italian AI Law)",
+        "alternate_names": [
+          "Law No. 132 of 23 September 2025",
+          "GU Serie Generale n. 223 del 25-09-2025"
+        ],
+        "description": "First national comprehensive AI statute enacted by an EU Member State complementing Regulation (EU) 2024/1689 (EU AI Act). Establishes sectoral transparency, human-in-the-loop oversight, minor data protection rules, national governance (AgID and ACN), and criminal offences for unlawful AI deepfakes.",
+        "notes": "Status: In force October 10, 2025 (approved by the Senate September 17, 2025; published in Gazzetta Ufficiale No. 223 on September 25, 2025; verified as of 2026-11-03). Mandates clear disclosure and human decision-making authority when AI systems (including conversational assistants) are deployed in healthcare, employment, intellectual professions, public administration, and the judiciary; requires verifiable parental consent for minors under 14 accessing AI services processing personal data; and introduces Article 612-quater of the Penal Code (1 to 5 years imprisonment for harmful non-consensual AI-manipulated content).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132"
+          }
+        ],
+        "examples": [
+          "legge-132-2025",
+          "law-132-2025"
+        ]
+      }
     }
   ],
   "tags": {"country": ["IT"]},

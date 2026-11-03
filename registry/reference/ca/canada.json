@@ -3,20 +3,318 @@
   "namespace": "canada.ca",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#215 (Canadian national security strategies, implementation progress report, defence policy updates, enterprise cyber security strategy, and transparency framework).",
   "official_name": "Government of Canada",
   "common_name": "Canada",
-  "alternate_names": null,
-  "notes": "Government of Canada portal covering federal Canadian regulations and proposed legislation. The Canada.ca domain is the umbrella federal portal; specific departments (parl.ca, justice.gc.ca, etc.) may have their own SecID namespaces.",
+  "alternate_names": [
+    "Gouvernement du Canada",
+    "Privy Council Office",
+    "Treasury Board of Canada Secretariat",
+    "Department of National Defence"
+  ],
+  "notes": "Government of Canada umbrella federal portal covering cross-government national security policy, defence policy reviews, the National Security Transparency Commitment, and the Enterprise Cyber Security Strategy. Department-specific publications also resolve under dedicated namespaces (publicsafety.gc.ca, cyber.gc.ca, parl.ca, justice.gc.ca).",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
     {
       "type": "website",
       "url": "https://www.canada.ca"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.canada.ca/en/services/defence/nationalsecurity.html"
     }
   ],
   "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-policy$",
+        "^nsp$",
+        "^securing-an-open-society$"
+      ],
+      "description": "Securing an Open Society: Canada's National Security Policy",
+      "weight": 100,
+      "data": {
+        "official_name": "Securing an Open Society: Canada's National Security Policy",
+        "common_name": "Canada's National Security Policy (2004)",
+        "alternate_names": [
+          "Protéger une société ouverte : la politique canadienne de sécurité nationale",
+          "CP22-77/2004E-PDF"
+        ],
+        "description": "Canada's first comprehensive whole-of-government national security strategy, issued by the Privy Council Office on April 27, 2004.",
+        "notes": "Tabled in Parliament April 27, 2004 (Privy Council Office, Cat. No. CP22-77/2004E-PDF, ISBN 0-662-36792-8). Organized around three core national security interests (protecting Canada and Canadians at home and abroad; ensuring Canada is not a base for threats to allies; contributing to international security) and six strategic areas (intelligence, emergency planning and management, public health emergencies, transportation security, border security, and international security). Reviewed via the 2005 implementation progress report 'Securing an Open Society: One Year Later' (secid:reference/canada.ca/national-security-policy-progress-report). In April 2024 ('Our North, Strong and Free'), the Government of Canada committed to publishing a renewed National Security Strategy on a recurring four-year review cycle.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2004E.pdf",
+            "note": "2004 National Security Policy PDF (Cat. No. CP22-77/2004E-PDF)"
+          },
+          {
+            "type": "docs",
+            "url": "https://publications.gc.ca/site/eng/258665/publication.html",
+            "note": "Government of Canada Publications catalogue record"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2004",
+            "release_date": "2004-04-27",
+            "status": "current",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2004E.pdf",
+            "note": "Securing an Open Society: Canada's National Security Policy (Privy Council Office, Cat. No. CP22-77/2004E-PDF)."
+          }
+        ],
+        "examples": [
+          "national-security-policy",
+          "national-security-policy@2004"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2004$"
+          ],
+          "description": "2004 National Security Policy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Securing an Open Society: Canada's National Security Policy (2004)",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2004E.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://publications.gc.ca/collections/Collection/CP22-77-2004E.pdf"
+              },
+              {
+                "type": "docs",
+                "url": "https://publications.gc.ca/site/eng/258665/publication.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2004",
+                "url": "https://publications.gc.ca/collections/Collection/CP22-77-2004E.pdf",
+                "note": "Securing an Open Society: Canada's National Security Policy (2004)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-security-policy-progress-report$",
+        "^securing-an-open-society-one-year-later$",
+        "^nsp-progress-report-2005$"
+      ],
+      "description": "Securing an Open Society: One Year Later — Progress Report on the Implementation of Canada's National Security Policy",
+      "weight": 95,
+      "data": {
+        "official_name": "Securing an Open Society: One Year Later — Progress Report on the Implementation of Canada's National Security Policy",
+        "common_name": "NSP One-Year Progress Report (2005)",
+        "alternate_names": [
+          "CP22-77/2005E-PDF"
+        ],
+        "description": "Formal one-year implementation progress report issued by the Privy Council Office auditing departmental delivery across the six strategic areas of the 2004 National Security Policy.",
+        "notes": "Published in 2005 by the Privy Council Office (Cat. No. CP22-77/2005E-PDF, ISBN 0-662-39913-7). Tracks implementation milestones for intelligence integration, the Government Operations Centre, the Public Health Agency of Canada, marine/aviation security, border security, and international security commitments.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2005E.pdf"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2005",
+            "release_date": null,
+            "status": "current",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2005E.pdf",
+            "note": "Securing an Open Society: One Year Later (Privy Council Office, Cat. No. CP22-77/2005E-PDF, published 2005; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "national-security-policy-progress-report",
+          "securing-an-open-society-one-year-later"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2005$"
+          ],
+          "description": "2005 NSP Implementation Progress Report (One Year Later)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Securing an Open Society: One Year Later — Progress Report on the Implementation of Canada's National Security Policy (2005)",
+            "url": "https://publications.gc.ca/collections/Collection/CP22-77-2005E.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://publications.gc.ca/collections/Collection/CP22-77-2005E.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2005",
+                "url": "https://publications.gc.ca/collections/Collection/CP22-77-2005E.pdf",
+                "note": "Securing an Open Society: One Year Later (2005)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^our-north-strong-and-free$",
+        "^onsf-2024$"
+      ],
+      "description": "Our North, Strong and Free: A Renewed Vision for Canada's Defence",
+      "weight": 100,
+      "data": {
+        "official_name": "Our North, Strong and Free: A Renewed Vision for Canada's Defence",
+        "common_name": "Our North, Strong and Free (2024 Defence Policy Update)",
+        "alternate_names": [
+          "Notre Nord, fort et libre : une vision renouvelée pour la défense du Canada"
+        ],
+        "description": "Canada's 2024 defence policy update establishing a four-year review cycle for a renewed National Security Strategy alongside regular defence policy reviews.",
+        "notes": "Published April 8, 2024 by the Department of National Defence. Commits the Government of Canada to producing a new overarching National Security Strategy and reviewing it every four years, linking defence planning, Arctic sovereignty, cyber operations, and national security governance.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-04-08",
+            "status": "current",
+            "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html",
+            "note": "2024 Defence Policy Update (issued April 8, 2024)."
+          }
+        ],
+        "examples": [
+          "our-north-strong-and-free"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Our North, Strong and Free (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Our North, Strong and Free: A Renewed Vision for Canada's Defence (2024)",
+            "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.canada.ca/en/department-national-defence/corporate/reports-publications/north-strong-free-2024.html",
+                "note": "Our North, Strong and Free (2024 Defence Policy Update)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-security-transparency-commitment$",
+        "^nstc$"
+      ],
+      "description": "National Security Transparency Commitment",
+      "weight": 100,
+      "data": {
+        "official_name": "National Security Transparency Commitment",
+        "common_name": "NSTC",
+        "alternate_names": [
+          "Engagement en matière de transparence de la sécurité nationale"
+        ],
+        "description": "Government-wide transparency framework and six core principles governing how federal departments and agencies report on national security activities, authorities, and reviews.",
+        "notes": "Adopted in 2017 following the 2016 National Security Green Paper consultations. Applies across Canada's national security and intelligence community and is reviewed through multi-departmental implementation assessments and the independent National Security Transparency Advisory Group (NS-TAG).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.canada.ca/en/services/defence/nationalsecurity/national-security-transparency-commitment.html"
+          }
+        ],
+        "examples": [
+          "national-security-transparency-commitment"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^enterprise-cyber-security-strategy$",
+        "^gcecss$"
+      ],
+      "description": "Government of Canada Enterprise Cyber Security Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "Government of Canada Enterprise Cyber Security Strategy",
+        "common_name": "GC Enterprise Cyber Security Strategy",
+        "alternate_names": [
+          "Stratégie intégrée de cybersécurité du gouvernement du Canada"
+        ],
+        "description": "Treasury Board of Canada Secretariat strategy governing enterprise-wide cyber security posture, governance, and defence of Government of Canada digital infrastructure and services.",
+        "notes": "Published by Treasury Board of Canada Secretariat (Office of the Chief Information Officer) on May 22, 2024. Complements Canada's public-facing National Cyber Security Strategy (publicsafety.gc.ca/national-cyber-security-strategy) by focusing on internal federal enterprise operations.",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.canada.ca/en/government/system/digital-government/online-security-privacy/enterprise-cyber-security-strategy.html"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-05-22",
+            "status": "current",
+            "url": "https://www.canada.ca/en/government/system/digital-government/online-security-privacy/enterprise-cyber-security-strategy.html",
+            "note": "Initial publication (issued May 22, 2024)."
+          }
+        ],
+        "examples": [
+          "enterprise-cyber-security-strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Government of Canada Enterprise Cyber Security Strategy (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Government of Canada Enterprise Cyber Security Strategy (2024)",
+            "url": "https://www.canada.ca/en/government/system/digital-government/online-security-privacy/enterprise-cyber-security-strategy.html",
+            "urls": [
+              {
+                "type": "source",
+                "url": "https://www.canada.ca/en/government/system/digital-government/online-security-privacy/enterprise-cyber-security-strategy.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.canada.ca/en/government/system/digital-government/online-security-privacy/enterprise-cyber-security-strategy.html",
+                "note": "Government of Canada Enterprise Cyber Security Strategy (2024)"
+              }
+            ]
+          }
+        }
+      ]
+    },
     {
       "patterns": [
         "(?i)^enterprise-cyber-security-strategy-glossary$"
@@ -39,7 +337,11 @@
       }
     }
   ],
-  "tags": {"country": ["CA"]},
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

@@ -1,0 +1,948 @@
+{
+  "schema_version": "1.0",
+  "namespace": "publicsafety.gc.ca",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#215 (Canada first worked set: National Cyber Security Strategies, Action Plans, mid-term reviews, horizontal evaluations, Critical Infrastructure Strategy and Action Plans, Counter-terrorism Strategy, and National Security consultation/review reports).",
+  "official_name": "Public Safety Canada",
+  "common_name": "Public Safety Canada",
+  "alternate_names": [
+    "Department of Public Safety and Emergency Preparedness",
+    "Sécurité publique Canada",
+    "PSC"
+  ],
+  "notes": "Federal department responsible for coordinating national security policy, cyber security strategy, critical infrastructure resilience, counter-terrorism strategy, and emergency management across the Government of Canada. Established under the Department of Public Safety and Emergency Preparedness Act (S.C. 2005, c. 10).",
+  "wikidata": [
+    "Q3510211"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Public_Safety_Canada"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.publicsafety.gc.ca"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.publicsafety.gc.ca/cnt/ntnl-scrt/index-en.aspx"
+    },
+    {
+      "type": "docs",
+      "url": "https://www.publicsafety.gc.ca/cnt/ntnl-scrt/cbr-scrt/index-en.aspx"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "^ncss$"
+      ],
+      "description": "Canada's National Cyber Security Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "Canada's National Cyber Security Strategy",
+        "common_name": "NCSS",
+        "alternate_names": [
+          "Securing Canada's Digital Future: Canada's National Cyber Security Strategy",
+          "Stratégie nationale de cybersécurité du Canada"
+        ],
+        "description": "Government of Canada flagship national strategy for cyber security across federal, provincial/territorial, critical infrastructure, private-sector, and international domains (editions published in 2010, 2018, and 2025).",
+        "notes": "Three editions have been issued by Public Safety Canada: 2010 ('Canada's Cyber Security Strategy: For a Stronger and More Prosperous Canada'), 2018 ('National Cyber Security Strategy: Canada's Vision for Security and Prosperity in the Digital Age'), and February 2025 ('Securing Canada's Digital Future: Canada's National Cyber Security Strategy'). Supported by multi-year National Cyber Security Action Plans, mid-term reviews, and horizontal program evaluations.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx",
+            "note": "2025 edition (current) — Securing Canada's Digital Future: Canada's National Cyber Security Strategy"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/ntnl-cbr-scrt-strtg-2025-en.pdf",
+            "note": "2025 edition PDF (current)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx",
+            "note": "2018 edition (superseded) — National Cyber Security Strategy: Canada's Vision for Security and Prosperity in the Digital Age"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx",
+            "note": "2010 edition (deprecated) — Canada's Cyber Security Strategy: For a Stronger and More Prosperous Canada"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-02-06",
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx",
+            "note": "Securing Canada's Digital Future: Canada's National Cyber Security Strategy (published February 6, 2025)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-06-12",
+            "status": "superseded",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx",
+            "note": "National Cyber Security Strategy: Canada's Vision for Security and Prosperity in the Digital Age (2018)."
+          },
+          {
+            "version": "2010",
+            "release_date": "2010-10-03",
+            "status": "deprecated",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx",
+            "note": "Canada's Cyber Security Strategy: For a Stronger and More Prosperous Canada (2010)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-strategy",
+          "national-cyber-security-strategy@2025",
+          "national-cyber-security-strategy@2018",
+          "national-cyber-security-strategy@2010"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "2025 National Cyber Security Strategy (Securing Canada's Digital Future)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Securing Canada's Digital Future: Canada's National Cyber Security Strategy (2025)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/ntnl-cbr-scrt-strtg-2025-en.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx",
+                "note": "2025 National Cyber Security Strategy (Securing Canada's Digital Future)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "2018 National Cyber Security Strategy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Strategy: Canada's Vision for Security and Prosperity in the Digital Age (2018)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx",
+                "note": "2018 National Cyber Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "2010 Canada's Cyber Security Strategy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Canada's Cyber Security Strategy: For a Stronger and More Prosperous Canada (2010)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx",
+                "note": "2010 Canada's Cyber Security Strategy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-action-plan$",
+        "^ncsap$"
+      ],
+      "description": "National Cyber Security Action Plan",
+      "weight": 100,
+      "data": {
+        "official_name": "National Cyber Security Action Plan",
+        "common_name": "NCSS Action Plan",
+        "alternate_names": [
+          "Plan d'action national de cybersécurité"
+        ],
+        "description": "Five-year horizontal implementation roadmaps detailing departmental initiatives, milestones, and funded deliverables under Canada's National Cyber Security Strategy.",
+        "notes": "Two multi-year Action Plans have been published: the 2019-2024 National Cyber Security Action Plan (implementing the 2018 NCSS across Public Safety, CSE/Cyber Centre, RCMP, ISED, GAC, and partner departments) and the 2010-2015 Action Plan for Canada's Cyber Security Strategy.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx",
+            "note": "2019-2024 edition (current) — National Cyber Security Action Plan (2019-2024)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx",
+            "note": "2010-2015 edition (superseded) — Action Plan 2010-2015 for Canada's Cyber Security Strategy"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019-2024",
+            "release_date": "2019-08-07",
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx",
+            "note": "National Cyber Security Action Plan (2019-2024), published August 7, 2019."
+          },
+          {
+            "version": "2010-2015",
+            "release_date": null,
+            "status": "superseded",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx",
+            "note": "Action Plan 2010-2015 for Canada's Cyber Security Strategy (published 2013; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-action-plan@2019-2024",
+          "national-cyber-security-action-plan@2010-2015"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019-2024$"
+          ],
+          "description": "National Cyber Security Action Plan (2019-2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Action Plan (2019-2024)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019-2024",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx",
+                "note": "National Cyber Security Action Plan (2019-2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010-2015$"
+          ],
+          "description": "Action Plan 2010-2015 for Canada's Cyber Security Strategy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Action Plan 2010-2015 for Canada's Cyber Security Strategy",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010-2015",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx",
+                "note": "Action Plan 2010-2015 for Canada's Cyber Security Strategy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-strategy-mid-term-review$",
+        "^ncss-mid-term-review$"
+      ],
+      "description": "National Cyber Security Strategy 2019-2024: Report on the Mid-term Review",
+      "weight": 95,
+      "data": {
+        "official_name": "National Cyber Security Strategy 2019-2024: Report on the Mid-term Review",
+        "common_name": "NCSS Mid-term Review Report (2022)",
+        "alternate_names": null,
+        "description": "Formal mid-term review report assessing progress on the 2018 National Cyber Security Strategy and 2019-2024 Action Plan and identifying emerging strategic priorities for the 2025 renewal.",
+        "notes": "Published by Public Safety Canada in 2022 as part of the documented NCSS review cycle preceding the 2025 strategy renewal.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": null,
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx",
+            "note": "Mid-term review of the 2019-2024 National Cyber Security Strategy period (published 2022; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-strategy-mid-term-review"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "National Cyber Security Strategy 2019-2024: Report on the Mid-term Review (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Strategy 2019-2024: Report on the Mid-term Review",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx",
+                "note": "NCSS Mid-term Review Report (2022)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-strategy-evaluation$",
+        "^ncss-evaluation$"
+      ],
+      "description": "Evaluation of Canada's National Cyber Security Strategy",
+      "weight": 95,
+      "data": {
+        "official_name": "Horizontal and Mid-Term Evaluations of Canada's National Cyber Security Strategy",
+        "common_name": "NCSS Program Evaluation",
+        "alternate_names": [
+          "Mid-Term Evaluation of the National Cyber Security Strategy",
+          "Horizontal Evaluation of Canada's Cyber Security Strategy"
+        ],
+        "description": "Internal audit and evaluation reports conducted under the Treasury Board Policy on Results assessing the governance, performance measurement, and outcomes of Canada's National Cyber Security Strategy.",
+        "notes": "Includes the 2022 Mid-Term Evaluation of the National Cyber Security Strategy (approved March 28, 2022) and the 2017 Horizontal Evaluation of Canada's Cyber Security Strategy.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx",
+            "note": "2022 edition (current) — Mid-Term Evaluation of the National Cyber Security Strategy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx",
+            "note": "2017 edition (superseded) — Horizontal Evaluation of Canada's Cyber Security Strategy"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-03-28",
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx",
+            "note": "Mid-Term Evaluation of the National Cyber Security Strategy (approved March 28, 2022)."
+          },
+          {
+            "version": "2017",
+            "release_date": null,
+            "status": "superseded",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx",
+            "note": "Horizontal Evaluation of Canada's Cyber Security Strategy (published September 2017; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-strategy-evaluation@2022",
+          "national-cyber-security-strategy-evaluation@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Mid-Term Evaluation of the National Cyber Security Strategy (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Mid-Term Evaluation of the National Cyber Security Strategy (2022)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx",
+                "note": "Mid-Term Evaluation of the National Cyber Security Strategy (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Horizontal Evaluation of Canada's Cyber Security Strategy (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Horizontal Evaluation of Canada's Cyber Security Strategy (2017)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx",
+                "note": "Horizontal Evaluation of Canada's Cyber Security Strategy (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cyber-review-consultations-report-2017$",
+        "^cyber-review-consultations-report$"
+      ],
+      "description": "Cyber Review Consultations Report (2017)",
+      "weight": 90,
+      "data": {
+        "official_name": "Cyber Review Consultations Report",
+        "common_name": "2017 Cyber Review Consultations Report",
+        "alternate_names": null,
+        "description": "Public and stakeholder consultation synthesis informing the development of Canada's 2018 National Cyber Security Strategy and the creation of the Canadian Centre for Cyber Security.",
+        "notes": "Published in 2017 following the 2016 public Cyber Review consultation.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2017-cybr-rvw-cnslttns-rprt/index-en.aspx"
+          }
+        ],
+        "examples": [
+          "cyber-review-consultations-report-2017"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^federal-cyber-incident-response-plan$",
+        "^fcirp$"
+      ],
+      "description": "Federal Cyber Incident Response Plan",
+      "weight": 95,
+      "data": {
+        "official_name": "Federal Cyber Incident Response Plan",
+        "common_name": "FCIRP",
+        "alternate_names": [
+          "Plan fédéral d'intervention en cas d'incident cybernétique"
+        ],
+        "description": "Operational governance framework defining roles, escalation protocols, and coordination across federal departments and the Canadian Centre for Cyber Security when responding to non-federal and national-level cyber security incidents.",
+        "notes": "Published by Public Safety Canada on May 12, 2023 in collaboration with the Canadian Centre for Cyber Security (CSE).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-05-12",
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx",
+            "note": "2023 edition (issued May 12, 2023)."
+          }
+        ],
+        "examples": [
+          "federal-cyber-incident-response-plan"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Federal Cyber Incident Response Plan (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Federal Cyber Incident Response Plan (2023)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx",
+                "note": "Federal Cyber Incident Response Plan (2023)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-critical-infrastructure$",
+        "^nsci$"
+      ],
+      "description": "National Strategy for Critical Infrastructure",
+      "weight": 100,
+      "data": {
+        "official_name": "National Strategy for Critical Infrastructure",
+        "common_name": "NSCI",
+        "alternate_names": [
+          "Stratégie nationale sur les infrastructures essentielles"
+        ],
+        "description": "Federal-provincial-territorial strategy establishing a collaborative approach to strengthening the resilience of Canada's ten critical infrastructure sectors.",
+        "notes": "Published in 2009 (Cat. No. PS4-65/2009E-PDF). Implemented and reviewed on a recurring cycle through multi-year Action Plans for Critical Infrastructure (2010, 2014-2017, 2018-2020, 2021-2023) and the 2022 Critical Infrastructure Renewal consultation.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2009",
+            "release_date": null,
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx",
+            "note": "National Strategy for Critical Infrastructure (published 2009, Cat. No. PS4-65/2009E-PDF; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "national-strategy-critical-infrastructure"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2009$"
+          ],
+          "description": "National Strategy for Critical Infrastructure (2009)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Strategy for Critical Infrastructure (2009)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2009",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx",
+                "note": "National Strategy for Critical Infrastructure (2009)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^action-plan-critical-infrastructure$",
+        "^apci$"
+      ],
+      "description": "Action Plan for Critical Infrastructure",
+      "weight": 95,
+      "data": {
+        "official_name": "Action Plan for Critical Infrastructure",
+        "common_name": "Critical Infrastructure Action Plan",
+        "alternate_names": [
+          "Plan d'action sur les infrastructures essentielles"
+        ],
+        "description": "Multi-year implementation and review plans operationalizing Canada's National Strategy for Critical Infrastructure across ten critical infrastructure sector networks.",
+        "notes": "Four successive editions have been published by Public Safety Canada: 2010, 2014-2017, 2018-2020, and 2021-2023.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx",
+            "note": "2021-2023 edition (current) — Action Plan for Critical Infrastructure (2021-2023)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx",
+            "note": "2018-2020 edition (superseded) — Action Plan for Critical Infrastructure (2018-2020)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx",
+            "note": "2014-2017 edition (superseded) — Action Plan for Critical Infrastructure (2014-2017)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx",
+            "note": "2010 edition (deprecated) — Action Plan for Critical Infrastructure (2010)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021-2023",
+            "release_date": null,
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx",
+            "note": "Action Plan for Critical Infrastructure (2021-2023) (published 2021; exact day not stated on publication)."
+          },
+          {
+            "version": "2018-2020",
+            "release_date": null,
+            "status": "superseded",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx",
+            "note": "Action Plan for Critical Infrastructure (2018-2020) (published 2018; exact day not stated on publication)."
+          },
+          {
+            "version": "2014-2017",
+            "release_date": null,
+            "status": "superseded",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx",
+            "note": "Action Plan for Critical Infrastructure (2014-2017) (published 2014; exact day not stated on publication)."
+          },
+          {
+            "version": "2010",
+            "release_date": null,
+            "status": "deprecated",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx",
+            "note": "Action Plan for Critical Infrastructure (2010) (published 2010; exact day not stated on publication)."
+          }
+        ],
+        "examples": [
+          "action-plan-critical-infrastructure@2021-2023",
+          "action-plan-critical-infrastructure@2018-2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021-2023$"
+          ],
+          "description": "Action Plan for Critical Infrastructure (2021-2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Action Plan for Critical Infrastructure (2021-2023)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021-2023",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx",
+                "note": "Action Plan for Critical Infrastructure (2021-2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018-2020$"
+          ],
+          "description": "Action Plan for Critical Infrastructure (2018-2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Action Plan for Critical Infrastructure (2018-2020)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018-2020",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx",
+                "note": "Action Plan for Critical Infrastructure (2018-2020)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014-2017$"
+          ],
+          "description": "Action Plan for Critical Infrastructure (2014-2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Action Plan for Critical Infrastructure (2014-2017)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2014-2017",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx",
+                "note": "Action Plan for Critical Infrastructure (2014-2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "Action Plan for Critical Infrastructure (2010)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Action Plan for Critical Infrastructure (2010)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx",
+                "note": "Action Plan for Critical Infrastructure (2010)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^critical-infrastructure-consultation-report-2022$",
+        "^renewing-critical-infrastructure-resilience-2022$"
+      ],
+      "description": "Renewing Canada's Approach to Critical Infrastructure Resilience: What We Heard Report (2022)",
+      "weight": 90,
+      "data": {
+        "official_name": "Renewing Canada's Approach to Critical Infrastructure Resilience: What We Heard Report",
+        "common_name": "Critical Infrastructure Renewal Consultation Report (2022)",
+        "alternate_names": null,
+        "description": "Public and sector consultation report reviewing the 2009 National Strategy for Critical Infrastructure to guide strategy modernization.",
+        "notes": "Published in 2022 following national stakeholder consultations on renewing the National Strategy for Critical Infrastructure.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rnwng-cnd-pprch-crtcl-nfrstrctr-rslnc-2022/index-en.aspx"
+          }
+        ],
+        "examples": [
+          "critical-infrastructure-consultation-report-2022"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^counter-terrorism-strategy$",
+        "^building-resilience-against-terrorism$"
+      ],
+      "description": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy",
+        "common_name": "Canada's Counter-terrorism Strategy",
+        "alternate_names": [
+          "Bâtir la résilience contre le terrorisme : la Stratégie antiterroriste du Canada"
+        ],
+        "description": "Canada's national counter-terrorism strategy structured around four mutually reinforcing elements: Prevent, Detect, Deny, and Respond.",
+        "notes": "First published in February 2012. Paired with periodic public threat assessments (Public Report on the Terrorist Threat to Canada).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2012",
+            "release_date": "2012-02-09",
+            "status": "current",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx",
+            "note": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy (2012)."
+          }
+        ],
+        "examples": [
+          "counter-terrorism-strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2012$"
+          ],
+          "description": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy (2012)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy (2012)",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2012",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx",
+                "note": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy (2012)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-security-green-paper-2016$",
+        "^our-security-our-rights$"
+      ],
+      "description": "Our Security, Our Rights: National Security Green Paper, 2016",
+      "weight": 90,
+      "data": {
+        "official_name": "Our Security, Our Rights: National Security Green Paper, 2016",
+        "common_name": "2016 National Security Green Paper",
+        "alternate_names": [
+          "Notre sécurité, nos droits : Livre vert sur la sécurité nationale, 2016"
+        ],
+        "description": "Comprehensive federal consultation paper reviewing Canada's national security framework, accountability institutions, intelligence powers, and cyber/counter-terrorism policy prior to the National Security Act, 2017.",
+        "notes": "Published September 2016 to launch Canada's wide-ranging national security framework consultation; followed by the 2017 What We Learned Report and the enactment of the National Security Act, 2017 (Bill C-59).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-scrt-grn-ppr-2016/index-en.aspx"
+          }
+        ],
+        "examples": [
+          "national-security-green-paper-2016"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^national-security-consultations-report-2017$"
+      ],
+      "description": "National Security Consultations: What We Learned Report (2017)",
+      "weight": 90,
+      "data": {
+        "official_name": "National Security Consultations: What We Learned Report",
+        "common_name": "2017 National Security Consultations Report",
+        "alternate_names": null,
+        "description": "Official synthesis of public, expert, and parliamentary feedback from the 2016-2017 National Security Consultations that shaped the National Security Act, 2017 and the National Security Transparency Commitment.",
+        "notes": "Published May 2017 by Public Safety Canada.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2017-nsc-wwlr/index-en.aspx"
+          }
+        ],
+        "examples": [
+          "national-security-consultations-report-2017"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^nstag-reports$",
+        "^national-security-transparency-advisory-group$"
+      ],
+      "description": "National Security Transparency Advisory Group (NS-TAG) Reports",
+      "weight": 90,
+      "data": {
+        "official_name": "National Security Transparency Advisory Group Reports",
+        "common_name": "NS-TAG Reports",
+        "alternate_names": [
+          "Groupe consultatif sur la transparence de la sécurité nationale"
+        ],
+        "description": "Independent advisory reports evaluating the Government of Canada's implementation of the National Security Transparency Commitment and public engagement on national security policy.",
+        "notes": "Published via Public Safety Canada from 2020 onward (including the 2020 First Report, 2021 Definition and Measurement of Transparency in National Security, 2022 Institutionalizing Transparency, and 2024 Digitization and National Security Transparency reports).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-nsiirc-isnrccr/index-en.aspx"
+          }
+        ],
+        "examples": [
+          "nstag-reports"
+        ]
+      }
+    }
+  ],
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  },
+  "_country_provenance": {
+    "method": "verified against primary source (Government of Canada federal department)",
+    "date": "2026-11-03",
+    "note": "Public Safety Canada (Department of Public Safety and Emergency Preparedness)."
+  }
+}

@@ -3,22 +3,27 @@
   "namespace": "gov.uk",
   "type": "reference",
   "status": "draft",
-  "status_notes": null,
-
+  "status_notes": "Updated 2026-11-03 for SecID#215 (UK National Security Strategy 2025/2015/2010, Integrated Review 2023/2021, and National Cyber Strategy).",
   "official_name": "UK Government",
   "common_name": "UK Gov",
-  "alternate_names": null,
-  "notes": "UK Government publications related to AI safety and cybersecurity policy.",
+  "alternate_names": [
+    "HM Government",
+    "Cabinet Office"
+  ],
+  "notes": "UK Government publications related to national security strategy (National Security Strategy 2025 and the 2021/2023 Integrated Reviews), national cyber strategy, and AI safety policy.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.gov.uk"}
+    {
+      "type": "website",
+      "url": "https://www.gov.uk"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ai-safety-report$"],
+      "patterns": [
+        "(?i)^ai-safety-report$"
+      ],
       "description": "International AI Safety Report",
       "weight": 100,
       "data": {
@@ -28,18 +33,392 @@
         "description": "Comprehensive international scientific review of AI safety, commissioned by the UK Government.",
         "notes": "Written by 100+ independent experts, led by Turing Award winner Yoshua Bengio, backed by 30 countries. First published January 2025.",
         "urls": [
-          {"type": "website", "url": "https://internationalaisafetyreport.org/"},
-          {"type": "pdf", "url": "https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf"},
-          {"type": "gov_uk", "url": "https://www.gov.uk/government/publications/international-ai-safety-report-2025"}
+          {
+            "type": "website",
+            "url": "https://internationalaisafetyreport.org/"
+          },
+          {
+            "type": "pdf",
+            "url": "https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf"
+          },
+          {
+            "type": "gov_uk",
+            "url": "https://www.gov.uk/government/publications/international-ai-safety-report-2025"
+          }
         ],
         "versions_available": [
-          {"version": "2025", "release_date": "2025-01-01", "status": "current", "note": "First edition."}
+          {
+            "version": "2025",
+            "release_date": "2025-01-01",
+            "status": "current",
+            "note": "First edition."
+          }
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "^uk-national-security-strategy$"
+      ],
+      "description": "UK National Security Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "National Security Strategy 2025: Security for the British People in a Dangerous World",
+        "common_name": "UK National Security Strategy (NSS)",
+        "alternate_names": [
+          "Security for the British People in a Dangerous World",
+          "National Security Strategy and Strategic Defence and Security Review 2015",
+          "A Strong Britain in an Age of Uncertainty: The National Security Strategy"
+        ],
+        "description": "UK Government overarching national security strategy issued by the Cabinet Office setting out strategic priorities across domestic security, defence, economic security, cyber resilience, and international partnerships.",
+        "notes": "Published June 24, 2025 (CP 1338, 'National Security Strategy 2025: Security for the British People in a Dangerous World'), superseding the 2021 Integrated Review and 2023 Integrated Review Refresh (registered under secid:reference/gov.uk/integrated-review) as well as the 2015 and 2010 National Security Strategies. Parliamentary scrutiny is conducted by the Joint Committee on the National Security Strategy (JCNSS).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world",
+            "note": "2025 edition (current) — National Security Strategy 2025: Security for the British People in a Dangerous World (CP 1338)"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world-html",
+            "note": "2025 edition full HTML text"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015",
+            "note": "2015 edition (superseded) — National Security Strategy and Strategic Defence and Security Review 2015 (Cm 9161)"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty",
+            "note": "2010 edition (superseded) — A Strong Britain in an Age of Uncertainty: The National Security Strategy (Cm 7953)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-06-24",
+            "status": "current",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world",
+            "note": "National Security Strategy 2025: Security for the British People in a Dangerous World (CP 1338)."
+          },
+          {
+            "version": "2015",
+            "release_date": "2015-11-23",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015",
+            "note": "National Security Strategy and Strategic Defence and Security Review 2015 (Cm 9161)."
+          },
+          {
+            "version": "2010",
+            "release_date": "2010-10-18",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty",
+            "note": "A Strong Britain in an Age of Uncertainty: The National Security Strategy (Cm 7953)."
+          }
+        ],
+        "examples": [
+          "national-security-strategy@2025",
+          "national-security-strategy@2015"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "National Security Strategy 2025: Security for the British People in a Dangerous World",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy 2025: Security for the British People in a Dangerous World",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world"
+              },
+              {
+                "type": "docs",
+                "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world-html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world",
+                "note": "UK National Security Strategy 2025"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "National Security Strategy and Strategic Defence and Security Review 2015",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy and Strategic Defence and Security Review 2015",
+            "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2015",
+                "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015",
+                "note": "UK National Security Strategy and SDSR 2015"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "A Strong Britain in an Age of Uncertainty: The National Security Strategy (2010)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "A Strong Britain in an Age of Uncertainty: The National Security Strategy (2010)",
+            "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010",
+                "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty",
+                "note": "UK National Security Strategy 2010"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^integrated-review$"
+      ],
+      "description": "UK Integrated Review of Security, Defence, Development and Foreign Policy",
+      "weight": 100,
+      "data": {
+        "official_name": "Integrated Review of Security, Defence, Development and Foreign Policy",
+        "common_name": "UK Integrated Review (IR2021 / IR2023)",
+        "alternate_names": [
+          "Global Britain in a Competitive Age",
+          "Integrated Review Refresh 2023: Responding to a More Contested and Volatile World"
+        ],
+        "description": "UK Government 2021 and 2023 overarching national security, defence, and foreign policy strategies issued by the Cabinet Office, subsequently superseded by the June 2025 National Security Strategy.",
+        "notes": "Published March 16, 2021 (CP 403, 'Global Britain in a Competitive Age') and updated March 13, 2023 (CP 811, 'Integrated Review Refresh 2023'). Superseded by the National Security Strategy 2025 (secid:reference/gov.uk/national-security-strategy@2025).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world",
+            "note": "2023 edition (superseded by NSS 2025) — Integrated Review Refresh 2023 (CP 811)"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy",
+            "note": "2021 edition (superseded) — Global Britain in a Competitive Age (CP 403)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-03-13",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world",
+            "note": "Integrated Review Refresh 2023: Responding to a More Contested and Volatile World (CP 811; superseded by National Security Strategy 2025)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-03-16",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy",
+            "note": "Global Britain in a Competitive Age: The Integrated Review of Security, Defence, Development and Foreign Policy (CP 403)."
+          }
+        ],
+        "examples": [
+          "integrated-review@2023",
+          "integrated-review@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Integrated Review Refresh 2023: Responding to a More Contested and Volatile World",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Integrated Review Refresh 2023: Responding to a More Contested and Volatile World",
+            "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world",
+                "note": "UK Integrated Review Refresh 2023"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Global Britain in a Competitive Age: The Integrated Review of Security, Defence, Development and Foreign Policy (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Global Britain in a Competitive Age: The Integrated Review of Security, Defence, Development and Foreign Policy",
+            "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy",
+                "note": "UK Integrated Review 2021"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-strategy$",
+        "^uk-national-cyber-strategy$"
+      ],
+      "description": "UK National Cyber Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "National Cyber Strategy 2022: Pioneering a Cyber Future with the Whole of the UK",
+        "common_name": "UK National Cyber Strategy 2022",
+        "alternate_names": [
+          "National Cyber Security Strategy 2016 to 2021"
+        ],
+        "description": "UK Government national strategy for cyber power, cyber resilience, and critical national infrastructure protection, coupled with the Government Cyber Security Strategy (2022-2030) and Cabinet Office annual progress reports.",
+        "notes": "Published December 15, 2021 by the Cabinet Office across five strategic pillars. Reviewed annually and tracked by the National Audit Office and the Joint Committee on the National Security Strategy.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022",
+            "note": "2022 edition (current) — National Cyber Strategy 2022"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
+            "note": "2016-2021 edition (superseded) — National Cyber Security Strategy 2016 to 2021"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gov.uk/government/publications/government-cyber-security-strategy-2022-to-2030",
+            "note": "Companion Government Cyber Security Strategy (2022 to 2030)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2021-12-15",
+            "status": "current",
+            "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022",
+            "note": "National Cyber Strategy 2022."
+          },
+          {
+            "version": "2016-2021",
+            "release_date": "2016-11-01",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
+            "note": "National Cyber Security Strategy 2016 to 2021 (published November 1, 2016)."
+          }
+        ],
+        "examples": [
+          "national-cyber-strategy@2022",
+          "national-cyber-strategy@2016-2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "National Cyber Strategy 2022",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Strategy 2022: Pioneering a Cyber Future with the Whole of the UK",
+            "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022",
+                "note": "UK National Cyber Strategy 2022"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016-2021$"
+          ],
+          "description": "National Cyber Security Strategy 2016 to 2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Strategy 2016 to 2021",
+            "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016-2021",
+                "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
+                "note": "UK National Cyber Security Strategy 2016 to 2021"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["GB"]},
+  "tags": {
+    "country": [
+      "GB"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",
