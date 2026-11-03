@@ -111,6 +111,9 @@
       "description": "National Strategy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Strategy",
         "common_name": null,
         "alternate_names": null,
@@ -138,6 +141,9 @@
       "description": "United States National Security Strategy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Security Strategy of the United States of America",
         "common_name": "US National Security Strategy (NSS)",
         "alternate_names": [
@@ -351,11 +357,16 @@
     {
       "patterns": [
         "^national-cybersecurity-strategy$",
+        "^national-cyber-security-strategy$",
+        "^national-cyber-strategy$",
         "^cyber-strategy-for-america$"
       ],
       "description": "United States National Cybersecurity Strategy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "United States National Cybersecurity Strategy",
         "common_name": "US National Cybersecurity Strategy",
         "alternate_names": [
@@ -497,6 +508,9 @@
       "description": "National Cybersecurity Strategy Implementation Plan (NCSIP)",
       "weight": 95,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Cybersecurity Strategy Implementation Plan",
         "common_name": "NCSIP",
         "alternate_names": null,
