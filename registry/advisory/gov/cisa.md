@@ -124,6 +124,6 @@ CISA provides enrichment data to fill gaps in CVE records:
 
 ### Notes
 
-- Enrichment data follows CVE JSON 5.0 format
+- Enrichment data follows CVE JSON 5.x format
 - Contributed back to the CVE ecosystem
 - Addresses NVD enrichment backlog

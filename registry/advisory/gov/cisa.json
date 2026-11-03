@@ -131,8 +131,8 @@
             "parsability": "structured",
             "schema": "secid:reference/cve.org/cve-schema@5.2.0",
             "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
-            "auth": "No auth required. Standard GitHub rate limits (60/hr unauthenticated, 5000/hr with token).",
-            "note": "Raw enriched CVE JSON 5.x file — direct download, no HTML wrapper",
+            "auth": "No auth required. Public GitHub raw content download.",
+            "note": "Raw enriched CVE JSON 5.x file — direct download, no HTML wrapper (declared as application/json per REGISTRY-JSON-FORMAT.md raw JSON file convention so ?content_type=application/json includes raw GitHub JSON records; HTTP server returns text/plain)",
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",

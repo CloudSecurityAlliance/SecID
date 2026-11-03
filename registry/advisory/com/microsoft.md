@@ -12,6 +12,7 @@ sources:
     urls:
       website: "https://msrc.microsoft.com"
       api: "https://api.msrc.microsoft.com/cvrf/v2.0"
+      sug_api: "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/{id}"
       lookup: "https://msrc.microsoft.com/update-guide/vulnerability/{id}"
     id_pattern: "CVE-\\d{4}-\\d{4,}"
     examples:

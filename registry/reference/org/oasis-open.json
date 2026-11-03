@@ -90,9 +90,9 @@
       "data": {
         "official_name": "Common Security Advisory Framework",
         "common_name": "CSAF",
-        "alternate_names": ["CSAF 2.0"],
+        "alternate_names": ["CSAF 2.0", "CSAF 2.1"],
         "description": "Standardized JSON format for the distribution of machine-readable security advisories.",
-        "notes": "CSAF 2.0 is the current OASIS Standard. Supersedes CVRF 1.x. Used by major vendors (Cisco, Microsoft, Red Hat, Oracle, etc.) for publishing security advisories. CISA encourages CSAF adoption.",
+        "notes": "CSAF 2.0 is the current OASIS Standard; CSAF 2.1 is in development by the OASIS CSAF TC and already emitted by some vendor endpoints (e.g., Palo Alto Networks declares csaf_version 2.1). Supersedes CVRF 1.x. Used by major vendors (Cisco, Microsoft, Red Hat, Oracle, Palo Alto Networks, etc.) for publishing security advisories. CISA encourages CSAF adoption.",
         "urls": [
           {
             "type": "website",
@@ -101,12 +101,17 @@
           {
             "type": "spec",
             "url": "https://docs.oasis-open.org/csaf/csaf/v2.0/csaf-v2.0.html"
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/oasis-tcs/csaf",
+            "note": "OASIS CSAF Technical Committee repository (CSAF 2.0 and 2.1 specifications and schemas)"
           }
         ],
         "examples": [
           {
             "input": "csaf",
-            "note": "The CSAF 2.0 specification as a whole"
+            "note": "The CSAF specification family (2.0 OASIS Standard and 2.1 TC work)"
           }
         ]
       }

@@ -20,6 +20,7 @@ sources:
     full_name: "Ubuntu CVE Tracker"
     urls:
       website: "https://ubuntu.com/security/cves"
+      api: "https://ubuntu.com/security/cves/{id}.json"
       lookup: "https://ubuntu.com/security/cves/{id}"
     id_pattern: "CVE-\\d{4}-\\d{4,}"
     examples:
