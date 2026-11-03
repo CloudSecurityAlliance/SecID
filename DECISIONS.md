@@ -419,3 +419,37 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 **Deferred:** alias chains; one label on multiple versions; tracking aliases (`v1` → latest `1.y.z`) as a source-level `version_tracks` field (AICM `1.1` and CCM `4.1` are manual stopgaps for exactly this — see the amendments above); an explicit `@*` version wildcard; a `missing-version` feedback category; per-item "this ID changed meaning" metadata, which needs SecID to host AICM content and is gated on CSA legal confirmation ([`DATA-HOSTING-RULES.md`](docs/reference/DATA-HOSTING-RULES.md) line 79) plus a license-matrix row for the CC BY-NC **non-commercial** clause.
 
 ---
+
+## ADR-016: Registry conventions for multi-edition national strategies (#215) and proposed/enacted legislation (#208)
+
+**Date:** 2026-11-03
+**Status:** Accepted
+**Decision method:** AI decision (Gemini), reviewed by Codex (closing [#208](https://github.com/CloudSecurityAlliance/SecID/issues/208) and [#215](https://github.com/CloudSecurityAlliance/SecID/issues/215))
+
+**Goal:** Establish consistent registry patterns for multi-edition national security/cybersecurity strategies, implementation plans, and review documents (`#215`), as well as proposed bills, enacted statutes, and enforceable regulatory industry codes (`#208`).
+
+**Context:**
+1. National security and cybersecurity strategies evolve across multiple editions (e.g., Canada's National Cyber Security Strategy 2010/2018/2025, US National Security Strategy 2010/2015/2017/2022/2025, UK National Security Strategy 2010/2015/2025 and Integrated Review 2021/2023) and are accompanied by implementation action plans, progress reports, mid-term reviews, and statutory oversight acts. Previously, multi-edition `reference` entries that listed `versions_available` without per-version URLs or version child nodes returned only the latest edition's URL even when a caller explicitly requested a historical edition (e.g., `@2018` or `@2010`).
+2. Laws and bills regulating AI chatbots and AI companions span pending bills, newly enacted statutes, implementing decrees, and legally enforceable regulatory codes across multiple jurisdictions. Five design questions in `#208` needed explicit answers: how to record bill lifecycle status without breaking the schema, how to handle Bill-to-Act transitions without breaking citations, how to namespace bills versus enacted statutes, how to classify legally binding industry codes registered by a statutory regulator (Australia's eSafety Phase 2 Industry Codes), and whether to add topical tags or use curated inventories/relationships.
+
+**Decision:**
+
+1. **Edition-resolvable version nodes on multi-edition `reference` strategies:** When a `reference` entry declares multiple editions in `versions_available` with distinct primary-source URLs, each edition is given:
+   - its edition URL on the `versions_available[]` entry (so source-level `@<version>` queries expose per-edition URLs in `versions_available`),
+   - a labelled entry in the parent `match_node.data.urls` array (current edition first), and
+   - a child version node (`^<version>$`) carrying `"url"` (so `#<version>` and `@<version>#<version>` subpath queries resolve directly to that edition's document URL as a `ResolutionResult`), `"urls"`, and a structured `ExampleObject` fixture (`[{"input": "<version>", "url": "...", "note": "..."}]`).
+2. **Separate `match_node` entries for distinct follow-up reports and distinct strategy series:** Progress audits or implementation reports are not versions of the strategy they evaluate (e.g., Canada's 2005 *Securing an Open Society: One Year Later* is `secid:reference/canada.ca/national-security-policy-progress-report`, distinct from `national-security-policy@2004`). Similarly, distinct strategy series with different official titles (such as the UK's *National Security Strategy* series vs the 2021/2023 *Integrated Review* series) are registered as separate `match_node` entries with cross-references in `notes`.
+3. **Consolidated jurisdiction namespaces and non-breaking Bill-to-Act transitions (`regulation`):**
+   - Bills and enacted statutes share a single jurisdiction namespace (`congress.gov`, `parl.ca`, `gov.uk`, `ca.gov`, `ny.gov`, etc.) so a bill's namespace never changes upon enactment.
+   - When a bill is enacted under a short title or codified citation, both the Act slug and the bill/Public Act number remain in `patterns` on the same `match_node` (with the primary citation as `patterns[0]`) so pre-enactment and post-enactment SecIDs resolve to the same entry.
+   - Separate legal instruments with distinct official texts (such as Brazil's *Lei nº 15.211/2025* and its implementing *Decreto nº 12.880/2026*) are registered as separate `match_node` entries.
+   - Legislative status and verification date are recorded consistently at the start of `data.notes` (`Status: <Proposed | Enacted | In force | ...> (...; verified as of YYYY-MM-DD).`), and pre-legislative consultations without a published legislative text (such as the EU Digital Fairness Act as of 2026-11-03) are not given speculative placeholder SecIDs.
+4. **Enforceable statutory industry codes belong in `regulation`:** Industry codes registered under statutory authority where registration makes compliance legally binding and enforceable via civil penalties or injunctions (such as Australia's eSafety Phase 2 Industry Codes for Class 1C and Class 2 material under Part 9 of the *Online Safety Act 2021*) are classified under `regulation` (`secid:regulation/esafety.gov.au/phase-2-industry-codes`).
+5. **Clean lowercase regex patterns without PCRE `(?i)` prefixes:** In `SecID-Service`, `toRegExp` strips a leading `(?i)` prefix to set the `'i'` flag (leaving unprefixed patterns case-sensitive unless matched against canonical lowercase slugs), whereas raw ECMAScript `new RegExp(pattern)` rejects PCRE inline flags (`(?i)`) with `SyntaxError`. New registry patterns use lowercase canonical slug patterns without `(?i)`.
+
+**Rejected alternatives:**
+- **Listing historical strategy editions in `versions_available` without per-edition URLs and version child nodes** — leaves `#<version>` subpath resolution unable to return historical edition URLs and omits per-edition URLs from `versions_available`.
+- **Splitting bills and enacted statutes into separate legislative vs statute-consolidator namespaces** — forces every bill's SecID namespace to break when enacted.
+- **Adding ad-hoc topical tags (`topic: ["ai-chatbot"]`) to namespace files** — `tags` are namespace-level (`country`, `region`) and cannot scope individual `match_node` entries within a general legislature namespace like `congress.gov` or `ca.gov`; cross-jurisdiction thematic sets belong in research inventories and the Relationship Layer.
+
+---

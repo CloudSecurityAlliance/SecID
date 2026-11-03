@@ -98,6 +98,32 @@
         ],
         "examples": []
       }
+    },
+
+    {
+      "patterns": [
+        "^ai-companion-models-law$",
+        "^gbl-art-47$",
+        "^s3008c-part-u$"
+      ],
+      "description": "New York Artificial Intelligence Companion Models Law (General Business Law Article 47)",
+      "weight": 100,
+      "data": {
+        "official_name": "New York General Business Law Article 47 (§§ 1700–1704) — Artificial Intelligence Companion Models",
+        "common_name": "NY AI Companion Models Law (GBL Art. 47)",
+        "alternate_names": [
+          "S3008-C / A3008-C Part U (FY 2026 Enacted Budget)",
+          "N.Y. Gen. Bus. Law §§ 1700–1704"
+        ],
+        "description": "New York state statute requiring operators of AI companion models to provide clear and conspicuous notice at the start of every interaction and at least every three hours during continuing interactions that the user is not communicating with a human, and to maintain suicidal-ideation and self-harm detection and crisis-service referral protocols.",
+        "notes": "Status: In force November 5, 2025 (enacted May 9, 2025 as Part U of the FY 2026 Transportation, Economic Development and Environmental Conservation Budget Bill, S3008-C / A3008-C, effective 180 days after enactment; verified as of 2026-11-03). Enforced by the New York Attorney General with civil penalties up to $15,000 per day directed to the New York State Suicide Prevention Fund.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.nysenate.gov/legislation/bills/2025/S3008/amendment/C"},
+          {"type": "website", "url": "https://www.nysenate.gov/legislation/laws/GBS/A47"}
+        ],
+        "examples": ["ai-companion-models-law", "gbl-art-47"]
+      }
     }
-  ]
+  ],
+  "tags": {"country": ["US"], "region": ["NY"]}
 }

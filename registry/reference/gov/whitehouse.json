@@ -3,22 +3,29 @@
   "namespace": "whitehouse.gov",
   "type": "reference",
   "status": "draft",
-  "status_notes": null,
-
+  "status_notes": "Updated 2026-11-03 for SecID#215 (National Security Strategy 2025/2022/2017/2015/2010, National Cybersecurity Strategy 2026/2023/2018, and Implementation Plans).",
   "official_name": "White House / Executive Branch",
   "common_name": "White House",
-  "alternate_names": null,
-  "notes": "US White House executive documents including Executive Orders, OMB Memoranda, National Security Memoranda, and National Strategies. Multiple ID patterns for different document types.",
+  "alternate_names": [
+    "Executive Office of the President",
+    "National Security Council",
+    "Office of the National Cyber Director",
+    "ONCD"
+  ],
+  "notes": "US White House executive documents including Executive Orders, OMB Memoranda, National Security Memoranda, National Security Strategies (mandated by 50 U.S.C. 3043 / Goldwater-Nichols Act s. 603), and National Cybersecurity Strategies and Implementation Plans.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.whitehouse.gov"}
+    {
+      "type": "website",
+      "url": "https://www.whitehouse.gov"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["^eo-\\d{5}$"],
+      "patterns": [
+        "^eo-\\d{5}$"
+      ],
       "description": "Executive Order",
       "weight": 100,
       "data": {
@@ -28,16 +35,27 @@
         "description": "US Presidential Executive Orders identified by sequential number.",
         "notes": "Executive Orders have the force of law but can be revoked by subsequent administrations. URLs vary by administration — no stable URL template exists across administrations.",
         "urls": [
-          {"type": "website", "url": "https://www.whitehouse.gov/briefing-room/"}
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/briefing-room/"
+          }
         ],
         "examples": [
-          {"input": "eo-14110", "note": "Executive Order on Safe, Secure, and Trustworthy AI (Oct 2023)"},
-          {"input": "eo-14028", "note": "Executive Order on Improving the Nation's Cybersecurity (May 2021)"}
+          {
+            "input": "eo-14110",
+            "note": "Executive Order on Safe, Secure, and Trustworthy AI (Oct 2023)"
+          },
+          {
+            "input": "eo-14028",
+            "note": "Executive Order on Improving the Nation's Cybersecurity (May 2021)"
+          }
         ]
       }
     },
     {
-      "patterns": ["^m-\\d{2}-\\d{2}$"],
+      "patterns": [
+        "^m-\\d{2}-\\d{2}$"
+      ],
       "description": "OMB Memorandum",
       "weight": 100,
       "data": {
@@ -47,15 +65,23 @@
         "description": "Office of Management and Budget memoranda that guide federal agency implementation of policy.",
         "notes": "OMB memos use M-YY-NN format (fiscal year and sequence number). They provide binding guidance to federal agencies on policy implementation.",
         "urls": [
-          {"type": "website", "url": "https://www.whitehouse.gov/omb/"}
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/omb/"
+          }
         ],
         "examples": [
-          {"input": "m-24-10", "note": "OMB memo on AI governance"}
+          {
+            "input": "m-24-10",
+            "note": "OMB memo on AI governance"
+          }
         ]
       }
     },
     {
-      "patterns": ["^nsm-\\d+$"],
+      "patterns": [
+        "^nsm-\\d+$"
+      ],
       "description": "National Security Memorandum",
       "weight": 100,
       "data": {
@@ -65,15 +91,23 @@
         "description": "Presidential directives on national security matters.",
         "notes": "National Security Memoranda address classified and national security matters. Some are partially or fully classified. Numbering restarts with each administration.",
         "urls": [
-          {"type": "website", "url": "https://www.whitehouse.gov/briefing-room/"}
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/briefing-room/"
+          }
         ],
         "examples": [
-          {"input": "nsm-22", "note": "NSM on AI"}
+          {
+            "input": "nsm-22",
+            "note": "NSM on Critical Infrastructure Security and Resilience (Apr 2024)"
+          }
         ]
       }
     },
     {
-      "patterns": ["^ncs-\\d{4}$"],
+      "patterns": [
+        "^ncs-\\d{4}$"
+      ],
       "description": "National Strategy",
       "weight": 100,
       "data": {
@@ -83,12 +117,481 @@
         "description": "National strategies identified by topic area and year.",
         "notes": "National strategies set multi-year policy direction. They are not legally binding but guide agency priorities and budget allocation.",
         "urls": [
-          {"type": "website", "url": "https://www.whitehouse.gov/briefing-room/"}
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/briefing-room/"
+          }
         ],
         "examples": [
-          {"input": "ncs-2023", "note": "National Cybersecurity Strategy 2023"}
+          {
+            "input": "ncs-2023",
+            "note": "National Cybersecurity Strategy 2023"
+          }
         ]
       }
+    },
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "^nss$"
+      ],
+      "description": "United States National Security Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "National Security Strategy of the United States of America",
+        "common_name": "US National Security Strategy (NSS)",
+        "alternate_names": [
+          "NSS"
+        ],
+        "description": "Statutorily mandated comprehensive presidential report to Congress on the national security strategy of the United States.",
+        "notes": "Mandated by Section 108 of the National Security Act of 1947 (50 U.S.C. 3043), added by Section 603 of the Goldwater-Nichols Department of Defense Reorganization Act of 1986. Establishes the overarching strategic framework guiding the National Defense Strategy (NDS), National Military Strategy (NMS), and National Cybersecurity Strategy.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf",
+            "note": "2025 edition (current) — National Security Strategy of the United States of America (dated November 2025; released December 2025)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf",
+            "note": "2022 edition (superseded) — October 2022 National Security Strategy"
+          },
+          {
+            "type": "pdf",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf",
+            "note": "2017 edition (superseded) — December 2017 National Security Strategy"
+          },
+          {
+            "type": "pdf",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf",
+            "note": "2015 edition (superseded) — February 2015 National Security Strategy"
+          },
+          {
+            "type": "pdf",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf",
+            "note": "2010 edition (superseded) — May 2010 National Security Strategy"
+          },
+          {
+            "type": "docs",
+            "url": "https://history.defense.gov/Historical-Sources/National-Security-Strategy/",
+            "note": "DoD Historical Office archive of US National Security Strategy editions"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-12-05",
+            "status": "current",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf",
+            "note": "2025 National Security Strategy of the United States of America (dated November 2025; published December 5, 2025)."
+          },
+          {
+            "version": "2022",
+            "release_date": "2022-10-12",
+            "status": "superseded",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf",
+            "note": "October 2022 National Security Strategy."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-12-18",
+            "status": "superseded",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf",
+            "note": "December 2017 National Security Strategy."
+          },
+          {
+            "version": "2015",
+            "release_date": "2015-02-06",
+            "status": "superseded",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf",
+            "note": "February 2015 National Security Strategy."
+          },
+          {
+            "version": "2010",
+            "release_date": "2010-05-27",
+            "status": "superseded",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf",
+            "note": "May 2010 National Security Strategy."
+          }
+        ],
+        "examples": [
+          "national-security-strategy@2025",
+          "national-security-strategy@2022",
+          "national-security-strategy@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "2025 National Security Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of the United States of America (2025)",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf",
+                "note": "2025 US National Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "2022 National Security Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of the United States of America (2022)",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf",
+                "note": "2022 US National Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "2017 National Security Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of the United States of America (2017)",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf",
+                "note": "2017 US National Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "2015 National Security Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of the United States of America (2015)",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2015",
+                "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf",
+                "note": "2015 US National Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "2010 National Security Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of the United States of America (2010)",
+            "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010",
+                "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf",
+                "note": "2010 US National Security Strategy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "^cyber-strategy-for-america$"
+      ],
+      "description": "United States National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "official_name": "United States National Cybersecurity Strategy",
+        "common_name": "US National Cybersecurity Strategy",
+        "alternate_names": [
+          "President Trump's Cyber Strategy for America (2026)",
+          "National Cybersecurity Strategy (2023)",
+          "National Cyber Strategy of the United States of America (2018)"
+        ],
+        "description": "United States national strategies for cybersecurity issued by the White House across successive administrations (2018 National Cyber Strategy, 2023 National Cybersecurity Strategy, and 2026 President Trump's Cyber Strategy for America).",
+        "notes": "Current edition is President Trump's Cyber Strategy for America (released March 6, 2026). Preceded by the March 2, 2023 National Cybersecurity Strategy (operationalized via the National Cybersecurity Strategy Implementation Plan NCSIP v1 in July 2023 and v2 in May 2024) and the September 20, 2018 National Cyber Strategy of the United States of America.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/",
+            "note": "2026 edition (current) — President Trump's Cyber Strategy for America (March 6, 2026)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf",
+            "note": "2023 edition (superseded) — National Cybersecurity Strategy (March 2023)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf",
+            "note": "2018 edition (superseded) — National Cyber Strategy of the United States of America (September 2018)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2026",
+            "release_date": "2026-03-06",
+            "status": "current",
+            "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/",
+            "note": "March 6, 2026 — President Trump's Cyber Strategy for America."
+          },
+          {
+            "version": "2023",
+            "release_date": "2023-03-02",
+            "status": "superseded",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf",
+            "note": "March 2, 2023 — National Cybersecurity Strategy."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-09-20",
+            "status": "superseded",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf",
+            "note": "September 20, 2018 — National Cyber Strategy of the United States of America."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy@2026",
+          "national-cybersecurity-strategy@2023",
+          "national-cybersecurity-strategy@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026$"
+          ],
+          "description": "2026 President Trump's Cyber Strategy for America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "President Trump's Cyber Strategy for America (2026)",
+            "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026",
+                "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/",
+                "note": "2026 President Trump's Cyber Strategy for America"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "2023 National Cybersecurity Strategy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy (2023)",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf",
+                "note": "2023 US National Cybersecurity Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "2018 National Cyber Strategy of the United States of America",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Strategy of the United States of America (2018)",
+            "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf",
+                "note": "2018 US National Cyber Strategy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy-implementation-plan$",
+        "^ncsip$"
+      ],
+      "description": "National Cybersecurity Strategy Implementation Plan (NCSIP)",
+      "weight": 95,
+      "data": {
+        "official_name": "National Cybersecurity Strategy Implementation Plan",
+        "common_name": "NCSIP",
+        "alternate_names": null,
+        "description": "Living federal implementation roadmap issued by the Office of the National Cyber Director tracking numbered interagency initiatives, lead agencies, and completion timelines for the 2023 National Cybersecurity Strategy.",
+        "notes": "Version 1 published July 2023 (65+ initiatives across 18 agencies); Version 2 published May 2024 (updating initiative statuses and adding new deliverables alongside the 2024 Report on the Cybersecurity Posture of the United States).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf",
+            "note": "Version 2 (current, May 2024)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
+            "note": "Version 1 (superseded, July 2023)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2",
+            "release_date": "2024-05-07",
+            "status": "current",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf",
+            "note": "National Cybersecurity Strategy Implementation Plan Version 2 (May 2024)."
+          },
+          {
+            "version": "1",
+            "release_date": "2023-07-13",
+            "status": "superseded",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
+            "note": "National Cybersecurity Strategy Implementation Plan Version 1 (July 2023)."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy-implementation-plan@2",
+          "national-cybersecurity-strategy-implementation-plan@1"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2$"
+          ],
+          "description": "National Cybersecurity Strategy Implementation Plan Version 2 (May 2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy Implementation Plan Version 2",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf",
+                "note": "NCSIP Version 2 (May 2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1$"
+          ],
+          "description": "National Cybersecurity Strategy Implementation Plan Version 1 (July 2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy Implementation Plan Version 1",
+            "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "1",
+                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
+                "note": "NCSIP Version 1 (July 2023)"
+              }
+            ]
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "tags": {
+    "country": [
+      "US"
+    ]
+  }
 }

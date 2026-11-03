@@ -39,12 +39,44 @@
       "data": {
         "official_name": "Online Safety Act 2023",
         "common_name": "OSA",
-        "alternate_names": null,
+        "alternate_names": ["2023 c. 50"],
         "description": "UK law imposing duties of care on online platforms regarding illegal content and content harmful to children. Enforced by Ofcom.",
-        "notes": "Phased commencement; risk-assessment and child-safety duties active 2025.",
+        "notes": "Status: In force (Royal Assent October 26, 2023; phased commencement through 2025-2026; verified as of 2026-11-03). Amended in April 2026 to explicitly regulate AI chatbots: Section 216A (inserted by the Crime and Policing Act 2026, s. 248) empowers the Secretary of State to bring standalone AI chatbot providers and AI content-generation tools within OSA scope, and Section 214A (inserted by the Children's Wellbeing and Schools Act 2026, s. 70) empowers regulations restricting or preventing children's access to high-risk interactive or AI features.",
         "urls": [
           {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2023/50/contents"}
         ]
+      }
+    },
+    {
+      "patterns": ["^crime-and-policing-act-2026$", "^ukpga-2026-20$"],
+      "description": "Crime and Policing Act 2026 (including s. 248 / OSA s. 216A AI chatbot powers)",
+      "weight": 95,
+      "data": {
+        "official_name": "Crime and Policing Act 2026",
+        "common_name": "Crime and Policing Act 2026",
+        "alternate_names": ["2026 c. 20"],
+        "description": "UK Act of Parliament reforming criminal justice, policing, and online offences; Section 248 inserts Section 216A into the Online Safety Act 2023 to bring standalone AI chatbots and AI-generated content providers within statutory online-safety regulation.",
+        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 20; verified as of 2026-11-03). Closes the Online Safety Act gap for one-to-one AI chatbot interactions that did not previously qualify as user-to-user or search services.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/20/contents"}
+        ],
+        "examples": ["crime-and-policing-act-2026", "ukpga-2026-20"]
+      }
+    },
+    {
+      "patterns": ["^childrens-wellbeing-and-schools-act-2026$", "^ukpga-2026-21$"],
+      "description": "Children's Wellbeing and Schools Act 2026 (including s. 70 / OSA s. 214A child online safety powers)",
+      "weight": 95,
+      "data": {
+        "official_name": "Children's Wellbeing and Schools Act 2026",
+        "common_name": "Children's Wellbeing and Schools Act 2026",
+        "alternate_names": ["2026 c. 21"],
+        "description": "UK Act of Parliament on child protection and education; Section 70 inserts Section 214A into the Online Safety Act 2023 enabling secondary regulations to restrict, time-limit, or prevent children's access to specified services or interactive AI chatbot features of concern.",
+        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 21; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/21/contents"}
+        ],
+        "examples": ["childrens-wellbeing-and-schools-act-2026", "ukpga-2026-21"]
       }
     },
     {

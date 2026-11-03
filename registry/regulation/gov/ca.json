@@ -125,6 +125,75 @@
         ],
         "examples": []
       }
+    },
+
+    {
+      "patterns": [
+        "^sb-243$",
+        "^companion-chatbots-act$"
+      ],
+      "description": "California SB 243 — Companion Chatbots (Business and Professions Code § 22600 et seq.)",
+      "weight": 100,
+      "data": {
+        "official_name": "California Senate Bill 243 — Companion Chatbots (Chapter 22.6, Division 8, Business and Professions Code, § 22600 et seq.)",
+        "common_name": "SB 243 (Companion Chatbots)",
+        "alternate_names": [
+          "Chapter 677, Statutes of 2025",
+          "Cal. Bus. & Prof. Code § 22600 et seq."
+        ],
+        "description": "California statute regulating companion chatbot platforms: requires clear and conspicuous AI disclosure if a reasonable person could be misled into believing they are interacting with a human, recurring 3-hour AI notifications and sexually explicit content blocks for known minor users, suicidal-ideation/self-harm prevention protocols with crisis hotline referrals, annual metrics reporting to the Office of Suicide Prevention (beginning July 1, 2027), and a private right of action ($1,000 minimum statutory damages per violation).",
+        "notes": "Status: In force January 1, 2026 (signed by Governor Newsom October 13, 2025; Chapter 677, Statutes of 2025; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243"}
+        ],
+        "examples": ["sb-243"]
+      }
+    },
+
+    {
+      "patterns": [
+        "^sb-1119$",
+        "^adams-law$"
+      ],
+      "description": "California SB 1119 — Adam's Law (Companion Chatbot Child Safety)",
+      "weight": 95,
+      "data": {
+        "official_name": "California Senate Bill 1119 — Adam's Law (Companion Chatbots: Child Safety and Risk Assessments)",
+        "common_name": "SB 1119 (Adam's Law)",
+        "alternate_names": [
+          "Adam's Law",
+          "Senate Bill 1119 (2025-2026 Session)"
+        ],
+        "description": "California follow-on companion chatbot child-safety legislation expanding SB 243 with mandatory pre-deployment child-safety risk assessments, age assurance, default minor-protection settings, mandatory 988 Suicide & Crisis Lifeline integration, and biennial independent third-party safety audits.",
+        "notes": "Status: Enacted in 2026; operative provisions phase in during 2027 (introduced February 2026 in the 2025-2026 California Regular Session; verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"}
+        ],
+        "examples": ["sb-1119", "adams-law"]
+      }
+    },
+
+    {
+      "patterns": [
+        "^sb-867$",
+        "^companion-chatbots-in-toys$"
+      ],
+      "description": "California SB 867 — Companion Chatbots in Toys",
+      "weight": 95,
+      "data": {
+        "official_name": "California Senate Bill 867 — Toys: Companion Chatbots",
+        "common_name": "SB 867 (Chatbots in Toys)",
+        "alternate_names": [
+          "Senate Bill 867 (2025-2026 Session)"
+        ],
+        "description": "California legislation restricting the manufacture, distribution, and sale of physical children's toys embedded with open-ended AI companion chatbot functionality capable of unscripted emotional or conversational interaction with minors.",
+        "notes": "Status: Enacted / 2025-2026 California Regular Session (verified as of 2026-11-03).",
+        "urls": [
+          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB867"}
+        ],
+        "examples": ["sb-867"]
+      }
     }
-  ]
+  ],
+  "tags": {"country": ["US"], "region": ["CA"]}
 }

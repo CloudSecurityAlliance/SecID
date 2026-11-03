@@ -32,6 +32,34 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^wopr-act$",
+        "^hb-1806$",
+        "^pa-104-0054$"
+      ],
+      "description": "Wellness and Oversight for Psychological Resources Act (WOPR Act, HB 1806 / PA 104-0054)",
+      "weight": 100,
+      "data": {
+        "official_name": "Wellness and Oversight for Psychological Resources Act",
+        "common_name": "WOPR Act (Illinois HB 1806)",
+        "alternate_names": [
+          "Public Act 104-0054",
+          "HB 1806 (104th General Assembly)"
+        ],
+        "description": "Illinois statute prohibiting any person, corporation, or entity from offering or providing therapy or psychotherapy services through artificial intelligence unless conducted by a licensed behavioural health professional, and barring AI chatbots from making independent therapeutic decisions, generating treatment plans without licensed review, or directly conducting therapeutic communication with clients.",
+        "notes": "Status: In force August 1, 2025 (signed by Governor Pritzker August 1, 2025 as Public Act 104-0054; effective immediately; verified as of 2026-11-03). Enforced by the Illinois Department of Financial and Professional Regulation (IDFPR) with civil penalties up to $10,000 per violation.",
+        "urls": [
+          {"type": "legal_text", "url": "https://www.ilga.gov/legislation/PublicActs/View/104-0054"}
+        ],
+        "examples": [
+          "wopr-act",
+          "hb-1806",
+          "pa-104-0054"
+        ]
+      }
     }
-  ]
+  ],
+  "tags": {"country": ["US"], "region": ["IL"]}
 }
