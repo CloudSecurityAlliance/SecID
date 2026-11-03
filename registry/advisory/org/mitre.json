@@ -50,7 +50,7 @@
             "notes": "One JSON file per CVE, organized by year/bucket directories. ~250K+ records, ~2GB full clone."
           }
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487", "CVE-2021-44228"]
+        "examples": ["CVE-2026-0019", "CVE-2023-44487", "CVE-2021-44228"]
       },
       "children": [
         {
@@ -63,7 +63,7 @@
             "parsability": "scraped",
             "auth": "none",
             "examples": [
-              {"input": "CVE-2024-1234", "url": "https://www.cve.org/CVERecord?id=CVE-2024-1234"},
+              {"input": "CVE-2026-0019", "url": "https://www.cve.org/CVERecord?id=CVE-2026-0019"},
               {"input": "CVE-2021-44228", "url": "https://www.cve.org/CVERecord?id=CVE-2021-44228", "note": "Log4Shell — highest-profile CVE in recent history"}
             ]
           }
@@ -82,12 +82,12 @@
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",
-                "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+                "description": "4-digit year (e.g., '2026' from 'CVE-2026-0019')"
               },
               "bucket": {
                 "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
                 "format": "{1}xxx",
-                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
+                "description": "All but last 3 digits + 'xxx' (e.g., '0xxx' from 'CVE-2026-0019')"
               },
               "id": {
                 "extract": "^(CVE-\\d{4}-\\d+)$",
@@ -96,9 +96,14 @@
             },
             "examples": [
               {
-                "input": "CVE-2024-1234",
-                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
-                "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1234.json"
+                "input": "CVE-2026-0019",
+                "variables": {"year": "2026", "bucket": "0xxx", "id": "CVE-2026-0019"},
+                "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0019.json"
+              },
+              {
+                "input": "CVE-2021-44228",
+                "variables": {"year": "2021", "bucket": "44xxx", "id": "CVE-2021-44228"},
+                "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2021/44xxx/CVE-2021-44228.json"
               }
             ]
           }
@@ -119,12 +124,12 @@
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",
-                "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+                "description": "4-digit year (e.g., '2026' from 'CVE-2026-0019')"
               },
               "bucket": {
                 "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
                 "format": "{1}xxx",
-                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
+                "description": "All but last 3 digits + 'xxx' (e.g., '0xxx' from 'CVE-2026-0019')"
               },
               "id": {
                 "extract": "^(CVE-\\d{4}-\\d+)$",
@@ -133,9 +138,14 @@
             },
             "examples": [
               {
-                "input": "CVE-2024-1234",
-                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
-                "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/1xxx/CVE-2024-1234.json"
+                "input": "CVE-2026-0019",
+                "variables": {"year": "2026", "bucket": "0xxx", "id": "CVE-2026-0019"},
+                "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/0xxx/CVE-2026-0019.json"
+              },
+              {
+                "input": "CVE-2021-44228",
+                "variables": {"year": "2021", "bucket": "44xxx", "id": "CVE-2021-44228"},
+                "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2021/44xxx/CVE-2021-44228.json"
               }
             ]
           }
@@ -152,7 +162,11 @@
             "schema": "secid:reference/cve.org/cve-schema@5.2.0",
             "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
             "auth": "No auth required. Rate limited.",
-            "note": "API endpoint, richer data than web page"
+            "note": "API endpoint, richer data than web page",
+            "examples": [
+              {"input": "CVE-2026-0019", "url": "https://cveawg.mitre.org/api/cve/CVE-2026-0019"},
+              {"input": "CVE-2021-44228", "url": "https://cveawg.mitre.org/api/cve/CVE-2021-44228"}
+            ]
           }
         }
       ]

@@ -32,7 +32,7 @@
           {"type": "api", "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", "format": "json"},
           {"type": "bulk_data", "url": "https://www.cisa.gov/sites/default/files/csv/known_exploited_vulnerabilities.csv", "format": "csv"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2021-44228"]
+        "examples": ["CVE-2021-44228", "CVE-2024-3400"]
       },
       "children": [
         {
@@ -45,7 +45,8 @@
             "parsability": "scraped",
             "auth": "none",
             "examples": [
-              {"input": "CVE-2021-44228", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2021-44228", "note": "Log4Shell — one of the first CVEs added to KEV"}
+              {"input": "CVE-2021-44228", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2021-44228", "note": "Log4Shell — one of the first CVEs added to KEV"},
+              {"input": "CVE-2024-3400", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-3400", "note": "PAN-OS GlobalProtect command injection in CISA KEV"}
             ]
           }
         }
@@ -77,7 +78,7 @@
             "notes": "One CVE JSON 5.x file per CVE at {year}/{bucket}/{id}.json on the develop branch."
           }
         ],
-        "examples": ["CVE-2024-1234", "CVE-2026-0019"]
+        "examples": ["CVE-2024-3400", "CVE-2026-0019"]
       },
       "children": [
         {
@@ -94,12 +95,12 @@
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",
-                "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+                "description": "4-digit year (e.g., '2024' from 'CVE-2024-3400')"
               },
               "bucket": {
                 "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
                 "format": "{1}xxx",
-                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
+                "description": "All but last 3 digits + 'xxx' (e.g., '3xxx' from 'CVE-2024-3400')"
               },
               "id": {
                 "extract": "^(CVE-\\d{4}-\\d+)$",
@@ -108,9 +109,9 @@
             },
             "examples": [
               {
-                "input": "CVE-2024-1234",
-                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
-                "url": "https://github.com/cisagov/vulnrichment/blob/develop/2024/1xxx/CVE-2024-1234.json"
+                "input": "CVE-2024-3400",
+                "variables": {"year": "2024", "bucket": "3xxx", "id": "CVE-2024-3400"},
+                "url": "https://github.com/cisagov/vulnrichment/blob/develop/2024/3xxx/CVE-2024-3400.json"
               },
               {
                 "input": "CVE-2026-0019",
@@ -136,12 +137,12 @@
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",
-                "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+                "description": "4-digit year (e.g., '2024' from 'CVE-2024-3400')"
               },
               "bucket": {
                 "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
                 "format": "{1}xxx",
-                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
+                "description": "All but last 3 digits + 'xxx' (e.g., '3xxx' from 'CVE-2024-3400')"
               },
               "id": {
                 "extract": "^(CVE-\\d{4}-\\d+)$",
@@ -150,9 +151,9 @@
             },
             "examples": [
               {
-                "input": "CVE-2024-1234",
-                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
-                "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/2024/1xxx/CVE-2024-1234.json"
+                "input": "CVE-2024-3400",
+                "variables": {"year": "2024", "bucket": "3xxx", "id": "CVE-2024-3400"},
+                "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/2024/3xxx/CVE-2024-3400.json"
               },
               {
                 "input": "CVE-2026-0019",

@@ -62,9 +62,9 @@
         "urls": [
           {"type": "website", "url": "https://ubuntu.com/security/cves", "parsability": "scraped"},
           {"type": "api", "url": "https://ubuntu.com/security/cves/{id}.json", "format": "json", "parsability": "structured", "auth": "none"},
-          {"type": "lookup", "url": "https://ubuntu.com/security/cves/{id}", "parsability": "scraped"}
+          {"type": "lookup", "url": "https://ubuntu.com/security/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+        "examples": ["CVE-2024-3094", "CVE-2023-44487"]
       },
       "children": [
         {
@@ -72,13 +72,13 @@
           "description": "Standard CVE ID format (Ubuntu CVE Tracker web page)",
           "weight": 100,
           "data": {
-            "url": "https://ubuntu.com/security/cves/{id}",
+            "url": "https://ubuntu.com/security/{id}",
             "content_type": "text/html",
             "parsability": "scraped",
             "auth": "none",
             "examples": [
-              {"input": "CVE-2024-1234", "url": "https://ubuntu.com/security/cves/CVE-2024-1234"},
-              {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/cves/CVE-2023-44487"}
+              {"input": "CVE-2024-3094", "url": "https://ubuntu.com/security/CVE-2024-3094", "note": "XZ Utils backdoor — Ubuntu CVE tracker page"},
+              {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — Ubuntu CVE tracker page"}
             ]
           }
         },
@@ -94,7 +94,7 @@
             "auth": "none",
             "note": "Ubuntu Security API JSON record showing per-release package status and related USN notices",
             "examples": [
-              {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/cves/CVE-2023-44487.json"}
+              {"input": "CVE-2024-3094", "url": "https://ubuntu.com/security/cves/CVE-2024-3094.json", "note": "XZ Utils backdoor — structured per-release Ubuntu package status"}
             ]
           }
         }
