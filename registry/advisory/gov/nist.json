@@ -39,7 +39,7 @@
           },
           {"type": "lookup", "url": "https://nvd.nist.gov/vuln/detail/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487", "CVE-2026-0019"]
+        "examples": ["CVE-2026-0019", "CVE-2023-44487"]
       },
       "children": [
         {
@@ -52,7 +52,7 @@
             "parsability": "scraped",
             "auth": "none",
             "examples": [
-              {"input": "CVE-2024-1234", "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1234"},
+              {"input": "CVE-2026-0019", "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0019"},
               {"input": "CVE-2023-44487", "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — mass exploitation of web servers"}
             ]
           }
@@ -69,8 +69,8 @@
             "auth": "No auth required (5 requests / 30s rolling window). Pass apiKey header for 50 requests / 30s.",
             "note": "NVD REST API v2.0 JSON endpoint — returns structured CVE record with NVD CVSS, CPE, and CWE enrichment without browser challenge",
             "examples": [
-              {"input": "CVE-2024-1234", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-1234"},
-              {"input": "CVE-2026-0019", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-0019"}
+              {"input": "CVE-2026-0019", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-0019"},
+              {"input": "CVE-2023-44487", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-44487"}
             ]
           }
         }

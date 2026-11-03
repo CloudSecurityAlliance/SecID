@@ -98,7 +98,7 @@
           },
           {"type": "lookup", "url": "https://access.redhat.com/security/cve/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+        "examples": ["CVE-2023-44487", "CVE-2024-3094"]
       },
       "children": [
         {
@@ -111,7 +111,8 @@
             "parsability": "scraped",
             "auth": "none",
             "examples": [
-              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/security/cve/CVE-2023-44487"}
+              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/security/cve/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — Red Hat CVE page"},
+              {"input": "CVE-2024-3094", "url": "https://access.redhat.com/security/cve/CVE-2024-3094", "note": "XZ Utils backdoor — Red Hat CVE page"}
             ]
           }
         },
@@ -127,7 +128,8 @@
             "auth": "none",
             "note": "Red Hat Security Data API JSON representation including Red Hat CVSS score, affected release packages, and fixing RHSA errata",
             "examples": [
-              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2023-44487.json"}
+              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2023-44487.json"},
+              {"input": "CVE-2024-3094", "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2024-3094.json"}
             ]
           }
         }
@@ -148,20 +150,38 @@
           {"type": "website", "url": "https://bugzilla.redhat.com"},
           {"type": "lookup", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}"}
         ],
-        "examples": ["2045678", "CVE-2024-1234"]
+        "examples": ["2242803", "CVE-2023-44487"]
       },
       "children": [
         {
           "patterns": ["^\\d+$"],
           "description": "Bugzilla bug ID (numeric)",
           "weight": 100,
-          "data": {"type": "primary", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}", "content_type": "text/html", "parsability": "scraped", "auth": "none"}
+          "data": {
+            "type": "primary",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
+            "examples": [
+              {"input": "2242803", "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2242803", "note": "Red Hat Bugzilla tracking bug for CVE-2023-44487"}
+            ]
+          }
         },
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
           "description": "CVE alias — Bugzilla redirects to the associated bug",
           "weight": 50,
-          "data": {"type": "alias", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}", "content_type": "text/html", "parsability": "scraped", "auth": "none"}
+          "data": {
+            "type": "alias",
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2023-44487", "note": "Redirects to Red Hat Bugzilla bug 2242803"}
+            ]
+          }
         }
       ]
     },

@@ -151,7 +151,7 @@
         "unversioned_behavior": "current",
         "version_disambiguation": null,
         "versions_available": null,
-        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+        "examples": ["CVE-2023-44487", "CVE-2024-3094"]
       },
       "children": [
         {
@@ -163,7 +163,11 @@
             "content_type": "text/html",
             "parsability": "scraped",
             "auth": "none",
-            "note": "Debian's own CVE analysis page. For the canonical CVE record, see secid:advisory/mitre.org/cve."
+            "note": "Debian's own CVE analysis page. For the canonical CVE record, see secid:advisory/mitre.org/cve.",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://security-tracker.debian.org/tracker/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — Debian Security Tracker status"},
+              {"input": "CVE-2024-3094", "url": "https://security-tracker.debian.org/tracker/CVE-2024-3094", "note": "XZ Utils backdoor — Debian Security Tracker status"}
+            ]
           }
         }
       ]

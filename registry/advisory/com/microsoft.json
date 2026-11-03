@@ -40,7 +40,7 @@
           },
           {"type": "lookup", "url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2024-21412", "CVE-2023-44487"]
+        "examples": ["CVE-2024-21412", "CVE-2023-44487"]
       },
       "children": [
         {
@@ -53,6 +53,7 @@
             "parsability": "scraped",
             "auth": "none",
             "examples": [
+              {"input": "CVE-2024-21412", "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21412", "note": "Windows Defender SmartScreen security feature bypass"},
               {"input": "CVE-2023-44487", "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — high-profile CVE affecting multiple vendors"}
             ]
           }
@@ -69,7 +70,8 @@
             "auth": "none",
             "note": "MSRC SUG v2.0 JSON endpoint — returns structured vulnerability metadata directly without SPA JavaScript rendering",
             "examples": [
-              {"input": "CVE-2024-21412", "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2024-21412"}
+              {"input": "CVE-2024-21412", "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2024-21412"},
+              {"input": "CVE-2023-44487", "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2023-44487"}
             ]
           }
         }
