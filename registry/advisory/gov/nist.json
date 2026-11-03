@@ -28,22 +28,49 @@
         "description": "US government repository of vulnerability data. Enriches CVE records with CVSS scores, CPE platform matching, and CWE classification.",
         "notes": "NVD is the authoritative US government source for vulnerability severity scores. Provides both web UI and REST API (v2.0). Bulk data feeds available. NVD has experienced processing delays since 2024 — some CVEs take weeks to get NVD enrichment.",
         "urls": [
-          {"type": "website", "url": "https://nvd.nist.gov"},
-          {"type": "api", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0"},
-          {"type": "lookup", "url": "https://nvd.nist.gov/vuln/detail/{id}"}
+          {"type": "website", "url": "https://nvd.nist.gov", "parsability": "scraped"},
+          {
+            "type": "api",
+            "url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+            "format": "json",
+            "parsability": "structured",
+            "auth": "No auth required (5 requests / 30s rolling window). Free NVD API key increases limit to 50 requests / 30s via apiKey header.",
+            "notes": "REST API v2.0, per-CVE lookup via ?cveId={id}"
+          },
+          {"type": "lookup", "url": "https://nvd.nist.gov/vuln/detail/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+        "examples": ["CVE-2024-1234", "CVE-2023-44487", "CVE-2026-0019"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "CVE identifier",
+          "description": "CVE identifier (NVD web detail page)",
           "weight": 100,
           "data": {
             "url": "https://nvd.nist.gov/vuln/detail/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2024-1234", "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1234"},
               {"input": "CVE-2023-44487", "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — mass exploitation of web servers"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE record via NVD REST API v2.0 (JSON)",
+          "weight": 50,
+          "data": {
+            "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={id}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "auth": "No auth required (5 requests / 30s rolling window). Pass apiKey header for 50 requests / 30s.",
+            "note": "NVD REST API v2.0 JSON endpoint — returns structured CVE record with NVD CVSS, CPE, and CWE enrichment without browser challenge",
+            "examples": [
+              {"input": "CVE-2024-1234", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-1234"},
+              {"input": "CVE-2026-0019", "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-0019"}
             ]
           }
         }

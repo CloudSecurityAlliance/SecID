@@ -60,21 +60,41 @@
         "description": "Ubuntu's CVE tracking system showing fix status across all supported Ubuntu releases.",
         "notes": "Shows CVE status across all supported Ubuntu releases. Indicates which releases are affected and fix status. Links to related USN advisories. This is Ubuntu's own CVE analysis — for the canonical CVE record, see secid:advisory/mitre.org/cve. For official advisories, see secid:advisory/ubuntu.com/usn.",
         "urls": [
-          {"type": "website", "url": "https://ubuntu.com/security/cves"},
-          {"type": "lookup", "url": "https://ubuntu.com/security/cves/{id}"}
+          {"type": "website", "url": "https://ubuntu.com/security/cves", "parsability": "scraped"},
+          {"type": "api", "url": "https://ubuntu.com/security/cves/{id}.json", "format": "json", "parsability": "structured", "auth": "none"},
+          {"type": "lookup", "url": "https://ubuntu.com/security/cves/{id}", "parsability": "scraped"}
         ],
         "examples": ["CVE-2024-1234", "CVE-2023-44487"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "Standard CVE ID format",
+          "description": "Standard CVE ID format (Ubuntu CVE Tracker web page)",
           "weight": 100,
           "data": {
             "url": "https://ubuntu.com/security/cves/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2024-1234", "url": "https://ubuntu.com/security/cves/CVE-2024-1234"},
               {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/cves/CVE-2023-44487"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Ubuntu CVE Tracker JSON endpoint",
+          "weight": 50,
+          "data": {
+            "url": "https://ubuntu.com/security/cves/{id}.json",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "auth": "none",
+            "note": "Ubuntu Security API JSON record showing per-release package status and related USN notices",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://ubuntu.com/security/cves/CVE-2023-44487.json"}
             ]
           }
         }

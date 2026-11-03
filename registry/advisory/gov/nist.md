@@ -67,6 +67,7 @@ secid:advisory/nist.gov/nvd#CVE-YYYY-NNNNN
 
 ```
 https://nvd.nist.gov/vuln/detail/{id}
+https://services.nvd.nist.gov/rest/json/cves/2.0?cveId={id}
 ```
 
 ### What NVD Adds

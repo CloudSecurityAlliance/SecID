@@ -73,6 +73,9 @@
           "weight": 100,
           "data": {
             "url": "https://www.oracle.com/security-alerts/alert-{id_lower}.html",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "note": "URL uses lowercased ID: CVE-2021-44228 becomes alert-cve-2021-44228 in the URL path",
             "examples": [
               {

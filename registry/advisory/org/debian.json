@@ -160,6 +160,9 @@
           "weight": 100,
           "data": {
             "url": "https://security-tracker.debian.org/tracker/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "note": "Debian's own CVE analysis page. For the canonical CVE record, see secid:advisory/mitre.org/cve."
           }
         }

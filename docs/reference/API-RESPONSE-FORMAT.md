@@ -312,9 +312,9 @@ GET /api/v1/resolve?secid=secid:advisory/CVE-2026-1234
       "url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2026-1234"
     },
     {
-      "secid": "secid:advisory/gov/cisa.json/vulnrichment#CVE-2026-1234",
-      "weight": 80,
-      "url": "https://github.com/cisagov/vulnrichment/tree/develop/2026/1xxx/CVE-2026-1234.json"
+      "secid": "secid:advisory/cisa.gov/vulnrichment#CVE-2026-1234",
+      "weight": 50,
+      "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/2026/1xxx/CVE-2026-1234.json"
     }
   ]
 }
