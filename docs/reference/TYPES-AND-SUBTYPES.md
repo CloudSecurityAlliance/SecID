@@ -57,13 +57,14 @@ Subtypes are placed at the **source-level** match_node (the top-level entries in
 
 ## Named subtypes in use today
 
-Five types currently carry named `subtype:` tags on entries: `reference` (for glossaries), `methodology` (the full 11-category set tagged on all ~40 entries), `advisory` (for incident reports), `entity` (for multi-organization consortia), and `disclosure` (for coordinators and PSIRTs). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (regulation, and the entity organization/product/service split), or implicit overloads that predate the convention.
+Five types currently carry named `subtype:` tags on entries: `reference` (for glossaries and strategies), `methodology` (the full 11-category set tagged on all ~40 entries), `advisory` (for incident reports), `entity` (for multi-organization consortia), and `disclosure` (for coordinators and PSIRTs). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (regulation, and the entity organization/product/service split), or implicit overloads that predate the convention.
 
 ### `reference`
 
 | `subtype:` value | What it means | Where to find it | Defined by |
 |------------------|---------------|------------------|------------|
 | `"glossary"` | A glossary document with addressable term-level subpaths. Entry is identity-only; term data lives in a separate dataset repo (Phase 1) and will be copied into the registry for direct API serving in Phase 2. | `registry/reference/<path>.json` entries carrying `subtype: ["glossary"]` | [GLOSSARY-DEFINITION-COMPARISON](../proposals/GLOSSARY-DEFINITION-COMPARISON.md) (Accepted 2026-05-20) |
+| `"strategy"` | Strategy documents, multi-year action and implementation plans, and strategic reviews or evaluations — including national security and cybersecurity strategies, agency strategic plans, and corporate or organizational security strategies. | `registry/reference/<path>.json` source-level match_nodes carrying `subtype: ["strategy"]` | Declared in SecID-Service `type-registry.ts` ([SecID-Service#58](https://github.com/CloudSecurityAlliance/SecID-Service/pull/58)) and [ADR-016](../../DECISIONS.md#adr-016-registry-conventions-for-multi-edition-national-strategies-215-and-proposedenacted-legislation-208) |
 
 ### `advisory`
 

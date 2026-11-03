@@ -65,6 +65,9 @@
       "description": "UK National Security Strategy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Security Strategy 2025: Security for the British People in a Dangerous World",
         "common_name": "UK National Security Strategy (NSS)",
         "alternate_names": [
@@ -213,6 +216,9 @@
       "description": "UK Integrated Review of Security, Defence, Development and Foreign Policy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "Integrated Review of Security, Defence, Development and Foreign Policy",
         "common_name": "UK Integrated Review (IR2021 / IR2023)",
         "alternate_names": [
@@ -310,11 +316,16 @@
     {
       "patterns": [
         "^national-cyber-strategy$",
+        "^national-cybersecurity-strategy$",
+        "^national-cyber-security-strategy$",
         "^uk-national-cyber-strategy$"
       ],
       "description": "UK National Cyber Strategy",
       "weight": 100,
       "data": {
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Cyber Strategy 2022: Pioneering a Cyber Future with the Whole of the UK",
         "common_name": "UK National Cyber Strategy 2022",
         "alternate_names": [
