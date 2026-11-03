@@ -73,7 +73,7 @@
     },
 
     {
-      "patterns": ["(?i)^cve$"],
+      "patterns": ["^cve$", "^CVE$"],
       "description": "SUSE CVE Database",
       "weight": 100,
       "data": {
