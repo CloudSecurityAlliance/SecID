@@ -11,7 +11,9 @@ sources:
     full_name: "Palo Alto Networks Security Advisory"
     urls:
       website: "https://security.paloaltonetworks.com/"
-      lookup: "https://security.paloaltonetworks.com/CVE-{id}"
+      lookup: "https://security.paloaltonetworks.com/{id}"
+      json: "https://security.paloaltonetworks.com/json/{id}"
+      csaf: "https://security.paloaltonetworks.com/csaf/{id}"
     id_pattern: "CVE-\\d{4}-\\d{4,}"
     examples:
       - "secid:advisory/paloaltonetworks.com/pan-sa#CVE-2024-3400"
@@ -70,6 +72,8 @@ Palo Alto indexes advisories by CVE ID.
 ```
 secid:advisory/paloaltonetworks.com/pan-sa#CVE-2024-3400
   -> https://security.paloaltonetworks.com/CVE-2024-3400
+  -> https://security.paloaltonetworks.com/json/CVE-2024-3400
+  -> https://security.paloaltonetworks.com/csaf/CVE-2024-3400
 ```
 
 ### Notes

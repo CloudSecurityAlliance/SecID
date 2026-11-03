@@ -41,6 +41,9 @@
           "weight": 100,
           "data": {
             "url": "https://www.cve.org/CVERecord?id={id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "note": "Linux kernel CVEs resolve to CVE.org as primary. NVD (nvd.nist.gov/vuln/detail/{id}) and lore.kernel.org provide additional context. No single kernel-specific advisory page exists.",
             "examples": [
               {"input": "CVE-2022-0847", "url": "https://www.cve.org/CVERecord?id=CVE-2022-0847", "note": "Dirty Pipe — arbitrary file overwrite, privilege escalation"},

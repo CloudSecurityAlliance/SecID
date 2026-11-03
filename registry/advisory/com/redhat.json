@@ -87,21 +87,47 @@
         "description": "Red Hat's own CVE analysis pages with Red Hat-specific CVSS scores, affected products, and mitigation guidance.",
         "notes": "Red Hat CVE pages have their own CVSS scores which may differ from NVD. Includes RHEL-specific mitigation and remediation guidance. Shows which Red Hat products are affected. Links to related errata (RHSA) that fix the CVE. CVE pages describe the vulnerability; errata (RHSA/RHBA/RHEA) are the actual fixes.\n\nMultiple representations: The same CVE data is available as an HTML page at access.redhat.com/security/cve/{id} and as JSON via the Hydra REST API. The web page is the primary resolution for humans; the API is for programmatic access. Note this is Red Hat's own CVE analysis — for the canonical CVE record, see secid:advisory/mitre.org/cve.",
         "urls": [
-          {"type": "website", "url": "https://access.redhat.com/security/"},
-          {"type": "api", "url": "https://access.redhat.com/hydra/rest/securitydata"},
-          {"type": "lookup", "url": "https://access.redhat.com/security/cve/{id}"}
+          {"type": "website", "url": "https://access.redhat.com/security/", "parsability": "scraped"},
+          {
+            "type": "api",
+            "url": "https://access.redhat.com/hydra/rest/securitydata",
+            "format": "json",
+            "parsability": "structured",
+            "auth": "none",
+            "notes": "Hydra REST API, per-CVE JSON lookup via /cve/{id}.json"
+          },
+          {"type": "lookup", "url": "https://access.redhat.com/security/cve/{id}", "parsability": "scraped"}
         ],
         "examples": ["CVE-2024-1234", "CVE-2023-44487"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "Standard CVE ID format",
+          "description": "Standard CVE ID format (Red Hat CVE web page)",
           "weight": 100,
           "data": {
             "url": "https://access.redhat.com/security/cve/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2023-44487", "url": "https://access.redhat.com/security/cve/CVE-2023-44487"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Red Hat CVE record via Hydra Security Data REST API (JSON)",
+          "weight": 50,
+          "data": {
+            "url": "https://access.redhat.com/hydra/rest/securitydata/cve/{id}.json",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "auth": "none",
+            "note": "Red Hat Security Data API JSON representation including Red Hat CVSS score, affected release packages, and fixing RHSA errata",
+            "examples": [
+              {"input": "CVE-2023-44487", "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2023-44487.json"}
             ]
           }
         }
@@ -129,13 +155,13 @@
           "patterns": ["^\\d+$"],
           "description": "Bugzilla bug ID (numeric)",
           "weight": 100,
-          "data": {"type": "primary", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}"}
+          "data": {"type": "primary", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}", "content_type": "text/html", "parsability": "scraped", "auth": "none"}
         },
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
           "description": "CVE alias — Bugzilla redirects to the associated bug",
           "weight": 50,
-          "data": {"type": "alias", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}"}
+          "data": {"type": "alias", "url": "https://bugzilla.redhat.com/show_bug.cgi?id={id}", "content_type": "text/html", "parsability": "scraped", "auth": "none"}
         }
       ]
     },

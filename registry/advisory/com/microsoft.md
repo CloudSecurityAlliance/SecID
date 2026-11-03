@@ -106,6 +106,7 @@ secid:advisory/microsoft.com/msrc#CVE-YYYY-NNNN
 ```
 secid:advisory/microsoft.com/msrc#CVE-2024-1234
   -> https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-1234
+  -> https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2024-1234
 ```
 
 ### Notes

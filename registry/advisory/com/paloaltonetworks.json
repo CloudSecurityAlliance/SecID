@@ -28,21 +28,77 @@
         "description": "Palo Alto Networks security advisories covering PAN-OS, GlobalProtect, Cortex, Prisma, and other Palo Alto products.",
         "notes": "Palo Alto indexes advisories by CVE ID rather than a proprietary ID format. The security portal allows direct lookup by CVE number. Advisory URLs use the CVE ID in the path: https://security.paloaltonetworks.com/CVE-YYYY-NNNN. Covers PAN-OS, GlobalProtect, Cortex, Prisma, and other products. High-profile vulnerabilities because firewalls are critical infrastructure. Palo Alto also publishes PAN-SA-* identifiers in some contexts.",
         "urls": [
-          {"type": "website", "url": "https://security.paloaltonetworks.com/"},
-          {"type": "lookup", "url": "https://security.paloaltonetworks.com/{id}"}
+          {"type": "website", "url": "https://security.paloaltonetworks.com/", "parsability": "scraped"},
+          {
+            "type": "api",
+            "url": "https://security.paloaltonetworks.com/json/{id}",
+            "format": "json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "auth": "none",
+            "notes": "CVE JSON 5.x record per advisory"
+          },
+          {
+            "type": "api",
+            "url": "https://security.paloaltonetworks.com/csaf/{id}",
+            "format": "json",
+            "parsability": "structured",
+            "schema": "secid:reference/oasis-open.org/csaf",
+            "auth": "none",
+            "notes": "CSAF 2.0/2.1 VEX JSON document per advisory"
+          },
+          {"type": "lookup", "url": "https://security.paloaltonetworks.com/{id}", "parsability": "scraped"}
         ],
         "examples": ["CVE-2024-3400", "CVE-2024-0012"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "CVE ID used as Palo Alto advisory identifier",
+          "description": "CVE ID used as Palo Alto advisory identifier (HTML page)",
           "weight": 100,
           "data": {
             "url": "https://security.paloaltonetworks.com/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2024-3400", "url": "https://security.paloaltonetworks.com/CVE-2024-3400", "note": "Critical PAN-OS command injection, actively exploited"},
               {"input": "CVE-2024-0012", "url": "https://security.paloaltonetworks.com/CVE-2024-0012", "note": "Authentication bypass in management interface"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Palo Alto advisory in CVE JSON 5.x format",
+          "weight": 50,
+          "data": {
+            "url": "https://security.paloaltonetworks.com/json/{id}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+            "auth": "none",
+            "note": "Palo Alto advisory published as a CVE JSON 5.x record",
+            "examples": [
+              {"input": "CVE-2024-3400", "url": "https://security.paloaltonetworks.com/json/CVE-2024-3400"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "Palo Alto advisory in CSAF VEX JSON format",
+          "weight": 45,
+          "data": {
+            "url": "https://security.paloaltonetworks.com/csaf/{id}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/oasis-open.org/csaf",
+            "auth": "none",
+            "note": "Palo Alto advisory published as a CSAF JSON document",
+            "examples": [
+              {"input": "CVE-2024-3400", "url": "https://security.paloaltonetworks.com/csaf/CVE-2024-3400"}
             ]
           }
         }

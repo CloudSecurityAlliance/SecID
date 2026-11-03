@@ -121,6 +121,7 @@ secid:advisory/ubuntu.com/cve-tracker#CVE-YYYY-NNNN
 ```
 secid:advisory/ubuntu.com/cve-tracker#CVE-2024-1234
   -> https://ubuntu.com/security/cves/CVE-2024-1234
+  -> https://ubuntu.com/security/cves/CVE-2024-1234.json
 ```
 
 ### Notes

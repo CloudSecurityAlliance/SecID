@@ -144,6 +144,7 @@ secid:advisory/redhat.com/cve#CVE-YYYY-NNNN
 ```
 secid:advisory/redhat.com/cve#CVE-2024-1234
   -> https://access.redhat.com/security/cve/CVE-2024-1234
+  -> https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2024-1234.json
 ```
 
 ### Notes

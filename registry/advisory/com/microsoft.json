@@ -28,21 +28,48 @@
         "description": "Microsoft's vulnerability database and security update guide, providing Microsoft's view of CVEs affecting their products.",
         "notes": "MSRC is the primary source for Microsoft security vulnerabilities. Subpath identifiers are standard CVE IDs. MSRC provides Microsoft-specific CVSS scores which may differ from NVD scores. Patch Tuesday releases monthly security updates. For security advisories (ADV-prefixed), see secid:advisory/microsoft.com/advisory. For KB articles documenting specific patches, see secid:advisory/microsoft.com/kb.",
         "urls": [
-          {"type": "website", "url": "https://msrc.microsoft.com"},
-          {"type": "api", "url": "https://api.msrc.microsoft.com/cvrf/v2.0"},
-          {"type": "lookup", "url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}"}
+          {"type": "website", "url": "https://msrc.microsoft.com", "parsability": "scraped"},
+          {"type": "api", "url": "https://api.msrc.microsoft.com/cvrf/v2.0", "parsability": "structured", "auth": "none"},
+          {
+            "type": "api",
+            "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/{id}",
+            "format": "json",
+            "parsability": "structured",
+            "auth": "none",
+            "notes": "MSRC Security Update Guide REST API v2.0 per-CVE JSON endpoint"
+          },
+          {"type": "lookup", "url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}", "parsability": "scraped"}
         ],
-        "examples": ["CVE-2024-1234", "CVE-2023-44487"]
+        "examples": ["CVE-2024-1234", "CVE-2024-21412", "CVE-2023-44487"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "Standard CVE ID format",
+          "description": "Standard CVE ID format (MSRC Security Update Guide web page)",
           "weight": 100,
           "data": {
             "url": "https://msrc.microsoft.com/update-guide/vulnerability/{id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2023-44487", "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-44487", "note": "HTTP/2 Rapid Reset — high-profile CVE affecting multiple vendors"}
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "MSRC Security Update Guide REST API v2.0 (JSON)",
+          "weight": 50,
+          "data": {
+            "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/{id}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "auth": "none",
+            "note": "MSRC SUG v2.0 JSON endpoint — returns structured vulnerability metadata directly without SPA JavaScript rendering",
+            "examples": [
+              {"input": "CVE-2024-21412", "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2024-21412"}
             ]
           }
         }

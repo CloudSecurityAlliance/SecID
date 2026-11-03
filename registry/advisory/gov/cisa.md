@@ -23,10 +23,12 @@ sources:
     urls:
       website: "https://github.com/cisagov/vulnrichment"
       bulk_data: "https://github.com/cisagov/vulnrichment"
-      lookup: "https://github.com/cisagov/vulnrichment/tree/develop/cvelistV5/{year}/{id}"
+      lookup: "https://github.com/cisagov/vulnrichment/blob/develop/{year}/{bucket}/{id}.json"
+      raw: "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/{year}/{bucket}/{id}.json"
     id_pattern: "CVE-\\d{4}-\\d{4,}"
     examples:
       - "secid:advisory/cisa.gov/vulnrichment#CVE-2024-1234"
+      - "secid:advisory/cisa.gov/vulnrichment#CVE-2026-0019"
 ---
 
 # CISA Advisory Sources
@@ -106,10 +108,11 @@ secid:advisory/cisa.gov/vulnrichment#CVE-YYYY-NNNNN
 ### Resolution
 
 ```
-https://github.com/cisagov/vulnrichment/tree/develop/cvelistV5/{year}/{id}
+https://github.com/cisagov/vulnrichment/blob/develop/{year}/{bucket}/{id}.json
+https://raw.githubusercontent.com/cisagov/vulnrichment/develop/{year}/{bucket}/{id}.json
 ```
 
-Where `{year}` is extracted from the CVE ID and `{id}` is the full CVE ID.
+Where `{year}` is the 4-digit year extracted from the CVE ID, `{bucket}` is all but the last 3 digits of the sequence number followed by `xxx` (e.g., `1xxx` from `CVE-2024-1234`, `0xxx` from `CVE-2026-0019`), and `{id}` is the full CVE ID.
 
 ### Why Vulnrichment Exists
 

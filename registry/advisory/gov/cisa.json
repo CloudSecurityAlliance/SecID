@@ -41,6 +41,9 @@
           "weight": 100,
           "data": {
             "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext={id}",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "examples": [
               {"input": "CVE-2021-44228", "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2021-44228", "note": "Log4Shell — one of the first CVEs added to KEV"}
             ]
@@ -57,24 +60,46 @@
         "common_name": "Vulnrichment",
         "alternate_names": null,
         "description": "CISA's CVE enrichment initiative providing additional context for CVE records including CWE mappings, CVSS scores, and CPE data to address NVD's enrichment backlog.",
-        "notes": "Vulnrichment provides faster enrichment than waiting for NVD processing. Enrichment data follows CVE JSON 5.0 format and is contributed back to the CVE ecosystem. The GitHub repository organizes enriched CVE records by year, with each CVE in its own directory under cvelistV5/{year}/{id}.\n\nThe lookup URL requires extracting the year from the CVE ID to construct the correct GitHub path.",
+        "notes": "Vulnrichment provides faster enrichment than waiting for NVD processing. Enrichment data follows CVE JSON 5.x format and is contributed back to the CVE ecosystem. The GitHub repository organizes enriched CVE records by year and bucket directories at the repository root ({year}/{bucket}/{id}.json), matching the cvelistV5 bucket convention.\n\nThe lookup URL requires extracting both the 4-digit year and the bucket prefix from the CVE ID to construct the correct GitHub path.",
         "urls": [
-          {"type": "website", "url": "https://github.com/cisagov/vulnrichment"},
-          {"type": "bulk_data", "url": "https://github.com/cisagov/vulnrichment"}
+          {
+            "type": "website",
+            "url": "https://github.com/cisagov/vulnrichment",
+            "parsability": "scraped"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://github.com/cisagov/vulnrichment",
+            "format": "json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "auth": "Public GitHub repo, no auth for clone/download. Use token for higher rate limits.",
+            "notes": "One CVE JSON 5.x file per CVE at {year}/{bucket}/{id}.json on the develop branch."
+          }
         ],
-        "examples": ["CVE-2024-1234"]
+        "examples": ["CVE-2024-1234", "CVE-2026-0019"]
       },
       "children": [
         {
           "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
-          "description": "CVE record in Vulnrichment repository",
+          "description": "CVE JSON record in Vulnrichment repository (GitHub web view)",
           "weight": 100,
           "data": {
-            "url": "https://github.com/cisagov/vulnrichment/tree/develop/cvelistV5/{year}/{id}",
+            "url": "https://github.com/cisagov/vulnrichment/blob/develop/{year}/{bucket}/{id}.json",
+            "format": "json",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
+            "note": "GitHub web page showing enriched CVE JSON 5.x record from cisagov/vulnrichment repository",
             "variables": {
               "year": {
                 "extract": "^CVE-(\\d{4})-\\d+$",
                 "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+              },
+              "bucket": {
+                "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
+                "format": "{1}xxx",
+                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
               },
               "id": {
                 "extract": "^(CVE-\\d{4}-\\d+)$",
@@ -84,8 +109,55 @@
             "examples": [
               {
                 "input": "CVE-2024-1234",
-                "variables": {"year": "2024", "id": "CVE-2024-1234"},
-                "url": "https://github.com/cisagov/vulnrichment/tree/develop/cvelistV5/2024/CVE-2024-1234"
+                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
+                "url": "https://github.com/cisagov/vulnrichment/blob/develop/2024/1xxx/CVE-2024-1234.json"
+              },
+              {
+                "input": "CVE-2026-0019",
+                "variables": {"year": "2026", "bucket": "0xxx", "id": "CVE-2026-0019"},
+                "url": "https://github.com/cisagov/vulnrichment/blob/develop/2026/0xxx/CVE-2026-0019.json"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": ["^CVE-\\d{4}-\\d{4,}$"],
+          "description": "CVE raw JSON from Vulnrichment repository on GitHub",
+          "weight": 50,
+          "data": {
+            "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/{year}/{bucket}/{id}.json",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/cve.org/cve-schema@5.2.0",
+            "parsing_instructions": "secid:reference/cloudsecurityalliance.org/secid-parsers#cve-json-5",
+            "auth": "No auth required. Standard GitHub rate limits (60/hr unauthenticated, 5000/hr with token).",
+            "note": "Raw enriched CVE JSON 5.x file — direct download, no HTML wrapper",
+            "variables": {
+              "year": {
+                "extract": "^CVE-(\\d{4})-\\d+$",
+                "description": "4-digit year (e.g., '2024' from 'CVE-2024-1234')"
+              },
+              "bucket": {
+                "extract": "^CVE-\\d{4}-(\\d+)\\d{3}$",
+                "format": "{1}xxx",
+                "description": "All but last 3 digits + 'xxx' (e.g., '1xxx' from 'CVE-2024-1234')"
+              },
+              "id": {
+                "extract": "^(CVE-\\d{4}-\\d+)$",
+                "description": "Full CVE ID"
+              }
+            },
+            "examples": [
+              {
+                "input": "CVE-2024-1234",
+                "variables": {"year": "2024", "bucket": "1xxx", "id": "CVE-2024-1234"},
+                "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/2024/1xxx/CVE-2024-1234.json"
+              },
+              {
+                "input": "CVE-2026-0019",
+                "variables": {"year": "2026", "bucket": "0xxx", "id": "CVE-2026-0019"},
+                "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/develop/2026/0xxx/CVE-2026-0019.json"
               }
             ]
           }
