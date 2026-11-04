@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "dict.gov.ph",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://nsc.gov.ph/",
             "examples": [
-              "national-security-policy"
+              {
+                "input": "national-security-policy#2023",
+                "url": "https://nsc.gov.ph/"
+              }
             ]
           }
         }
@@ -112,7 +115,10 @@
           "data": {
             "url": "https://dict.gov.ph/",
             "examples": [
-              "national-cybersecurity-plan"
+              {
+                "input": "national-cybersecurity-plan#2023",
+                "url": "https://dict.gov.ph/"
+              }
             ]
           }
         }
@@ -173,7 +179,10 @@
           "data": {
             "url": "https://www.dti.gov.ph/",
             "examples": [
-              "national-ai-strategy-roadmap"
+              {
+                "input": "national-ai-strategy-roadmap#2024",
+                "url": "https://www.dti.gov.ph/"
+              }
             ]
           }
         },
@@ -187,7 +196,10 @@
           "data": {
             "url": "https://www.dti.gov.ph/",
             "examples": [
-              "national-ai-strategy-roadmap"
+              {
+                "input": "national-ai-strategy-roadmap#2021",
+                "url": "https://www.dti.gov.ph/"
+              }
             ]
           }
         }

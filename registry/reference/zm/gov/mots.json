@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mots.gov.zm",
   "type": "reference",
   "status": "draft",
@@ -50,7 +50,10 @@
           "data": {
             "url": "https://www.mots.gov.zm/",
             "examples": [
-              "zambia-national-cyber-security-policy"
+              {
+                "input": "zambia-national-cyber-security-policy#2021",
+                "url": "https://www.mots.gov.zm/"
+              }
             ]
           }
         }
@@ -98,7 +101,10 @@
           "data": {
             "url": "https://www.mots.gov.zm/",
             "examples": [
-              "zambia-national-artificial-intelligence-strategy"
+              {
+                "input": "zambia-national-artificial-intelligence-strategy#2024",
+                "url": "https://www.mots.gov.zm/"
+              }
             ]
           }
         }

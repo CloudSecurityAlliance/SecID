@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "dgssi.gov.ma",
   "type": "reference",
   "status": "draft",
@@ -64,7 +64,10 @@
           "data": {
             "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2024",
+                "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite"
+              }
             ]
           }
         },
@@ -77,7 +80,10 @@
           "data": {
             "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2012",
+                "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite"
+              }
             ]
           }
         }
@@ -126,7 +132,10 @@
           "data": {
             "url": "https://www.mmsp.gov.ma/",
             "examples": [
-              "maroc-digital-2030"
+              {
+                "input": "maroc-digital-2030#2024",
+                "url": "https://www.mmsp.gov.ma/"
+              }
             ]
           }
         }

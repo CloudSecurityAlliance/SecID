@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "minict.gov.rw",
   "type": "reference",
   "status": "draft",
@@ -63,7 +63,10 @@
           "data": {
             "url": "https://www.ncsa.gov.rw/",
             "examples": [
-              "rwanda-national-cyber-security-strategic-plan"
+              {
+                "input": "rwanda-national-cyber-security-strategic-plan#2024",
+                "url": "https://www.ncsa.gov.rw/"
+              }
             ]
           }
         },
@@ -76,7 +79,10 @@
           "data": {
             "url": "https://www.ncsa.gov.rw/",
             "examples": [
-              "rwanda-national-cyber-security-strategic-plan"
+              {
+                "input": "rwanda-national-cyber-security-strategic-plan#2015",
+                "url": "https://www.ncsa.gov.rw/"
+              }
             ]
           }
         }
@@ -117,7 +123,10 @@
           "data": {
             "url": "https://www.minict.gov.rw/",
             "examples": [
-              "rwanda-national-artificial-intelligence-policy"
+              {
+                "input": "rwanda-national-artificial-intelligence-policy#2023",
+                "url": "https://www.minict.gov.rw/"
+              }
             ]
           }
         }

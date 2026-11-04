@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "defence.gov.au",
   "type": "reference",
   "status": "draft",
@@ -83,7 +83,10 @@
           "data": {
             "url": "https://www.defence.gov.au/about/strategic-planning/2024-national-defence-strategy-2024-integrated-investment-program",
             "examples": [
-              "national-defence-strategy"
+              {
+                "input": "national-defence-strategy#2024",
+                "url": "https://www.defence.gov.au/about/strategic-planning/2024-national-defence-strategy-2024-integrated-investment-program"
+              }
             ],
             "name": "2024 National Defence Strategy (NDS)"
           }
@@ -98,7 +101,10 @@
           "data": {
             "url": "https://www.defence.gov.au/about/reviews-inquiries/defence-strategic-review",
             "examples": [
-              "national-defence-strategy"
+              {
+                "input": "national-defence-strategy#2023",
+                "url": "https://www.defence.gov.au/about/reviews-inquiries/defence-strategic-review"
+              }
             ],
             "name": "2023 National Defence Strategic Review (DSR)"
           }
@@ -113,7 +119,10 @@
           "data": {
             "url": "https://www.defence.gov.au/about/strategic-planning/2020-defence-strategic-update",
             "examples": [
-              "national-defence-strategy"
+              {
+                "input": "national-defence-strategy#2020",
+                "url": "https://www.defence.gov.au/about/strategic-planning/2020-defence-strategic-update"
+              }
             ],
             "name": "2020 Defence Strategic Update"
           }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "ncsc.gov.ie",
   "type": "reference",
   "status": "draft",
@@ -24,7 +24,7 @@
       "description": "Irish National Cyber Security Strategy (2019–2024, Mid-Term Review 2023)",
       "weight": 100,
       "data": {
-        "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf",
+        "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/",
         "examples": [
           "national-cyber-security-strategy@2023"
         ],
@@ -34,7 +34,7 @@
             "version": "2023",
             "status": "current",
             "release_date": "2023-08-01",
-            "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf",
+            "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/",
             "aliases": [
               {
                 "label": "mid-term-review",
@@ -68,9 +68,12 @@
           "description": "Irish National Cyber Security Strategy (2019–2024, Mid-Term Review 2023) (2023)",
           "weight": 100,
           "data": {
-            "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf",
+            "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/",
             "examples": [
-              "national-cyber-security-strategy"
+              {
+                "input": "national-cyber-security-strategy#2023",
+                "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/"
+              }
             ]
           }
         },
@@ -84,7 +87,10 @@
           "data": {
             "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf",
             "examples": [
-              "national-cyber-security-strategy"
+              {
+                "input": "national-cyber-security-strategy#2019",
+                "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf"
+              }
             ]
           }
         }
@@ -108,7 +114,7 @@
           {
             "version": "2024",
             "status": "current",
-            "release_date": "2024-08-28",
+            "release_date": "2024-11-06",
             "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html",
             "aliases": [
               {
@@ -121,7 +127,7 @@
             "version": "2021",
             "status": "superseded",
             "release_date": "2021-07-01",
-            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html"
+            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html"
           }
         ],
         "subtype": [
@@ -139,7 +145,10 @@
           "data": {
             "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html",
             "examples": [
-              "ai-here-for-good"
+              {
+                "input": "ai-here-for-good#2024",
+                "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html"
+              }
             ]
           }
         },
@@ -150,9 +159,12 @@
           "description": "AI — Here for Good: National Artificial Intelligence Strategy for Ireland (2021)",
           "weight": 100,
           "data": {
-            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html",
+            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html",
             "examples": [
-              "ai-here-for-good"
+              {
+                "input": "ai-here-for-good#2021",
+                "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html"
+              }
             ]
           }
         }

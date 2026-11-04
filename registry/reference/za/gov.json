@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "gov.za",
   "type": "reference",
   "status": "draft",
@@ -50,7 +50,10 @@
           "data": {
             "url": "https://www.gov.za/documents/south-african-defence-review-2015-26-mar-2015-0000",
             "examples": [
-              "south-african-defence-review"
+              {
+                "input": "south-african-defence-review#2015",
+                "url": "https://www.gov.za/documents/south-african-defence-review-2015-26-mar-2015-0000"
+              }
             ]
           }
         }
@@ -92,7 +95,10 @@
           "data": {
             "url": "https://www.gov.za/documents/national-cybersecurity-policy-framework-4-dec-2015-0000",
             "examples": [
-              "national-cybersecurity-policy-framework"
+              {
+                "input": "national-cybersecurity-policy-framework#2015",
+                "url": "https://www.gov.za/documents/national-cybersecurity-policy-framework-4-dec-2015-0000"
+              }
             ]
           }
         }
@@ -133,7 +139,10 @@
           "data": {
             "url": "https://www.dcdt.gov.za/",
             "examples": [
-              "south-africa-national-ai-policy-framework"
+              {
+                "input": "south-africa-national-ai-policy-framework#2024",
+                "url": "https://www.dcdt.gov.za/"
+              }
             ]
           }
         }

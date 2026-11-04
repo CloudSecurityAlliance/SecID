@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "chinhphu.vn",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://mod.gov.vn/",
             "examples": [
-              "vietnam-national-defense-white-paper"
+              {
+                "input": "vietnam-national-defense-white-paper#2019",
+                "url": "https://mod.gov.vn/"
+              }
             ]
           }
         }
@@ -66,7 +69,7 @@
       "description": "National Cyber Security and Safety Strategy, Proactively Responding to Challenges from Cyberspace until 2025, Vision 2030 (Decision No. 964/QĐ-TTg)",
       "weight": 100,
       "data": {
-        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+        "url": "https://chinhphu.vn/?docid=206362&pageid=27160",
         "examples": [
           "national-cybersecurity-and-safety-strategy@2022"
         ],
@@ -76,7 +79,7 @@
             "version": "2022",
             "status": "current",
             "release_date": "2022-08-10",
-            "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+            "url": "https://chinhphu.vn/?docid=206362&pageid=27160",
             "aliases": [
               {
                 "label": "964-qd-ttg",
@@ -103,9 +106,12 @@
           "description": "National Cyber Security and Safety Strategy, Proactively Responding to Challenges from Cyberspace until 2025, Vision 2030 (Decision No. 964/QĐ-TTg) (2022)",
           "weight": 100,
           "data": {
-            "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+            "url": "https://chinhphu.vn/?docid=206362&pageid=27160",
             "examples": [
-              "national-cybersecurity-and-safety-strategy"
+              {
+                "input": "national-cybersecurity-and-safety-strategy#2022",
+                "url": "https://chinhphu.vn/?docid=206362&pageid=27160"
+              }
             ]
           }
         }
@@ -159,7 +165,10 @@
           "data": {
             "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565",
             "examples": [
-              "national-strategy-on-rd-and-application-of-ai"
+              {
+                "input": "national-strategy-on-rd-and-application-of-ai#2021",
+                "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565"
+              }
             ]
           }
         }

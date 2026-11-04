@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "gov.si",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://www.gov.si/en/topics/national-security/",
             "examples": [
-              "resolution-on-national-security-strategy-of-slovenia"
+              {
+                "input": "resolution-on-national-security-strategy-of-slovenia#2019",
+                "url": "https://www.gov.si/en/topics/national-security/"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.gov.si/en/topics/cyber-security/",
             "examples": [
-              "cyber-security-strategy-of-slovenia"
+              {
+                "input": "cyber-security-strategy-of-slovenia#2016",
+                "url": "https://www.gov.si/en/topics/cyber-security/"
+              }
             ]
           }
         }
@@ -149,7 +155,10 @@
           "data": {
             "url": "https://www.gov.si/en/topics/artificial-intelligence/",
             "examples": [
-              "national-programme-for-promoting-ai-in-slovenia"
+              {
+                "input": "national-programme-for-promoting-ai-in-slovenia#2021",
+                "url": "https://www.gov.si/en/topics/artificial-intelligence/"
+              }
             ]
           }
         }

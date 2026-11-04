@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "regjeringen.no",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://www.regjeringen.no/en/dokumenter/national-security-strategy/id3099015/",
             "examples": [
-              "national-security-strategy"
+              {
+                "input": "national-security-strategy#2025",
+                "url": "https://www.regjeringen.no/en/dokumenter/national-security-strategy/id3099015/"
+              }
             ]
           }
         }
@@ -93,7 +96,10 @@
           "data": {
             "url": "https://www.regjeringen.no/en/dokumenter/national-cyber-security-strategy-for-norway/id2627177/",
             "examples": [
-              "national-cyber-security-strategy"
+              {
+                "input": "national-cyber-security-strategy#2019",
+                "url": "https://www.regjeringen.no/en/dokumenter/national-cyber-security-strategy-for-norway/id2627177/"
+              }
             ]
           }
         }
@@ -135,7 +141,10 @@
           "data": {
             "url": "https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/",
             "examples": [
-              "national-strategy-for-artificial-intelligence"
+              {
+                "input": "national-strategy-for-artificial-intelligence#2020",
+                "url": "https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/"
+              }
             ]
           }
         }

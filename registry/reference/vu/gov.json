@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "gov.vu",
   "type": "reference",
   "status": "draft",
@@ -50,7 +50,10 @@
           "data": {
             "url": "https://gov.vu/",
             "examples": [
-              "vanuatu-national-security-strategy"
+              {
+                "input": "vanuatu-national-security-strategy#2019",
+                "url": "https://gov.vu/"
+              }
             ]
           }
         }
@@ -105,7 +108,10 @@
           "data": {
             "url": "https://www.ogcio.gov.vu/",
             "examples": [
-              "vanuatu-national-cybersecurity-strategy"
+              {
+                "input": "vanuatu-national-cybersecurity-strategy#2021",
+                "url": "https://www.ogcio.gov.vu/"
+              }
             ]
           }
         },
@@ -118,7 +124,10 @@
           "data": {
             "url": "https://www.ogcio.gov.vu/",
             "examples": [
-              "vanuatu-national-cybersecurity-strategy"
+              {
+                "input": "vanuatu-national-cybersecurity-strategy#2013",
+                "url": "https://www.ogcio.gov.vu/"
+              }
             ]
           }
         }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "nacsa.gov.my",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/",
             "examples": [
-              "dasar-keselamatan-negara"
+              {
+                "input": "dasar-keselamatan-negara#2021",
+                "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/"
+              }
             ]
           }
         }
@@ -119,7 +122,10 @@
           "data": {
             "url": "https://www.nacsa.gov.my/mcss.php",
             "examples": [
-              "malaysia-cyber-security-strategy"
+              {
+                "input": "malaysia-cyber-security-strategy#2025",
+                "url": "https://www.nacsa.gov.my/mcss.php"
+              }
             ]
           }
         },
@@ -133,7 +139,10 @@
           "data": {
             "url": "https://www.nacsa.gov.my/mcss.php",
             "examples": [
-              "malaysia-cyber-security-strategy"
+              {
+                "input": "malaysia-cyber-security-strategy#2020",
+                "url": "https://www.nacsa.gov.my/mcss.php"
+              }
             ]
           }
         }
@@ -194,7 +203,10 @@
           "data": {
             "url": "https://www.mosti.gov.my/",
             "examples": [
-              "malaysia-national-ai-roadmap"
+              {
+                "input": "malaysia-national-ai-roadmap#2025",
+                "url": "https://www.mosti.gov.my/"
+              }
             ]
           }
         },
@@ -208,7 +220,10 @@
           "data": {
             "url": "https://www.mosti.gov.my/",
             "examples": [
-              "malaysia-national-ai-roadmap"
+              {
+                "input": "malaysia-national-ai-roadmap#2021",
+                "url": "https://www.mosti.gov.my/"
+              }
             ]
           }
         }

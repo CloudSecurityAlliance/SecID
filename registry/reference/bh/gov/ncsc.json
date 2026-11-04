@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "ncsc.gov.bh",
   "type": "reference",
   "status": "draft",
@@ -56,7 +56,10 @@
           "data": {
             "url": "https://www.ncsc.gov.bh/",
             "examples": [
-              "bahrain-national-cybersecurity-strategy"
+              {
+                "input": "bahrain-national-cybersecurity-strategy#2023",
+                "url": "https://www.ncsc.gov.bh/"
+              }
             ]
           }
         },
@@ -69,7 +72,10 @@
           "data": {
             "url": "https://www.ncsc.gov.bh/",
             "examples": [
-              "bahrain-national-cybersecurity-strategy"
+              {
+                "input": "bahrain-national-cybersecurity-strategy#2017",
+                "url": "https://www.ncsc.gov.bh/"
+              }
             ]
           }
         }

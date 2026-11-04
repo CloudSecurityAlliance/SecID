@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "gov.pl",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html",
             "examples": [
-              "national-security-strategy-of-poland"
+              {
+                "input": "national-security-strategy-of-poland#2020",
+                "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024",
             "examples": [
-              "cybersecurity-strategy-of-poland"
+              {
+                "input": "cybersecurity-strategy-of-poland#2019",
+                "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024"
+              }
             ]
           }
         }
@@ -142,7 +148,10 @@
           "data": {
             "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020",
             "examples": [
-              "policy-for-ai-development-in-poland"
+              {
+                "input": "policy-for-ai-development-in-poland#2020",
+                "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020"
+              }
             ]
           }
         }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "moitt.gov.pk",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://nsd.gov.pk/",
             "examples": [
-              "national-security-policy-of-pakistan"
+              {
+                "input": "national-security-policy-of-pakistan#2022",
+                "url": "https://nsd.gov.pk/"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85",
             "examples": [
-              "national-cyber-security-policy"
+              {
+                "input": "national-cyber-security-policy#2021",
+                "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85"
+              }
             ]
           }
         }
@@ -142,7 +148,10 @@
           "data": {
             "url": "https://moitt.gov.pk/",
             "examples": [
-              "national-artificial-intelligence-policy"
+              {
+                "input": "national-artificial-intelligence-policy#2025",
+                "url": "https://moitt.gov.pk/"
+              }
             ]
           }
         }

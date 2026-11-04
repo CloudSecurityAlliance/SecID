@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mod.gov.lv",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept",
             "examples": [
-              "national-security-concept"
+              {
+                "input": "national-security-concept#2023",
+                "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija",
             "examples": [
-              "cybersecurity-strategy-of-latvia"
+              {
+                "input": "cybersecurity-strategy-of-latvia#2023",
+                "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija"
+              }
             ]
           }
         }
@@ -141,7 +147,10 @@
           "data": {
             "url": "https://www.varam.gov.lv/en",
             "examples": [
-              "informative-report-on-development-of-ai-solutions"
+              {
+                "input": "informative-report-on-development-of-ai-solutions#2020",
+                "url": "https://www.varam.gov.lv/en"
+              }
             ]
           }
         }

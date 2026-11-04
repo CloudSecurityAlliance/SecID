@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "citra.gov.kw",
   "type": "reference",
   "status": "draft",
@@ -57,7 +57,10 @@
           "data": {
             "url": "https://www.citra.gov.kw/",
             "examples": [
-              "kuwait-national-cybersecurity-strategy"
+              {
+                "input": "kuwait-national-cybersecurity-strategy#2017",
+                "url": "https://www.citra.gov.kw/"
+              }
             ]
           }
         }

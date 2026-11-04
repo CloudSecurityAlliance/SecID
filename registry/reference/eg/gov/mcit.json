@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mcit.gov.eg",
   "type": "reference",
   "status": "draft",
@@ -70,7 +70,10 @@
           "data": {
             "url": "https://egcert.eg/",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2023",
+                "url": "https://egcert.eg/"
+              }
             ]
           }
         },
@@ -84,7 +87,10 @@
           "data": {
             "url": "https://egcert.eg/",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2017",
+                "url": "https://egcert.eg/"
+              }
             ]
           }
         }
@@ -149,7 +155,10 @@
           "data": {
             "url": "https://ai.gov.eg/",
             "examples": [
-              "egypt-national-artificial-intelligence-strategy"
+              {
+                "input": "egypt-national-artificial-intelligence-strategy#2025",
+                "url": "https://ai.gov.eg/"
+              }
             ]
           }
         },
@@ -163,7 +172,10 @@
           "data": {
             "url": "https://ai.gov.eg/",
             "examples": [
-              "egypt-national-artificial-intelligence-strategy"
+              {
+                "input": "egypt-national-artificial-intelligence-strategy#2021",
+                "url": "https://ai.gov.eg/"
+              }
             ]
           }
         }

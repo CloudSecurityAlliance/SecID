@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "cfcs.dk",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023",
             "examples": [
-              "foreign-and-security-policy-strategy"
+              {
+                "input": "foreign-and-security-policy-strategy#2023",
+                "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/",
             "examples": [
-              "national-strategy-for-cyber-and-information-security"
+              {
+                "input": "national-strategy-for-cyber-and-information-security#2021",
+                "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/"
+              }
             ]
           }
         }
@@ -148,7 +154,10 @@
           "data": {
             "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/",
             "examples": [
-              "national-strategy-for-artificial-intelligence"
+              {
+                "input": "national-strategy-for-artificial-intelligence#2024",
+                "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+              }
             ]
           }
         },
@@ -161,7 +170,10 @@
           "data": {
             "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/",
             "examples": [
-              "national-strategy-for-artificial-intelligence"
+              {
+                "input": "national-strategy-for-artificial-intelligence#2019",
+                "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+              }
             ]
           }
         }

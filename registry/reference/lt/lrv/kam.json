@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "kam.lrv.lt",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/",
             "examples": [
-              "national-security-strategy"
+              {
+                "input": "national-security-strategy#2021",
+                "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.nksc.lt/en/about-us/strategy/",
             "examples": [
-              "national-cyber-security-strategy"
+              {
+                "input": "national-cyber-security-strategy#2018",
+                "url": "https://www.nksc.lt/en/about-us/strategy/"
+              }
             ]
           }
         }
@@ -142,7 +148,10 @@
           "data": {
             "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/",
             "examples": [
-              "lithuanian-artificial-intelligence-strategy"
+              {
+                "input": "lithuanian-artificial-intelligence-strategy#2019",
+                "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/"
+              }
             ]
           }
         }

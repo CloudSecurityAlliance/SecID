@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "aii.et",
   "type": "reference",
   "status": "draft",
@@ -50,7 +50,10 @@
           "data": {
             "url": "https://www.insa.gov.et/",
             "examples": [
-              "national-information-security-policy-of-ethiopia"
+              {
+                "input": "national-information-security-policy-of-ethiopia#2011",
+                "url": "https://www.insa.gov.et/"
+              }
             ]
           }
         }
@@ -91,7 +94,10 @@
           "data": {
             "url": "https://www.aii.et/",
             "examples": [
-              "ethiopia-national-artificial-intelligence-policy"
+              {
+                "input": "ethiopia-national-artificial-intelligence-policy#2024",
+                "url": "https://www.aii.et/"
+              }
             ]
           }
         }

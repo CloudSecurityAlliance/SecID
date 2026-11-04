@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "pravo.by",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://pravo.by/document/?guid=12551&p0=P924v0005",
             "examples": [
-              "national-security-concept-of-belarus"
+              {
+                "input": "national-security-concept-of-belarus#2024",
+                "url": "https://pravo.by/document/?guid=12551&p0=P924v0005"
+              }
             ]
           }
         }
@@ -93,7 +96,10 @@
           "data": {
             "url": "https://pravo.by/document/?guid=3871&p0=P219s0001",
             "examples": [
-              "concept-of-information-security-of-belarus"
+              {
+                "input": "concept-of-information-security-of-belarus#2019",
+                "url": "https://pravo.by/document/?guid=3871&p0=P219s0001"
+              }
             ]
           }
         }

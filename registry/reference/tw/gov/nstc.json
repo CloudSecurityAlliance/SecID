@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "nstc.gov.tw",
   "type": "reference",
   "status": "draft",
@@ -95,7 +95,10 @@
           "data": {
             "url": "https://www.nstc.gov.tw/",
             "examples": [
-              "taiwan-ai-action-plan"
+              {
+                "input": "taiwan-ai-action-plan#2025",
+                "url": "https://www.nstc.gov.tw/"
+              }
             ],
             "name": "AI New Ten Major Construction Initiatives (AI新十大建設)"
           }
@@ -111,7 +114,10 @@
           "data": {
             "url": "https://www.nstc.gov.tw/",
             "examples": [
-              "taiwan-ai-action-plan"
+              {
+                "input": "taiwan-ai-action-plan#2023",
+                "url": "https://www.nstc.gov.tw/"
+              }
             ],
             "name": "Taiwan AI Action Plan 2.0 (2023–2026)"
           }
@@ -127,7 +133,10 @@
           "data": {
             "url": "https://www.nstc.gov.tw/",
             "examples": [
-              "taiwan-ai-action-plan"
+              {
+                "input": "taiwan-ai-action-plan#2018",
+                "url": "https://www.nstc.gov.tw/"
+              }
             ],
             "name": "Taiwan AI Action Plan 1.0 (2018–2021)"
           }

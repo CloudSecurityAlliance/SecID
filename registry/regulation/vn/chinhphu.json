@@ -42,12 +42,27 @@
         "(?i)^digital\\-technology\\-industry\\-law$",
         "(?i)^luat\\-cong\\-nghiep\\-cong\\-nghe\\-so$"
       ],
-      "description": "Law on Digital Technology Industry (Luật Công nghiệp công nghệ số — Law No. 71/2025/QH15, Chapter IV on Artificial Intelligence)",
+      "description": "Law on Digital Technology Industry (Luật Công nghiệp công nghệ số — Law No. 71/2025/QH15; note: Chapter IV on Artificial Intelligence was repealed effective March 1, 2026 by Article 33 of Law No. 134/2025/QH15 on Artificial Intelligence)",
       "weight": 100,
       "data": {
         "url": "https://vanban.chinhphu.vn/",
         "examples": [
           "law-71-2025-qh15"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^law-134-2025-qh15$",
+        "(?i)^ai\\-law\\-vn$",
+        "(?i)^luat\\-tri\\-tue\\-nhan\\-tao$"
+      ],
+      "description": "Law on Artificial Intelligence (Luật Trí tuệ nhân tạo — Law No. 134/2025/QH15, enacted Dec 10, 2025, effective March 1, 2026; supersedes Chapter IV of Law No. 71/2025/QH15)",
+      "weight": 100,
+      "data": {
+        "url": "https://vanban.chinhphu.vn/",
+        "examples": [
+          "law-134-2025-qh15"
         ]
       }
     }

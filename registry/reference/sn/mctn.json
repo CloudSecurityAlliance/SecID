@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mctn.sn",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://www.numerique.gouv.sn/",
             "examples": [
-              "strategie-nationale-de-cybersecurite-du-senegal"
+              {
+                "input": "strategie-nationale-de-cybersecurite-du-senegal#2017",
+                "url": "https://www.numerique.gouv.sn/"
+              }
             ]
           }
         }
@@ -107,7 +110,10 @@
           "data": {
             "url": "https://www.numerique.gouv.sn/",
             "examples": [
-              "strategie-nationale-d-intelligence-artificielle-du-senegal"
+              {
+                "input": "strategie-nationale-d-intelligence-artificielle-du-senegal#2023",
+                "url": "https://www.numerique.gouv.sn/"
+              }
             ]
           }
         }

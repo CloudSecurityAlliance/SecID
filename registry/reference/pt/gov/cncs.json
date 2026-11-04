@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "cncs.gov.pt",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://www.defesa.gov.pt/pt/defesa/cedn",
             "examples": [
-              "strategic-concept-of-national-defence"
+              {
+                "input": "strategic-concept-of-national-defence#2013",
+                "url": "https://www.defesa.gov.pt/pt/defesa/cedn"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://www.cncs.gov.pt/pt/estrategia-nacional/",
             "examples": [
-              "national-cyberspace-security-strategy"
+              {
+                "input": "national-cyberspace-security-strategy#2019",
+                "url": "https://www.cncs.gov.pt/pt/estrategia-nacional/"
+              }
             ]
           }
         }
@@ -161,7 +167,10 @@
           "data": {
             "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
             "examples": [
-              "ai-portugal-2030"
+              {
+                "input": "ai-portugal-2030#2026",
+                "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial"
+              }
             ]
           }
         },
@@ -175,7 +184,10 @@
           "data": {
             "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
             "examples": [
-              "ai-portugal-2030"
+              {
+                "input": "ai-portugal-2030#2019",
+                "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial"
+              }
             ]
           }
         }

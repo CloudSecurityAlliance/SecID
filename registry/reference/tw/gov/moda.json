@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "moda.gov.tw",
   "type": "reference",
   "status": "draft",
@@ -79,7 +79,10 @@
           "data": {
             "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
             "examples": [
-              "national-cyber-security-program"
+              {
+                "input": "national-cyber-security-program#2025",
+                "url": "https://moda.gov.tw/en/ACS/laws/strategy/642"
+              }
             ],
             "name": "National Cyber Security Program of Taiwan (2025–2028) — Phase 7"
           }
@@ -95,7 +98,10 @@
           "data": {
             "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
             "examples": [
-              "national-cyber-security-program"
+              {
+                "input": "national-cyber-security-program#2021",
+                "url": "https://moda.gov.tw/en/ACS/laws/strategy/642"
+              }
             ],
             "name": "National Cyber Security Program of Taiwan (2021–2024) — Phase 6"
           }

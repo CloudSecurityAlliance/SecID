@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "modee.gov.jo",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://ncsc.jo/",
             "examples": [
-              "national-cyber-security-strategy"
+              {
+                "input": "national-cyber-security-strategy#2018",
+                "url": "https://ncsc.jo/"
+              }
             ]
           }
         }
@@ -106,7 +109,10 @@
           "data": {
             "url": "https://www.modee.gov.jo/",
             "examples": [
-              "jordanian-artificial-intelligence-strategy"
+              {
+                "input": "jordanian-artificial-intelligence-strategy#2022",
+                "url": "https://www.modee.gov.jo/"
+              }
             ]
           }
         }

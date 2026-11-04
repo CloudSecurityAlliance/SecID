@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mindigital.gov.gr",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://mindigital.gr/ethniki-stratigiki-kyvernoasfaleias/",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2020",
+                "url": "https://mindigital.gr/ethniki-stratigiki-kyvernoasfaleias/"
+              }
             ]
           }
         }
@@ -100,7 +103,10 @@
           "data": {
             "url": "https://ai.gov.gr/",
             "examples": [
-              "blueprint-for-greeces-ai-transformation"
+              {
+                "input": "blueprint-for-greeces-ai-transformation#2024",
+                "url": "https://ai.gov.gr/"
+              }
             ]
           }
         }

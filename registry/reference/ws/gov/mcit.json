@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mcit.gov.ws",
   "type": "reference",
   "status": "draft",
@@ -50,7 +50,10 @@
           "data": {
             "url": "https://www.mfat.gov.ws/",
             "examples": [
-              "samoa-national-security-policy"
+              {
+                "input": "samoa-national-security-policy#2018",
+                "url": "https://www.mfat.gov.ws/"
+              }
             ]
           }
         }
@@ -110,7 +113,10 @@
           "data": {
             "url": "https://mcit.gov.ws/",
             "examples": [
-              "samoa-national-cybersecurity-strategy"
+              {
+                "input": "samoa-national-cybersecurity-strategy#2024",
+                "url": "https://mcit.gov.ws/"
+              }
             ]
           }
         },
@@ -124,7 +130,10 @@
           "data": {
             "url": "https://mcit.gov.ws/",
             "examples": [
-              "samoa-national-cybersecurity-strategy"
+              {
+                "input": "samoa-national-cybersecurity-strategy#2016",
+                "url": "https://mcit.gov.ws/"
+              }
             ]
           }
         }

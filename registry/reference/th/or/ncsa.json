@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "ncsa.or.th",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://www.nsc.go.th/",
             "examples": [
-              "national-security-policy-and-plan"
+              {
+                "input": "national-security-policy-and-plan#2023",
+                "url": "https://www.nsc.go.th/"
+              }
             ]
           }
         }
@@ -107,7 +110,10 @@
           "data": {
             "url": "https://www.ncsa.or.th/",
             "examples": [
-              "national-cybersecurity-strategic-plan"
+              {
+                "input": "national-cybersecurity-strategic-plan#2022",
+                "url": "https://www.ncsa.or.th/"
+              }
             ]
           }
         }
@@ -156,7 +162,10 @@
           "data": {
             "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/",
             "examples": [
-              "thailand-national-ai-strategy-and-action-plan"
+              {
+                "input": "thailand-national-ai-strategy-and-action-plan#2022",
+                "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/"
+              }
             ]
           }
         }

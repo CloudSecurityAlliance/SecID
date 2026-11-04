@@ -222,7 +222,6 @@ Across `SecID#215`, `SecID#224`, and `SecID#227`, the SecID registry now contain
 | `meity.gov.in` | `registry/reference/in/gov/meity.json` | `secid:reference/meity.gov.in/national-cyber-security-policy` | National Cyber Security Policy (India, 2013) | `@2013` |
 | `meity.gov.in` | `registry/reference/in/gov/meity.json` | `secid:reference/meity.gov.in/national-ai-strategy` | India National Strategy for Artificial Intelligence (#AIforAll, 2018) and IndiaAI Mission (2024) | `@2024` |
 | `au.int` | `registry/reference/int/au.json` | `secid:reference/au.int/continental-artificial-intelligence-strategy` | African Union Continental Artificial Intelligence Strategy: Harnessing AI for Africa's Development and Prosperity | `@2024` |
-| `au.int` | `registry/reference/int/au.json` | `secid:reference/au.int/malabo-convention` | African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention) | `@2014` |
 | `itu.int` | `registry/reference/int/itu.json` | `secid:reference/itu.int/ncs-guide` | ITU Guide to Developing a National Cybersecurity Strategy | `@2025` |
 | `stjornarradid.is` | `registry/reference/is/stjornarradid.json` | `secid:reference/stjornarradid.is/national-security-policy` | Parliamentary Resolution on a National Security Policy for Iceland (Þjóðaröryggisstefna fyrir Ísland) | `@2023` |
 | `stjornarradid.is` | `registry/reference/is/stjornarradid.json` | `secid:reference/stjornarradid.is/icelandic-national-cybersecurity-strategy` | Icelandic National Cybersecurity Strategy (2022–2037) | `@2022` |
@@ -259,8 +258,8 @@ Across `SecID#215`, `SecID#224`, and `SecID#227`, the SecID registry now contain
 | `dgssi.gov.ma` | `registry/reference/ma/gov/dgssi.json` | `secid:reference/dgssi.gov.ma/maroc-digital-2030` | Maroc Digital 2030 (National Digital and AI Strategy of Morocco) | `@2024` |
 | `cscouncil.gov.mn` | `registry/reference/mn/gov/cscouncil.json` | `secid:reference/cscouncil.gov.mn/national-security-concept-of-mongolia` | National Security Concept of Mongolia (State Great Khural Resolution No. 48) | `@2010` |
 | `cscouncil.gov.mn` | `registry/reference/mn/gov/cscouncil.json` | `secid:reference/cscouncil.gov.mn/national-cybersecurity-strategy-of-mongolia` | National Cybersecurity Strategy of Mongolia (2022–2027) | `@2022` |
-| `treasury.govmu.org` | `registry/reference/mu/govmu/treasury.json` | `secid:reference/treasury.govmu.org/mauritius-national-cyber-security-strategy` | National Cyber Security Strategy of the Republic of Mauritius | `@2023` |
-| `treasury.govmu.org` | `registry/reference/mu/govmu/treasury.json` | `secid:reference/treasury.govmu.org/mauritius-artificial-intelligence-strategy` | Mauritius Artificial Intelligence Strategy | `@2018` |
+| `treasury.govmu.org` | `registry/reference/org/govmu/treasury.json` | `secid:reference/treasury.govmu.org/mauritius-national-cyber-security-strategy` | National Cyber Security Strategy of the Republic of Mauritius | `@2023` |
+| `treasury.govmu.org` | `registry/reference/org/govmu/treasury.json` | `secid:reference/treasury.govmu.org/mauritius-artificial-intelligence-strategy` | Mauritius Artificial Intelligence Strategy | `@2018` |
 | `gob.mx` | `registry/reference/mx/gob.json` | `secid:reference/gob.mx/estrategia-nacional-ciberseguridad` | Estrategia Nacional de Ciberseguridad (ENCS — Mexico) | `@2017` |
 | `gob.mx` | `registry/reference/mx/gob.json` | `secid:reference/gob.mx/programa-seguridad-nacional` | Programa para la Seguridad Nacional (National Security Program of Mexico) | `@2014-2018` |
 | `nacsa.gov.my` | `registry/reference/my/gov/nacsa.json` | `secid:reference/nacsa.gov.my/dasar-keselamatan-negara` | Malaysia National Security Policy (Dasar Keselamatan Negara 2021–2025) | `@2021` |

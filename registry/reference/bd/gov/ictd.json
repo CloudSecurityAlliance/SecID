@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "ictd.gov.bd",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://www.cirt.gov.bd/",
             "examples": [
-              "bangladesh-cybersecurity-strategy"
+              {
+                "input": "bangladesh-cybersecurity-strategy#2021",
+                "url": "https://www.cirt.gov.bd/"
+              }
             ]
           }
         }
@@ -99,7 +102,10 @@
           "data": {
             "url": "https://ictd.gov.bd/",
             "examples": [
-              "national-strategy-for-artificial-intelligence-bangladesh"
+              {
+                "input": "national-strategy-for-artificial-intelligence-bangladesh#2020",
+                "url": "https://ictd.gov.bd/"
+              }
             ]
           }
         }

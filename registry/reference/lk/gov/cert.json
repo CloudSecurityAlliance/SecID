@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "cert.gov.lk",
   "type": "reference",
   "status": "draft",
@@ -70,7 +70,10 @@
           "data": {
             "url": "https://www.cert.gov.lk/",
             "examples": [
-              "national-information-and-cyber-security-strategy"
+              {
+                "input": "national-information-and-cyber-security-strategy#2025",
+                "url": "https://www.cert.gov.lk/"
+              }
             ]
           }
         },
@@ -84,7 +87,10 @@
           "data": {
             "url": "https://www.cert.gov.lk/",
             "examples": [
-              "national-information-and-cyber-security-strategy"
+              {
+                "input": "national-information-and-cyber-security-strategy#2019",
+                "url": "https://www.cert.gov.lk/"
+              }
             ]
           }
         }
@@ -132,7 +138,10 @@
           "data": {
             "url": "https://mot.gov.lk/",
             "examples": [
-              "sri-lanka-national-ai-strategy"
+              {
+                "input": "sri-lanka-national-ai-strategy#2024",
+                "url": "https://mot.gov.lk/"
+              }
             ]
           }
         }

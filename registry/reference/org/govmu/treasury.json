@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "treasury.govmu.org",
   "type": "reference",
   "status": "draft",
@@ -69,7 +69,10 @@
           "data": {
             "url": "https://cert-mu.govmu.org/",
             "examples": [
-              "mauritius-national-cyber-security-strategy"
+              {
+                "input": "mauritius-national-cyber-security-strategy#2023",
+                "url": "https://cert-mu.govmu.org/"
+              }
             ]
           }
         },
@@ -83,7 +86,10 @@
           "data": {
             "url": "https://cert-mu.govmu.org/",
             "examples": [
-              "mauritius-national-cyber-security-strategy"
+              {
+                "input": "mauritius-national-cyber-security-strategy#2014",
+                "url": "https://cert-mu.govmu.org/"
+              }
             ]
           }
         }
@@ -124,7 +130,10 @@
           "data": {
             "url": "https://mitci.govmu.org/",
             "examples": [
-              "mauritius-artificial-intelligence-strategy"
+              {
+                "input": "mauritius-artificial-intelligence-strategy#2018",
+                "url": "https://mitci.govmu.org/"
+              }
             ]
           }
         }

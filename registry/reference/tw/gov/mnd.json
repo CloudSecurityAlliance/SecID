@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "mnd.gov.tw",
   "type": "reference",
   "status": "draft",
@@ -19,13 +19,12 @@
       "patterns": [
         "^national-defense-report$",
         "(?i)^ndr\\-tw$",
-        "(?i)^qdr\\-tw$",
-        "(?i)^quadrennial\\-defense\\-review$"
+        "(?i)^roc\\-ndr$"
       ],
-      "description": "Republic of China National Defense Report & Quadrennial Defense Review (中華民國國防報告書 / 四年期國防總檢討)",
+      "description": "Republic of China National Defense Report (中華民國國防報告書)",
       "weight": 100,
       "data": {
-        "url": "https://www.mnd.gov.tw/",
+        "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
         "examples": [
           "national-defense-report@2025"
         ],
@@ -34,15 +33,11 @@
           {
             "version": "2025",
             "status": "current",
-            "release_date": "2025-09-01",
-            "url": "https://www.mnd.gov.tw/",
+            "release_date": "2025-10-09",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "aliases": [
               {
                 "label": "2025-ndr",
-                "on_match": "resolve"
-              },
-              {
-                "label": "2025-qdr",
                 "on_match": "resolve"
               }
             ]
@@ -51,7 +46,7 @@
             "version": "2023",
             "status": "superseded",
             "release_date": "2023-09-12",
-            "url": "https://www.mnd.gov.tw/",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "aliases": [
               {
                 "label": "2023-ndr",
@@ -68,17 +63,18 @@
         {
           "patterns": [
             "^2025$",
-            "(?i)^2025\\-ndr$",
-            "(?i)^2025\\-qdr$"
+            "(?i)^2025\\-ndr$"
           ],
-          "description": "Republic of China National Defense Report & Quadrennial Defense Review (中華民國國防報告書 / 四年期國防總檢討) (2025)",
+          "description": "2025 Republic of China National Defense Report (中華民國114年國防報告書)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "examples": [
-              "national-defense-report"
-            ],
-            "name": "2025 Republic of China National Defense Report & Quadrennial Defense Review"
+              {
+                "input": "national-defense-report#2025",
+                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+              }
+            ]
           }
         },
         {
@@ -86,14 +82,97 @@
             "^2023$",
             "(?i)^2023\\-ndr$"
           ],
-          "description": "Republic of China National Defense Report & Quadrennial Defense Review (中華民國國防報告書 / 四年期國防總檢討) (2023)",
+          "description": "2023 Republic of China National Defense Report (中華民國112年國防報告書)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "examples": [
-              "national-defense-report"
-            ],
-            "name": "2023 Republic of China National Defense Report"
+              {
+                "input": "national-defense-report#2023",
+                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^quadrennial-defense-review$",
+        "(?i)^qdr\\-tw$",
+        "(?i)^roc\\-qdr$"
+      ],
+      "description": "Republic of China Quadrennial Defense Review (四年期國防總檢討)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
+        "examples": [
+          "quadrennial-defense-review@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-03-21",
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
+            "aliases": [
+              {
+                "label": "2025-qdr",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-03-18",
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
+            "aliases": [
+              {
+                "label": "2021-qdr",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-qdr$"
+          ],
+          "description": "2025 Republic of China Quadrennial Defense Review (中華民國114年四年期國防總檢討)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
+            "examples": [
+              {
+                "input": "quadrennial-defense-review#2025",
+                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-qdr$"
+          ],
+          "description": "2021 Republic of China Quadrennial Defense Review (中華民國110年四年期國防總檢討)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
+            "examples": [
+              {
+                "input": "quadrennial-defense-review#2021",
+                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+              }
+            ]
           }
         }
       ]

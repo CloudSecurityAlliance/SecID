@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "digital.gov.fj",
   "type": "reference",
   "status": "draft",
@@ -56,7 +56,10 @@
           "data": {
             "url": "https://www.digital.gov.fj/",
             "examples": [
-              "fiji-national-cybersecurity-strategy"
+              {
+                "input": "fiji-national-cybersecurity-strategy#2025",
+                "url": "https://www.digital.gov.fj/"
+              }
             ]
           }
         },
@@ -69,7 +72,10 @@
           "data": {
             "url": "https://www.digital.gov.fj/",
             "examples": [
-              "fiji-national-cybersecurity-strategy"
+              {
+                "input": "fiji-national-cybersecurity-strategy#2015",
+                "url": "https://www.digital.gov.fj/"
+              }
             ]
           }
         }

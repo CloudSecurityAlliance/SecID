@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "hcpn.gouvernement.lu",
   "type": "reference",
   "status": "draft",
@@ -63,7 +63,10 @@
           "data": {
             "url": "https://hcpn.gouvernement.lu/en/publications/strategie-nationale-cybersecurite-4.html",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2021",
+                "url": "https://hcpn.gouvernement.lu/en/publications/strategie-nationale-cybersecurite-4.html"
+              }
             ]
           }
         }
@@ -118,7 +121,10 @@
           "data": {
             "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
             "examples": [
-              "artificial-intelligence-a-strategic-vision-for-luxembourg"
+              {
+                "input": "artificial-intelligence-a-strategic-vision-for-luxembourg#2025",
+                "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg"
+              }
             ]
           }
         },
@@ -131,7 +137,10 @@
           "data": {
             "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
             "examples": [
-              "artificial-intelligence-a-strategic-vision-for-luxembourg"
+              {
+                "input": "artificial-intelligence-a-strategic-vision-for-luxembourg#2019",
+                "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg"
+              }
             ]
           }
         }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "bssn.go.id",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://peraturan.bpk.go.id/Details/258089/perpres-no-47-tahun-2023",
             "examples": [
-              "strategi-keamanan-siber-nasional"
+              {
+                "input": "strategi-keamanan-siber-nasional#2023",
+                "url": "https://peraturan.bpk.go.id/Details/258089/perpres-no-47-tahun-2023"
+              }
             ]
           }
         }
@@ -107,7 +110,10 @@
           "data": {
             "url": "https://ai-innovation.id/",
             "examples": [
-              "strategi-nasional-kecerdasan-artifisial"
+              {
+                "input": "strategi-nasional-kecerdasan-artifisial#2020",
+                "url": "https://ai-innovation.id/"
+              }
             ]
           }
         }
@@ -149,7 +155,10 @@
           "data": {
             "url": "https://www.kemhan.go.id/",
             "examples": [
-              "buku-putih-pertahanan-indonesia"
+              {
+                "input": "buku-putih-pertahanan-indonesia#2015",
+                "url": "https://www.kemhan.go.id/"
+              }
             ]
           }
         }

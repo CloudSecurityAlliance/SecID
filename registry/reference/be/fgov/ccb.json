@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "ccb.fgov.be",
   "type": "reference",
   "status": "draft",
@@ -58,7 +58,10 @@
           "data": {
             "url": "https://premier.be/fr/strategie-nationale-de-securite",
             "examples": [
-              "national-security-strategy"
+              {
+                "input": "national-security-strategy#2022",
+                "url": "https://premier.be/fr/strategie-nationale-de-securite"
+              }
             ]
           }
         }
@@ -112,7 +115,10 @@
           "data": {
             "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0",
             "examples": [
-              "cyber-security-strategy-belgium"
+              {
+                "input": "cyber-security-strategy-belgium#2021",
+                "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0"
+              }
             ]
           }
         }
@@ -154,7 +160,10 @@
           "data": {
             "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence",
             "examples": [
-              "ai4belgium"
+              {
+                "input": "ai4belgium#2022",
+                "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence"
+              }
             ]
           }
         }

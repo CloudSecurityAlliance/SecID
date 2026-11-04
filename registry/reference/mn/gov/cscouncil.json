@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "cscouncil.gov.mn",
   "type": "reference",
   "status": "draft",
@@ -51,7 +51,10 @@
           "data": {
             "url": "https://legalinfo.mn/mn/detail/6169",
             "examples": [
-              "national-security-concept-of-mongolia"
+              {
+                "input": "national-security-concept-of-mongolia#2010",
+                "url": "https://legalinfo.mn/mn/detail/6169"
+              }
             ]
           }
         }
@@ -99,7 +102,10 @@
           "data": {
             "url": "https://cscouncil.gov.mn/",
             "examples": [
-              "national-cybersecurity-strategy-of-mongolia"
+              {
+                "input": "national-cybersecurity-strategy-of-mongolia#2022",
+                "url": "https://cscouncil.gov.mn/"
+              }
             ]
           }
         }

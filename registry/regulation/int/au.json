@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "namespace": "au.int",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-11-03).",
+  "official_name": "African Union (AU)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://au.int/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^malabo-convention$",
+        "(?i)^au\\-convention\\-cyber\\-security\\-personal\\-data\\-protection$"
+      ],
+      "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention, adopted June 27, 2014, entered into force June 8, 2023)",
+      "weight": 100,
+      "data": {
+        "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
+        "examples": [
+          "malabo-convention"
+        ]
+      }
+    }
+  ]
+}

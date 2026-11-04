@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "au.int",
   "type": "reference",
   "status": "draft",
@@ -50,48 +50,10 @@
           "data": {
             "url": "https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy",
             "examples": [
-              "continental-artificial-intelligence-strategy"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "patterns": [
-        "^malabo-convention$",
-        "(?i)^au\\-convention\\-cyber\\-security\\-personal\\-data\\-protection$"
-      ],
-      "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention)",
-      "weight": 100,
-      "data": {
-        "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
-        "examples": [
-          "malabo-convention@2014"
-        ],
-        "version_required": false,
-        "versions_available": [
-          {
-            "version": "2014",
-            "status": "current",
-            "release_date": "2014-06-27",
-            "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection"
-          }
-        ],
-        "subtype": [
-          "strategy"
-        ]
-      },
-      "children": [
-        {
-          "patterns": [
-            "^2014$"
-          ],
-          "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention) (2014)",
-          "weight": 100,
-          "data": {
-            "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
-            "examples": [
-              "malabo-convention"
+              {
+                "input": "continental-artificial-intelligence-strategy#2024",
+                "url": "https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy"
+              }
             ]
           }
         }

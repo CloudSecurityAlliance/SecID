@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "bka.gv.at",
   "type": "reference",
   "status": "draft",
@@ -57,7 +57,10 @@
           "data": {
             "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html",
             "examples": [
-              "oesterreichische-sicherheitsstrategie"
+              {
+                "input": "oesterreichische-sicherheitsstrategie#2024",
+                "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+              }
             ]
           }
         },
@@ -70,7 +73,10 @@
           "data": {
             "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html",
             "examples": [
-              "oesterreichische-sicherheitsstrategie"
+              {
+                "input": "oesterreichische-sicherheitsstrategie#2013",
+                "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+              }
             ]
           }
         }
@@ -112,7 +118,10 @@
           "data": {
             "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html",
             "examples": [
-              "oesterreichische-strategie-fuer-cybersicherheit"
+              {
+                "input": "oesterreichische-strategie-fuer-cybersicherheit#2021",
+                "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html"
+              }
             ]
           }
         }
@@ -154,7 +163,10 @@
           "data": {
             "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html",
             "examples": [
-              "aim-at-2030"
+              {
+                "input": "aim-at-2030#2021",
+                "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html"
+              }
             ]
           }
         }

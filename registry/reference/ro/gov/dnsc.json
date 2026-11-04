@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "1.0",
   "namespace": "dnsc.gov.ro",
   "type": "reference",
   "status": "draft",
@@ -70,7 +70,10 @@
           "data": {
             "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
             "examples": [
-              "national-defence-strategy"
+              {
+                "input": "national-defence-strategy#2025",
+                "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024"
+              }
             ]
           }
         },
@@ -84,7 +87,10 @@
           "data": {
             "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
             "examples": [
-              "national-defence-strategy"
+              {
+                "input": "national-defence-strategy#2020",
+                "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024"
+              }
             ]
           }
         }
@@ -133,7 +139,10 @@
           "data": {
             "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei",
             "examples": [
-              "national-cybersecurity-strategy"
+              {
+                "input": "national-cybersecurity-strategy#2021",
+                "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei"
+              }
             ]
           }
         }
@@ -182,7 +191,10 @@
           "data": {
             "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027",
             "examples": [
-              "national-strategy-in-the-field-of-ai"
+              {
+                "input": "national-strategy-in-the-field-of-ai#2024",
+                "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027"
+              }
             ]
           }
         }
