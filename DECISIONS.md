@@ -463,4 +463,25 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Relying solely on `SecID-Service`'s post-merge `Upload registry to KV` test gate** — catches the mismatch only after a PR has already merged to `SecID` `main`, halting the KV sync rather than blocking the offending PR before merge.
 - **Validating `ExampleObject.input` with static JSON Schema pattern rules** — JSON Schema cannot cross-reference a sibling `patterns[]` array dynamically at runtime.
 
+**Second amendment (2026-11-04): Regulation status snapshot semantics ([#228](https://github.com/CloudSecurityAlliance/SecID/issues/228)) and UK/EU statutory subpath patterns ([#133](https://github.com/CloudSecurityAlliance/SecID/issues/133), [#228](https://github.com/CloudSecurityAlliance/SecID/issues/228)).**
+**Decision method:** AI decision (Gemini), reviewed by Codex (closing [#133](https://github.com/CloudSecurityAlliance/SecID/issues/133), [#219](https://github.com/CloudSecurityAlliance/SecID/issues/219), and [#228](https://github.com/CloudSecurityAlliance/SecID/issues/228)).
+
+*Context:*
+1. On 2026-11-03, `secid:regulation/parl.ca/bill-c-34` (45th Parliament, 1st Session *Safe Social Media Act*) was added with `Status: Proposed (First Reading June 10, 2026 ...; verified as of 2026-11-03)`, synthesized from secondary summaries rather than the live LEGISinfo JSON endpoint (`https://www.parl.ca/legisinfo/en/bill/45-1/c-34/json`), which showed the bill had already passed second reading on `2026-10-29` and been referred to the Standing Committee on Canadian Heritage (`CHPC`). In addition, Canada resets bill numbers every parliamentary session (44th Parliament Bill C-34 was the *National Security Review of Investments Modernization Act*, S.C. 2024, c. 4).
+2. UK 2026 statutes (`gov.uk/crime-and-policing-act-2026`, `gov.uk/childrens-wellbeing-and-schools-act-2026`, and `gov.uk/osa`) lacked child `match_nodes` for section-level resolution (`#s-248`, `#s-70`, `#s-1`), and EU regulations/directives (`europa.eu/ai-act`, `gdpr`, `nis2`, `dora`) only accepted top-level article integers (`^art-\d+$`) and bare Roman-numeral annexes (`^annex-[IVX]+$`), failing to resolve paragraph/point citations (`#art-32.1.a`, `#art-17.1.a`, `#annex-IV.2.f`) or recitals/chapters (`#recital-81`, `#chapter-2`).
+
+*Decision:*
+1. **Three rules for regulation status snapshots (`scripts/check-regulation-status.py`):**
+   - `Status: <Proposed | Enacted | In force | Died on the Order Paper> (...; verified as of YYYY-MM-DD)` in `data.notes` is a **dated snapshot** for finding and sorting. Every `Status:` note in `registry/regulation/` is validated in CI by `scripts/check-regulation-status.py` to require a valid ISO `verified as of YYYY-MM-DD` date and status category.
+   - **The snapshot is never a substitute for the live primary source:** any agent, paper, or tool stating a bill's or statute's current legal state must re-check the live primary source URL (such as Parliament of Canada's LEGISinfo `/json` endpoint) before citing it, and update the snapshot via PR if it has moved.
+   - **Terminal states are not exempt from re-verification:** `Proposed` snapshots have a 90-day re-verification threshold and terminal snapshots (`Enacted`, `In force`, `Died on the Order Paper`) have a 180-day threshold in `scripts/check-regulation-status.py`, because bills get reintroduced across sessions and enacted statutes commence in phases or get amended/enjoined.
+   - Where a legislature reuses bill numbers across parliamentary sessions (such as `parl.ca`), `data.notes` records the session number and cross-references notable prior-session homonyms.
+2. **Statutory and regulatory subpath patterns:**
+   - UK Acts in `registry/regulation/uk/gov.json` (`osa`, `crime-and-policing-act-2026`, `childrens-wellbeing-and-schools-act-2026`) expose `^s-\d+[A-Z]?$` child nodes resolving to `https://www.legislation.gov.uk/ukpga/<year>/<chapter>/section/{num}` (with legislative history such as Commons amendment `NC120` recorded in `notes`).
+   - EU acts in `registry/regulation/eu/europa.json` (`gdpr`, `ai-act`, `nis2`, `dora`) expose `^art-\d+(\.\d+)*(\.[a-z])*$` (articles, paragraphs, and lettered points), `^annex-[IVX]+(\.\d+)*(\.[a-z])*$` (annexes and annex subsections), and `^(chapter|recital)-\d+$` (chapters and recitals).
+
+*Rejected alternatives:*
+- **Removing status notes from `registry/regulation/` entirely** — removes context that helps practitioners distinguish an active bill from an enacted statute during discovery.
+- **Exempting `Enacted`, `In force`, or `Died on the Order Paper` from re-verification** — misses phased commencement, judicial stays, repealing acts, and reintroduction of dead bills in subsequent legislative sessions.
+
 ---

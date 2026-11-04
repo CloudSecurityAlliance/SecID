@@ -62,7 +62,7 @@
           {"type": "website", "url": "https://bugzilla.mozilla.org"},
           {"type": "lookup", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id={id}"}
         ],
-        "examples": ["1234567", "1876543"]
+        "examples": ["1864587", "1867152"]
       },
       "children": [
         {
@@ -72,8 +72,8 @@
           "data": {
             "url": "https://bugzilla.mozilla.org/show_bug.cgi?id={id}",
             "examples": [
-              {"input": "1234567", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1234567"},
-              {"input": "1876543", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1876543"}
+              {"input": "1864587", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1864587", "note": "Mozilla Bugzilla security bug referenced in MFSA 2024-01"},
+              {"input": "1867152", "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1867152", "note": "Mozilla Bugzilla security bug referenced in MFSA 2024-01"}
             ]
           }
         }

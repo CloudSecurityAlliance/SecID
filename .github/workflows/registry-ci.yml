@@ -100,6 +100,12 @@ jobs:
         run: python3 scripts/check-examples.py --self-test
       - name: Validate child examples against patterns and URL templates
         run: python3 scripts/check-examples.py
+      # Every regulation Status: snapshot in data.notes must carry an explicit
+      # 'verified as of YYYY-MM-DD' date and valid status category (#228).
+      - name: Self-test the regulation status snapshot check
+        run: python3 scripts/check-regulation-status.py --self-test
+      - name: Validate dated regulation Status snapshots
+        run: python3 scripts/check-regulation-status.py
 
   validate-subtypes:
     name: validate-subtypes
