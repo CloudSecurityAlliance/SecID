@@ -33,6 +33,9 @@ Binding rules, per source:
   9. every declared alias label appears as a pattern on its version node
  10. a source that declares aliases must have version-level tree nodes at all,
      since an alias with no node is documentation that never resolves
+ 11. every secondary pattern (patterns[1:]) on a version node must be a clean
+     literal and declared in that version's versions_available[].aliases (reverse
+     binding of Rule 9, so tree-level aliases never drift from metadata)
 
 Rule 5 is the one that catches real mistakes: CSA's published CCM labels
 are 4.0 and 4.1; the artifact served as v4.0 is internally stamped 4.0.13,
@@ -258,16 +261,35 @@ def check_tree_binding(source_node: dict, source_label: str) -> list[str]:
                 )
 
             # Rule 9: every declared alias must actually match on this node.
+            declared_alias_labels: set[str] = set()
             for alias in entry.get("aliases") or []:
                 if not isinstance(alias, dict):
                     continue
                 label = alias.get("label")
                 if not isinstance(label, str):
                     continue
+                declared_alias_labels.add(label)
                 if not any(_pattern_matches(p, label) for p in patterns):
                     errors.append(
                         f"{source_label}: alias {label!r} on version {version!r} is not a "
                         f"pattern on that version node — it would never match"
+                    )
+
+            # Rule 11: reverse binding — every secondary pattern (patterns[1:])
+            # on a version node must be a clean literal and declared in aliases.
+            for extra_pat in patterns[1:]:
+                extra_lit = pattern_literal(extra_pat)
+                if extra_lit is None:
+                    errors.append(
+                        f"{source_label}: version node for {version!r} has non-literal "
+                        f"secondary pattern {extra_pat!r} — write a clean literal pattern "
+                        f"and declare it in versions_available[].aliases"
+                    )
+                elif extra_lit not in declared_alias_labels:
+                    errors.append(
+                        f"{source_label}: secondary pattern {extra_pat!r} (literal "
+                        f"{extra_lit!r}) on version node for {version!r} is not declared "
+                        f"in versions_available[].aliases"
                     )
 
     # Rule 8, reverse direction: a version-shaped child bound to no declared version.

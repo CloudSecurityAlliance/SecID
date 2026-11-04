@@ -94,6 +94,12 @@ jobs:
       # and every alias must point at a declared canonical version.
       - name: Validate version aliases
         run: python3 scripts/validate-version-aliases.py
+      # Every child/grandchild example must match its node's patterns and
+      # resolve to its declared example.url via data.url / data.lookup_table.
+      - name: Self-test the child example check
+        run: python3 scripts/check-examples.py --self-test
+      - name: Validate child examples against patterns and URL templates
+        run: python3 scripts/check-examples.py
 
   validate-subtypes:
     name: validate-subtypes

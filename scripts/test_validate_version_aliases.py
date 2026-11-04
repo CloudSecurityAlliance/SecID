@@ -214,6 +214,26 @@ def test_binding_rejects_alias_missing_from_secondary_version_child():
     assert any("1.7" in e and "not a pattern" in e for e in errs), errs
 
 
+def test_binding_rejects_undeclared_secondary_pattern_on_version_node():
+    # Rule 11: secondary patterns on a version node must be declared in aliases.
+    node = _source(
+        [{"version": "2031"}],
+        [{"patterns": ["^2031$", "^2019$"]}],
+    )
+    errs = check_tree_binding(node, "uae-ai-strategy")
+    assert any("2019" in e and "not declared in versions_available[].aliases" in e for e in errs), errs
+
+
+def test_binding_rejects_non_literal_secondary_pattern_on_version_node():
+    # Rule 11: secondary patterns on a version node must be clean literals, not regexes.
+    node = _source(
+        [{"version": "1.1.0", "aliases": [{"label": "1.1", "on_match": "resolve"}]}],
+        [{"patterns": ["^1\\.1\\.0$", "^1\\.1(\\.0)?$"]}],
+    )
+    errs = check_tree_binding(node, "aicm")
+    assert any("non-literal secondary pattern" in e for e in errs), errs
+
+
 def test_check_source_combines_both_layers():
     node = _source([{"version": "1.1.0", "aliases": [{"label": "1.1"}]}],
                    [{"patterns": ["^1\\.1\\.0$"]}])
