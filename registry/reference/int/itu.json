@@ -3,15 +3,20 @@
   "namespace": "itu.int",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#224 (added Guide to Developing a National Cybersecurity Strategy 2021/2018).",
   "official_name": "International Telecommunication Union",
   "common_name": "ITU",
   "alternate_names": [
-    "ITU-T"
+    "ITU-T",
+    "ITU-D"
   ],
-  "notes": "United Nations specialized agency for ICT, three sectors: ITU-T (Standardization), ITU-R (Radiocommunication), ITU-D (Development). ITU-T Recommendations are FREE TO DOWNLOAD from itu.int — but ITU retains copyright and explicit permission is required for redistribution / republication (see https://www.itu.int/en/Pages/copyright.aspx). Same posture as AICPA TSC: access is free, redistribution is not granted by default. Notable security recommendations: X.805 (security architecture), X.1051 (info security management for telecom orgs — basis for ISO/IEC 27011), X.509 (certificate format), X.1500-series (cybersecurity exchange formats).",
-  "wikidata": null,
-  "wikipedia": null,
+  "notes": "United Nations specialized agency for ICT, three sectors: ITU-T (Standardization), ITU-R (Radiocommunication), ITU-D (Development). ITU-T Recommendations are FREE TO DOWNLOAD from itu.int — but ITU retains copyright and explicit permission is required for redistribution / republication (see https://www.itu.int/en/Pages/copyright.aspx). Same posture as AICPA TSC: access is free, redistribution is not granted by default. Notable security recommendations: X.805 (security architecture), X.1051 (info security management for telecom orgs — basis for ISO/IEC 27011), X.509 (certificate format), X.1500-series (cybersecurity exchange formats). ITU-D also coordinates the multi-stakeholder Guide to Developing a National Cybersecurity Strategy and the Global Cybersecurity Index (GCI).",
+  "wikidata": [
+    "Q376150"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/International_Telecommunication_Union"
+  ],
   "urls": [
     {
       "type": "website",
@@ -39,6 +44,116 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^ncs-guide$",
+        "^guide-developing-national-cybersecurity-strategy$",
+        "^national-cybersecurity-strategy-guide$"
+      ],
+      "description": "ITU Guide to Developing a National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Guide to Developing a National Cybersecurity Strategy",
+        "common_name": "ITU NCS Guide",
+        "alternate_names": [
+          "Guide to Developing a National Cybersecurity Strategy: Strategic Engagement in Cybersecurity"
+        ],
+        "description": "Multi-stakeholder international reference guide coordinated by the ITU (with World Bank, Commonwealth Secretariat, NATO CCDCOE, ENISA, OAS, GFCE, Microsoft, et al.) for initiating, drafting, implementing, monitoring, and evaluating National Cybersecurity Strategies across five lifecycle phases.",
+        "notes": "First edition published in 2018; second edition published in November 2021.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.itu.int/en/action/cybersecurity/pages/ncs-guide.aspx",
+            "note": "ITU National Cybersecurity Strategy Guide portal"
+          },
+          {
+            "type": "website",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021",
+            "note": "2021 2nd edition publication page"
+          },
+          {
+            "type": "website",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2018",
+            "note": "2018 1st edition publication page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-11-16",
+            "status": "current",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021",
+            "note": "Second edition (2021) — Guide to Developing a National Cybersecurity Strategy."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-09-18",
+            "status": "superseded",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2018",
+            "note": "First edition (2018) — Guide to Developing a National Cybersecurity Strategy."
+          }
+        ],
+        "examples": [
+          "ncs-guide@2021",
+          "ncs-guide@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Guide to Developing a National Cybersecurity Strategy (2nd Edition, 2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Guide to Developing a National Cybersecurity Strategy (2nd Edition, 2021)",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021",
+                "note": "ITU NCS Guide (2nd Edition, 2021)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Guide to Developing a National Cybersecurity Strategy (1st Edition, 2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Guide to Developing a National Cybersecurity Strategy (1st Edition, 2018)",
+            "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2018",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2018"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2018",
+                "note": "ITU NCS Guide (1st Edition, 2018)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

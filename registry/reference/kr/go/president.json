@@ -1,0 +1,374 @@
+{
+  "schema_version": "1.0",
+  "namespace": "president.go.kr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (South Korea National Security Strategy 2023/2018/2014, National Cybersecurity Strategy 2024/2019, and National Cybersecurity Basic Plan 2024).",
+  "official_name": "Office of the President of the Republic of Korea / National Security Office (대통령실 국가안보실)",
+  "common_name": "National Security Office (ROK)",
+  "alternate_names": [
+    "Office of National Security",
+    "대통령실",
+    "국가안보실",
+    "NSO"
+  ],
+  "notes": "Presidential Office and National Security Office (NSO) of the Republic of Korea, issuing the overarching National Security Strategy (국가안보전략), the National Cybersecurity Strategy (국가사이버안보전략), and the National Cybersecurity Basic Plan (국가사이버안보 기본계획).",
+  "wikidata": [
+    "Q16178051"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Office_of_National_Security"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.president.go.kr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "^nss$",
+        "^gukga-anbo-jeollyak$"
+      ],
+      "description": "National Security Strategy of the Republic of Korea (국가안보전략)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "The Yoon Suk Yeol Administration's National Security Strategy: Global Pivotal State for Freedom, Peace, and Prosperity (국가안보전략)",
+        "common_name": "ROK National Security Strategy",
+        "alternate_names": [
+          "국가안보전략: 자유, 평화, 번영에 기여하는 글로벌 중추국가",
+          "Global Pivotal State for Freedom, Peace, and Prosperity",
+          "Moon Jae-in Administration's National Security Strategy (2018)",
+          "Park Geun-hye Administration's National Security Strategy (2014)"
+        ],
+        "description": "Overarching presidential National Security Strategy of the Republic of Korea prepared by the Office of National Security, setting foreign policy, defense, economic security, and cyber security strategy for each presidential administration.",
+        "notes": "The June 2023 edition ('Global Pivotal State for Freedom, Peace, and Prosperity') anchors South Korea's shift toward proactive global security cooperation and active cyber defense.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.president.go.kr",
+            "note": "Office of the President / National Security Office"
+          },
+          {
+            "type": "website",
+            "url": "https://www.mofa.go.kr/eng/brd/m_5676/list.do",
+            "note": "Ministry of Foreign Affairs English policy publications portal (hosts English PDF of the 2023 National Security Strategy)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-06-07",
+            "status": "current",
+            "url": "https://www.mofa.go.kr/eng/brd/m_5676/list.do",
+            "note": "The Yoon Suk Yeol Administration's National Security Strategy: Global Pivotal State for Freedom, Peace, and Prosperity (published June 7, 2023)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-12-20",
+            "status": "superseded",
+            "url": "https://www.president.go.kr",
+            "note": "Moon Jae-in Administration's National Security Strategy (December 2018)."
+          },
+          {
+            "version": "2014",
+            "release_date": "2014-07-24",
+            "status": "superseded",
+            "url": "https://www.president.go.kr",
+            "note": "Hope of a New Era: National Security Strategy (July 2014)."
+          }
+        ],
+        "examples": [
+          "national-security-strategy@2023",
+          "national-security-strategy@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "ROK National Security Strategy: Global Pivotal State for Freedom, Peace, and Prosperity (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "The Yoon Suk Yeol Administration's National Security Strategy: Global Pivotal State for Freedom, Peace, and Prosperity (2023)",
+            "url": "https://www.mofa.go.kr/eng/brd/m_5676/list.do",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mofa.go.kr/eng/brd/m_5676/list.do"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.mofa.go.kr/eng/brd/m_5676/list.do",
+                "note": "ROK National Security Strategy (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "ROK National Security Strategy (2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Moon Jae-in Administration's National Security Strategy (2018)",
+            "url": "https://www.president.go.kr",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.president.go.kr"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.president.go.kr",
+                "note": "ROK National Security Strategy (2018)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "ROK National Security Strategy (2014)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Hope of a New Era: National Security Strategy (2014)",
+            "url": "https://www.president.go.kr",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.president.go.kr"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2014",
+                "url": "https://www.president.go.kr",
+                "note": "ROK National Security Strategy (2014)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "^national-cyber-security-strategy$",
+        "^gukga-saibeo-anbo-jeollyak$"
+      ],
+      "description": "National Cybersecurity Strategy of the Republic of Korea (국가사이버안보전략)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Cybersecurity Strategy (국가사이버안보전략)",
+        "common_name": "ROK National Cybersecurity Strategy",
+        "alternate_names": [
+          "국가사이버안보전략",
+          "Republic of Korea National Cybersecurity Strategy"
+        ],
+        "description": "Whole-of-government National Cybersecurity Strategy of the Republic of Korea issued by the National Security Office (NSO), establishing strategic tasks across offensive/active cyber defense, critical infrastructure resilience, emerging tech competitiveness, and allied cyber norms.",
+        "notes": "First issued in April 2019 and revised on February 1, 2024; operationalized through the 100-task National Cybersecurity Basic Plan (published September 2024).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "National Intelligence Service (NIS) / NSO National Cybersecurity Strategy and Basic Plan page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-02-01",
+            "status": "current",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "National Cybersecurity Strategy (released February 1, 2024 by the Office of National Security)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-04-03",
+            "status": "superseded",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "First National Cybersecurity Strategy (released April 3, 2019)."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy@2024",
+          "national-cybersecurity-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "National Cybersecurity Strategy of the Republic of Korea (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy of the Republic of Korea (2024)",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+                "note": "ROK National Cybersecurity Strategy (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Cybersecurity Strategy of the Republic of Korea (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy of the Republic of Korea (2019)",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+                "note": "ROK National Cybersecurity Strategy (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-basic-plan$",
+        "^gukga-saibeo-anbo-gibon-gyehoek$"
+      ],
+      "description": "National Cybersecurity Basic Plan of the Republic of Korea (국가사이버안보 기본계획)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Cybersecurity Basic Plan (국가사이버안보 기본계획)",
+        "common_name": "ROK National Cybersecurity Basic Plan",
+        "alternate_names": [
+          "국가사이버안보 기본계획"
+        ],
+        "description": "Interagency action plan formulated by 14 South Korean ministries and agencies to operationalize the 2024 National Cybersecurity Strategy across 100 implementation tasks.",
+        "notes": "Published September 2024 (2024 edition) and September 2019 (2019 edition).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "NIS / NSO National Cybersecurity Basic Plan page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-09-01",
+            "status": "current",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "National Cybersecurity Basic Plan (September 2024)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-09-03",
+            "status": "superseded",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "note": "National Cybersecurity Basic Plan (September 2019)."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-basic-plan@2024"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "National Cybersecurity Basic Plan (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Basic Plan (2024)",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+                "note": "ROK National Cybersecurity Basic Plan (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Cybersecurity Basic Plan (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Basic Plan (2019)",
+            "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.nis.go.kr/AF/1_7_3_1.do",
+                "note": "ROK National Cybersecurity Basic Plan (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "KR"
+    ]
+  }
+}

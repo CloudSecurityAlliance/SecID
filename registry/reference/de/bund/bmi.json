@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bmi.bund.de",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Cybersicherheitsstrategie für Deutschland 2021/2016/2011).",
+  "official_name": "Bundesministerium des Innern und für Heimat",
+  "common_name": "BMI",
+  "alternate_names": [
+    "Federal Ministry of the Interior and Community",
+    "Bundesministerium des Innern"
+  ],
+  "notes": "Federal Ministry of the Interior and Community of Germany, responsible for federal cybersecurity policy, critical infrastructure resilience, and the Cybersicherheitsstrategie für Deutschland (2011, 2016, 2021).",
+  "wikidata": [
+    "Q503799"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Federal_Ministry_of_the_Interior_and_Community"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bmi.bund.de"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^cybersicherheitsstrategie$",
+        "^cyber-security-strategy$",
+        "^cybersecurity-strategy$"
+      ],
+      "description": "Cybersicherheitsstrategie für Deutschland (Cyber Security Strategy for Germany)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Cybersicherheitsstrategie für Deutschland",
+        "common_name": "Cybersicherheitsstrategie",
+        "alternate_names": [
+          "Cyber Security Strategy for Germany",
+          "Cybersicherheitsstrategie für Deutschland 2021",
+          "Cyber-Sicherheitsstrategie für Deutschland 2016",
+          "Cyber-Sicherheitsstrategie für Deutschland 2011"
+        ],
+        "description": "Whole-of-government Cyber Security Strategy for Germany adopted by the Federal Cabinet on a five-year cycle (2011, 2016, 2021) defining strategic action areas across digital sovereignty, critical infrastructure protection, BSI empowerment, active cyber defence, and European/international cyber policy.",
+        "notes": "The 2021 edition (adopted September 8, 2021) introduced quantifiable KPIs and systematic progress monitoring across four strategic action areas.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bmi.bund.de/DE/themen/it-und-digitalpolitik/it-und-cybersicherheit/cybersicherheitsstrategie/cybersicherheitsstrategie-node.html",
+            "note": "BMI Cybersicherheitsstrategie für Deutschland overview page"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2021.pdf?__blob=publicationFile&v=5",
+            "note": "2021 edition PDF (German)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/EN/publikationen/themen/it-digitalpolitik/cyber-security-strategy-for-germany-2021.pdf?__blob=publicationFile&v=4",
+            "note": "2021 edition PDF (English)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2016.pdf?__blob=publicationFile&v=4",
+            "note": "2016 edition PDF (superseded)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-09-08",
+            "status": "current",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/EN/publikationen/themen/it-digitalpolitik/cyber-security-strategy-for-germany-2021.pdf?__blob=publicationFile&v=4",
+            "note": "Cybersicherheitsstrategie für Deutschland 2021 (adopted September 8, 2021)."
+          },
+          {
+            "version": "2016",
+            "release_date": "2016-11-09",
+            "status": "superseded",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2016.pdf?__blob=publicationFile&v=4",
+            "note": "Cyber-Sicherheitsstrategie für Deutschland 2016 (adopted November 9, 2016)."
+          },
+          {
+            "version": "2011",
+            "release_date": "2011-02-23",
+            "status": "superseded",
+            "url": "https://www.bmi.bund.de/DE/themen/it-und-digitalpolitik/it-und-cybersicherheit/cybersicherheitsstrategie/cybersicherheitsstrategie-node.html",
+            "note": "Cyber-Sicherheitsstrategie für Deutschland 2011 (adopted February 23, 2011)."
+          }
+        ],
+        "examples": [
+          "cybersicherheitsstrategie@2021",
+          "cybersicherheitsstrategie@2016",
+          "cybersicherheitsstrategie@2011"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Cybersicherheitsstrategie für Deutschland 2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cybersicherheitsstrategie für Deutschland 2021",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/EN/publikationen/themen/it-digitalpolitik/cyber-security-strategy-for-germany-2021.pdf?__blob=publicationFile&v=4",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.bmi.bund.de/SharedDocs/downloads/EN/publikationen/themen/it-digitalpolitik/cyber-security-strategy-for-germany-2021.pdf?__blob=publicationFile&v=4"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2021.pdf?__blob=publicationFile&v=5"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.bmi.bund.de/SharedDocs/downloads/EN/publikationen/themen/it-digitalpolitik/cyber-security-strategy-for-germany-2021.pdf?__blob=publicationFile&v=4",
+                "note": "Cybersicherheitsstrategie für Deutschland 2021"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "Cyber-Sicherheitsstrategie für Deutschland 2016",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cyber-Sicherheitsstrategie für Deutschland 2016",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2016.pdf?__blob=publicationFile&v=4",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2016.pdf?__blob=publicationFile&v=4"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/it-digitalpolitik/cybersicherheitsstrategie-2016.pdf?__blob=publicationFile&v=4",
+                "note": "Cyber-Sicherheitsstrategie für Deutschland 2016"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2011$"
+          ],
+          "description": "Cyber-Sicherheitsstrategie für Deutschland 2011",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cyber-Sicherheitsstrategie für Deutschland 2011",
+            "url": "https://www.bmi.bund.de/DE/themen/it-und-digitalpolitik/it-und-cybersicherheit/cybersicherheitsstrategie/cybersicherheitsstrategie-node.html",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.bmi.bund.de/DE/themen/it-und-digitalpolitik/it-und-cybersicherheit/cybersicherheitsstrategie/cybersicherheitsstrategie-node.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2011",
+                "url": "https://www.bmi.bund.de/DE/themen/it-und-digitalpolitik/it-und-cybersicherheit/cybersicherheitsstrategie/cybersicherheitsstrategie-node.html",
+                "note": "Cyber-Sicherheitsstrategie für Deutschland 2011"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "DE"
+    ]
+  }
+}

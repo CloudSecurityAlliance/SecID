@@ -21,7 +21,7 @@ Examples:
 
 ## Current Status: v1.0 (Live)
 
-The resolver is live at secid.cloudsecurityalliance.org with 2,141 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
+The resolver is live at secid.cloudsecurityalliance.org with 2,154 namespaces across 10 types. The grammar, type list, and registry format are frozen for v1.0. Post-1.0 work continues on the Relationship Data Layer and Data Enrichment Layer (parallel research tracks).
 
 **SecID 2.0 and 3.0 are in design.** v1.0 answers *where is it*. v2.0 answers *what is it* — the content itself where licensing permits, plus the toolchain that produces and verifies it. v3.0 answers *can I run it myself* — sync, caching, comprehensive local search, and the private/internal resolver. Crucially for registry work: **neither adds anything to the registry format.** The registry keeps holding identity, resolution, and disambiguation, and refers out to separate `SecID-Data-*` repositories (ADR-010).
 
@@ -131,7 +131,7 @@ For automated and agent code reviews (`codex review`, Claude Code Review via [`R
 
 ## Registry File Format
 
-**JSON (`.json`) is authoritative. YAML+Markdown (`.md`) is legacy and optional.** The resolver (SecID-Service, via the KV upload), the JSON Schema, and every CI gate read only `.json`; nothing reads `.md`. Every namespace has a `.json` file (all 2,141 namespaces). Only 122 legacy entries also have a `.md` companion — the rest are JSON-only, including everything bulk-generated (CNA disclosure entries, entity stubs). When a namespace has both and they disagree, the `.json` is what users get. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the format and [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) for validation.
+**JSON (`.json`) is authoritative. YAML+Markdown (`.md`) is legacy and optional.** The resolver (SecID-Service, via the KV upload), the JSON Schema, and every CI gate read only `.json`; nothing reads `.md`. Every namespace has a `.json` file (all 2,154 namespaces). Only 122 legacy entries also have a `.md` companion — the rest are JSON-only, including everything bulk-generated (CNA disclosure entries, entity stubs). When a namespace has both and they disagree, the `.json` is what users get. See [REGISTRY-JSON-FORMAT.md](docs/reference/REGISTRY-JSON-FORMAT.md) for the format and [schemas/registry-namespace.schema.json](schemas/registry-namespace.schema.json) for validation.
 
 One file per namespace containing all sources from that organization. There is no JSON template yet; the per-type `registry/<type>/_template.md` files describe the legacy YAML format. The practical starting point for a new `.json` file is an existing file of the same type (see "Key reference files" below).
 
@@ -296,8 +296,8 @@ Every registry namespace has a `.json` file; it is the only format the resolver 
 | Disclosure | 487 |
 | Regulation | 86 |
 | Entity | 981 |
-| Reference | 190 |
-| **Total** | **2141** |
+| Reference | 203 |
+| **Total** | **2154** |
 
 <!-- REGISTRY-COUNTS-END -->
 

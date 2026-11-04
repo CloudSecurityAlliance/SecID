@@ -3,17 +3,23 @@
   "namespace": "ncsc.nl",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#224 (added Nederlandse Cybersecuritystrategie 2022-2028).",
   "official_name": "National Cyber Security Centre Netherlands (NCSC-NL)",
-  "common_name": null,
-  "alternate_names": null,
-  "notes": "CVE Program partner. Country: Netherlands.",
-  "wikidata": null,
-  "wikipedia": null,
+  "common_name": "NCSC-NL",
+  "alternate_names": [
+    "Nationaal Cyber Security Centrum"
+  ],
+  "notes": "CVE Program partner and central operational cybersecurity body executing the Nederlandse Cybersecuritystrategie (NLCS). Country: Netherlands.",
+  "wikidata": [
+    "Q1992522"
+  ],
+  "wikipedia": [
+    "https://nl.wikipedia.org/wiki/Nationaal_Cyber_Security_Centrum"
+  ],
   "urls": [
     {
       "type": "website",
-      "url": "https://ncsc.nl"
+      "url": "https://www.ncsc.nl"
     }
   ],
   "match_nodes": [
@@ -37,9 +43,80 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^nederlandse-cybersecuritystrategie$",
+        "^nlcs$",
+        "^cybersecurity-strategy$"
+      ],
+      "description": "Nederlandse Cybersecuritystrategie (Netherlands Cybersecurity Strategy, NLCS)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Nederlandse Cybersecuritystrategie 2022–2028",
+        "common_name": "NLCS",
+        "alternate_names": [
+          "Netherlands Cybersecurity Strategy 2022–2028"
+        ],
+        "description": "Netherlands Cybersecurity Strategy (2022–2028) defining the integrated role of NCSC-NL, Digital Trust Center, and CSIRT-DSP across four national strategic pillars.",
+        "notes": "See also secid:reference/rijksoverheid.nl/nederlandse-cybersecuritystrategie.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "NCTV / NCSC-NL Nederlandse Cybersecuritystrategie 2022–2028 portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022-2028",
+            "release_date": "2022-10-10",
+            "status": "current",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "Nederlandse Cybersecuritystrategie 2022–2028."
+          }
+        ],
+        "examples": [
+          "nederlandse-cybersecuritystrategie@2022-2028"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022-2028$"
+          ],
+          "description": "Nederlandse Cybersecuritystrategie 2022–2028",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nederlandse Cybersecuritystrategie 2022–2028",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022-2028",
+                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+                "note": "Nederlandse Cybersecuritystrategie 2022–2028"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["NL"]},
+  "tags": {
+    "country": [
+      "NL"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sgdsn.gouv.fr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (France Revue nationale stratégique 2025/2022/2017 and Stratégie nationale pour la sécurité du numérique).",
+  "official_name": "Secrétariat général de la défense et de la sécurité nationale",
+  "common_name": "SGDSN",
+  "alternate_names": [
+    "General Secretariat for Defence and National Security"
+  ],
+  "notes": "Interministerial body under the Prime Minister of France responsible for coordinating national defence and security policy, the Revue nationale stratégique (RNS), critical infrastructure resilience, and oversight of ANSSI.",
+  "wikidata": [
+    "Q3477273"
+  ],
+  "wikipedia": [
+    "https://fr.wikipedia.org/wiki/Secr%C3%A9tariat_g%C3%A9n%C3%A9ral_de_la_d%C3%A9fense_et_de_la_s%C3%A9curit%C3%A9_nationale"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.sgdsn.gouv.fr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^revue-nationale-strategique$",
+        "^rns$",
+        "^national-strategic-review$"
+      ],
+      "description": "Revue nationale stratégique (French National Strategic Review)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Revue nationale stratégique",
+        "common_name": "RNS",
+        "alternate_names": [
+          "National Strategic Review",
+          "Actualisation 2025 de la Revue nationale stratégique",
+          "Revue nationale stratégique 2022",
+          "Revue stratégique de défense et de sécurité nationale 2017"
+        ],
+        "description": "Overarching French national security and defence strategy prepared by the SGDSN under the authority of the President of the Republic, establishing France's strategic assessment, hybrid/cyber deterrence posture, and eleven national strategic objectives through 2030.",
+        "notes": "Issued in October 2017 (Revue stratégique de défense et de sécurité nationale), November 9, 2022 (Revue nationale stratégique 2022), and updated on July 14, 2025 (Actualisation 2025 de la Revue nationale stratégique).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
+            "note": "2025 edition (current) — Actualisation 2025 de la Revue nationale stratégique"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250713_NP_SGDSN_Plaquette_RNS2025_FR.pdf",
+            "note": "2025 edition official summary booklet"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
+            "note": "2022 edition (superseded) — Revue nationale stratégique 2022"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-07-14",
+            "status": "current",
+            "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
+            "note": "Actualisation 2025 de la Revue nationale stratégique (published July 14, 2025)."
+          },
+          {
+            "version": "2022",
+            "release_date": "2022-11-09",
+            "status": "superseded",
+            "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
+            "note": "Revue nationale stratégique 2022 (published November 9, 2022)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-10-13",
+            "status": "superseded",
+            "url": "https://www.sgdsn.gouv.fr",
+            "note": "Revue stratégique de défense et de sécurité nationale 2017 (October 2017)."
+          }
+        ],
+        "examples": [
+          "revue-nationale-strategique@2025",
+          "revue-nationale-strategique@2022",
+          "revue-nationale-strategique@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Actualisation 2025 de la Revue nationale stratégique",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Actualisation 2025 de la Revue nationale stratégique",
+            "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250713_NP_SGDSN_Plaquette_RNS2025_FR.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
+                "note": "Revue nationale stratégique 2025"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Revue nationale stratégique 2022",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Revue nationale stratégique 2022",
+            "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
+                "note": "Revue nationale stratégique 2022"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Revue stratégique de défense et de sécurité nationale 2017",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Revue stratégique de défense et de sécurité nationale 2017",
+            "url": "https://www.sgdsn.gouv.fr",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.sgdsn.gouv.fr"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.sgdsn.gouv.fr",
+                "note": "Revue stratégique de défense et de sécurité nationale 2017"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^strategie-nationale-securite-numerique$",
+        "^strategie-nationale-cybersecurite$",
+        "^national-digital-security-strategy$"
+      ],
+      "description": "Stratégie nationale pour la sécurité du numérique (French National Digital Security / Cybersecurity Strategy)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Stratégie nationale pour la sécurité du numérique",
+        "common_name": "Stratégie nationale de cybersécurité",
+        "alternate_names": [
+          "French National Digital Security Strategy",
+          "Stratégie nationale d'accélération pour la cybersécurité"
+        ],
+        "description": "French national strategy for digital security and cybersecurity coordinated by SGDSN and ANSSI covering critical infrastructure protection (OIV), digital autonomy, cyber ecosystem acceleration, and European cyber cooperation.",
+        "notes": "Published October 16, 2015 ('Stratégie nationale pour la sécurité du numérique') and extended in February 2021 by the 'Stratégie nationale d'accélération pour la cybersécurité' under France 2030.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://cyber.gouv.fr/",
+            "note": "ANSSI / French national cybersecurity strategy portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-02-18",
+            "status": "current",
+            "url": "https://cyber.gouv.fr/",
+            "note": "Stratégie nationale d'accélération pour la cybersécurité (February 18, 2021)."
+          },
+          {
+            "version": "2015",
+            "release_date": "2015-10-16",
+            "status": "superseded",
+            "url": "https://cyber.gouv.fr/",
+            "note": "Stratégie nationale pour la sécurité du numérique (October 16, 2015)."
+          }
+        ],
+        "examples": [
+          "strategie-nationale-securite-numerique@2021",
+          "strategie-nationale-securite-numerique@2015"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Stratégie nationale d'accélération pour la cybersécurité (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Stratégie nationale d'accélération pour la cybersécurité (2021)",
+            "url": "https://cyber.gouv.fr/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cyber.gouv.fr/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://cyber.gouv.fr/",
+                "note": "Stratégie nationale d'accélération pour la cybersécurité (2021)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Stratégie nationale pour la sécurité du numérique (2015)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Stratégie nationale pour la sécurité du numérique (2015)",
+            "url": "https://cyber.gouv.fr/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cyber.gouv.fr/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2015",
+                "url": "https://cyber.gouv.fr/",
+                "note": "Stratégie nationale pour la sécurité du numérique (2015)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "FR"
+    ]
+  }
+}

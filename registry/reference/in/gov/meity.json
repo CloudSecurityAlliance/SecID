@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "namespace": "meity.gov.in",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (National Cyber Security Policy 2013).",
+  "official_name": "Ministry of Electronics and Information Technology",
+  "common_name": "MeitY",
+  "alternate_names": [
+    "Department of Electronics and Information Technology (DeitY)"
+  ],
+  "notes": "Government of India ministry administering the National Cyber Security Policy (2013), CERT-In, and Digital India initiatives. See also secid:regulation/meity.gov.in and secid:control/meity.gov.in.",
+  "wikidata": [
+    "Q16250892"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Ministry_of_Electronics_and_Information_Technology"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.meity.gov.in"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-policy$",
+        "^ncsp$",
+        "^national-cybersecurity-policy$"
+      ],
+      "description": "National Cyber Security Policy (India, 2013)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Cyber Security Policy - 2013",
+        "common_name": "NCSP 2013",
+        "alternate_names": [
+          "National Cyber Security Policy (2013)"
+        ],
+        "description": "Foundational national cybersecurity policy framework of India issued by the Department of Electronics and Information Technology (now MeitY) on July 2, 2013, establishing strategic objectives for critical information infrastructure protection (NCIIPC), 24x7 CERT-In coordination, indigenous security technology, and building a workforce of 500,000 cybersecurity professionals.",
+        "notes": "Notified July 2, 2013 (File No. 2(35)/2011-CERT-In).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.meity.gov.in/writereaddata/files/downloads/National_cyber_security_policy-2013%281%29.pdf",
+            "note": "2013 edition PDF — National Cyber Security Policy 2013"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2013",
+            "release_date": "2013-07-02",
+            "status": "current",
+            "url": "https://www.meity.gov.in/writereaddata/files/downloads/National_cyber_security_policy-2013%281%29.pdf",
+            "note": "National Cyber Security Policy - 2013 (notified July 2, 2013)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-policy@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "National Cyber Security Policy - 2013",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Policy - 2013",
+            "url": "https://www.meity.gov.in/writereaddata/files/downloads/National_cyber_security_policy-2013%281%29.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.meity.gov.in/writereaddata/files/downloads/National_cyber_security_policy-2013%281%29.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.meity.gov.in/writereaddata/files/downloads/National_cyber_security_policy-2013%281%29.pdf",
+                "note": "India National Cyber Security Policy (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "IN"
+    ]
+  }
+}

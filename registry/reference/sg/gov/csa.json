@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csa.gov.sg",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Singapore Cybersecurity Strategy 2021/2016 and OT Cybersecurity Masterplan 2024/2019).",
+  "official_name": "Cyber Security Agency of Singapore",
+  "common_name": "CSA Singapore",
+  "alternate_names": [
+    "CSA"
+  ],
+  "notes": "National agency overseeing cybersecurity strategy, operational technology resilience, and critical information infrastructure defense in Singapore. See also secid:regulation/csa.gov.sg for the Cybersecurity Act.",
+  "wikidata": [
+    "Q19840000"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Cyber_Security_Agency_(Singapore)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.csa.gov.sg"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^singapore-cybersecurity-strategy$",
+        "^cybersecurity-strategy$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Singapore Cybersecurity Strategy (2021, 2016)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Singapore Cybersecurity Strategy",
+        "common_name": "Singapore Cybersecurity Strategy",
+        "alternate_names": [
+          "Singapore Cybersecurity Strategy 2021",
+          "Singapore's Cybersecurity Strategy 2016"
+        ],
+        "description": "National cybersecurity blueprint published by the Cyber Security Agency of Singapore (CSA), structured around three strategic pillars (Resilient Infrastructure, Safer Cyberspace, International Cyber Cooperation) and two foundational enablers (Vibrant Cybersecurity Ecosystem, Robust Cyber Talent Pipeline).",
+        "notes": "Inaugural strategy launched in October 2016; updated on October 5, 2021 at Singapore International Cyber Week (SICW).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+            "note": "2021 edition (current) — Singapore Cybersecurity Strategy 2021"
+          },
+          {
+            "type": "website",
+            "url": "https://www.csa.gov.sg/news-events/press-releases/singapore-updates-national-cybersecurity-strategy/",
+            "note": "Official announcement of the Singapore Cybersecurity Strategy 2021"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-10-05",
+            "status": "current",
+            "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+            "note": "Singapore Cybersecurity Strategy 2021 (published October 5, 2021)."
+          },
+          {
+            "version": "2016",
+            "release_date": "2016-10-10",
+            "status": "superseded",
+            "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+            "note": "Singapore's Cybersecurity Strategy 2016 (published October 10, 2016)."
+          }
+        ],
+        "examples": [
+          "singapore-cybersecurity-strategy@2021",
+          "singapore-cybersecurity-strategy@2016"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Singapore Cybersecurity Strategy 2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Singapore Cybersecurity Strategy 2021",
+            "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+                "note": "Singapore Cybersecurity Strategy 2021"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "Singapore's Cybersecurity Strategy 2016",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Singapore's Cybersecurity Strategy 2016",
+            "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
+                "note": "Singapore's Cybersecurity Strategy 2016"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ot-cybersecurity-masterplan$",
+        "^operational-technology-cybersecurity-masterplan$"
+      ],
+      "description": "Singapore Operational Technology (OT) Cybersecurity Masterplan",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Operational Technology Cybersecurity Masterplan",
+        "common_name": "OT Cybersecurity Masterplan",
+        "alternate_names": [
+          "OT Cybersecurity Masterplan 2024",
+          "OT Cybersecurity Masterplan 2019"
+        ],
+        "description": "Strategic roadmap published by CSA Singapore to strengthen the cyber resilience of Critical Information Infrastructure (CII) and industrial control / operational technology (OT) systems.",
+        "notes": "First published in October 2019 and updated in August 2024.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+            "note": "2024 edition (current) — OT Cybersecurity Masterplan 2024"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-08-20",
+            "status": "current",
+            "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+            "note": "Operational Technology Cybersecurity Masterplan 2024 (August 20, 2024)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-10-01",
+            "status": "superseded",
+            "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+            "note": "Operational Technology Cybersecurity Masterplan 2019 (October 2019)."
+          }
+        ],
+        "examples": [
+          "ot-cybersecurity-masterplan@2024",
+          "ot-cybersecurity-masterplan@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Operational Technology Cybersecurity Masterplan 2024",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Operational Technology Cybersecurity Masterplan 2024",
+            "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+                "note": "Singapore OT Cybersecurity Masterplan 2024"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Operational Technology Cybersecurity Masterplan 2019",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Operational Technology Cybersecurity Masterplan 2019",
+            "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.csa.gov.sg/resources/publications/ot-cybersecurity-masterplan-2024",
+                "note": "Singapore OT Cybersecurity Masterplan 2019"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "SG"
+    ]
+  }
+}
