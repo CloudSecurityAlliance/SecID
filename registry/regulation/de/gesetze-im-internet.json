@@ -108,10 +108,7 @@
             "url": "https://www.gesetze-im-internet.de/sgb_5/"
           }
         ],
-        "examples": [
-          "§393",
-          "393"
-        ]
+        "examples": ["§393", "393"]
       },
       "children": [
         {
@@ -128,7 +125,15 @@
             "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html",
             "examples": [
               {
-                "input": "sgb-v#§?\\s?393",
+                "input": "§393",
+                "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html"
+              },
+              {
+                "input": "393",
+                "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html"
+              },
+              {
+                "input": "sgb-v-393",
                 "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html"
               }
             ]
@@ -137,11 +142,7 @@
       ]
     }
   ],
-  "tags": {
-    "country": [
-      "DE"
-    ]
-  },
+  "tags": {"country": ["DE"]},
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

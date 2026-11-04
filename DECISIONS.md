@@ -452,4 +452,15 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Splitting bills and enacted statutes into separate legislative vs statute-consolidator namespaces** — forces every bill's SecID namespace to break when enacted.
 - **Adding ad-hoc topical tags (`topic: ["ai-chatbot"]`) to namespace files** — `tags` are namespace-level (`country`, `region`) and cannot scope individual `match_node` entries within a general legislature namespace like `congress.gov` or `ca.gov`; cross-jurisdiction thematic sets belong in research inventories and the Relationship Layer.
 
+**Amendment (2026-11-04): Enforce child/grandchild `ExampleObject.input` pattern matching in `scripts/validate-registry-schema.py`.**
+**Decision method:** AI decision (Gemini), reviewed by Codex ([PR #231](https://github.com/CloudSecurityAlliance/SecID/pull/231), closing [#230](https://github.com/CloudSecurityAlliance/SecID/issues/230)).
+
+*Context:* `SecID-Service`'s `test/resolver.test.ts` turns every structured `ExampleObject` (`{"input": "...", "url": "..."}`) on child and grandchild `match_nodes` into an automated resolver test (`secid:<type>/<ns>/<name>[@<version>]#<ex.input>`). When 178 child examples in [#229](https://github.com/CloudSecurityAlliance/SecID/pull/229) carried a duplicate `<name>#<subpath>` prefix in `ex.input` instead of just `<subpath>`, `SecID`'s schema validator passed (because `MatchNode.data` is open-ended in JSON Schema), and the defect was only caught downstream by `SecID-Service`'s pre-deploy test gate during `Upload registry to KV`.
+
+*Decision:* Extend `scripts/validate-registry-schema.py` with `check_child_examples(doc)` so the required `validate-schema` CI gate verifies that every structured `ExampleObject.input` on child/grandchild `match_nodes` matches at least one regex in that node's `patterns[]` (evaluated with ECMAScript-compatible `(?i)` and named-capture semantics).
+
+*Rejected alternatives:*
+- **Relying solely on `SecID-Service`'s post-merge `Upload registry to KV` test gate** — catches the mismatch only after a PR has already merged to `SecID` `main`, halting the KV sync rather than blocking the offending PR before merge.
+- **Validating `ExampleObject.input` with static JSON Schema pattern rules** — JSON Schema cannot cross-reference a sibling `patterns[]` array dynamically at runtime.
+
 ---
