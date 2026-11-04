@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "namespace": "valitsus.ee",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (National Security Concept of Estonia 2023/2017/2010/2004).",
+  "official_name": "Vabariigi Valitsus (Government of the Republic of Estonia)",
+  "common_name": "Government of Estonia",
+  "alternate_names": [
+    "Riigikantselei",
+    "Government Office of Estonia"
+  ],
+  "notes": "Government of the Republic of Estonia and the Government Office (Riigikantselei), coordinating Estonia's National Security Concept (Eesti julgeolekupoliitika alused) approved by the Riigikogu (Parliament).",
+  "wikidata": [
+    "Q2056262"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Government_of_Estonia"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://valitsus.ee/en"
+    },
+    {
+      "type": "website",
+      "url": "https://riigikantselei.ee/en"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-concept$",
+        "^julgeolekupoliitika-alused$",
+        "^national-security-strategy$"
+      ],
+      "description": "National Security Concept of Estonia (Eesti julgeolekupoliitika alused)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Security Concept of Estonia (Eesti julgeolekupoliitika alused)",
+        "common_name": "National Security Concept of Estonia",
+        "alternate_names": [
+          "Eesti julgeolekupoliitika alused",
+          "Estonian National Security Concept"
+        ],
+        "description": "Overarching national security framework of Estonia prepared by the Government Office (Riigikantselei) and adopted by the Riigikogu (Parliament) under the National Defence Act, establishing a broad concept of security across societal cohesion, economic and energy security, internal security, cyber defence, international action, and military defence.",
+        "notes": "Updated on May 14, 2026 (approved by the Government of Estonia) and February 22, 2023 (approved by the Riigikogu, superseding the 2017, 2010, and 2004 editions).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+            "note": "2026 edition — Government of Estonia announcement"
+          },
+          {
+            "type": "pdf",
+            "url": "https://valitsus.ee/media/6098/download",
+            "note": "2023 edition — Official full text download (Eesti julgeolekupoliitika alused 2023)"
+          },
+          {
+            "type": "website",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "note": "Riigikantselei National Security and Defence Coordination portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2026",
+            "release_date": "2026-05-14",
+            "status": "current",
+            "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+            "note": "National Security Concept of Estonia 2026 (approved by the Government of Estonia on May 14, 2026)."
+          },
+          {
+            "version": "2023",
+            "release_date": "2023-02-22",
+            "status": "superseded",
+            "url": "https://valitsus.ee/media/6098/download",
+            "note": "National Security Concept of Estonia 2023 (approved by the Riigikogu February 22, 2023)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-05-31",
+            "status": "superseded",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "note": "National Security Concept of Estonia 2017 (approved May 31, 2017)."
+          },
+          {
+            "version": "2010",
+            "release_date": "2010-05-12",
+            "status": "superseded",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "note": "National Security Concept of Estonia 2010 (approved May 12, 2010)."
+          },
+          {
+            "version": "2004",
+            "release_date": "2004-06-16",
+            "status": "superseded",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "note": "National Security Concept of Estonia 2004 (approved June 16, 2004)."
+          }
+        ],
+        "examples": [
+          "national-security-concept@2026",
+          "national-security-concept@2023",
+          "national-security-concept@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026$"
+          ],
+          "description": "National Security Concept of Estonia (2026)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2026)",
+            "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026",
+                "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+                "note": "National Security Concept of Estonia (2026)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "National Security Concept of Estonia (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2023)",
+            "url": "https://valitsus.ee/media/6098/download",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://valitsus.ee/media/6098/download"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://valitsus.ee/media/6098/download",
+                "note": "National Security Concept of Estonia (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "National Security Concept of Estonia (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2017)",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+                "note": "National Security Concept of Estonia (2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "National Security Concept of Estonia (2010)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2010)",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2010",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+                "note": "National Security Concept of Estonia (2010)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2004$"
+          ],
+          "description": "National Security Concept of Estonia (2004)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2004)",
+            "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2004",
+                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
+                "note": "National Security Concept of Estonia (2004)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "EE"
+    ]
+  }
+}

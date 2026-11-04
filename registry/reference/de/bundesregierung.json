@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bundesregierung.de",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Germany's first National Security Strategy, June 2023).",
+  "official_name": "Bundesregierung der Bundesrepublik Deutschland",
+  "common_name": "Federal Government of Germany",
+  "alternate_names": [
+    "Die Bundesregierung",
+    "Auswärtiges Amt",
+    "Federal Foreign Office"
+  ],
+  "notes": "Federal Government of Germany overarching executive strategies, including Germany's first National Security Strategy ('Wehrhaft. Resilient. Nachhaltig. – Integrierte Sicherheit für Deutschland', June 14, 2023).",
+  "wikidata": [
+    "Q313825"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Cabinet_of_Germany"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bundesregierung.de"
+    },
+    {
+      "type": "website",
+      "url": "https://www.nationalesicherheitsstrategie.de"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^nationale-sicherheitsstrategie$",
+        "^national-security-strategy$",
+        "^nss$"
+      ],
+      "description": "Nationale Sicherheitsstrategie (National Security Strategy for Germany)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Wehrhaft. Resilient. Nachhaltig. Integrierte Sicherheit für Deutschland: Nationale Sicherheitsstrategie",
+        "common_name": "Nationale Sicherheitsstrategie",
+        "alternate_names": [
+          "Robust. Resilient. Sustainable. Integrated Security for Germany: National Security Strategy",
+          "German National Security Strategy 2023"
+        ],
+        "description": "Germany's first comprehensive National Security Strategy, adopted by the Federal Cabinet on June 14, 2023 under the concept of 'Integrated Security' (Integrierte Sicherheit) across three dimensions: Defence-mindedness (Wehrhaft), Resilience (Resilient — including cyber, space, and critical infrastructure protection), and Sustainability (Nachhaltig).",
+        "notes": "Coordinated by the Federal Foreign Office (Auswärtiges Amt) across all federal ministries.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nationalesicherheitsstrategie.de/",
+            "note": "Official portal for the German National Security Strategy (2023)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-de.pdf",
+            "note": "2023 edition PDF (German)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-en.pdf",
+            "note": "2023 edition PDF (English translation)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-06-14",
+            "status": "current",
+            "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-en.pdf",
+            "note": "First National Security Strategy of the Federal Republic of Germany (adopted June 14, 2023)."
+          }
+        ],
+        "examples": [
+          "nationale-sicherheitsstrategie@2023"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Nationale Sicherheitsstrategie (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Wehrhaft. Resilient. Nachhaltig. Integrierte Sicherheit für Deutschland: Nationale Sicherheitsstrategie (2023)",
+            "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-en.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-de.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.nationalesicherheitsstrategie.de/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.nationalesicherheitsstrategie.de/Sicherheitsstrategie-en.pdf",
+                "note": "German National Security Strategy (2023)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "DE"
+    ]
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dpmc.govt.nz",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (New Zealand First National Security Strategy 2023-2028 and Cyber Security Strategy 2019/2015/2011).",
+  "official_name": "Department of the Prime Minister and Cabinet (New Zealand)",
+  "common_name": "DPMC",
+  "alternate_names": [
+    "Te Tari o te Pirimia me te Komiti Matua"
+  ],
+  "notes": "Central agency leading New Zealand's national security system, publishing Aotearoa New Zealand's First National Security Strategy: Secure Together (2023–2028) and New Zealand's Cyber Security Strategy.",
+  "wikidata": [
+    "Q5260587"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Department_of_the_Prime_Minister_and_Cabinet_(New_Zealand)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.dpmc.govt.nz"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "^secure-together$"
+      ],
+      "description": "Aotearoa New Zealand's First National Security Strategy: Secure Together (2023–2028)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Secure Together: Tō Tātou Korowai Manaaki — Aotearoa New Zealand's First National Security Strategy 2023–2028",
+        "common_name": "New Zealand National Security Strategy",
+        "alternate_names": [
+          "Tō Tātou Korowai Manaaki",
+          "Secure Together: Aotearoa New Zealand's First National Security Strategy"
+        ],
+        "description": "New Zealand's first overarching National Security Strategy (2023–2028), published by DPMC in response to the Royal Commission of Inquiry into the Christchurch mosque attacks, identifying 12 core national security issues (including cyber security and emerging technology) and three strategic pillars.",
+        "notes": "Published August 4, 2023 by the Department of the Prime Minister and Cabinet.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/national-security-strategy",
+            "note": "2023-2028 edition (current) — DPMC National Security Strategy portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2028",
+            "release_date": "2023-08-04",
+            "status": "current",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/national-security-strategy",
+            "note": "Secure Together: Aotearoa New Zealand's First National Security Strategy (2023–2028).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023–2028 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "national-security-strategy@2023-2028"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2028$",
+            "^2023$"
+          ],
+          "description": "Aotearoa New Zealand's First National Security Strategy: Secure Together (2023–2028)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Secure Together: Tō Tātou Korowai Manaaki — Aotearoa New Zealand's First National Security Strategy 2023–2028",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/national-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.dpmc.govt.nz/our-programmes/national-security/national-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2028",
+                "url": "https://www.dpmc.govt.nz/our-programmes/national-security/national-security-strategy",
+                "note": "Aotearoa New Zealand's First National Security Strategy (2023–2028)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cyber-security-strategy$",
+        "^cybersecurity-strategy$"
+      ],
+      "description": "New Zealand's Cyber Security Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "New Zealand's Cyber Security Strategy",
+        "common_name": "NZ Cyber Security Strategy",
+        "alternate_names": [
+          "New Zealand's Cyber Security Strategy 2026–2030",
+          "New Zealand's Cyber Security Strategy 2019",
+          "New Zealand's Cyber Security Strategy 2015",
+          "New Zealand's Cyber Security Strategy 2011"
+        ],
+        "description": "National cyber security strategy of New Zealand enabling New Zealanders to thrive online across cyber-resilient individuals/businesses, cyber-capable workforce, resilient critical infrastructure, and active international partnerships.",
+        "notes": "Editions published in 2011, December 2015 (with Action Plan), July 2019, and 2026–2030.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/cyber-security-strategy",
+            "note": "2026–2030 edition (current) — DPMC Cyber Security Strategy portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2026-2030",
+            "release_date": "2026-01-01",
+            "status": "current",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/cyber-security-strategy",
+            "note": "New Zealand's Cyber Security Strategy 2026–2030.",
+            "aliases": [
+              {
+                "label": "2026",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2026–2030 edition."
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-07-02",
+            "status": "superseded",
+            "url": "https://www.dpmc.govt.nz/sites/default/files/2019-07/Cyber%20Security%20Strategy.pdf",
+            "note": "New Zealand's Cyber Security Strategy 2019 (published July 2, 2019)."
+          },
+          {
+            "version": "2015",
+            "release_date": "2015-12-10",
+            "status": "superseded",
+            "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2015",
+            "note": "New Zealand's Cyber Security Strategy 2015 (published December 10, 2015)."
+          },
+          {
+            "version": "2011",
+            "release_date": "2011-06-01",
+            "status": "superseded",
+            "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2011",
+            "note": "New Zealand's Cyber Security Strategy 2011 (June 2011)."
+          }
+        ],
+        "examples": [
+          "cyber-security-strategy@2026-2030",
+          "cyber-security-strategy@2019",
+          "cyber-security-strategy@2015"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026-2030$",
+            "^2026$"
+          ],
+          "description": "New Zealand's Cyber Security Strategy 2026–2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "New Zealand's Cyber Security Strategy 2026–2030",
+            "url": "https://www.dpmc.govt.nz/our-programmes/national-security/cyber-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.dpmc.govt.nz/our-programmes/national-security/cyber-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026-2030",
+                "url": "https://www.dpmc.govt.nz/our-programmes/national-security/cyber-security-strategy",
+                "note": "New Zealand's Cyber Security Strategy 2026–2030"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "New Zealand's Cyber Security Strategy 2019",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "New Zealand's Cyber Security Strategy 2019",
+            "url": "https://www.dpmc.govt.nz/sites/default/files/2019-07/Cyber%20Security%20Strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.dpmc.govt.nz/sites/default/files/2019-07/Cyber%20Security%20Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.dpmc.govt.nz/sites/default/files/2019-07/Cyber%20Security%20Strategy.pdf",
+                "note": "New Zealand's Cyber Security Strategy 2019"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "New Zealand's Cyber Security Strategy 2015",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "New Zealand's Cyber Security Strategy 2015",
+            "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2015",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2015"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2015",
+                "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2015",
+                "note": "New Zealand's Cyber Security Strategy 2015"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2011$"
+          ],
+          "description": "New Zealand's Cyber Security Strategy 2011",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "New Zealand's Cyber Security Strategy 2011",
+            "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2011",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2011"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2011",
+                "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2011",
+                "note": "New Zealand's Cyber Security Strategy 2011"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "NZ"
+    ]
+  }
+}

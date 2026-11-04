@@ -3,17 +3,23 @@
   "namespace": "enisa.europa.eu",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#224 (added ENISA National Capabilities Assessment Framework and NCSS Good Practice Guide).",
   "official_name": "EU Agency for Cybersecurity (ENISA)",
-  "common_name": null,
-  "alternate_names": null,
-  "notes": "CVE Program partner. Country: Greece.",
-  "wikidata": null,
-  "wikipedia": null,
+  "common_name": "ENISA",
+  "alternate_names": [
+    "European Union Agency for Cybersecurity"
+  ],
+  "notes": "CVE Program partner and EU agency supporting Member States in developing, implementing, and evaluating National Cyber Security Strategies (NCSS) under the NIS2 Directive. Country: Greece / EU.",
+  "wikidata": [
+    "Q1377710"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/European_Union_Agency_for_Cybersecurity"
+  ],
   "urls": [
     {
       "type": "website",
-      "url": "https://enisa.europa.eu"
+      "url": "https://www.enisa.europa.eu"
     }
   ],
   "match_nodes": [
@@ -52,14 +58,195 @@
         "description": "Three-layer framework for AI cybersecurity: (1) cybersecurity foundations, (2) AI-specific practices, (3) sector-specific practices. AI is framed as cybersecurity, not safety/alignment.",
         "notes": "Published by ENISA, June 2023.",
         "urls": [
-          {"type": "source", "url": "https://www.enisa.europa.eu/sites/default/files/publications/Multilayer%20Framework%20for%20Good%20Cybersecurity%20Practices%20for%20AI.pdf"},
-          {"type": "website", "url": "https://faicp-framework.com/"}
+          {
+            "type": "source",
+            "url": "https://www.enisa.europa.eu/sites/default/files/publications/Multilayer%20Framework%20for%20Good%20Cybersecurity%20Practices%20for%20AI.pdf"
+          },
+          {
+            "type": "website",
+            "url": "https://faicp-framework.com/"
+          }
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^ncaf$",
+        "^national-capabilities-assessment-framework$"
+      ],
+      "description": "ENISA National Capabilities Assessment Framework (NCAF)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "ENISA National Capabilities Assessment Framework (NCAF)",
+        "common_name": "NCAF",
+        "alternate_names": [
+          "National Capabilities Assessment Framework"
+        ],
+        "description": "Self-assessment and maturity evaluation framework developed by ENISA to help EU Member States measure and strengthen national cybersecurity capabilities across four clusters and 19 strategic objectives of their National Cyber Security Strategies (NCSS).",
+        "notes": "Originally published in December 2020 and updated for NIS2 Article 7 NCSS requirements.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework",
+            "note": "ENISA National Capabilities Assessment Framework (NCAF) publication page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-12-03",
+            "status": "current",
+            "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework",
+            "note": "National Capabilities Assessment Framework (December 2020)."
+          }
+        ],
+        "examples": [
+          "ncaf@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "ENISA National Capabilities Assessment Framework (2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "ENISA National Capabilities Assessment Framework (2020)",
+            "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework",
+                "note": "ENISA National Capabilities Assessment Framework (2020)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ncss-good-practice-guide$",
+        "^national-cyber-security-strategies-good-practice-guide$"
+      ],
+      "description": "ENISA National Cyber Security Strategies (NCSS) Good Practice Guide",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Cyber Security Strategies: Designing and Implementing National Cyber Security Strategies (NCSS Good Practice Guide)",
+        "common_name": "ENISA NCSS Good Practice Guide",
+        "alternate_names": [
+          "Updated Good Practice Guide on National Cyber Security Strategies",
+          "National Cyber Security Strategies: Practical Guide on Development and Execution"
+        ],
+        "description": "ENISA lifecycle methodology guide for designing, implementing, governing, and evaluating National Cyber Security Strategies (NCSS).",
+        "notes": "First published in 2012 and updated in November 2016; supplemented by the 2020 National Capabilities Assessment Framework (NCAF).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.enisa.europa.eu/publications/ncss-good-practice-guide",
+            "note": "2016 edition — NCSS Good Practice Guide"
+          },
+          {
+            "type": "website",
+            "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide",
+            "note": "2012 edition — National Cyber Security Strategies: An Implementation Guide"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2016",
+            "release_date": "2016-11-28",
+            "status": "current",
+            "url": "https://www.enisa.europa.eu/publications/ncss-good-practice-guide",
+            "note": "Updated Good Practice Guide on National Cyber Security Strategies (November 2016)."
+          },
+          {
+            "version": "2012",
+            "release_date": "2012-12-10",
+            "status": "superseded",
+            "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide",
+            "note": "National Cyber Security Strategies: Practical Guide on Development and Execution (December 2012)."
+          }
+        ],
+        "examples": [
+          "ncss-good-practice-guide@2016",
+          "ncss-good-practice-guide@2012"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "ENISA NCSS Good Practice Guide (2016)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Updated Good Practice Guide on National Cyber Security Strategies (2016)",
+            "url": "https://www.enisa.europa.eu/publications/ncss-good-practice-guide",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.enisa.europa.eu/publications/ncss-good-practice-guide"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.enisa.europa.eu/publications/ncss-good-practice-guide",
+                "note": "ENISA NCSS Good Practice Guide (2016)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2012$"
+          ],
+          "description": "ENISA National Cyber Security Strategies Implementation Guide (2012)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cyber Security Strategies: Practical Guide on Development and Execution (2012)",
+            "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2012",
+                "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide",
+                "note": "ENISA NCSS Implementation Guide (2012)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["EU"]},
+  "tags": {
+    "country": [
+      "EU"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

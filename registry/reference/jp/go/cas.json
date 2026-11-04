@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cas.go.jp",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (National Security Strategy of Japan 2022/2013).",
+  "official_name": "Cabinet Secretariat, Japan (内閣官房 / 国家安全保障局)",
+  "common_name": "Cabinet Secretariat / NSS",
+  "alternate_names": [
+    "National Security Secretariat of Japan",
+    "内閣官房",
+    "国家安全保障局"
+  ],
+  "notes": "Cabinet Secretariat and National Security Secretariat (NSS) of Japan, publishing the National Security Strategy of Japan (国家安全保障戦略). For statutes hosted by the Cabinet Secretariat, see secid:regulation/cas.go.jp.",
+  "wikidata": [
+    "Q1142565"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Cabinet_Secretariat_(Japan)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cas.go.jp/"
+    },
+    {
+      "type": "website",
+      "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou.html"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "^nss$",
+        "^kokka-anzen-hosho-senryaku$"
+      ],
+      "description": "National Security Strategy of Japan (国家安全保障戦略)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Security Strategy of Japan (国家安全保障戦略)",
+        "common_name": "National Security Strategy of Japan (NSS)",
+        "alternate_names": [
+          "国家安全保障戦略",
+          "Japan National Security Strategy"
+        ],
+        "description": "Supreme national security policy document of Japan decided by the National Security Council and the Cabinet, setting strategic guidelines across diplomacy, defense, economic security, space, maritime, and active cyber defense (積極的サイバー防御).",
+        "notes": "First adopted on December 17, 2013 and fundamentally revised on December 16, 2022 alongside the National Defense Strategy and Defense Buildup Program. The 2022 NSS mandated the introduction of Active Cyber Defense, subsequently enacted via the Active Cyber Defense Act (secid:regulation/cyber.go.jp/active-cyber-defense-act).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf",
+            "note": "2022 edition PDF (current, official English translation)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-j.pdf",
+            "note": "2022 edition PDF (current, Japanese original)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
+            "note": "2013 edition PDF (superseded, official English translation)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-12-16",
+            "status": "current",
+            "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf",
+            "note": "National Security Strategy of Japan (Cabinet decision, December 16, 2022)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-12-17",
+            "status": "superseded",
+            "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
+            "note": "First National Security Strategy of Japan (Cabinet decision, December 17, 2013)."
+          }
+        ],
+        "examples": [
+          "national-security-strategy@2022",
+          "national-security-strategy@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "National Security Strategy of Japan (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of Japan (December 2022)",
+            "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-j.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf",
+                "note": "National Security Strategy of Japan (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "National Security Strategy of Japan (2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Strategy of Japan (December 2013)",
+            "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
+                "note": "National Security Strategy of Japan (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "JP"
+    ]
+  }
+}

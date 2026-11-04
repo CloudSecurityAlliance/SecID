@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0",
+  "namespace": "homeaffairs.gov.au",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Australian Cyber Security Strategy 2023-2030/2020/2016/2009 and Horizon 1/2 Action Plans).",
+  "official_name": "Department of Home Affairs",
+  "common_name": "Home Affairs",
+  "alternate_names": [
+    "Australian Government Department of Home Affairs",
+    "National Office of Cyber Security"
+  ],
+  "notes": "Australian Government department responsible for national cyber security policy, the 2023–2030 Australian Cyber Security Strategy and its Horizon Action Plans, and administration of the Security of Critical Infrastructure Act 2018 and Cyber Security Act 2024 (see secid:regulation/homeaffairs.gov.au).",
+  "wikidata": [
+    "Q46996883"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Department_of_Home_Affairs_(Australia)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.homeaffairs.gov.au"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^cyber-security-strategy$",
+        "^cyber-security-strategy-2023-2030$",
+        "^australian-cyber-security-strategy$"
+      ],
+      "description": "Australian Cyber Security Strategy (2023–2030, 2020, 2016, 2009)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "2023–2030 Australian Cyber Security Strategy",
+        "common_name": "Australian Cyber Security Strategy",
+        "alternate_names": [
+          "Australia's Cyber Security Strategy 2020",
+          "Australia's Cyber Security Strategy 2016",
+          "Australian Government Cyber Security Strategy 2009"
+        ],
+        "description": "Australia's flagship national cyber security strategy structured around six 'cyber shields' (Strong businesses and citizens; Safe technology; World-class threat sharing and blocking; Protected critical infrastructure; Sovereign capabilities; Resilient region and global leadership) and executed across three Horizons (Horizon 1: 2023–2025, Horizon 2: 2026–2028, Horizon 3: 2029–2030).",
+        "notes": "Published November 22, 2023 alongside the Horizon 1 Action Plan (2023–2025), superseding the 2020, 2016, and 2009 strategies. Legislative pillars enacted via the Cyber Security Act 2024 (secid:regulation/homeaffairs.gov.au/cyber-security-act-2024).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "note": "2023-2030 edition (current) — Department of Home Affairs Strategy portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2030",
+            "release_date": "2023-11-22",
+            "status": "current",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "note": "2023–2030 Australian Cyber Security Strategy (released November 22, 2023).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023–2030 edition."
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-08-06",
+            "status": "superseded",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
+            "note": "Australia's Cyber Security Strategy 2020 (released August 6, 2020)."
+          },
+          {
+            "version": "2016",
+            "release_date": "2016-04-21",
+            "status": "superseded",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
+            "note": "Australia's Cyber Security Strategy 2016 (released April 21, 2016)."
+          },
+          {
+            "version": "2009",
+            "release_date": "2009-11-23",
+            "status": "superseded",
+            "url": "https://apo.org.au/node/19945",
+            "note": "Cyber Security Strategy 2009 (released November 23, 2009 by the Attorney-General's Department)."
+          }
+        ],
+        "examples": [
+          "cyber-security-strategy@2023-2030",
+          "cyber-security-strategy@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2030$",
+            "^2023$"
+          ],
+          "description": "2023–2030 Australian Cyber Security Strategy",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "2023–2030 Australian Cyber Security Strategy",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2030",
+                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+                "note": "2023–2030 Australian Cyber Security Strategy"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Australia's Cyber Security Strategy 2020",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Australia's Cyber Security Strategy 2020",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
+                "note": "Australia's Cyber Security Strategy 2020"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "Australia's Cyber Security Strategy 2016",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Australia's Cyber Security Strategy 2016",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
+                "note": "Australia's Cyber Security Strategy 2016"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2009$"
+          ],
+          "description": "Australian Government Cyber Security Strategy 2009",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Australian Government Cyber Security Strategy 2009",
+            "url": "https://apo.org.au/node/19945",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://apo.org.au/node/19945"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2009",
+                "url": "https://apo.org.au/node/19945",
+                "note": "Cyber Security Strategy 2009"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cyber-security-strategy-action-plan$",
+        "^horizon-1-action-plan$",
+        "^horizon-2-action-plan$"
+      ],
+      "description": "2023–2030 Australian Cyber Security Strategy Action Plans (Horizon 1 & Horizon 2)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "2023–2030 Australian Cyber Security Strategy Action Plan",
+        "common_name": "Australian Cyber Security Strategy Action Plan",
+        "alternate_names": [
+          "Horizon 1 Action Plan (2023–2025)",
+          "Horizon 2 Action Plan (2026–2028)"
+        ],
+        "description": "Two-year Horizon Action Plans detailing concrete initiatives, regulatory reforms, and deliverables across the six cyber shields of the 2023–2030 Australian Cyber Security Strategy.",
+        "notes": "Horizon 1 covers 2023–2025; Horizon 2 covers 2026–2028.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/horizon-2-action-plan.pdf",
+            "note": "Horizon 2 Action Plan (2026–2028)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "note": "Strategy and Action Plans portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2026-2028",
+            "release_date": "2026-01-01",
+            "status": "current",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/horizon-2-action-plan.pdf",
+            "note": "Horizon 2 Action Plan (2026–2028)."
+          },
+          {
+            "version": "2023-2025",
+            "release_date": "2023-11-22",
+            "status": "superseded",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "note": "Horizon 1 Action Plan (2023–2025)."
+          }
+        ],
+        "examples": [
+          "cyber-security-strategy-action-plan@2026-2028",
+          "cyber-security-strategy-action-plan@2023-2025"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026-2028$"
+          ],
+          "description": "Horizon 2 Action Plan (2026–2028)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "2023–2030 Australian Cyber Security Strategy: Horizon 2 Action Plan (2026–2028)",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/horizon-2-action-plan.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/horizon-2-action-plan.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026-2028",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/horizon-2-action-plan.pdf",
+                "note": "Horizon 2 Action Plan (2026–2028)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2023-2025$"
+          ],
+          "description": "Horizon 1 Action Plan (2023–2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "2023–2030 Australian Cyber Security Strategy: Horizon 1 Action Plan (2023–2025)",
+            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2025",
+                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+                "note": "Horizon 1 Action Plan (2023–2025)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "AU"
+    ]
+  }
+}

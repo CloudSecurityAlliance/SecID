@@ -3,17 +3,30 @@
   "namespace": "europa.eu",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#224 (EU Strategic Compass for Security and Defence 2022 and EU Cybersecurity Strategy 2020/2017/2013).",
   "official_name": "European Union",
   "common_name": "EU",
-  "alternate_names": null,
-  "notes": "EU AI governance frameworks including ALTAI self-assessment tool, Ethics Guidelines for Trustworthy AI, and the EU AI Act's control requirements (risk categories, prohibited practices).",
-  "wikidata": null,
-  "wikipedia": null,
+  "alternate_names": [
+    "European Commission",
+    "Council of the European Union",
+    "European External Action Service",
+    "EEAS"
+  ],
+  "notes": "European Union strategy and reference publications including A Strategic Compass for Security and Defence (2022), the EU Cybersecurity Strategy series (2013, 2017, 2020), and EU AI governance frameworks.",
+  "wikidata": [
+    "Q458"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/European_Union"
+  ],
   "urls": [
     {
       "type": "website",
       "url": "https://digital-strategy.ec.europa.eu"
+    },
+    {
+      "type": "website",
+      "url": "https://www.eeas.europa.eu"
     }
   ],
   "match_nodes": [
@@ -37,9 +50,234 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^strategic-compass$",
+        "^strategic-compass-security-defence$"
+      ],
+      "description": "A Strategic Compass for Security and Defence (EU)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "A Strategic Compass for Security and Defence — For a European Union that protects its citizens, values and interests and contributes to international peace and security",
+        "common_name": "EU Strategic Compass",
+        "alternate_names": [
+          "Strategic Compass for Security and Defence",
+          "Council Document 7371/22"
+        ],
+        "description": "Overarching European Union security and defence strategy adopted by the Council of the European Union on March 21, 2022 and endorsed by the European Council on March 25, 2022, setting an action plan through 2030 across four pillars: Act, Secure (including the EU Cyber Defence Policy and Hybrid Toolbox), Invest, and Partner.",
+        "notes": "Reviewed annually via Joint Progress Reports published by the High Representative / EEAS and the European Commission.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.eeas.europa.eu/eeas/strategic-compass-security-and-defence-0_en",
+            "note": "EEAS Strategic Compass portal and annual progress reports"
+          },
+          {
+            "type": "pdf",
+            "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf",
+            "note": "Official Council of the EU adopted text (ST 7371/22)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-03-21",
+            "status": "current",
+            "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf",
+            "note": "Adopted by the Council of the European Union on March 21, 2022 (ST 7371/22)."
+          }
+        ],
+        "examples": [
+          "strategic-compass@2022"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "A Strategic Compass for Security and Defence (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "A Strategic Compass for Security and Defence (2022)",
+            "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.eeas.europa.eu/eeas/strategic-compass-security-and-defence-0_en"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf",
+                "note": "EU Strategic Compass for Security and Defence (2022)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cybersecurity-strategy$",
+        "^eu-cybersecurity-strategy$",
+        "^cybersecurity-strategy-digital-decade$"
+      ],
+      "description": "The EU's Cybersecurity Strategy for the Digital Decade",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "The EU's Cybersecurity Strategy for the Digital Decade",
+        "common_name": "EU Cybersecurity Strategy",
+        "alternate_names": [
+          "JOIN(2020) 18 final",
+          "Resilience, Deterrence and Defence: Building strong cybersecurity for the EU (JOIN(2017) 450 final)",
+          "Cybersecurity Strategy of the European Union: An Open, Safe and Secure Cyberspace (JOIN(2013) 1 final)"
+        ],
+        "description": "Joint Communications of the European Commission and the High Representative of the Union for Foreign Affairs and Security Policy defining the European Union's strategic framework for cyber resilience, operational capacity, NIS2/CRA regulatory reform, and global cyber diplomacy.",
+        "notes": "Three editions issued: 2013 (JOIN(2013) 1 final), 2017 (JOIN(2017) 450 final), and December 16, 2020 (JOIN(2020) 18 final, 'The EU's Cybersecurity Strategy for the Digital Decade').",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018",
+            "note": "2020 edition (current) — JOIN(2020) 18 final"
+          },
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450",
+            "note": "2017 edition (superseded) — JOIN(2017) 450 final"
+          },
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001",
+            "note": "2013 edition (superseded) — JOIN(2013) 1 final"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-12-16",
+            "status": "current",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018",
+            "note": "The EU's Cybersecurity Strategy for the Digital Decade (JOIN(2020) 18 final, CELEX:52020JC0018)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-09-13",
+            "status": "superseded",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450",
+            "note": "Resilience, Deterrence and Defence: Building strong cybersecurity for the EU (JOIN(2017) 450 final, CELEX:52017JC0450)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-02-07",
+            "status": "superseded",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001",
+            "note": "Cybersecurity Strategy of the European Union: An Open, Safe and Secure Cyberspace (JOIN(2013) 1 final, CELEX:52013JC0001)."
+          }
+        ],
+        "examples": [
+          "cybersecurity-strategy@2020",
+          "cybersecurity-strategy@2017",
+          "cybersecurity-strategy@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "The EU's Cybersecurity Strategy for the Digital Decade (2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "The EU's Cybersecurity Strategy for the Digital Decade (JOIN(2020) 18 final)",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018",
+                "note": "EU Cybersecurity Strategy for the Digital Decade (2020)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Resilience, Deterrence and Defence: Building strong cybersecurity for the EU (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Resilience, Deterrence and Defence: Building strong cybersecurity for the EU (JOIN(2017) 450 final)",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450",
+                "note": "EU Cybersecurity Strategy (2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Cybersecurity Strategy of the European Union: An Open, Safe and Secure Cyberspace (2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cybersecurity Strategy of the European Union: An Open, Safe and Secure Cyberspace (JOIN(2013) 1 final)",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001",
+                "note": "EU Cybersecurity Strategy (2013)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["EU"]},
+  "tags": {
+    "country": [
+      "EU"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

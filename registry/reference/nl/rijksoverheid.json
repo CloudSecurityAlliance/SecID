@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "namespace": "rijksoverheid.nl",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Netherlands Veiligheidsstrategie 2023-2029 and Nederlandse Cybersecuritystrategie 2022-2028).",
+  "official_name": "Rijksoverheid (Government of the Netherlands)",
+  "common_name": "Rijksoverheid",
+  "alternate_names": [
+    "Nationaal Coördinator Terrorismebestrijding en Veiligheid",
+    "NCTV",
+    "National Coordinator for Counterterrorism and Security"
+  ],
+  "notes": "Central government portal of the Netherlands hosting whole-of-government security and cybersecurity strategies coordinated by the National Coordinator for Counterterrorism and Security (NCTV).",
+  "wikidata": [
+    "Q3185950"
+  ],
+  "wikipedia": [
+    "https://nl.wikipedia.org/wiki/Rijksoverheid"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.rijksoverheid.nl"
+    },
+    {
+      "type": "website",
+      "url": "https://www.nctv.nl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^veiligheidsstrategie$",
+        "^national-security-strategy$"
+      ],
+      "description": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (Security Strategy for the Kingdom of the Netherlands)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (2023–2029)",
+        "common_name": "Veiligheidsstrategie voor het Koninkrijk der Nederlanden",
+        "alternate_names": [
+          "The Security Strategy for the Kingdom of the Netherlands",
+          "Nationale Veiligheidsstrategie"
+        ],
+        "description": "Integrated internal and external National Security Strategy for the entire Kingdom of the Netherlands (2023–2029), adopting an all-hazard approach across six national security interests and three strategic pillars.",
+        "notes": "Presented to the House of Representatives (Tweede Kamer) on April 3, 2023 by the Minister of Justice and Security and the Minister of Foreign Affairs, superseding the National Security Strategy 2019.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
+            "note": "2023-2029 edition (current) — Rijksoverheid official strategy document"
+          },
+          {
+            "type": "website",
+            "url": "https://www.nctv.nl/onderwerpen/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
+            "note": "NCTV Security Strategy topic page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2029",
+            "release_date": "2023-04-03",
+            "status": "current",
+            "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
+            "note": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden 2023–2029 (April 3, 2023)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-06-07",
+            "status": "superseded",
+            "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019",
+            "note": "Nationale Veiligheidsstrategie 2019 (superseded)."
+          }
+        ],
+        "examples": [
+          "veiligheidsstrategie@2023-2029",
+          "veiligheidsstrategie@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2029$"
+          ],
+          "description": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (2023–2029)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (2023–2029)",
+            "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2029",
+                "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
+                "note": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (2023–2029)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Nationale Veiligheidsstrategie 2019",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationale Veiligheidsstrategie 2019",
+            "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019",
+                "note": "Nationale Veiligheidsstrategie 2019"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^nederlandse-cybersecuritystrategie$",
+        "^nlcs$",
+        "^cybersecurity-strategy$"
+      ],
+      "description": "Nederlandse Cybersecuritystrategie (Netherlands Cybersecurity Strategy, NLCS)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Nederlandse Cybersecuritystrategie 2022–2028: Tussen ambitie en realisatie",
+        "common_name": "NLCS",
+        "alternate_names": [
+          "Netherlands Cybersecurity Strategy 2022–2028",
+          "Nederlandse Cybersecurity Agenda (NCSA 2018)",
+          "Nationale Cyber Security Strategie 2 (NCSS 2, 2013)",
+          "Nationale Cyber Security Strategie (NCSS 1, 2011)"
+        ],
+        "description": "Cabinet-wide Netherlands Cybersecurity Strategy (2022–2028) structured around four pillars and accompanied by an integrated Action Plan and annual progress monitoring by the NCTV and NCSC-NL.",
+        "notes": "Published October 10, 2022 alongside the NLCS Action Plan 2022–2028, superseding the Nederlandse Cybersecurity Agenda (NCSA, 2018), NCSS 2 (2013), and NCSS 1 (2011). Also cross-referenced under secid:reference/ncsc.nl/nederlandse-cybersecuritystrategie.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "NCTV Nederlandse Cybersecuritystrategie 2022–2028 portal and annual progress reports"
+          },
+          {
+            "type": "website",
+            "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "2022-2028 edition — Rijksoverheid official publication"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022-2028",
+            "release_date": "2022-10-10",
+            "status": "current",
+            "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "Nederlandse Cybersecuritystrategie 2022–2028 (October 10, 2022)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-04-21",
+            "status": "superseded",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "note": "Nederlandse Cybersecurity Agenda (NCSA, April 2018)."
+          }
+        ],
+        "examples": [
+          "nederlandse-cybersecuritystrategie@2022-2028",
+          "nederlandse-cybersecuritystrategie@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022-2028$"
+          ],
+          "description": "Nederlandse Cybersecuritystrategie 2022–2028",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nederlandse Cybersecuritystrategie 2022–2028",
+            "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028"
+              },
+              {
+                "type": "website",
+                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022-2028",
+                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028",
+                "note": "Nederlandse Cybersecuritystrategie 2022–2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Nederlandse Cybersecurity Agenda (NCSA 2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nederlandse Cybersecurity Agenda (NCSA 2018)",
+            "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
+                "note": "Nederlandse Cybersecurity Agenda (2018)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "NL"
+    ]
+  }
+}

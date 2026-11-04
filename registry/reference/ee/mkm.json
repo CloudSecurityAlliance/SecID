@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mkm.ee",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#224 (Cybersecurity Strategy of Estonia 2024-2027, 2019-2022, 2014-2017, 2008-2013).",
+  "official_name": "Majandus- ja Kommunikatsiooniministeerium (Ministry of Economic Affairs and Communications)",
+  "common_name": "MKM",
+  "alternate_names": [
+    "Ministry of Economic Affairs and Communications of Estonia",
+    "Justiits- ja Digiministeerium"
+  ],
+  "notes": "Estonian ministry responsible for digital society development and the Cybersecurity Strategy of Estonia (Küberturvalisuse strateegia), implemented in partnership with the Information System Authority (RIA).",
+  "wikidata": [
+    "Q12369601"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Ministry_of_Economic_Affairs_and_Communications"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mkm.ee/en"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^cybersecurity-strategy$",
+        "^kuberturvalisuse-strateegia$",
+        "^estonia-cybersecurity-strategy$"
+      ],
+      "description": "Cybersecurity Strategy of Estonia (Küberturvalisuse strateegia)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Cybersecurity Strategy of Estonia (Küberturvalisuse strateegia)",
+        "common_name": "Estonian Cybersecurity Strategy",
+        "alternate_names": [
+          "Küberturvalisuse strateegia 2024–2027",
+          "Cybersecurity Strategy 2019–2022",
+          "Cyber Security Strategy 2014–2017",
+          "Cyber Security Strategy 2008–2013"
+        ],
+        "description": "Four-generation Estonian national cybersecurity strategy series (2008–2013, 2014–2017, 2019–2022, and 2024–2027) establishing strategic goals for resilient digital infrastructure, R&D and talent development, international cyber diplomacy, and whole-of-society cyber hygiene.",
+        "notes": "Estonia adopted one of the world's first national cybersecurity strategies in May 2008 following the 2007 cyberattacks. The fourth-generation strategy covers 2024–2027 under the Estonia Digital Society 2030 vision.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "note": "MKM Cybersecurity Strategy and Digital Society 2030 portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2027",
+            "release_date": "2024-01-01",
+            "status": "current",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "note": "Fourth-generation Cybersecurity Strategy of Estonia (2024–2027)."
+          },
+          {
+            "version": "2019-2022",
+            "release_date": "2018-11-22",
+            "status": "superseded",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "note": "Third-generation Cybersecurity Strategy of Estonia (2019–2022)."
+          },
+          {
+            "version": "2014-2017",
+            "release_date": "2014-09-11",
+            "status": "superseded",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "note": "Second-generation Cyber Security Strategy of Estonia (2014–2017)."
+          },
+          {
+            "version": "2008-2013",
+            "release_date": "2008-05-08",
+            "status": "superseded",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "note": "First-generation Cyber Security Strategy of Estonia (2008–2013)."
+          }
+        ],
+        "examples": [
+          "cybersecurity-strategy@2024-2027",
+          "cybersecurity-strategy@2019-2022",
+          "cybersecurity-strategy@2008-2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2027$"
+          ],
+          "description": "Cybersecurity Strategy of Estonia (2024–2027)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cybersecurity Strategy of Estonia (2024–2027)",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2027",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+                "note": "Cybersecurity Strategy of Estonia (2024–2027)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019-2022$"
+          ],
+          "description": "Cybersecurity Strategy of Estonia (2019–2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cybersecurity Strategy of Estonia (2019–2022)",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019-2022",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+                "note": "Cybersecurity Strategy of Estonia (2019–2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014-2017$"
+          ],
+          "description": "Cyber Security Strategy of Estonia (2014–2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cyber Security Strategy of Estonia (2014–2017)",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2014-2017",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+                "note": "Cyber Security Strategy of Estonia (2014–2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2008-2013$"
+          ],
+          "description": "Cyber Security Strategy of Estonia (2008–2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cyber Security Strategy of Estonia (2008–2013)",
+            "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2008-2013",
+                "url": "https://www.mkm.ee/en/digital-society-and-cyber-security/cyber-security",
+                "note": "Cyber Security Strategy of Estonia (2008–2013)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "EE"
+    ]
+  }
+}
