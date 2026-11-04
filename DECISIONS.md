@@ -478,7 +478,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
    - Where a legislature reuses bill numbers across parliamentary sessions (such as `parl.ca`), `data.notes` records the session number and cross-references notable prior-session homonyms.
 2. **Statutory and regulatory subpath patterns:**
    - UK Acts in `registry/regulation/uk/gov.json` (`osa`, `crime-and-policing-act-2026`, `childrens-wellbeing-and-schools-act-2026`) expose `^s-\d+[A-Z]?$` child nodes resolving to `https://www.legislation.gov.uk/ukpga/<year>/<chapter>/section/{num}` (with legislative history such as Commons amendment `NC120` recorded in `notes`).
-   - EU acts in `registry/regulation/eu/europa.json` (`gdpr`, `ai-act`, `nis2`, `dora`) expose `^art-\d+(\.\d+)*(\.[a-z])*$` (articles, paragraphs, and lettered points), `^annex-[IVX]+(\.\d+)*(\.[a-z])*$` (annexes and annex subsections), and `^(chapter|recital)-\d+$` (chapters and recitals).
+   - EU acts in `registry/regulation/eu/europa.json` (`gdpr`, `ai-act`, `nis2`, `dora`) expose bounded article/paragraph/point patterns (`^art-<bounded-range>(\.\d+)*(\.[a-z])*$`), bounded annex/section/point patterns (`^annex-(?:I|...|XIII)(\.\d+)*(\.[a-z])*$`), and bounded chapter and recital patterns (`^chapter-<bounded-range>$`, `^recital-<bounded-range>$`) matching each instrument's actual provision range.
 
 *Rejected alternatives:*
 - **Removing status notes from `registry/regulation/` entirely** — removes context that helps practitioners distinguish an active bill from an enacted statute during discovery.

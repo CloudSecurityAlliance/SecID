@@ -46,6 +46,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REGULATION_GLOB = os.path.join(REPO_ROOT, "registry", "regulation", "**", "*.json")
 
 STATUS_PREFIX_RE = re.compile(r"(?:^|\b)Status:\s*(?P<body>[^\n]+)")
+STATUS_CLAUSE_RE = re.compile(
+    r"(?:^|\b)Status:\s*(?P<clause>[^\n]*?\bverified as of (?P<date>\d{4}-\d{2}-\d{2})\)?\.?)"
+)
 VERIFIED_DATE_RE = re.compile(r"\bverified as of (\d{4}-\d{2}-\d{2})\b")
 LEGISINFO_JSON_RE = re.compile(
     r"^https://www\.parl\.ca/legisinfo/en/bill/\d+-\d+/[a-z]-\d+/json$",
@@ -163,57 +166,69 @@ def check_legisinfo_payload_against_notes(
         "royal assent" in status_en.lower() or "royal assent" in latest_stage_en.lower()
     )
     did_reinstate = bool(bill.get("DidReinstateInNextSession", False))
-    notes_lower = (notes or "").lower()
+
+    m_clause = STATUS_CLAUSE_RE.search(notes or "")
+    if m_clause:
+        status_clause = m_clause.group("clause").strip()
+    else:
+        m_status = STATUS_PREFIX_RE.search(notes or "")
+        status_clause = m_status.group("body").strip() if m_status else ""
+
+    category = classify_status_state(status_clause)
+    clause_lower = status_clause.lower()
 
     # If the parliamentary session has ended without Royal Assent or reinstatement,
     # the bill died on the Order Paper regardless of the stage it was in when the session ended.
     if is_session_ongoing is False and not received_royal_assent and not did_reinstate:
-        if "died on the order paper" not in notes_lower and "will not proceed" not in notes_lower:
+        if category != "died" and "will not proceed" not in clause_lower:
             mismatches.append(
                 f"{label}: LEGISinfo reports IsSessionOngoing=False, ReceivedRoyalAssent=False "
-                f"(stage at dissolution={status_en!r}) but data.notes does not record that the bill died on the Order Paper"
+                f"(stage at dissolution={status_en!r}) but Status clause ({status_clause!r}) does not record that the bill died on the Order Paper"
             )
         return mismatches
 
-    # Check key progression milestones in StatusNameEn / LatestCompletedMajorStageNameWithChamberSuffix
+    # Check key progression milestones against the parsed Status clause (never trailing prose)
     if received_royal_assent:
-        if "royal assent" not in notes_lower and "enacted" not in notes_lower and "in force" not in notes_lower:
+        if category not in ("enacted", "in_force"):
             mismatches.append(
                 f"{label}: LEGISinfo reports Royal Assent (StatusNameEn={status_en!r}, "
-                f"LatestStage={latest_stage_en!r}) but data.notes does not mention Royal Assent/Enacted"
+                f"LatestStage={latest_stage_en!r}) but Status clause has category={category!r} ({status_clause!r})"
             )
+        return mismatches
 
-    if "consideration in committee" in status_en.lower():
-        if "committee" not in notes_lower:
+    if "will not proceed" in status_en.lower():
+        if category != "died" and "will not proceed" not in clause_lower:
             mismatches.append(
                 f"{label}: LEGISinfo reports StatusNameEn={status_en!r} "
-                f"(LatestStage={latest_stage_en!r}) but data.notes does not mention committee stage"
+                f"but Status clause ({status_clause!r}) does not record that the bill died on the Order Paper / will not proceed"
+            )
+        return mismatches
+
+    if category != "proposed":
+        mismatches.append(
+            f"{label}: LEGISinfo reports active bill (StatusNameEn={status_en!r}) "
+            f"but Status clause has non-proposed category={category!r} ({status_clause!r})"
+        )
+
+    if "consideration in committee" in status_en.lower():
+        if "committee" not in clause_lower:
+            mismatches.append(
+                f"{label}: LEGISinfo reports StatusNameEn={status_en!r} "
+                f"(LatestStage={latest_stage_en!r}) but Status clause does not mention committee stage"
             )
 
     if "second reading" in latest_stage_en.lower():
-        if "second reading" not in notes_lower:
+        if "second reading" not in clause_lower:
             mismatches.append(
                 f"{label}: LEGISinfo reports LatestCompletedMajorStage={latest_stage_en!r} "
-                f"but data.notes does not mention second reading"
+                f"but Status clause does not mention second reading"
             )
 
     if "third reading" in latest_stage_en.lower():
-        if "third reading" not in notes_lower:
+        if "third reading" not in clause_lower:
             mismatches.append(
                 f"{label}: LEGISinfo reports LatestCompletedMajorStage={latest_stage_en!r} "
-                f"but data.notes does not mention third reading"
-            )
-
-    if "will not proceed" in status_en.lower() or "outside the order of precedence" in status_en.lower():
-        # Private member bills or bills that died on the order paper
-        if (
-            "will not proceed" in status_en.lower()
-            and "died on the order paper" not in notes_lower
-            and "will not proceed" not in notes_lower
-        ):
-            mismatches.append(
-                f"{label}: LEGISinfo reports StatusNameEn={status_en!r} "
-                f"but data.notes does not record that the bill died on the Order Paper / will not proceed"
+                f"but Status clause does not mention third reading"
             )
 
     return mismatches
@@ -417,7 +432,31 @@ def run_self_tests() -> int:
     )
     assert not c27_ok, c27_ok
 
-    print("OK: check-regulation-status.py self-tests passed (8/8 cases)")
+    # 9. Negated / trailing prose ('Not yet in force') on a Proposed bill must NOT mask Royal Assent
+    c36_notes_with_negated_in_force = (
+        "Status: Proposed — At second reading in the House of Commons; First reading completed June 15, 2026 "
+        "in the 45th Parliament, 1st Session (verified as of 2026-11-04). Not yet in force — track alongside "
+        "PIPEDA (secid:regulation/priv.gc.ca/pipeda) which remains current law."
+    )
+    c36_royal_assent_payload = [
+        {
+            "NumberCode": "C-36",
+            "ParliamentNumber": 45,
+            "SessionNumber": 1,
+            "IsSessionOngoing": True,
+            "ReceivedRoyalAssent": True,
+            "StatusNameEn": "Royal Assent",
+            "LatestCompletedMajorStageNameWithChamberSuffix": "Royal Assent",
+        }
+    ]
+    c36_mismatch = check_legisinfo_payload_against_notes(
+        "test:bill-c-36-royal-assent",
+        c36_notes_with_negated_in_force,
+        c36_royal_assent_payload,
+    )
+    assert len(c36_mismatch) == 1 and "category='proposed'" in c36_mismatch[0], c36_mismatch
+
+    print("OK: check-regulation-status.py self-tests passed (9/9 cases)")
     return 0
 
 
