@@ -185,15 +185,21 @@
         "subtype": [
           "strategy"
         ],
-        "official_name": "Stratégie nationale pour la sécurité du numérique",
+        "official_name": "Stratégie nationale de cybersécurité / Stratégie nationale pour la sécurité du numérique",
         "common_name": "Stratégie nationale de cybersécurité",
         "alternate_names": [
+          "Stratégie nationale de cybersécurité 2026-2030",
           "French National Digital Security Strategy",
           "Stratégie nationale d'accélération pour la cybersécurité"
         ],
         "description": "French national strategy for digital security and cybersecurity coordinated by SGDSN and ANSSI covering critical infrastructure protection (OIV), digital autonomy, cyber ecosystem acceleration, and European cyber cooperation.",
-        "notes": "Published October 16, 2015 ('Stratégie nationale pour la sécurité du numérique') and extended in February 2021 by the 'Stratégie nationale d'accélération pour la cybersécurité' under France 2030.",
+        "notes": "Published October 16, 2015 ('Stratégie nationale pour la sécurité du numérique'), extended in February 2021 by the 'Stratégie nationale d'accélération pour la cybersécurité' under France 2030, and renewed on January 29, 2026 as the 'Stratégie nationale de cybersécurité 2026-2030'.",
         "urls": [
+          {
+            "type": "website",
+            "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
+            "note": "2026–2030 edition (current) — SGDSN publication page"
+          },
           {
             "type": "website",
             "url": "https://cyber.gouv.fr/",
@@ -202,10 +208,24 @@
         ],
         "versions_available": [
           {
+            "version": "2026-2030",
+            "release_date": "2026-01-29",
+            "status": "current",
+            "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
+            "note": "Stratégie nationale de cybersécurité 2026-2030 (published January 29, 2026).",
+            "aliases": [
+              {
+                "label": "2026",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2026–2030 edition."
+              }
+            ]
+          },
+          {
             "version": "2021",
             "release_date": "2021-02-18",
-            "status": "current",
-            "url": "https://cyber.gouv.fr/",
+            "status": "superseded",
+            "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16",
             "note": "Stratégie nationale d'accélération pour la cybersécurité (February 18, 2021)."
           },
           {
@@ -217,11 +237,38 @@
           }
         ],
         "examples": [
+          "strategie-nationale-securite-numerique@2026-2030",
           "strategie-nationale-securite-numerique@2021",
           "strategie-nationale-securite-numerique@2015"
         ]
       },
       "children": [
+        {
+          "patterns": [
+            "^2026-2030$",
+            "^2026$"
+          ],
+          "description": "Stratégie nationale de cybersécurité 2026-2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Stratégie nationale de cybersécurité 2026-2030",
+            "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026-2030",
+                "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
+                "note": "Stratégie nationale de cybersécurité 2026-2030"
+              }
+            ]
+          }
+        },
         {
           "patterns": [
             "^2021$"
@@ -231,17 +278,17 @@
           "data": {
             "type": "version",
             "official_name": "Stratégie nationale d'accélération pour la cybersécurité (2021)",
-            "url": "https://cyber.gouv.fr/",
+            "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16",
             "urls": [
               {
                 "type": "website",
-                "url": "https://cyber.gouv.fr/"
+                "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16"
               }
             ],
             "examples": [
               {
                 "input": "2021",
-                "url": "https://cyber.gouv.fr/",
+                "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16",
                 "note": "Stratégie nationale d'accélération pour la cybersécurité (2021)"
               }
             ]

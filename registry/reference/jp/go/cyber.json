@@ -48,12 +48,17 @@
           "Japan Cybersecurity Strategy"
         ],
         "description": "Statutorily mandated national Cybersecurity Strategy of Japan drafted by the Cybersecurity Strategic Headquarters and approved by the Cabinet under Article 12 of the Basic Act on Cybersecurity (Act No. 104 of 2014).",
-        "notes": "Three editions have been adopted by Cabinet decision under the Basic Act on Cybersecurity: September 4, 2015; July 27, 2018; and September 28, 2021.",
+        "notes": "Four editions have been adopted by Cabinet decision under the Basic Act on Cybersecurity: September 4, 2015; July 27, 2018; September 28, 2021; and December 2025.",
         "urls": [
           {
             "type": "pdf",
+            "url": "https://www.cyber.go.jp/eng/pdf/policy/kihon-s/cs_strategy2025_english.pdf",
+            "note": "2025 edition PDF (current, official English translation)"
+          },
+          {
+            "type": "pdf",
             "url": "https://www.nisc.go.jp/eng/pdf/cs-senryaku2021-en.pdf",
-            "note": "2021 edition PDF (current, official English translation)"
+            "note": "2021 edition PDF (superseded, official English translation)"
           },
           {
             "type": "pdf",
@@ -68,9 +73,16 @@
         ],
         "versions_available": [
           {
+            "version": "2025",
+            "release_date": "2025-12-23",
+            "status": "current",
+            "url": "https://www.cyber.go.jp/eng/pdf/policy/kihon-s/cs_strategy2025_english.pdf",
+            "note": "Cybersecurity Strategy (Cabinet decision, December 2025)."
+          },
+          {
             "version": "2021",
             "release_date": "2021-09-28",
-            "status": "current",
+            "status": "superseded",
             "url": "https://www.nisc.go.jp/eng/pdf/cs-senryaku2021-en.pdf",
             "note": "Cybersecurity Strategy (Cabinet decision, September 28, 2021)."
           },
@@ -90,12 +102,38 @@
           }
         ],
         "examples": [
+          "cybersecurity-strategy@2025",
           "cybersecurity-strategy@2021",
           "cybersecurity-strategy@2018",
           "cybersecurity-strategy@2015"
         ]
       },
       "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Cybersecurity Strategy of Japan (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Cybersecurity Strategy of Japan (December 2025)",
+            "url": "https://www.cyber.go.jp/eng/pdf/policy/kihon-s/cs_strategy2025_english.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.cyber.go.jp/eng/pdf/policy/kihon-s/cs_strategy2025_english.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.cyber.go.jp/eng/pdf/policy/kihon-s/cs_strategy2025_english.pdf",
+                "note": "Cybersecurity Strategy of Japan (2025)"
+              }
+            ]
+          }
+        },
         {
           "patterns": [
             "^2021$"

@@ -47,12 +47,17 @@
           "Estonian National Security Concept"
         ],
         "description": "Overarching national security framework of Estonia prepared by the Government Office (Riigikantselei) and adopted by the Riigikogu (Parliament) under the National Defence Act, establishing a broad concept of security across societal cohesion, economic and energy security, internal security, cyber defence, international action, and military defence.",
-        "notes": "Adopted by the Riigikogu on February 22, 2023 (superseding the 2017, 2010, and 2004 editions).",
+        "notes": "Updated on May 14, 2026 (approved by the Government of Estonia) and February 22, 2023 (approved by the Riigikogu, superseding the 2017, 2010, and 2004 editions).",
         "urls": [
           {
             "type": "website",
             "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
-            "note": "2023 edition — Government of Estonia announcement and full text download"
+            "note": "2026 edition — Government of Estonia announcement"
+          },
+          {
+            "type": "pdf",
+            "url": "https://valitsus.ee/media/6098/download",
+            "note": "2023 edition — Official full text download (Eesti julgeolekupoliitika alused 2023)"
           },
           {
             "type": "website",
@@ -62,10 +67,17 @@
         ],
         "versions_available": [
           {
-            "version": "2023",
-            "release_date": "2023-02-22",
+            "version": "2026",
+            "release_date": "2026-05-14",
             "status": "current",
             "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+            "note": "National Security Concept of Estonia 2026 (approved by the Government of Estonia on May 14, 2026)."
+          },
+          {
+            "version": "2023",
+            "release_date": "2023-02-22",
+            "status": "superseded",
+            "url": "https://valitsus.ee/media/6098/download",
             "note": "National Security Concept of Estonia 2023 (approved by the Riigikogu February 22, 2023)."
           },
           {
@@ -91,6 +103,7 @@
           }
         ],
         "examples": [
+          "national-security-concept@2026",
           "national-security-concept@2023",
           "national-security-concept@2017"
         ]
@@ -98,13 +111,13 @@
       "children": [
         {
           "patterns": [
-            "^2023$"
+            "^2026$"
           ],
-          "description": "National Security Concept of Estonia (2023)",
+          "description": "National Security Concept of Estonia (2026)",
           "weight": 100,
           "data": {
             "type": "version",
-            "official_name": "National Security Concept of Estonia (2023)",
+            "official_name": "National Security Concept of Estonia (2026)",
             "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
             "urls": [
               {
@@ -114,8 +127,33 @@
             ],
             "examples": [
               {
-                "input": "2023",
+                "input": "2026",
                 "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
+                "note": "National Security Concept of Estonia (2026)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "National Security Concept of Estonia (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Security Concept of Estonia (2023)",
+            "url": "https://valitsus.ee/media/6098/download",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://valitsus.ee/media/6098/download"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://valitsus.ee/media/6098/download",
                 "note": "National Security Concept of Estonia (2023)"
               }
             ]

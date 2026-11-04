@@ -63,12 +63,17 @@
           "Guide to Developing a National Cybersecurity Strategy: Strategic Engagement in Cybersecurity"
         ],
         "description": "Multi-stakeholder international reference guide coordinated by the ITU (with World Bank, Commonwealth Secretariat, NATO CCDCOE, ENISA, OAS, GFCE, Microsoft, et al.) for initiating, drafting, implementing, monitoring, and evaluating National Cybersecurity Strategies across five lifecycle phases.",
-        "notes": "First edition published in 2018; second edition published in November 2021.",
+        "notes": "First edition published in 2018; second edition published in November 2021; third edition published in 2025.",
         "urls": [
           {
             "type": "website",
             "url": "https://www.itu.int/en/action/cybersecurity/pages/ncs-guide.aspx",
             "note": "ITU National Cybersecurity Strategy Guide portal"
+          },
+          {
+            "type": "website",
+            "url": "https://www.itu.int/pub/D-STR-CYB_GUIDE.03-2025",
+            "note": "2025 3rd edition publication page"
           },
           {
             "type": "website",
@@ -83,9 +88,16 @@
         ],
         "versions_available": [
           {
+            "version": "2025",
+            "release_date": "2025-05-01",
+            "status": "current",
+            "url": "https://www.itu.int/pub/D-STR-CYB_GUIDE.03-2025",
+            "note": "Third edition (2025) — Guide to Developing a National Cybersecurity Strategy."
+          },
+          {
             "version": "2021",
             "release_date": "2021-11-16",
-            "status": "current",
+            "status": "superseded",
             "url": "https://www.itu.int/pub/d-str-cyb_guide.01-2021",
             "note": "Second edition (2021) — Guide to Developing a National Cybersecurity Strategy."
           },
@@ -98,11 +110,37 @@
           }
         ],
         "examples": [
+          "ncs-guide@2025",
           "ncs-guide@2021",
           "ncs-guide@2018"
         ]
       },
       "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Guide to Developing a National Cybersecurity Strategy (3rd Edition, 2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Guide to Developing a National Cybersecurity Strategy (3rd Edition, 2025)",
+            "url": "https://www.itu.int/pub/D-STR-CYB_GUIDE.03-2025",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.itu.int/pub/D-STR-CYB_GUIDE.03-2025"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.itu.int/pub/D-STR-CYB_GUIDE.03-2025",
+                "note": "ITU NCS Guide (3rd Edition, 2025)"
+              }
+            ]
+          }
+        },
         {
           "patterns": [
             "^2021$"

@@ -58,28 +58,35 @@
             "release_date": "2023-11-22",
             "status": "current",
             "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
-            "note": "2023–2030 Australian Cyber Security Strategy (released November 22, 2023)."
+            "note": "2023–2030 Australian Cyber Security Strategy (released November 22, 2023).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023–2030 edition."
+              }
+            ]
           },
           {
             "version": "2020",
             "release_date": "2020-08-06",
             "status": "superseded",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
             "note": "Australia's Cyber Security Strategy 2020 (released August 6, 2020)."
           },
           {
             "version": "2016",
             "release_date": "2016-04-21",
             "status": "superseded",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
             "note": "Australia's Cyber Security Strategy 2016 (released April 21, 2016)."
           },
           {
             "version": "2009",
             "release_date": "2009-11-23",
             "status": "superseded",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
-            "note": "Cyber Security Strategy 2009 (released November 23, 2009)."
+            "url": "https://apo.org.au/node/19945",
+            "note": "Cyber Security Strategy 2009 (released November 23, 2009 by the Attorney-General's Department)."
           }
         ],
         "examples": [
@@ -123,17 +130,17 @@
           "data": {
             "type": "version",
             "official_name": "Australia's Cyber Security Strategy 2020",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
             "urls": [
               {
-                "type": "website",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy"
+                "type": "pdf",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf"
               }
             ],
             "examples": [
               {
                 "input": "2020",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/cyber-security-strategy-2020.pdf",
                 "note": "Australia's Cyber Security Strategy 2020"
               }
             ]
@@ -148,17 +155,17 @@
           "data": {
             "type": "version",
             "official_name": "Australia's Cyber Security Strategy 2016",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
             "urls": [
               {
-                "type": "website",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy"
+                "type": "pdf",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf"
               }
             ],
             "examples": [
               {
                 "input": "2016",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+                "url": "https://www.homeaffairs.gov.au/cyber-security-subsite/files/PMC-Cyber-Strategy.pdf",
                 "note": "Australia's Cyber Security Strategy 2016"
               }
             ]
@@ -173,17 +180,17 @@
           "data": {
             "type": "version",
             "official_name": "Australian Government Cyber Security Strategy 2009",
-            "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+            "url": "https://apo.org.au/node/19945",
             "urls": [
               {
                 "type": "website",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy"
+                "url": "https://apo.org.au/node/19945"
               }
             ],
             "examples": [
               {
                 "input": "2009",
-                "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
+                "url": "https://apo.org.au/node/19945",
                 "note": "Cyber Security Strategy 2009"
               }
             ]
