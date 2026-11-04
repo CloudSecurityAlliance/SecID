@@ -1,0 +1,106 @@
+{
+  "schema_version": "2.0",
+  "namespace": "moda.gov.tw",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Digital Affairs — Administration for Cyber Security (Taiwan)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://moda.gov.tw/en/ACS/"
+    }
+  ],
+  "examples": [
+    "secid:reference/moda.gov.tw/national-cyber-security-program@2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-program$",
+        "(?i)^ncsp\\-tw$",
+        "(?i)^taiwan\\-cyber\\-security\\-program$"
+      ],
+      "description": "National Cyber Security Program of Taiwan (國家資通安全發展方案)",
+      "weight": 100,
+      "data": {
+        "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
+        "examples": [
+          "national-cyber-security-program@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-04-01",
+            "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
+            "aliases": [
+              {
+                "label": "phase-7",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2025-2028",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-01-01",
+            "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
+            "aliases": [
+              {
+                "label": "phase-6",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2021-2024",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^phase\\-7$",
+            "(?i)^2025\\-2028$"
+          ],
+          "description": "National Cyber Security Program of Taiwan (國家資通安全發展方案) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
+            "examples": [
+              "national-cyber-security-program"
+            ],
+            "name": "National Cyber Security Program of Taiwan (2025–2028) — Phase 7"
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^phase\\-6$",
+            "(?i)^2021\\-2024$"
+          ],
+          "description": "National Cyber Security Program of Taiwan (國家資通安全發展方案) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
+            "examples": [
+              "national-cyber-security-program"
+            ],
+            "name": "National Cyber Security Program of Taiwan (2021–2024) — Phase 6"
+          }
+        }
+      ]
+    }
+  ]
+}

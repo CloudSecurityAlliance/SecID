@@ -3,17 +3,30 @@
   "namespace": "ncsc.fi",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
-  "official_name": "National Cyber Security Centre Finland (NCSC-FI)",
-  "common_name": null,
-  "alternate_names": null,
-  "notes": "CVE Program partner. Country: Finland.",
-  "wikidata": null,
-  "wikipedia": null,
+  "status_notes": "Updated 2026-11-03 for SecID#227 (Finland's Cyber Security Strategy 2024-2035, 2019, 2013 and Government Report on Finnish Foreign and Security Policy 2024, 2020).",
+  "official_name": "National Cyber Security Centre Finland (NCSC-FI) / Security Committee (Turvallisuuskomitea)",
+  "common_name": "NCSC-FI",
+  "alternate_names": [
+    "Kyberturvallisuuskeskus",
+    "Turvallisuuskomitea",
+    "Security Committee of Finland",
+    "Valtioneuvosto"
+  ],
+  "notes": "CVE Program partner and Finnish national cybersecurity authority within Traficom, alongside the Government Security Committee (Turvallisuuskomitea) which coordinates Finland's Cyber Security Strategy.",
+  "wikidata": [
+    "Q18660454"
+  ],
+  "wikipedia": [
+    "https://fi.wikipedia.org/wiki/Kyberturvallisuuskeskus"
+  ],
   "urls": [
     {
       "type": "website",
       "url": "https://ncsc.fi"
+    },
+    {
+      "type": "website",
+      "url": "https://turvallisuuskomitea.fi"
     }
   ],
   "match_nodes": [
@@ -37,6 +50,265 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^kyberturvallisuusstrategia$",
+        "^cyber-security-strategy$",
+        "^finland-cyber-security-strategy$"
+      ],
+      "description": "Suomen kyberturvallisuusstrategia (Finland's Cyber Security Strategy)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Suomen kyberturvallisuusstrategia / Finland's Cyber Security Strategy",
+        "common_name": "Finland's Cyber Security Strategy",
+        "alternate_names": [
+          "Suomen kyberturvallisuusstrategia 2024–2035",
+          "Finlands strategi för cybersäkerhet",
+          "Finland's Cyber Security Strategy 2019",
+          "Finland's Cyber security strategy (2013)"
+        ],
+        "description": "National cybersecurity strategy adopted by the Finnish Government under the Comprehensive Security (Kokonaisturvallisuus) model, coordinated by the Security Committee (Turvallisuuskomitea) and the Prime Minister's Office.",
+        "notes": "Three editions adopted by Government Resolution: January 24, 2013 (1st edition), October 3, 2019 (2nd edition), and October 10, 2024 (2024–2035 3rd edition, Publications of the Prime Minister's Office 2024:11 / 2024:15).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-425-5",
+            "note": "2024-2035 edition (current) — English URN / Institutional Repository Valto"
+          },
+          {
+            "type": "pdf",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf",
+            "note": "2019 edition (superseded) — English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf",
+            "note": "2013 edition (superseded) — English PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2035",
+            "release_date": "2024-10-10",
+            "status": "current",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-425-5",
+            "note": "Finland's Cyber Security Strategy 2024–2035 (Government Resolution VNK/2024/135 of October 10, 2024).",
+            "aliases": [
+              {
+                "label": "2024",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2024-2035 edition."
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-10-03",
+            "status": "superseded",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf",
+            "note": "Finland's Cyber Security Strategy 2019 (adopted October 3, 2019)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-01-24",
+            "status": "superseded",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf",
+            "note": "Finland's Cyber security strategy (adopted January 24, 2013)."
+          }
+        ],
+        "examples": [
+          "kyberturvallisuusstrategia@2024-2035",
+          "kyberturvallisuusstrategia@2019",
+          "kyberturvallisuusstrategia@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2035$",
+            "^2024$"
+          ],
+          "description": "Suomen kyberturvallisuusstrategia 2024–2035",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Finland's Cyber Security Strategy 2024–2035",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-425-5",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://urn.fi/URN:ISBN:978-952-383-425-5"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2035",
+                "url": "https://urn.fi/URN:ISBN:978-952-383-425-5",
+                "note": "Finland's Cyber Security Strategy 2024-2035"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Finland's Cyber Security Strategy 2019",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Finland's Cyber Security Strategy 2019",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf",
+                "note": "Finland's Cyber Security Strategy (2019)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Finland's Cyber security strategy (2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Finland's Cyber security strategy (2013)",
+            "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf",
+                "note": "Finland's Cyber Security Strategy (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^foreign-and-security-policy-report$",
+        "^ulko-ja-turvallisuuspoliittinen-selonteko$"
+      ],
+      "description": "Valtioneuvoston ulko- ja turvallisuuspoliittinen selonteko (Government Report on Finnish Foreign and Security Policy)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Valtioneuvoston ulko- ja turvallisuuspoliittinen selonteko / Government Report on Finnish Foreign and Security Policy",
+        "common_name": "Finnish Foreign and Security Policy Report",
+        "alternate_names": [
+          "Government Report on Finnish Foreign and Security Policy 2024",
+          "Statsrådets utrikes- och säkerhetspolitiska redogörelse"
+        ],
+        "description": "Overarching Finnish national security and foreign policy strategy submitted by the Government to Parliament, defining Finland's security posture as a NATO Ally, comprehensive security model, and hybrid/cyber defense priorities.",
+        "notes": "Latest edition adopted June 20, 2024 (Publications of the Finnish Government 2024:35, VNS 5/2024 vp), succeeding the 2020 report (Publications of the Finnish Government 2020:32) and the 2022 report on changes in the security environment.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-786-7",
+            "note": "2024 edition (current) — Institutional Repository Valto URN"
+          },
+          {
+            "type": "website",
+            "url": "https://turvallisuuskomitea.fi/en/comprehensive-security-together-12-the-government-report-on-foreign-and-security-policy/",
+            "note": "2020 edition (superseded) — Security Committee summary"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-06-20",
+            "status": "current",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-786-7",
+            "note": "Government Report on Finnish Foreign and Security Policy (June 20, 2024, Publications of the Finnish Government 2024:35)."
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-10-08",
+            "status": "superseded",
+            "url": "https://turvallisuuskomitea.fi/en/comprehensive-security-together-12-the-government-report-on-foreign-and-security-policy/",
+            "note": "Government Report on Finnish Foreign and Security Policy (October 8, 2020, Publications of the Finnish Government 2020:32)."
+          }
+        ],
+        "examples": [
+          "foreign-and-security-policy-report@2024",
+          "foreign-and-security-policy-report@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Government Report on Finnish Foreign and Security Policy (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Government Report on Finnish Foreign and Security Policy (2024)",
+            "url": "https://urn.fi/URN:ISBN:978-952-383-786-7",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://urn.fi/URN:ISBN:978-952-383-786-7"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://urn.fi/URN:ISBN:978-952-383-786-7",
+                "note": "Government Report on Finnish Foreign and Security Policy (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Government Report on Finnish Foreign and Security Policy (2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Government Report on Finnish Foreign and Security Policy (2020)",
+            "url": "https://turvallisuuskomitea.fi/en/comprehensive-security-together-12-the-government-report-on-foreign-and-security-policy/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://turvallisuuskomitea.fi/en/comprehensive-security-together-12-the-government-report-on-foreign-and-security-policy/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://turvallisuuskomitea.fi/en/comprehensive-security-together-12-the-government-report-on-foreign-and-security-policy/",
+                "note": "Government Report on Finnish Foreign and Security Policy (2020)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {"country": ["FI"]},

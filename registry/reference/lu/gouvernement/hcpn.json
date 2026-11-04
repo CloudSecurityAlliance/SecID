@@ -1,0 +1,141 @@
+{
+  "schema_version": "2.0",
+  "namespace": "hcpn.gouvernement.lu",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "High Commission for National Protection (HCPN) & Government of Luxembourg",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://hcpn.gouvernement.lu/"
+    }
+  ],
+  "examples": [
+    "secid:reference/hcpn.gouvernement.lu/national-cybersecurity-strategy@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "(?i)^ncss\\-lu$",
+        "(?i)^luxembourg\\-cybersecurity\\-strategy$"
+      ],
+      "description": "National Cybersecurity Strategy IV of Luxembourg (2021–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://hcpn.gouvernement.lu/en/publications/strategie-nationale-cybersecurite-4.html",
+        "examples": [
+          "national-cybersecurity-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-05-01",
+            "url": "https://hcpn.gouvernement.lu/en/publications/strategie-nationale-cybersecurite-4.html",
+            "aliases": [
+              {
+                "label": "iv",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^iv$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Cybersecurity Strategy IV of Luxembourg (2021–2025) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://hcpn.gouvernement.lu/en/publications/strategie-nationale-cybersecurite-4.html",
+            "examples": [
+              "national-cybersecurity-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^artificial-intelligence-a-strategic-vision-for-luxembourg$",
+        "(?i)^luxembourg\\-ai\\-strategy$",
+        "(?i)^accelerating\\-digital\\-sovereignty\\-2030$"
+      ],
+      "description": "Artificial Intelligence: A Strategic Vision for Luxembourg & Accelerating Digital Sovereignty 2030",
+      "weight": 100,
+      "data": {
+        "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
+        "examples": [
+          "artificial-intelligence-a-strategic-vision-for-luxembourg@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-05-01",
+            "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
+            "aliases": [
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-05-01",
+            "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2030$"
+          ],
+          "description": "Artificial Intelligence: A Strategic Vision for Luxembourg & Accelerating Digital Sovereignty 2030 (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
+            "examples": [
+              "artificial-intelligence-a-strategic-vision-for-luxembourg"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Artificial Intelligence: A Strategic Vision for Luxembourg & Accelerating Digital Sovereignty 2030 (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://digital-luxembourg.public.lu/initiatives/artificial-intelligence-strategic-vision-luxembourg",
+            "examples": [
+              "artificial-intelligence-a-strategic-vision-for-luxembourg"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

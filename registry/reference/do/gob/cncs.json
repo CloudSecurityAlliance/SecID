@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cncs.gob.do",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Dominican Republic Estrategia Nacional de Ciberseguridad 2030 & 2018-2021 and Estrategia Nacional de Inteligencia Artificial 2023).",
+  "official_name": "Centro Nacional de Ciberseguridad de la República Dominicana",
+  "common_name": "CNCS Dominican Republic",
+  "alternate_names": [
+    "Ministerio de la Presidencia de la República Dominicana",
+    "Gabinete de Innovación y Desarrollo Digital",
+    "Oficina Gubernamental de Tecnologías de la Información y Comunicación (OGTIC)"
+  ],
+  "notes": "National Cybersecurity Center of the Dominican Republic attached to the Ministry of the Presidency (established by Decree No. 230-18), responsible for the Estrategia Nacional de Ciberseguridad 2030 (ENCS 2030), alongside the Innovation and Digital Development Cabinet / OGTIC which coordinates the Estrategia Nacional de Inteligencia Artificial (ENIA).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cncs.gob.do"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^encs$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad (National Cybersecurity Strategy of the Dominican Republic)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad (ENCS)",
+        "common_name": "Dominican Republic National Cybersecurity Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Ciberseguridad 2030 (Decreto 313-22)",
+          "Estrategia Nacional de Ciberseguridad 2018-2021 (Decreto 230-18)"
+        ],
+        "description": "National cybersecurity strategy of the Dominican Republic enacted by Presidential Decree, defining strategic pillars for legal/institutional strengthening, critical infrastructure protection, cybersecurity education, and national/international alliances.",
+        "notes": "First edition enacted June 15, 2018 (Decreto No. 230-18, 2018–2021); second edition enacted June 14, 2022 (Decreto No. 313-22, ENCS 2030).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+            "note": "2022-2030 edition (current) — Decreto 313-22 on CNCS"
+          },
+          {
+            "type": "pdf",
+            "url": "https://presidencia.gob.do/sites/default/files/decree/2022-08/313-22.pdf",
+            "note": "2022-2030 edition — Presidencia PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022-2030",
+            "release_date": "2022-06-14",
+            "status": "current",
+            "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad 2030 (Decreto No. 313-22 of June 14, 2022).",
+            "aliases": [
+              {
+                "label": "2022",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2022-2030 edition."
+              },
+              {
+                "label": "2030",
+                "on_match": "resolve",
+                "note": "Horizon year shorthand for ENCS 2030."
+              }
+            ]
+          },
+          {
+            "version": "2018-2021",
+            "release_date": "2018-06-15",
+            "status": "superseded",
+            "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad 2018–2021 (Decreto No. 230-18 of June 15, 2018).",
+            "aliases": [
+              {
+                "label": "2018",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2018-2021 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2022-2030",
+          "estrategia-nacional-ciberseguridad@2018-2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022-2030$",
+            "^2022$",
+            "^2030$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad 2030 (Decreto 313-22)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad 2030 (Decreto 313-22)",
+            "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://presidencia.gob.do/sites/default/files/decree/2022-08/313-22.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022-2030",
+                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+                "note": "Dominican Republic National Cybersecurity Strategy 2030"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018-2021$",
+            "^2018$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad 2018-2021 (Decreto 230-18)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad 2018-2021 (Decreto 230-18)",
+            "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018-2021",
+                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
+                "note": "Dominican Republic National Cybersecurity Strategy 2018-2021"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ia$",
+        "^enia$",
+        "^ai-strategy$"
+      ],
+      "description": "Estrategia Nacional de Inteligencia Artificial de la República Dominicana (ENIA)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Inteligencia Artificial de la República Dominicana (ENIA)",
+        "common_name": "Dominican Republic National AI Strategy",
+        "alternate_names": [
+          "ENIA República Dominicana (2023)"
+        ],
+        "description": "National artificial intelligence strategy of the Dominican Republic launched in October 2023 under the Digital Agenda 2030, establishing pillars for smart government, data ecosystem, human talent, and regional AI hub development.",
+        "notes": "Launched October 2023 by President Luis Abinader and the Gabinete de Innovación y Desarrollo Digital.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf",
+            "note": "2023 edition (current) — Official ENIA PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-10-18",
+            "status": "current",
+            "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf",
+            "note": "Estrategia Nacional de Inteligencia Artificial de la República Dominicana (launched October 2023)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ia@2023"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Estrategia Nacional de Inteligencia Artificial de la República Dominicana (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Inteligencia Artificial de la República Dominicana (2023)",
+            "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf",
+                "note": "Dominican Republic National AI Strategy (2023)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "DO"
+    ]
+  }
+}

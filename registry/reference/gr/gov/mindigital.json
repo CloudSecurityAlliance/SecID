@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "namespace": "mindigital.gov.gr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Digital Governance & National Cybersecurity Authority of Greece",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mindigital.gr/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mindigital.gov.gr/national-cybersecurity-strategy@2020"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "(?i)^ethniki\\-stratigiki\\-kyvernoasfaleias$",
+        "(?i)^ncss\\-gr$"
+      ],
+      "description": "National Cybersecurity Strategy of Greece (Εθνική Στρατηγική Κυβερνοασφάλειας 2020–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://mindigital.gr/ethniki-stratigiki-kyvernoasfaleias/",
+        "examples": [
+          "national-cybersecurity-strategy@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-12-01",
+            "url": "https://mindigital.gr/ethniki-stratigiki-kyvernoasfaleias/",
+            "aliases": [
+              {
+                "label": "2020-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^2020\\-2025$"
+          ],
+          "description": "National Cybersecurity Strategy of Greece (Εθνική Στρατηγική Κυβερνοασφάλειας 2020–2025) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://mindigital.gr/ethniki-stratigiki-kyvernoasfaleias/",
+            "examples": [
+              "national-cybersecurity-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^blueprint-for-greeces-ai-transformation$",
+        "(?i)^greece\\-ai\\-strategy$",
+        "(?i)^ethniki\\-stratigiki\\-technitis\\-noimosynis$"
+      ],
+      "description": "A Blueprint for Greece's AI Transformation (National AI Strategy of Greece)",
+      "weight": 100,
+      "data": {
+        "url": "https://ai.gov.gr/",
+        "examples": [
+          "blueprint-for-greeces-ai-transformation@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-11-01",
+            "url": "https://ai.gov.gr/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "A Blueprint for Greece's AI Transformation (National AI Strategy of Greece) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://ai.gov.gr/",
+            "examples": [
+              "blueprint-for-greeces-ai-transformation"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

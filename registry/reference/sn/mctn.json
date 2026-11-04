@@ -1,0 +1,117 @@
+{
+  "schema_version": "2.0",
+  "namespace": "mctn.sn",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Communication, Telecommunications and Digital Economy (MCTN), Republic of Senegal",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.numerique.gouv.sn/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mctn.sn/strategie-nationale-de-cybersecurite-du-senegal@2017"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^strategie-nationale-de-cybersecurite-du-senegal$",
+        "(?i)^snc2022$",
+        "(?i)^ncss\\-sn$"
+      ],
+      "description": "National Cybersecurity Strategy of Senegal (Stratégie Nationale de Cybersécurité — SNC2022)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.numerique.gouv.sn/",
+        "examples": [
+          "strategie-nationale-de-cybersecurite-du-senegal@2017"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2017",
+            "status": "current",
+            "release_date": "2017-12-01",
+            "url": "https://www.numerique.gouv.sn/",
+            "aliases": [
+              {
+                "label": "snc2022",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2017$",
+            "(?i)^snc2022$"
+          ],
+          "description": "National Cybersecurity Strategy of Senegal (Stratégie Nationale de Cybersécurité — SNC2022) (2017)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.numerique.gouv.sn/",
+            "examples": [
+              "strategie-nationale-de-cybersecurite-du-senegal"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^strategie-nationale-d-intelligence-artificielle-du-senegal$",
+        "(?i)^snia\\-sn$",
+        "(?i)^senegal\\-ai\\-strategy$"
+      ],
+      "description": "Senegal National Artificial Intelligence Strategy (Stratégie Nationale d'Intelligence Artificielle 2023–2028)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.numerique.gouv.sn/",
+        "examples": [
+          "strategie-nationale-d-intelligence-artificielle-du-senegal@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-06-01",
+            "url": "https://www.numerique.gouv.sn/",
+            "aliases": [
+              {
+                "label": "2023-2028",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2028$"
+          ],
+          "description": "Senegal National Artificial Intelligence Strategy (Stratégie Nationale d'Intelligence Artificielle 2023–2028) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.numerique.gouv.sn/",
+            "examples": [
+              "strategie-nationale-d-intelligence-artificielle-du-senegal"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

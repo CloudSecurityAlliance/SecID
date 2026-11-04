@@ -64,7 +64,46 @@
           "hb-452"
         ]
       }
+    },
+    {
+      "patterns": [
+        "^sb-149$",
+        "(?i)^uaipa$",
+        "(?i)^utah\\-ai\\-policy\\-act$"
+      ],
+      "description": "Utah SB 149 — Artificial Intelligence Policy Act (UAIPA, generative AI consumer interaction disclosure requirements, enacted March 2024, amended by SB 226 in 2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://le.utah.gov/~2024/bills/static/SB0149.html",
+        "examples": [
+          "sb-149"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^sb-226$",
+        "(?i)^utah\\-ai\\-consumer\\-protection\\-amendments$"
+      ],
+      "description": "Utah SB 226 — Artificial Intelligence Consumer Protection Amendments (enacted March 2025, effective May 7, 2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://le.utah.gov/~2025/bills/static/SB0226.html",
+        "examples": [
+          "sb-226"
+        ]
+      }
     }
   ],
-  "tags": {"country": ["US"], "region": ["UT"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "UT"
+    ]
+  },
+  "examples": [
+    "secid:regulation/utah.gov/sb-149"
+  ]
 }

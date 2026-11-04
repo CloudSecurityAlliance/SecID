@@ -1,0 +1,152 @@
+{
+  "schema_version": "2.0",
+  "namespace": "gov.pl",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Republic of Poland (Serwis Rzeczypospolitej Polskiej)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.pl/"
+    }
+  ],
+  "examples": [
+    "secid:reference/gov.pl/national-security-strategy-of-poland@2020"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-poland$",
+        "(?i)^strategia\\-bezpieczenstwa\\-narodowego\\-rp$",
+        "(?i)^sbn\\-rp$"
+      ],
+      "description": "National Security Strategy of the Republic of Poland (Strategia Bezpieczeństwa Narodowego RP)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html",
+        "examples": [
+          "national-security-strategy-of-poland@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-05-12",
+            "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "National Security Strategy of the Republic of Poland (Strategia Bezpieczeństwa Narodowego RP) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html",
+            "examples": [
+              "national-security-strategy-of-poland"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cybersecurity-strategy-of-poland$",
+        "(?i)^strategia\\-cyberbezpieczenstwa\\-rp$",
+        "(?i)^ncss\\-pl$"
+      ],
+      "description": "Cybersecurity Strategy of the Republic of Poland (Strategia Cyberbezpieczeństwa RP)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024",
+        "examples": [
+          "cybersecurity-strategy-of-poland@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-10-22",
+            "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024",
+            "aliases": [
+              {
+                "label": "2019-2024",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^2019\\-2024$"
+          ],
+          "description": "Cybersecurity Strategy of the Republic of Poland (Strategia Cyberbezpieczeństwa RP) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024",
+            "examples": [
+              "cybersecurity-strategy-of-poland"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^policy-for-ai-development-in-poland$",
+        "(?i)^polityka\\-rozwoju\\-ai\\-w\\-polsce$",
+        "(?i)^poland\\-ai\\-policy$"
+      ],
+      "description": "Policy for the Development of Artificial Intelligence in Poland from 2020 (Polityka dla rozwoju sztucznej inteligencji w Polsce)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020",
+        "examples": [
+          "policy-for-ai-development-in-poland@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-12-28",
+            "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Policy for the Development of Artificial Intelligence in Poland from 2020 (Polityka dla rozwoju sztucznej inteligencji w Polsce) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020",
+            "examples": [
+              "policy-for-ai-development-in-poland"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

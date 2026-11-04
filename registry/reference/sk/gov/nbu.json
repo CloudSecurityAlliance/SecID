@@ -37,12 +37,159 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^security-strategy-of-the-slovak-republic$",
+        "(?i)^bezpecnostna\\-strategia\\-sr$",
+        "(?i)^nss\\-sk$"
+      ],
+      "description": "Security Strategy of the Slovak Republic (Bezpečnostná stratégia Slovenskej republiky)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mosr.sk/bezpecnostna-strategia-sr/",
+        "examples": [
+          "security-strategy-of-the-slovak-republic@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-01-28",
+            "url": "https://www.mosr.sk/bezpecnostna-strategia-sr/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Security Strategy of the Slovak Republic (Bezpečnostná stratégia Slovenskej republiky) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mosr.sk/bezpecnostna-strategia-sr/",
+            "examples": [
+              "security-strategy-of-the-slovak-republic"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy-of-slovakia$",
+        "(?i)^narodna\\-strategia\\-kybernetickej\\-bezpecnosti$",
+        "(?i)^ncss\\-sk$"
+      ],
+      "description": "National Strategy for Cyber Security of the Slovak Republic (2021–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.nbu.gov.sk/urad/o-urade/kyberneticka-bezpecnost/narodna-strategia-kybernetickej-bezpecnosti/",
+        "examples": [
+          "national-cybersecurity-strategy-of-slovakia@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-01-13",
+            "url": "https://www.nbu.gov.sk/urad/o-urade/kyberneticka-bezpecnost/narodna-strategia-kybernetickej-bezpecnosti/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Strategy for Cyber Security of the Slovak Republic (2021–2025) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nbu.gov.sk/urad/o-urade/kyberneticka-bezpecnost/narodna-strategia-kybernetickej-bezpecnosti/",
+            "examples": [
+              "national-cybersecurity-strategy-of-slovakia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^action-plan-for-digital-transformation-of-slovakia$",
+        "(?i)^slovakia\\-ai\\-action\\-plan$",
+        "(?i)^akcny\\-plan\\-pre\\-digitalnu\\-transformaciu$"
+      ],
+      "description": "Action Plan for the Digital Transformation of Slovakia (AI Pillar)",
+      "weight": 100,
+      "data": {
+        "url": "https://mirri.gov.sk/sekcie/informatizacia/strategia-digitalnej-transformacie-slovenska/",
+        "examples": [
+          "action-plan-for-digital-transformation-of-slovakia@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-03-01",
+            "url": "https://mirri.gov.sk/sekcie/informatizacia/strategia-digitalnej-transformacie-slovenska/",
+            "aliases": [
+              {
+                "label": "2023-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2026$"
+          ],
+          "description": "Action Plan for the Digital Transformation of Slovakia (AI Pillar) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://mirri.gov.sk/sekcie/informatizacia/strategia-digitalnej-transformacie-slovenska/",
+            "examples": [
+              "action-plan-for-digital-transformation-of-slovakia"
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["SK"]},
+  "tags": {
+    "country": [
+      "SK"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",
     "note": "Not verified against the organisation itself. A ccTLD implies where a domain was registered, not necessarily where the body operates — correct this field directly if it is wrong, and it will not be overwritten."
-  }
+  },
+  "examples": [
+    "secid:reference/nbu.gov.sk/security-strategy-of-the-slovak-republic@2021"
+  ]
 }

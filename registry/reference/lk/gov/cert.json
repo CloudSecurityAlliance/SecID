@@ -1,0 +1,142 @@
+{
+  "schema_version": "2.0",
+  "namespace": "cert.gov.lk",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Sri Lanka CERT|CC & Ministry of Technology of Sri Lanka",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cert.gov.lk/"
+    }
+  ],
+  "examples": [
+    "secid:reference/cert.gov.lk/national-information-and-cyber-security-strategy@2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-information-and-cyber-security-strategy$",
+        "(?i)^nicss\\-lk$",
+        "(?i)^sri\\-lanka\\-cyber\\-strategy$"
+      ],
+      "description": "National Information and Cyber Security Strategy of Sri Lanka",
+      "weight": 100,
+      "data": {
+        "url": "https://www.cert.gov.lk/",
+        "examples": [
+          "national-information-and-cyber-security-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-01-01",
+            "url": "https://www.cert.gov.lk/",
+            "aliases": [
+              {
+                "label": "2025-2029",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-01-01",
+            "url": "https://www.cert.gov.lk/",
+            "aliases": [
+              {
+                "label": "2019-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2029$"
+          ],
+          "description": "National Information and Cyber Security Strategy of Sri Lanka (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cert.gov.lk/",
+            "examples": [
+              "national-information-and-cyber-security-strategy"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^2019\\-2023$"
+          ],
+          "description": "National Information and Cyber Security Strategy of Sri Lanka (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cert.gov.lk/",
+            "examples": [
+              "national-information-and-cyber-security-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^sri-lanka-national-ai-strategy$",
+        "(?i)^ai\\-sri\\-lanka\\-2028$"
+      ],
+      "description": "AI Sri Lanka 2028: National Strategy on Artificial Intelligence",
+      "weight": 100,
+      "data": {
+        "url": "https://mot.gov.lk/",
+        "examples": [
+          "sri-lanka-national-ai-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-05-01",
+            "url": "https://mot.gov.lk/",
+            "aliases": [
+              {
+                "label": "2024-2028",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2028$"
+          ],
+          "description": "AI Sri Lanka 2028: National Strategy on Artificial Intelligence (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://mot.gov.lk/",
+            "examples": [
+              "sri-lanka-national-ai-strategy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

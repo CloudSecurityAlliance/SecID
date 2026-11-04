@@ -114,6 +114,122 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^ki-strategie$",
+        "^nationale-ki-strategie$",
+        "^ai-strategy$"
+      ],
+      "description": "Strategie Künstliche Intelligenz der Bundesregierung (German National AI Strategy)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Strategie Künstliche Intelligenz der Bundesregierung",
+        "common_name": "Nationale KI-Strategie",
+        "alternate_names": [
+          "Artificial Intelligence Strategy of the German Federal Government",
+          "Fortschreibung der Strategie Künstliche Intelligenz der Bundesregierung (2020)",
+          "KI-Aktionsplan (BMBF 2023)"
+        ],
+        "description": "National artificial intelligence strategy of the German Federal Government (jointly led by BMBF, BMWK, and BMAS), establishing Germany and Europe as a leading AI hub focused on research excellence, industrial transfer, responsible/human-centric AI governance, and compute infrastructure.",
+        "notes": "Adopted by the Federal Cabinet on November 15, 2018 and updated on December 2, 2020 (Fortschreibung der KI-Strategie).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ki-strategie-deutschland.de/",
+            "note": "Official German Federal Government AI Strategy portal"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf",
+            "note": "2020 update (current) — English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf",
+            "note": "2018 initial edition (superseded) — English PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-12-02",
+            "status": "current",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf",
+            "note": "Artificial Intelligence Strategy of the German Federal Government — 2020 Update (adopted December 2, 2020)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-11-15",
+            "status": "superseded",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf",
+            "note": "Artificial Intelligence Strategy of the German Federal Government (adopted November 15, 2018)."
+          }
+        ],
+        "examples": [
+          "ki-strategie@2020",
+          "ki-strategie@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Strategie Künstliche Intelligenz der Bundesregierung — Fortschreibung 2020",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Artificial Intelligence Strategy of the German Federal Government — 2020 Update",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.ki-strategie-deutschland.de/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf",
+                "note": "German National AI Strategy (2020 Update)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Strategie Künstliche Intelligenz der Bundesregierung (2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Artificial Intelligence Strategy of the German Federal Government (2018)",
+            "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf",
+                "note": "German National AI Strategy (2018)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

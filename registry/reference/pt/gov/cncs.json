@@ -1,0 +1,185 @@
+{
+  "schema_version": "2.0",
+  "namespace": "cncs.gov.pt",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cybersecurity Centre (CNCS) & Government of Portugal",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cncs.gov.pt/"
+    }
+  ],
+  "examples": [
+    "secid:reference/cncs.gov.pt/strategic-concept-of-national-defence@2013"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^strategic-concept-of-national-defence$",
+        "(?i)^conceito\\-estrategico\\-de\\-defesa\\-nacional$",
+        "(?i)^cedn\\-pt$"
+      ],
+      "description": "Strategic Concept of National Defence of Portugal (Conceito Estratégico de Defesa Nacional — CEDN)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.defesa.gov.pt/pt/defesa/cedn",
+        "examples": [
+          "strategic-concept-of-national-defence@2013"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2013",
+            "status": "current",
+            "release_date": "2013-04-05",
+            "url": "https://www.defesa.gov.pt/pt/defesa/cedn"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Strategic Concept of National Defence of Portugal (Conceito Estratégico de Defesa Nacional — CEDN) (2013)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.defesa.gov.pt/pt/defesa/cedn",
+            "examples": [
+              "strategic-concept-of-national-defence"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyberspace-security-strategy$",
+        "(?i)^estrategia\\-nacional\\-de\\-seguranca\\-do\\-ciberespaco$",
+        "(?i)^ensc\\-pt$"
+      ],
+      "description": "Portuguese National Cyberspace Security Strategy (Estratégia Nacional de Segurança do Ciberespaço)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.cncs.gov.pt/pt/estrategia-nacional/",
+        "examples": [
+          "national-cyberspace-security-strategy@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-06-05",
+            "url": "https://www.cncs.gov.pt/pt/estrategia-nacional/",
+            "aliases": [
+              {
+                "label": "2019-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^2019\\-2023$"
+          ],
+          "description": "Portuguese National Cyberspace Security Strategy (Estratégia Nacional de Segurança do Ciberespaço) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cncs.gov.pt/pt/estrategia-nacional/",
+            "examples": [
+              "national-cyberspace-security-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai-portugal-2030$",
+        "(?i)^agenda\\-nacional\\-de\\-ia$",
+        "(?i)^estrategia\\-nacional\\-de\\-ia\\-portugal$"
+      ],
+      "description": "AI Portugal 2030 & National Artificial Intelligence Agenda (Estratégia Nacional de Inteligência Artificial)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
+        "examples": [
+          "ai-portugal-2030@2026"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2026",
+            "status": "current",
+            "release_date": "2026-01-01",
+            "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
+            "aliases": [
+              {
+                "label": "national-ai-agenda",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-02-01",
+            "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
+            "aliases": [
+              {
+                "label": "ai-portugal-2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026$",
+            "(?i)^national\\-ai\\-agenda$"
+          ],
+          "description": "AI Portugal 2030 & National Artificial Intelligence Agenda (Estratégia Nacional de Inteligência Artificial) (2026)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
+            "examples": [
+              "ai-portugal-2030"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^ai\\-portugal\\-2030$"
+          ],
+          "description": "AI Portugal 2030 & National Artificial Intelligence Agenda (Estratégia Nacional de Inteligência Artificial) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.portugal.gov.pt/pt/gc21/comunicacao/documento?i=estrategia-nacional-de-inteligencia-artificial",
+            "examples": [
+              "ai-portugal-2030"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -27,7 +27,7 @@
         "official_name": "Capture or Use of Biometric Identifier Act",
         "common_name": "CUBI",
         "alternate_names": null,
-        "description": "Texas biometric privacy statute (Tex. Bus. & Com. Code \u00a7503.001).",
+        "description": "Texas biometric privacy statute (Tex. Bus. & Com. Code §503.001).",
         "notes": "",
         "urls": [
           {
@@ -38,23 +38,54 @@
         "examples": []
       }
     },
-
     {
-      "patterns": ["(?i)^tdpsa$"],
+      "patterns": [
+        "(?i)^tdpsa$"
+      ],
       "description": "Texas Data Privacy and Security Act",
       "weight": 100,
       "data": {
         "official_name": "Texas Data Privacy and Security Act",
         "common_name": "TDPSA",
-        "alternate_names": ["HB 4"],
+        "alternate_names": [
+          "HB 4"
+        ],
         "description": "Texas's comprehensive consumer privacy law.",
         "notes": "Signed 2023 (88th Regular Session). Effective July 1, 2024.",
         "urls": [
-          {"type": "website", "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4"}
+          {
+            "type": "website",
+            "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4"
+          }
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^hb-149$",
+        "(?i)^traiga$",
+        "(?i)^texas\\-responsible\\-ai\\-governance\\-act$"
+      ],
+      "description": "Texas HB 149 — Texas Responsible Artificial Intelligence Governance Act (TRAIGA, Business & Commerce Code Subtitle D, enacted June 22, 2025, effective Jan 1, 2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=HB149",
+        "examples": [
+          "hb-149"
+        ]
+      }
     }
   ],
-  "tags": {"country": ["US"], "region": ["TX"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "TX"
+    ]
+  },
+  "examples": [
+    "secid:regulation/texas.gov/hb-149"
+  ]
 }

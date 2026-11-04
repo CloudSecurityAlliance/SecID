@@ -1,0 +1,173 @@
+{
+  "schema_version": "2.0",
+  "namespace": "mcit.gov.eg",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Communications and Information Technology (MCIT) & EG-CERT (Egypt)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mcit.gov.eg/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mcit.gov.eg/national-cybersecurity-strategy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "(?i)^eg\\-ncss$",
+        "(?i)^egypt\\-cybersecurity\\-strategy$"
+      ],
+      "description": "Egypt National Cybersecurity Strategy (2023–2027 / 2017–2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://egcert.eg/",
+        "examples": [
+          "national-cybersecurity-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-05-01",
+            "url": "https://egcert.eg/",
+            "aliases": [
+              {
+                "label": "2023-2027",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2017",
+            "status": "superseded",
+            "release_date": "2017-12-01",
+            "url": "https://egcert.eg/",
+            "aliases": [
+              {
+                "label": "2017-2021",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2027$"
+          ],
+          "description": "Egypt National Cybersecurity Strategy (2023–2027 / 2017–2021) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://egcert.eg/",
+            "examples": [
+              "national-cybersecurity-strategy"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$",
+            "(?i)^2017\\-2021$"
+          ],
+          "description": "Egypt National Cybersecurity Strategy (2023–2027 / 2017–2021) (2017)",
+          "weight": 100,
+          "data": {
+            "url": "https://egcert.eg/",
+            "examples": [
+              "national-cybersecurity-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^egypt-national-artificial-intelligence-strategy$",
+        "(?i)^egypt\\-ai\\-strategy$"
+      ],
+      "description": "Egypt National Artificial Intelligence Strategy (Second Edition 2025–2030 & First Edition 2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://ai.gov.eg/",
+        "examples": [
+          "egypt-national-artificial-intelligence-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-01-19",
+            "url": "https://ai.gov.eg/",
+            "aliases": [
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2nd-edition",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-07-01",
+            "url": "https://ai.gov.eg/",
+            "aliases": [
+              {
+                "label": "1st-edition",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2030$",
+            "(?i)^2nd\\-edition$"
+          ],
+          "description": "Egypt National Artificial Intelligence Strategy (Second Edition 2025–2030 & First Edition 2021) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://ai.gov.eg/",
+            "examples": [
+              "egypt-national-artificial-intelligence-strategy"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^1st\\-edition$"
+          ],
+          "description": "Egypt National Artificial Intelligence Strategy (Second Edition 2025–2030 & First Edition 2021) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://ai.gov.eg/",
+            "examples": [
+              "egypt-national-artificial-intelligence-strategy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

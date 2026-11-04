@@ -3,14 +3,16 @@
   "namespace": "gov.uk",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Updated 2026-11-03 for SecID#215 (UK National Security Strategy 2025/2015/2010, Integrated Review 2023/2021, and National Cyber Strategy).",
+  "status_notes": "Updated 2026-11-03 for SecID#215 and SecID#227 (UK National Security Strategy 2025/2015/2010, Integrated Review 2023/2021, National Cyber Strategy, AI Opportunities Action Plan 2025, and National AI Strategy 2021).",
   "official_name": "UK Government",
   "common_name": "UK Gov",
   "alternate_names": [
     "HM Government",
-    "Cabinet Office"
+    "Cabinet Office",
+    "Department for Science, Innovation and Technology",
+    "DSIT"
   ],
-  "notes": "UK Government publications related to national security strategy (National Security Strategy 2025 and the 2021/2023 Integrated Reviews), national cyber strategy, and AI safety policy.",
+  "notes": "UK Government publications related to national security strategy (National Security Strategy 2025 and the 2021/2023 Integrated Reviews), national cyber strategy, National AI Strategy, AI Opportunities Action Plan, and AI safety policy.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -418,6 +420,136 @@
                 "input": "2016-2021",
                 "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
                 "note": "UK National Cyber Security Strategy 2016 to 2021"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^ai-opportunities-action-plan$",
+        "^uk-national-ai-strategy$"
+      ],
+      "description": "UK National AI Strategy & AI Opportunities Action Plan",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "AI Opportunities Action Plan / National AI Strategy",
+        "common_name": "UK National AI Strategy",
+        "alternate_names": [
+          "AI Opportunities Action Plan (CP 1241)",
+          "National AI Strategy (CP 525)"
+        ],
+        "description": "United Kingdom national artificial intelligence strategy publications, comprising the January 2025 AI Opportunities Action Plan (CP 1241, 50 recommendations adopted by HM Government via CP 1242) and the September 2021 National AI Strategy (CP 525).",
+        "notes": "Published by the Department for Science, Innovation and Technology (DSIT) on January 13, 2025 (CP 1241, accompanied by the Government response CP 1242 establishing AI Growth Zones, Sovereign AI Unit, and a 20x expansion of UK sovereign AI compute capacity by 2030), building on the 10-year National AI Strategy published September 22, 2021 (CP 525).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+            "note": "2025 edition (current) — AI Opportunities Action Plan (CP 1241)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://assets.publishing.service.gov.uk/media/67851771f0528401055d2329/ai_opportunities_action_plan.pdf",
+            "note": "2025 AI Opportunities Action Plan PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-government-response",
+            "note": "2025 HM Government Response (CP 1242)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/national-ai-strategy",
+            "note": "2021 edition — National AI Strategy (CP 525)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://assets.publishing.service.gov.uk/media/614db4d1e90e077a2cbdf3c4/National_AI_Strategy_-_PDF_version.pdf",
+            "note": "2021 National AI Strategy PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-01-13",
+            "status": "current",
+            "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+            "note": "AI Opportunities Action Plan (Command Paper CP 1241, adopted by HM Government via CP 1242 on January 13, 2025)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-09-22",
+            "status": "superseded",
+            "url": "https://www.gov.uk/government/publications/national-ai-strategy",
+            "note": "National AI Strategy (Command Paper CP 525, September 22, 2021)."
+          }
+        ],
+        "examples": [
+          "ai-opportunities-action-plan@2025",
+          "national-ai-strategy@2025",
+          "national-ai-strategy@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "AI Opportunities Action Plan (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "AI Opportunities Action Plan (CP 1241, 2025)",
+            "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+              },
+              {
+                "type": "pdf",
+                "url": "https://assets.publishing.service.gov.uk/media/67851771f0528401055d2329/ai_opportunities_action_plan.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+                "note": "UK AI Opportunities Action Plan (2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "National AI Strategy (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National AI Strategy (CP 525, 2021)",
+            "url": "https://www.gov.uk/government/publications/national-ai-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.uk/government/publications/national-ai-strategy"
+              },
+              {
+                "type": "pdf",
+                "url": "https://assets.publishing.service.gov.uk/media/614db4d1e90e077a2cbdf3c4/National_AI_Strategy_-_PDF_version.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.gov.uk/government/publications/national-ai-strategy",
+                "note": "UK National AI Strategy (2021)"
               }
             ]
           }

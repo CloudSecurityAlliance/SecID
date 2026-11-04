@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "namespace": "argentina.gob.ar",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Argentina Segunda Estrategia Nacional de Ciberseguridad 2023/2019, Plan Nacional de IA 2019/2023, and Directiva de Política de Defensa Nacional 2021).",
+  "official_name": "Presidencia de la Nación Argentina — Jefatura de Gabinete de Ministros",
+  "common_name": "Gobierno de Argentina",
+  "alternate_names": [
+    "Dirección Nacional de Ciberseguridad",
+    "Secretaría de Innovación Pública",
+    "Ministerio de Defensa de la Nación Argentina"
+  ],
+  "notes": "Official portal of the Argentine National Executive Branch (argentina.gob.ar), coordinating the National Cybersecurity Strategy (Estrategia Nacional de Ciberseguridad), National AI Plan, and National Defense Policy Directive (Directiva de Política de Defensa Nacional, DPDN).",
+  "wikidata": [
+    "Q18370548"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Jefatura_de_Gabinete_de_Ministros"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.argentina.gob.ar"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad (National Cybersecurity Strategy of Argentina)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad",
+        "common_name": "Argentine National Cybersecurity Strategy",
+        "alternate_names": [
+          "Segunda Estrategia Nacional de Ciberseguridad (Resolución 44/2023)",
+          "Estrategia Nacional de Ciberseguridad (Resolución 829/2019)"
+        ],
+        "description": "National cybersecurity strategy of the Argentine Republic approved by the Chief of the Cabinet of Ministers, setting strategic lines for critical infrastructure protection, CERT.ar incident response, regulatory modernization, and federal cyber resilience.",
+        "notes": "First edition approved May 24, 2019 (Resolución 829/2019); second edition approved September 4, 2023 (Resolución 44/2023 of the Comité de Ciberseguridad / Jefatura de Gabinete).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm",
+            "note": "2023 2nd edition (current) — InfoLEG Resolución 44/2023"
+          },
+          {
+            "type": "website",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm",
+            "note": "2019 1st edition (superseded) — InfoLEG Resolución 829/2019"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Argentina%20National%20Cybersecurity%20Strategy_anexo_5740509_1.pdf",
+            "note": "2019 1st edition — ITU National Strategies Repository PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-09-04",
+            "status": "current",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm",
+            "note": "Segunda Estrategia Nacional de Ciberseguridad (Resolución 44/2023, September 4, 2023)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-05-24",
+            "status": "superseded",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm",
+            "note": "Estrategia Nacional de Ciberseguridad (Resolución 829/2019, May 24, 2019)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2023",
+          "estrategia-nacional-ciberseguridad@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Segunda Estrategia Nacional de Ciberseguridad (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Segunda Estrategia Nacional de Ciberseguridad (Resolución 44/2023)",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm",
+                "note": "Argentine 2nd National Cybersecurity Strategy (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad (Resolución 829/2019)",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Argentina%20National%20Cybersecurity%20Strategy_anexo_5740509_1.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm",
+                "note": "Argentine 1st National Cybersecurity Strategy (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^plan-nacional-ia$",
+        "^ai-strategy$"
+      ],
+      "description": "Plan Nacional de Inteligencia Artificial (National AI Plan of Argentina)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Plan Nacional de Inteligencia Artificial",
+        "common_name": "Argentine National AI Plan",
+        "alternate_names": [
+          "Plan Nacional de Inteligencia Artificial (2019)",
+          "Recomendaciones para una Inteligencia Artificial Fiable (Disposición 2/2023)"
+        ],
+        "description": "National artificial intelligence strategy of Argentina developed under the Innovative Argentina 2030 Plan, supplemented by the 2023 Recommendations for Trustworthy Artificial Intelligence in the Public Sector.",
+        "notes": "Published in 2019 (Plan Nacional de Inteligencia Artificial), followed by Disposición 2/2023 of the Subsecretaría de Tecnologías de la Información on June 2, 2023.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://oecd-opsi.org/wp-content/uploads/2021/02/Argentina-National-AI-Strategy.pdf",
+            "note": "2019 Plan Nacional de Inteligencia Artificial PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-06-01",
+            "status": "current",
+            "url": "https://oecd-opsi.org/wp-content/uploads/2021/02/Argentina-National-AI-Strategy.pdf",
+            "note": "Plan Nacional de Inteligencia Artificial (2019)."
+          }
+        ],
+        "examples": [
+          "plan-nacional-ia@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Plan Nacional de Inteligencia Artificial (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Plan Nacional de Inteligencia Artificial (2019)",
+            "url": "https://oecd-opsi.org/wp-content/uploads/2021/02/Argentina-National-AI-Strategy.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://oecd-opsi.org/wp-content/uploads/2021/02/Argentina-National-AI-Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://oecd-opsi.org/wp-content/uploads/2021/02/Argentina-National-AI-Strategy.pdf",
+                "note": "Argentine National AI Strategy (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^directiva-politica-defensa-nacional$",
+        "^dpdn$"
+      ],
+      "description": "Directiva de Política de Defensa Nacional (DPDN — Argentina)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Directiva de Política de Defensa Nacional (DPDN)",
+        "common_name": "DPDN Argentina",
+        "alternate_names": [
+          "Decreto 457/2021 — Directiva de Política de Defensa Nacional"
+        ],
+        "description": "Overarching national defense and strategic security directive of the Argentine Republic approved by Presidential Decree, defining strategic defense planning, cyber defense, and multi-domain military capabilities.",
+        "notes": "Latest edition approved July 19, 2021 (Decreto 457/2021), succeeding the 2018 (Decreto 703/2018), 2014 (Decreto 2645/2014), and 2009 (Decreto 1714/2009) directives.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/350000-354999/352081/norma.htm",
+            "note": "2021 edition (current) — InfoLEG Decreto 457/2021"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-07-19",
+            "status": "current",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/350000-354999/352081/norma.htm",
+            "note": "Directiva de Política de Defensa Nacional (Decreto 457/2021, July 19, 2021)."
+          }
+        ],
+        "examples": [
+          "directiva-politica-defensa-nacional@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Directiva de Política de Defensa Nacional (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Directiva de Política de Defensa Nacional (Decreto 457/2021)",
+            "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/350000-354999/352081/norma.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/350000-354999/352081/norma.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/350000-354999/352081/norma.htm",
+                "note": "Argentine National Defense Policy Directive (2021)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "AR"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "2.0",
+  "namespace": "au.int",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "African Union (AU)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://au.int/"
+    }
+  ],
+  "examples": [
+    "secid:reference/au.int/continental-artificial-intelligence-strategy@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^continental-artificial-intelligence-strategy$",
+        "(?i)^au\\-ai\\-strategy$"
+      ],
+      "description": "African Union Continental Artificial Intelligence Strategy: Harnessing AI for Africa's Development and Prosperity",
+      "weight": 100,
+      "data": {
+        "url": "https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy",
+        "examples": [
+          "continental-artificial-intelligence-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-01",
+            "url": "https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "African Union Continental Artificial Intelligence Strategy: Harnessing AI for Africa's Development and Prosperity (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://au.int/en/documents/20240809/continental-artificial-intelligence-strategy",
+            "examples": [
+              "continental-artificial-intelligence-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^malabo-convention$",
+        "(?i)^au\\-convention\\-cyber\\-security\\-personal\\-data\\-protection$"
+      ],
+      "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention)",
+      "weight": 100,
+      "data": {
+        "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
+        "examples": [
+          "malabo-convention@2014"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2014",
+            "status": "current",
+            "release_date": "2014-06-27",
+            "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention) (2014)",
+          "weight": 100,
+          "data": {
+            "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
+            "examples": [
+              "malabo-convention"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

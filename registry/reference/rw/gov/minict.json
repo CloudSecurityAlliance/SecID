@@ -1,0 +1,127 @@
+{
+  "schema_version": "2.0",
+  "namespace": "minict.gov.rw",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of ICT and Innovation (MINICT) & National Cyber Security Authority (Rwanda)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.minict.gov.rw/"
+    }
+  ],
+  "examples": [
+    "secid:reference/minict.gov.rw/rwanda-national-cyber-security-strategic-plan@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^rwanda-national-cyber-security-strategic-plan$",
+        "(?i)^ncssp\\-rw$"
+      ],
+      "description": "Rwanda National Cyber Security Strategic Plan",
+      "weight": 100,
+      "data": {
+        "url": "https://www.ncsa.gov.rw/",
+        "examples": [
+          "rwanda-national-cyber-security-strategic-plan@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-01-01",
+            "url": "https://www.ncsa.gov.rw/",
+            "aliases": [
+              {
+                "label": "2024-2029",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2015",
+            "status": "superseded",
+            "release_date": "2015-01-01",
+            "url": "https://www.ncsa.gov.rw/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2029$"
+          ],
+          "description": "Rwanda National Cyber Security Strategic Plan (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ncsa.gov.rw/",
+            "examples": [
+              "rwanda-national-cyber-security-strategic-plan"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Rwanda National Cyber Security Strategic Plan (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ncsa.gov.rw/",
+            "examples": [
+              "rwanda-national-cyber-security-strategic-plan"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^rwanda-national-artificial-intelligence-policy$",
+        "(?i)^rwanda\\-ai\\-policy$"
+      ],
+      "description": "The National AI Policy for the Republic of Rwanda",
+      "weight": 100,
+      "data": {
+        "url": "https://www.minict.gov.rw/",
+        "examples": [
+          "rwanda-national-artificial-intelligence-policy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-04-20",
+            "url": "https://www.minict.gov.rw/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "The National AI Policy for the Republic of Rwanda (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.minict.gov.rw/",
+            "examples": [
+              "rwanda-national-artificial-intelligence-policy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

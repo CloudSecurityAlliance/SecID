@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "namespace": "sdaia.gov.sa",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Saudi Arabia National Strategy for Data & AI - NSDAI).",
+  "official_name": "الهيئة السعودية للبيانات والذكاء الاصطناعي / Saudi Data and Artificial Intelligence Authority (SDAIA)",
+  "common_name": "SDAIA (Saudi Arabia)",
+  "alternate_names": [
+    "Saudi Data and AI Authority"
+  ],
+  "notes": "Saudi Data and Artificial Intelligence Authority (SDAIA), responsible for the national data and artificial intelligence agenda of the Kingdom of Saudi Arabia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://sdaia.gov.sa/en/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^nsdai$",
+        "^national-strategy-for-data-and-ai$",
+        "^national-ai-strategy$"
+      ],
+      "description": "National Strategy for Data & AI (NSDAI)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "الاستراتيجية الوطنية للبيانات والذكاء الاصطناعي / National Strategy for Data & AI (NSDAI)",
+        "common_name": "Saudi Arabia National Strategy for Data & AI (NSDAI)",
+        "alternate_names": [
+          "NSDAI 2030"
+        ],
+        "description": "National Strategy for Data & AI (NSDAI) of the Kingdom of Saudi Arabia issued by the Saudi Data and AI Authority (SDAIA), setting strategic targets through 2030 across six dimensions: Ambition, Skills, Policy & Regulations, Investment, Research & Innovation, and Ecosystem.",
+        "notes": "Launched October 21, 2020 at the Global AI Summit in Riyadh after approval by the Council of Ministers.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx",
+            "note": "Official SDAIA NSDAI strategy page"
+          },
+          {
+            "type": "pdf",
+            "url": "https://wp.oecd.ai/app/uploads/2021/12/Saudi_Arabia_National_Strategy_for_Data_and_AI_2020.pdf",
+            "note": "2020 edition (current) — NSDAI Vision Document PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-10-21",
+            "status": "current",
+            "url": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx",
+            "note": "National Strategy for Data & AI (NSDAI, launched October 21, 2020 with 2030 horizon)."
+          }
+        ],
+        "examples": [
+          "nsdai@2020",
+          "national-ai-strategy@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$",
+            "^2030$"
+          ],
+          "description": "National Strategy for Data & AI (NSDAI, 2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Strategy for Data & AI (NSDAI, 2020)",
+            "url": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx"
+              },
+              {
+                "type": "pdf",
+                "url": "https://wp.oecd.ai/app/uploads/2021/12/Saudi_Arabia_National_Strategy_for_Data_and_AI_2020.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx",
+                "note": "Saudi Arabia NSDAI 2020"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "SA"
+    ]
+  }
+}

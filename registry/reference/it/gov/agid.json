@@ -3,13 +3,20 @@
   "namespace": "agid.gov.it",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
+  "status_notes": "Updated 2026-11-03 for SecID#227 (Italian Strategy for Artificial Intelligence 2024-2026 and 2022-2024).",
   "official_name": "Agenzia per l'Italia Digitale",
   "common_name": "AgID",
-  "alternate_names": null,
-  "notes": "Italian government Digital Agency. Operates SPID (Sistema Pubblico di Identità Digitale) — Italy's national digital identity system. Also CIE (Carta d'Identità Elettronica) integration. Technical specs are public; participant rules partly restricted.",
-  "wikidata": null,
-  "wikipedia": null,
+  "alternate_names": [
+    "Agency for Digital Italy",
+    "Dipartimento per la trasformazione digitale"
+  ],
+  "notes": "Italian government Digital Agency. Operates SPID (Sistema Pubblico di Identità Digitale) and coordinates the Italian Strategy for Artificial Intelligence (Strategia Italiana per l'Intelligenza Artificiale) alongside the Department for Digital Transformation.",
+  "wikidata": [
+    "Q3606614"
+  ],
+  "wikipedia": [
+    "https://it.wikipedia.org/wiki/Agenzia_per_l%27Italia_digitale"
+  ],
   "urls": [
     {
       "type": "website",
@@ -37,6 +44,128 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^strategia-italiana-ia$",
+        "^italian-strategy-for-artificial-intelligence$",
+        "^ai-strategy$"
+      ],
+      "description": "Strategia Italiana per l'Intelligenza Artificiale (Italian Strategy for Artificial Intelligence)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Strategia Italiana per l'Intelligenza Artificiale",
+        "common_name": "Italian Strategy for Artificial Intelligence",
+        "alternate_names": [
+          "Italian Strategy for Artificial Intelligence 2024-2026",
+          "Programma Strategico Intelligenza Artificiale 2022-2024"
+        ],
+        "description": "Italy's national artificial intelligence strategy prepared for the Presidency of the Council of Ministers (Department for Digital Transformation) and AgID, setting national priorities across scientific research, public administration adoption, enterprise transformation, and education.",
+        "notes": "Published November 24, 2021 as the 'Strategic Program on Artificial Intelligence 2022–2024' and updated on July 18, 2024 as the 'Italian Strategy for Artificial Intelligence 2024–2026'.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf",
+            "note": "2024-2026 edition (current) — English PDF on AgID"
+          },
+          {
+            "type": "pdf",
+            "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf",
+            "note": "2022-2024 edition (superseded) — Strategic Program on AI PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2026",
+            "release_date": "2024-07-18",
+            "status": "current",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf",
+            "note": "Italian Strategy for Artificial Intelligence 2024-2026 (published July 18, 2024).",
+            "aliases": [
+              {
+                "label": "2024",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2024-2026 edition."
+              }
+            ]
+          },
+          {
+            "version": "2022-2024",
+            "release_date": "2021-11-24",
+            "status": "superseded",
+            "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf",
+            "note": "Strategic Program on Artificial Intelligence 2022-2024 (adopted November 24, 2021).",
+            "aliases": [
+              {
+                "label": "2021",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2022-2024 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "strategia-italiana-ia@2024-2026",
+          "strategia-italiana-ia@2022-2024"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2026$",
+            "^2024$"
+          ],
+          "description": "Strategia Italiana per l'Intelligenza Artificiale 2024-2026",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Italian Strategy for Artificial Intelligence 2024-2026",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2026",
+                "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf",
+                "note": "Italian Strategy for Artificial Intelligence 2024-2026"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2022-2024$",
+            "^2021$"
+          ],
+          "description": "Programma Strategico Intelligenza Artificiale 2022-2024",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Strategic Program on Artificial Intelligence 2022-2024",
+            "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022-2024",
+                "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf",
+                "note": "Italian Strategic Program on Artificial Intelligence 2022-2024"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {"country": ["IT"]},

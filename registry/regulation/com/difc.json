@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.difc.com"}
+    {
+      "type": "website",
+      "url": "https://www.difc.com"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^dpl$"],
+      "patterns": [
+        "(?i)^dpl$"
+      ],
       "description": "DIFC Data Protection Law",
       "weight": 100,
       "data": {
@@ -23,11 +28,36 @@
         "common_name": "DIFC DPL",
         "notes": "GDPR-aligned data protection regime for the DIFC free zone, independent of UAE federal PDPL (secid:regulation/uaelegislation.gov.ae/pdpl). Enforced by the DIFC Commissioner of Data Protection.",
         "urls": [
-          {"type": "website", "url": "https://www.difc.com/business/laws-regulations"}
+          {
+            "type": "website",
+            "url": "https://www.difc.com/business/laws-regulations"
+          }
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^dpl-reg-10$",
+        "(?i)^difc\\-regulation\\-10$",
+        "(?i)^autonomous\\-systems\\-regulation$"
+      ],
+      "description": "DIFC Data Protection Regulations — Regulation 10: Processing Personal Data Through Autonomous and Semi-Autonomous Systems (AI Regulation)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.difc.com/business/laws-and-regulations/legal-database/difc-laws/data-protection-law-difc-law-no-5-of-2020",
+        "examples": [
+          "dpl-reg-10"
+        ]
+      }
     }
   ],
-  "tags": {"country": ["AE"]}
+  "tags": {
+    "country": [
+      "AE"
+    ]
+  },
+  "examples": [
+    "secid:regulation/difc.com/dpl-reg-10"
+  ]
 }

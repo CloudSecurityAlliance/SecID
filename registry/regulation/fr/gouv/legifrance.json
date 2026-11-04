@@ -74,12 +74,34 @@
           }
         ]
       }
+    },
+    {
+      "patterns": [
+        "^loi-2024-449$",
+        "(?i)^sren$",
+        "(?i)^loi\\-sren$"
+      ],
+      "description": "Loi n° 2024-449 du 21 mai 2024 visant à sécuriser et à réguler l'espace numérique (SREN Act — deepfake, synthetic media, and online safety provisions)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049563368",
+        "examples": [
+          "loi-2024-449"
+        ]
+      }
     }
   ],
-  "tags": {"country": ["FR"]},
+  "tags": {
+    "country": [
+      "FR"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",
     "note": "Not verified against the organisation itself. A ccTLD implies where a domain was registered, not necessarily where the body operates — correct this field directly if it is wrong, and it will not be overwritten."
-  }
+  },
+  "examples": [
+    "secid:regulation/legifrance.gouv.fr/loi-2024-449"
+  ]
 }

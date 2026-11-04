@@ -1,0 +1,159 @@
+{
+  "schema_version": "2.0",
+  "namespace": "bssn.go.id",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber and Crypto Agency (BSSN) & Government of Indonesia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bssn.go.id/"
+    }
+  ],
+  "examples": [
+    "secid:reference/bssn.go.id/strategi-keamanan-siber-nasional@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^strategi-keamanan-siber-nasional$",
+        "(?i)^perpres\\-47\\-2023$",
+        "(?i)^ncss\\-id$"
+      ],
+      "description": "Indonesian National Cybersecurity Strategy (Perpres No. 47 Tahun 2023 tentang Strategi Keamanan Siber Nasional dan Manajemen Krisis Siber)",
+      "weight": 100,
+      "data": {
+        "url": "https://peraturan.bpk.go.id/Details/258089/perpres-no-47-tahun-2023",
+        "examples": [
+          "strategi-keamanan-siber-nasional@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-07-20",
+            "url": "https://peraturan.bpk.go.id/Details/258089/perpres-no-47-tahun-2023",
+            "aliases": [
+              {
+                "label": "perpres-47-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^perpres\\-47\\-2023$"
+          ],
+          "description": "Indonesian National Cybersecurity Strategy (Perpres No. 47 Tahun 2023 tentang Strategi Keamanan Siber Nasional dan Manajemen Krisis Siber) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://peraturan.bpk.go.id/Details/258089/perpres-no-47-tahun-2023",
+            "examples": [
+              "strategi-keamanan-siber-nasional"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^strategi-nasional-kecerdasan-artifisial$",
+        "(?i)^stranas\\-ka$",
+        "(?i)^indonesia\\-ai\\-strategy$"
+      ],
+      "description": "Indonesian National Strategy for Artificial Intelligence (Strategi Nasional Kecerdasan Artifisial Indonesia 2020–2045 — Stranas KA)",
+      "weight": 100,
+      "data": {
+        "url": "https://ai-innovation.id/",
+        "examples": [
+          "strategi-nasional-kecerdasan-artifisial@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-08-10",
+            "url": "https://ai-innovation.id/",
+            "aliases": [
+              {
+                "label": "2020-2045",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^2020\\-2045$"
+          ],
+          "description": "Indonesian National Strategy for Artificial Intelligence (Strategi Nasional Kecerdasan Artifisial Indonesia 2020–2045 — Stranas KA) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://ai-innovation.id/",
+            "examples": [
+              "strategi-nasional-kecerdasan-artifisial"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^buku-putih-pertahanan-indonesia$",
+        "(?i)^indonesia\\-defense\\-white\\-paper$",
+        "(?i)^bppi$"
+      ],
+      "description": "Indonesian Defense White Paper (Buku Putih Pertahanan Indonesia)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.kemhan.go.id/",
+        "examples": [
+          "buku-putih-pertahanan-indonesia@2015"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2015",
+            "status": "current",
+            "release_date": "2015-11-01",
+            "url": "https://www.kemhan.go.id/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Indonesian Defense White Paper (Buku Putih Pertahanan Indonesia) (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.kemhan.go.id/",
+            "examples": [
+              "buku-putih-pertahanan-indonesia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

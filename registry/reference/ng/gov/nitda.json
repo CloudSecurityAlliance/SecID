@@ -1,0 +1,182 @@
+{
+  "schema_version": "2.0",
+  "namespace": "nitda.gov.ng",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Information Technology Development Agency (NITDA) & Office of the National Security Adviser (Nigeria)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nitda.gov.ng/"
+    }
+  ],
+  "examples": [
+    "secid:reference/nitda.gov.ng/national-security-strategy-of-nigeria@2019"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-nigeria$",
+        "(?i)^nss\\-ng$"
+      ],
+      "description": "National Security Strategy of the Federal Republic of Nigeria",
+      "weight": 100,
+      "data": {
+        "url": "https://ctc.gov.ng/",
+        "examples": [
+          "national-security-strategy-of-nigeria@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-12-01",
+            "url": "https://ctc.gov.ng/"
+          },
+          {
+            "version": "2014",
+            "status": "superseded",
+            "release_date": "2014-11-01",
+            "url": "https://ctc.gov.ng/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Security Strategy of the Federal Republic of Nigeria (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://ctc.gov.ng/",
+            "examples": [
+              "national-security-strategy-of-nigeria"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "National Security Strategy of the Federal Republic of Nigeria (2014)",
+          "weight": 100,
+          "data": {
+            "url": "https://ctc.gov.ng/",
+            "examples": [
+              "national-security-strategy-of-nigeria"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-policy-and-strategy$",
+        "(?i)^ncps\\-ng$",
+        "(?i)^nigeria\\-cybersecurity\\-strategy$"
+      ],
+      "description": "Nigeria National Cybersecurity Policy and Strategy (NCPS)",
+      "weight": 100,
+      "data": {
+        "url": "https://ctc.gov.ng/national-cybersecurity-policy-and-strategy/",
+        "examples": [
+          "national-cybersecurity-policy-and-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-02-23",
+            "url": "https://ctc.gov.ng/national-cybersecurity-policy-and-strategy/"
+          },
+          {
+            "version": "2014",
+            "status": "superseded",
+            "release_date": "2014-12-01",
+            "url": "https://ctc.gov.ng/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Nigeria National Cybersecurity Policy and Strategy (NCPS) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://ctc.gov.ng/national-cybersecurity-policy-and-strategy/",
+            "examples": [
+              "national-cybersecurity-policy-and-strategy"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "Nigeria National Cybersecurity Policy and Strategy (NCPS) (2014)",
+          "weight": 100,
+          "data": {
+            "url": "https://ctc.gov.ng/",
+            "examples": [
+              "national-cybersecurity-policy-and-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^nigeria-national-artificial-intelligence-strategy$",
+        "(?i)^nais\\-ng$",
+        "(?i)^nigeria\\-ai\\-strategy$"
+      ],
+      "description": "Nigeria National Artificial Intelligence Strategy (NAIS)",
+      "weight": 100,
+      "data": {
+        "url": "https://nitda.gov.ng/",
+        "examples": [
+          "nigeria-national-artificial-intelligence-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-08-01",
+            "url": "https://nitda.gov.ng/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Nigeria National Artificial Intelligence Strategy (NAIS) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://nitda.gov.ng/",
+            "examples": [
+              "nigeria-national-artificial-intelligence-strategy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

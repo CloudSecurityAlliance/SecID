@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "namespace": "smartnation.gov.sg",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Singapore National AI Strategy 2.0 and 1.0).",
+  "official_name": "Smart Nation and Digital Government Office / Ministry of Digital Development and Information, Singapore",
+  "common_name": "Smart Nation Singapore (SNDGO / MDDI)",
+  "alternate_names": [
+    "SNDGO",
+    "MDDI",
+    "MCI Singapore",
+    "Smart Nation Group"
+  ],
+  "notes": "Smart Nation Group under the Ministry of Digital Development and Information (MDDI, formerly MCI) and Prime Minister's Office of Singapore, publishing Singapore's National AI Strategy (NAIS 1.0 and NAIS 2.0).",
+  "wikidata": [
+    "Q24907803"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Smart_Nation"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.smartnation.gov.sg/"
+    },
+    {
+      "type": "website",
+      "url": "https://www.smartnation.gov.sg/initiatives/national-ai-strategy/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^nais$",
+        "^nais-2\\.0$",
+        "^singapore-national-ai-strategy$"
+      ],
+      "description": "Singapore National Artificial Intelligence Strategy (NAIS 2.0 & NAIS 1.0)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Singapore National AI Strategy 2.0: AI for the Public Good, for Singapore and the World",
+        "common_name": "Singapore National AI Strategy (NAIS)",
+        "alternate_names": [
+          "NAIS 2.0",
+          "NAIS 1.0",
+          "National Artificial Intelligence Strategy (Singapore)"
+        ],
+        "description": "Singapore's national blueprint for artificial intelligence development, deployment, compute infrastructure, talent, and trusted AI governance.",
+        "notes": "NAIS 1.0 was launched on November 13, 2019; NAIS 2.0 ('AI for the Public Good, for Singapore and the World') was launched on December 4, 2023.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.smartnation.gov.sg/initiatives/national-ai-strategy/",
+            "note": "Smart Nation Singapore — National AI Strategy portal"
+          },
+          {
+            "type": "pdf",
+            "url": "https://file.go.gov.sg/nais2023.pdf",
+            "note": "NAIS 2.0 (2023) official PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://file.go.gov.sg/nais2019.pdf",
+            "note": "NAIS 1.0 (2019) official PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-12-04",
+            "status": "current",
+            "url": "https://file.go.gov.sg/nais2023.pdf",
+            "note": "Singapore National AI Strategy 2.0 (NAIS 2.0, launched December 4, 2023).",
+            "aliases": [
+              {
+                "label": "2.0",
+                "on_match": "resolve",
+                "note": "Edition number shorthand for NAIS 2.0 (2023)."
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-11-13",
+            "status": "superseded",
+            "url": "https://file.go.gov.sg/nais2019.pdf",
+            "note": "Singapore National AI Strategy (NAIS 1.0, launched November 13, 2019).",
+            "aliases": [
+              {
+                "label": "1.0",
+                "on_match": "resolve",
+                "note": "Edition number shorthand for NAIS 1.0 (2019)."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2023",
+          "national-ai-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "^2\\.0$"
+          ],
+          "description": "Singapore National AI Strategy 2.0 (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Singapore National AI Strategy 2.0: AI for the Public Good, for Singapore and the World (2023)",
+            "url": "https://file.go.gov.sg/nais2023.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://file.go.gov.sg/nais2023.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.smartnation.gov.sg/initiatives/national-ai-strategy/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://file.go.gov.sg/nais2023.pdf",
+                "note": "Singapore National AI Strategy 2.0 (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "^1\\.0$"
+          ],
+          "description": "Singapore National AI Strategy 1.0 (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Artificial Intelligence Strategy: Advancing Our Smart Nation Journey (2019)",
+            "url": "https://file.go.gov.sg/nais2019.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://file.go.gov.sg/nais2019.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://file.go.gov.sg/nais2019.pdf",
+                "note": "Singapore National AI Strategy 1.0 (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "SG"
+    ]
+  }
+}

@@ -3,15 +3,18 @@
   "namespace": "cas.go.jp",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Created 2026-11-03 for SecID#224 (National Security Strategy of Japan 2022/2013).",
-  "official_name": "Cabinet Secretariat, Japan (内閣官房 / 国家安全保障局)",
-  "common_name": "Cabinet Secretariat / NSS",
+  "status_notes": "Created 2026-11-03 for SecID#224 and expanded in SecID#227 (National Security Strategy of Japan 2022/2013, AI Basic Plan 2025/2026, and AI Strategy 2022/2021/2019).",
+  "official_name": "Cabinet Secretariat & Cabinet Office, Japan (内閣官房 / 内閣府)",
+  "common_name": "Cabinet Secretariat / Cabinet Office (Japan)",
   "alternate_names": [
     "National Security Secretariat of Japan",
+    "Council for Science, Technology and Innovation (CSTI)",
+    "AI Strategy Council",
     "内閣官房",
-    "国家安全保障局"
+    "国家安全保障局",
+    "内閣府"
   ],
-  "notes": "Cabinet Secretariat and National Security Secretariat (NSS) of Japan, publishing the National Security Strategy of Japan (国家安全保障戦略). For statutes hosted by the Cabinet Secretariat, see secid:regulation/cas.go.jp.",
+  "notes": "Cabinet Secretariat (内閣官房 / National Security Secretariat) and Cabinet Office (内閣府 / Council for Science, Technology and Innovation), publishing the National Security Strategy of Japan (国家安全保障戦略), the Artificial Intelligence Basic Plan (人工知能基本計画), and the National AI Strategy (AI戦略). For statutes hosted by the Cabinet Secretariat, see secid:regulation/cas.go.jp.",
   "wikidata": [
     "Q1142565"
   ],
@@ -138,6 +141,199 @@
                 "input": "2013",
                 "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
                 "note": "National Security Strategy of Japan (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai-strategy$",
+        "^national-ai-strategy$",
+        "^ai-basic-plan$",
+        "^ai-senryaku$",
+        "^jinko-chino-kihon-keikaku$"
+      ],
+      "description": "Japan National AI Strategy (AI戦略) and Artificial Intelligence Basic Plan (人工知能基本計画)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "人工知能基本計画 / AI戦略 (Artificial Intelligence Basic Plan / AI Strategy)",
+        "common_name": "Japan National AI Strategy / AI Basic Plan",
+        "alternate_names": [
+          "AI Strategy 2022 (AI戦略2022)",
+          "AI Strategy 2021 (AI戦略2021)",
+          "AI Strategy 2019 (AI戦略2019)",
+          "Artificial Intelligence Basic Plan (人工知能基本計画)"
+        ],
+        "description": "National artificial intelligence strategy and statutory AI Basic Plan formulated by Japan's Integrated Innovation Strategy Promotion Council / AI Strategy Council in the Cabinet Office (内閣府), setting national priorities across AI safety, economic security, compute and foundation model infrastructure, talent development, and Society 5.0.",
+        "notes": "Issued as AI Strategy 2019 (June 11, 2019), AI Strategy 2021 (June 11, 2021), and AI Strategy 2022 (April 22, 2022), and elevated to the statutory Artificial Intelligence Basic Plan (人工知能基本計画) in December 2025 (updated July 2026) under the AI Promotion Act (secid:regulation/elaws.e-gov.go.jp/ai-promotion-act).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www8.cao.go.jp/cstp/ai/index.html",
+            "note": "Cabinet Office CSTI AI Strategy portal"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf",
+            "note": "Artificial Intelligence Basic Plan (official English translation PDF)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf",
+            "note": "AI Strategy 2022 (official English translation PDF)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-12-23",
+            "status": "current",
+            "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf",
+            "note": "Artificial Intelligence Basic Plan (人工知能基本計画, Cabinet decision December 23, 2025; revised July 14, 2026)."
+          },
+          {
+            "version": "2022",
+            "release_date": "2022-04-22",
+            "status": "superseded",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf",
+            "note": "AI Strategy 2022 (AI戦略2022, April 22, 2022)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-06-11",
+            "status": "superseded",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf",
+            "note": "AI Strategy 2021 (AI戦略2021, June 11, 2021)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-06-11",
+            "status": "superseded",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf",
+            "note": "AI Strategy 2019: AI for Everyone — People, Industries, Regions and Governments (June 11, 2019)."
+          }
+        ],
+        "examples": [
+          "ai-strategy@2025",
+          "ai-strategy@2022",
+          "ai-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "^2026$"
+          ],
+          "description": "Artificial Intelligence Basic Plan (人工知能基本計画, 2025/2026)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Artificial Intelligence Basic Plan (人工知能基本計画)",
+            "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20251223.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf",
+                "note": "Japan Artificial Intelligence Basic Plan (2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "AI Strategy 2022 (AI戦略2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "AI Strategy 2022 (AI戦略2022)",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2022_honbun.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf",
+                "note": "Japan AI Strategy 2022"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "AI Strategy 2021 (AI戦略2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "AI Strategy 2021 (AI戦略2021)",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf",
+                "note": "Japan AI Strategy 2021"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "AI Strategy 2019 (AI戦略2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "AI Strategy 2019 (AI戦略2019)",
+            "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf",
+                "note": "Japan AI Strategy 2019"
               }
             ]
           }

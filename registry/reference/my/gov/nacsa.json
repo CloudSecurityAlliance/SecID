@@ -1,0 +1,218 @@
+{
+  "schema_version": "2.0",
+  "namespace": "nacsa.gov.my",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber Security Agency (NACSA) & Government of Malaysia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nacsa.gov.my/"
+    }
+  ],
+  "examples": [
+    "secid:reference/nacsa.gov.my/dasar-keselamatan-negara@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^dasar-keselamatan-negara$",
+        "(?i)^malaysia\\-national\\-security\\-policy$",
+        "(?i)^dkn$"
+      ],
+      "description": "Malaysia National Security Policy (Dasar Keselamatan Negara 2021–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/",
+        "examples": [
+          "dasar-keselamatan-negara@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-07-01",
+            "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "Malaysia National Security Policy (Dasar Keselamatan Negara 2021–2025) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/",
+            "examples": [
+              "dasar-keselamatan-negara"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^malaysia-cyber-security-strategy$",
+        "(?i)^mcss$",
+        "(?i)^ncss\\-my$"
+      ],
+      "description": "Malaysia Cyber Security Strategy (MCSS)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.nacsa.gov.my/mcss.php",
+        "examples": [
+          "malaysia-cyber-security-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-01-01",
+            "url": "https://www.nacsa.gov.my/mcss.php",
+            "aliases": [
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "status": "superseded",
+            "release_date": "2020-10-12",
+            "url": "https://www.nacsa.gov.my/mcss.php",
+            "aliases": [
+              {
+                "label": "2020-2024",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2030$"
+          ],
+          "description": "Malaysia Cyber Security Strategy (MCSS) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nacsa.gov.my/mcss.php",
+            "examples": [
+              "malaysia-cyber-security-strategy"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^2020\\-2024$"
+          ],
+          "description": "Malaysia Cyber Security Strategy (MCSS) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nacsa.gov.my/mcss.php",
+            "examples": [
+              "malaysia-cyber-security-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^malaysia-national-ai-roadmap$",
+        "(?i)^ai\\-rmap$",
+        "(?i)^national\\-ai\\-action\\-plan\\-2026\\-2030$"
+      ],
+      "description": "Malaysia National Artificial Intelligence Roadmap (AI-RMAP 2021–2025) & National AI Action Plan 2026–2030",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mosti.gov.my/",
+        "examples": [
+          "malaysia-national-ai-roadmap@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-12-01",
+            "url": "https://www.mosti.gov.my/",
+            "aliases": [
+              {
+                "label": "2026-2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-08-01",
+            "url": "https://www.mosti.gov.my/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2026\\-2030$"
+          ],
+          "description": "Malaysia National Artificial Intelligence Roadmap (AI-RMAP 2021–2025) & National AI Action Plan 2026–2030 (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mosti.gov.my/",
+            "examples": [
+              "malaysia-national-ai-roadmap"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "Malaysia National Artificial Intelligence Roadmap (AI-RMAP 2021–2025) & National AI Action Plan 2026–2030 (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mosti.gov.my/",
+            "examples": [
+              "malaysia-national-ai-roadmap"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

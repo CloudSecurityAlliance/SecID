@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "namespace": "micitt.go.cr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Costa Rica Estrategia Nacional de Ciberseguridad 2023-2027/2017-2021 and Estrategia Nacional de Inteligencia Artificial 2024-2027).",
+  "official_name": "Ministerio de Ciencia, Innovación, Tecnología y Telecomunicaciones",
+  "common_name": "MICITT Costa Rica",
+  "alternate_names": [
+    "Ministry of Science, Innovation, Technology and Telecommunications of Costa Rica"
+  ],
+  "notes": "Ministry of the Republic of Costa Rica responsible for digital governance, CSIRT-CR, the National Cybersecurity Strategy (Estrategia Nacional de Ciberseguridad), and the National Artificial Intelligence Strategy (ENIA).",
+  "wikidata": [
+    "Q6017217"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Ministerio_de_Ciencia,_Innovaci%C3%B3n,_Tecnolog%C3%ADa_y_Telecomunicaciones"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.micitt.go.cr"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad de Costa Rica",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad de Costa Rica",
+        "common_name": "Costa Rica National Cybersecurity Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Ciberseguridad de Costa Rica 2023-2027",
+          "Estrategia Nacional de Ciberseguridad de Costa Rica 2017-2021"
+        ],
+        "description": "National cybersecurity strategy of Costa Rica issued by MICITT defining national objectives for public sector cyber resilience, critical infrastructure protection, CSIRT-CR capacity, and cybersecurity education.",
+        "notes": "First edition published October 19, 2017 (2017–2021); second edition published November 10, 2023 (2023–2027).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.micitt.go.cr/sites/default/files/2023-11/NCS%20Costa%20Rica%20-%2010Nov2023%20SPA.pdf",
+            "note": "2023-2027 edition (current) — Official Spanish PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.micitt.go.cr/gobierno-digital/ciberseguridad",
+            "note": "MICITT Cybersecurity portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2027",
+            "release_date": "2023-11-10",
+            "status": "current",
+            "url": "https://www.micitt.go.cr/sites/default/files/2023-11/NCS%20Costa%20Rica%20-%2010Nov2023%20SPA.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad de Costa Rica 2023–2027 (published November 10, 2023).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023-2027 edition."
+              }
+            ]
+          },
+          {
+            "version": "2017-2021",
+            "release_date": "2017-10-19",
+            "status": "superseded",
+            "url": "https://www.micitt.go.cr/gobierno-digital/ciberseguridad",
+            "note": "Estrategia Nacional de Ciberseguridad de Costa Rica 2017–2021 (published October 19, 2017).",
+            "aliases": [
+              {
+                "label": "2017",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2017-2021 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2023-2027",
+          "estrategia-nacional-ciberseguridad@2017-2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2027$",
+            "^2023$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad de Costa Rica 2023-2027",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad de Costa Rica 2023-2027",
+            "url": "https://www.micitt.go.cr/sites/default/files/2023-11/NCS%20Costa%20Rica%20-%2010Nov2023%20SPA.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.micitt.go.cr/sites/default/files/2023-11/NCS%20Costa%20Rica%20-%2010Nov2023%20SPA.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2027",
+                "url": "https://www.micitt.go.cr/sites/default/files/2023-11/NCS%20Costa%20Rica%20-%2010Nov2023%20SPA.pdf",
+                "note": "Costa Rica National Cybersecurity Strategy 2023-2027"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017-2021$",
+            "^2017$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad de Costa Rica 2017-2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad de Costa Rica 2017-2021",
+            "url": "https://www.micitt.go.cr/gobierno-digital/ciberseguridad",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.micitt.go.cr/gobierno-digital/ciberseguridad"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017-2021",
+                "url": "https://www.micitt.go.cr/gobierno-digital/ciberseguridad",
+                "note": "Costa Rica National Cybersecurity Strategy 2017-2021"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ia$",
+        "^enia$",
+        "^ai-strategy$"
+      ],
+      "description": "Estrategia Nacional de Inteligencia Artificial de Costa Rica (ENIA 2024-2027)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Inteligencia Artificial de Costa Rica 2024–2027 (ENIA)",
+        "common_name": "Costa Rica National AI Strategy",
+        "alternate_names": [
+          "National Artificial Intelligence Strategy of Costa Rica 2024-2027",
+          "ENIA Costa Rica"
+        ],
+        "description": "National artificial intelligence strategy of Costa Rica issued by MICITT for 2024–2027, aligned with UNESCO's Recommendation on the Ethics of AI and OECD AI Principles.",
+        "notes": "Published October 29, 2024 (Spanish) with official English translation published February 2025.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.micitt.go.cr/sites/default/files/2025-02/National%20Artificial%20Intelligence%20Strategy%20of%20Costa%20Rica.pdf",
+            "note": "2024-2027 edition (current) — Official English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.micitt.go.cr/sites/default/files/2024-10/Estrategia%20Nacional%20de%20Inteligencia%20Artificial%20de%20Costa%20Rica%20ESP.pdf",
+            "note": "2024-2027 edition — Official Spanish PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2027",
+            "release_date": "2024-10-29",
+            "status": "current",
+            "url": "https://www.micitt.go.cr/sites/default/files/2025-02/National%20Artificial%20Intelligence%20Strategy%20of%20Costa%20Rica.pdf",
+            "note": "National Artificial Intelligence Strategy of Costa Rica 2024–2027 (published October 29, 2024).",
+            "aliases": [
+              {
+                "label": "2024",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2024-2027 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ia@2024-2027"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2027$",
+            "^2024$"
+          ],
+          "description": "Estrategia Nacional de Inteligencia Artificial de Costa Rica 2024-2027",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Artificial Intelligence Strategy of Costa Rica 2024–2027",
+            "url": "https://www.micitt.go.cr/sites/default/files/2025-02/National%20Artificial%20Intelligence%20Strategy%20of%20Costa%20Rica.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.micitt.go.cr/sites/default/files/2025-02/National%20Artificial%20Intelligence%20Strategy%20of%20Costa%20Rica.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.micitt.go.cr/sites/default/files/2024-10/Estrategia%20Nacional%20de%20Inteligencia%20Artificial%20de%20Costa%20Rica%20ESP.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2027",
+                "url": "https://www.micitt.go.cr/sites/default/files/2025-02/National%20Artificial%20Intelligence%20Strategy%20of%20Costa%20Rica.pdf",
+                "note": "Costa Rica National AI Strategy 2024-2027"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "CR"
+    ]
+  }
+}

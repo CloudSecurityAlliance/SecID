@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0",
+  "namespace": "law.moj.gov.tw",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Laws & Regulations Database of The Republic of China (Taiwan)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://law.moj.gov.tw/ENG/"
+    }
+  ],
+  "examples": [
+    "secid:regulation/law.moj.gov.tw/ai-fundamental-act"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^ai-fundamental-act$",
+        "(?i)^h0160093$",
+        "(?i)^artificial\\-intelligence\\-fundamental\\-act$"
+      ],
+      "description": "Artificial Intelligence Fundamental Act (人工智慧基本法 — PCode H0160093, promulgated Jan 14, 2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0160093",
+        "examples": [
+          "ai-fundamental-act"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^cyber-security-management-act$",
+        "(?i)^a0030297$",
+        "(?i)^csma\\-tw$"
+      ],
+      "description": "Cyber Security Management Act (資通安全管理法 — PCode A0030297)",
+      "weight": 100,
+      "data": {
+        "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0030297",
+        "examples": [
+          "cyber-security-management-act"
+        ]
+      }
+    }
+  ]
+}

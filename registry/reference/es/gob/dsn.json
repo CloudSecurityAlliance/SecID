@@ -1,0 +1,449 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dsn.gob.es",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Spain Estrategia de Seguridad Nacional 2021/2017/2013, Estrategia Nacional de Ciberseguridad 2019/2013 & Plan Nacional de Ciberseguridad 2022, and Estrategia Nacional de Inteligencia Artificial 2024/2020).",
+  "official_name": "Departamento de Seguridad Nacional",
+  "common_name": "DSN Spain",
+  "alternate_names": [
+    "Department of National Security",
+    "Presidencia del Gobierno de España",
+    "Consejo de Seguridad Nacional"
+  ],
+  "notes": "Advisory and coordinating body of the Presidency of the Government of Spain (Moncloa) serving as Technical Secretariat of the National Security Council (Consejo de Seguridad Nacional). Publishes the Estrategia de Seguridad Nacional and the Estrategia Nacional de Ciberseguridad.",
+  "wikidata": [
+    "Q16556117"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Departamento_de_Seguridad_Nacional_(Espa%C3%B1a)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.dsn.gob.es"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-seguridad-nacional$",
+        "^esn$",
+        "^national-security-strategy$"
+      ],
+      "description": "Estrategia de Seguridad Nacional (National Security Strategy of Spain)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia de Seguridad Nacional",
+        "common_name": "Estrategia de Seguridad Nacional (ESN)",
+        "alternate_names": [
+          "Spanish National Security Strategy",
+          "Estrategia de Seguridad Nacional 2021: Un proyecto compartido",
+          "Estrategia de Seguridad Nacional 2017: Un proyecto compartido de todos y para todos",
+          "Estrategia de Seguridad Nacional 2013: Un proyecto compartido"
+        ],
+        "description": "Overarching Spanish national security strategy approved by Royal Decree on the proposal of the President of the Government and the National Security Council under Law 36/2015 on National Security.",
+        "notes": "Editions approved in May 2013, December 1, 2017 (Real Decreto 1008/2017, BOE-A-2017-15181), and December 28, 2021 (Real Decreto 1150/2021, BOE-A-2021-21884).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf",
+            "note": "2021 edition (current) — Official DSN PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.boe.es/boe/dias/2021/12/31/pdfs/BOE-A-2021-21884.pdf",
+            "note": "2021 edition — Boletín Oficial del Estado (Real Decreto 1150/2021)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf",
+            "note": "2017 edition (superseded) — Boletín Oficial del Estado (Real Decreto 1008/2017)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf",
+            "note": "2013 edition (superseded) — La Moncloa PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-12-28",
+            "status": "current",
+            "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf",
+            "note": "Estrategia de Seguridad Nacional 2021 (Real Decreto 1150/2021 of December 28, 2021, BOE-A-2021-21884)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-12-01",
+            "status": "superseded",
+            "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf",
+            "note": "Estrategia de Seguridad Nacional 2017 (Real Decreto 1008/2017 of December 1, 2017, BOE-A-2017-15181)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-05-31",
+            "status": "superseded",
+            "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf",
+            "note": "Estrategia de Seguridad Nacional 2013 (adopted May 31, 2013)."
+          }
+        ],
+        "examples": [
+          "estrategia-seguridad-nacional@2021",
+          "estrategia-seguridad-nacional@2017",
+          "estrategia-seguridad-nacional@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Estrategia de Seguridad Nacional 2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia de Seguridad Nacional 2021 (Real Decreto 1150/2021)",
+            "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.boe.es/boe/dias/2021/12/31/pdfs/BOE-A-2021-21884.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf",
+                "note": "Spanish National Security Strategy (2021)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Estrategia de Seguridad Nacional 2017",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia de Seguridad Nacional 2017 (Real Decreto 1008/2017)",
+            "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf",
+                "note": "Spanish National Security Strategy (2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Estrategia de Seguridad Nacional 2013",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia de Seguridad Nacional 2013",
+            "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf",
+                "note": "Spanish National Security Strategy (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^national-cybersecurity-strategy$",
+        "^plan-nacional-ciberseguridad$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad (National Cybersecurity Strategy of Spain)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad",
+        "common_name": "Spanish National Cybersecurity Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Ciberseguridad 2019",
+          "Estrategia de Ciberseguridad Nacional 2013",
+          "Plan Nacional de Ciberseguridad (2022)"
+        ],
+        "description": "Spain's national cybersecurity strategy approved by the National Security Council and coordinated across CCN-CERT (CNI), INCIBE, and the Joint Cyberspace Command (MCCE), complemented by the 2022 National Cybersecurity Plan.",
+        "notes": "First edition approved December 5, 2013; second edition approved April 12, 2019 (Orden PCI/487/2019, BOE-A-2019-6347); operationalized by the Plan Nacional de Ciberseguridad approved March 29, 2022.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf",
+            "note": "2019 edition (current) — Official DSN PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.boe.es/boe/dias/2019/04/30/pdfs/BOE-A-2019-6347.pdf",
+            "note": "2019 edition — Boletín Oficial del Estado (Orden PCI/487/2019)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx",
+            "note": "2022 Plan Nacional de Ciberseguridad (Council of Ministers approval)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf",
+            "note": "2013 edition (superseded) — La Moncloa PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-03-29",
+            "status": "current",
+            "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx",
+            "note": "Plan Nacional de Ciberseguridad (approved by the Council of Ministers on March 29, 2022)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-04-12",
+            "status": "current",
+            "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad 2019 (approved April 12, 2019, published via Orden PCI/487/2019, BOE-A-2019-6347)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-12-05",
+            "status": "superseded",
+            "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf",
+            "note": "Estrategia de Ciberseguridad Nacional 2013 (approved December 5, 2013)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2019",
+          "estrategia-nacional-ciberseguridad@2022",
+          "estrategia-nacional-ciberseguridad@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Plan Nacional de Ciberseguridad (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Plan Nacional de Ciberseguridad (2022)",
+            "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx",
+                "note": "Spanish National Cybersecurity Plan (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad 2019",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad 2019 (Orden PCI/487/2019)",
+            "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.boe.es/boe/dias/2019/04/30/pdfs/BOE-A-2019-6347.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf",
+                "note": "Spanish National Cybersecurity Strategy (2019)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Estrategia de Ciberseguridad Nacional 2013",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia de Ciberseguridad Nacional 2013",
+            "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf",
+                "note": "Spanish National Cybersecurity Strategy (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ia$",
+        "^enia$",
+        "^ai-strategy$"
+      ],
+      "description": "Estrategia Nacional de Inteligencia Artificial (ENIA — Spain)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Inteligencia Artificial (ENIA)",
+        "common_name": "ENIA Spain",
+        "alternate_names": [
+          "Estrategia de Inteligencia Artificial 2024",
+          "Spanish National Artificial Intelligence Strategy"
+        ],
+        "description": "Spain's national artificial intelligence strategy led by the Ministry for Digital Transformation and the Civil Service, covering supercomputing infrastructure, the ALIA Spanish/co-official language foundational models, public sector AI deployment, and oversight by the Spanish Agency for the Supervision of AI (AESIA).",
+        "notes": "First adopted December 2, 2020 (ENIA 2020) and updated May 14, 2024 (Estrategia de Inteligencia Artificial 2024).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf",
+            "note": "2024 edition (current) — Official PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
+            "note": "2020 edition (superseded) — La Moncloa PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-05-14",
+            "status": "current",
+            "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf",
+            "note": "Estrategia de Inteligencia Artificial 2024 (approved by the Council of Ministers on May 14, 2024)."
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-12-02",
+            "status": "superseded",
+            "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
+            "note": "Estrategia Nacional de Inteligencia Artificial (ENIA, presented December 2, 2020)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ia@2024",
+          "estrategia-nacional-ia@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Estrategia de Inteligencia Artificial 2024",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia de Inteligencia Artificial 2024",
+            "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf",
+                "note": "Spanish AI Strategy (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Estrategia Nacional de Inteligencia Artificial (ENIA 2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Inteligencia Artificial (ENIA 2020)",
+            "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
+                "note": "Spanish National AI Strategy (2020)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "ES"
+    ]
+  }
+}

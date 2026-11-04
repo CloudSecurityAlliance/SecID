@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "namespace": "puc.bz",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Belize National Cybersecurity Strategy 2020-2023).",
+  "official_name": "Public Utilities Commission of Belize / National Cybersecurity Task Force",
+  "common_name": "PUC Belize",
+  "alternate_names": [
+    "Ministry of Home Affairs and New Growth Industries of Belize",
+    "Central Information Technology Office (CITO Belize)"
+  ],
+  "notes": "Regulatory authority and co-coordinator of Belize's National Cybersecurity Strategy alongside the Ministry of Home Affairs and New Growth Industries and CITO.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.puc.bz"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "^ncss$"
+      ],
+      "description": "Belize National Cybersecurity Strategy — Towards A Secure Cyberspace",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Belize National Cybersecurity Strategy — Towards A Secure Cyberspace 2020–2023",
+        "common_name": "Belize National Cybersecurity Strategy",
+        "alternate_names": [
+          "Belize National Cybersecurity Strategy 2020-2023"
+        ],
+        "description": "National cybersecurity strategy of Belize developed with support from the OAS/CICTE and Commonwealth Secretariat.",
+        "notes": "Adopted in 2020 for the 2020–2023 period.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.puc.bz/wp-content/uploads/2022/01/National-Cybersecurity-Strategy-20200613-Belize-2020-2023.pdf",
+            "note": "2020-2023 edition (current) — Official PUC Belize PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020-2023",
+            "release_date": "2020-06-13",
+            "status": "current",
+            "url": "https://www.puc.bz/wp-content/uploads/2022/01/National-Cybersecurity-Strategy-20200613-Belize-2020-2023.pdf",
+            "note": "Belize National Cybersecurity Strategy — Towards A Secure Cyberspace 2020–2023 (June 13, 2020).",
+            "aliases": [
+              {
+                "label": "2020",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2020-2023 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy@2020-2023"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020-2023$",
+            "^2020$"
+          ],
+          "description": "Belize National Cybersecurity Strategy 2020–2023",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Belize National Cybersecurity Strategy — Towards A Secure Cyberspace 2020–2023",
+            "url": "https://www.puc.bz/wp-content/uploads/2022/01/National-Cybersecurity-Strategy-20200613-Belize-2020-2023.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.puc.bz/wp-content/uploads/2022/01/National-Cybersecurity-Strategy-20200613-Belize-2020-2023.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020-2023",
+                "url": "https://www.puc.bz/wp-content/uploads/2022/01/National-Cybersecurity-Strategy-20200613-Belize-2020-2023.pdf",
+                "note": "Belize National Cybersecurity Strategy 2020-2023"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "BZ"
+    ]
+  }
+}

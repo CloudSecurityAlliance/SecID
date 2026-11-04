@@ -1,0 +1,109 @@
+{
+  "schema_version": "2.0",
+  "namespace": "cscouncil.gov.mn",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Cyber Security Council & Parliament of Mongolia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://cscouncil.gov.mn/"
+    }
+  ],
+  "examples": [
+    "secid:reference/cscouncil.gov.mn/national-security-concept-of-mongolia@2010"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-concept-of-mongolia$",
+        "(?i)^nsc\\-mn$",
+        "(?i)^resolution\\-48\\-2010$"
+      ],
+      "description": "National Security Concept of Mongolia (State Great Khural Resolution No. 48)",
+      "weight": 100,
+      "data": {
+        "url": "https://legalinfo.mn/mn/detail/6169",
+        "examples": [
+          "national-security-concept-of-mongolia@2010"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2010",
+            "status": "current",
+            "release_date": "2010-07-15",
+            "url": "https://legalinfo.mn/mn/detail/6169"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2010$"
+          ],
+          "description": "National Security Concept of Mongolia (State Great Khural Resolution No. 48) (2010)",
+          "weight": 100,
+          "data": {
+            "url": "https://legalinfo.mn/mn/detail/6169",
+            "examples": [
+              "national-security-concept-of-mongolia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy-of-mongolia$",
+        "(?i)^ncss\\-mn$"
+      ],
+      "description": "National Cybersecurity Strategy of Mongolia (2022–2027)",
+      "weight": 100,
+      "data": {
+        "url": "https://cscouncil.gov.mn/",
+        "examples": [
+          "national-cybersecurity-strategy-of-mongolia@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-11-01",
+            "url": "https://cscouncil.gov.mn/",
+            "aliases": [
+              {
+                "label": "2022-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2027$"
+          ],
+          "description": "National Cybersecurity Strategy of Mongolia (2022–2027) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://cscouncil.gov.mn/",
+            "examples": [
+              "national-cybersecurity-strategy-of-mongolia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

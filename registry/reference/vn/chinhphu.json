@@ -1,0 +1,169 @@
+{
+  "schema_version": "2.0",
+  "namespace": "chinhphu.vn",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Socialist Republic of Vietnam (Cổng Thông tin điện tử Chính phủ)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://chinhphu.vn/"
+    }
+  ],
+  "examples": [
+    "secid:reference/chinhphu.vn/vietnam-national-defense-white-paper@2019"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^vietnam-national-defense-white-paper$",
+        "(?i)^sach\\-trang\\-quoc\\-phong\\-viet\\-nam$",
+        "(?i)^ndwp\\-vn$"
+      ],
+      "description": "Vietnam National Defense White Paper (Sách trắng Quốc phòng Việt Nam)",
+      "weight": 100,
+      "data": {
+        "url": "https://mod.gov.vn/",
+        "examples": [
+          "vietnam-national-defense-white-paper@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-11-25",
+            "url": "https://mod.gov.vn/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Vietnam National Defense White Paper (Sách trắng Quốc phòng Việt Nam) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://mod.gov.vn/",
+            "examples": [
+              "vietnam-national-defense-white-paper"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-and-safety-strategy$",
+        "(?i)^decision\\-964\\-qd\\-ttg$",
+        "(?i)^ncss\\-vn$"
+      ],
+      "description": "National Cyber Security and Safety Strategy, Proactively Responding to Challenges from Cyberspace until 2025, Vision 2030 (Decision No. 964/QĐ-TTg)",
+      "weight": 100,
+      "data": {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+        "examples": [
+          "national-cybersecurity-and-safety-strategy@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-08-10",
+            "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+            "aliases": [
+              {
+                "label": "964-qd-ttg",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^964\\-qd\\-ttg$",
+            "(?i)^2025\\-2030$"
+          ],
+          "description": "National Cyber Security and Safety Strategy, Proactively Responding to Challenges from Cyberspace until 2025, Vision 2030 (Decision No. 964/QĐ-TTg) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=206352",
+            "examples": [
+              "national-cybersecurity-and-safety-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-on-rd-and-application-of-ai$",
+        "(?i)^decision\\-127\\-qd\\-ttg$",
+        "(?i)^vietnam\\-ai\\-strategy$"
+      ],
+      "description": "National Strategy on R&D and Application of Artificial Intelligence until 2030 (Decision No. 127/QĐ-TTg)",
+      "weight": 100,
+      "data": {
+        "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565",
+        "examples": [
+          "national-strategy-on-rd-and-application-of-ai@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-01-26",
+            "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565",
+            "aliases": [
+              {
+                "label": "127-qd-ttg",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^127\\-qd\\-ttg$",
+            "(?i)^2030$"
+          ],
+          "description": "National Strategy on R&D and Application of Artificial Intelligence until 2030 (Decision No. 127/QĐ-TTg) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565",
+            "examples": [
+              "national-strategy-on-rd-and-application-of-ai"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

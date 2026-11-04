@@ -1,0 +1,138 @@
+{
+  "schema_version": "2.0",
+  "namespace": "nstc.gov.tw",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Science and Technology Council (Taiwan)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.nstc.gov.tw/"
+    }
+  ],
+  "examples": [
+    "secid:reference/nstc.gov.tw/taiwan-ai-action-plan@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^taiwan-ai-action-plan$",
+        "(?i)^ai\\-action\\-plan\\-2\\.0$",
+        "(?i)^new\\-ten\\-major\\-ai\\-initiatives$"
+      ],
+      "description": "Taiwan AI Action Plan & AI New Ten Major Construction Initiatives (台灣AI行動計畫 / AI新十大建設)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.nstc.gov.tw/",
+        "examples": [
+          "taiwan-ai-action-plan@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-06-01",
+            "url": "https://www.nstc.gov.tw/",
+            "aliases": [
+              {
+                "label": "ai-new-ten",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2025-2028",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-01-01",
+            "url": "https://www.nstc.gov.tw/",
+            "aliases": [
+              {
+                "label": "2.0",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2023-2026",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2018",
+            "status": "superseded",
+            "release_date": "2018-01-01",
+            "url": "https://www.nstc.gov.tw/",
+            "aliases": [
+              {
+                "label": "1.0",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2018-2021",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^ai\\-new\\-ten$",
+            "(?i)^2025\\-2028$"
+          ],
+          "description": "Taiwan AI Action Plan & AI New Ten Major Construction Initiatives (台灣AI行動計畫 / AI新十大建設) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nstc.gov.tw/",
+            "examples": [
+              "taiwan-ai-action-plan"
+            ],
+            "name": "AI New Ten Major Construction Initiatives (AI新十大建設)"
+          }
+        },
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2\\.0$",
+            "(?i)^2023\\-2026$"
+          ],
+          "description": "Taiwan AI Action Plan & AI New Ten Major Construction Initiatives (台灣AI行動計畫 / AI新十大建設) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nstc.gov.tw/",
+            "examples": [
+              "taiwan-ai-action-plan"
+            ],
+            "name": "Taiwan AI Action Plan 2.0 (2023–2026)"
+          }
+        },
+        {
+          "patterns": [
+            "^2018$",
+            "(?i)^1\\.0$",
+            "(?i)^2018\\-2021$"
+          ],
+          "description": "Taiwan AI Action Plan & AI New Ten Major Construction Initiatives (台灣AI行動計畫 / AI新十大建設) (2018)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nstc.gov.tw/",
+            "examples": [
+              "taiwan-ai-action-plan"
+            ],
+            "name": "Taiwan AI Action Plan 1.0 (2018–2021)"
+          }
+        }
+      ]
+    }
+  ]
+}

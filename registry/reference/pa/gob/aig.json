@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aig.gob.pa",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Panama Estrategia Nacional de Seguridad Cibernética y Protección de Infraestructuras Críticas 2013 & 2021-2024).",
+  "official_name": "Autoridad Nacional para la Innovación Gubernamental de Panamá",
+  "common_name": "AIG Panama",
+  "alternate_names": [
+    "CSIRT Panamá",
+    "National Authority for Government Innovation of Panama"
+  ],
+  "notes": "National Authority for Government Innovation of the Republic of Panama, operating CSIRT Panamá and coordinating Panama's National Cybersecurity and Critical Infrastructure Protection Strategy.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://aig.gob.pa"
+    },
+    {
+      "type": "website",
+      "url": "https://cert.pa"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad y Protección de Infraestructuras Críticas (Panama)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Seguridad Cibernética y Protección de Infraestructuras Críticas",
+        "common_name": "Panama National Cybersecurity Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Ciberseguridad 2021-2024 (Panamá)",
+          "Resolución de Gabinete N° 54 de 14 de mayo de 2013 (Gaceta Oficial N° 27289-A)"
+        ],
+        "description": "National cybersecurity and critical infrastructure protection strategy of the Republic of Panama adopted by Cabinet Resolution and coordinated by AIG and CSIRT Panamá.",
+        "notes": "First edition adopted May 14, 2013 (Gaceta Oficial N° 27289-A of May 17, 2013); second edition issued in October 2021 for 2021–2024.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://cert.pa/?p=3011",
+            "note": "2021-2024 edition — CSIRT Panamá official announcement"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama%20Estrategia_Nacional_de_Seguridad_Cibernetica_y_Proteccion_de_Infraestructuras_Criticas.pdf",
+            "note": "2013 edition — ITU National Strategies Repository PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama_2013_Orig_ESP_GacetaNo_27289a_20130517.pdf",
+            "note": "2013 edition — Gaceta Oficial N° 27289-A PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021-2024",
+            "release_date": "2021-10-01",
+            "status": "current",
+            "url": "https://cert.pa/?p=3011",
+            "note": "Estrategia Nacional de Ciberseguridad 2021–2024 (AIG / CSIRT Panamá, October 2021).",
+            "aliases": [
+              {
+                "label": "2021",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2021-2024 edition."
+              }
+            ]
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-05-17",
+            "status": "superseded",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama%20Estrategia_Nacional_de_Seguridad_Cibernetica_y_Proteccion_de_Infraestructuras_Criticas.pdf",
+            "note": "Estrategia Nacional de Seguridad Cibernética y Protección de Infraestructuras Críticas (Resolución de Gabinete N° 54, Gaceta Oficial N° 27289-A, May 17, 2013)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2021-2024",
+          "estrategia-nacional-ciberseguridad@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021-2024$",
+            "^2021$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad 2021–2024 (Panama)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad 2021–2024",
+            "url": "https://cert.pa/?p=3011",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://cert.pa/?p=3011"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021-2024",
+                "url": "https://cert.pa/?p=3011",
+                "note": "Panama National Cybersecurity Strategy 2021-2024"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Estrategia Nacional de Seguridad Cibernética y Protección de Infraestructuras Críticas (2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Seguridad Cibernética y Protección de Infraestructuras Críticas (2013)",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama%20Estrategia_Nacional_de_Seguridad_Cibernetica_y_Proteccion_de_Infraestructuras_Criticas.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama%20Estrategia_Nacional_de_Seguridad_Cibernetica_y_Proteccion_de_Infraestructuras_Criticas.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama_2013_Orig_ESP_GacetaNo_27289a_20130517.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Panama%20Estrategia_Nacional_de_Seguridad_Cibernetica_y_Proteccion_de_Infraestructuras_Criticas.pdf",
+                "note": "Panama National Cybersecurity Strategy (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "PA"
+    ]
+  }
+}

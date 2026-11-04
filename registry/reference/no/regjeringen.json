@@ -1,0 +1,145 @@
+{
+  "schema_version": "2.0",
+  "namespace": "regjeringen.no",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of Norway (Regjeringen)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.regjeringen.no/"
+    }
+  ],
+  "examples": [
+    "secid:reference/regjeringen.no/national-security-strategy@2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "(?i)^nasjonal\\-sikkerhetsstrategi$",
+        "(?i)^nss\\-no$"
+      ],
+      "description": "National Security Strategy for Norway (Nasjonal sikkerhetsstrategi)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.regjeringen.no/en/dokumenter/national-security-strategy/id3099015/",
+        "examples": [
+          "national-security-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-05-08",
+            "url": "https://www.regjeringen.no/en/dokumenter/national-security-strategy/id3099015/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "National Security Strategy for Norway (Nasjonal sikkerhetsstrategi) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.regjeringen.no/en/dokumenter/national-security-strategy/id3099015/",
+            "examples": [
+              "national-security-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "(?i)^nasjonal\\-strategi\\-for\\-digital\\-sikkerhet$",
+        "(?i)^ncss\\-no$"
+      ],
+      "description": "National Cyber Security Strategy for Norway (Nasjonal strategi for digital sikkerhet)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.regjeringen.no/en/dokumenter/national-cyber-security-strategy-for-norway/id2627177/",
+        "examples": [
+          "national-cyber-security-strategy@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-01-30",
+            "url": "https://www.regjeringen.no/en/dokumenter/national-cyber-security-strategy-for-norway/id2627177/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Cyber Security Strategy for Norway (Nasjonal strategi for digital sikkerhet) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.regjeringen.no/en/dokumenter/national-cyber-security-strategy-for-norway/id2627177/",
+            "examples": [
+              "national-cyber-security-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-for-artificial-intelligence$",
+        "(?i)^nasjonal\\-strategi\\-for\\-kunstig\\-intelligens$",
+        "(?i)^norway\\-ai\\-strategy$"
+      ],
+      "description": "National Strategy for Artificial Intelligence (Norway)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/",
+        "examples": [
+          "national-strategy-for-artificial-intelligence@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-01-14",
+            "url": "https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "National Strategy for Artificial Intelligence (Norway) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.regjeringen.no/en/dokumenter/nasjonal-strategi-for-kunstig-intelligens/id2685594/",
+            "examples": [
+              "national-strategy-for-artificial-intelligence"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mcit.gov.qa",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (National Artificial Intelligence Strategy for Qatar 2019).",
+  "official_name": "وزارة الاتصالات وتكنولوجيا المعلومات / Ministry of Communications and Information Technology (MCIT)",
+  "common_name": "MCIT (Qatar)",
+  "alternate_names": [
+    "Ministry of Transport and Communications (MOTC Qatar)"
+  ],
+  "notes": "Ministry of Communications and Information Technology (MCIT, formerly Ministry of Transport and Communications) of the State of Qatar.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mcit.gov.qa/en/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^national-artificial-intelligence-strategy$"
+      ],
+      "description": "National Artificial Intelligence Strategy for Qatar",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "استراتيجية قطر الوطنية في مجال الذكاء الاصطناعي / National Artificial Intelligence Strategy for Qatar",
+        "common_name": "Qatar National AI Strategy",
+        "alternate_names": null,
+        "description": "National Artificial Intelligence Strategy for Qatar issued by the Ministry of Communications and Information Technology (MCIT, formerly MOTC) in collaboration with Qatar Computing Research Institute (QCRI) at Hamad Bin Khalifa University across six pillars: Education, Data Access, Employment, Business, Research, and Ethics.",
+        "notes": "Approved by the Cabinet and published October 29, 2019; complemented by the Digital Agenda 2030.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_en.pdf",
+            "note": "2019 edition (current) — English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_ar.pdf",
+            "note": "2019 edition (current) — Arabic PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-10-29",
+            "status": "current",
+            "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_en.pdf",
+            "note": "National Artificial Intelligence Strategy for Qatar (October 29, 2019)."
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Artificial Intelligence Strategy for Qatar (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Artificial Intelligence Strategy for Qatar (2019)",
+            "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_en.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_ar.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.mcit.gov.qa/wp-content/uploads/sites/4/2025/02/national_artificial_intelligence_strategy_for_qatar_2019_en.pdf",
+                "note": "Qatar National AI Strategy 2019"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "QA"
+    ]
+  }
+}

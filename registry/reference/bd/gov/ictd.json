@@ -1,0 +1,109 @@
+{
+  "schema_version": "2.0",
+  "namespace": "ictd.gov.bd",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Information and Communication Technology Division (ICTD), Government of Bangladesh",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ictd.gov.bd/"
+    }
+  ],
+  "examples": [
+    "secid:reference/ictd.gov.bd/bangladesh-cybersecurity-strategy@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^bangladesh-cybersecurity-strategy$",
+        "(?i)^ncss\\-bd$",
+        "(?i)^national\\-cybersecurity\\-strategy\\-2021\\-2025$"
+      ],
+      "description": "Bangladesh Cyber Security Strategy 2021–2025",
+      "weight": 100,
+      "data": {
+        "url": "https://www.cirt.gov.bd/",
+        "examples": [
+          "bangladesh-cybersecurity-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-06-01",
+            "url": "https://www.cirt.gov.bd/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "Bangladesh Cyber Security Strategy 2021–2025 (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cirt.gov.bd/",
+            "examples": [
+              "bangladesh-cybersecurity-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-for-artificial-intelligence-bangladesh$",
+        "(?i)^bd\\-ai\\-strategy$"
+      ],
+      "description": "National Strategy for Artificial Intelligence: Bangladesh",
+      "weight": 100,
+      "data": {
+        "url": "https://ictd.gov.bd/",
+        "examples": [
+          "national-strategy-for-artificial-intelligence-bangladesh@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-03-01",
+            "url": "https://ictd.gov.bd/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "National Strategy for Artificial Intelligence: Bangladesh (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://ictd.gov.bd/",
+            "examples": [
+              "national-strategy-for-artificial-intelligence-bangladesh"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

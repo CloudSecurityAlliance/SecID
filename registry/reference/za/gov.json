@@ -1,0 +1,143 @@
+{
+  "schema_version": "2.0",
+  "namespace": "gov.za",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Republic of South Africa",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.za/"
+    }
+  ],
+  "examples": [
+    "secid:reference/gov.za/south-african-defence-review@2015"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^south-african-defence-review$",
+        "(?i)^sa\\-defence\\-review$"
+      ],
+      "description": "South African Defence Review",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.za/documents/south-african-defence-review-2015-26-mar-2015-0000",
+        "examples": [
+          "south-african-defence-review@2015"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2015",
+            "status": "current",
+            "release_date": "2015-03-01",
+            "url": "https://www.gov.za/documents/south-african-defence-review-2015-26-mar-2015-0000"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "South African Defence Review (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.za/documents/south-african-defence-review-2015-26-mar-2015-0000",
+            "examples": [
+              "south-african-defence-review"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-policy-framework$",
+        "(?i)^ncpf\\-za$",
+        "(?i)^sa\\-cybersecurity\\-policy$"
+      ],
+      "description": "National Cybersecurity Policy Framework (NCPF) for South Africa",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.za/documents/national-cybersecurity-policy-framework-4-dec-2015-0000",
+        "examples": [
+          "national-cybersecurity-policy-framework@2015"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2015",
+            "status": "current",
+            "release_date": "2015-12-04",
+            "url": "https://www.gov.za/documents/national-cybersecurity-policy-framework-4-dec-2015-0000"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "National Cybersecurity Policy Framework (NCPF) for South Africa (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.za/documents/national-cybersecurity-policy-framework-4-dec-2015-0000",
+            "examples": [
+              "national-cybersecurity-policy-framework"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^south-africa-national-ai-policy-framework$",
+        "(?i)^sa\\-ai\\-policy\\-framework$"
+      ],
+      "description": "South Africa National Artificial Intelligence Policy Framework",
+      "weight": 100,
+      "data": {
+        "url": "https://www.dcdt.gov.za/",
+        "examples": [
+          "south-africa-national-ai-policy-framework@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-08-01",
+            "url": "https://www.dcdt.gov.za/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "South Africa National Artificial Intelligence Policy Framework (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.dcdt.gov.za/",
+            "examples": [
+              "south-africa-national-ai-policy-framework"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

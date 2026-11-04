@@ -1,0 +1,192 @@
+{
+  "schema_version": "2.0",
+  "namespace": "adilet.zan.kz",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Legal Information System of Regulatory Legal Acts of the Republic of Kazakhstan",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://adilet.zan.kz/"
+    }
+  ],
+  "examples": [
+    "secid:reference/adilet.zan.kz/national-security-strategy-of-kazakhstan@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-kazakhstan$",
+        "(?i)^decree\\-610\\-2021$",
+        "(?i)^nss\\-kz$"
+      ],
+      "description": "National Security Strategy of the Republic of Kazakhstan for 2021–2025 (Presidential Decree No. 610)",
+      "weight": 100,
+      "data": {
+        "url": "https://adilet.zan.kz/",
+        "examples": [
+          "national-security-strategy-of-kazakhstan@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-06-29",
+            "url": "https://adilet.zan.kz/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Security Strategy of the Republic of Kazakhstan for 2021–2025 (Presidential Decree No. 610) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://adilet.zan.kz/",
+            "examples": [
+              "national-security-strategy-of-kazakhstan"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cybershield-kazakhstan$",
+        "(?i)^kibershchit\\-2$",
+        "(?i)^concept\\-digital\\-transformation\\-2023\\-2029$"
+      ],
+      "description": "Cyber Shield of Kazakhstan (Киберщит Казахстана) & Concept of Digital Transformation and Cybersecurity 2023–2029",
+      "weight": 100,
+      "data": {
+        "url": "https://adilet.zan.kz/rus/docs/P2300000269",
+        "examples": [
+          "cybershield-kazakhstan@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-03-28",
+            "url": "https://adilet.zan.kz/rus/docs/P2300000269",
+            "aliases": [
+              {
+                "label": "2023-2029",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2017",
+            "status": "superseded",
+            "release_date": "2017-06-30",
+            "url": "https://adilet.zan.kz/rus/docs/P1700000407",
+            "aliases": [
+              {
+                "label": "cybershield-1",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2029$"
+          ],
+          "description": "Cyber Shield of Kazakhstan (Киберщит Казахстана) & Concept of Digital Transformation and Cybersecurity 2023–2029 (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://adilet.zan.kz/rus/docs/P2300000269",
+            "examples": [
+              "cybershield-kazakhstan"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$",
+            "(?i)^cybershield\\-1$"
+          ],
+          "description": "Cyber Shield of Kazakhstan (Киберщит Казахстана) & Concept of Digital Transformation and Cybersecurity 2023–2029 (2017)",
+          "weight": 100,
+          "data": {
+            "url": "https://adilet.zan.kz/rus/docs/P1700000407",
+            "examples": [
+              "cybershield-kazakhstan"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^concept-for-development-of-ai-in-kazakhstan$",
+        "(?i)^res\\-592\\-2024$",
+        "(?i)^kazakhstan\\-ai\\-concept$"
+      ],
+      "description": "Concept for the Development of Artificial Intelligence for 2024–2029 (Government Resolution No. 592)",
+      "weight": 100,
+      "data": {
+        "url": "https://adilet.zan.kz/rus/docs/P2400000592",
+        "examples": [
+          "concept-for-development-of-ai-in-kazakhstan@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-24",
+            "url": "https://adilet.zan.kz/rus/docs/P2400000592",
+            "aliases": [
+              {
+                "label": "2024-2029",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2029$"
+          ],
+          "description": "Concept for the Development of Artificial Intelligence for 2024–2029 (Government Resolution No. 592) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://adilet.zan.kz/rus/docs/P2400000592",
+            "examples": [
+              "concept-for-development-of-ai-in-kazakhstan"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

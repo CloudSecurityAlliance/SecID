@@ -1,0 +1,108 @@
+{
+  "schema_version": "2.0",
+  "namespace": "mots.gov.zm",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Technology and Science (MoTS), Republic of Zambia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mots.gov.zm/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mots.gov.zm/zambia-national-cyber-security-policy@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^zambia-national-cyber-security-policy$",
+        "(?i)^ncsp\\-zm$"
+      ],
+      "description": "National Cyber Security Policy of the Republic of Zambia",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mots.gov.zm/",
+        "examples": [
+          "zambia-national-cyber-security-policy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-03-01",
+            "url": "https://www.mots.gov.zm/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "National Cyber Security Policy of the Republic of Zambia (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mots.gov.zm/",
+            "examples": [
+              "zambia-national-cyber-security-policy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^zambia-national-artificial-intelligence-strategy$",
+        "(?i)^zambia\\-ai\\-strategy\\-2024\\-2026$"
+      ],
+      "description": "Zambia National Artificial Intelligence Strategy (2024–2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mots.gov.zm/",
+        "examples": [
+          "zambia-national-artificial-intelligence-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-11-14",
+            "url": "https://www.mots.gov.zm/",
+            "aliases": [
+              {
+                "label": "2024-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2026$"
+          ],
+          "description": "Zambia National Artificial Intelligence Strategy (2024–2026) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mots.gov.zm/",
+            "examples": [
+              "zambia-national-artificial-intelligence-strategy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

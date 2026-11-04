@@ -1,0 +1,159 @@
+{
+  "schema_version": "2.0",
+  "namespace": "gov.si",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Republic of Slovenia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.si/"
+    }
+  ],
+  "examples": [
+    "secid:reference/gov.si/resolution-on-national-security-strategy-of-slovenia@2019"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^resolution-on-national-security-strategy-of-slovenia$",
+        "(?i)^rnsv\\-si$",
+        "(?i)^slovenia\\-nss$"
+      ],
+      "description": "Resolution on the National Security Strategy of the Republic of Slovenia (ReSNV-2)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.si/en/topics/national-security/",
+        "examples": [
+          "resolution-on-national-security-strategy-of-slovenia@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-10-18",
+            "url": "https://www.gov.si/en/topics/national-security/",
+            "aliases": [
+              {
+                "label": "resnv-2",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^resnv\\-2$"
+          ],
+          "description": "Resolution on the National Security Strategy of the Republic of Slovenia (ReSNV-2) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.si/en/topics/national-security/",
+            "examples": [
+              "resolution-on-national-security-strategy-of-slovenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cyber-security-strategy-of-slovenia$",
+        "(?i)^strategija\\-kibernetske\\-varnosti$",
+        "(?i)^ncss\\-si$"
+      ],
+      "description": "Cyber Security Strategy of the Republic of Slovenia",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.si/en/topics/cyber-security/",
+        "examples": [
+          "cyber-security-strategy-of-slovenia@2016"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2016",
+            "status": "current",
+            "release_date": "2016-02-25",
+            "url": "https://www.gov.si/en/topics/cyber-security/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "Cyber Security Strategy of the Republic of Slovenia (2016)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.si/en/topics/cyber-security/",
+            "examples": [
+              "cyber-security-strategy-of-slovenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-programme-for-promoting-ai-in-slovenia$",
+        "(?i)^npui\\-2025$",
+        "(?i)^slovenia\\-ai\\-programme$"
+      ],
+      "description": "National Programme for Promoting the Development and Use of AI in the Republic of Slovenia until 2025 (NpUI)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gov.si/en/topics/artificial-intelligence/",
+        "examples": [
+          "national-programme-for-promoting-ai-in-slovenia@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-05-27",
+            "url": "https://www.gov.si/en/topics/artificial-intelligence/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Programme for Promoting the Development and Use of AI in the Republic of Slovenia until 2025 (NpUI) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.gov.si/en/topics/artificial-intelligence/",
+            "examples": [
+              "national-programme-for-promoting-ai-in-slovenia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

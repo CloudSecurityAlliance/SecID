@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "namespace": "u.ae",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (UAE National Strategy for Artificial Intelligence 2031 and UAE National Cybersecurity Strategy 2025-2031 / 2019).",
+  "official_name": "United Arab Emirates Government Portal (u.ae) & UAE Cyber Security Council",
+  "common_name": "UAE Government (u.ae)",
+  "alternate_names": [
+    "حكومة الإمارات العربية المتحدة",
+    "Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications Office",
+    "UAE Cyber Security Council",
+    "Telecommunications and Digital Government Regulatory Authority (TDRA)"
+  ],
+  "notes": "Official federal portal of the United Arab Emirates covering national strategies including the UAE National Strategy for Artificial Intelligence 2031 and the UAE National Cybersecurity Strategy.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://u.ae/en"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^national-strategy-for-artificial-intelligence$",
+        "^uae-ai-strategy-2031$"
+      ],
+      "description": "UAE National Strategy for Artificial Intelligence 2031",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "استراتيجية الإمارات الوطنية للذكاء الاصطناعي 2031 / UAE National Strategy for Artificial Intelligence 2031",
+        "common_name": "UAE National AI Strategy 2031",
+        "alternate_names": [
+          "UAE Strategy for Artificial Intelligence"
+        ],
+        "description": "National artificial intelligence strategy of the United Arab Emirates issued by the Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications Office and the UAE Council for Artificial Intelligence and Blockchain, setting eight strategic objectives aligned with UAE Centennial 2071.",
+        "notes": "Initially launched in October 2017 as the UAE Strategy for Artificial Intelligence ( accompanied by the appointment of the world's first Minister of State for Artificial Intelligence) and adopted by the UAE Cabinet in April 2019 as the National Strategy for Artificial Intelligence 2031.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence",
+            "note": "Official UAE Government AI strategy portal"
+          },
+          {
+            "type": "website",
+            "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence/ai-resources",
+            "note": "Official UAE AI Strategy 2031 resources and policy publications"
+          },
+          {
+            "type": "pdf",
+            "url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf",
+            "note": "UAE National Strategy for Artificial Intelligence 2031 PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2031",
+            "release_date": "2019-04-01",
+            "status": "current",
+            "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence",
+            "note": "UAE National Strategy for Artificial Intelligence 2031 (adopted by UAE Cabinet April 2019; preceded by October 2017 UAE Strategy for AI)."
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2031",
+          "uae-ai-strategy-2031"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2031$",
+            "^2019$"
+          ],
+          "description": "UAE National Strategy for Artificial Intelligence 2031",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "UAE National Strategy for Artificial Intelligence 2031",
+            "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence"
+              },
+              {
+                "type": "pdf",
+                "url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2031",
+                "url": "https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence",
+                "note": "UAE National Strategy for Artificial Intelligence 2031"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "^national-cyber-security-strategy$"
+      ],
+      "description": "UAE National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "الاستراتيجية الوطنية للأمن السيبراني / UAE National Cybersecurity Strategy",
+        "common_name": "UAE National Cybersecurity Strategy",
+        "alternate_names": null,
+        "description": "National cybersecurity strategy of the United Arab Emirates issued by the UAE Cyber Security Council (CSC) and the Telecommunications and Digital Government Regulatory Authority (TDRA).",
+        "notes": "2019 edition issued by TDRA across five pillars and 60 initiatives; updated in January 2025 by the UAE Cyber Security Council for 2025–2031 across five pillars (Governance, Protection, Innovation, Build, Partnership). Cross-referenced with secid:control/csc.gov.ae/national-cybersecurity-strategy.",
+        "cross_references": [
+          {
+            "target": "secid:control/csc.gov.ae/national-cybersecurity-strategy",
+            "relationship": "related",
+            "note": "UAE Cyber Security Council control framework entry"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://csc.gov.ae",
+            "note": "2025-2031 edition (current) — UAE Cyber Security Council"
+          },
+          {
+            "type": "website",
+            "url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/strategies-plans-and-visions-untill-2021/national-cybersecurity-strategy-2019",
+            "note": "2019 edition — Official UAE portal summary"
+          },
+          {
+            "type": "pdf",
+            "url": "https://tdra.gov.ae/userfiles/assets/Lw3seRUaIMd.pdf",
+            "note": "2019 edition English PDF (TDRA)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025-2031",
+            "release_date": "2025-01-01",
+            "status": "current",
+            "url": "https://csc.gov.ae",
+            "note": "UAE National Cybersecurity Strategy 2025–2031 (approved by UAE Cabinet January 2025)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-06-01",
+            "status": "superseded",
+            "url": "https://tdra.gov.ae/userfiles/assets/Lw3seRUaIMd.pdf",
+            "note": "UAE National Cybersecurity Strategy 2019 (TDRA)."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy@2025-2031",
+          "national-cybersecurity-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025-2031$",
+            "^2025$"
+          ],
+          "description": "UAE National Cybersecurity Strategy (2025–2031)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "UAE National Cybersecurity Strategy (2025–2031)",
+            "url": "https://csc.gov.ae",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://csc.gov.ae"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025-2031",
+                "url": "https://csc.gov.ae",
+                "note": "UAE National Cybersecurity Strategy 2025-2031"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "UAE National Cybersecurity Strategy (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "UAE National Cybersecurity Strategy (2019)",
+            "url": "https://tdra.gov.ae/userfiles/assets/Lw3seRUaIMd.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://tdra.gov.ae/userfiles/assets/Lw3seRUaIMd.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/strategies-plans-and-visions-untill-2021/national-cybersecurity-strategy-2019"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://tdra.gov.ae/userfiles/assets/Lw3seRUaIMd.pdf",
+                "note": "UAE National Cybersecurity Strategy 2019"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "AE"
+    ]
+  }
+}

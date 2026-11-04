@@ -1,0 +1,185 @@
+{
+  "schema_version": "2.0",
+  "namespace": "rnbo.gov.ua",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Security and Defense Council of Ukraine (RNBO) & Ministry of Digital Transformation",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.rnbo.gov.ua/"
+    }
+  ],
+  "examples": [
+    "secid:reference/rnbo.gov.ua/national-security-strategy-of-ukraine@2020"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-ukraine$",
+        "(?i)^decree\\-392\\-2020$",
+        "(?i)^nss\\-ua$"
+      ],
+      "description": "National Security Strategy of Ukraine: Human Security — Country Security (Presidential Decree No. 392/2020)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.president.gov.ua/documents/3922020-35037",
+        "examples": [
+          "national-security-strategy-of-ukraine@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-09-14",
+            "url": "https://www.president.gov.ua/documents/3922020-35037"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "National Security Strategy of Ukraine: Human Security — Country Security (Presidential Decree No. 392/2020) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.president.gov.ua/documents/3922020-35037",
+            "examples": [
+              "national-security-strategy-of-ukraine"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cybersecurity-strategy-of-ukraine$",
+        "(?i)^decree\\-447\\-2021$",
+        "(?i)^ncss\\-ua$"
+      ],
+      "description": "Cybersecurity Strategy of Ukraine (Presidential Decree No. 447/2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.president.gov.ua/documents/4472021-40013",
+        "examples": [
+          "cybersecurity-strategy-of-ukraine@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-08-26",
+            "url": "https://www.president.gov.ua/documents/4472021-40013",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "Cybersecurity Strategy of Ukraine (Presidential Decree No. 447/2021) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.president.gov.ua/documents/4472021-40013",
+            "examples": [
+              "cybersecurity-strategy-of-ukraine"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^concept-for-development-of-ai-in-ukraine$",
+        "(?i)^cmu\\-1556\\-2020$",
+        "(?i)^ukraine\\-ai\\-white\\-paper$"
+      ],
+      "description": "Concept for the Development of Artificial Intelligence in Ukraine (CMU Ordinance No. 1556-r) & White Paper on AI Regulation",
+      "weight": 100,
+      "data": {
+        "url": "https://thedigital.gov.ua/",
+        "examples": [
+          "concept-for-development-of-ai-in-ukraine@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-06-26",
+            "url": "https://thedigital.gov.ua/",
+            "aliases": [
+              {
+                "label": "white-paper",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-12-02",
+            "url": "https://zakon.rada.gov.ua/laws/show/1556-2020-%D1%80",
+            "aliases": [
+              {
+                "label": "1556-r",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^white\\-paper$"
+          ],
+          "description": "Concept for the Development of Artificial Intelligence in Ukraine (CMU Ordinance No. 1556-r) & White Paper on AI Regulation (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://thedigital.gov.ua/",
+            "examples": [
+              "concept-for-development-of-ai-in-ukraine"
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^1556\\-r$"
+          ],
+          "description": "Concept for the Development of Artificial Intelligence in Ukraine (CMU Ordinance No. 1556-r) & White Paper on AI Regulation (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://zakon.rada.gov.ua/laws/show/1556-2020-%D1%80",
+            "examples": [
+              "concept-for-development-of-ai-in-ukraine"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

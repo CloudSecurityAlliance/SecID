@@ -374,6 +374,113 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^ai-g3-leap-strategy$",
+        "^national-strategy-for-artificial-intelligence$"
+      ],
+      "description": "National Strategy for Artificial Intelligence of the Republic of Korea (인공지능 국가전략 / AI G3 도약 국가전략)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "인공지능(AI) 국가전략 / 국가인공지능위원회 AI 3대 강국 도약 전략 (National Strategy for Artificial Intelligence)",
+        "common_name": "ROK National AI Strategy",
+        "alternate_names": [
+          "National Strategy for Artificial Intelligence (2019)",
+          "National AI Strategy for Leap to AI G3 Powerhouse (2024)",
+          "인공지능 국가전략"
+        ],
+        "description": "Overarching national artificial intelligence strategy of the Republic of Korea issued by the Presidential National AI Committee and the Ministry of Science and ICT (MSIT), targeting AI infrastructure, sovereign AI compute, industrial AI adoption, and AI safety governance.",
+        "notes": "First adopted in December 2019 ('National Strategy for Artificial Intelligence: Toward AI World Leader Beyond IT') and updated in September 2024 upon the launch of the Presidential National AI Committee ('National AI Strategy for Leap to Top 3 AI Powerhouse').",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
+            "note": "Republic of Korea Policy Portal — National Strategy for Artificial Intelligence"
+          },
+          {
+            "type": "website",
+            "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037",
+            "note": "Ministry of Science and ICT (MSIT) — 2024 National AI Strategy announcement"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-09-26",
+            "status": "current",
+            "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037",
+            "note": "National AI Strategy for Leap to AI G3 Powerhouse (Presidential National AI Committee & MSIT, September 26, 2024)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-12-17",
+            "status": "superseded",
+            "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
+            "note": "National Strategy for Artificial Intelligence (Cabinet adoption, December 17, 2019)."
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2024",
+          "national-ai-strategy@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "National AI Strategy for Leap to AI G3 Powerhouse (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National AI Strategy for Leap to AI G3 Powerhouse (2024)",
+            "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037",
+                "note": "ROK National AI Strategy (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Strategy for Artificial Intelligence (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Strategy for Artificial Intelligence (인공지능 국가전략, 2019)",
+            "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
+                "note": "ROK National Strategy for Artificial Intelligence (2019)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -1,0 +1,320 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cac.gov.cn",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (China National Cyberspace Security Strategy, International Strategy of Cooperation on Cyberspace, 14th Five-Year Plan for National Informatization, and Global AI Governance Initiative).",
+  "official_name": "Cyberspace Administration of China (国家互联网信息办公室 / 中央网络安全和信息化委员会办公室)",
+  "common_name": "CAC",
+  "alternate_names": [
+    "Office of the Central Cyberspace Affairs Commission",
+    "State Internet Information Office",
+    "国家互联网信息办公室",
+    "中央网信办"
+  ],
+  "notes": "Central internet and cybersecurity regulator and strategy body of the People's Republic of China, publishing the National Cyberspace Security Strategy (国家网络空间安全战略), the 14th Five-Year Plan for National Informatization (“十四五”国家信息化规划), and the Global AI Governance Initiative (全球人工智能治理倡议). For binding CAC regulations and measures, see secid:regulation/cac.gov.cn.",
+  "wikidata": [
+    "Q15909052"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Cyberspace_Administration_of_China"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cac.gov.cn/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyberspace-security-strategy$",
+        "^ncss$",
+        "^guojia-wangluo-kongjian-anquan-zhanlue$"
+      ],
+      "description": "National Cyberspace Security Strategy of the People's Republic of China (国家网络空间安全战略, 2016)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "国家网络空间安全战略 (National Cyberspace Security Strategy)",
+        "common_name": "China National Cyberspace Security Strategy",
+        "alternate_names": [
+          "National Cyberspace Security Strategy",
+          "国家网络空间安全战略"
+        ],
+        "description": "China's foundational national cybersecurity strategy approved by the Central Cyberspace Affairs Leading Group and published by the Cyberspace Administration of China (CAC) on December 27, 2016, establishing the doctrine of cyber sovereignty (网络主权), critical information infrastructure protection, cyber defense, and cyber deterrence.",
+        "notes": "Published December 27, 2016.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2016-12/27/c_1120195878.htm",
+            "note": "Official Chinese text on cac.gov.cn"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2016",
+            "release_date": "2016-12-27",
+            "status": "current",
+            "url": "https://www.cac.gov.cn/2016-12/27/c_1120195878.htm",
+            "note": "National Cyberspace Security Strategy (国家网络空间安全战略, published December 27, 2016)."
+          }
+        ],
+        "examples": [
+          "national-cyberspace-security-strategy@2016"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "National Cyberspace Security Strategy (2016)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "国家网络空间安全战略 (National Cyberspace Security Strategy, 2016)",
+            "url": "https://www.cac.gov.cn/2016-12/27/c_1120195878.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.cac.gov.cn/2016-12/27/c_1120195878.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.cac.gov.cn/2016-12/27/c_1120195878.htm",
+                "note": "China National Cyberspace Security Strategy (2016)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^international-strategy-of-cooperation-on-cyberspace$",
+        "^wangluo-kongjian-guoji-hezuo-zhanlue$"
+      ],
+      "description": "International Strategy of Cooperation on Cyberspace (网络空间国际合作战略, 2017)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "网络空间国际合作战略 (International Strategy of Cooperation on Cyberspace)",
+        "common_name": "China International Strategy of Cooperation on Cyberspace",
+        "alternate_names": [
+          "International Strategy of Cooperation on Cyberspace",
+          "网络空间国际合作战略"
+        ],
+        "description": "Joint strategy issued by China's Ministry of Foreign Affairs (MFA) and Cyberspace Administration of China (CAC) on March 1, 2017 setting out China's international cyberspace governance doctrine, sovereignty principles, and multilateral norms.",
+        "notes": "Published March 1, 2017.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm",
+            "note": "Official full text via Xinhua News Agency"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-03-01",
+            "status": "current",
+            "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm",
+            "note": "International Strategy of Cooperation on Cyberspace (March 1, 2017)."
+          }
+        ],
+        "examples": [
+          "international-strategy-of-cooperation-on-cyberspace@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "International Strategy of Cooperation on Cyberspace (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "网络空间国际合作战略 (International Strategy of Cooperation on Cyberspace, 2017)",
+            "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm",
+                "note": "China International Strategy of Cooperation on Cyberspace (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^14th-five-year-plan-national-informatization$",
+        "^national-informatization-plan$"
+      ],
+      "description": "14th Five-Year Plan for National Informatization (“十四五”国家信息化规划, 2021–2025)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "“十四五”国家信息化规划 (14th Five-Year Plan for National Informatization)",
+        "common_name": "China 14th Five-Year Plan for National Informatization",
+        "alternate_names": [
+          "“十四五”国家信息化规划"
+        ],
+        "description": "Five-year strategic plan issued by the Central Cyberspace Affairs Commission in December 2021 setting national digital infrastructure, data security, cybersecurity defense, and AI/emerging technology targets for 2021–2025.",
+        "notes": "Published December 27, 2021.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm",
+            "note": "Official announcement and PDF on cac.gov.cn"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021-2025",
+            "release_date": "2021-12-27",
+            "status": "current",
+            "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm",
+            "note": "14th Five-Year Plan for National Informatization (2021–2025, published December 27, 2021).",
+            "aliases": [
+              {
+                "label": "2021",
+                "on_match": "resolve",
+                "note": "Publication year shorthand."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "14th-five-year-plan-national-informatization@2021-2025"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021-2025$",
+            "^2021$"
+          ],
+          "description": "14th Five-Year Plan for National Informatization (2021–2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "“十四五”国家信息化规划 (2021–2025)",
+            "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021-2025",
+                "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm",
+                "note": "14th Five-Year Plan for National Informatization (2021–2025)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^global-ai-governance-initiative$",
+        "^quanqiu-rengong-zhineng-zhili-changyi$"
+      ],
+      "description": "Global AI Governance Initiative (全球人工智能治理倡议, 2023)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "全球人工智能治理倡议 (Global AI Governance Initiative)",
+        "common_name": "China Global AI Governance Initiative",
+        "alternate_names": [
+          "Global AI Governance Initiative",
+          "全球人工智能治理倡议"
+        ],
+        "description": "China's flagship international and domestic strategic policy statement on artificial intelligence safety, risk classification, alignment, and multilateral governance, announced on October 18, 2023.",
+        "notes": "Issued October 18, 2023.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2023-10/18/c_1699291032884978.htm",
+            "note": "Official Chinese text on cac.gov.cn"
+          },
+          {
+            "type": "website",
+            "url": "https://www.mfa.gov.cn/web/ziliao_674904/1179_674909/202310/t20231020_11164831.shtml",
+            "note": "Ministry of Foreign Affairs official text"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-10-18",
+            "status": "current",
+            "url": "https://www.cac.gov.cn/2023-10/18/c_1699291032884978.htm",
+            "note": "Global AI Governance Initiative (October 18, 2023)."
+          }
+        ],
+        "examples": [
+          "global-ai-governance-initiative@2023"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Global AI Governance Initiative (2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "全球人工智能治理倡议 (Global AI Governance Initiative, 2023)",
+            "url": "https://www.cac.gov.cn/2023-10/18/c_1699291032884978.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.cac.gov.cn/2023-10/18/c_1699291032884978.htm"
+              },
+              {
+                "type": "website",
+                "url": "https://www.mfa.gov.cn/web/ziliao_674904/1179_674909/202310/t20231020_11164831.shtml"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.cac.gov.cn/2023-10/18/c_1699291032884978.htm",
+                "note": "China Global AI Governance Initiative (2023)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "CN"
+    ]
+  }
+}

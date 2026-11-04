@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gob.pe",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Peru Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030, Marco de Confianza Digital / ESNACIB, and Estrategia Nacional de Inteligencia Artificial).",
+  "official_name": "Presidencia del Consejo de Ministros del Perú — Secretaría de Gobierno y Transformación Digital",
+  "common_name": "Gobierno del Perú (PCM / SGTD)",
+  "alternate_names": [
+    "Centro Nacional de Seguridad Digital del Perú",
+    "Secretaría de Gobierno y Transformación Digital (SGTD)",
+    "Ministerio de Defensa del Perú (MINDEF)"
+  ],
+  "notes": "Single digital platform of the Peruvian State (gob.pe) and the Presidency of the Council of Ministers (PCM / SGTD), which operates the National Digital Security Center and coordinates Peru's National Digital Security Framework, National AI Strategy (ENIA), and Multisectoral National Security and Defense Policy to 2030.",
+  "wikidata": [
+    "Q3409142"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Presidencia_del_Consejo_de_Ministros_(Per%C3%BA)"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gob.pe"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^politica-seguridad-defensa-nacional$",
+        "^national-security-defense-policy$"
+      ],
+      "description": "Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030 (Peru)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030",
+        "common_name": "Peruvian National Security and Defense Policy 2030",
+        "alternate_names": [
+          "Decreto Supremo N° 005-2021-DE",
+          "Plan Estratégico Multisectorial de Seguridad y Defensa Nacional al 2030"
+        ],
+        "description": "Overarching Peruvian national security and defense strategy through 2030 approved by Decreto Supremo N° 005-2021-DE, including cyber defense and critical asset protection.",
+        "notes": "Approved July 22, 2021 (Decreto Supremo N° 005-2021-DE).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gob.pe/institucion/pcm/noticias/1396378-gobierno-aprueba-plan-estrategico-multisectorial-de-seguridad-y-defensa-nacional-al-2030",
+            "note": "Official PCM portal announcement and Multisectoral Strategic Plan to 2030"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021-2030",
+            "release_date": "2021-07-22",
+            "status": "current",
+            "url": "https://www.gob.pe/institucion/pcm/noticias/1396378-gobierno-aprueba-plan-estrategico-multisectorial-de-seguridad-y-defensa-nacional-al-2030",
+            "note": "Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030 (Decreto Supremo N° 005-2021-DE, July 22, 2021).",
+            "aliases": [
+              {
+                "label": "2021",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2021-2030 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "politica-seguridad-defensa-nacional@2021-2030"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021-2030$",
+            "^2021$"
+          ],
+          "description": "Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional Multisectorial de Seguridad y Defensa Nacional al 2030 (DS N° 005-2021-DE)",
+            "url": "https://www.gob.pe/institucion/pcm/noticias/1396378-gobierno-aprueba-plan-estrategico-multisectorial-de-seguridad-y-defensa-nacional-al-2030",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gob.pe/institucion/pcm/noticias/1396378-gobierno-aprueba-plan-estrategico-multisectorial-de-seguridad-y-defensa-nacional-al-2030"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021-2030",
+                "url": "https://www.gob.pe/institucion/pcm/noticias/1396378-gobierno-aprueba-plan-estrategico-multisectorial-de-seguridad-y-defensa-nacional-al-2030",
+                "note": "Peruvian National Security and Defense Policy to 2030"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^marco-confianza-digital$",
+        "^estrategia-nacional-ciberseguridad$",
+        "^esnacib$"
+      ],
+      "description": "Marco de Confianza Digital / Estrategia Nacional de Ciberseguridad del Perú",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Marco de Confianza Digital y Estrategia Nacional de Ciberseguridad del Perú",
+        "common_name": "Peruvian Digital Trust & Cybersecurity Strategy",
+        "alternate_names": [
+          "Decreto de Urgencia N° 007-2020 — Marco de Confianza Digital",
+          "Estrategia Nacional de Ciberseguridad del Perú (ESNACIB)"
+        ],
+        "description": "National digital trust and cybersecurity framework of Peru managed by the Centro Nacional de Seguridad Digital (SGTD / PCM).",
+        "notes": "Established by Decreto de Urgencia N° 007-2020 (January 9, 2020) and its implementing regulation DS N° 126-2025-PCM.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gob.pe/seguridaddigital",
+            "note": "Centro Nacional de Seguridad Digital official portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-01-09",
+            "status": "current",
+            "url": "https://www.gob.pe/seguridaddigital",
+            "note": "Marco de Confianza Digital (Decreto de Urgencia N° 007-2020, January 9, 2020)."
+          }
+        ],
+        "examples": [
+          "marco-confianza-digital@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Marco de Confianza Digital (DU N° 007-2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Marco de Confianza Digital (Decreto de Urgencia N° 007-2020)",
+            "url": "https://www.gob.pe/seguridaddigital",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gob.pe/seguridaddigital"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.gob.pe/seguridaddigital",
+                "note": "Peru Digital Trust Framework (2020)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ia$",
+        "^enia$",
+        "^ai-strategy$"
+      ],
+      "description": "Estrategia Nacional de Inteligencia Artificial del Perú (ENIA)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Inteligencia Artificial (ENIA)",
+        "common_name": "Peruvian National AI Strategy",
+        "alternate_names": [
+          "ENIA Perú 2026-2030",
+          "Estrategia Nacional de Inteligencia Artificial 2021-2026"
+        ],
+        "description": "National artificial intelligence strategy of Peru developed by the Secretariat of Government and Digital Transformation (SGTD / PCM) pursuant to Law No. 31814 and Supreme Decree No. 115-2025-PCM.",
+        "notes": "Initial 2021–2026 framework issued in 2021, followed by the ENIA 2026–2030 implementation framework under Law No. 31814.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gob.pe/institucion/pcm/colecciones/147-normativa-sobre-transformacion-digital",
+            "note": "PCM Digital Transformation and AI Normative Collection"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-09-09",
+            "status": "current",
+            "url": "https://www.gob.pe/institucion/pcm/colecciones/147-normativa-sobre-transformacion-digital",
+            "note": "Reglamento de la Ley N° 31814 (DS N° 115-2025-PCM) and ENIA framework."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ia@2025"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Estrategia Nacional de Inteligencia Artificial (ENIA)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Inteligencia Artificial del Perú",
+            "url": "https://www.gob.pe/institucion/pcm/colecciones/147-normativa-sobre-transformacion-digital",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gob.pe/institucion/pcm/colecciones/147-normativa-sobre-transformacion-digital"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.gob.pe/institucion/pcm/colecciones/147-normativa-sobre-transformacion-digital",
+                "note": "Peruvian National AI Strategy"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "PE"
+    ]
+  }
+}

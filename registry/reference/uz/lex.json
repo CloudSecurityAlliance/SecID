@@ -1,0 +1,122 @@
+{
+  "schema_version": "2.0",
+  "namespace": "lex.uz",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Database of Legislation of the Republic of Uzbekistan (LexUZ)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://lex.uz/"
+    }
+  ],
+  "examples": [
+    "secid:reference/lex.uz/uzbekistan-2030-strategy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^uzbekistan-2030-strategy$",
+        "(?i)^pf\\-158$",
+        "(?i)^defense\\-doctrine\\-uzbekistan$"
+      ],
+      "description": "Uzbekistan-2030 Strategy (Presidential Decree No. PF-158) & Defense Doctrine of Uzbekistan",
+      "weight": 100,
+      "data": {
+        "url": "https://lex.uz/docs/6600413",
+        "examples": [
+          "uzbekistan-2030-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-09-11",
+            "url": "https://lex.uz/docs/6600413",
+            "aliases": [
+              {
+                "label": "pf-158",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^pf\\-158$"
+          ],
+          "description": "Uzbekistan-2030 Strategy (Presidential Decree No. PF-158) & Defense Doctrine of Uzbekistan (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://lex.uz/docs/6600413",
+            "examples": [
+              "uzbekistan-2030-strategy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai-technologies-development-strategy-2030$",
+        "(?i)^pq\\-358$",
+        "(?i)^uzbekistan\\-ai\\-strategy$"
+      ],
+      "description": "Strategy for the Development of Artificial Intelligence Technologies until 2030 (Presidential Resolution No. PQ-358)",
+      "weight": 100,
+      "data": {
+        "url": "https://lex.uz/docs/7158604",
+        "examples": [
+          "ai-technologies-development-strategy-2030@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-10-14",
+            "url": "https://lex.uz/docs/7158604",
+            "aliases": [
+              {
+                "label": "pq-358",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^pq\\-358$",
+            "(?i)^2030$"
+          ],
+          "description": "Strategy for the Development of Artificial Intelligence Technologies until 2030 (Presidential Resolution No. PQ-358) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://lex.uz/docs/7158604",
+            "examples": [
+              "ai-technologies-development-strategy-2030"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

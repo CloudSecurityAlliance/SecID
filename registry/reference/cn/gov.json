@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.cn",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (China Next Generation AI Development Plan 2017, China's National Security in the New Era 2025 White Paper, and China's National Defense in the New Era 2019 White Paper).",
+  "official_name": "State Council of the People's Republic of China (中华人民共和国国务院)",
+  "common_name": "State Council of China",
+  "alternate_names": [
+    "State Council Information Office (SCIO)",
+    "国务院",
+    "国务院新闻办公室"
+  ],
+  "notes": "Central People's Government (State Council) and State Council Information Office (SCIO) of the People's Republic of China, issuing national strategic plans and defense/security white papers. For binding PRC laws and State Council regulations, see secid:regulation/gov.cn.",
+  "wikidata": [
+    "Q59261"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/State_Council_of_the_People%27s_Republic_of_China"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gov.cn/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^next-generation-ai-development-plan$",
+        "^new-generation-ai-development-plan$",
+        "^national-ai-strategy$",
+        "^guofa-2017-35$",
+        "^xinyidai-rengong-zhineng-fazhan-guihua$"
+      ],
+      "description": "Next Generation Artificial Intelligence Development Plan (新一代人工智能发展规划, Guofa [2017] No. 35)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "新一代人工智能发展规划 (国发〔2017〕35号) — Next Generation Artificial Intelligence Development Plan",
+        "common_name": "China Next Generation AI Development Plan (Guofa [2017] No. 35)",
+        "alternate_names": [
+          "New Generation Artificial Intelligence Development Plan",
+          "新一代人工智能发展规划",
+          "Guofa [2017] No. 35"
+        ],
+        "description": "China's master national artificial intelligence strategy issued by the State Council on July 20, 2017 (Guofa [2017] No. 35), establishing three-step strategic milestones for 2020, 2025, and 2030 across AI R&D, industrial transformation, military-civil fusion, and three-stage AI legal and ethical governance.",
+        "notes": "Issued July 8, 2017 and publicly released July 20, 2017.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm",
+            "note": "State Council official publication (Guofa [2017] No. 35)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-07-20",
+            "status": "current",
+            "url": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm",
+            "note": "Next Generation Artificial Intelligence Development Plan (Guofa [2017] No. 35, July 20, 2017)."
+          }
+        ],
+        "examples": [
+          "next-generation-ai-development-plan@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Next Generation Artificial Intelligence Development Plan (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "新一代人工智能发展规划 (Next Generation Artificial Intelligence Development Plan, 2017)",
+            "url": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm",
+                "note": "China Next Generation AI Development Plan (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-security-in-the-new-era$",
+        "^national-security-white-paper$",
+        "^national-security-strategy$",
+        "^xinshidai-de-zhongguo-guojia-anquan$"
+      ],
+      "description": "China's National Security in the New Era (新时代的中国国家安全, 2025 White Paper)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "新时代的中国国家安全 (China's National Security in the New Era)",
+        "common_name": "China's National Security in the New Era (White Paper)",
+        "alternate_names": [
+          "China's National Security in the New Era",
+          "新时代的中国国家安全",
+          "Holistic Approach to National Security (总体国家安全观)"
+        ],
+        "description": "First comprehensive national security white paper issued by the State Council Information Office (SCIO) on May 12, 2025, codifying China's Holistic Approach to National Security (总体国家安全观) across political, territorial, military, economic, cyber, data, and artificial intelligence security.",
+        "notes": "Published May 12, 2025 by the State Council Information Office.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.cn/zhengce/202505/content_7023306.htm",
+            "note": "State Council official Chinese text (May 12, 2025)"
+          },
+          {
+            "type": "website",
+            "url": "https://www.mod.gov.cn/gfbw/fgwx/bps/16385614.html",
+            "note": "Ministry of National Defense official mirror"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-05-12",
+            "status": "current",
+            "url": "https://www.gov.cn/zhengce/202505/content_7023306.htm",
+            "note": "China's National Security in the New Era (新时代的中国国家安全, May 12, 2025)."
+          }
+        ],
+        "examples": [
+          "national-security-in-the-new-era@2025"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "China's National Security in the New Era (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "新时代的中国国家安全 (China's National Security in the New Era, 2025)",
+            "url": "https://www.gov.cn/zhengce/202505/content_7023306.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.cn/zhengce/202505/content_7023306.htm"
+              },
+              {
+                "type": "website",
+                "url": "https://www.mod.gov.cn/gfbw/fgwx/bps/16385614.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.gov.cn/zhengce/202505/content_7023306.htm",
+                "note": "China's National Security in the New Era (2025)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-defense-in-the-new-era$",
+        "^national-defense-white-paper$",
+        "^xinshidai-de-zhongguo-guofang$"
+      ],
+      "description": "China's National Defense in the New Era (新时代的中国国防, 2019 Defense White Paper)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "新时代的中国国防 (China's National Defense in the New Era)",
+        "common_name": "China's National Defense in the New Era",
+        "alternate_names": [
+          "China's National Defense in the New Era",
+          "新时代的中国国防",
+          "China's Military Strategy (中国的军事战略, 2015)"
+        ],
+        "description": "National defense strategy white paper published by the State Council Information Office (SCIO) on July 24, 2019, setting out China's defensive national defense policy, military strategic guidelines, and cyberspace/space/electromagnetic domain capabilities.",
+        "notes": "Published July 24, 2019 (superseding the May 2015 white paper 'China's Military Strategy').",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm",
+            "note": "State Council official Chinese text (July 24, 2019)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2019",
+            "release_date": "2019-07-24",
+            "status": "current",
+            "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm",
+            "note": "China's National Defense in the New Era (新时代的中国国防, July 24, 2019)."
+          }
+        ],
+        "examples": [
+          "national-defense-in-the-new-era@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "China's National Defense in the New Era (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "新时代的中国国防 (China's National Defense in the New Era, 2019)",
+            "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm",
+                "note": "China's National Defense in the New Era (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "CN"
+    ]
+  }
+}
