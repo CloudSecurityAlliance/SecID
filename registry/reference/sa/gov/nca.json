@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nca.gov.sa",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Saudi Arabia National Cybersecurity Strategy 2020).",
+  "official_name": "الهيئة الوطنية للأمن السيبراني / National Cybersecurity Authority (NCA)",
+  "common_name": "NCA (Saudi Arabia)",
+  "alternate_names": [
+    "National Cybersecurity Authority of Saudi Arabia"
+  ],
+  "notes": "National Cybersecurity Authority (NCA) of the Kingdom of Saudi Arabia.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nca.gov.sa/en/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "^national-cyber-security-strategy$"
+      ],
+      "description": "National Cybersecurity Strategy of the Kingdom of Saudi Arabia",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "الاستراتيجية الوطنية للأمن السيبراني / National Cybersecurity Strategy",
+        "common_name": "Saudi Arabia National Cybersecurity Strategy",
+        "alternate_names": null,
+        "description": "National Cybersecurity Strategy of the Kingdom of Saudi Arabia issued by the National Cybersecurity Authority (NCA), structured around six strategic objectives towards a 'safe and reliable Saudi cyberspace that enables growth and prosperity' under Saudi Vision 2030.",
+        "notes": "Published December 2020 by the National Cybersecurity Authority (NCA).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://nca.gov.sa/en/national-cybersecurity-strategy/",
+            "note": "Official NCA strategy landing page"
+          },
+          {
+            "type": "pdf",
+            "url": "https://cdn.nca.gov.sa/api/files/public/upload/b2bf9688-b7d1-4cd2-8e40-d075612a2323_national_cybersecurity_strategy-en.pdf",
+            "note": "2020 edition (current) — English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://cdn.nca.gov.sa/api/files/public/upload/67436936-b325-45e0-83c4-f09f19017e16_national_cybersecurity_strategy-ar.pdf",
+            "note": "2020 edition (current) — Arabic PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2020",
+            "release_date": "2020-12-01",
+            "status": "current",
+            "url": "https://cdn.nca.gov.sa/api/files/public/upload/b2bf9688-b7d1-4cd2-8e40-d075612a2323_national_cybersecurity_strategy-en.pdf",
+            "note": "National Cybersecurity Strategy of the Kingdom of Saudi Arabia (December 2020)."
+          }
+        ],
+        "examples": [
+          "national-cybersecurity-strategy@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Saudi Arabia National Cybersecurity Strategy (2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategy (2020)",
+            "url": "https://cdn.nca.gov.sa/api/files/public/upload/b2bf9688-b7d1-4cd2-8e40-d075612a2323_national_cybersecurity_strategy-en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://cdn.nca.gov.sa/api/files/public/upload/b2bf9688-b7d1-4cd2-8e40-d075612a2323_national_cybersecurity_strategy-en.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://nca.gov.sa/en/national-cybersecurity-strategy/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://cdn.nca.gov.sa/api/files/public/upload/b2bf9688-b7d1-4cd2-8e40-d075612a2323_national_cybersecurity_strategy-en.pdf",
+                "note": "Saudi Arabia National Cybersecurity Strategy 2020"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "SA"
+    ]
+  }
+}

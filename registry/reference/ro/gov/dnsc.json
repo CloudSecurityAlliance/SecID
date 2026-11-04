@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dnsc.gov.ro",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber Security Directorate (DNSC) & Government of Romania",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dnsc.ro/"
+    }
+  ],
+  "examples": [
+    "secid:reference/dnsc.gov.ro/national-defence-strategy@2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-defence-strategy$",
+        "(?i)^strategia\\-nationala\\-de\\-aparare\\-a\\-tarii$",
+        "(?i)^snat\\-ro$"
+      ],
+      "description": "National Defence Strategy of Romania (Strategia Națională de Apărare a Țării)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
+        "examples": [
+          "national-defence-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-11-26",
+            "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
+            "aliases": [
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "status": "superseded",
+            "release_date": "2020-06-30",
+            "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
+            "aliases": [
+              {
+                "label": "2020-2024",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2030$"
+          ],
+          "description": "National Defence Strategy of Romania (Strategia Națională de Apărare a Țării) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
+            "examples": [
+              {
+                "input": "national-defence-strategy#2025",
+                "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^2020\\-2024$"
+          ],
+          "description": "National Defence Strategy of Romania (Strategia Națională de Apărare a Țării) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024",
+            "examples": [
+              {
+                "input": "national-defence-strategy#2020",
+                "url": "https://www.presidency.ro/ro/presedinte/agenda-presedintelui/strategia-nationala-de-aparare-a-tarii-pentru-perioada-2020-2024"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "(?i)^strategia\\-de\\-securitate\\-cibernetica\\-a\\-romaniei$",
+        "(?i)^ncss\\-ro$"
+      ],
+      "description": "National Cybersecurity Strategy of Romania (2022–2027, GD No. 1321/2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei",
+        "examples": [
+          "national-cybersecurity-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-12-30",
+            "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei",
+            "aliases": [
+              {
+                "label": "2022-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2022\\-2027$"
+          ],
+          "description": "National Cybersecurity Strategy of Romania (2022–2027, GD No. 1321/2021) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei",
+            "examples": [
+              {
+                "input": "national-cybersecurity-strategy#2021",
+                "url": "https://dnsc.ro/citeste/strategia-de-securitate-cibernetica-a-romaniei"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-in-the-field-of-ai$",
+        "(?i)^sn\\-ia\\-ro$",
+        "(?i)^romania\\-ai\\-strategy$"
+      ],
+      "description": "National Strategy in the Field of Artificial Intelligence 2024–2027 (GD No. 832/2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027",
+        "examples": [
+          "national-strategy-in-the-field-of-ai@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-11",
+            "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027",
+            "aliases": [
+              {
+                "label": "2024-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2027$"
+          ],
+          "description": "National Strategy in the Field of Artificial Intelligence 2024–2027 (GD No. 832/2024) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027",
+            "examples": [
+              {
+                "input": "national-strategy-in-the-field-of-ai#2024",
+                "url": "https://www.research.gov.ro/ro/articol/5813/strategia-nationala-in-domeniul-inteligentei-artificiale-2024-2027"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

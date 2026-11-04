@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pravo.gov.ru",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Official Internet Portal of Legal Information (State System of Legal Information of the Russian Federation)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://pravo.gov.ru/"
+    }
+  ],
+  "examples": [
+    "secid:reference/pravo.gov.ru/national-security-strategy-of-the-russian-federation@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-the-russian-federation$",
+        "(?i)^ukaz\\-400\\-2021$",
+        "(?i)^nss\\-ru$"
+      ],
+      "description": "National Security Strategy of the Russian Federation (Presidential Decree No. 400 of July 2, 2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://pravo.gov.ru/",
+        "examples": [
+          "national-security-strategy-of-the-russian-federation@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-07-02",
+            "url": "https://pravo.gov.ru/",
+            "aliases": [
+              {
+                "label": "ukaz-400",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^ukaz\\-400$"
+          ],
+          "description": "National Security Strategy of the Russian Federation (Presidential Decree No. 400 of July 2, 2021) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.gov.ru/",
+            "examples": [
+              {
+                "input": "national-security-strategy-of-the-russian-federation#2021",
+                "url": "https://pravo.gov.ru/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^doctrine-of-information-security-of-the-russian-federation$",
+        "(?i)^ukaz\\-646\\-2016$",
+        "(?i)^ncss\\-ru$"
+      ],
+      "description": "Doctrine of Information Security of the Russian Federation (Presidential Decree No. 646 of December 5, 2016)",
+      "weight": 100,
+      "data": {
+        "url": "https://pravo.gov.ru/",
+        "examples": [
+          "doctrine-of-information-security-of-the-russian-federation@2016"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2016",
+            "status": "current",
+            "release_date": "2016-12-05",
+            "url": "https://pravo.gov.ru/",
+            "aliases": [
+              {
+                "label": "ukaz-646",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2016$",
+            "(?i)^ukaz\\-646$"
+          ],
+          "description": "Doctrine of Information Security of the Russian Federation (Presidential Decree No. 646 of December 5, 2016) (2016)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.gov.ru/",
+            "examples": [
+              {
+                "input": "doctrine-of-information-security-of-the-russian-federation#2016",
+                "url": "https://pravo.gov.ru/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-for-the-development-of-ai-until-2030$",
+        "(?i)^ukaz\\-490\\-2019$",
+        "(?i)^ukaz\\-124\\-2024$",
+        "(?i)^russia\\-ai\\-strategy$"
+      ],
+      "description": "National Strategy for the Development of Artificial Intelligence until 2030 (Presidential Decree No. 490 of Oct 10, 2019, amended by Decree No. 124 of Feb 15, 2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://pravo.gov.ru/",
+        "examples": [
+          "national-strategy-for-the-development-of-ai-until-2030@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-02-15",
+            "url": "https://pravo.gov.ru/",
+            "aliases": [
+              {
+                "label": "ukaz-124",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-10-10",
+            "url": "https://pravo.gov.ru/",
+            "aliases": [
+              {
+                "label": "ukaz-490",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^ukaz\\-124$"
+          ],
+          "description": "National Strategy for the Development of Artificial Intelligence until 2030 (Presidential Decree No. 490 of Oct 10, 2019, amended by Decree No. 124 of Feb 15, 2024) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.gov.ru/",
+            "examples": [
+              {
+                "input": "national-strategy-for-the-development-of-ai-until-2030#2024",
+                "url": "https://pravo.gov.ru/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^ukaz\\-490$"
+          ],
+          "description": "National Strategy for the Development of Artificial Intelligence until 2030 (Presidential Decree No. 490 of Oct 10, 2019, amended by Decree No. 124 of Feb 15, 2024) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.gov.ru/",
+            "examples": [
+              {
+                "input": "national-strategy-for-the-development-of-ai-until-2030#2019",
+                "url": "https://pravo.gov.ru/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

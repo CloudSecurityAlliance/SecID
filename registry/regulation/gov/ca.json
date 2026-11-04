@@ -4,129 +4,188 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "California State",
   "common_name": "California",
   "alternate_names": null,
   "notes": "California state privacy, security, and AI laws. California often sets the US regulatory standard. California Privacy Protection Agency (CPPA) enforces privacy laws.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://leginfo.legislature.ca.gov"}
+    {
+      "type": "website",
+      "url": "https://leginfo.legislature.ca.gov"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ccpa$"],
+      "patterns": [
+        "(?i)^ccpa$"
+      ],
       "description": "California Consumer Privacy Act",
       "weight": 100,
       "data": {
         "official_name": "California Consumer Privacy Act",
         "common_name": "CCPA",
-        "alternate_names": ["Civil Code \u00a71798.100 et seq."],
-        "description": "California's landmark consumer privacy law (Civil Code \u00a71798.100 et seq.), effective 2020.",
+        "alternate_names": [
+          "Civil Code §1798.100 et seq."
+        ],
+        "description": "California's landmark consumer privacy law (Civil Code §1798.100 et seq.), effective 2020.",
         "notes": "Gives consumers rights: know, delete, opt-out of sale, non-discrimination. Amended and expanded by CPRA in 2023.",
         "urls": [
-          {"type": "website", "url": "https://oag.ca.gov/privacy/ccpa"}
+          {
+            "type": "website",
+            "url": "https://oag.ca.gov/privacy/ccpa"
+          }
         ],
-        "examples": ["1798.100", "1798.120", "1798.150"]
+        "examples": [
+          "1798.100",
+          "1798.120",
+          "1798.150"
+        ]
       },
       "children": [
         {
-          "patterns": ["^\\d{4}\\.\\d+$"],
+          "patterns": [
+            "^\\d{4}\\.\\d+$"
+          ],
           "description": "California Civil Code section number (e.g., 1798.100, 1798.120).",
           "weight": 100,
           "data": {
-            "note": "Section numbers reference the California Civil Code. The full CCPA spans \u00a71798.100 through \u00a71798.199.100. No per-section lookup URL; use the California Legislative Information site to search by section number.",
+            "note": "Section numbers reference the California Civil Code. The full CCPA spans §1798.100 through §1798.199.100. No per-section lookup URL; use the California Legislative Information site to search by section number.",
             "examples": [
-              {"input": "1798.100", "note": "Right to know what personal information is collected"},
-              {"input": "1798.120", "note": "Right to opt out of sale of personal information"},
-              {"input": "1798.150", "note": "Private right of action for data breaches (limited scope)"}
+              {
+                "input": "1798.100",
+                "note": "Right to know what personal information is collected"
+              },
+              {
+                "input": "1798.120",
+                "note": "Right to opt out of sale of personal information"
+              },
+              {
+                "input": "1798.150",
+                "note": "Private right of action for data breaches (limited scope)"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^cpra$"],
+      "patterns": [
+        "(?i)^cpra$"
+      ],
       "description": "California Privacy Rights Act",
       "weight": 100,
       "data": {
         "official_name": "California Privacy Rights Act",
         "common_name": "CPRA",
-        "alternate_names": ["Proposition 24"],
+        "alternate_names": [
+          "Proposition 24"
+        ],
         "description": "Amended and expanded CCPA, effective 2023. Added right to correct and right to limit sensitive data use.",
         "notes": "Passed as ballot initiative (Proposition 24) in November 2020, operative January 2023. Created the California Privacy Protection Agency (CPPA) as a dedicated enforcement body. Added new consumer rights: right to correct inaccurate information, right to limit use of sensitive personal information. Introduced data minimization requirements and expanded opt-out rights.",
         "urls": [
-          {"type": "website", "url": "https://cppa.ca.gov"}
+          {
+            "type": "website",
+            "url": "https://cppa.ca.gov"
+          }
         ],
-        "examples": ["1798.185", "1798.100"]
+        "examples": [
+          "1798.185",
+          "1798.100"
+        ]
       },
       "children": [
         {
-          "patterns": ["^\\d{4}\\.\\d+$"],
+          "patterns": [
+            "^\\d{4}\\.\\d+$"
+          ],
           "description": "California Civil Code section number as amended by CPRA.",
           "weight": 100,
           "data": {
             "note": "CPRA amended existing CCPA sections and added new ones. Section numbers reference the California Civil Code.",
             "examples": [
-              {"input": "1798.185", "note": "CPPA rulemaking authority \u2014 regulations implementing CCPA/CPRA"}
+              {
+                "input": "1798.185",
+                "note": "CPPA rulemaking authority — regulations implementing CCPA/CPRA"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^caloppa$"],
+      "patterns": [
+        "(?i)^caloppa$"
+      ],
       "description": "California Online Privacy Protection Act",
       "weight": 100,
       "data": {
         "official_name": "California Online Privacy Protection Act",
         "common_name": "CalOPPA",
-        "alternate_names": ["Business and Professions Code \u00a722575 et seq."],
+        "alternate_names": [
+          "Business and Professions Code §22575 et seq."
+        ],
         "description": "Requires websites collecting personal information from California consumers to post a privacy policy. Effective 2004.",
         "notes": "One of the first US privacy laws. Requires conspicuous privacy policy, disclosure of categories of personal information collected, and description of the process for notifying consumers of changes. Predates CCPA by over 15 years. Enforced by the California Attorney General.",
         "urls": [
-          {"type": "website", "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=8.&chapter=22.&lawCode=BPC"}
+          {
+            "type": "website",
+            "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=8.&chapter=22.&lawCode=BPC"
+          }
         ],
-        "examples": ["22575", "22577"]
+        "examples": [
+          "22575",
+          "22577"
+        ]
       },
       "children": [
         {
-          "patterns": ["^\\d{5}$"],
+          "patterns": [
+            "^\\d{5}$"
+          ],
           "description": "Business and Professions Code section number.",
           "weight": 100,
           "data": {
             "note": "Section numbers reference the California Business and Professions Code, Chapter 22 (Online Privacy Protection).",
             "examples": [
-              {"input": "22575", "note": "Requirement to conspicuously post privacy policy"},
-              {"input": "22577", "note": "Required contents of privacy policy"}
+              {
+                "input": "22575",
+                "note": "Requirement to conspicuously post privacy policy"
+              },
+              {
+                "input": "22577",
+                "note": "Required contents of privacy policy"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^sb-53$"],
+      "patterns": [
+        "(?i)^sb-53$"
+      ],
       "description": "California SB-53 (Frontier AI Transparency Act)",
       "weight": 100,
       "data": {
         "official_name": "Frontier Artificial Intelligence Models Act",
         "common_name": "SB-53",
-        "alternate_names": ["Senate Bill 53", "Frontier AI Transparency Act"],
+        "alternate_names": [
+          "Senate Bill 53",
+          "Frontier AI Transparency Act"
+        ],
         "description": "California legislation requiring transparency and safety measures for frontier AI models.",
         "notes": "Introduced in the 2025 legislative session. Requires developers of frontier AI models to implement safety protocols, publish transparency reports, and maintain shutdown capabilities. Applies to models exceeding specified compute thresholds. Successor to the vetoed SB-1047.",
         "urls": [
-          {"type": "website", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53"}
+          {
+            "type": "website",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53"
+          }
         ],
         "examples": []
       }
     },
-
     {
       "patterns": [
         "^sb-243$",
@@ -144,12 +203,16 @@
         "description": "California statute regulating companion chatbot platforms: requires clear and conspicuous AI disclosure if a reasonable person could be misled into believing they are interacting with a human, recurring 3-hour AI notifications and sexually explicit content blocks for known minor users, suicidal-ideation/self-harm prevention protocols with crisis hotline referrals, annual metrics reporting to the Office of Suicide Prevention (beginning July 1, 2027), and a private right of action ($1,000 minimum statutory damages per violation).",
         "notes": "Status: In force January 1, 2026 (signed by Governor Newsom October 13, 2025; Chapter 677, Statutes of 2025; verified as of 2026-11-03).",
         "urls": [
-          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243"}
+          {
+            "type": "legal_text",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243"
+          }
         ],
-        "examples": ["sb-243"]
+        "examples": [
+          "sb-243"
+        ]
       }
     },
-
     {
       "patterns": [
         "^sb-1119$",
@@ -167,12 +230,17 @@
         "description": "California follow-on companion chatbot child-safety legislation expanding SB 243 with mandatory pre-deployment child-safety risk assessments, age assurance, default minor-protection settings, mandatory 988 Suicide & Crisis Lifeline integration, and biennial independent third-party safety audits.",
         "notes": "Status: Enacted in 2026; operative provisions phase in during 2027 (introduced February 2026 in the 2025-2026 California Regular Session; verified as of 2026-11-03).",
         "urls": [
-          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"}
+          {
+            "type": "legal_text",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
         ],
-        "examples": ["sb-1119", "adams-law"]
+        "examples": [
+          "sb-1119",
+          "adams-law"
+        ]
       }
     },
-
     {
       "patterns": [
         "^sb-867$",
@@ -189,11 +257,83 @@
         "description": "California legislation restricting the manufacture, distribution, and sale of physical children's toys embedded with open-ended AI companion chatbot functionality capable of unscripted emotional or conversational interaction with minors.",
         "notes": "Status: Enacted / 2025-2026 California Regular Session (verified as of 2026-11-03).",
         "urls": [
-          {"type": "legal_text", "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB867"}
+          {
+            "type": "legal_text",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB867"
+          }
         ],
-        "examples": ["sb-867"]
+        "examples": [
+          "sb-867"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ab-2013$",
+        "(?i)^generative\\-ai\\-training\\-data\\-transparency$"
+      ],
+      "description": "California AB 2013 — Generative Artificial Intelligence: Training Data Transparency (Civil Code § 3110 et seq., enacted Sept 28, 2024, effective Jan 1, 2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB2013",
+        "examples": [
+          "ab-2013"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^sb-942$",
+        "(?i)^california\\-ai\\-transparency\\-act$"
+      ],
+      "description": "California SB 942 — California AI Transparency Act (Business and Professions Code § 22757 et seq., enacted Sept 19, 2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942",
+        "examples": [
+          "sb-942"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ab-3030$",
+        "(?i)^ai\\-healthcare\\-patient\\-communications$"
+      ],
+      "description": "California AB 3030 — Health Care Services: Artificial Intelligence (GenAI patient communication disclosures, Health and Safety Code § 1339.75, effective Jan 1, 2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB3030",
+        "examples": [
+          "ab-3030"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ab-1008$",
+        "(?i)^ccpa\\-ai\\-personal\\-information$"
+      ],
+      "description": "California AB 1008 — California Consumer Privacy Act of 2018: Personal Information in AI Systems (Civil Code § 1798.140, enacted Sept 28, 2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1008",
+        "examples": [
+          "ab-1008"
+        ]
       }
     }
   ],
-  "tags": {"country": ["US"], "region": ["CA"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "CA"
+    ]
+  },
+  "examples": [
+    "secid:regulation/ca.gov/ab-2013",
+    "secid:regulation/ca.gov/sb-942"
+  ]
 }

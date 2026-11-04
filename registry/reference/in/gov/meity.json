@@ -89,6 +89,122 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^indiaai-mission$",
+        "^ai-for-all$",
+        "^national-strategy-for-artificial-intelligence$"
+      ],
+      "description": "India National Strategy for Artificial Intelligence (#AIforAll, 2018) and IndiaAI Mission (2024)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "IndiaAI Mission & National Strategy for Artificial Intelligence (#AIforAll)",
+        "common_name": "India National AI Strategy / IndiaAI Mission",
+        "alternate_names": [
+          "National Strategy for Artificial Intelligence #AIforAll (NITI Aayog, 2018)",
+          "IndiaAI Mission (MeitY, 2024)"
+        ],
+        "description": "India's national artificial intelligence strategy framework, comprising NITI Aayog's foundational 2018 National Strategy for Artificial Intelligence (#AIforAll) and the Union Cabinet-approved 2024 IndiaAI Mission implemented by Digital India Corporation under MeitY across seven pillars (Compute Capacity, Innovation Centre, Datasets Platform, Application Development, FutureSkills, Startup Financing, and Safe & Trusted AI).",
+        "notes": "NITI Aayog published the National Strategy for Artificial Intelligence (#AIforAll) in June 2018; the Union Cabinet approved the comprehensive IndiaAI Mission on March 7, 2024.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://indiaai.gov.in/",
+            "note": "Official IndiaAI Mission portal (MeitY)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
+            "note": "NITI Aayog National Strategy for Artificial Intelligence (#AIforAll, June 2018) official PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.psa.gov.in/ai-mission",
+            "note": "Office of the Principal Scientific Adviser — Artificial Intelligence Mission"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-03-07",
+            "status": "current",
+            "url": "https://indiaai.gov.in/",
+            "note": "IndiaAI Mission (approved by the Union Cabinet on March 7, 2024)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-06-04",
+            "status": "current",
+            "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
+            "note": "National Strategy for Artificial Intelligence (#AIforAll, NITI Aayog, June 2018)."
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2024",
+          "national-ai-strategy@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "IndiaAI Mission (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "IndiaAI Mission (2024)",
+            "url": "https://indiaai.gov.in/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://indiaai.gov.in/"
+              },
+              {
+                "type": "website",
+                "url": "https://www.psa.gov.in/ai-mission"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://indiaai.gov.in/",
+                "note": "IndiaAI Mission (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "National Strategy for Artificial Intelligence (#AIforAll, 2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Strategy for Artificial Intelligence (#AIforAll, June 2018)",
+            "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
+                "note": "India National Strategy for Artificial Intelligence (#AIforAll, 2018)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

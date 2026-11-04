@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gov.vu",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Republic of Vanuatu",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://gov.vu/"
+    }
+  ],
+  "examples": [
+    "secid:reference/gov.vu/vanuatu-national-security-strategy@2019"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^vanuatu-national-security-strategy$",
+        "(?i)^vnss$"
+      ],
+      "description": "Vanuatu National Security Strategy: Secure and Resilient",
+      "weight": 100,
+      "data": {
+        "url": "https://gov.vu/",
+        "examples": [
+          "vanuatu-national-security-strategy@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-06-01",
+            "url": "https://gov.vu/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Vanuatu National Security Strategy: Secure and Resilient (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://gov.vu/",
+            "examples": [
+              {
+                "input": "vanuatu-national-security-strategy#2019",
+                "url": "https://gov.vu/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^vanuatu-national-cybersecurity-strategy$",
+        "(?i)^vncss\\-2030$",
+        "(?i)^vanuatu\\-cybersecurity\\-strategy$"
+      ],
+      "description": "Vanuatu National Cybersecurity Strategy 2030",
+      "weight": 100,
+      "data": {
+        "url": "https://www.ogcio.gov.vu/",
+        "examples": [
+          "vanuatu-national-cybersecurity-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-04-01",
+            "url": "https://www.ogcio.gov.vu/",
+            "aliases": [
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2013",
+            "status": "superseded",
+            "release_date": "2013-01-01",
+            "url": "https://www.ogcio.gov.vu/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2030$"
+          ],
+          "description": "Vanuatu National Cybersecurity Strategy 2030 (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ogcio.gov.vu/",
+            "examples": [
+              {
+                "input": "vanuatu-national-cybersecurity-strategy#2021",
+                "url": "https://www.ogcio.gov.vu/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Vanuatu National Cybersecurity Strategy 2030 (2013)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ogcio.gov.vu/",
+            "examples": [
+              {
+                "input": "vanuatu-national-cybersecurity-strategy#2013",
+                "url": "https://www.ogcio.gov.vu/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "namespace": "citra.gov.kw",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Communication and Information Technology Regulatory Authority (CITRA) & NCSC Kuwait",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.citra.gov.kw/"
+    }
+  ],
+  "examples": [
+    "secid:reference/citra.gov.kw/kuwait-national-cybersecurity-strategy@2017"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^kuwait-national-cybersecurity-strategy$",
+        "(?i)^ncss\\-kw$"
+      ],
+      "description": "National Cyber Security Strategy for the State of Kuwait (2017–2020)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.citra.gov.kw/",
+        "examples": [
+          "kuwait-national-cybersecurity-strategy@2017"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2017",
+            "status": "current",
+            "release_date": "2017-01-01",
+            "url": "https://www.citra.gov.kw/",
+            "aliases": [
+              {
+                "label": "2017-2020",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2017$",
+            "(?i)^2017\\-2020$"
+          ],
+          "description": "National Cyber Security Strategy for the State of Kuwait (2017–2020) (2017)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.citra.gov.kw/",
+            "examples": [
+              {
+                "input": "kuwait-national-cybersecurity-strategy#2017",
+                "url": "https://www.citra.gov.kw/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

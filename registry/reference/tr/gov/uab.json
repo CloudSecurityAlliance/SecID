@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "namespace": "uab.gov.tr",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Transport and Infrastructure & Presidency of the Republic of Türkiye",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.uab.gov.tr/"
+    }
+  ],
+  "examples": [
+    "secid:reference/uab.gov.tr/national-cyber-security-strategy-and-action-plan@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-strategy-and-action-plan$",
+        "(?i)^ulusal\\-siber\\-guvenlik\\-stratejisi$",
+        "(?i)^ncss\\-tr$"
+      ],
+      "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
+        "examples": [
+          "national-cyber-security-strategy-and-action-plan@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-09-09",
+            "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
+            "aliases": [
+              {
+                "label": "2024-2028",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "status": "superseded",
+            "release_date": "2020-12-29",
+            "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
+            "aliases": [
+              {
+                "label": "2020-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2028$"
+          ],
+          "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy-and-action-plan#2024",
+                "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "(?i)^2020\\-2023$"
+          ],
+          "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy-and-action-plan#2020",
+                "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-artificial-intelligence-strategy$",
+        "(?i)^ulusal\\-yapay\\-zeka\\-stratejisi$",
+        "(?i)^uyzs\\-tr$"
+      ],
+      "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update)",
+      "weight": 100,
+      "data": {
+        "url": "https://cbddo.gov.tr/uyzs",
+        "examples": [
+          "national-artificial-intelligence-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-01",
+            "url": "https://cbddo.gov.tr/uyzs",
+            "aliases": [
+              {
+                "label": "2024-2025",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-08-24",
+            "url": "https://cbddo.gov.tr/uyzs",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2025$"
+          ],
+          "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://cbddo.gov.tr/uyzs",
+            "examples": [
+              {
+                "input": "national-artificial-intelligence-strategy#2024",
+                "url": "https://cbddo.gov.tr/uyzs"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://cbddo.gov.tr/uyzs",
+            "examples": [
+              {
+                "input": "national-artificial-intelligence-strategy#2021",
+                "url": "https://cbddo.gov.tr/uyzs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

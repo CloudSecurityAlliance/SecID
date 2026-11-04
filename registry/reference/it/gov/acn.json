@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "namespace": "acn.gov.it",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Italy Strategia Nazionale di Cybersicurezza 2022-2026, 2017, 2013).",
+  "official_name": "Agenzia per la Cybersicurezza Nazionale",
+  "common_name": "ACN Italy",
+  "alternate_names": [
+    "National Cybersecurity Agency of Italy",
+    "Presidenza del Consiglio dei Ministri"
+  ],
+  "notes": "National cybersecurity authority of the Italian Republic established by Decree-Law No. 82 of June 14, 2021 (converted into Law No. 109 of August 4, 2021). Houses CSIRT Italia and coordinates the Strategia Nazionale di Cybersicurezza.",
+  "wikidata": [
+    "Q107294783"
+  ],
+  "wikipedia": [
+    "https://it.wikipedia.org/wiki/Agenzia_per_la_cybersicurezza_nazionale"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.acn.gov.it"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^strategia-nazionale-cybersicurezza$",
+        "^national-cybersecurity-strategy$",
+        "^quadro-strategico-nazionale$"
+      ],
+      "description": "Strategia Nazionale di Cybersicurezza (National Cybersecurity Strategy of Italy)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Strategia Nazionale di Cybersicurezza",
+        "common_name": "Italian National Cybersecurity Strategy",
+        "alternate_names": [
+          "Strategia Nazionale di Cybersicurezza 2022–2026",
+          "National Cybersecurity Strategy 2022-2026",
+          "Piano Nazionale per la Protezione Cibernetica e la Sicurezza Informatica (2017)",
+          "Quadro Strategico Nazionale per la Sicurezza dello Spazio Cibernetico (2013)"
+        ],
+        "description": "National cybersecurity strategy of the Italian Republic adopted by the President of the Council of Ministers and prepared by the National Cybersecurity Agency (ACN), defining 82 measures across protection, response, and development of sovereign digital technologies.",
+        "notes": "Three editions issued: December 2013 (Quadro Strategico Nazionale), March 31, 2017 (Piano Nazionale 2017), and May 17, 2022 (Strategia Nazionale di Cybersicurezza 2022–2026, DPCM May 17, 2022).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza",
+            "note": "2022-2026 edition (current) — Official ACN portal (English)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf",
+            "note": "2017 edition (superseded) — Piano Nazionale 2017 PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf",
+            "note": "2013 edition (superseded) — Quadro Strategico Nazionale PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022-2026",
+            "release_date": "2022-05-17",
+            "status": "current",
+            "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza",
+            "note": "Strategia Nazionale di Cybersicurezza 2022–2026 (adopted by DPCM of May 17, 2022).",
+            "aliases": [
+              {
+                "label": "2022",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2022-2026 edition."
+              }
+            ]
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-03-31",
+            "status": "superseded",
+            "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf",
+            "note": "Piano Nazionale per la Protezione Cibernetica e la Sicurezza Informatica (March 31, 2017)."
+          },
+          {
+            "version": "2013",
+            "release_date": "2013-12-01",
+            "status": "superseded",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf",
+            "note": "Quadro Strategico Nazionale per la Sicurezza dello Spazio Cibernetico (December 2013)."
+          }
+        ],
+        "examples": [
+          "strategia-nazionale-cybersicurezza@2022-2026",
+          "strategia-nazionale-cybersicurezza@2017",
+          "strategia-nazionale-cybersicurezza@2013"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022-2026$",
+            "^2022$"
+          ],
+          "description": "Strategia Nazionale di Cybersicurezza 2022–2026",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Strategia Nazionale di Cybersicurezza 2022–2026",
+            "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022-2026",
+                "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza",
+                "note": "Italian National Cybersecurity Strategy 2022-2026"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Piano Nazionale per la Protezione Cibernetica e la Sicurezza Informatica (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Piano Nazionale per la Protezione Cibernetica e la Sicurezza Informatica (2017)",
+            "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf",
+                "note": "Italian National Cybersecurity Plan (2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Quadro Strategico Nazionale per la Sicurezza dello Spazio Cibernetico (2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Quadro Strategico Nazionale per la Sicurezza dello Spazio Cibernetico (2013)",
+            "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2013",
+                "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf",
+                "note": "Italian National Strategic Framework for Cyberspace Security (2013)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "IT"
+    ]
+  }
+}

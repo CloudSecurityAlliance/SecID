@@ -74,12 +74,50 @@
           }
         ]
       }
+    },
+    {
+      "patterns": [
+        "^rd-729-2023$",
+        "(?i)^estatuto\\-aesia$",
+        "(?i)^aesia\\-statute$"
+      ],
+      "description": "Real Decreto 729/2023 — Estatuto de la Agencia Española de Supervisión de la Inteligencia Artificial (AESIA Statute)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.boe.es/eli/es/rd/2023/08/22/729",
+        "examples": [
+          "rd-729-2023"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^rd-817-2023$",
+        "(?i)^ai\\-sandbox\\-es$",
+        "(?i)^entorno\\-controlado\\-pruebas\\-ia$"
+      ],
+      "description": "Real Decreto 817/2023 — Entorno controlado de pruebas para el ensayo del cumplimiento de la propuesta de Reglamento de Inteligencia Artificial (Spain AI Regulatory Sandbox)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.boe.es/eli/es/rd/2023/11/08/817",
+        "examples": [
+          "rd-817-2023"
+        ]
+      }
     }
   ],
-  "tags": {"country": ["ES"]},
+  "tags": {
+    "country": [
+      "ES"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",
     "note": "Not verified against the organisation itself. A ccTLD implies where a domain was registered, not necessarily where the body operates — correct this field directly if it is wrong, and it will not be overwritten."
-  }
+  },
+  "examples": [
+    "secid:regulation/boe.es/rd-729-2023",
+    "secid:regulation/boe.es/rd-817-2023"
+  ]
 }

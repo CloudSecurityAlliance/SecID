@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "namespace": "stjornarradid.is",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of Iceland (Stjórnarráð Íslands)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.stjornarradid.is/"
+    }
+  ],
+  "examples": [
+    "secid:reference/stjornarradid.is/national-security-policy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-policy$",
+        "(?i)^thjodaroryggisstefna$",
+        "(?i)^iceland\\-nsp$"
+      ],
+      "description": "Parliamentary Resolution on a National Security Policy for Iceland (Þjóðaröryggisstefna fyrir Ísland)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/",
+        "examples": [
+          "national-security-policy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-06-01",
+            "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/"
+          },
+          {
+            "version": "2016",
+            "status": "superseded",
+            "release_date": "2016-04-13",
+            "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Parliamentary Resolution on a National Security Policy for Iceland (Þjóðaröryggisstefna fyrir Ísland) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/",
+            "examples": [
+              {
+                "input": "national-security-policy#2023",
+                "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "Parliamentary Resolution on a National Security Policy for Iceland (Þjóðaröryggisstefna fyrir Ísland) (2016)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/",
+            "examples": [
+              {
+                "input": "national-security-policy#2016",
+                "url": "https://www.stjornarradid.is/verkefni/almannavarnir-og-oryggismal/thjodaroryggi/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^icelandic-national-cybersecurity-strategy$",
+        "(?i)^stefna\\-um\\-net\\-og\\-upplysingaoryggi$",
+        "(?i)^ncss\\-is$"
+      ],
+      "description": "Icelandic National Cybersecurity Strategy (2022–2037)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.stjornarradid.is/verkefni/upplsingat-kni-og-fjarskipti/netoryggi/",
+        "examples": [
+          "icelandic-national-cybersecurity-strategy@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-05-01",
+            "url": "https://www.stjornarradid.is/verkefni/upplsingat-kni-og-fjarskipti/netoryggi/",
+            "aliases": [
+              {
+                "label": "2022-2037",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2037$"
+          ],
+          "description": "Icelandic National Cybersecurity Strategy (2022–2037) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.stjornarradid.is/verkefni/upplsingat-kni-og-fjarskipti/netoryggi/",
+            "examples": [
+              {
+                "input": "icelandic-national-cybersecurity-strategy#2022",
+                "url": "https://www.stjornarradid.is/verkefni/upplsingat-kni-og-fjarskipti/netoryggi/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^policy-on-artificial-intelligence$",
+        "(?i)^stefna\\-islands\\-um\\-gervigreind$",
+        "(?i)^iceland\\-ai\\-action\\-plan$"
+      ],
+      "description": "Iceland Policy on Artificial Intelligence & AI Action Plan (2024–2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/",
+        "examples": [
+          "policy-on-artificial-intelligence@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-11-01",
+            "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/",
+            "aliases": [
+              {
+                "label": "2024-2026",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-04-20",
+            "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2026$"
+          ],
+          "description": "Iceland Policy on Artificial Intelligence & AI Action Plan (2024–2026) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/",
+            "examples": [
+              {
+                "input": "policy-on-artificial-intelligence#2024",
+                "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Iceland Policy on Artificial Intelligence & AI Action Plan (2024–2026) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/",
+            "examples": [
+              {
+                "input": "policy-on-artificial-intelligence#2021",
+                "url": "https://www.stjornarradid.is/efst-a-baugi/frettir/stok-frett/2021/04/20/Stefna-Islands-um-gervigreind-kynnt/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitic.gov.py",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Paraguay Estrategia Nacional de Ciberseguridad 2025-2028 and Plan Nacional de Ciberseguridad 2017).",
+  "official_name": "Ministerio de Tecnologías de la Información y Comunicación del Paraguay",
+  "common_name": "MITIC Paraguay",
+  "alternate_names": [
+    "CERT-PY",
+    "Centro de Respuestas a Incidentes Cibernéticos del Paraguay",
+    "SENATICS"
+  ],
+  "notes": "Ministry of Information and Communication Technologies of the Republic of Paraguay, operating CERT-PY and coordinating Paraguay's National Cybersecurity Strategy (Estrategia Nacional de Ciberseguridad).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mitic.gov.py"
+    },
+    {
+      "type": "website",
+      "url": "https://www.cert.gov.py"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^plan-nacional-ciberseguridad$",
+        "^enc-py$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad del Paraguay (ENC-PY)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad de la República del Paraguay",
+        "common_name": "Paraguay National Cybersecurity Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Ciberseguridad 2025-2028 (Decreto N° 3900/2025)",
+          "Estrategia Nacional de Ciberseguridad 2024-2028",
+          "Plan Nacional de Ciberseguridad (Decreto N° 7052/2017)"
+        ],
+        "description": "National cybersecurity strategy of the Republic of Paraguay prepared by MITIC and CERT-PY.",
+        "notes": "First adopted May 10, 2017 as the Plan Nacional de Ciberseguridad (Decreto N° 7052/2017); second edition published November 14, 2024 and enacted by Presidential Decree N° 3900/2025 on May 22, 2025.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://mitic.gov.py/eoj0cad9uplo/2024/11/ENC-Paraguay-2024-2028-14Nov2024-1.pdf",
+            "note": "2024-2028 / 2025-2028 edition (current) — Official MITIC PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025-2028",
+            "release_date": "2025-05-22",
+            "status": "current",
+            "url": "https://mitic.gov.py/eoj0cad9uplo/2024/11/ENC-Paraguay-2024-2028-14Nov2024-1.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad 2025–2028 (enacted by Decreto N° 3900/2025 of May 22, 2025; text published November 14, 2024).",
+            "aliases": [
+              {
+                "label": "2024-2028",
+                "on_match": "resolve",
+                "note": "Initial November 2024 publication date range."
+              },
+              {
+                "label": "2025",
+                "on_match": "resolve",
+                "note": "Decree enactment year shorthand."
+              }
+            ]
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-05-10",
+            "status": "superseded",
+            "url": "https://www.cert.gov.py/",
+            "note": "Plan Nacional de Ciberseguridad (Decreto N° 7052/2017 of May 10, 2017)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2025-2028",
+          "estrategia-nacional-ciberseguridad@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025-2028$",
+            "^2024-2028$",
+            "^2025$",
+            "^2024$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad del Paraguay 2025–2028",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad del Paraguay 2025–2028 (Decreto N° 3900/2025)",
+            "url": "https://mitic.gov.py/eoj0cad9uplo/2024/11/ENC-Paraguay-2024-2028-14Nov2024-1.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://mitic.gov.py/eoj0cad9uplo/2024/11/ENC-Paraguay-2024-2028-14Nov2024-1.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025-2028",
+                "url": "https://mitic.gov.py/eoj0cad9uplo/2024/11/ENC-Paraguay-2024-2028-14Nov2024-1.pdf",
+                "note": "Paraguay National Cybersecurity Strategy 2025-2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Plan Nacional de Ciberseguridad del Paraguay (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Plan Nacional de Ciberseguridad (Decreto N° 7052/2017)",
+            "url": "https://www.cert.gov.py/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.cert.gov.py/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.cert.gov.py/",
+                "note": "Paraguay National Cybersecurity Plan (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "PY"
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "namespace": "moitt.gov.pk",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Information Technology and Telecommunication (MoITT) & National Security Division of Pakistan",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://moitt.gov.pk/"
+    }
+  ],
+  "examples": [
+    "secid:reference/moitt.gov.pk/national-security-policy-of-pakistan@2022"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-policy-of-pakistan$",
+        "(?i)^nspp\\-pk$",
+        "(?i)^pakistan\\-nsp$"
+      ],
+      "description": "National Security Policy of Pakistan (2022–2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://nsd.gov.pk/",
+        "examples": [
+          "national-security-policy-of-pakistan@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-01-14",
+            "url": "https://nsd.gov.pk/",
+            "aliases": [
+              {
+                "label": "2022-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2026$"
+          ],
+          "description": "National Security Policy of Pakistan (2022–2026) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://nsd.gov.pk/",
+            "examples": [
+              {
+                "input": "national-security-policy-of-pakistan#2022",
+                "url": "https://nsd.gov.pk/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-policy$",
+        "(?i)^ncsp\\-pk$",
+        "(?i)^pakistan\\-cyber\\-security\\-policy$"
+      ],
+      "description": "National Cyber Security Policy of Pakistan",
+      "weight": 100,
+      "data": {
+        "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85",
+        "examples": [
+          "national-cyber-security-policy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-07-27",
+            "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "National Cyber Security Policy of Pakistan (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85",
+            "examples": [
+              {
+                "input": "national-cyber-security-policy#2021",
+                "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-artificial-intelligence-policy$",
+        "(?i)^naip\\-pk$",
+        "(?i)^pakistan\\-ai\\-policy$"
+      ],
+      "description": "National Artificial Intelligence Policy of Pakistan",
+      "weight": 100,
+      "data": {
+        "url": "https://moitt.gov.pk/",
+        "examples": [
+          "national-artificial-intelligence-policy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-07-01",
+            "url": "https://moitt.gov.pk/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "National Artificial Intelligence Policy of Pakistan (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://moitt.gov.pk/",
+            "examples": [
+              {
+                "input": "national-artificial-intelligence-policy#2025",
+                "url": "https://moitt.gov.pk/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mcit.gov.ws",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Communications and Information Technology (MCIT), Government of Samoa",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mcit.gov.ws/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mcit.gov.ws/samoa-national-security-policy@2018"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^samoa-national-security-policy$",
+        "(?i)^samoa\\-nsp$"
+      ],
+      "description": "Samoa National Security Policy",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mfat.gov.ws/",
+        "examples": [
+          "samoa-national-security-policy@2018"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2018",
+            "status": "current",
+            "release_date": "2018-06-01",
+            "url": "https://www.mfat.gov.ws/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Samoa National Security Policy (2018)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mfat.gov.ws/",
+            "examples": [
+              {
+                "input": "samoa-national-security-policy#2018",
+                "url": "https://www.mfat.gov.ws/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^samoa-national-cybersecurity-strategy$",
+        "(?i)^samoa\\-ncss$"
+      ],
+      "description": "Samoa National Cybersecurity Strategy (2024–2029 / 2016–2021)",
+      "weight": 100,
+      "data": {
+        "url": "https://mcit.gov.ws/",
+        "examples": [
+          "samoa-national-cybersecurity-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-06-01",
+            "url": "https://mcit.gov.ws/",
+            "aliases": [
+              {
+                "label": "2024-2029",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2016",
+            "status": "superseded",
+            "release_date": "2016-10-01",
+            "url": "https://mcit.gov.ws/",
+            "aliases": [
+              {
+                "label": "2016-2021",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2029$"
+          ],
+          "description": "Samoa National Cybersecurity Strategy (2024–2029 / 2016–2021) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://mcit.gov.ws/",
+            "examples": [
+              {
+                "input": "samoa-national-cybersecurity-strategy#2024",
+                "url": "https://mcit.gov.ws/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$",
+            "(?i)^2016\\-2021$"
+          ],
+          "description": "Samoa National Cybersecurity Strategy (2024–2029 / 2016–2021) (2016)",
+          "weight": 100,
+          "data": {
+            "url": "https://mcit.gov.ws/",
+            "examples": [
+              {
+                "input": "samoa-national-cybersecurity-strategy#2016",
+                "url": "https://mcit.gov.ws/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

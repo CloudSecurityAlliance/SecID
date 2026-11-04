@@ -3,16 +3,20 @@
   "namespace": "whitehouse.gov",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Updated 2026-11-03 for SecID#215 (National Security Strategy 2025/2022/2017/2015/2010, National Cybersecurity Strategy 2026/2023/2018, and Implementation Plans).",
+  "status_notes": "Updated 2026-11-03 for SecID#215 and SecID#227 (National Security Strategy 2025/2022/2017/2015/2010, National Cybersecurity Strategy 2026/2023/2018, Implementation Plans, America's AI Action Plan 2025, and National AI R&D Strategic Plan 2023/2019/2016).",
   "official_name": "White House / Executive Branch",
   "common_name": "White House",
   "alternate_names": [
     "Executive Office of the President",
     "National Security Council",
     "Office of the National Cyber Director",
-    "ONCD"
+    "ONCD",
+    "Office of Science and Technology Policy",
+    "OSTP",
+    "National Science and Technology Council",
+    "NSTC"
   ],
-  "notes": "US White House executive documents including Executive Orders, OMB Memoranda, National Security Memoranda, National Security Strategies (mandated by 50 U.S.C. 3043 / Goldwater-Nichols Act s. 603), and National Cybersecurity Strategies and Implementation Plans.",
+  "notes": "US White House executive documents including Executive Orders, OMB Memoranda, National Security Memoranda, National Security Strategies (mandated by 50 U.S.C. 3043 / Goldwater-Nichols Act s. 603), National Cybersecurity Strategies and Implementation Plans, and National Artificial Intelligence Action Plans and R&D Strategic Plans.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -596,6 +600,218 @@
                 "input": "1",
                 "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
                 "note": "NCSIP Version 1 (July 2023)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai-action-plan$",
+        "^americas-ai-action-plan$",
+        "^national-ai-strategy$",
+        "^winning-the-race-americas-ai-action-plan$"
+      ],
+      "description": "Winning the Race: America's AI Action Plan",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Winning the Race: America's AI Action Plan",
+        "common_name": "America's AI Action Plan (2025)",
+        "alternate_names": [
+          "US AI Action Plan",
+          "United States National AI Strategy"
+        ],
+        "description": "Overarching federal artificial intelligence strategy issued by the White House under Executive Order 14179 ('Removing Barriers to American Leadership in Artificial Intelligence') across three pillars: Accelerating AI Innovation, Building American AI Infrastructure, and Leading in International AI Diplomacy and Security.",
+        "notes": "Published July 23, 2025 by the White House Office of Science and Technology Policy (OSTP) in coordination with the Assistant to the President for National Security Affairs and the White House AI and Crypto Czar.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+            "note": "2025 edition (current) — Winning the Race: America's AI Action Plan (July 23, 2025)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-07-23",
+            "status": "current",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+            "note": "Winning the Race: America's AI Action Plan (released July 23, 2025 pursuant to EO 14179)."
+          }
+        ],
+        "examples": [
+          "ai-action-plan@2025",
+          "americas-ai-action-plan@2025"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Winning the Race: America's AI Action Plan (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Winning the Race: America's AI Action Plan (2025)",
+            "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
+                "note": "Winning the Race: America's AI Action Plan (July 2025)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-ai-rd-strategic-plan$",
+        "^national-artificial-intelligence-rd-strategic-plan$"
+      ],
+      "description": "National Artificial Intelligence Research and Development Strategic Plan",
+      "weight": 95,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National Artificial Intelligence Research and Development Strategic Plan",
+        "common_name": "US National AI R&D Strategic Plan",
+        "alternate_names": [
+          "NSTC National AI R&D Strategic Plan"
+        ],
+        "description": "Multi-year federal strategic plan for artificial intelligence research and development issued by the National Science and Technology Council (NSTC) Select Committee on Artificial Intelligence and the Networking and Information Technology Research and Development (NITRD) Program.",
+        "notes": "First published October 2016, updated June 2019 (adding Strategy 8 on public-private partnerships), and updated May 2023 (adding Strategy 9 on principled and coordinated international AI R&D collaboration).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.nitrd.gov/pubs/National-Artificial-Intelligence-Research-and-Development-Strategic-Plan-2023-Update.pdf",
+            "note": "2023 Update (current) — May 2023"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.nitrd.gov/pubs/National-AI-RD-Strategy-2019.pdf",
+            "note": "2019 Update (superseded) — June 2019"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.nitrd.gov/pubs/national_ai_rd_strategic_plan.pdf",
+            "note": "2016 First Edition (superseded) — October 2016"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023",
+            "release_date": "2023-05-23",
+            "status": "current",
+            "url": "https://www.nitrd.gov/pubs/National-Artificial-Intelligence-Research-and-Development-Strategic-Plan-2023-Update.pdf",
+            "note": "National Artificial Intelligence Research and Development Strategic Plan: 2023 Update (May 23, 2023)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-06-21",
+            "status": "superseded",
+            "url": "https://www.nitrd.gov/pubs/National-AI-RD-Strategy-2019.pdf",
+            "note": "The National Artificial Intelligence Research and Development Strategic Plan: 2019 Update (June 21, 2019)."
+          },
+          {
+            "version": "2016",
+            "release_date": "2016-10-13",
+            "status": "superseded",
+            "url": "https://www.nitrd.gov/pubs/national_ai_rd_strategic_plan.pdf",
+            "note": "The National Artificial Intelligence Research and Development Strategic Plan (October 13, 2016)."
+          }
+        ],
+        "examples": [
+          "national-ai-rd-strategic-plan@2023",
+          "national-ai-rd-strategic-plan@2019",
+          "national-ai-rd-strategic-plan@2016"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "National AI R&D Strategic Plan: 2023 Update",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Artificial Intelligence Research and Development Strategic Plan: 2023 Update",
+            "url": "https://www.nitrd.gov/pubs/National-Artificial-Intelligence-Research-and-Development-Strategic-Plan-2023-Update.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.nitrd.gov/pubs/National-Artificial-Intelligence-Research-and-Development-Strategic-Plan-2023-Update.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://www.nitrd.gov/pubs/National-Artificial-Intelligence-Research-and-Development-Strategic-Plan-2023-Update.pdf",
+                "note": "National AI R&D Strategic Plan 2023 Update"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National AI R&D Strategic Plan: 2019 Update",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "The National Artificial Intelligence Research and Development Strategic Plan: 2019 Update",
+            "url": "https://www.nitrd.gov/pubs/National-AI-RD-Strategy-2019.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.nitrd.gov/pubs/National-AI-RD-Strategy-2019.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://www.nitrd.gov/pubs/National-AI-RD-Strategy-2019.pdf",
+                "note": "National AI R&D Strategic Plan 2019 Update"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$"
+          ],
+          "description": "National AI R&D Strategic Plan (2016)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "The National Artificial Intelligence Research and Development Strategic Plan (2016)",
+            "url": "https://www.nitrd.gov/pubs/national_ai_rd_strategic_plan.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.nitrd.gov/pubs/national_ai_rd_strategic_plan.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://www.nitrd.gov/pubs/national_ai_rd_strategic_plan.pdf",
+                "note": "National AI R&D Strategic Plan (2016)"
               }
             ]
           }

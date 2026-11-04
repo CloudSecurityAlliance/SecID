@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "namespace": "csa.gov.gh",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Cyber Security Authority (CSA) & Ministry of National Security of Ghana",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.csa.gov.gh/"
+    }
+  ],
+  "examples": [
+    "secid:reference/csa.gov.gh/ghana-national-security-strategy@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^ghana-national-security-strategy$",
+        "(?i)^nss\\-gh$"
+      ],
+      "description": "National Security Strategy of Ghana: A Secure and Prosperous Ghana",
+      "weight": 100,
+      "data": {
+        "url": "https://nsc.gov.gh/",
+        "examples": [
+          "ghana-national-security-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-06-07",
+            "url": "https://nsc.gov.gh/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "National Security Strategy of Ghana: A Secure and Prosperous Ghana (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://nsc.gov.gh/",
+            "examples": [
+              {
+                "input": "ghana-national-security-strategy#2021",
+                "url": "https://nsc.gov.gh/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ghana-national-cybersecurity-policy-and-strategy$",
+        "(?i)^ncps\\-gh$"
+      ],
+      "description": "Ghana National Cyber Security Policy and Strategy",
+      "weight": 100,
+      "data": {
+        "url": "https://www.csa.gov.gh/",
+        "examples": [
+          "ghana-national-cybersecurity-policy-and-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-10-01",
+            "url": "https://www.csa.gov.gh/"
+          },
+          {
+            "version": "2015",
+            "status": "superseded",
+            "release_date": "2015-11-01",
+            "url": "https://www.csa.gov.gh/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Ghana National Cyber Security Policy and Strategy (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.csa.gov.gh/",
+            "examples": [
+              {
+                "input": "ghana-national-cybersecurity-policy-and-strategy#2024",
+                "url": "https://www.csa.gov.gh/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Ghana National Cyber Security Policy and Strategy (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.csa.gov.gh/",
+            "examples": [
+              {
+                "input": "ghana-national-cybersecurity-policy-and-strategy#2015",
+                "url": "https://www.csa.gov.gh/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ghana-national-artificial-intelligence-strategy$",
+        "(?i)^ghana\\-ai\\-strategy$"
+      ],
+      "description": "Republic of Ghana National Artificial Intelligence Strategy (2023–2033)",
+      "weight": 100,
+      "data": {
+        "url": "https://moc.gov.gh/",
+        "examples": [
+          "ghana-national-artificial-intelligence-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-07-01",
+            "url": "https://moc.gov.gh/",
+            "aliases": [
+              {
+                "label": "2023-2033",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2033$"
+          ],
+          "description": "Republic of Ghana National Artificial Intelligence Strategy (2023–2033) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://moc.gov.gh/",
+            "examples": [
+              {
+                "input": "ghana-national-artificial-intelligence-strategy#2023",
+                "url": "https://moc.gov.gh/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dgssi.gov.ma",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "General Directorate of Information Systems Security (DGSSI) & Ministry of Digital Transition (Morocco)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.dgssi.gov.ma/"
+    }
+  ],
+  "examples": [
+    "secid:reference/dgssi.gov.ma/national-cybersecurity-strategy@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cybersecurity-strategy$",
+        "(?i)^sn\\-cyb\\-ma$",
+        "(?i)^morocco\\-cybersecurity\\-strategy$"
+      ],
+      "description": "National Cybersecurity Strategy of the Kingdom of Morocco (Stratégie Nationale de Cybersécurité 2030)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
+        "examples": [
+          "national-cybersecurity-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-09-01",
+            "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
+            "aliases": [
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2012",
+            "status": "superseded",
+            "release_date": "2012-12-01",
+            "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2030$"
+          ],
+          "description": "National Cybersecurity Strategy of the Kingdom of Morocco (Stratégie Nationale de Cybersécurité 2030) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
+            "examples": [
+              {
+                "input": "national-cybersecurity-strategy#2024",
+                "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2012$"
+          ],
+          "description": "National Cybersecurity Strategy of the Kingdom of Morocco (Stratégie Nationale de Cybersécurité 2030) (2012)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite",
+            "examples": [
+              {
+                "input": "national-cybersecurity-strategy#2012",
+                "url": "https://www.dgssi.gov.ma/fr/strategie-nationale-de-cybersecurite"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^maroc-digital-2030$",
+        "(?i)^morocco\\-digital\\-2030$",
+        "(?i)^morocco\\-ai\\-strategy$"
+      ],
+      "description": "Maroc Digital 2030 (National Digital and AI Strategy of Morocco)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mmsp.gov.ma/",
+        "examples": [
+          "maroc-digital-2030@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-09-25",
+            "url": "https://www.mmsp.gov.ma/",
+            "aliases": [
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2030$"
+          ],
+          "description": "Maroc Digital 2030 (National Digital and AI Strategy of Morocco) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mmsp.gov.ma/",
+            "examples": [
+              {
+                "input": "maroc-digital-2030#2024",
+                "url": "https://www.mmsp.gov.ma/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

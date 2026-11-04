@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gob.cl",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Chile Política Nacional de Ciberseguridad 2023-2028/2017-2022 and Política Nacional de Inteligencia Artificial 2024/2021-2030).",
+  "official_name": "Gobierno de Chile",
+  "common_name": "Government of Chile",
+  "alternate_names": [
+    "Agencia Nacional de Ciberseguridad (ANCI)",
+    "Ministerio del Interior y Seguridad Pública de Chile",
+    "Ministerio de Ciencia, Tecnología, Conocimiento e Innovación (MinCiencia)"
+  ],
+  "notes": "Executive branch of the Republic of Chile, including the National Cybersecurity Agency (ANCI, established by Law No. 21.663) and MinCiencia, which publish Chile's National Cybersecurity Policy and National Artificial Intelligence Policy.",
+  "wikidata": [
+    "Q5881906"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Gobierno_de_Chile"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gob.cl"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^politica-nacional-ciberseguridad$",
+        "^pncs$",
+        "^national-cybersecurity-policy$"
+      ],
+      "description": "Política Nacional de Ciberseguridad (National Cybersecurity Policy of Chile)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Política Nacional de Ciberseguridad",
+        "common_name": "Chilean National Cybersecurity Policy",
+        "alternate_names": [
+          "Política Nacional de Ciberseguridad 2023-2028 (Decreto Supremo N° 164/2023)",
+          "Política Nacional de Ciberseguridad 2017-2022"
+        ],
+        "description": "Chile's national cybersecurity strategy defining objectives across resilient infrastructure, citizen rights in cyberspace, cybersecurity culture, industrial/research development, and international governance under Law No. 21.663 (Ley Marco sobre Ciberseguridad).",
+        "notes": "First edition issued April 27, 2017 (2017–2022); second edition promulgated December 4, 2023 by Decreto Supremo N° 164 of the Ministry of the Interior and Public Security (2023–2028).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf",
+            "note": "2023-2028 edition (current) — Diario Oficial Decreto Supremo N° 164/2023 PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bcn.cl/leychile/navegar?idNorma=1198702",
+            "note": "2023-2028 edition — BCN LeyChile Norma 1198702"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf",
+            "note": "2017-2022 edition (superseded) — English PDF (ITU Repository)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2028",
+            "release_date": "2023-12-04",
+            "status": "current",
+            "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf",
+            "note": "Política Nacional de Ciberseguridad 2023-2028 (Decreto Supremo N° 164/2023, published December 4, 2023).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023-2028 edition."
+              }
+            ]
+          },
+          {
+            "version": "2017-2022",
+            "release_date": "2017-04-27",
+            "status": "superseded",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf",
+            "note": "Política Nacional de Ciberseguridad 2017-2022 (adopted April 27, 2017).",
+            "aliases": [
+              {
+                "label": "2017",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2017-2022 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "politica-nacional-ciberseguridad@2023-2028",
+          "politica-nacional-ciberseguridad@2017-2022"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2028$",
+            "^2023$"
+          ],
+          "description": "Política Nacional de Ciberseguridad 2023-2028",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Ciberseguridad 2023-2028 (Decreto Supremo N° 164/2023)",
+            "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.bcn.cl/leychile/navegar?idNorma=1198702"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2028",
+                "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf",
+                "note": "Chilean National Cybersecurity Policy 2023-2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017-2022$",
+            "^2017$"
+          ],
+          "description": "Política Nacional de Ciberseguridad 2017-2022",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Ciberseguridad 2017-2022",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017-2022",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf",
+                "note": "Chilean National Cybersecurity Policy 2017-2022"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^politica-nacional-ia$",
+        "^ai-strategy$"
+      ],
+      "description": "Política Nacional de Inteligencia Artificial (National AI Policy of Chile)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Política Nacional de Inteligencia Artificial",
+        "common_name": "Chilean National AI Policy",
+        "alternate_names": [
+          "Actualización Política Nacional de Inteligencia Artificial (2024)",
+          "Política Nacional de Inteligencia Artificial 2021-2030 (Decreto Supremo N° 20/2021)"
+        ],
+        "description": "Chile's national artificial intelligence strategy led by MinCiencia, organized around enabling factors (human capital, compute infrastructure, data), AI development and adoption, and governance/ethics.",
+        "notes": "First promulgated October 27, 2021 (Decreto Supremo N° 20/2021 of MinCiencia) and updated in May 2024 alongside the introduction of the AI Bill (Boletín N° 16821-19).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/",
+            "note": "MinCiencia National AI Policy portal (2024 Update and Action Plan)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
+            "note": "2021-2030 edition PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bcn.cl/leychile/navegar?idNorma=1167563",
+            "note": "Decreto Supremo N° 20/2021 on BCN LeyChile"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-05-07",
+            "status": "current",
+            "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/",
+            "note": "Actualización de la Política Nacional de Inteligencia Artificial (May 2024)."
+          },
+          {
+            "version": "2021-2030",
+            "release_date": "2021-10-27",
+            "status": "superseded",
+            "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
+            "note": "Política Nacional de Inteligencia Artificial 2021-2030 (Decreto Supremo N° 20/2021, October 27, 2021).",
+            "aliases": [
+              {
+                "label": "2021",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2021-2030 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "politica-nacional-ia@2024",
+          "politica-nacional-ia@2021-2030"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Actualización Política Nacional de Inteligencia Artificial (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Actualización de la Política Nacional de Inteligencia Artificial (2024)",
+            "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/",
+                "note": "Chilean National AI Policy (2024 Update)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021-2030$",
+            "^2021$"
+          ],
+          "description": "Política Nacional de Inteligencia Artificial 2021-2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Inteligencia Artificial 2021-2030 (Decreto Supremo N° 20/2021)",
+            "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.bcn.cl/leychile/navegar?idNorma=1167563"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021-2030",
+                "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
+                "note": "Chilean National AI Policy 2021-2030"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "CL"
+    ]
+  }
+}

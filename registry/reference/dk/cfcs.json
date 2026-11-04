@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cfcs.dk",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Centre for Cyber Security (CFCS) & Government of Denmark",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.cfcs.dk/"
+    }
+  ],
+  "examples": [
+    "secid:reference/cfcs.dk/foreign-and-security-policy-strategy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^foreign-and-security-policy-strategy$",
+        "(?i)^udenrigs\\-og\\-sikkerhedspolitisk\\-strategi$",
+        "(?i)^dk\\-security\\-strategy$"
+      ],
+      "description": "Danish Foreign and Security Policy Strategy (Udenrigs- og Sikkerhedspolitisk Strategi)",
+      "weight": 100,
+      "data": {
+        "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023",
+        "examples": [
+          "foreign-and-security-policy-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-05-16",
+            "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Danish Foreign and Security Policy Strategy (Udenrigs- og Sikkerhedspolitisk Strategi) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023",
+            "examples": [
+              {
+                "input": "foreign-and-security-policy-strategy#2023",
+                "url": "https://um.dk/en/foreign-policy/foreign-and-security-policy-strategy-2023"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-for-cyber-and-information-security$",
+        "(?i)^ncis\\-dk$",
+        "(?i)^danish\\-cyber\\-strategy$"
+      ],
+      "description": "Danish National Strategy for Cyber and Information Security (2022–2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/",
+        "examples": [
+          "national-strategy-for-cyber-and-information-security@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-12-01",
+            "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/",
+            "aliases": [
+              {
+                "label": "2022-2024",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2022\\-2024$"
+          ],
+          "description": "Danish National Strategy for Cyber and Information Security (2022–2024) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/",
+            "examples": [
+              {
+                "input": "national-strategy-for-cyber-and-information-security#2021",
+                "url": "https://www.cfcs.dk/da/om-os/publikationer/strategier/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-strategy-for-artificial-intelligence$",
+        "(?i)^danish\\-ai\\-strategy$",
+        "(?i)^strategisk\\-indsats\\-for\\-kunstig\\-intelligens$"
+      ],
+      "description": "Danish National Strategy for Artificial Intelligence",
+      "weight": 100,
+      "data": {
+        "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/",
+        "examples": [
+          "national-strategy-for-artificial-intelligence@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-06-01",
+            "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-03-01",
+            "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Danish National Strategy for Artificial Intelligence (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/",
+            "examples": [
+              {
+                "input": "national-strategy-for-artificial-intelligence#2024",
+                "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Danish National Strategy for Artificial Intelligence (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/",
+            "examples": [
+              {
+                "input": "national-strategy-for-artificial-intelligence#2019",
+                "url": "https://en.digst.dk/strategy/the-danish-national-strategy-for-artificial-intelligence/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

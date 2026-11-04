@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "namespace": "treasury.govmu.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Government of the Republic of Mauritius (Ministry of Information Technology, Communication and Innovation)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mitci.govmu.org/"
+    }
+  ],
+  "examples": [
+    "secid:reference/treasury.govmu.org/mauritius-national-cyber-security-strategy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^mauritius-national-cyber-security-strategy$",
+        "(?i)^ncss\\-mu$"
+      ],
+      "description": "National Cyber Security Strategy of the Republic of Mauritius",
+      "weight": 100,
+      "data": {
+        "url": "https://cert-mu.govmu.org/",
+        "examples": [
+          "mauritius-national-cyber-security-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-06-01",
+            "url": "https://cert-mu.govmu.org/",
+            "aliases": [
+              {
+                "label": "2023-2026",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2014",
+            "status": "superseded",
+            "release_date": "2014-10-01",
+            "url": "https://cert-mu.govmu.org/",
+            "aliases": [
+              {
+                "label": "2014-2019",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2026$"
+          ],
+          "description": "National Cyber Security Strategy of the Republic of Mauritius (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://cert-mu.govmu.org/",
+            "examples": [
+              {
+                "input": "mauritius-national-cyber-security-strategy#2023",
+                "url": "https://cert-mu.govmu.org/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$",
+            "(?i)^2014\\-2019$"
+          ],
+          "description": "National Cyber Security Strategy of the Republic of Mauritius (2014)",
+          "weight": 100,
+          "data": {
+            "url": "https://cert-mu.govmu.org/",
+            "examples": [
+              {
+                "input": "mauritius-national-cyber-security-strategy#2014",
+                "url": "https://cert-mu.govmu.org/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^mauritius-artificial-intelligence-strategy$",
+        "(?i)^mauritius\\-ai\\-strategy$"
+      ],
+      "description": "Mauritius Artificial Intelligence Strategy",
+      "weight": 100,
+      "data": {
+        "url": "https://mitci.govmu.org/",
+        "examples": [
+          "mauritius-artificial-intelligence-strategy@2018"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2018",
+            "status": "current",
+            "release_date": "2018-11-01",
+            "url": "https://mitci.govmu.org/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Mauritius Artificial Intelligence Strategy (2018)",
+          "weight": 100,
+          "data": {
+            "url": "https://mitci.govmu.org/",
+            "examples": [
+              {
+                "input": "mauritius-artificial-intelligence-strategy#2018",
+                "url": "https://mitci.govmu.org/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

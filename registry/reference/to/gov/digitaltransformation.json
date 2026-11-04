@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "digitaltransformation.gov.to",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Prime Minister's Office & CERT Tonga (Kingdom of Tonga)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.pmo.gov.to/"
+    }
+  ],
+  "examples": [
+    "secid:reference/digitaltransformation.gov.to/tonga-national-cybersecurity-strategy@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^tonga-national-cybersecurity-strategy$",
+        "(?i)^tonga\\-ncss$"
+      ],
+      "description": "Kingdom of Tonga National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "url": "https://www.pmo.gov.to/",
+        "examples": [
+          "tonga-national-cybersecurity-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-01-01",
+            "url": "https://www.pmo.gov.to/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Kingdom of Tonga National Cybersecurity Strategy (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.pmo.gov.to/",
+            "examples": [
+              {
+                "input": "tonga-national-cybersecurity-strategy#2024",
+                "url": "https://www.pmo.gov.to/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

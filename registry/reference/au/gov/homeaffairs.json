@@ -303,6 +303,142 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^national-ai-plan$",
+        "^national-ai-strategy$",
+        "^ai-action-plan$",
+        "^safe-and-responsible-ai$"
+      ],
+      "description": "Australia National AI Plan (2025), Voluntary AI Safety Standard (2024), and Australia's AI Action Plan (2021)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "National AI Plan & Australia's Artificial Intelligence Action Plan",
+        "common_name": "Australia National AI Plan / AI Action Plan",
+        "alternate_names": [
+          "National AI Plan (2025)",
+          "Voluntary AI Safety Standard & Proposals Paper for Mandatory Guardrails for AI in High-Risk Settings (2024)",
+          "Australia's Artificial Intelligence Action Plan (2021)"
+        ],
+        "description": "Whole-of-government artificial intelligence strategy and governance framework coordinated by the Department of Industry, Science and Resources (DISR) and the Australian Government.",
+        "notes": "Includes Australia's AI Action Plan (June 2021), the Voluntary AI Safety Standard and Mandatory Guardrails Proposals Paper (September 2024), and the National AI Plan (December 2025).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "note": "Department of Industry, Science and Resources — Artificial Intelligence portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-12-01",
+            "status": "current",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "note": "Australian Government National AI Plan (2025)."
+          },
+          {
+            "version": "2024",
+            "release_date": "2024-09-05",
+            "status": "current",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "note": "Voluntary AI Safety Standard and Proposals Paper for Introducing Mandatory Guardrails for AI in High-Risk Settings (September 5, 2024)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-06-01",
+            "status": "superseded",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "note": "Australia's Artificial Intelligence Action Plan (June 2021)."
+          }
+        ],
+        "examples": [
+          "national-ai-plan@2025",
+          "national-ai-plan@2024",
+          "national-ai-plan@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Australian Government National AI Plan (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Australian Government National AI Plan (2025)",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+                "note": "Australia National AI Plan (2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Voluntary AI Safety Standard & High-Risk AI Guardrails Framework (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Voluntary AI Safety Standard & Proposals Paper for Mandatory Guardrails for AI in High-Risk Settings (2024)",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+                "note": "Australia Safe and Responsible AI Framework (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Australia's Artificial Intelligence Action Plan (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Australia's Artificial Intelligence Action Plan (2021)",
+            "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
+                "note": "Australia's AI Action Plan (2021)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ncsa.or.th",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber Security Agency (NCSA) & Government of Thailand",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ncsa.or.th/"
+    }
+  ],
+  "examples": [
+    "secid:reference/ncsa.or.th/national-security-policy-and-plan@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-policy-and-plan$",
+        "(?i)^nspp\\-th$",
+        "(?i)^thailand\\-national\\-security\\-policy$"
+      ],
+      "description": "National Security Policy and Plan of Thailand (2023–2027)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.nsc.go.th/",
+        "examples": [
+          "national-security-policy-and-plan@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2022-12-01",
+            "url": "https://www.nsc.go.th/",
+            "aliases": [
+              {
+                "label": "2023-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2027$"
+          ],
+          "description": "National Security Policy and Plan of Thailand (2023–2027) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nsc.go.th/",
+            "examples": [
+              {
+                "input": "national-security-policy-and-plan#2023",
+                "url": "https://www.nsc.go.th/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-strategic-plan$",
+        "(?i)^ncss\\-th$",
+        "(?i)^thailand\\-cybersecurity\\-strategy$"
+      ],
+      "description": "National Cybersecurity Policy and Strategic Plan of Thailand (2022–2027)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.ncsa.or.th/",
+        "examples": [
+          "national-cybersecurity-strategic-plan@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-07-01",
+            "url": "https://www.ncsa.or.th/",
+            "aliases": [
+              {
+                "label": "2022-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2027$"
+          ],
+          "description": "National Cybersecurity Policy and Strategic Plan of Thailand (2022–2027) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ncsa.or.th/",
+            "examples": [
+              {
+                "input": "national-cybersecurity-strategic-plan#2022",
+                "url": "https://www.ncsa.or.th/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^thailand-national-ai-strategy-and-action-plan$",
+        "(?i)^naip\\-th$",
+        "(?i)^thailand\\-ai\\-strategy$"
+      ],
+      "description": "Thailand National AI Strategy and Action Plan (2022–2027)",
+      "weight": 100,
+      "data": {
+        "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/",
+        "examples": [
+          "thailand-national-ai-strategy-and-action-plan@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-07-26",
+            "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/",
+            "aliases": [
+              {
+                "label": "2022-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2027$"
+          ],
+          "description": "Thailand National AI Strategy and Action Plan (2022–2027) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/",
+            "examples": [
+              {
+                "input": "thailand-national-ai-strategy-and-action-plan#2022",
+                "url": "https://ai.in.th/en/about-thailand-national-ai-strategy/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

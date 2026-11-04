@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bka.gv.at",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Federal Chancellery of the Republic of Austria (Bundeskanzleramt)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bka.gv.at/"
+    }
+  ],
+  "examples": [
+    "secid:reference/bka.gv.at/oesterreichische-sicherheitsstrategie@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^oesterreichische-sicherheitsstrategie$",
+        "(?i)^oess$",
+        "(?i)^austrian\\-security\\-strategy$"
+      ],
+      "description": "Austrian Security Strategy (Österreichische Sicherheitsstrategie — ÖSS)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html",
+        "examples": [
+          "oesterreichische-sicherheitsstrategie@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-08-21",
+            "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+          },
+          {
+            "version": "2013",
+            "status": "superseded",
+            "release_date": "2013-07-01",
+            "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Austrian Security Strategy (Österreichische Sicherheitsstrategie — ÖSS) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html",
+            "examples": [
+              {
+                "input": "oesterreichische-sicherheitsstrategie#2024",
+                "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2013$"
+          ],
+          "description": "Austrian Security Strategy (Österreichische Sicherheitsstrategie — ÖSS) (2013)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html",
+            "examples": [
+              {
+                "input": "oesterreichische-sicherheitsstrategie#2013",
+                "url": "https://www.bka.gv.at/themen/sicherheit/oesterreichische-sicherheitsstrategie.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^oesterreichische-strategie-fuer-cybersicherheit$",
+        "(?i)^oescs$",
+        "(?i)^austrian\\-cyber\\-security\\-strategy$"
+      ],
+      "description": "Austrian Strategy for Cyber Security (Österreichische Strategie für Cybersicherheit — ÖSCS)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html",
+        "examples": [
+          "oesterreichische-strategie-fuer-cybersicherheit@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-12-01",
+            "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Austrian Strategy for Cyber Security (Österreichische Strategie für Cybersicherheit — ÖSCS) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html",
+            "examples": [
+              {
+                "input": "oesterreichische-strategie-fuer-cybersicherheit#2021",
+                "url": "https://www.digitalaustria.gv.at/themen/cybersicherheit/oesterreichische-strategie-fuer-cybersicherheit.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^aim-at-2030$",
+        "(?i)^artificial\\-intelligence\\-mission\\-austria$",
+        "(?i)^ki\\-strategie$"
+      ],
+      "description": "Artificial Intelligence Mission Austria 2030 (AIM AT 2030)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html",
+        "examples": [
+          "aim-at-2030@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-09-01",
+            "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Artificial Intelligence Mission Austria 2030 (AIM AT 2030) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html",
+            "examples": [
+              {
+                "input": "aim-at-2030#2021",
+                "url": "https://www.bka.gv.at/themen/digitalisierung/kuenstliche-intelligenz.html"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

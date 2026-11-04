@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mod.gov.lv",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Defence of the Republic of Latvia (Aizsardzības ministrija)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mod.gov.lv/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mod.gov.lv/national-security-concept@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-concept$",
+        "(?i)^nacionalas\\-drosibas\\-koncepcija$",
+        "(?i)^nsc\\-lv$"
+      ],
+      "description": "National Security Concept of Latvia (Nacionālās drošības koncepcija)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept",
+        "examples": [
+          "national-security-concept@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-09-28",
+            "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "National Security Concept of Latvia (Nacionālās drošības koncepcija) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept",
+            "examples": [
+              {
+                "input": "national-security-concept#2023",
+                "url": "https://www.mod.gov.lv/en/about-us/policy-planning/national-security-concept"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cybersecurity-strategy-of-latvia$",
+        "(?i)^latvijas\\-kiberdrosibas\\-strategija$",
+        "(?i)^ncss\\-lv$"
+      ],
+      "description": "Cybersecurity Strategy of Latvia (2023–2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija",
+        "examples": [
+          "cybersecurity-strategy-of-latvia@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-03-28",
+            "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija",
+            "aliases": [
+              {
+                "label": "2023-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2026$"
+          ],
+          "description": "Cybersecurity Strategy of Latvia (2023–2026) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija",
+            "examples": [
+              {
+                "input": "cybersecurity-strategy-of-latvia#2023",
+                "url": "https://www.mod.gov.lv/en/nozares-politika/kiberdrosiba/latvijas-kiberdrosibas-strategija"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^informative-report-on-development-of-ai-solutions$",
+        "(?i)^latvia\\-ai\\-strategy$"
+      ],
+      "description": "Informative Report on the Development of Artificial Intelligence Solutions (Latvia)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.varam.gov.lv/en",
+        "examples": [
+          "informative-report-on-development-of-ai-solutions@2020"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2020",
+            "status": "current",
+            "release_date": "2020-02-01",
+            "url": "https://www.varam.gov.lv/en"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "Informative Report on the Development of Artificial Intelligence Solutions (Latvia) (2020)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.varam.gov.lv/en",
+            "examples": [
+              {
+                "input": "informative-report-on-development-of-ai-solutions#2020",
+                "url": "https://www.varam.gov.lv/en"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

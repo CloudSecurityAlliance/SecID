@@ -320,6 +320,113 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^strategie-nationale-ia$",
+        "^snia$",
+        "^ai-strategy$"
+      ],
+      "description": "Stratégie nationale pour l'intelligence artificielle (SNIA)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Stratégie nationale pour l'intelligence artificielle (SNIA)",
+        "common_name": "SNIA",
+        "alternate_names": [
+          "French National Strategy for Artificial Intelligence",
+          "AI for Humanity (Villani Report 2018)",
+          "Stratégie nationale pour l'intelligence artificielle — 2e phase (France 2030)"
+        ],
+        "description": "France's national artificial intelligence strategy launched in March 2018 following the Villani mission ('Donner un sens à l'intelligence artificielle') and expanded in November 2021 under France 2030 to train AI talent, develop sovereign foundational models and embedded/frugal AI, and build national compute infrastructure.",
+        "notes": "Phase 1 (2018–2022) launched March 29, 2018; Phase 2 (2021–2025) launched November 8, 2021 under France 2030.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2021-11/dossier-de-presse---strat-gie-nationale-pour-l-intelligence-artificielle-2e-phase-14920.pdf",
+            "note": "2021 Phase 2 (current) — Official dossier de presse PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation",
+            "note": "2018 Phase 1 (superseded) — Villani Report ('Donner un sens à l'intelligence artificielle')"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2021",
+            "release_date": "2021-11-08",
+            "status": "current",
+            "url": "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2021-11/dossier-de-presse---strat-gie-nationale-pour-l-intelligence-artificielle-2e-phase-14920.pdf",
+            "note": "Stratégie nationale pour l'intelligence artificielle — 2e phase (France 2030, November 8, 2021)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-03-29",
+            "status": "superseded",
+            "url": "https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation",
+            "note": "Stratégie nationale pour l'intelligence artificielle — 1re phase / Rapport Villani (March 29, 2018)."
+          }
+        ],
+        "examples": [
+          "strategie-nationale-ia@2021",
+          "strategie-nationale-ia@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Stratégie nationale pour l'intelligence artificielle — 2e phase (2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Stratégie nationale pour l'intelligence artificielle — 2e phase (2021)",
+            "url": "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2021-11/dossier-de-presse---strat-gie-nationale-pour-l-intelligence-artificielle-2e-phase-14920.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2021-11/dossier-de-presse---strat-gie-nationale-pour-l-intelligence-artificielle-2e-phase-14920.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2021-11/dossier-de-presse---strat-gie-nationale-pour-l-intelligence-artificielle-2e-phase-14920.pdf",
+                "note": "Stratégie nationale pour l'intelligence artificielle — 2e phase (2021)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Stratégie nationale pour l'intelligence artificielle — 1re phase (2018)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Stratégie nationale pour l'intelligence artificielle — 1re phase (2018)",
+            "url": "https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation",
+                "note": "Stratégie nationale pour l'intelligence artificielle — 1re phase (2018)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

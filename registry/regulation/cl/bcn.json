@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bcn.cl",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Library of the National Congress of Chile (Biblioteca del Congreso Nacional de Chile — Ley Chile)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bcn.cl/leychile"
+    }
+  ],
+  "examples": [
+    "secid:regulation/bcn.cl/boletin-16821-19"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^boletin-16821-19$",
+        "(?i)^chile\\-ai\\-bill$",
+        "(?i)^proyecto\\-ley\\-ia\\-chile$"
+      ],
+      "description": "Boletín N° 16821-19 — Proyecto de ley que regula los sistemas de inteligencia artificial (Chile Artificial Intelligence Bill)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.camara.cl/legislacion/ProyectosDeLey/tramitacion.aspx?prmID=17415&prmBOLETIN=16821-19",
+        "examples": [
+          "boletin-16821-19"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ley-21663$",
+        "(?i)^ley\\-marco\\-de\\-ciberseguridad$"
+      ],
+      "description": "Ley N° 21.663 — Ley Marco de Ciberseguridad (Chile Cybersecurity Framework Law)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.bcn.cl/leychile/navegar?idNorma=1202434",
+        "examples": [
+          "ley-21663"
+        ]
+      }
+    }
+  ]
+}

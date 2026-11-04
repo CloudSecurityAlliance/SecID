@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mtcit.gov.om",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Transport, Communications and Information Technology (MTCIT), Sultanate of Oman",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mtcit.gov.om/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mtcit.gov.om/national-program-for-ai-and-advanced-digital-technologies@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-program-for-ai-and-advanced-digital-technologies$",
+        "(?i)^oman\\-ai\\-program$"
+      ],
+      "description": "National Program for Artificial Intelligence and Advanced Digital Technologies (Oman)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mtcit.gov.om/",
+        "examples": [
+          "national-program-for-ai-and-advanced-digital-technologies@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-09-01",
+            "url": "https://www.mtcit.gov.om/",
+            "aliases": [
+              {
+                "label": "2024-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2024\\-2026$"
+          ],
+          "description": "National Program for Artificial Intelligence and Advanced Digital Technologies (Oman) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mtcit.gov.om/",
+            "examples": [
+              {
+                "input": "national-program-for-ai-and-advanced-digital-technologies#2024",
+                "url": "https://www.mtcit.gov.om/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mset.gov.jm",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Jamaica National Cyber Security Strategy 2015).",
+  "official_name": "Ministry of Science, Energy, Telecommunications and Transport of Jamaica",
+  "common_name": "MSETT / MSET Jamaica",
+  "alternate_names": [
+    "Ministry of Science, Energy and Technology of Jamaica (MSET)",
+    "Jamaica Cyber Incident Response Team (JaCIRT)"
+  ],
+  "notes": "Ministry of the Government of Jamaica responsible for telecommunications, ICT policy, JaCIRT, the Jamaica National Cyber Security Strategy, and the Jamaica National Artificial Intelligence Task Force.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mset.gov.jm"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "^ncss$"
+      ],
+      "description": "Jamaica National Cyber Security Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Jamaica National Cyber Security Strategy",
+        "common_name": "Jamaica National Cyber Security Strategy",
+        "alternate_names": [
+          "Jamaica National Cyber Security Strategy (2015)"
+        ],
+        "description": "National cybersecurity strategy of Jamaica developed by MSET with technical support from the Organization of American States (OAS/CICTE), Commonwealth Secretariat, and ITU across technical measures, human resource and capacity building, legal and regulatory reform, and public education.",
+        "notes": "Published January 2015.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.mset.gov.jm/wp-content/uploads/2019/09/Jamaica-National-Cyber-Security-Strategy-2015.pdf",
+            "note": "2015 edition (current) — Official MSET PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Jamaica_2015_Jamaica%20National%20Cyber%20Security%20Strategy.pdf",
+            "note": "2015 edition — ITU National Strategies Repository PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2015",
+            "release_date": "2015-01-01",
+            "status": "current",
+            "url": "https://www.mset.gov.jm/wp-content/uploads/2019/09/Jamaica-National-Cyber-Security-Strategy-2015.pdf",
+            "note": "Jamaica National Cyber Security Strategy (January 2015)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-strategy@2015"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Jamaica National Cyber Security Strategy (2015)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Jamaica National Cyber Security Strategy (2015)",
+            "url": "https://www.mset.gov.jm/wp-content/uploads/2019/09/Jamaica-National-Cyber-Security-Strategy-2015.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.mset.gov.jm/wp-content/uploads/2019/09/Jamaica-National-Cyber-Security-Strategy-2015.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Jamaica_2015_Jamaica%20National%20Cyber%20Security%20Strategy.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2015",
+                "url": "https://www.mset.gov.jm/wp-content/uploads/2019/09/Jamaica-National-Cyber-Security-Strategy-2015.pdf",
+                "note": "Jamaica National Cyber Security Strategy (2015)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "JM"
+    ]
+  }
+}

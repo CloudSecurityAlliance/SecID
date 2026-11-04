@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "namespace": "coe.int",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Council of Europe (Treaty Office)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.coe.int/en/web/conventions/"
+    }
+  ],
+  "examples": [
+    "secid:regulation/coe.int/cets-225"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^cets-225$",
+        "(?i)^ai\\-convention$",
+        "(?i)^framework\\-convention\\-on\\-artificial\\-intelligence$"
+      ],
+      "description": "Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225, Vilnius, 5 September 2024)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=225",
+        "examples": [
+          "cets-225"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ets-185$",
+        "(?i)^budapest\\-convention$",
+        "(?i)^cybercrime\\-convention$"
+      ],
+      "description": "Council of Europe Convention on Cybercrime (Budapest Convention, ETS No. 185)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=185",
+        "examples": [
+          "ets-185"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "namespace": "e-qanun.az",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Unified Electronic Legal Database of the Republic of Azerbaijan (e-Qanun)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://e-qanun.az/"
+    }
+  ],
+  "examples": [
+    "secid:reference/e-qanun.az/national-security-concept-of-azerbaijan@2007"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-concept-of-azerbaijan$",
+        "(?i)^nsc\\-az$"
+      ],
+      "description": "National Security Concept of the Republic of Azerbaijan",
+      "weight": 100,
+      "data": {
+        "url": "https://e-qanun.az/framework/13372",
+        "examples": [
+          "national-security-concept-of-azerbaijan@2007"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2007",
+            "status": "current",
+            "release_date": "2007-05-23",
+            "url": "https://e-qanun.az/framework/13372"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2007$"
+          ],
+          "description": "National Security Concept of the Republic of Azerbaijan (2007)",
+          "weight": 100,
+          "data": {
+            "url": "https://e-qanun.az/framework/13372",
+            "examples": [
+              {
+                "input": "national-security-concept-of-azerbaijan#2007",
+                "url": "https://e-qanun.az/framework/13372"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^strategy-of-information-and-cybersecurity-of-azerbaijan$",
+        "(?i)^ncss\\-az$",
+        "(?i)^azerbaijan\\-cybersecurity\\-strategy\\-2023\\-2027$"
+      ],
+      "description": "Strategy of the Republic of Azerbaijan on Information Security and Cybersecurity for 2023–2027",
+      "weight": 100,
+      "data": {
+        "url": "https://e-qanun.az/framework/55029",
+        "examples": [
+          "strategy-of-information-and-cybersecurity-of-azerbaijan@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-08-28",
+            "url": "https://e-qanun.az/framework/55029",
+            "aliases": [
+              {
+                "label": "2023-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2027$"
+          ],
+          "description": "Strategy of the Republic of Azerbaijan on Information Security and Cybersecurity for 2023–2027 (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://e-qanun.az/framework/55029",
+            "examples": [
+              {
+                "input": "strategy-of-information-and-cybersecurity-of-azerbaijan#2023",
+                "url": "https://e-qanun.az/framework/55029"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^artificial-intelligence-strategy-of-azerbaijan$",
+        "(?i)^azerbaijan\\-ai\\-strategy\\-2025\\-2028$"
+      ],
+      "description": "Artificial Intelligence Strategy of the Republic of Azerbaijan for 2025–2028",
+      "weight": 100,
+      "data": {
+        "url": "https://president.az/az/articles/view/68365",
+        "examples": [
+          "artificial-intelligence-strategy-of-azerbaijan@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-03-19",
+            "url": "https://president.az/az/articles/view/68365",
+            "aliases": [
+              {
+                "label": "2025-2028",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2028$"
+          ],
+          "description": "Artificial Intelligence Strategy of the Republic of Azerbaijan for 2025–2028 (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://president.az/az/articles/view/68365",
+            "examples": [
+              {
+                "input": "artificial-intelligence-strategy-of-azerbaijan#2025",
+                "url": "https://president.az/az/articles/view/68365"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

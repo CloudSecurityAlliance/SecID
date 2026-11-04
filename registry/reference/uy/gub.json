@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gub.uy",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Uruguay Estrategia Nacional de Ciberseguridad 2024-2030 and Estrategia Nacional de Inteligencia Artificial 2024-2030 / 2020).",
+  "official_name": "Presidencia de la República Oriental del Uruguay — AGESIC",
+  "common_name": "Gobierno de Uruguay / AGESIC",
+  "alternate_names": [
+    "Agencia de Gobierno Electrónico y Sociedad de la Información y del Conocimiento",
+    "CERTuy",
+    "Centro Nacional de Respuesta a Incidentes de Seguridad Informática"
+  ],
+  "notes": "Official portal of the Uruguayan State (gub.uy) and AGESIC (Agency for Electronic Government and the Information and Knowledge Society), which houses CERTuy and publishes Uruguay's National Cybersecurity Strategy and National Artificial Intelligence Strategy.",
+  "wikidata": [
+    "Q5658962"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Agencia_de_Gobierno_Electr%C3%B3nico_y_Sociedad_de_la_Informaci%C3%B3n_y_del_Conocimiento"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad del Uruguay",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad del Uruguay 2024–2030",
+        "common_name": "Uruguayan National Cybersecurity Strategy",
+        "alternate_names": [
+          "Decreto N° 311/024 — Estrategia Nacional de Ciberseguridad del Uruguay 2024-2030"
+        ],
+        "description": "National cybersecurity strategy of the Oriental Republic of Uruguay approved by Presidential Decree N° 311/024 on November 19, 2024, establishing strategic pillars for cyber governance, critical infrastructure protection, incident response via CERTuy, and talent development through 2030.",
+        "notes": "Approved November 19, 2024 (Decreto N° 311/024).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/estrategia-nacional-ciberseguridad-del-uruguay-2024-2030/estrategia",
+            "note": "2024-2030 edition (current) — Official AGESIC publication"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2030",
+            "release_date": "2024-11-19",
+            "status": "current",
+            "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/estrategia-nacional-ciberseguridad-del-uruguay-2024-2030/estrategia",
+            "note": "Estrategia Nacional de Ciberseguridad del Uruguay 2024–2030 (Decreto N° 311/024, November 19, 2024).",
+            "aliases": [
+              {
+                "label": "2024",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2024-2030 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2024-2030"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2030$",
+            "^2024$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad del Uruguay 2024–2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad del Uruguay 2024–2030 (Decreto N° 311/024)",
+            "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/estrategia-nacional-ciberseguridad-del-uruguay-2024-2030/estrategia",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/estrategia-nacional-ciberseguridad-del-uruguay-2024-2030/estrategia"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2030",
+                "url": "https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/comunicacion/publicaciones/estrategia-nacional-ciberseguridad-del-uruguay-2024-2030/estrategia",
+                "note": "Uruguayan National Cybersecurity Strategy 2024-2030"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^estrategia-nacional-ia$",
+        "^ai-strategy$"
+      ],
+      "description": "Estrategia Nacional de Inteligencia Artificial para el Desarrollo Sostenible (Uruguay)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Inteligencia Artificial para el Desarrollo Sostenible 2024–2030",
+        "common_name": "Uruguayan National AI Strategy",
+        "alternate_names": [
+          "Estrategia de Inteligencia Artificial para el Gobierno Digital (2020)"
+        ],
+        "description": "National artificial intelligence strategy of Uruguay coordinated by AGESIC, expanding the 2020 Digital Government AI Strategy into a comprehensive national strategy for 2024–2030.",
+        "notes": "First issued in 2020 for Digital Government; expanded in December 2024 as the National Artificial Intelligence Strategy for 2024–2030.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-20242030-8923",
+            "note": "2024-2030 edition — OECD.AI policy initiative record"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2030",
+            "release_date": "2024-12-01",
+            "status": "current",
+            "url": "https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-20242030-8923",
+            "note": "Estrategia Nacional de Inteligencia Artificial 2024–2030 (December 2024).",
+            "aliases": [
+              {
+                "label": "2024",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2024-2030 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ia@2024-2030"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2030$",
+            "^2024$"
+          ],
+          "description": "Estrategia Nacional de Inteligencia Artificial 2024–2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Inteligencia Artificial 2024–2030",
+            "url": "https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-20242030-8923",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-20242030-8923"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2030",
+                "url": "https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-20242030-8923",
+                "note": "Uruguayan National AI Strategy 2024-2030"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "UY"
+    ]
+  }
+}

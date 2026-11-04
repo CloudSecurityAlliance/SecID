@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "namespace": "nukib.gov.cz",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber and Information Security Agency (NÚKIB) & Government of the Czech Republic",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://nukib.gov.cz/"
+    }
+  ],
+  "examples": [
+    "secid:reference/nukib.gov.cz/security-strategy-czech-republic@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^security-strategy-czech-republic$",
+        "(?i)^bezpecnostni\\-strategie\\-cr$",
+        "(?i)^sscr$"
+      ],
+      "description": "Security Strategy of the Czech Republic (Bezpečnostní strategie České republiky)",
+      "weight": 100,
+      "data": {
+        "url": "https://mzv.gov.cz/jnp/en/foreign_relations/security_policy/security_strategy_of_the_czech_republic.html",
+        "examples": [
+          "security-strategy-czech-republic@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-06-28",
+            "url": "https://mzv.gov.cz/jnp/en/foreign_relations/security_policy/security_strategy_of_the_czech_republic.html"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Security Strategy of the Czech Republic (Bezpečnostní strategie České republiky) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://mzv.gov.cz/jnp/en/foreign_relations/security_policy/security_strategy_of_the_czech_republic.html",
+            "examples": [
+              {
+                "input": "security-strategy-czech-republic#2023",
+                "url": "https://mzv.gov.cz/jnp/en/foreign_relations/security_policy/security_strategy_of_the_czech_republic.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "(?i)^narodni\\-strategie\\-kyberneticke\\-bezpecnosti$",
+        "(?i)^ncss\\-cz$"
+      ],
+      "description": "National Cyber Security Strategy of the Czech Republic (Národní strategie kybernetické bezpečnosti)",
+      "weight": 100,
+      "data": {
+        "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
+        "examples": [
+          "national-cyber-security-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-09-01",
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
+            "aliases": [
+              {
+                "label": "2026-2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-01-01",
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
+            "aliases": [
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2026\\-2030$"
+          ],
+          "description": "National Cyber Security Strategy of the Czech Republic (Národní strategie kybernetické bezpečnosti) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy#2025",
+                "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "National Cyber Security Strategy of the Czech Republic (Národní strategie kybernetické bezpečnosti) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy#2021",
+                "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "(?i)^naus\\-2030$",
+        "(?i)^narodni\\-strategie\\-umele\\-inteligence$"
+      ],
+      "description": "National Artificial Intelligence Strategy of the Czech Republic 2030 (NAIS 2030)",
+      "weight": 100,
+      "data": {
+        "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/",
+        "examples": [
+          "national-ai-strategy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-24",
+            "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/",
+            "aliases": [
+              {
+                "label": "2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-05-06",
+            "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2030$"
+          ],
+          "description": "National Artificial Intelligence Strategy of the Czech Republic 2030 (NAIS 2030) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/",
+            "examples": [
+              {
+                "input": "national-ai-strategy#2024",
+                "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Artificial Intelligence Strategy of the Czech Republic 2030 (NAIS 2030) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/",
+            "examples": [
+              {
+                "input": "national-ai-strategy#2019",
+                "url": "https://mpo.gov.cz/en/business/digital-economy/artificial-intelligence/national-artificial-intelligence-strategy-of-the-czech-republic-2030--282389/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

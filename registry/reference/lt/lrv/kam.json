@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "namespace": "kam.lrv.lt",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of National Defence of the Republic of Lithuania (KAM)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://kam.lt/"
+    }
+  ],
+  "examples": [
+    "secid:reference/kam.lrv.lt/national-security-strategy@2021"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "(?i)^nacionalinio\\-saugumo\\-strategija$",
+        "(?i)^nss\\-lt$"
+      ],
+      "description": "National Security Strategy of the Republic of Lithuania (Nacionalinio saugumo strategija)",
+      "weight": 100,
+      "data": {
+        "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/",
+        "examples": [
+          "national-security-strategy@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-12-16",
+            "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "National Security Strategy of the Republic of Lithuania (Nacionalinio saugumo strategija) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/",
+            "examples": [
+              {
+                "input": "national-security-strategy#2021",
+                "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "(?i)^nacionaline\\-kibernetinio\\-saugumo\\-strategija$",
+        "(?i)^ncss\\-lt$"
+      ],
+      "description": "National Cyber Security Strategy of Lithuania (2018–2023)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.nksc.lt/en/about-us/strategy/",
+        "examples": [
+          "national-cyber-security-strategy@2018"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2018",
+            "status": "current",
+            "release_date": "2018-08-13",
+            "url": "https://www.nksc.lt/en/about-us/strategy/",
+            "aliases": [
+              {
+                "label": "2018-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2018$",
+            "(?i)^2018\\-2023$"
+          ],
+          "description": "National Cyber Security Strategy of Lithuania (2018–2023) (2018)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.nksc.lt/en/about-us/strategy/",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy#2018",
+                "url": "https://www.nksc.lt/en/about-us/strategy/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^lithuanian-artificial-intelligence-strategy$",
+        "(?i)^lietuvos\\-dirbtinio\\-intelekto\\-strategija$",
+        "(?i)^lt\\-ai\\-strategy$"
+      ],
+      "description": "Lithuanian Artificial Intelligence Strategy: A Vision of the Future",
+      "weight": 100,
+      "data": {
+        "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/",
+        "examples": [
+          "lithuanian-artificial-intelligence-strategy@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-04-01",
+            "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Lithuanian Artificial Intelligence Strategy: A Vision of the Future (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/",
+            "examples": [
+              {
+                "input": "lithuanian-artificial-intelligence-strategy#2019",
+                "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

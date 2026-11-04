@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ncsc.gov.bh",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Cyber Security Center (NCSC), Kingdom of Bahrain",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ncsc.gov.bh/"
+    }
+  ],
+  "examples": [
+    "secid:reference/ncsc.gov.bh/bahrain-national-cybersecurity-strategy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^bahrain-national-cybersecurity-strategy$",
+        "(?i)^ncss\\-bh$"
+      ],
+      "description": "Kingdom of Bahrain National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "url": "https://www.ncsc.gov.bh/",
+        "examples": [
+          "bahrain-national-cybersecurity-strategy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-10-01",
+            "url": "https://www.ncsc.gov.bh/"
+          },
+          {
+            "version": "2017",
+            "status": "superseded",
+            "release_date": "2017-01-01",
+            "url": "https://www.ncsc.gov.bh/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Kingdom of Bahrain National Cybersecurity Strategy (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ncsc.gov.bh/",
+            "examples": [
+              {
+                "input": "bahrain-national-cybersecurity-strategy#2023",
+                "url": "https://www.ncsc.gov.bh/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Kingdom of Bahrain National Cybersecurity Strategy (2017)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ncsc.gov.bh/",
+            "examples": [
+              {
+                "input": "bahrain-national-cybersecurity-strategy#2017",
+                "url": "https://www.ncsc.gov.bh/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -3,11 +3,16 @@
   "namespace": "gov.br",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
-  "official_name": "Gov.br (Brazilian Federal Government Identity)",
-  "common_name": "Gov.br",
-  "alternate_names": null,
-  "notes": "Brazilian federal government digital identity platform. Operates the Gov.br ID for federal services. Run by SERPRO and Ministry of Management.",
+  "status_notes": "Updated 2026-11-03 for SecID#227 (Brazil National Defense Strategy PND/END 2025/2020/2012/2008, National Cybersecurity Strategy E-Ciber/PNCiber 2025/2023/2020, and Brazilian AI Strategy PBIA 2024-2028 / EBIA 2021).",
+  "official_name": "Governo Federal do Brasil",
+  "common_name": "Gov.br (Brazil)",
+  "alternate_names": [
+    "Presidência da República",
+    "Gabinete de Segurança Institucional (GSI/PR)",
+    "Ministério da Defesa",
+    "Ministério da Ciência, Tecnologia e Inovação (MCTI)"
+  ],
+  "notes": "Brazilian federal government portal (gov.br) covering national defense policy and strategy (PND/END), national cybersecurity policy and strategy (PNCiber / E-Ciber issued by GSI/PR), and national artificial intelligence strategies (EBIA and PBIA issued by MCTI).",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -37,6 +42,471 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^pnd-end$",
+        "^estrategia-nacional-de-defesa$",
+        "^politica-nacional-de-defesa$",
+        "^national-defense-strategy$",
+        "^national-security-strategy$"
+      ],
+      "description": "Política Nacional de Defesa (PND) e Estratégia Nacional de Defesa (END)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Política Nacional de Defesa (PND) e Estratégia Nacional de Defesa (END)",
+        "common_name": "Brazil National Defense Policy and Strategy (PND/END)",
+        "alternate_names": [
+          "National Strategy of Defense (Brazil)",
+          "PND/END"
+        ],
+        "description": "Brazil's overarching national security and defense strategy documents mandated every four years by Complementary Law No. 97/1999 (as amended by Complementary Law No. 136/2010), designating the cyber, nuclear, and space sectors as strategic national defense priorities.",
+        "notes": "First enacted by Decreto nº 6.703/2008 (December 18, 2008), updated in 2012 (approved by Legislative Decree DLG 373/2013), 2020 (approved by Legislative Decree DLG 61/2024), and updated by Decreto nº 12.725 of November 18, 2025.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument",
+            "note": "2025 edition (current) — Decreto nº 12.725/2025"
+          },
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%2061-2024&OpenDocument",
+            "note": "2020 edition — Decreto Legislativo nº 61/2024"
+          },
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument",
+            "note": "2012 edition — Decreto Legislativo nº 373/2013"
+          },
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
+            "note": "2008 edition — Decreto nº 6.703/2008"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf",
+            "note": "2020 PND/END full text PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-11-18",
+            "status": "current",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument",
+            "note": "Política Nacional de Defesa e Estratégia Nacional de Defesa (Decreto nº 12.725, November 18, 2025)."
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-07-22",
+            "status": "superseded",
+            "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf",
+            "note": "2020 PND/END (submitted to National Congress July 2020; approved by Decreto Legislativo nº 61/2024)."
+          },
+          {
+            "version": "2012",
+            "release_date": "2013-09-25",
+            "status": "superseded",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument",
+            "note": "2012 PND/END (approved by Decreto Legislativo nº 373, September 25, 2013)."
+          },
+          {
+            "version": "2008",
+            "release_date": "2008-12-18",
+            "status": "superseded",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
+            "note": "2008 Estratégia Nacional de Defesa (Decreto nº 6.703, December 18, 2008)."
+          }
+        ],
+        "examples": [
+          "pnd-end@2025",
+          "pnd-end@2020",
+          "pnd-end@2012",
+          "pnd-end@2008"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "PND/END (Decreto nº 12.725/2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Defesa e Estratégia Nacional de Defesa (2025)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument",
+                "note": "Brazil PND/END 2025"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$"
+          ],
+          "description": "PND/END 2020 (DLG 61/2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Defesa e Estratégia Nacional de Defesa (2020)",
+            "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%2061-2024&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf",
+                "note": "Brazil PND/END 2020"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2012$"
+          ],
+          "description": "PND/END 2012 (DLG 373/2013)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Defesa e Estratégia Nacional de Defesa (2012)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2012",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument",
+                "note": "Brazil PND/END 2012"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2008$"
+          ],
+          "description": "Estratégia Nacional de Defesa (Decreto nº 6.703/2008)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estratégia Nacional de Defesa (Decreto nº 6.703/2008)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2008",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
+                "note": "Brazil END 2008"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^e-ciber$",
+        "^pnciber$",
+        "^estrategia-nacional-de-seguranca-cibernetica$",
+        "^politica-nacional-de-ciberseguranca$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estratégia Nacional de Segurança Cibernética (E-Ciber) & Política Nacional de Cibersegurança (PNCiber)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estratégia Nacional de Segurança Cibernética (E-Ciber) e Política Nacional de Cibersegurança (PNCiber)",
+        "common_name": "Brazil National Cybersecurity Strategy (E-Ciber / PNCiber)",
+        "alternate_names": [
+          "E-Ciber",
+          "PNCiber",
+          "Decreto nº 12.573/2025",
+          "Decreto nº 11.856/2023",
+          "Decreto nº 10.222/2020"
+        ],
+        "description": "Brazil's national cybersecurity strategy and policy framework issued by the Presidency of the Republic / Institutional Security Cabinet (GSI/PR), comprising the first E-Ciber (2020-2023, Decreto nº 10.222/2020), the National Cybersecurity Policy PNCiber (Decreto nº 11.856/2023), and the second E-Ciber (2025-2028, Decreto nº 12.573/2025).",
+        "notes": "Cross-referenced with secid:regulation/gsi.gov.br/e-ciber and secid:regulation/gsi.gov.br/pnciber.",
+        "cross_references": [
+          {
+            "target": "secid:regulation/gsi.gov.br/e-ciber",
+            "relationship": "related",
+            "note": "Enacting presidential decrees in regulation registry"
+          },
+          {
+            "target": "secid:regulation/gsi.gov.br/pnciber",
+            "relationship": "related",
+            "note": "Política Nacional de Cibersegurança (Decreto nº 11.856/2023)"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.573-2025&OpenDocument",
+            "note": "2025 edition (current) — E-Ciber 2025-2028 (Decreto nº 12.573, August 4, 2025)"
+          },
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2011.856-2023&OpenDocument",
+            "note": "2023 PNCiber — Política Nacional de Cibersegurança (Decreto nº 11.856, December 26, 2023)"
+          },
+          {
+            "type": "website",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2010.222-2020&OpenDocument",
+            "note": "2020 edition (superseded) — E-Ciber 2020-2023 (Decreto nº 10.222, February 5, 2020)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-08-04",
+            "status": "current",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.573-2025&OpenDocument",
+            "note": "Estratégia Nacional de Cibersegurança (E-Ciber 2025–2028, Decreto nº 12.573/2025)."
+          },
+          {
+            "version": "2023",
+            "release_date": "2023-12-26",
+            "status": "current",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2011.856-2023&OpenDocument",
+            "note": "Política Nacional de Cibersegurança (PNCiber, Decreto nº 11.856/2023)."
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-02-05",
+            "status": "superseded",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2010.222-2020&OpenDocument",
+            "note": "Estratégia Nacional de Segurança Cibernética (E-Ciber 2020–2023, Decreto nº 10.222/2020)."
+          }
+        ],
+        "examples": [
+          "e-ciber@2025",
+          "pnciber@2023",
+          "e-ciber@2020"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "^2025-2028$"
+          ],
+          "description": "E-Ciber 2025-2028 (Decreto nº 12.573/2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estratégia Nacional de Cibersegurança 2025–2028 (Decreto nº 12.573/2025)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.573-2025&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.573-2025&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.573-2025&OpenDocument",
+                "note": "Brazil E-Ciber 2025-2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2023$"
+          ],
+          "description": "Política Nacional de Cibersegurança — PNCiber (Decreto nº 11.856/2023)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Política Nacional de Cibersegurança (Decreto nº 11.856/2023)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2011.856-2023&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2011.856-2023&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2011.856-2023&OpenDocument",
+                "note": "Brazil PNCiber 2023"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "^2020-2023$"
+          ],
+          "description": "E-Ciber 2020-2023 (Decreto nº 10.222/2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estratégia Nacional de Segurança Cibernética 2020–2023 (Decreto nº 10.222/2020)",
+            "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2010.222-2020&OpenDocument",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2010.222-2020&OpenDocument"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2010.222-2020&OpenDocument",
+                "note": "Brazil E-Ciber 2020-2023"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^pbia$",
+        "^ebia$",
+        "^plano-brasileiro-de-inteligencia-artificial$",
+        "^estrategia-brasileira-de-inteligencia-artificial$",
+        "^national-ai-strategy$"
+      ],
+      "description": "Plano Brasileiro de Inteligência Artificial (PBIA) & Estratégia Brasileira de Inteligência Artificial (EBIA)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Plano Brasileiro de Inteligência Artificial (PBIA) 2024–2028 / Estratégia Brasileira de Inteligência Artificial (EBIA)",
+        "common_name": "Brazilian AI Plan (PBIA) & Strategy (EBIA)",
+        "alternate_names": [
+          "PBIA (IA para o Bem de Todos)",
+          "EBIA (Portaria MCTI nº 4.617/2021)"
+        ],
+        "description": "Brazil's national artificial intelligence strategies led by the Ministry of Science, Technology and Innovation (MCTI), comprising the Estratégia Brasileira de Inteligência Artificial (EBIA, established by Portaria MCTI nº 4.617 of April 6, 2021) and the R$ 23 billion Plano Brasileiro de Inteligência Artificial (PBIA 2024–2028, 'IA para o Bem de Todos', launched July 30, 2024).",
+        "notes": "PBIA 2024-2028 allocates R$ 23 billion across sovereign supercomputing infrastructure (Santos Dumont upgrade), public service delivery, business innovation, AI safety/governance, and workforce training.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537",
+            "note": "2024-2028 edition (current) — Plano Brasileiro de Inteligência Artificial (PBIA) 2024–2028"
+          },
+          {
+            "type": "website",
+            "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html",
+            "note": "2021 edition — Estratégia Brasileira de Inteligência Artificial (EBIA, Portaria MCTI nº 4.617/2021)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2028",
+            "release_date": "2024-07-30",
+            "status": "current",
+            "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537",
+            "note": "Plano Brasileiro de Inteligência Artificial (PBIA) 2024–2028: IA para o Bem de Todos (July 30, 2024)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-04-06",
+            "status": "superseded",
+            "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html",
+            "note": "Estratégia Brasileira de Inteligência Artificial (EBIA, Portaria MCTI nº 4.617, April 6, 2021, amended by Portaria MCTI nº 4.979/2021)."
+          }
+        ],
+        "examples": [
+          "pbia@2024-2028",
+          "ebia@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2028$",
+            "^2024$"
+          ],
+          "description": "Plano Brasileiro de Inteligência Artificial (PBIA) 2024–2028",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Plano Brasileiro de Inteligência Artificial (PBIA) 2024–2028: IA para o Bem de Todos",
+            "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2028",
+                "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537",
+                "note": "Brazil PBIA 2024-2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Estratégia Brasileira de Inteligência Artificial (EBIA, 2021)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estratégia Brasileira de Inteligência Artificial (Portaria MCTI nº 4.617/2021)",
+            "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html",
+                "note": "Brazil EBIA 2021"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {"country": ["BR"]},

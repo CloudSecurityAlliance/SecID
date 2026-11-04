@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dict.gov.ph",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Department of Information and Communications Technology (DICT) & Government of the Philippines",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://dict.gov.ph/"
+    }
+  ],
+  "examples": [
+    "secid:reference/dict.gov.ph/national-security-policy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-policy$",
+        "(?i)^nsp\\-ph$",
+        "(?i)^philippines\\-national\\-security\\-policy$"
+      ],
+      "description": "National Security Policy of the Philippines (2023–2028)",
+      "weight": 100,
+      "data": {
+        "url": "https://nsc.gov.ph/",
+        "examples": [
+          "national-security-policy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-08-10",
+            "url": "https://nsc.gov.ph/",
+            "aliases": [
+              {
+                "label": "2023-2028",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2028$"
+          ],
+          "description": "National Security Policy of the Philippines (2023–2028) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://nsc.gov.ph/",
+            "examples": [
+              {
+                "input": "national-security-policy#2023",
+                "url": "https://nsc.gov.ph/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-cybersecurity-plan$",
+        "(?i)^ncsp\\-2028$",
+        "(?i)^ncsp\\-ph$"
+      ],
+      "description": "Philippine National Cybersecurity Plan 2023–2028 (NCSP 2028)",
+      "weight": 100,
+      "data": {
+        "url": "https://dict.gov.ph/",
+        "examples": [
+          "national-cybersecurity-plan@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2024-02-01",
+            "url": "https://dict.gov.ph/",
+            "aliases": [
+              {
+                "label": "2023-2028",
+                "on_match": "resolve"
+              },
+              {
+                "label": "ncsp-2028",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2023\\-2028$",
+            "(?i)^ncsp\\-2028$"
+          ],
+          "description": "Philippine National Cybersecurity Plan 2023–2028 (NCSP 2028) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://dict.gov.ph/",
+            "examples": [
+              {
+                "input": "national-cybersecurity-plan#2023",
+                "url": "https://dict.gov.ph/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy-roadmap$",
+        "(?i)^naisr\\-2\\.0$",
+        "(?i)^philippines\\-ai\\-roadmap$"
+      ],
+      "description": "National AI Strategy Roadmap 2.0 (NAISR 2.0)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.dti.gov.ph/",
+        "examples": [
+          "national-ai-strategy-roadmap@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-07-03",
+            "url": "https://www.dti.gov.ph/",
+            "aliases": [
+              {
+                "label": "2.0",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2021",
+            "status": "superseded",
+            "release_date": "2021-05-05",
+            "url": "https://www.dti.gov.ph/",
+            "aliases": [
+              {
+                "label": "1.0",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$",
+            "(?i)^2\\.0$"
+          ],
+          "description": "National AI Strategy Roadmap 2.0 (NAISR 2.0) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.dti.gov.ph/",
+            "examples": [
+              {
+                "input": "national-ai-strategy-roadmap#2024",
+                "url": "https://www.dti.gov.ph/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^1\\.0$"
+          ],
+          "description": "National AI Strategy Roadmap 2.0 (NAISR 2.0) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.dti.gov.ph/",
+            "examples": [
+              {
+                "input": "national-ai-strategy-roadmap#2021",
+                "url": "https://www.dti.gov.ph/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

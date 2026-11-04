@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gob.mx",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Mexico Estrategia Nacional de Ciberseguridad 2017 and Programa para la Seguridad Nacional 2014-2018 / 2009-2012).",
+  "official_name": "Gobierno de México — Presidencia de la República",
+  "common_name": "Gobierno de México",
+  "alternate_names": [
+    "Coordinación de Estrategia Digital Nacional (CEDN)",
+    "Consejo de Seguridad Nacional de México",
+    "Secretaría de Gobernación (SEGOB)"
+  ],
+  "notes": "Federal Executive Branch of the United Mexican States (gob.mx), publishing Mexico's Estrategia Nacional de Ciberseguridad (ENCS 2017) and the multi-year Programa para la Seguridad Nacional.",
+  "wikidata": [
+    "Q5881909"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Gobierno_Federal_de_M%C3%A9xico"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gob.mx"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^estrategia-nacional-ciberseguridad$",
+        "^encs$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Estrategia Nacional de Ciberseguridad (ENCS — Mexico)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Ciberseguridad (ENCS)",
+        "common_name": "Mexican National Cybersecurity Strategy",
+        "alternate_names": [
+          "National Cybersecurity Strategy of Mexico (2017)"
+        ],
+        "description": "Mexico's national cybersecurity strategy published by the Federal Government in November 2017 across five strategic objectives (society and rights, economy and innovation, public institutions, critical infrastructure, and national security) and eight cross-cutting pillars.",
+        "notes": "Published November 13, 2017 in Spanish and English.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.gob.mx/cms/uploads/attachment/file/271884/Estrategia_Nacional_Ciberseguridad.pdf",
+            "note": "2017 edition (current) — Official Spanish PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.gob.mx/cms/uploads/attachment/file/399655/ENCS.ENG.final.pdf",
+            "note": "2017 edition — Official English PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2017",
+            "release_date": "2017-11-13",
+            "status": "current",
+            "url": "https://www.gob.mx/cms/uploads/attachment/file/271884/Estrategia_Nacional_Ciberseguridad.pdf",
+            "note": "Estrategia Nacional de Ciberseguridad (published November 13, 2017)."
+          }
+        ],
+        "examples": [
+          "estrategia-nacional-ciberseguridad@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Estrategia Nacional de Ciberseguridad (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Ciberseguridad (2017)",
+            "url": "https://www.gob.mx/cms/uploads/attachment/file/271884/Estrategia_Nacional_Ciberseguridad.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.gob.mx/cms/uploads/attachment/file/271884/Estrategia_Nacional_Ciberseguridad.pdf"
+              },
+              {
+                "type": "pdf",
+                "url": "https://www.gob.mx/cms/uploads/attachment/file/399655/ENCS.ENG.final.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.gob.mx/cms/uploads/attachment/file/271884/Estrategia_Nacional_Ciberseguridad.pdf",
+                "note": "Mexican National Cybersecurity Strategy (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^programa-seguridad-nacional$",
+        "^national-security-program$"
+      ],
+      "description": "Programa para la Seguridad Nacional (National Security Program of Mexico)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Programa para la Seguridad Nacional",
+        "common_name": "Programa para la Seguridad Nacional (Mexico)",
+        "alternate_names": [
+          "Programa para la Seguridad Nacional 2014-2018: Una política multidimensional para México en el siglo XXI",
+          "Programa para la Seguridad Nacional 2009-2012"
+        ],
+        "description": "Overarching Mexican national security strategy published in the Diario Oficial de la Federación (DOF) under the National Security Law (Ley de Seguridad Nacional).",
+        "notes": "Published August 20, 2009 (2009–2012) and April 30, 2014 (2014–2018).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014",
+            "note": "2014-2018 edition — Diario Oficial de la Federación"
+          },
+          {
+            "type": "website",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009",
+            "note": "2009-2012 edition — Diario Oficial de la Federación"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2014-2018",
+            "release_date": "2014-04-30",
+            "status": "current",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014",
+            "note": "Programa para la Seguridad Nacional 2014–2018 (DOF April 30, 2014).",
+            "aliases": [
+              {
+                "label": "2014",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2014-2018 edition."
+              }
+            ]
+          },
+          {
+            "version": "2009-2012",
+            "release_date": "2009-08-20",
+            "status": "superseded",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009",
+            "note": "Programa para la Seguridad Nacional 2009–2012 (DOF August 20, 2009).",
+            "aliases": [
+              {
+                "label": "2009",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2009-2012 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "programa-seguridad-nacional@2014-2018",
+          "programa-seguridad-nacional@2009-2012"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2014-2018$",
+            "^2014$"
+          ],
+          "description": "Programa para la Seguridad Nacional 2014-2018",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Programa para la Seguridad Nacional 2014-2018",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2014-2018",
+                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014",
+                "note": "Mexican National Security Program 2014-2018"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2009-2012$",
+            "^2009$"
+          ],
+          "description": "Programa para la Seguridad Nacional 2009-2012",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Programa para la Seguridad Nacional 2009-2012",
+            "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2009-2012",
+                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009",
+                "note": "Mexican National Security Program 2009-2012"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "MX"
+    ]
+  }
+}

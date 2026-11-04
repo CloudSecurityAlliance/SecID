@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "namespace": "oas.org",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Organization of American States / CICTE Inter-American Cybersecurity Strategy 2004 and Regional NCSS Comparative Guidance 2022).",
+  "official_name": "Organization of American States — Inter-American Committee against Terrorism (CICTE)",
+  "common_name": "OAS / CICTE",
+  "alternate_names": [
+    "Organización de los Estados Americanos (OEA)",
+    "Comité Interamericano contra el Terrorismo (CICTE)",
+    "OAS Cybersecurity Program"
+  ],
+  "notes": "Multilateral regional organization of the Americas whose Inter-American Committee against Terrorism (CICTE) operates the OAS Cybersecurity Program, coordinates CSIRT Americas, and supports member states in developing National Cybersecurity Strategies (NCSS).",
+  "wikidata": [
+    "Q123759"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Organization_of_American_States"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.oas.org/ext/en/security/prog-cyber"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^inter-american-cybersecurity-strategy$",
+        "^ag-res-2004$",
+        "^national-cybersecurity-strategies-lessons-learned$"
+      ],
+      "description": "Comprehensive Inter-American Strategy to Combat Threats to Cyber Security (OAS AG/RES. 2004 & CICTE NCSS Reports)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Adoption of a Comprehensive Inter-American Strategy to Combat Threats to Cyber Security: A Multidimensional and Multidisciplinary Approach to Creating a Culture of Cyber Security",
+        "common_name": "OAS Inter-American Cybersecurity Strategy",
+        "alternate_names": [
+          "AG/RES. 2004 (XXXIV-O/04)",
+          "National Cybersecurity Strategies: Lessons Learned and Reflections from the Americas and Other Regions (2022)"
+        ],
+        "description": "Hemispheric cybersecurity strategy adopted by the OAS General Assembly in June 2004 (AG/RES. 2004 (XXXIV-O/04)), supplemented by CICTE Declarations (2012, 2015) and regional National Cybersecurity Strategy guidance.",
+        "notes": "Adopted June 8, 2004 at the 34th Regular Session of the OAS General Assembly; regional comparative NCSS guidance published in 2022.",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf",
+            "note": "2022 OAS/CICTE report — National Cybersecurity Strategies: Lessons Learned and Reflections"
+          },
+          {
+            "type": "website",
+            "url": "https://www.oas.org/ext/en/security/prog-cyber",
+            "note": "OAS CICTE Cybersecurity Program portal"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-09-01",
+            "status": "current",
+            "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf",
+            "note": "National Cybersecurity Strategies: Lessons Learned and Reflections from the Americas and Other Regions (OAS/CICTE, 2022)."
+          },
+          {
+            "version": "2004",
+            "release_date": "2004-06-08",
+            "status": "current",
+            "url": "https://www.oas.org/ext/en/security/prog-cyber",
+            "note": "Comprehensive Inter-American Strategy to Combat Threats to Cyber Security (AG/RES. 2004 (XXXIV-O/04), June 8, 2004)."
+          }
+        ],
+        "examples": [
+          "inter-american-cybersecurity-strategy@2004",
+          "inter-american-cybersecurity-strategy@2022"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "National Cybersecurity Strategies: Lessons Learned and Reflections from the Americas and Other Regions (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "National Cybersecurity Strategies: Lessons Learned and Reflections from the Americas and Other Regions (2022)",
+            "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf",
+                "note": "OAS/CICTE National Cybersecurity Strategies Report (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2004$"
+          ],
+          "description": "Comprehensive Inter-American Strategy to Combat Threats to Cyber Security (AG/RES. 2004, 2004)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Comprehensive Inter-American Strategy to Combat Threats to Cyber Security (AG/RES. 2004 (XXXIV-O/04))",
+            "url": "https://www.oas.org/ext/en/security/prog-cyber",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.oas.org/ext/en/security/prog-cyber"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2004",
+                "url": "https://www.oas.org/ext/en/security/prog-cyber",
+                "note": "OAS Inter-American Cybersecurity Strategy (2004)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {}
+}

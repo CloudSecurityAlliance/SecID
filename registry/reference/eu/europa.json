@@ -271,6 +271,152 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "^ai-strategy$",
+        "^coordinated-plan-artificial-intelligence$",
+        "^ai-continent-action-plan$"
+      ],
+      "description": "European Union Strategy on Artificial Intelligence (AI Continent Action Plan / Coordinated Plan on AI)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "AI Continent Action Plan / Coordinated Plan on Artificial Intelligence",
+        "common_name": "EU AI Strategy",
+        "alternate_names": [
+          "COM(2025) 165 final — AI Continent Action Plan",
+          "COM(2021) 205 final — Fostering a European approach to Artificial Intelligence",
+          "COM(2018) 795 final — Coordinated Plan on Artificial Intelligence",
+          "COM(2018) 237 final — Artificial Intelligence for Europe"
+        ],
+        "description": "European Commission strategic action plans for artificial intelligence across the European Union, coordinating compute infrastructure (AI Factories and Gigafactories), data ecosystems, talent, trustworthy AI adoption, and regulatory alignment with the EU AI Act.",
+        "notes": "Launched in April/December 2018 (COM(2018) 237 final & Coordinated Plan COM(2018) 795 final), reviewed on April 21, 2021 alongside the AI Act proposal (COM(2021) 205 final), and succeeded on April 9, 2025 by the AI Continent Action Plan (COM(2025) 165 final).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan",
+            "note": "2025 edition (current) — AI Continent Action Plan (COM(2025) 165 final)"
+          },
+          {
+            "type": "website",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review",
+            "note": "2021 edition (superseded) — Coordinated Plan on Artificial Intelligence 2021 Review (COM(2021) 205 final)"
+          },
+          {
+            "type": "website",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
+            "note": "2018 edition (superseded) — Coordinated Plan on Artificial Intelligence (COM(2018) 795 final)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-04-09",
+            "status": "current",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan",
+            "note": "AI Continent Action Plan (COM(2025) 165 final, April 9, 2025)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-04-21",
+            "status": "superseded",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review",
+            "note": "Coordinated Plan on Artificial Intelligence 2021 Review (COM(2021) 205 final, April 21, 2021)."
+          },
+          {
+            "version": "2018",
+            "release_date": "2018-12-07",
+            "status": "superseded",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
+            "note": "Coordinated Plan on Artificial Intelligence (COM(2018) 795 final, December 7, 2018)."
+          }
+        ],
+        "examples": [
+          "ai-strategy@2025",
+          "ai-strategy@2021",
+          "ai-strategy@2018"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "AI Continent Action Plan (COM(2025) 165 final)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "AI Continent Action Plan (COM(2025) 165 final)",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan",
+                "note": "EU AI Continent Action Plan (2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Coordinated Plan on Artificial Intelligence 2021 Review (COM(2021) 205 final)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Coordinated Plan on Artificial Intelligence 2021 Review (COM(2021) 205 final)",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review",
+                "note": "EU Coordinated Plan on Artificial Intelligence (2021 Review)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018$"
+          ],
+          "description": "Coordinated Plan on Artificial Intelligence (COM(2018) 795 final)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Coordinated Plan on Artificial Intelligence (COM(2018) 795 final)",
+            "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018",
+                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
+                "note": "EU Coordinated Plan on Artificial Intelligence (2018)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -3,14 +3,31 @@
   "namespace": "ncsc.ch",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Generated from glossary research sweep 2026-05-21; org metadata copied from existing same-org entries under other SecID types.",
-  "official_name": "Switzerland National Cyber Security Centre (NCSC)",
-  "common_name": null,
-  "alternate_names": null,
-  "notes": "CVE Program partner. Country: Switzerland.",
-  "wikidata": null,
-  "wikipedia": null,
+  "status_notes": "Updated 2026-11-03 for SecID#227 (Swiss National Cyberstrategy NCS 2023-2027, 2018-2022, 2012-2017 and Swiss Security Policy Report 2021/2022).",
+  "official_name": "Federal Office for Cyber Security (FOCS / BACS) / National Cyber Security Centre (NCSC)",
+  "common_name": "BACS / NCSC Switzerland",
+  "alternate_names": [
+    "Bundesamt für Cybersicherheit",
+    "BACS",
+    "Office fédéral de la cybersécurité",
+    "OFCS",
+    "Ufficio federale della cibersicurezza",
+    "UFCS",
+    "National Cyber Security Centre",
+    "NCSC"
+  ],
+  "notes": "Swiss federal cybersecurity authority (elevated from the National Cyber Security Centre NCSC to the Federal Office for Cyber Security BACS/FOCS within DDPS on January 1, 2024). Publishes the National Cyberstrategy (Nationale Cyberstrategie, NCS).",
+  "wikidata": [
+    "Q107392241"
+  ],
+  "wikipedia": [
+    "https://de.wikipedia.org/wiki/Bundesamt_f%C3%BCr_Cybersicherheit"
+  ],
   "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bacs.admin.ch"
+    },
     {
       "type": "website",
       "url": "https://ncsc.ch"
@@ -37,6 +54,292 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^nationale-cyberstrategie$",
+        "^national-cyberstrategy$",
+        "^ncs$"
+      ],
+      "description": "Nationale Cyberstrategie (NCS) / National Cyberstrategy (Switzerland)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Nationale Cyberstrategie (NCS)",
+        "common_name": "Swiss National Cyberstrategy",
+        "alternate_names": [
+          "National Cyberstrategy (NCS)",
+          "Stratégie nationale de cybersécurité (SNC)",
+          "Strategia nazionale sulla cibersicurezza (SNC)",
+          "Nationale Strategie zum Schutz der Schweiz vor Cyber-Risiken (NCS)"
+        ],
+        "description": "National cybersecurity strategy adopted by the Swiss Federal Council and the Cantons defining strategic objectives across cyber resilience, critical infrastructure protection, cyber incident response, cybercrime prosecution, and international cyber cooperation.",
+        "notes": "Three editions issued by the Swiss Federal Council: NCS 2012-2017 (June 27, 2012), NCS 2018-2022 (April 18, 2018), and NCS 2023-2027 (April 13, 2023).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bacs.admin.ch/en/national-cyberstrategy-ncs",
+            "note": "BACS National Cyberstrategy (NCS) official portal"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf",
+            "note": "2023-2027 edition (current) — English PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf",
+            "note": "2018-2022 edition (superseded) — German PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf",
+            "note": "2012-2017 edition (superseded) — German PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2023-2027",
+            "release_date": "2023-04-13",
+            "status": "current",
+            "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf",
+            "note": "National Cyberstrategy (NCS) 2023-2027 (adopted April 13, 2023 by the Swiss Federal Council and the Cantons).",
+            "aliases": [
+              {
+                "label": "2023",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2023-2027 edition."
+              }
+            ]
+          },
+          {
+            "version": "2018-2022",
+            "release_date": "2018-04-18",
+            "status": "superseded",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf",
+            "note": "National Strategy for the Protection of Switzerland against Cyber Risks (NCS) 2018-2022 (adopted April 18, 2018).",
+            "aliases": [
+              {
+                "label": "2018",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2018-2022 edition."
+              }
+            ]
+          },
+          {
+            "version": "2012-2017",
+            "release_date": "2012-06-27",
+            "status": "superseded",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf",
+            "note": "National Strategy for the Protection of Switzerland against Cyber Risks (NCS) 2012-2017 (adopted June 27, 2012).",
+            "aliases": [
+              {
+                "label": "2012",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2012-2017 edition."
+              }
+            ]
+          }
+        ],
+        "examples": [
+          "nationale-cyberstrategie@2023-2027",
+          "nationale-cyberstrategie@2018-2022",
+          "nationale-cyberstrategie@2012-2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023-2027$",
+            "^2023$"
+          ],
+          "description": "Nationale Cyberstrategie (NCS) 2023-2027",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationale Cyberstrategie (NCS) 2023-2027",
+            "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://www.bacs.admin.ch/en/national-cyberstrategy-ncs"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2023-2027",
+                "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf",
+                "note": "Swiss National Cyberstrategy (NCS) 2023-2027"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2018-2022$",
+            "^2018$"
+          ],
+          "description": "Nationale Strategie zum Schutz der Schweiz vor Cyber-Risiken (NCS) 2018-2022",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationale Strategie zum Schutz der Schweiz vor Cyber-Risiken (NCS) 2018-2022",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2018-2022",
+                "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf",
+                "note": "Swiss National Cyberstrategy (NCS) 2018-2022"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2012-2017$",
+            "^2012$"
+          ],
+          "description": "Nationale Strategie zum Schutz der Schweiz vor Cyber-Risiken (NCS) 2012-2017",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationale Strategie zum Schutz der Schweiz vor Cyber-Risiken (NCS) 2012-2017",
+            "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2012-2017",
+                "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf",
+                "note": "Swiss National Cyberstrategy (NCS) 2012-2017"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^sicherheitspolitischer-bericht$",
+        "^security-policy-report$",
+        "^sipol-bericht$"
+      ],
+      "description": "Sicherheitspolitischer Bericht des Bundesrates (Swiss Security Policy Report)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Bericht des Bundesrates über die Sicherheitspolitik der Schweiz (Sicherheitspolitischer Bericht)",
+        "common_name": "Swiss Security Policy Report",
+        "alternate_names": [
+          "Security Policy Report of the Federal Council",
+          "Rapport sur la politique de sécurité de la Suisse",
+          "Rapporto sulla politica di sicurezza della Svizzera"
+        ],
+        "description": "Overarching national security strategy report of the Swiss Federal Council prepared by the State Secretariat for Security Policy (SEPOS / DDPS), defining Switzerland's security policy environment, hybrid and cyber defense posture, and strategic priorities.",
+        "notes": "Issued periodically by the Federal Council: November 24, 2021 (BBl 2021 2895) with the September 7, 2022 Supplementary Report on the consequences of the war in Ukraine (BBl 2022 2357), preceded by the 2016 report (BBl 2016 7783).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf",
+            "note": "2021 Security Policy Report (English PDF)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf",
+            "note": "2022 Supplementary Report to the Security Policy Report 2021 (English PDF)"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2022",
+            "release_date": "2022-09-07",
+            "status": "current",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf",
+            "note": "Supplementary Report to the Security Policy Report 2021 on the consequences of the war in Ukraine (September 7, 2022, BBl 2022 2357)."
+          },
+          {
+            "version": "2021",
+            "release_date": "2021-11-24",
+            "status": "current",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf",
+            "note": "Security Policy Report 2021 of the Federal Council (November 24, 2021, BBl 2021 2895)."
+          }
+        ],
+        "examples": [
+          "sicherheitspolitischer-bericht@2022",
+          "sicherheitspolitischer-bericht@2021"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Zusatzbericht zum Sicherheitspolitischen Bericht 2021 (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Supplementary Report to the Security Policy Report 2021 (2022)",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf",
+                "note": "Swiss Security Policy Supplementary Report (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2021$"
+          ],
+          "description": "Sicherheitspolitischer Bericht 2021",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Security Policy Report 2021",
+            "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2021",
+                "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf",
+                "note": "Swiss Security Policy Report (2021)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {"country": ["CH"]},

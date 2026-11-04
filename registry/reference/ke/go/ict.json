@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ict.go.ke",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Information, Communications and The Digital Economy (Kenya)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ict.go.ke/"
+    }
+  ],
+  "examples": [
+    "secid:reference/ict.go.ke/kenya-national-cybersecurity-strategy@2022"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^kenya-national-cybersecurity-strategy$",
+        "(?i)^ncss\\-ke$"
+      ],
+      "description": "Kenya National Cybersecurity Strategy (2022–2027 / 2014)",
+      "weight": 100,
+      "data": {
+        "url": "https://ict.go.ke/",
+        "examples": [
+          "kenya-national-cybersecurity-strategy@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-09-01",
+            "url": "https://ict.go.ke/",
+            "aliases": [
+              {
+                "label": "2022-2027",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2014",
+            "status": "superseded",
+            "release_date": "2014-06-01",
+            "url": "https://ict.go.ke/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2027$"
+          ],
+          "description": "Kenya National Cybersecurity Strategy (2022–2027 / 2014) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://ict.go.ke/",
+            "examples": [
+              {
+                "input": "kenya-national-cybersecurity-strategy#2022",
+                "url": "https://ict.go.ke/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "Kenya National Cybersecurity Strategy (2022–2027 / 2014) (2014)",
+          "weight": 100,
+          "data": {
+            "url": "https://ict.go.ke/",
+            "examples": [
+              {
+                "input": "kenya-national-cybersecurity-strategy#2014",
+                "url": "https://ict.go.ke/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^kenya-national-artificial-intelligence-strategy$",
+        "(?i)^kenya\\-ai\\-strategy\\-2025\\-2030$"
+      ],
+      "description": "Kenya National Artificial Intelligence Strategy (2025–2030)",
+      "weight": 100,
+      "data": {
+        "url": "https://ict.go.ke/",
+        "examples": [
+          "kenya-national-artificial-intelligence-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-03-27",
+            "url": "https://ict.go.ke/",
+            "aliases": [
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2030$"
+          ],
+          "description": "Kenya National Artificial Intelligence Strategy (2025–2030) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://ict.go.ke/",
+            "examples": [
+              {
+                "input": "kenya-national-artificial-intelligence-strategy#2025",
+                "url": "https://ict.go.ke/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

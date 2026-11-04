@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ccb.fgov.be",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Centre for Cybersecurity Belgium (CCB) & Federal Public Service Policy and Support (BOSA)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ccb.belgium.be/"
+    }
+  ],
+  "examples": [
+    "secid:reference/ccb.fgov.be/national-security-strategy@2022"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy$",
+        "(?i)^nss\\-be$",
+        "(?i)^strategie\\-nationale\\-de\\-securite$"
+      ],
+      "description": "Belgian National Security Strategy (Stratégie nationale de sécurité / Nationale Veiligheidsstrategie)",
+      "weight": 100,
+      "data": {
+        "url": "https://premier.be/fr/strategie-nationale-de-securite",
+        "examples": [
+          "national-security-strategy@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-01-28",
+            "url": "https://premier.be/fr/strategie-nationale-de-securite",
+            "aliases": [
+              {
+                "label": "2022-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2022\\-2026$"
+          ],
+          "description": "Belgian National Security Strategy (Stratégie nationale de sécurité / Nationale Veiligheidsstrategie) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://premier.be/fr/strategie-nationale-de-securite",
+            "examples": [
+              {
+                "input": "national-security-strategy#2022",
+                "url": "https://premier.be/fr/strategie-nationale-de-securite"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^cyber-security-strategy-belgium$",
+        "(?i)^cssb$",
+        "(?i)^belgium\\-cyber\\-strategy$"
+      ],
+      "description": "Cyber Security Strategy Belgium 2.0 (2021–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0",
+        "examples": [
+          "cyber-security-strategy-belgium@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-05-01",
+            "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0",
+            "aliases": [
+              {
+                "label": "2.0",
+                "on_match": "resolve"
+              },
+              {
+                "label": "2021-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2\\.0$",
+            "(?i)^2021\\-2025$"
+          ],
+          "description": "Cyber Security Strategy Belgium 2.0 (2021–2025) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0",
+            "examples": [
+              {
+                "input": "cyber-security-strategy-belgium#2021",
+                "url": "https://ccb.belgium.be/en/cyber-security-strategy-belgium-20-2021-2025-0"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai4belgium$",
+        "(?i)^national\\-convergence\\-plan\\-ai$",
+        "(?i)^belgium\\-ai\\-strategy$"
+      ],
+      "description": "National Convergence Plan for the Development of Artificial Intelligence (AI4Belgium)",
+      "weight": 100,
+      "data": {
+        "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence",
+        "examples": [
+          "ai4belgium@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-10-01",
+            "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "National Convergence Plan for the Development of Artificial Intelligence (AI4Belgium) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence",
+            "examples": [
+              {
+                "input": "ai4belgium#2022",
+                "url": "https://bosa.belgium.be/en/themes/digital-administration/artificial-intelligence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "namespace": "lex.uz",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Database of Legislation of the Republic of Uzbekistan (LexUZ)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://lex.uz/"
+    }
+  ],
+  "examples": [
+    "secid:regulation/lex.uz/orq-1115"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^orq-1115$",
+        "(?i)^uzbekistan\\-ai\\-law$"
+      ],
+      "description": "Law of the Republic of Uzbekistan No. O'RQ-1115 — Amendments on Artificial Intelligence Regulation and Deepfake/Automated Decision Rules (signed Jan 21, 2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://lex.uz/",
+        "examples": [
+          "orq-1115"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^orq-764$",
+        "(?i)^uzbekistan\\-cybersecurity\\-law$"
+      ],
+      "description": "Law of the Republic of Uzbekistan No. O'RQ-764 'On Cybersecurity' (О кибербезопасности, April 15, 2022)",
+      "weight": 100,
+      "data": {
+        "url": "https://lex.uz/docs/5960604",
+        "examples": [
+          "orq-764"
+        ]
+      }
+    }
+  ]
+}

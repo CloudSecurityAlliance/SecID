@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "namespace": "modee.gov.jo",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Digital Economy and Entrepreneurship (MoDEE) & National Cyber Security Center (Jordan)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.modee.gov.jo/"
+    }
+  ],
+  "examples": [
+    "secid:reference/modee.gov.jo/national-cyber-security-strategy@2018"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "(?i)^ncss\\-jo$",
+        "(?i)^jordan\\-cyber\\-strategy$"
+      ],
+      "description": "National Cyber Security Strategy of Jordan (2018–2023)",
+      "weight": 100,
+      "data": {
+        "url": "https://ncsc.jo/",
+        "examples": [
+          "national-cyber-security-strategy@2018"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2018",
+            "status": "current",
+            "release_date": "2018-11-01",
+            "url": "https://ncsc.jo/",
+            "aliases": [
+              {
+                "label": "2018-2023",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2018$",
+            "(?i)^2018\\-2023$"
+          ],
+          "description": "National Cyber Security Strategy of Jordan (2018–2023) (2018)",
+          "weight": 100,
+          "data": {
+            "url": "https://ncsc.jo/",
+            "examples": [
+              {
+                "input": "national-cyber-security-strategy#2018",
+                "url": "https://ncsc.jo/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^jordanian-artificial-intelligence-strategy$",
+        "(?i)^jordan\\-ai\\-strategy\\-2023\\-2027$"
+      ],
+      "description": "Jordanian Artificial Intelligence Strategy and Implementation Plan (2023–2027)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.modee.gov.jo/",
+        "examples": [
+          "jordanian-artificial-intelligence-strategy@2022"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2022",
+            "status": "current",
+            "release_date": "2022-10-01",
+            "url": "https://www.modee.gov.jo/",
+            "aliases": [
+              {
+                "label": "2023-2027",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2022$",
+            "(?i)^2023\\-2027$"
+          ],
+          "description": "Jordanian Artificial Intelligence Strategy and Implementation Plan (2023–2027) (2022)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.modee.gov.jo/",
+            "examples": [
+              {
+                "input": "jordanian-artificial-intelligence-strategy#2022",
+                "url": "https://www.modee.gov.jo/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

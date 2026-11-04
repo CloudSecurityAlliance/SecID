@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "namespace": "regeringen.se",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Sweden Nationell säkerhetsstrategi 2024/2017 and Nationell strategi för cybersäkerhet 2025-2029/2017).",
+  "official_name": "Regeringskansliet / Sveriges regering",
+  "common_name": "Government Offices of Sweden",
+  "alternate_names": [
+    "Government of Sweden",
+    "Statsrådsberedningen",
+    "Försvarsdepartementet"
+  ],
+  "notes": "Government Offices of Sweden (Regeringskansliet), including the Prime Minister's Office (Statsrådsberedningen) and the National Security Adviser, responsible for Sweden's National Security Strategy and National Strategy for Cybersecurity.",
+  "wikidata": [
+    "Q1470733"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Government_Offices_of_Sweden"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.regeringen.se"
+    },
+    {
+      "type": "website",
+      "url": "https://www.government.se"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^nationell-sakerhetsstrategi$",
+        "^national-security-strategy$",
+        "^nss$"
+      ],
+      "description": "Nationell säkerhetsstrategi (National Security Strategy of Sweden)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Nationell säkerhetsstrategi",
+        "common_name": "Swedish National Security Strategy",
+        "alternate_names": [
+          "En starkare nation — Nationell säkerhetsstrategi (Skr. 2023/24:163)",
+          "National Security Strategy of Sweden"
+        ],
+        "description": "Overarching national security strategy of the Government of Sweden defining Sweden's strategic security environment as a NATO Ally, total defense (totalförsvar), and counter-hybrid and cyber security priorities.",
+        "notes": "First edition adopted January 8, 2017; second edition adopted July 2, 2024 as Government Communication Skr. 2023/24:163 ('En starkare nation').",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.regeringen.se/contentassets/125593e4516a49ce9b9ab942f49cca8d/232416300webb.pdf",
+            "note": "2024 edition (current) — Skr. 2023/24:163 PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.regeringen.se/contentassets/fa7bceced8a548ada27f45b24f611714/nationell-sakerhetsstrategi.pdf",
+            "note": "2017 edition (superseded) — PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-07-02",
+            "status": "current",
+            "url": "https://www.regeringen.se/contentassets/125593e4516a49ce9b9ab942f49cca8d/232416300webb.pdf",
+            "note": "Nationell säkerhetsstrategi (Skr. 2023/24:163, adopted July 2, 2024)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-01-08",
+            "status": "superseded",
+            "url": "https://www.regeringen.se/contentassets/fa7bceced8a548ada27f45b24f611714/nationell-sakerhetsstrategi.pdf",
+            "note": "Nationell säkerhetsstrategi (adopted January 8, 2017)."
+          }
+        ],
+        "examples": [
+          "nationell-sakerhetsstrategi@2024",
+          "nationell-sakerhetsstrategi@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Nationell säkerhetsstrategi (Skr. 2023/24:163, 2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationell säkerhetsstrategi (Skr. 2023/24:163)",
+            "url": "https://www.regeringen.se/contentassets/125593e4516a49ce9b9ab942f49cca8d/232416300webb.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.regeringen.se/contentassets/125593e4516a49ce9b9ab942f49cca8d/232416300webb.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://www.regeringen.se/contentassets/125593e4516a49ce9b9ab942f49cca8d/232416300webb.pdf",
+                "note": "Swedish National Security Strategy (2024)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Nationell säkerhetsstrategi (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationell säkerhetsstrategi (2017)",
+            "url": "https://www.regeringen.se/contentassets/fa7bceced8a548ada27f45b24f611714/nationell-sakerhetsstrategi.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.regeringen.se/contentassets/fa7bceced8a548ada27f45b24f611714/nationell-sakerhetsstrategi.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.regeringen.se/contentassets/fa7bceced8a548ada27f45b24f611714/nationell-sakerhetsstrategi.pdf",
+                "note": "Swedish National Security Strategy (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^nationell-strategi-cybersakerhet$",
+        "^national-strategy-for-cybersecurity$",
+        "^cybersecurity-strategy$"
+      ],
+      "description": "Nationell strategi för cybersäkerhet (National Strategy for Cybersecurity of Sweden)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Nationell strategi för cybersäkerhet / National Strategy for Cybersecurity",
+        "common_name": "Swedish National Cybersecurity Strategy",
+        "alternate_names": [
+          "En ny era av cybersäkerhet – Nationell strategi för cybersäkerhet 2025–2029 (Skr. 2024/25:121)",
+          "A new era of cybersecurity – National strategy for cybersecurity 2025–2029",
+          "Nationell strategi för samhällets informations- och cybersäkerhet (Skr. 2016/17:213)"
+        ],
+        "description": "Sweden's national cybersecurity strategy coordinated with the National Cyber Security Centre (NCSC / FRA) setting priorities across systematic security management, skills, incident resilience, and active cyber defense.",
+        "notes": "First edition adopted June 29, 2017 (Skr. 2016/17:213); second edition adopted March 13, 2025 for 2025–2029 (Skr. 2024/25:121).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.government.se/contentassets/e15d576467c3450896bb1c0cea8f811f/a-new-era-of-cybersecurity--national-strategy-for-cybersecurity-2025-2029.pdf",
+            "note": "2025-2029 edition (current) — Official English PDF"
+          },
+          {
+            "type": "website",
+            "url": "https://www.regeringen.se/rattsliga-dokument/skrivelse/2017/06/skr.-201617213",
+            "note": "2017 edition (superseded) — Skr. 2016/17:213"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025-2029",
+            "release_date": "2025-03-13",
+            "status": "current",
+            "url": "https://www.government.se/contentassets/e15d576467c3450896bb1c0cea8f811f/a-new-era-of-cybersecurity--national-strategy-for-cybersecurity-2025-2029.pdf",
+            "note": "A new era of cybersecurity – National strategy for cybersecurity 2025–2029 (Skr. 2024/25:121, adopted March 13, 2025).",
+            "aliases": [
+              {
+                "label": "2025",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2025-2029 edition."
+              }
+            ]
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-06-29",
+            "status": "superseded",
+            "url": "https://www.regeringen.se/rattsliga-dokument/skrivelse/2017/06/skr.-201617213",
+            "note": "Nationell strategi för samhällets informations- och cybersäkerhet (Skr. 2016/17:213, June 29, 2017)."
+          }
+        ],
+        "examples": [
+          "nationell-strategi-cybersakerhet@2025-2029",
+          "nationell-strategi-cybersakerhet@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025-2029$",
+            "^2025$"
+          ],
+          "description": "Nationell strategi för cybersäkerhet 2025–2029 (Skr. 2024/25:121)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "A new era of cybersecurity – National strategy for cybersecurity 2025–2029",
+            "url": "https://www.government.se/contentassets/e15d576467c3450896bb1c0cea8f811f/a-new-era-of-cybersecurity--national-strategy-for-cybersecurity-2025-2029.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.government.se/contentassets/e15d576467c3450896bb1c0cea8f811f/a-new-era-of-cybersecurity--national-strategy-for-cybersecurity-2025-2029.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025-2029",
+                "url": "https://www.government.se/contentassets/e15d576467c3450896bb1c0cea8f811f/a-new-era-of-cybersecurity--national-strategy-for-cybersecurity-2025-2029.pdf",
+                "note": "Swedish National Strategy for Cybersecurity 2025-2029"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Nationell strategi för samhällets informations- och cybersäkerhet (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Nationell strategi för samhällets informations- och cybersäkerhet (Skr. 2016/17:213)",
+            "url": "https://www.regeringen.se/rattsliga-dokument/skrivelse/2017/06/skr.-201617213",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.regeringen.se/rattsliga-dokument/skrivelse/2017/06/skr.-201617213"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://www.regeringen.se/rattsliga-dokument/skrivelse/2017/06/skr.-201617213",
+                "note": "Swedish National Cybersecurity Strategy (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "SE"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "namespace": "pravo.by",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "National Legal Internet Portal of the Republic of Belarus",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://pravo.by/"
+    }
+  ],
+  "examples": [
+    "secid:reference/pravo.by/national-security-concept-of-belarus@2024"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-concept-of-belarus$",
+        "(?i)^vns\\-5\\-2024$",
+        "(?i)^nsc\\-by$"
+      ],
+      "description": "National Security Concept of the Republic of Belarus (Approved by Decision of the All-Belarusian People's Assembly No. 5)",
+      "weight": 100,
+      "data": {
+        "url": "https://pravo.by/document/?guid=12551&p0=P924v0005",
+        "examples": [
+          "national-security-concept-of-belarus@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-04-25",
+            "url": "https://pravo.by/document/?guid=12551&p0=P924v0005"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "National Security Concept of the Republic of Belarus (Approved by Decision of the All-Belarusian People's Assembly No. 5) (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.by/document/?guid=12551&p0=P924v0005",
+            "examples": [
+              {
+                "input": "national-security-concept-of-belarus#2024",
+                "url": "https://pravo.by/document/?guid=12551&p0=P924v0005"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^concept-of-information-security-of-belarus$",
+        "(?i)^resolution\\-1\\-2019$",
+        "(?i)^ncss\\-by$"
+      ],
+      "description": "Concept of Information Security of the Republic of Belarus (Security Council Resolution No. 1)",
+      "weight": 100,
+      "data": {
+        "url": "https://pravo.by/document/?guid=3871&p0=P219s0001",
+        "examples": [
+          "concept-of-information-security-of-belarus@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-03-18",
+            "url": "https://pravo.by/document/?guid=3871&p0=P219s0001"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "Concept of Information Security of the Republic of Belarus (Security Council Resolution No. 1) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://pravo.by/document/?guid=3871&p0=P219s0001",
+            "examples": [
+              {
+                "input": "concept-of-information-security-of-belarus#2019",
+                "url": "https://pravo.by/document/?guid=3871&p0=P219s0001"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "asamblea.gob.sv",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Legislative Assembly of the Republic of El Salvador (Asamblea Legislativa)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.asamblea.gob.sv/"
+    }
+  ],
+  "examples": [
+    "secid:regulation/asamblea.gob.sv/decreto-234-2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^decreto-234-2025$",
+        "(?i)^ley\\-fomento\\-ia$",
+        "(?i)^el\\-salvador\\-ai\\-law$"
+      ],
+      "description": "Decreto Legislativo N.° 234/2025 — Ley de Fomento a la Inteligencia Artificial y Tecnologías (El Salvador AI Promotion Law)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.asamblea.gob.sv/",
+        "examples": [
+          "decreto-234-2025"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^decreto-141-2024$",
+        "(?i)^ley\\-ciberseguridad\\-sv$"
+      ],
+      "description": "Decreto Legislativo N.° 141/2024 — Ley de Ciberseguridad y Seguridad de la Información (El Salvador Cybersecurity Law)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.asamblea.gob.sv/",
+        "examples": [
+          "decreto-141-2024"
+        ]
+      }
+    }
+  ]
+}

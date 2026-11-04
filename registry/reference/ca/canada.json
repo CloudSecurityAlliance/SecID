@@ -3,16 +3,18 @@
   "namespace": "canada.ca",
   "type": "reference",
   "status": "draft",
-  "status_notes": "Updated 2026-11-03 for SecID#215 (Canadian national security strategies, implementation progress report, defence policy updates, enterprise cyber security strategy, and transparency framework).",
+  "status_notes": "Updated 2026-11-03 for SecID#215 and SecID#227 (Canadian national security strategies, implementation progress report, defence policy updates, enterprise cyber security strategy, transparency framework, National AI Strategy, and Sovereign AI Compute Strategy).",
   "official_name": "Government of Canada",
   "common_name": "Canada",
   "alternate_names": [
     "Gouvernement du Canada",
     "Privy Council Office",
     "Treasury Board of Canada Secretariat",
-    "Department of National Defence"
+    "Department of National Defence",
+    "Innovation, Science and Economic Development Canada",
+    "ISED"
   ],
-  "notes": "Government of Canada umbrella federal portal covering cross-government national security policy, defence policy reviews, the National Security Transparency Commitment, and the Enterprise Cyber Security Strategy. Department-specific publications also resolve under dedicated namespaces (publicsafety.gc.ca, cyber.gc.ca, parl.ca, justice.gc.ca).",
+  "notes": "Government of Canada umbrella federal portal covering cross-government national security policy, defence policy reviews, the National Security Transparency Commitment, the Enterprise Cyber Security Strategy, and Canada's National Artificial Intelligence Strategy and Sovereign AI Compute Strategy. Department-specific publications also resolve under dedicated namespaces (publicsafety.gc.ca, cyber.gc.ca, parl.ca, justice.gc.ca).",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -348,6 +350,226 @@
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^national-ai-strategy$",
+        "^pan-canadian-ai-strategy$",
+        "^pan-canadian-artificial-intelligence-strategy$",
+        "^ai-for-all$"
+      ],
+      "description": "Canada's National Artificial Intelligence Strategy / Pan-Canadian AI Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Canada's National Artificial Intelligence Strategy: AI for All",
+        "common_name": "Canada National AI Strategy / Pan-Canadian AI Strategy",
+        "alternate_names": [
+          "Stratégie nationale du Canada en matière d'intelligence artificielle : L'IA pour tous",
+          "Pan-Canadian Artificial Intelligence Strategy",
+          "PCAIS"
+        ],
+        "description": "Government of Canada national artificial intelligence strategy issued by Innovation, Science and Economic Development Canada (ISED), originating with the 2017 Pan-Canadian AI Strategy (world's first national AI strategy, implemented with CIFAR, Mila, Vector Institute, and Amii), expanded in Phase 2 (2022), and renewed in June 2026 as 'Canada's National Artificial Intelligence Strategy: AI for All'.",
+        "notes": "2026 strategy ('AI for All', Cat. No. Iu173-71/2026E-PDF) sets 28 actions across four strategic areas: Adoption and Commercialization, Infrastructure and Talent, Safety and Trust, and International Leadership.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all",
+            "note": "2026 edition (current) — Canada's National Artificial Intelligence Strategy: AI for All"
+          },
+          {
+            "type": "pdf",
+            "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
+            "note": "2026 edition English PDF (Cat. No. Iu173-71/2026E-PDF)"
+          },
+          {
+            "type": "pdf",
+            "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-fr.pdf",
+            "note": "2026 edition French PDF (Cat. No. Iu173-71/2026F-PDF)"
+          },
+          {
+            "type": "website",
+            "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+            "note": "2017 Phase 1 and 2022 Phase 2 — Pan-Canadian Artificial Intelligence Strategy"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2026",
+            "release_date": "2026-06-08",
+            "status": "current",
+            "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
+            "note": "Canada's National Artificial Intelligence Strategy: AI for All (June 8, 2026)."
+          },
+          {
+            "version": "2022",
+            "release_date": "2022-06-22",
+            "status": "superseded",
+            "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+            "note": "Pan-Canadian Artificial Intelligence Strategy Phase 2 (launched June 22, 2022)."
+          },
+          {
+            "version": "2017",
+            "release_date": "2017-03-22",
+            "status": "superseded",
+            "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+            "note": "Pan-Canadian Artificial Intelligence Strategy Phase 1 (launched March 22, 2017)."
+          }
+        ],
+        "examples": [
+          "national-ai-strategy@2026",
+          "pan-canadian-ai-strategy@2022",
+          "pan-canadian-ai-strategy@2017"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2026$"
+          ],
+          "description": "Canada's National Artificial Intelligence Strategy: AI for All (2026)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Canada's National Artificial Intelligence Strategy: AI for All (2026)",
+            "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf"
+              },
+              {
+                "type": "website",
+                "url": "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2026",
+                "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
+                "note": "Canada's National Artificial Intelligence Strategy: AI for All (2026)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Pan-Canadian Artificial Intelligence Strategy Phase 2 (2022)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Pan-Canadian Artificial Intelligence Strategy — Phase 2 (2022)",
+            "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2022",
+                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+                "note": "Pan-Canadian AI Strategy Phase 2 (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2017$"
+          ],
+          "description": "Pan-Canadian Artificial Intelligence Strategy Phase 1 (2017)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Pan-Canadian Artificial Intelligence Strategy — Phase 1 (2017)",
+            "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2017",
+                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
+                "note": "Pan-Canadian AI Strategy Phase 1 (2017)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^sovereign-ai-compute-strategy$",
+        "^canadian-sovereign-ai-compute-strategy$"
+      ],
+      "description": "Canadian Sovereign AI Compute Strategy",
+      "weight": 95,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Canadian Sovereign AI Compute Strategy",
+        "common_name": "Canadian Sovereign AI Compute Strategy (2024)",
+        "alternate_names": [
+          "Stratégie canadienne sur la capacité de calcul souveraine pour l'IA"
+        ],
+        "description": "Government of Canada CAD $2 billion strategic plan to build domestic sovereign AI compute infrastructure across public supercomputing, private-sector compute access, and sovereign data centres.",
+        "notes": "Launched December 5, 2024 by Innovation, Science and Economic Development Canada (ISED).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-12-05",
+            "status": "current",
+            "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy",
+            "note": "Canadian Sovereign AI Compute Strategy (launched December 5, 2024)."
+          }
+        ],
+        "examples": [
+          "sovereign-ai-compute-strategy@2024"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Canadian Sovereign AI Compute Strategy (2024)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Canadian Sovereign AI Compute Strategy (2024)",
+            "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024",
+                "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy",
+                "note": "Canadian Sovereign AI Compute Strategy (2024)"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

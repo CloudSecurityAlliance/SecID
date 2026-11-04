@@ -1,0 +1,340 @@
+{
+  "schema_version": "1.0",
+  "namespace": "dnp.gov.co",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Colombia Estrategia Nacional de Seguridad Digital 2025-2027, CONPES 3995/3854/3701 Cybersecurity Policies, and CONPES 4144/3975 National AI Policies).",
+  "official_name": "Departamento Nacional de Planeación — Consejo Nacional de Política Económica y Social (CONPES)",
+  "common_name": "DNP / CONPES Colombia",
+  "alternate_names": [
+    "Ministerio de Tecnologías de la Información y las Comunicaciones (MinTIC)",
+    "Consejo Nacional de Política Económica y Social"
+  ],
+  "notes": "National Planning Department of the Republic of Colombia serving as technical secretariat of CONPES, which adopts Colombia's national policies on digital security/cybersecurity (CONPES 3701, 3854, 3995) and artificial intelligence (CONPES 3975, 4144), alongside MinTIC's Estrategia Nacional de Seguridad Digital 2025–2027.",
+  "wikidata": [
+    "Q5803235"
+  ],
+  "wikipedia": [
+    "https://es.wikipedia.org/wiki/Departamento_Nacional_de_Planeaci%C3%B3n"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.dnp.gov.co"
+    },
+    {
+      "type": "website",
+      "url": "https://www.mintic.gov.co"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^politica-nacional-seguridad-digital$",
+        "^estrategia-nacional-seguridad-digital$",
+        "^conpes-ciberseguridad$"
+      ],
+      "description": "Estrategia y Política Nacional de Seguridad Digital y Ciberseguridad (Colombia)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Estrategia Nacional de Seguridad Digital de Colombia / Política Nacional de Confianza y Seguridad Digital",
+        "common_name": "Colombian National Digital Security Strategy",
+        "alternate_names": [
+          "Estrategia Nacional de Seguridad Digital de Colombia 2025-2027",
+          "CONPES 3995 — Política Nacional de Confianza y Seguridad Digital (2020)",
+          "CONPES 3854 — Política Nacional de Seguridad Digital (2016)",
+          "CONPES 3701 — Lineamientos de Política para Ciberseguridad y Ciberdefensa (2011)"
+        ],
+        "description": "Colombia's national cybersecurity and digital security strategies adopted via CONPES policy documents and MinTIC, establishing ColCERT, CSIRT-CCIT, critical infrastructure protection, and digital trust governance.",
+        "notes": "Four generations issued: CONPES 3701 (July 14, 2011), CONPES 3854 (April 11, 2016), CONPES 3995 (July 1, 2020), and the Estrategia Nacional de Seguridad Digital de Colombia 2025–2027 (January 2025).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf",
+            "note": "2025-2027 edition (current) — Estrategia Nacional de Seguridad Digital PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf",
+            "note": "2020 edition (CONPES 3995) PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf",
+            "note": "2016 edition (CONPES 3854) PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf",
+            "note": "2011 edition (CONPES 3701) PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025-2027",
+            "release_date": "2025-01-20",
+            "status": "current",
+            "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf",
+            "note": "Estrategia Nacional de Seguridad Digital de Colombia 2025–2027 (MinTIC, January 2025).",
+            "aliases": [
+              {
+                "label": "2025",
+                "on_match": "resolve",
+                "note": "Publication year shorthand for the 2025-2027 edition."
+              }
+            ]
+          },
+          {
+            "version": "2020",
+            "release_date": "2020-07-01",
+            "status": "superseded",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf",
+            "note": "CONPES 3995 — Política Nacional de Confianza y Seguridad Digital (July 1, 2020)."
+          },
+          {
+            "version": "2016",
+            "release_date": "2016-04-11",
+            "status": "superseded",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf",
+            "note": "CONPES 3854 — Política Nacional de Seguridad Digital (April 11, 2016)."
+          },
+          {
+            "version": "2011",
+            "release_date": "2011-07-14",
+            "status": "superseded",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf",
+            "note": "CONPES 3701 — Lineamientos de Política para Ciberseguridad y Ciberdefensa (July 14, 2011)."
+          }
+        ],
+        "examples": [
+          "politica-nacional-seguridad-digital@2025-2027",
+          "politica-nacional-seguridad-digital@2020",
+          "politica-nacional-seguridad-digital@2016",
+          "politica-nacional-seguridad-digital@2011"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025-2027$",
+            "^2025$"
+          ],
+          "description": "Estrategia Nacional de Seguridad Digital de Colombia 2025-2027",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Estrategia Nacional de Seguridad Digital de Colombia 2025-2027",
+            "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025-2027",
+                "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf",
+                "note": "Colombian National Digital Security Strategy 2025-2027"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2020$",
+            "^conpes-3995$"
+          ],
+          "description": "CONPES 3995 — Política Nacional de Confianza y Seguridad Digital (2020)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "CONPES 3995 — Política Nacional de Confianza y Seguridad Digital",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2020",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf",
+                "note": "Colombia CONPES 3995 (2020)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2016$",
+            "^conpes-3854$"
+          ],
+          "description": "CONPES 3854 — Política Nacional de Seguridad Digital (2016)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "CONPES 3854 — Política Nacional de Seguridad Digital",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2016",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf",
+                "note": "Colombia CONPES 3854 (2016)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2011$",
+            "^conpes-3701$"
+          ],
+          "description": "CONPES 3701 — Lineamientos de Política para Ciberseguridad y Ciberdefensa (2011)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "CONPES 3701 — Lineamientos de Política para Ciberseguridad y Ciberdefensa",
+            "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2011",
+                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf",
+                "note": "Colombia CONPES 3701 (2011)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^politica-nacional-ia$",
+        "^conpes-ia$",
+        "^ai-strategy$"
+      ],
+      "description": "Política Nacional de Inteligencia Artificial (CONPES 4144 / CONPES 3975 — Colombia)",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "Política Nacional de Inteligencia Artificial (CONPES 4144)",
+        "common_name": "Colombian National AI Policy",
+        "alternate_names": [
+          "CONPES 4144 — Política Nacional de Inteligencia Artificial (2025)",
+          "CONPES 3975 — Política Nacional para la Transformación Digital e Inteligencia Artificial (2019)"
+        ],
+        "description": "Colombia's national artificial intelligence strategy adopted by CONPES across ethics and governance, data and technological infrastructure, R&D+i capabilities, talent, and strategic adoption.",
+        "notes": "First adopted November 8, 2019 (CONPES 3975) and succeeded on February 14, 2025 by CONPES 4144 (Política Nacional de Inteligencia Artificial).",
+        "urls": [
+          {
+            "type": "pdf",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf",
+            "note": "2025 edition (current) — CONPES 4144 PDF"
+          },
+          {
+            "type": "pdf",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf",
+            "note": "2019 edition (superseded) — CONPES 3975 PDF"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2025",
+            "release_date": "2025-02-14",
+            "status": "current",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf",
+            "note": "CONPES 4144 — Política Nacional de Inteligencia Artificial (February 14, 2025)."
+          },
+          {
+            "version": "2019",
+            "release_date": "2019-11-08",
+            "status": "superseded",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf",
+            "note": "CONPES 3975 — Política Nacional para la Transformación Digital e Inteligencia Artificial (November 8, 2019)."
+          }
+        ],
+        "examples": [
+          "politica-nacional-ia@2025",
+          "politica-nacional-ia@2019"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "^conpes-4144$"
+          ],
+          "description": "CONPES 4144 — Política Nacional de Inteligencia Artificial (2025)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "CONPES 4144 — Política Nacional de Inteligencia Artificial",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2025",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf",
+                "note": "Colombia CONPES 4144 National AI Policy (2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "^conpes-3975$"
+          ],
+          "description": "CONPES 3975 — Política Nacional para la Transformación Digital e Inteligencia Artificial (2019)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "CONPES 3975 — Política Nacional para la Transformación Digital e Inteligencia Artificial",
+            "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf",
+            "urls": [
+              {
+                "type": "pdf",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2019",
+                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf",
+                "note": "Colombia CONPES 3975 Digital Transformation and AI Policy (2019)"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "CO"
+    ]
+  }
+}

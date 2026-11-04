@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ncsa.gov.qa",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Created 2026-11-03 for SecID#227 (Qatar National Cyber Security Strategy 2024-2030 and 2014).",
+  "official_name": "الوكالة الوطنية للأمن السيبراني / National Cyber Security Agency (NCSA)",
+  "common_name": "NCSA (Qatar)",
+  "alternate_names": [
+    "Qatar National Cyber Security Agency"
+  ],
+  "notes": "National Cyber Security Agency (NCSA) of the State of Qatar.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://ncsa.gov.qa/en/"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-strategy$",
+        "^national-cybersecurity-strategy$"
+      ],
+      "description": "Qatar National Cyber Security Strategy",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "strategy"
+        ],
+        "official_name": "الاستراتيجية الوطنية للأمن السيبراني / National Cyber Security Strategy",
+        "common_name": "Qatar National Cyber Security Strategy",
+        "alternate_names": null,
+        "description": "National cybersecurity strategy of the State of Qatar issued by the National Cyber Security Agency (NCSA).",
+        "notes": "Current edition covers 2024–2030 across five pillars (launched May 2024 by NCSA), superseding the first Qatar National Cyber Security Strategy published in May 2014. Cross-referenced with secid:control/ncsa.gov.qa/national-cybersecurity-strategy.",
+        "cross_references": [
+          {
+            "target": "secid:control/ncsa.gov.qa/national-cybersecurity-strategy",
+            "relationship": "related",
+            "note": "NCSA control registry entry"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+            "note": "2024-2030 edition (current) — Official NCSA strategy page"
+          }
+        ],
+        "versions_available": [
+          {
+            "version": "2024-2030",
+            "release_date": "2024-05-01",
+            "status": "current",
+            "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+            "note": "Qatar National Cyber Security Strategy 2024–2030 (May 2024)."
+          },
+          {
+            "version": "2014",
+            "release_date": "2014-05-01",
+            "status": "superseded",
+            "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+            "note": "First Qatar National Cyber Security Strategy (May 2014)."
+          }
+        ],
+        "examples": [
+          "national-cyber-security-strategy@2024-2030",
+          "national-cyber-security-strategy@2014"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024-2030$",
+            "^2024$"
+          ],
+          "description": "Qatar National Cyber Security Strategy 2024–2030",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Qatar National Cyber Security Strategy 2024–2030",
+            "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2024-2030",
+                "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+                "note": "Qatar National Cyber Security Strategy 2024-2030"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2014$"
+          ],
+          "description": "Qatar National Cyber Security Strategy (2014)",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "Qatar National Cyber Security Strategy (2014)",
+            "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy"
+              }
+            ],
+            "examples": [
+              {
+                "input": "2014",
+                "url": "https://ncsa.gov.qa/en/national-cyber-security-strategy",
+                "note": "Qatar National Cyber Security Strategy 2014"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "QA"
+    ]
+  }
+}

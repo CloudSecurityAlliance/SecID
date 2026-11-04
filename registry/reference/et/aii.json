@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "namespace": "aii.et",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ethiopian Artificial Intelligence Institute (EAII) & Information Network Security Administration (INSA)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.aii.et/"
+    }
+  ],
+  "examples": [
+    "secid:reference/aii.et/national-information-security-policy-of-ethiopia@2011"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-information-security-policy-of-ethiopia$",
+        "(?i)^nisp\\-et$"
+      ],
+      "description": "National Information Security Policy of Ethiopia",
+      "weight": 100,
+      "data": {
+        "url": "https://www.insa.gov.et/",
+        "examples": [
+          "national-information-security-policy-of-ethiopia@2011"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2011",
+            "status": "current",
+            "release_date": "2011-09-01",
+            "url": "https://www.insa.gov.et/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2011$"
+          ],
+          "description": "National Information Security Policy of Ethiopia (2011)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.insa.gov.et/",
+            "examples": [
+              {
+                "input": "national-information-security-policy-of-ethiopia#2011",
+                "url": "https://www.insa.gov.et/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ethiopia-national-artificial-intelligence-policy$",
+        "(?i)^ethiopia\\-ai\\-policy$"
+      ],
+      "description": "National Artificial Intelligence Policy of Ethiopia",
+      "weight": 100,
+      "data": {
+        "url": "https://www.aii.et/",
+        "examples": [
+          "ethiopia-national-artificial-intelligence-policy@2024"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2024",
+            "status": "current",
+            "release_date": "2024-06-21",
+            "url": "https://www.aii.et/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "National Artificial Intelligence Policy of Ethiopia (2024)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.aii.et/",
+            "examples": [
+              {
+                "input": "ethiopia-national-artificial-intelligence-policy#2024",
+                "url": "https://www.aii.et/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

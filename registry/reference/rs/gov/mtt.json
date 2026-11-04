@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mtt.gov.rs",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Information and Telecommunications & Government of the Republic of Serbia",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mit.gov.rs/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mtt.gov.rs/national-security-strategy-of-serbia@2019"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-security-strategy-of-serbia$",
+        "(?i)^strategija\\-nacionalne\\-bezbednosti\\-srbije$",
+        "(?i)^nss\\-rs$"
+      ],
+      "description": "National Security Strategy of the Republic of Serbia (Стратегија националне безбедности Републике Србије)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.mod.gov.rs/eng/4350/strategije-4350",
+        "examples": [
+          "national-security-strategy-of-serbia@2019"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2019",
+            "status": "current",
+            "release_date": "2019-12-27",
+            "url": "https://www.mod.gov.rs/eng/4350/strategije-4350"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2019$"
+          ],
+          "description": "National Security Strategy of the Republic of Serbia (Стратегија националне безбедности Републике Србије) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.mod.gov.rs/eng/4350/strategije-4350",
+            "examples": [
+              {
+                "input": "national-security-strategy-of-serbia#2019",
+                "url": "https://www.mod.gov.rs/eng/4350/strategije-4350"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^strategy-for-development-of-information-society-and-information-security$",
+        "(?i)^ncss\\-rs$",
+        "(?i)^serbia\\-information\\-security\\-strategy$"
+      ],
+      "description": "Strategy for the Development of the Information Society and Information Security in the Republic of Serbia (2021–2026)",
+      "weight": 100,
+      "data": {
+        "url": "https://mit.gov.rs/tekst/sr/553/strategije.php",
+        "examples": [
+          "strategy-for-development-of-information-society-and-information-security@2021"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2021",
+            "status": "current",
+            "release_date": "2021-08-01",
+            "url": "https://mit.gov.rs/tekst/sr/553/strategije.php",
+            "aliases": [
+              {
+                "label": "2021-2026",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2021$",
+            "(?i)^2021\\-2026$"
+          ],
+          "description": "Strategy for the Development of the Information Society and Information Security in the Republic of Serbia (2021–2026) (2021)",
+          "weight": 100,
+          "data": {
+            "url": "https://mit.gov.rs/tekst/sr/553/strategije.php",
+            "examples": [
+              {
+                "input": "strategy-for-development-of-information-society-and-information-security#2021",
+                "url": "https://mit.gov.rs/tekst/sr/553/strategije.php"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^ai-development-strategy-in-serbia$",
+        "(?i)^strategija\\-razvoja\\-vestacke\\-inteligencije$",
+        "(?i)^serbia\\-ai\\-strategy$"
+      ],
+      "description": "Strategy for the Development of Artificial Intelligence in the Republic of Serbia (2025–2030 / 2020–2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
+        "examples": [
+          "ai-development-strategy-in-serbia@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-01-01",
+            "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
+            "aliases": [
+              {
+                "label": "2025-2030",
+                "on_match": "resolve"
+              }
+            ]
+          },
+          {
+            "version": "2019",
+            "status": "superseded",
+            "release_date": "2019-12-26",
+            "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
+            "aliases": [
+              {
+                "label": "2020-2025",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2025\\-2030$"
+          ],
+          "description": "Strategy for the Development of Artificial Intelligence in the Republic of Serbia (2025–2030 / 2020–2025) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
+            "examples": [
+              {
+                "input": "ai-development-strategy-in-serbia#2025",
+                "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2019$",
+            "(?i)^2020\\-2025$"
+          ],
+          "description": "Strategy for the Development of Artificial Intelligence in the Republic of Serbia (2025–2030 / 2020–2025) (2019)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
+            "examples": [
+              {
+                "input": "ai-development-strategy-in-serbia#2019",
+                "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

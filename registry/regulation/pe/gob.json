@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "namespace": "gob.pe",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Platform of the Peruvian State (Plataforma digital única del Estado Peruano)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.gob.pe/"
+    }
+  ],
+  "examples": [
+    "secid:regulation/gob.pe/ley-31814"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^ley-31814$",
+        "(?i)^law\\-31814$",
+        "(?i)^peru\\-ai\\-law$"
+      ],
+      "description": "Ley N.° 31814 — Ley que promueve el uso de la inteligencia artificial en favor del desarrollo económico y social del país (Peru AI Promotion Law)",
+      "weight": 100,
+      "data": {
+        "url": "https://busquedas.elperuano.pe/dispositivo/NL/2192926-1",
+        "examples": [
+          "ley-31814"
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "^ds-115-2025-pcm$",
+        "(?i)^reglamento\\-ley\\-31814$"
+      ],
+      "description": "Decreto Supremo N.° 115-2025-PCM — Reglamento de la Ley N.° 31814 (Implementing Regulation of the Peru AI Law)",
+      "weight": 100,
+      "data": {
+        "url": "https://www.gob.pe/pcm",
+        "examples": [
+          "ds-115-2025-pcm"
+        ]
+      }
+    }
+  ]
+}

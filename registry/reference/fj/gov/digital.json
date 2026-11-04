@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "namespace": "digital.gov.fj",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Trade, Co-operatives, Micro, Small and Medium Enterprises and Communications (Fiji)",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.digital.gov.fj/"
+    }
+  ],
+  "examples": [
+    "secid:reference/digital.gov.fj/fiji-national-cybersecurity-strategy@2025"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^fiji-national-cybersecurity-strategy$",
+        "(?i)^fiji\\-ncss$"
+      ],
+      "description": "Fiji National Cybersecurity Strategy",
+      "weight": 100,
+      "data": {
+        "url": "https://www.digital.gov.fj/",
+        "examples": [
+          "fiji-national-cybersecurity-strategy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-01-01",
+            "url": "https://www.digital.gov.fj/"
+          },
+          {
+            "version": "2015",
+            "status": "superseded",
+            "release_date": "2015-01-01",
+            "url": "https://www.digital.gov.fj/"
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$"
+          ],
+          "description": "Fiji National Cybersecurity Strategy (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.digital.gov.fj/",
+            "examples": [
+              {
+                "input": "fiji-national-cybersecurity-strategy#2025",
+                "url": "https://www.digital.gov.fj/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^2015$"
+          ],
+          "description": "Fiji National Cybersecurity Strategy (2015)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.digital.gov.fj/",
+            "examples": [
+              {
+                "input": "fiji-national-cybersecurity-strategy#2015",
+                "url": "https://www.digital.gov.fj/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mocit.gov.np",
+  "type": "reference",
+  "status": "draft",
+  "status_notes": "Generated from research compatibility inventory (2026-04-03, updated 2026-11-03).",
+  "official_name": "Ministry of Communication and Information Technology (MoCIT), Government of Nepal",
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://mocit.gov.np/"
+    }
+  ],
+  "examples": [
+    "secid:reference/mocit.gov.np/national-cyber-security-policy@2023"
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "^national-cyber-security-policy$",
+        "(?i)^ncsp\\-np$",
+        "(?i)^nepal\\-cyber\\-security\\-policy$"
+      ],
+      "description": "National Cyber Security Policy of Nepal (2080 / 2023)",
+      "weight": 100,
+      "data": {
+        "url": "https://mocit.gov.np/",
+        "examples": [
+          "national-cyber-security-policy@2023"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2023",
+            "status": "current",
+            "release_date": "2023-08-08",
+            "url": "https://mocit.gov.np/",
+            "aliases": [
+              {
+                "label": "2080",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2023$",
+            "(?i)^2080$"
+          ],
+          "description": "National Cyber Security Policy of Nepal (2080 / 2023) (2023)",
+          "weight": 100,
+          "data": {
+            "url": "https://mocit.gov.np/",
+            "examples": [
+              {
+                "input": "national-cyber-security-policy#2023",
+                "url": "https://mocit.gov.np/"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^national-artificial-intelligence-policy$",
+        "(?i)^nepal\\-ai\\-policy$",
+        "(?i)^naip\\-np$"
+      ],
+      "description": "National Artificial Intelligence Policy of Nepal (2082 / 2025)",
+      "weight": 100,
+      "data": {
+        "url": "https://mocit.gov.np/",
+        "examples": [
+          "national-artificial-intelligence-policy@2025"
+        ],
+        "version_required": false,
+        "versions_available": [
+          {
+            "version": "2025",
+            "status": "current",
+            "release_date": "2025-08-01",
+            "url": "https://mocit.gov.np/",
+            "aliases": [
+              {
+                "label": "2082",
+                "on_match": "resolve"
+              }
+            ]
+          }
+        ],
+        "subtype": [
+          "strategy"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2025$",
+            "(?i)^2082$"
+          ],
+          "description": "National Artificial Intelligence Policy of Nepal (2082 / 2025) (2025)",
+          "weight": 100,
+          "data": {
+            "url": "https://mocit.gov.np/",
+            "examples": [
+              {
+                "input": "national-artificial-intelligence-policy#2025",
+                "url": "https://mocit.gov.np/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
