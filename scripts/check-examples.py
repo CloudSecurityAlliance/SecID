@@ -47,10 +47,86 @@ import json
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
 REGISTRY = Path(__file__).resolve().parent.parent / "registry"
+
+_JS_NAMED_GROUP_RE = re.compile(r"\(\?<([A-Za-z_][A-Za-z0-9_]*)>")
+_JS_NAMED_BACKREF_RE = re.compile(r"\\k<([A-Za-z_][A-Za-z0-9_]*)>")
+
+_UNSAFE_IN: dict[str, re.Pattern[str]] = {
+    "path": re.compile(r"[?#%\\\s\x00-\x1f\x7f]"),
+    "query": re.compile(r"[#&+%\\\s\x00-\x1f\x7f]"),
+    "fragment": re.compile(r"[#%\\\s\x00-\x1f\x7f]"),
+}
+_DOT_SEGMENT_RE = re.compile(r"(^|/)\.{1,2}(/|$)")
+_PLACEHOLDER_RE = re.compile(r"\{([^{}]*)\}")
+
+
+def _compile_ecmascript_regex(pat: str) -> re.Pattern[str]:
+    """Compile a registry pattern using SecID-Service's toRegExp + ECMAScript named-group syntax."""
+    flags = 0
+    if pat.startswith("(?i)"):
+        flags |= re.IGNORECASE
+        pat = pat[4:]
+    pat = _JS_NAMED_GROUP_RE.sub(r"(?P<\1>", pat)
+    pat = _JS_NAMED_BACKREF_RE.sub(r"(?P=\1)", pat)
+    return re.compile(pat, flags)
+
+
+def _encode_for_part(value: str, part: str) -> str:
+    """Mirror SecID-Service encodeForPart(value, part)."""
+    return _UNSAFE_IN[part].sub(
+        lambda m: "".join(f"%{b:02X}" for b in m.group(0).encode("utf-8")),
+        value,
+    )
+
+
+def _build_url(template: str, variables: dict[str, str]) -> str | None:
+    """Mirror SecID-Service buildUrl(template, variables)."""
+    try:
+        tpl_parsed = urllib.parse.urlsplit(_PLACEHOLDER_RE.sub("x", template))
+    except ValueError:
+        return None
+    if tpl_parsed.scheme not in ("https", "http") or not tpl_parsed.netloc:
+        return None
+
+    query_at = template.find("?")
+    fragment_at = template.find("#")
+
+    def part_at(offset: int) -> str:
+        if fragment_at != -1 and offset > fragment_at:
+            return "fragment"
+        if query_at != -1 and offset > query_at and (fragment_at == -1 or query_at < fragment_at):
+            return "query"
+        return "path"
+
+    unsafe = False
+
+    def repl(m: re.Match[str]) -> str:
+        nonlocal unsafe
+        key = m.group(1)
+        if key not in variables:
+            return m.group(0)
+        val = variables[key]
+        part = part_at(m.start())
+        if part == "path" and _DOT_SEGMENT_RE.search(val):
+            unsafe = True
+        return _encode_for_part(val, part)
+
+    url = _PLACEHOLDER_RE.sub(repl, template)
+    if unsafe:
+        return None
+
+    try:
+        res_parsed = urllib.parse.urlsplit(url)
+    except ValueError:
+        return None
+    if res_parsed.scheme != tpl_parsed.scheme or res_parsed.netloc != tpl_parsed.netloc:
+        return None
+    return url
 
 
 def registry_files() -> list[Path]:
@@ -112,7 +188,8 @@ def expand_child_url(
                 if not isinstance(extract_pat, str):
                     return None, f"variable {var_name!r} missing string 'extract' regex"
                 try:
-                    m = re.search(extract_pat, inp, re.IGNORECASE)
+                    compiled_extract = _compile_ecmascript_regex(extract_pat)
+                    m = compiled_extract.search(inp)
                 except re.error as exc:
                     return None, f"variable {var_name!r} has invalid regex {extract_pat!r}: {exc}"
                 if not m or m.lastindex is None or m.group(1) is None:
@@ -123,7 +200,6 @@ def expand_child_url(
                 val = m.group(1)
                 fmt = var_def.get("format")
                 lookup_mode = var_def.get("lookup")
-                transform = var_def.get("transform")
                 if isinstance(fmt, str) and fmt:
                     val = fmt.replace("{1}", val)
                 elif lookup_mode == "range_table":
@@ -138,12 +214,6 @@ def expand_child_url(
                             f"variable {var_name!r} range_table lookup failed for {num} in parent notes",
                         )
                     val = looked_up
-                elif transform == "lowercase":
-                    val = val.lower()
-                elif transform == "uppercase":
-                    val = val.upper()
-                elif transform == "zfill2":
-                    val = val.zfill(2)
                 resolved_vars[var_name] = val
 
         lang = data.get("lang")
@@ -151,18 +221,16 @@ def expand_child_url(
             lang_code = lang["default"]
             if lang.get("url_transform") == "uppercase":
                 lang_code = lang_code.upper()
-            elif lang.get("url_transform") == "lowercase":
-                lang_code = lang_code.lower()
             resolved_vars["lang"] = lang_code
 
         resolved_vars["id"] = inp
         resolved_vars["id_lower"] = inp.lower()
         resolved_vars["id_upper"] = inp.upper()
 
-        result = url_tpl
-        for k, v in resolved_vars.items():
-            result = result.replace("{" + k + "}", v)
-        return result, None
+        built = _build_url(url_tpl, resolved_vars)
+        if built is None:
+            return None, f"buildUrl rejected template {url_tpl!r} for input {inp!r}"
+        return built, None
 
     lookup = data.get("lookup_table")
     if isinstance(lookup, dict):
@@ -170,12 +238,6 @@ def expand_child_url(
             u = _extract_lookup_url(lookup[inp])
             if u is not None:
                 return u, None
-        inp_lower = inp.lower()
-        for k, v in lookup.items():
-            if k.lower() == inp_lower:
-                u = _extract_lookup_url(v)
-                if u is not None:
-                    return u, None
         return None, f"input {inp!r} not found in data.lookup_table"
 
     return None, "node has neither data.url nor data.lookup_table"
@@ -186,7 +248,7 @@ def _matches_any_pattern(patterns: list[str], value: str) -> bool:
         if not isinstance(pat, str):
             continue
         try:
-            if re.search(pat, value) is not None:
+            if _compile_ecmascript_regex(pat).search(value) is not None:
                 return True
         except re.error:
             continue
@@ -374,27 +436,36 @@ def self_test() -> int:
                         },
                     },
                     {
-                        "patterns": ["^art-\\d+$"],
+                        "patterns": ["^art-(?<num>\\d+)$"],
                         "data": {
                             "url": "https://example.org/{lang}/art-{num}",
                             "lang": {"default": "en", "url_transform": "uppercase"},
                             "variables": {
-                                "num": {"extract": "^art-(\\d+)$", "transform": "zfill2"}
+                                "num": {"extract": "^art-(\\d+)$"}
                             },
                             "examples": [
-                                {"input": "art-5", "url": "https://example.org/EN/art-05"}
+                                {"input": "art-5", "url": "https://example.org/EN/art-5"}
                             ],
                         },
                     },
                     {
-                        "patterns": ["(?i)^(a1|b2)$"],
+                        "patterns": ["^A&A-\\d+$"],
+                        "data": {
+                            "url": "https://example.org/path/{id}?q={id}",
+                            "examples": [
+                                {"input": "A&A-01", "url": "https://example.org/path/A&A-01?q=A%26A-01"}
+                            ],
+                        },
+                    },
+                    {
+                        "patterns": ["^(a1|b2)$"],
                         "data": {
                             "lookup_table": {
                                 "a1": "https://example.org/items/first",
                                 "b2": {"url": "https://example.org/items/second"},
                             },
                             "examples": [
-                                {"input": "A1", "url": "https://example.org/items/first"},
+                                {"input": "a1", "url": "https://example.org/items/first"},
                                 {"input": "b2", "url": "https://example.org/items/second"},
                             ],
                         },
@@ -461,10 +532,45 @@ def self_test() -> int:
                 "patterns": ["(?i)^x$"],
                 "children": [
                     {
-                        "patterns": ["^art-\\d+$"],
+                        "patterns": ["(?i)^a1$"],
                         "data": {
-                            "lookup_table": {"art-1": "https://example.org/1"},
-                            "examples": [{"input": "art-2", "url": "https://example.org/2"}],
+                            "lookup_table": {"a1": "https://example.org/1"},
+                            "examples": [{"input": "A1", "url": "https://example.org/1"}],
+                        },
+                    }
+                ],
+            }
+        ]
+    }
+
+    bad_case_extractor_doc = {
+        "match_nodes": [
+            {
+                "patterns": ["(?i)^x$"],
+                "children": [
+                    {
+                        "patterns": ["^ART-\\d+$"],
+                        "data": {
+                            "url": "https://example.org/art-{num}",
+                            "variables": {"num": {"extract": "^art-(\\d+)$"}},
+                            "examples": [{"input": "ART-5", "url": "https://example.org/art-5"}],
+                        },
+                    }
+                ],
+            }
+        ]
+    }
+
+    bad_query_encoding_doc = {
+        "match_nodes": [
+            {
+                "patterns": ["(?i)^x$"],
+                "children": [
+                    {
+                        "patterns": ["^A&A-01$"],
+                        "data": {
+                            "url": "https://example.org/?id={id}",
+                            "examples": [{"input": "A&A-01", "url": "https://example.org/?id=A&A-01"}],
                         },
                     }
                 ],
@@ -494,12 +600,41 @@ def self_test() -> int:
             len(violations(bad_lookup_missing_doc)) == 1
             and "not found in data.lookup_table" in violations(bad_lookup_missing_doc)[0][1],
         ),
+        (
+            "bad_case_extractor_doc",
+            len(violations(bad_case_extractor_doc)) == 1
+            and "did not capture group(1)" in violations(bad_case_extractor_doc)[0][1],
+        ),
+        (
+            "bad_query_encoding_doc",
+            len(violations(bad_query_encoding_doc)) == 1
+            and "URL mismatch" in violations(bad_query_encoding_doc)[0][1],
+        ),
     ]
     failed = [name for name, ok in checks if not ok]
     for name, ok in checks:
         print(f"  {'ok' if ok else 'FAIL'}  {name}")
     print("self-test:", "PASS" if not failed else f"FAIL ({', '.join(failed)})")
     return 0 if not failed else 1
+
+
+def _resolve_input_files(paths: list[str]) -> list[Path]:
+    if not paths:
+        return registry_files()
+    out: list[Path] = []
+    for raw in paths:
+        p = Path(raw)
+        if p.is_dir():
+            out.extend(
+                sorted(
+                    sub
+                    for sub in p.rglob("*.json")
+                    if not any(part.startswith("_") for part in sub.relative_to(p).parts)
+                )
+            )
+        else:
+            out.append(p)
+    return out
 
 
 def main(argv: list[str]) -> int:
@@ -524,7 +659,7 @@ def main(argv: list[str]) -> int:
     if args.self_test:
         return self_test()
 
-    files = [Path(p) for p in args.paths] if args.paths else registry_files()
+    files = _resolve_input_files(args.paths)
     total_violations = 0
     total_examples = 0
     live_targets: dict[str, list[str]] = {}
