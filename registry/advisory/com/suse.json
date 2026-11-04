@@ -31,7 +31,7 @@
           {"type": "website", "url": "https://www.suse.com/security/cve/"},
           {"type": "lookup", "url": "https://www.suse.com/support/update/announcement/{year}/suse-su-{year}{num}-{rev}/"}
         ],
-        "examples": ["SUSE-SU-2024:0001-1", "SUSE-SU-2023:4567-1"]
+        "examples": ["SUSE-SU-2024:0010-1", "SUSE-SU-2023:4031-1"]
       },
       "children": [
         {
@@ -56,15 +56,15 @@
             "url": "https://www.suse.com/support/update/announcement/{year}/suse-su-{year}{num}-{rev}/",
             "examples": [
               {
-                "input": "SUSE-SU-2024:0001-1",
-                "variables": {"year": "2024", "num": "0001", "rev": "1"},
-                "url": "https://www.suse.com/support/update/announcement/2024/suse-su-20240001-1/",
-                "note": "URL slug lowercases the ID and removes the colon: SUSE-SU-2024:0001-1 becomes suse-su-20240001-1"
+                "input": "SUSE-SU-2024:0010-1",
+                "variables": {"year": "2024", "num": "0010", "rev": "1"},
+                "url": "https://www.suse.com/support/update/announcement/2024/suse-su-20240010-1/",
+                "note": "URL slug lowercases the ID and removes the colon: SUSE-SU-2024:0010-1 becomes suse-su-20240010-1"
               },
               {
-                "input": "SUSE-SU-2023:4567-1",
-                "variables": {"year": "2023", "num": "4567", "rev": "1"},
-                "url": "https://www.suse.com/support/update/announcement/2023/suse-su-20234567-1/"
+                "input": "SUSE-SU-2023:4031-1",
+                "variables": {"year": "2023", "num": "4031", "rev": "1"},
+                "url": "https://www.suse.com/support/update/announcement/2023/suse-su-20234031-1/"
               }
             ]
           }
@@ -121,7 +121,7 @@
           {"type": "website", "url": "https://bugzilla.suse.com"},
           {"type": "lookup", "url": "https://bugzilla.suse.com/show_bug.cgi?id={id}"}
         ],
-        "examples": ["1234567", "CVE-2023-44487"]
+        "examples": ["1216161", "CVE-2023-44487"]
       },
       "children": [
         {
@@ -131,7 +131,7 @@
           "data": {
             "url": "https://bugzilla.suse.com/show_bug.cgi?id={id}",
             "examples": [
-              {"input": "1234567", "url": "https://bugzilla.suse.com/show_bug.cgi?id=1234567"}
+              {"input": "1216161", "url": "https://bugzilla.suse.com/show_bug.cgi?id=1216161", "note": "SUSE Bugzilla tracking bug for CVE-2023-44487"}
             ]
           }
         },

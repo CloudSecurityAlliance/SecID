@@ -34,7 +34,7 @@
           {"type": "api", "url": "https://access.redhat.com/hydra/rest/securitydata", "note": "Machine-readable REST API for errata and CVE data"},
           {"type": "lookup", "url": "https://access.redhat.com/errata/{id}"}
         ],
-        "examples": ["RHSA-2024:1234", "RHBA-2024:5678", "RHEA-2024:9012"]
+        "examples": ["RHSA-2024:0269", "RHBA-2024:0270", "RHEA-2024:0556"]
       },
       "children": [
         {
@@ -45,7 +45,7 @@
             "type": "security",
             "url": "https://access.redhat.com/errata/{id}",
             "examples": [
-              {"input": "RHSA-2024:1234", "url": "https://access.redhat.com/errata/RHSA-2024:1234", "note": "Colon in ID is preserved in the URL path"}
+              {"input": "RHSA-2024:0269", "url": "https://access.redhat.com/errata/RHSA-2024:0269", "note": "Colon in ID is preserved in the URL path (Red Hat Security Advisory for CVE-2023-44487)"}
             ]
           }
         },
@@ -57,7 +57,7 @@
             "type": "bugfix",
             "url": "https://access.redhat.com/errata/{id}",
             "examples": [
-              {"input": "RHBA-2024:5678", "url": "https://access.redhat.com/errata/RHBA-2024:5678"}
+              {"input": "RHBA-2024:0270", "url": "https://access.redhat.com/errata/RHBA-2024:0270", "note": "Red Hat Bug Fix Advisory"}
             ]
           }
         },
@@ -69,7 +69,7 @@
             "type": "enhancement",
             "url": "https://access.redhat.com/errata/{id}",
             "examples": [
-              {"input": "RHEA-2024:9012", "url": "https://access.redhat.com/errata/RHEA-2024:9012"}
+              {"input": "RHEA-2024:0556", "url": "https://access.redhat.com/errata/RHEA-2024:0556", "note": "Red Hat Enhancement Advisory"}
             ]
           }
         }

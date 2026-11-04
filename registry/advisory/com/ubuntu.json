@@ -31,7 +31,7 @@
           {"type": "website", "url": "https://ubuntu.com/security/notices"},
           {"type": "lookup", "url": "https://ubuntu.com/security/notices/{id}"}
         ],
-        "examples": ["USN-6543-1", "USN-6789-2"]
+        "examples": ["USN-6543-1", "USN-6725-2"]
       },
       "children": [
         {
@@ -42,7 +42,7 @@
             "url": "https://ubuntu.com/security/notices/{id}",
             "examples": [
               {"input": "USN-6543-1", "url": "https://ubuntu.com/security/notices/USN-6543-1"},
-              {"input": "USN-6789-2", "url": "https://ubuntu.com/security/notices/USN-6789-2", "note": "Suffix -2 indicates a revision or update to the original notice"}
+              {"input": "USN-6725-2", "url": "https://ubuntu.com/security/notices/USN-6725-2", "note": "Suffix -2 indicates a revision or update to the original notice"}
             ]
           }
         }
@@ -115,7 +115,7 @@
           {"type": "website", "url": "https://bugs.launchpad.net"},
           {"type": "lookup", "url": "https://bugs.launchpad.net/bugs/{id}"}
         ],
-        "examples": ["1234567", "2045678"]
+        "examples": ["2059427", "2045678"]
       },
       "children": [
         {
@@ -125,7 +125,7 @@
           "data": {
             "url": "https://bugs.launchpad.net/bugs/{id}",
             "examples": [
-              {"input": "1234567", "url": "https://bugs.launchpad.net/bugs/1234567"},
+              {"input": "2059427", "url": "https://bugs.launchpad.net/bugs/2059427", "note": "Ubuntu Launchpad bug tracking XZ Utils backdoor (CVE-2024-3094)"},
               {"input": "2045678", "url": "https://bugs.launchpad.net/bugs/2045678"}
             ]
           }

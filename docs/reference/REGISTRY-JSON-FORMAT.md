@@ -590,6 +590,14 @@ The `notes` field provides free-form context that doesn't fit into structured fi
 - Enrichment data (severity, affected products, authors)
 - Relationship data that should be machine-readable (belongs in the relationship layer)
 
+##### Regulation Status Snapshots
+
+In `registry/regulation/`, a bill's or statute's lifecycle state in `match_nodes[].data.notes` follows three rules ([ADR-016](../../DECISIONS.md), enforced by `scripts/check-regulation-status.py`):
+
+1. **Dated snapshot format:** Begin the status note with `Status: <Proposed | Enacted | In force | Died on the Order Paper> (<stage or commencement details>; verified as of YYYY-MM-DD).` Every `Status:` clause must carry an explicit ISO verification date (`verified as of YYYY-MM-DD`).
+2. **Never treat the snapshot as timeless truth:** The snapshot exists for discovery and sorting. Any agent, researcher, or tool that states a bill's or statute's current legal status must check the live primary source in `data.urls` (and machine-readable legislative APIs such as Parliament of Canada's LEGISinfo `/json` endpoint where available) rather than relying on `data.notes` alone.
+3. **Terminal states are not exempt from re-verification:** `scripts/check-regulation-status.py` checks snapshot age for both `Proposed` bills (default 90-day cadence) and `Enacted` / `In force` / `Died on the Order Paper` entries (default 180-day cadence), because dead bills are frequently reintroduced in new parliamentary sessions and enacted laws undergo phased commencement, amendment, or repeal. Where a legislature resets bill numbers each session (such as `parl.ca`), record the parliament/session in `data.notes` and note any prominent prior-session homonyms.
+
 #### URLs
 
 Two URL mechanisms exist in the registry:

@@ -30,12 +30,12 @@
         "urls": [
           {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"}
         ],
-        "examples": ["art-32", "art-5", "recital-78"]
+        "examples": ["art-32", "art-32.1.a", "art-5", "recital-78"]
       },
       "children": [
         {
-          "patterns": ["^art-\\d+(\\.[a-z])?$"],
-          "description": "GDPR article reference (e.g., art-32, art-5). Articles are the operative legal provisions.",
+          "patterns": ["^art-(?:[1-9]|[1-9]\\d)(\\.\\d+)*(\\.[a-z])*$"],
+          "description": "GDPR article, paragraph, and point reference (Articles 1–99, e.g., art-32, art-32.1, art-32.1.a, art-5.1.f). Articles are the operative legal provisions.",
           "weight": 100,
           "data": {
             "url": "https://eur-lex.europa.eu/legal-content/{lang}/TXT/HTML/?uri=CELEX:32016R0679",
@@ -48,6 +48,7 @@
             "note": "EUR-Lex full-text HTML. Per-article anchors not available via stable URL pattern. Third-party sites (gdpr-info.eu) provide per-article pages but are not official EU resources.",
             "examples": [
               {"input": "art-32", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Security of processing — requires appropriate technical and organizational measures"},
+              {"input": "art-32.1.a", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Article 32(1)(a) — pseudonymisation and encryption of personal data"},
               {"input": "art-5", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Principles relating to processing of personal data"},
               {"input": "art-17", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Right to erasure ('right to be forgotten')"},
               {"input": "art-25", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Data protection by design and by default"}
@@ -55,8 +56,11 @@
           }
         },
         {
-          "patterns": ["^(chapter|recital)-\\d+$"],
-          "description": "GDPR chapter or recital reference. Recitals provide interpretive context for articles.",
+          "patterns": [
+            "^chapter-(?:[1-9]|1[01])$",
+            "^recital-(?:[1-9]|[1-9]\\d|1[0-6]\\d|17[0-3])$"
+          ],
+          "description": "GDPR chapter (1–11) or recital (1–173) reference. Recitals provide interpretive context for articles.",
           "weight": 100,
           "data": {
             "url": "https://eur-lex.europa.eu/legal-content/{lang}/TXT/HTML/?uri=CELEX:32016R0679",
@@ -89,31 +93,52 @@
         "urls": [
           {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
         ],
-        "examples": ["art-6", "annex-III", "art-50", "art-52"]
+        "examples": ["art-6", "art-17.1.a", "annex-III", "annex-IV.2.f", "annex-IV.2.g", "recital-81", "art-50", "art-52"]
       },
       "children": [
         {
-          "patterns": ["^art-\\d+$"],
-          "description": "AI Act article reference.",
+          "patterns": ["^art-(?:[1-9]|[1-9]\\d|10\\d|11[0-3])(\\.\\d+)*(\\.[a-z])*$"],
+          "description": "AI Act article, paragraph, and point reference (Articles 1–113, e.g., art-6, art-17.1, art-17.1.a, art-16.c).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
             "examples": [
               {"input": "art-5", "note": "Prohibited AI practices (subliminal/manipulative techniques and exploitation of vulnerable groups)"},
               {"input": "art-6", "note": "Classification rules for high-risk AI systems"},
+              {"input": "art-16.c", "note": "Article 16, point (c) — provider obligation to have a quality management system in place which complies with Article 17"},
+              {"input": "art-17.1", "note": "Article 17(1) — quality management system requirement for providers of high-risk AI systems"},
+              {"input": "art-17.1.a", "note": "Article 17(1)(a) — strategy for regulatory compliance, including conformity assessment and management of modifications"},
               {"input": "art-50", "note": "Transparency obligations for providers and deployers of certain AI systems (including chatbots interacting directly with natural persons; numbered art-52 in the 2021 Commission draft)"},
               {"input": "art-52", "note": "Procedure for the classification of general-purpose AI models with systemic risk in enacted Regulation (EU) 2024/1689 (note: in the 2021 Commission draft proposal, art-52 was the chatbot transparency provision now enacted as art-50)"}
             ]
           }
         },
         {
-          "patterns": ["^annex-[IVX]+$"],
-          "description": "AI Act annex reference (Roman numerals). Annexes define technical requirements and high-risk categories.",
+          "patterns": ["^annex-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII)(\\.\\d+)*(\\.[a-z])*$"],
+          "description": "AI Act annex, section, and point reference (Annexes I–XIII with optional section/point path, e.g., annex-III, annex-IV, annex-IV.2.f, annex-IV.2.g). Annexes define technical requirements and high-risk categories.",
           "weight": 100,
           "data": {
-            "note": "Annexes are integral to the AI Act's risk classification system. Annex III lists high-risk AI system areas.",
+            "note": "Annexes are integral to the AI Act's risk classification and conformity system. Annex III lists high-risk AI system areas; Annex IV specifies required technical documentation elements.",
             "examples": [
-              {"input": "annex-III", "note": "Areas of high-risk AI systems (biometrics, critical infrastructure, education, employment, etc.)"}
+              {"input": "annex-III", "note": "Areas of high-risk AI systems (biometrics, critical infrastructure, education, employment, etc.)"},
+              {"input": "annex-IV", "note": "Technical documentation referred to in Article 11(1)"},
+              {"input": "annex-IV.2.f", "note": "Annex IV, Section 2, point (f) — detailed description of pre-determined changes to the AI system and its performance"},
+              {"input": "annex-IV.2.g", "note": "Annex IV, Section 2, point (g) — validation and testing procedures, data characteristics, and metrics for accuracy, robustness, and compliance"}
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^chapter-(?:[1-9]|1[0-3])$",
+            "^recital-(?:[1-9]|[1-9]\\d|1[0-7]\\d|180)$"
+          ],
+          "description": "AI Act chapter (1–13) or recital (1–180) reference (e.g., recital-81, chapter-3). Recitals provide interpretive context for articles.",
+          "weight": 100,
+          "data": {
+            "note": "Chapters group related articles. Recitals precede the operative articles in Regulation (EU) 2024/1689 and provide interpretive context.",
+            "examples": [
+              {"input": "recital-81", "note": "Recital on quality management systems and technical documentation for high-risk AI systems"},
+              {"input": "chapter-3", "note": "Chapter III — High-Risk AI Systems"}
             ]
           }
         }
@@ -133,18 +158,33 @@
         "urls": [
           {"type": "website", "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"}
         ],
-        "examples": ["art-21", "art-23"]
+        "examples": ["art-21", "art-21.2.a", "art-23"]
       },
       "children": [
         {
-          "patterns": ["^art-\\d+$"],
-          "description": "NIS2 article reference.",
+          "patterns": ["^art-(?:[1-9]|[1-3]\\d|4[0-6])(\\.\\d+)*(\\.[a-z])*$"],
+          "description": "NIS2 article, paragraph, and point reference (Articles 1–46, e.g., art-21, art-21.2.a, art-23).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full directive as a single document.",
             "examples": [
               {"input": "art-21", "note": "Cybersecurity risk-management measures"},
+              {"input": "art-21.2.a", "note": "Article 21(2)(a) — policies on risk analysis and information system security"},
               {"input": "art-23", "note": "Reporting obligations for significant incidents"}
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^chapter-[1-9]$",
+            "^recital-(?:[1-9]|[1-9]\\d|1[0-3]\\d|14[0-4])$"
+          ],
+          "description": "NIS2 chapter (1–9) or recital (1–144) reference.",
+          "weight": 100,
+          "data": {
+            "note": "Chapters group related articles; recitals provide interpretive guidance for Directive (EU) 2022/2555.",
+            "examples": [
+              {"input": "recital-85", "note": "Recital on cybersecurity risk-management and supply-chain security measures"}
             ]
           }
         }
@@ -164,18 +204,33 @@
         "urls": [
           {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"}
         ],
-        "examples": ["art-6", "art-19"]
+        "examples": ["art-6", "art-6.1", "art-19"]
       },
       "children": [
         {
-          "patterns": ["^art-\\d+$"],
-          "description": "DORA article reference.",
+          "patterns": ["^art-(?:[1-9]|[1-5]\\d|6[0-4])(\\.\\d+)*(\\.[a-z])*$"],
+          "description": "DORA article, paragraph, and point reference (Articles 1–64, e.g., art-6, art-6.1, art-19).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
             "examples": [
               {"input": "art-6", "note": "ICT risk management framework"},
+              {"input": "art-6.1", "note": "Article 6(1) — requirement to have a sound, comprehensive, and well-documented ICT risk management framework"},
               {"input": "art-19", "note": "Reporting of major ICT-related incidents"}
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^chapter-[1-9]$",
+            "^recital-(?:[1-9]|[1-9]\\d|10[0-6])$"
+          ],
+          "description": "DORA chapter (1–9) or recital (1–106) reference.",
+          "weight": 100,
+          "data": {
+            "note": "Chapters group related articles; recitals provide interpretive guidance for Regulation (EU) 2022/2554.",
+            "examples": [
+              {"input": "chapter-2", "note": "Chapter II — ICT risk management"}
             ]
           }
         }
@@ -481,7 +536,7 @@
         "common_name": "EU KIDS Act",
         "alternate_names": ["COM(2026) 681 final", "CELEX:52026PC0681", "Proposal for a Regulation on the protection of minors online"],
         "description": "European Commission legislative proposal harmonizing child online safety, privacy-preserving age verification (via the EU Digital Identity Wallet), and restrictions on addictive or manipulative design features and AI companion interactions affecting minors.",
-        "notes": "Status: Proposed (adopted by the European Commission September 17, 2026 as COM(2026) 681 final; pending ordinary legislative procedure in the European Parliament and Council as of 2026-11-03). Complements the Digital Services Act (DSA Art. 28) and the EU AI Act (Art. 5 and Art. 50).",
+        "notes": "Status: Proposed (adopted by the European Commission September 17, 2026 as COM(2026) 681 final; pending ordinary legislative procedure in the European Parliament and Council; verified as of 2026-11-03). Complements the Digital Services Act (DSA Art. 28) and the EU AI Act (Art. 5 and Art. 50).",
         "urls": [
           {"type": "proposal", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52026PC0681"}
         ],

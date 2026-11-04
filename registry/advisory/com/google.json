@@ -33,7 +33,7 @@
           {"type": "bulk_data", "url": "https://osv-vulnerabilities.storage.googleapis.com"},
           {"type": "lookup", "url": "https://osv.dev/vulnerability/{id}"}
         ],
-        "examples": ["PYSEC-2024-1", "RUSTSEC-2024-0001", "GO-2024-0001", "GHSA-xxxx-xxxx-xxxx"]
+        "examples": ["PYSEC-2024-1", "RUSTSEC-2024-0001", "GO-2024-2887", "GHSA-jfh8-c2jp-5v3q"]
       },
       "children": [
         {
@@ -68,7 +68,7 @@
             "type": "ecosystem-go",
             "url": "https://osv.dev/vulnerability/{id}",
             "examples": [
-              {"input": "GO-2024-0001", "url": "https://osv.dev/vulnerability/GO-2024-0001"}
+              {"input": "GO-2024-2887", "url": "https://osv.dev/vulnerability/GO-2024-2887"}
             ]
           }
         },

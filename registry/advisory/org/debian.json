@@ -93,7 +93,7 @@
         "unversioned_behavior": "current",
         "version_disambiguation": null,
         "versions_available": null,
-        "examples": ["DLA-1234-1", "DLA-3456-2"]
+        "examples": ["DLA-3456-2", "DLA-4100-1"]
       },
       "children": [
         {
@@ -191,7 +191,7 @@
         "unversioned_behavior": "current",
         "version_disambiguation": null,
         "versions_available": null,
-        "examples": ["1012345", "987654"]
+        "examples": ["1068024", "1053907"]
       },
       "children": [
         {
@@ -199,7 +199,10 @@
           "description": "Debian bug number (numeric)",
           "weight": 100,
           "data": {
-            "url": "https://bugs.debian.org/{id}"
+            "url": "https://bugs.debian.org/{id}",
+            "examples": [
+              {"input": "1068024", "url": "https://bugs.debian.org/1068024", "note": "Debian BTS tracking bug for CVE-2024-3094 (xz-utils backdoor)"}
+            ]
           }
         }
       ]

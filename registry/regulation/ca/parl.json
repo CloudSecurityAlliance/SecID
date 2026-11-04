@@ -3,7 +3,7 @@
   "namespace": "parl.ca",
   "type": "regulation",
   "status": "draft",
-  "status_notes": "Updated 2026-11-03 for SecID#215 (National Security Act 2017, NSIRA Act, NSICOP Act statutory review framework) and SecID#208 (Bill C-34 Safe Social Media Act regulating AI chatbots).",
+  "status_notes": "Updated 2026-11-04 for SecID#228 (Bill C-34 second reading and CHPC committee referral snapshot, LEGISinfo JSON endpoints), SecID#215 (National Security Act 2017, NSIRA Act, NSICOP Act statutory review framework), and SecID#208 (Bill C-34 Safe Social Media Act regulating AI chatbots).",
   "official_name": "Parliament of Canada",
   "common_name": null,
   "alternate_names": [
@@ -41,11 +41,16 @@
           "Part 3 of Bill C-27"
         ],
         "description": "Proposed Canadian federal AI regulation. Part of Bill C-27 (Digital Charter Implementation Act, 2022).",
-        "notes": "Part of Bill C-27 (Digital Charter Implementation Act). Proposes regulation of AI systems in Canada. Includes high-impact AI system requirements: risk assessments, mitigation measures, transparency, record-keeping. Establishes the AI and Data Commissioner. Status as of 2026-11-03: Bill C-27 died on the Order Paper when the 44th Parliament was prorogued/dissolved in early 2025.",
+        "notes": "Status: Died on the Order Paper (44th Parliament, 1st Session; died when the 44th Parliament was prorogued/dissolved in early 2025; verified as of 2026-11-04). Part of Bill C-27 (Digital Charter Implementation Act). Proposes regulation of AI systems in Canada. Includes high-impact AI system requirements: risk assessments, mitigation measures, transparency, record-keeping. Establishes the AI and Data Commissioner.",
         "urls": [
           {
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-27"
+          },
+          {
+            "type": "api",
+            "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-27/json",
+            "note": "LEGISinfo machine-readable bill status JSON"
           },
           {
             "type": "source",
@@ -75,12 +80,17 @@
           "Part 2 of Bill C-26 (44th Parliament)"
         ],
         "description": "Mandates cybersecurity programs and incident reporting for designated critical-infrastructure operators across finance, energy, transport, and telecom sectors.",
-        "notes": "Originally introduced in the 44th Parliament as Part 2 of Bill C-26 (which died on the Order Paper upon dissolution in early 2025); reintroduced in the 45th Parliament, 1st Session as Bill C-8 (An Act respecting cyber security, amending the Telecommunications Act and making consequential amendments to other Acts), which received Royal Assent on June 15, 2026 (S.C. 2026, c. 9). Status verified as of 2026-11-03.",
+        "notes": "Status: Enacted (Royal Assent June 15, 2026; S.C. 2026, c. 9; verified as of 2026-11-04). Originally introduced in the 44th Parliament as Part 2 of Bill C-26 (which died on the Order Paper upon dissolution in early 2025); reintroduced in the 45th Parliament, 1st Session as Bill C-8 (An Act respecting cyber security, amending the Telecommunications Act and making consequential amendments to other Acts).",
         "urls": [
           {
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-8",
             "note": "45th Parliament, 1st Session — Bill C-8 (Royal Assent June 15, 2026; S.C. 2026, c. 9)"
+          },
+          {
+            "type": "api",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-8/json",
+            "note": "LEGISinfo machine-readable bill status JSON"
           },
           {
             "type": "website",
@@ -111,11 +121,16 @@
           "Bill C-34 (45th Parliament, 1st Session)"
         ],
         "description": "Proposed Canadian federal legislation regulating social media platforms and AI chatbot services accessible to Canadians, with a statutory Duty to Act Responsibly toward child users and mandatory safeguards against manipulative AI companion design.",
-        "notes": "Status: Proposed (45th Parliament, 1st Session; First Reading June 10, 2026; verified as of 2026-11-03). Explicitly brings interactive AI chatbot services within the scope of the Digital Safety Act: prohibits bots from deceptively claiming to be human or impersonating licensed medical/mental health professionals, bars design features intended to induce emotional dependency or harm in minors, requires risk assessments and mitigation plans, and establishes the Digital Safety Commission of Canada.",
+        "notes": "Status: Proposed — At consideration in committee in the House of Commons; passed second reading on October 29, 2026 (agreed to on division) and referred to the Standing Committee on Canadian Heritage (CHPC); first reading June 10, 2026 (45th Parliament, 1st Session; verified as of 2026-11-04). Note: Bill numbers reset each parliamentary session; in the 44th Parliament, 1st Session, Bill C-34 was the National Security Review of Investments Modernization Act (S.C. 2024, c. 4, amending the Investment Canada Act). Explicitly brings interactive AI chatbot services within the scope of the Digital Safety Act: prohibits bots from deceptively claiming to be human or impersonating licensed medical/mental health professionals, bars design features intended to induce emotional dependency or harm in minors, requires risk assessments and mitigation plans, and establishes the Digital Safety Commission of Canada.",
         "urls": [
           {
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-34"
+          },
+          {
+            "type": "api",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-34/json",
+            "note": "LEGISinfo machine-readable bill status JSON"
           }
         ],
         "examples": [

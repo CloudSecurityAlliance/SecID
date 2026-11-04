@@ -41,11 +41,36 @@
         "common_name": "OSA",
         "alternate_names": ["2023 c. 50"],
         "description": "UK law imposing duties of care on online platforms regarding illegal content and content harmful to children. Enforced by Ofcom.",
-        "notes": "Status: In force (Royal Assent October 26, 2023; phased commencement through 2025-2026; verified as of 2026-11-03). Amended in April 2026 to explicitly regulate AI chatbots: Section 216A (inserted by the Crime and Policing Act 2026, s. 248) empowers the Secretary of State to bring standalone AI chatbot providers and AI content-generation tools within OSA scope, and Section 214A (inserted by the Children's Wellbeing and Schools Act 2026, s. 70) empowers regulations restricting or preventing children's access to high-risk interactive or AI features.",
+        "notes": "Status: In force (Royal Assent October 26, 2023; phased commencement through 2025-2026; verified as of 2026-11-04). Amended in April 2026 to explicitly regulate AI chatbots: Section 216A (inserted by the Crime and Policing Act 2026, s. 248) empowers the Secretary of State to bring standalone AI chatbot providers and AI content-generation tools within OSA scope, and Section 214A (inserted by the Children's Wellbeing and Schools Act 2026, s. 70) empowers regulations restricting or preventing children's access to high-risk interactive or AI features.",
         "urls": [
           {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2023/50/contents"}
-        ]
-      }
+        ],
+        "examples": ["s-1", "s-214A", "s-216A"]
+      },
+      "children": [
+        {
+          "patterns": ["^s-\\d+[A-Z]?$"],
+          "description": "Online Safety Act 2023 section reference (e.g., s-1, s-214A, s-216A)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.legislation.gov.uk/ukpga/2023/50/section/{num}",
+            "variables": {
+              "num": {
+                "extract": "^s-(\\d+[A-Z]?)$",
+                "description": "Section number (with optional uppercase letter suffix for inserted sections)"
+              }
+            },
+            "examples": [
+              {
+                "input": "s-1",
+                "variables": {"num": "1"},
+                "url": "https://www.legislation.gov.uk/ukpga/2023/50/section/1",
+                "note": "Introduction and overview of the Online Safety Act 2023"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": ["^crime-and-policing-act-2026$", "^ukpga-2026-20$"],
@@ -56,12 +81,36 @@
         "common_name": "Crime and Policing Act 2026",
         "alternate_names": ["2026 c. 20"],
         "description": "UK Act of Parliament reforming criminal justice, policing, and online offences; Section 248 inserts Section 216A into the Online Safety Act 2023 to bring standalone AI chatbots and AI-generated content providers within statutory online-safety regulation.",
-        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 20; verified as of 2026-11-03). Closes the Online Safety Act gap for one-to-one AI chatbot interactions that did not previously qualify as user-to-user or search services.",
+        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 20; verified as of 2026-11-04). Section 248 (introduced during parliamentary passage as government amendment New Clause NC120) inserts Section 216A into the Online Safety Act 2023, closing the OSA gap for one-to-one AI chatbot interactions that did not previously qualify as user-to-user or search services.",
         "urls": [
           {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/20/contents"}
         ],
-        "examples": ["crime-and-policing-act-2026", "ukpga-2026-20"]
-      }
+        "examples": ["s-248"]
+      },
+      "children": [
+        {
+          "patterns": ["^s-\\d+[A-Z]?$"],
+          "description": "Crime and Policing Act 2026 section reference (e.g., s-248)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.legislation.gov.uk/ukpga/2026/20/section/{num}",
+            "variables": {
+              "num": {
+                "extract": "^s-(\\d+[A-Z]?)$",
+                "description": "Section number"
+              }
+            },
+            "examples": [
+              {
+                "input": "s-248",
+                "variables": {"num": "248"},
+                "url": "https://www.legislation.gov.uk/ukpga/2026/20/section/248",
+                "note": "Section 248 (introduced as amendment NC120) — inserts Section 216A into the Online Safety Act 2023 to cover AI chatbot and content-generation providers"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": ["^childrens-wellbeing-and-schools-act-2026$", "^ukpga-2026-21$"],
@@ -72,12 +121,36 @@
         "common_name": "Children's Wellbeing and Schools Act 2026",
         "alternate_names": ["2026 c. 21"],
         "description": "UK Act of Parliament on child protection and education; Section 70 inserts Section 214A into the Online Safety Act 2023 enabling secondary regulations to restrict, time-limit, or prevent children's access to specified services or interactive AI chatbot features of concern.",
-        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 21; verified as of 2026-11-03).",
+        "notes": "Status: In force (Royal Assent April 2026; 2026 c. 21; verified as of 2026-11-04).",
         "urls": [
           {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/21/contents"}
         ],
-        "examples": ["childrens-wellbeing-and-schools-act-2026", "ukpga-2026-21"]
-      }
+        "examples": ["s-70"]
+      },
+      "children": [
+        {
+          "patterns": ["^s-\\d+[A-Z]?$"],
+          "description": "Children's Wellbeing and Schools Act 2026 section reference (e.g., s-70)",
+          "weight": 100,
+          "data": {
+            "url": "https://www.legislation.gov.uk/ukpga/2026/21/section/{num}",
+            "variables": {
+              "num": {
+                "extract": "^s-(\\d+[A-Z]?)$",
+                "description": "Section number"
+              }
+            },
+            "examples": [
+              {
+                "input": "s-70",
+                "variables": {"num": "70"},
+                "url": "https://www.legislation.gov.uk/ukpga/2026/21/section/70",
+                "note": "Section 70 — inserts Section 214A into the Online Safety Act 2023 on powers to restrict or prevent children's access to specified services or features"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": ["(?i)^cma$", "(?i)^computer-misuse-act$"],
@@ -134,7 +207,7 @@
         "common_name": "CSR Bill",
         "alternate_names": null,
         "description": "Proposed UK legislation (not yet enacted as of registration), sponsored by the Department for Science, Innovation and Technology (DSIT), expanding UK NIS Regulations 2018 (secid:regulation/gov.uk/nis-regs-2018) coverage to more digital services/supply chains, with stronger regulator enforcement and incident-reporting powers, and covering managed service providers.",
-        "notes": "Status: proposed/in progress, not yet Royal Assent as of this sweep entry (2026). Revisit once enacted.",
+        "notes": "Status: Proposed (in progress; not yet Royal Assent; verified as of 2026-11-04). Revisit once enacted.",
         "urls": [
           {"type": "website", "url": "https://www.gov.uk/government/publications/cyber-security-and-resilience-bill"}
         ],
