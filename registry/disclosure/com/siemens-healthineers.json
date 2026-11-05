@@ -3,11 +3,11 @@
   "namespace": "siemens-healthineers.com",
   "type": "disclosure",
   "status": "draft",
-  "status_notes": "Vendor cybersecurity & advisory entry for Siemens Healthineers; vulnerability handling and CVEs are coordinated with Siemens ProductCERT (secid:disclosure/siemens.com/cna).",
+  "status_notes": "Vendor cybersecurity & vulnerability disclosure entry for Siemens Healthineers.",
   "official_name": "Siemens Healthineers AG",
   "common_name": "Siemens Healthineers",
   "alternate_names": null,
-  "notes": "Medical imaging, laboratory diagnostics, and healthcare IT company. Publishes product security advisories on siemens-healthineers.com and coordinates vulnerability handling with Siemens ProductCERT (see secid:disclosure/siemens.com/cna).",
+  "notes": "Medical imaging, laboratory diagnostics, and healthcare IT company. Operates a dedicated Siemens Healthineers Product Security vulnerability intake (productsecurity@siemens-healthineers.com) and advisory portal on siemens-healthineers.com.",
   "wikidata": [
     "Q20001279"
   ],
@@ -27,7 +27,7 @@
         "(?i)^cert$",
         "(?i)^cna$"
       ],
-      "description": "Siemens Healthineers Product Security / ProductCERT",
+      "description": "Siemens Healthineers Product Security",
       "weight": 80,
       "data": {
         "canonical_name": "psirt",
@@ -38,25 +38,25 @@
         "contacts": [
           {
             "type": "email",
-            "value": "productcert@siemens.com",
-            "note": "Siemens ProductCERT"
+            "value": "productsecurity@siemens-healthineers.com",
+            "note": "Siemens Healthineers Product Security"
           },
           {
             "type": "web",
-            "value": "https://www.siemens-healthineers.com/support-documentation/cybersecurity",
-            "note": "Siemens Healthineers Cybersecurity portal"
+            "value": "https://www.siemens-healthineers.com/support-documentation/cybersecurity/vulnerability-handling-disclosure-process",
+            "note": "Siemens Healthineers vulnerability handling and disclosure process"
           }
         ],
         "urls": [
           {
             "type": "website",
             "url": "https://www.siemens-healthineers.com/support-documentation/cybersecurity",
-            "note": "Siemens Healthineers security advisories & vulnerability reporting"
+            "note": "Siemens Healthineers security advisories & cybersecurity portal"
           },
           {
             "type": "docs",
-            "url": "https://www.siemens.com/global/en/products/services/cert/vulnerability-process.html",
-            "note": "ProductCERT vulnerability handling process"
+            "url": "https://www.siemens-healthineers.com/support-documentation/cybersecurity/vulnerability-handling-disclosure-process",
+            "note": "Siemens Healthineers vulnerability handling and disclosure process"
           }
         ],
         "examples": []

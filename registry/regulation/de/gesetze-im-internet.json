@@ -44,17 +44,23 @@
       "patterns": [
         "(?i)^nis2umsucg$"
       ],
-      "description": "NIS2UmsuCG — German NIS2 transposition",
+      "description": "NIS2UmsuCG — Gesetz zur Umsetzung der NIS-2-Richtlinie und zur Regelung wesentlicher Grundzüge des Informationssicherheitsmanagements in der Bundesverwaltung (German NIS2 transposition)",
       "weight": 100,
       "data": {
-        "official_name": "Gesetz zur Umsetzung der NIS-2-Richtlinie",
+        "official_name": "Gesetz zur Umsetzung der NIS-2-Richtlinie und zur Regelung wesentlicher Grundzüge des Informationssicherheitsmanagements in der Bundesverwaltung",
         "common_name": "NIS2UmsuCG",
         "alternate_names": [
-          "NIS-2-Umsetzungsgesetz"
+          "NIS-2-Umsetzungs- und Cybersicherheitsstärkungsgesetz",
+          "NIS-2-Umsetzungsgesetz",
+          "BGBl. 2025 I Nr. 301"
         ],
-        "description": "German transposition of NIS2 Directive (EU) 2022/2555.",
-        "notes": "Adoption process extended into 2025. Transposes Directive (EU) 2022/2555 — see secid:regulation/europa.eu/nis2.",
+        "description": "German transposition of the EU NIS2 Directive (EU) 2022/2555; Article 1 enacted the recast BSI-Gesetz (BSIG 2025).",
+        "notes": "Status: In force (enacted 2 December 2025, BGBl. 2025 I Nr. 301, effective 6 December 2025; verified as of 2026-11-05). Transposes Directive (EU) 2022/2555 (see secid:regulation/europa.eu/nis2) and replaces the 2009 BSI-Gesetz with the 2025 BSIG (see secid:regulation/gesetze-im-internet.de/bsig).",
         "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsig_2025/"
+          },
           {
             "type": "website",
             "url": "https://www.bsi.bund.de/DE/Das-BSI/Auftrag/Rechtsgrundlagen/NIS-2/nis-2_node.html"
@@ -144,26 +150,55 @@
     {
       "patterns": [
         "(?i)^bsig$",
-        "(?i)^bsig-2009$"
+        "(?i)^bsig-2025$"
       ],
-      "description": "BSIG — Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI Act)",
+      "description": "BSIG — Gesetz über das Bundesamt für Sicherheit in der Informationstechnik und über die Sicherheit in der Informationstechnik von Einrichtungen (BSI Act 2025)",
       "weight": 100,
       "data": {
         "canonical_name": "bsig",
-        "official_name": "Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI-Gesetz — BSIG)",
+        "official_name": "Gesetz über das Bundesamt für Sicherheit in der Informationstechnik und über die Sicherheit in der Informationstechnik von Einrichtungen (BSI-Gesetz — BSIG)",
         "common_name": "BSIG",
         "alternate_names": [
           "BSI Act",
           "BSI-Gesetz",
-          "BGBl. I 2009 S. 2821"
+          "BSIG 2025",
+          "BGBl. 2025 I Nr. 301"
         ],
-        "description": "German federal statute establishing the mandate, powers, critical-infrastructure security obligations (§ 8a/8b), and federal cloud/IT security standards authority of the Federal Office for Information Security (BSI).",
-        "notes": "Status: In force (enacted 14 August 2009, BGBl. I S. 2821; amended by IT-Sicherheitsgesetz 1.0 and 2.0; verified as of 2026-11-05). Cross-reference: technical control catalogues and attestation criteria issued by BSI under this mandate (IT-Grundschutz, C5, AIC4, A5, TR series) live under secid:control/bsi.bund.de (e.g. secid:control/bsi.bund.de/c5).",
+        "description": "German federal statute establishing the mandate and powers of the Federal Office for Information Security (BSI), federal IT/cloud security standards authority, and cybersecurity risk-management, registration, and incident-reporting obligations (§§ 28–39) for essential and important entities and operators of critical facilities.",
+        "notes": "Status: In force (enacted 2 December 2025 by Article 1 of NIS2UmsuCG, BGBl. 2025 I Nr. 301, effective 6 December 2025, replacing BSIG 2009; verified as of 2026-11-05). Cross-reference: technical control catalogues and attestation criteria issued by BSI under this mandate (IT-Grundschutz, C5, AIC4, A5, TR series) live under secid:control/bsi.bund.de (e.g. secid:control/bsi.bund.de/c5); historical citations to the repealed 2009 Act resolve at secid:regulation/gesetze-im-internet.de/bsig-2009.",
         "urls": [
           {
             "type": "legal_text",
-            "url": "https://www.gesetze-im-internet.de/bsig_2009/"
+            "url": "https://www.gesetze-im-internet.de/bsig_2025/"
           },
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsig_2025/BJNR12D0B0025.html",
+            "note": "Full statutory text on gesetze-im-internet.de"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^bsig-2009$"
+      ],
+      "description": "BSIG 2009 — Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (superseded 2009 BSI Act)",
+      "weight": 60,
+      "data": {
+        "canonical_name": "bsig-2009",
+        "official_name": "Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI-Gesetz — BSIG 2009)",
+        "common_name": "BSIG 2009",
+        "alternate_names": [
+          "BGBl. I 2009 S. 2821"
+        ],
+        "description": "Historical 2009 BSI Act (including §§ 8a/8b critical-infrastructure obligations added by IT-Sicherheitsgesetz 1.0 and 2.0), superseded on 6 December 2025 by the recast BSIG 2025 enacted via NIS2UmsuCG.",
+        "notes": "Repealed and replaced on 6 December 2025 by the recast BSIG (BGBl. 2025 I Nr. 301) — use secid:regulation/gesetze-im-internet.de/bsig for the statute currently in force.",
+        "urls": [
           {
             "type": "website",
             "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
@@ -186,8 +221,8 @@
           "BSI Critical Infrastructure Ordinance",
           "BGBl. I 2016 S. 958"
         ],
-        "description": "Ordinance under § 10(1) BSIG defining sector thresholds and covered facilities across energy, water, food, IT/telecommunications, health, finance/insurance, transport, and municipal waste management.",
-        "notes": "Status: In force (enacted 22 April 2016, BGBl. I S. 958; verified as of 2026-11-05). Administered by BSI (see secid:control/bsi.bund.de for BSI technical security standards).",
+        "description": "Ordinance under the BSI Act defining sector thresholds and covered critical facilities across energy, water, food, IT/telecommunications, health, finance/insurance, transport, and municipal waste management.",
+        "notes": "Status: In force (enacted 22 April 2016, BGBl. I S. 958; statutory authority transitioned to § 56(4) BSIG 2025; verified as of 2026-11-05). Administered by BSI (see secid:control/bsi.bund.de for BSI technical security standards).",
         "urls": [
           {
             "type": "legal_text",
