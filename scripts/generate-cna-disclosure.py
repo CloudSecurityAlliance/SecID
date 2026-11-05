@@ -57,27 +57,27 @@ def derive_domain(p):
 
     for c in p.get("contacts", []):
         if c["type"] == "email":
-            domain = c["value"].split("@")[-1]
+            domain = c["value"].split("@")[-1].lower()
             if domain not in ("gmail.com", "outlook.com", "yahoo.com", "protonmail.com"):
                 candidates[domain] += 10
 
     for pol in p.get("policy_urls", []):
-        d = urlparse(pol.get("url", "")).netloc.removeprefix("www.")
+        d = urlparse(pol.get("url", "")).netloc.lower().removeprefix("www.")
         if d and "cve.org" not in d:
             candidates[d] += 5
 
     for cp in p.get("contact_pages", []):
-        d = urlparse(cp.get("url", "")).netloc.removeprefix("www.")
+        d = urlparse(cp.get("url", "")).netloc.lower().removeprefix("www.")
         if d and "cve.org" not in d:
             candidates[d] += 3
 
     if p.get("advisories_url"):
-        d = urlparse(p["advisories_url"]).netloc.removeprefix("www.")
+        d = urlparse(p["advisories_url"]).netloc.lower().removeprefix("www.")
         if d and "cve.org" not in d:
             candidates[d] += 3
 
     for link in p.get("other_links", []):
-        d = urlparse(link.get("url", "")).netloc.removeprefix("www.")
+        d = urlparse(link.get("url", "")).netloc.lower().removeprefix("www.")
         if d and "cve.org" not in d:
             candidates[d] += 1
 
@@ -94,12 +94,12 @@ def derive_domain(p):
                 root = ".".join(parts[-3:])
             root_scores[root] += score
 
-    return root_scores.most_common(1)[0][0] if root_scores else None
+    return root_scores.most_common(1)[0][0].lower() if root_scores else None
 
 
 def domain_to_path(domain):
     """Convert domain to registry filesystem path."""
-    parts = domain.split(".")
+    parts = domain.lower().split(".")
     if len(parts) == 2:
         return REGISTRY_DIR / parts[1] / f"{parts[0]}.json"
     elif len(parts) == 3:

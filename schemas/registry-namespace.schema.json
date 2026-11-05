@@ -13,9 +13,9 @@
     },
     "namespace": {
       "type": "string",
-      "description": "Organization identifier — lowercase domain name, optionally with /path segments (e.g., 'mitre.org', 'github.com/advisories').",
+      "description": "Organization identifier — lowercase domain name (ASCII or Unicode IDN per SPEC.md §4.2), optionally with /path segments (e.g., 'mitre.org', 'github.com/advisories').",
       "minLength": 1,
-      "pattern": "^[a-z0-9.-]+(/[a-z0-9._-]+)*$"
+      "pattern": "^[^A-Z\\s]+$"
     },
     "type": {
       "type": "string",

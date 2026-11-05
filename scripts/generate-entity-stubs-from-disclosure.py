@@ -60,7 +60,7 @@ def disclosure_to_entity_stub(disc: dict) -> dict:
     (schema_version, namespace, type, status, status_notes, then identity
     fields, then urls and match_nodes).
     """
-    ns = disc["namespace"]
+    ns = disc["namespace"].lower()
     # Pick out only the canonical website URL — disclosure entries often
     # also have CNA-specific URLs (security policy, vulnerability list)
     # that don't belong on the entity record. The website URL is the
@@ -140,13 +140,14 @@ def main() -> int:
         ns = disc.get("namespace")
         if not ns:
             continue
+        ns = ns.lower()
         if ns in existing_entity_namespaces:
             skipped_already_exists += 1
             continue
 
         # Compute the entity-side mirror path from the disclosure-side path.
         rel = disc_path.relative_to(DISCLOSURE_ROOT)
-        target = ENTITY_ROOT / rel
+        target = ENTITY_ROOT / Path(str(rel).lower())
         if target.exists():
             # Defensive: shouldn't happen if existing_entity_namespaces was
             # built correctly, but guard against path-vs-namespace mismatches.

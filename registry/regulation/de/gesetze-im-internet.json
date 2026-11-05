@@ -140,6 +140,61 @@
           }
         }
       ]
+    },
+    {
+      "patterns": [
+        "(?i)^bsig$",
+        "(?i)^bsig-2009$"
+      ],
+      "description": "BSIG — Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI Act)",
+      "weight": 100,
+      "data": {
+        "canonical_name": "bsig",
+        "official_name": "Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI-Gesetz — BSIG)",
+        "common_name": "BSIG",
+        "alternate_names": [
+          "BSI Act",
+          "BSI-Gesetz",
+          "BGBl. I 2009 S. 2821"
+        ],
+        "description": "German federal statute establishing the mandate, powers, critical-infrastructure security obligations (§ 8a/8b), and federal cloud/IT security standards authority of the Federal Office for Information Security (BSI).",
+        "notes": "Status: In force (enacted 14 August 2009, BGBl. I S. 2821; amended by IT-Sicherheitsgesetz 1.0 and 2.0; verified as of 2026-11-05). Cross-reference: technical control catalogues and attestation criteria issued by BSI under this mandate (IT-Grundschutz, C5, AIC4, A5, TR series) live under secid:control/bsi.bund.de (e.g. secid:control/bsi.bund.de/c5).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsig_2009/"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^bsi-kritisv$",
+        "(?i)^kritisv$"
+      ],
+      "description": "BSI-KritisV — Verordnung zur Bestimmung Kritischer Infrastrukturen nach dem BSI-Gesetz (BSI Critical Infrastructure Ordinance)",
+      "weight": 100,
+      "data": {
+        "canonical_name": "bsi-kritisv",
+        "official_name": "Verordnung zur Bestimmung Kritischer Infrastrukturen nach dem BSI-Gesetz (BSI-Kritisverordnung — BSI-KritisV)",
+        "common_name": "BSI-KritisV",
+        "alternate_names": [
+          "BSI Critical Infrastructure Ordinance",
+          "BGBl. I 2016 S. 958"
+        ],
+        "description": "Ordinance under § 10(1) BSIG defining sector thresholds and covered facilities across energy, water, food, IT/telecommunications, health, finance/insurance, transport, and municipal waste management.",
+        "notes": "Status: In force (enacted 22 April 2016, BGBl. I S. 958; verified as of 2026-11-05). Administered by BSI (see secid:control/bsi.bund.de for BSI technical security standards).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsi-kritisv/"
+          }
+        ]
+      }
     }
   ],
   "tags": {"country": ["DE"]},
