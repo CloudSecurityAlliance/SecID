@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "namespace": "johnsoncontrols.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Primary public domain for Johnson Controls Trust Center and advisories; companion to secid:disclosure/jci.com/cna.",
+  "official_name": "Johnson Controls International plc",
+  "common_name": "Johnson Controls",
+  "alternate_names": [
+    "jci.com",
+    "JCI"
+  ],
+  "notes": "CVE Program partner (CNA-2019-0001). Country: USA/Ireland. Johnson Controls hosts its Trust Center, coordinated disclosure policy, and product security advisories on johnsoncontrols.com while its CNA record is registered under jci.com (see secid:disclosure/jci.com/cna).",
+  "wikidata": [
+    "Q1138591"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Johnson_Controls"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.johnsoncontrols.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$",
+        "(?i)^psirt$"
+      ],
+      "description": "Johnson Controls Product Security / CNA",
+      "weight": 80,
+      "data": {
+        "canonical_name": "cna",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "productsecurity@jci.com",
+            "note": "Johnson Controls Product Security"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.johnsoncontrols.com/trust-center/cybersecurity/response#CoordinatedDisclosure",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.johnsoncontrols.com/trust-center/cybersecurity/security-advisories",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/jci",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "jci",
+          "assignerOrgId": "7281d04a-a537-43df-bfb4-fa4110af9d01",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/jci",
+          "scope": "Johnson Controls products only.",
+          "cna_id": "CNA-2019-0001"
+        },
+        "disclosure_policy": {
+          "url": "https://www.johnsoncontrols.com/trust-center/cybersecurity/response#CoordinatedDisclosure",
+          "checked": "2026-04-08"
+        }
+      }
+    }
+  ]
+}

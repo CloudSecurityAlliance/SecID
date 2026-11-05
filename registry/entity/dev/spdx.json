@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "namespace": "spdx.dev",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "System Package Data Exchange (Linux Foundation Project)",
+  "common_name": "SPDX",
+  "alternate_names": ["Software Package Data Exchange"],
+  "notes": "Open standards project hosted by the Linux Foundation that maintains the System Package Data Exchange (SPDX) specification for communicating software, AI, and dataset bill-of-materials metadata, licenses, security, and provenance. Standardized internationally as ISO/IEC 5962:2021 (SPDX 2.2.1). For the SPDX specification, RDF/OWL ontology, JSON Schema, and profile element definitions, see secid:reference/spdx.dev/spdx.",
+  "wikidata": ["Q7554325"],
+  "wikipedia": ["https://en.wikipedia.org/wiki/Software_Package_Data_Exchange"],
+  "established": 2010,
+
+  "urls": [
+    {"type": "website", "url": "https://spdx.dev"},
+    {"type": "docs", "url": "https://spdx.github.io/spdx-spec/v3.0.1/"},
+    {"type": "github", "url": "https://github.com/spdx/spdx-spec"},
+    {"type": "lookup", "url": "https://spdx.org/licenses/", "note": "SPDX License List"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^spdx$", "^spdx-spec$"],
+      "description": "System Package Data Exchange (SPDX) Specification",
+      "weight": 100,
+      "data": {
+        "official_name": "System Package Data Exchange (SPDX) Specification",
+        "common_name": "SPDX",
+        "description": "Multi-profile BOM and supply-chain metadata specification (Core, Software, Licensing, Security, Build, AI, Dataset, Lite, SimpleLicensing, ExpandedLicensing) standardized as ISO/IEC 5962. Addressable specification elements and profile classes/properties are indexed under secid:reference/spdx.dev/spdx.",
+        "issues_type": "reference",
+        "issues_namespace": "spdx.dev",
+        "urls": [
+          {"type": "docs", "url": "https://spdx.github.io/spdx-spec/v3.0.1/"},
+          {"type": "github", "url": "https://github.com/spdx/spdx-spec"}
+        ],
+        "examples": ["spdx"]
+      }
+    }
+  ]
+}

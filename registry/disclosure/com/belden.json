@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "namespace": "belden.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT / security assurance entry for Belden industrial networking products.",
+  "official_name": "Belden Inc.",
+  "common_name": "Belden",
+  "alternate_names": [
+    "Hirschmann",
+    "GarrettCom",
+    "ProSoft Technology"
+  ],
+  "notes": "Industrial networking, OT connectivity, and automation infrastructure vendor (including Hirschmann, GarrettCom, and ProSoft Technology). Publishes coordinated security bulletins and vulnerability disclosures through Belden Security Assurance.",
+  "wikidata": [
+    "Q815338"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Belden_Incorporated"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.belden.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "Belden Security Assurance — product vulnerability reporting and security bulletins",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "secassurance@belden.com",
+            "note": "Belden Security Assurance"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.belden.com/support/security-assurance",
+            "note": "Belden Security Assurance policy & security bulletins"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

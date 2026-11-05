@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "wago.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT entry for WAGO; CVEs and coordinated advisories are issued in partnership with CERT@VDE (secid:disclosure/vde.com/cna).",
+  "official_name": "WAGO GmbH & Co. KG",
+  "common_name": "WAGO",
+  "alternate_names": [
+    "WAGO Kontakttechnik"
+  ],
+  "notes": "German industrial automation and electrical interconnect vendor. Cooperative partner of CERT@VDE (see secid:disclosure/vde.com/cna), which coordinates vulnerability disclosure and publishes security advisories for WAGO products.",
+  "wikidata": [
+    "Q2537269"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/WAGO_Kontakttechnik"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.wago.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "WAGO Product Security / CERT@VDE coordinated disclosure",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "info@cert.vde.com",
+            "note": "CERT@VDE (CNA cooperative partner for WAGO)"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.wago.com/global/cybersecurity",
+            "note": "WAGO cybersecurity & vulnerability reporting"
+          },
+          {
+            "type": "website",
+            "url": "https://cert.vde.com/en-us/advisories",
+            "note": "CERT@VDE security advisories"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

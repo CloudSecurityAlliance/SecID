@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "namespace": "cyclonedx.org",
+  "type": "entity",
+  "status": "draft",
+  "status_notes": null,
+
+  "official_name": "OWASP CycloneDX (Ecma International TC54)",
+  "common_name": "CycloneDX",
+  "alternate_names": ["ECMA-424"],
+  "notes": "Full-stack Bill of Materials (BOM) standard organization and OWASP flagship project, standardized by Ecma International Technical Committee 54 (TC54) as ECMA-424. Publishes specifications and schemas for Software (SBOM), AI/ML (ML-BOM), Cryptography (CBOM), Hardware (HBOM), SaaS (SaaSBOM), Operations (OBOM), Manufacturing (MBOM), and Vulnerability Exploitability (VDR/VEX). For the CycloneDX BOM specification, JSON/XML/Protobuf schemas, and ML-BOM element definitions, see secid:reference/cyclonedx.org/cyclonedx.",
+  "wikidata": ["Q117480586"],
+  "wikipedia": ["https://en.wikipedia.org/wiki/CycloneDX"],
+  "established": 2017,
+
+  "urls": [
+    {"type": "website", "url": "https://cyclonedx.org"},
+    {"type": "docs", "url": "https://cyclonedx.org/specification/overview/"},
+    {"type": "github", "url": "https://github.com/CycloneDX/specification"}
+  ],
+
+  "match_nodes": [
+    {
+      "patterns": ["(?i)^cyclonedx$", "^ecma-424$", "^ECMA-424$"],
+      "description": "CycloneDX Bill of Materials Standard (ECMA-424)",
+      "weight": 100,
+      "data": {
+        "official_name": "CycloneDX Bill of Materials Specification",
+        "common_name": "CycloneDX",
+        "description": "Full-stack BOM standard (ECMA-424) covering SBOM, ML-BOM (modelCard + componentData), CBOM, HBOM, SaaSBOM, and VEX. Addressable schema definitions and ML-BOM subpaths are indexed under secid:reference/cyclonedx.org/cyclonedx.",
+        "issues_type": "reference",
+        "issues_namespace": "cyclonedx.org",
+        "urls": [
+          {"type": "docs", "url": "https://cyclonedx.org/docs/1.7/json/"},
+          {"type": "github", "url": "https://github.com/CycloneDX/specification"}
+        ],
+        "examples": ["cyclonedx", "ECMA-424"]
+      }
+    }
+  ]
+}

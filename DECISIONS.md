@@ -485,3 +485,20 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Exempting `Enacted`, `In force`, or `Died on the Order Paper` from re-verification** — misses phased commencement, judicial stays, repealing acts, and reintroduction of dead bills in subsequent legislative sessions.
 
 ---
+
+## 2026-11-05: Resolver semantics (`#177`, `#181`, `#190`) and CI validation gates (`#100`, `#101`, lowercase namespaces)
+
+**Decision:** Align the `SecID` validator suite and CI gates with `SecID-Service` ([#65](https://github.com/CloudSecurityAlliance/SecID-Service/pull/65)) and `SecID-Server-API` ([#34](https://github.com/CloudSecurityAlliance/SecID-Server-API/pull/34)) across five rules:
+1. **`lookup_table` precedence over `url` ([#177](https://github.com/CloudSecurityAlliance/SecID/issues/177)):** When a child `match_node` declares both `data.lookup_table` and `data.url`, resolvers and `scripts/check-examples.py` try `lookup_table` first (exact key match, then case-insensitive fallback) and fall back to the `data.url` template when the subpath is not in `lookup_table`, matching `docs/reference/REGISTRY-JSON-FORMAT.md`.
+2. **Preserve literal `.` in canonical source names ([#181](https://github.com/CloudSecurityAlliance/SecID/issues/181)):** Unescape `\.` before testing literalness in `extractNameSlug` (`SecID-Service` / `SecID-Server-API`) and `scripts/check-canonical-names.py` (`^[A-Za-z0-9._-]+$`), so dotted source names (`x.1060`, `sp800-53r5.1.1`, `tls1.3`, `cvss3.1`) resolve to their literal identifier instead of falling back to slugifying `node.description`.
+3. **`data.known_values` closes a pattern in unscoped search ([#190](https://github.com/CloudSecurityAlliance/SecID/issues/190)):** A node with a non-empty `data.known_values` array is closed by enumeration (unless `open_pattern: true` is explicitly set): during unscoped cross-source search, resolvers check membership in `data.known_values` (case-insensitively when the pattern carries `(?i)`), while namespace-scoped resolution continues to accept `open_pattern: true` nodes at any depth.
+4. **Subtype placement and completeness validation ([#100](https://github.com/CloudSecurityAlliance/SecID/issues/100), [#101](https://github.com/CloudSecurityAlliance/SecID/issues/101)):** `scripts/validate-subtypes.py` fails when `data.subtype` appears on a depth > 0 child/grandchild `match_node` (enforcing the source-level-only rule in `SUBTYPES.md`), supports `--completeness off|warn|fail` (wired in `.github/workflows/registry-ci.yml` as `--completeness warn` across partially tagged types), and enforces 100% source-level subtype completeness on fully tagged types (`ENFORCED_COMPLETE_TYPES = {"methodology"}`).
+5. **Lowercase namespace and filename stem validation (Unicode IDN-safe):** `schemas/registry-namespace.schema.json` rejects ASCII uppercase and whitespace in `namespace` (`^[^A-Z\s]+$`) while preserving Unicode IDNs per `SPEC.md §4.2`, and `scripts/validate-registry-schema.py` enforces `ns == ns.lower()` and `path.stem == path.stem.lower()` (with `.lower()` normalization added to `scripts/generate-cna-disclosure.py` and `scripts/generate-entity-stubs-from-disclosure.py`) so mixed-case CNA imports can never produce unreachable registry keys.
+
+**Decision method:** AI decision (Gemini), reviewed by Codex (closing [#100](https://github.com/CloudSecurityAlliance/SecID/issues/100), [#101](https://github.com/CloudSecurityAlliance/SecID/issues/101), [#177](https://github.com/CloudSecurityAlliance/SecID/issues/177), [#181](https://github.com/CloudSecurityAlliance/SecID/issues/181), [#190](https://github.com/CloudSecurityAlliance/SecID/issues/190)).
+
+**Rejected alternatives:**
+- **Restricting `namespace` in JSON Schema to ASCII `^[a-z0-9.-]+(/[a-z0-9._-]+)*$`** — breaks Unicode IDN namespaces permitted by `SPEC.md §4.2`.
+- **Setting `--completeness fail` globally across all types immediately** — `advisory`, `disclosure`, `entity`, and `reference` still have 935 untagged legacy source nodes; enforcing `ENFORCED_COMPLETE_TYPES = {"methodology"}` locks in completed types immediately without breaking CI on legacy backlog.
+
+---

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "emerson.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT / coordinated vulnerability disclosure entry for Emerson industrial automation products.",
+  "official_name": "Emerson Electric Co.",
+  "common_name": "Emerson",
+  "alternate_names": [
+    "Emerson Automation Solutions"
+  ],
+  "notes": "Industrial automation and process control vendor (DeltaV, Ovation, Rosemount, Fisher, PACSystems). Coordinates OT/ICS vulnerability disclosures via Emerson Product Security and CISA ICS-CERT.",
+  "wikidata": [
+    "Q502043"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Emerson_Electric"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.emerson.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "Emerson Product Security — coordinated vulnerability disclosure and security notifications",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "web",
+            "value": "https://www.emerson.com/en-us/support/product-security",
+            "note": "Emerson Product Security & Vulnerability Reporting"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.emerson.com/en-us/support/product-security",
+            "note": "Product security & vulnerability reporting policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.emerson.com/en-us/support/security-notifications",
+            "note": "Emerson security notifications"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

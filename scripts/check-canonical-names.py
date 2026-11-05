@@ -45,9 +45,10 @@ from pathlib import Path
 
 REGISTRY = Path(__file__).resolve().parent.parent / "registry"
 
-# Mirrors SecID-Service extractNameSlug(). Keep the two in step.
-_LITERAL = re.compile(r"^[A-Za-z0-9_-]+$")
+# Mirrors SecID-Service extractNameSlug() / extractPatternLiteral(). Keep the two in step.
+_LITERAL = re.compile(r"^[A-Za-z0-9_.-]+$")
 _ANCHORED = re.compile(r"^(?:\(\?i\))?\^(.*)\$$")
+_UNESCAPED_DOT = re.compile(r"(?<!\\)\.")
 
 TODO = Path(__file__).resolve().parent / "canonical-names-todo.json"
 
@@ -58,12 +59,16 @@ def load_todo():
 
 
 def clean_literal(pattern):
-    """Return the canonical name SecID-Service would derive, or None if it would
-    fall back to slugifying the description."""
+    """Return the canonical name SecID-Service would derive from patterns[0], or None
+    if patterns[0] is a regex rather than a literal."""
     m = _ANCHORED.match(pattern or "")
     if not m:
         return None
-    body = re.sub(r"\\(.)", r"\1", m.group(1))
+    raw_body = m.group(1)
+    # Unescaped '.' is the regex any-char wildcard, not a literal dot.
+    if _UNESCAPED_DOT.search(raw_body):
+        return None
+    body = re.sub(r"\\(.)", r"\1", raw_body)
     return body.lower() if _LITERAL.match(body) else None
 
 
@@ -88,7 +93,8 @@ def self_test():
         ("(?i)^gb-t-22239$", "gb-t-22239"),
         ("(?i)^(27006|iso-27006)$", None),
         ("(?i)^iso[/ ]?iec[- ]?27006$", None),
-        ("(?i)^sp-800\\.53$", None),       # a dot survives unescaping; not \w
+        ("(?i)^sp-800\\.53$", "sp-800.53"), # escaped dot is a valid literal (#181)
+        ("(?i)^cybex-x.1500$", None),       # unescaped dot is regex wildcard, not literal
         ("27006", None),                    # unanchored
         ("^\\d{4}\\.\\d{4,5}$", None),
     ]

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "namespace": "schneider-electric.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Alternate corporate domain for Schneider Electric; primary CNA record is catalogued under secid:disclosure/se.com/cna.",
+  "official_name": "Schneider Electric",
+  "common_name": "Schneider Electric",
+  "alternate_names": [
+    "se.com",
+    "Schneider Electric CPCERT"
+  ],
+  "notes": "CVE Program partner (CNA-2017-0009). Country: France. Schneider Electric consolidated its primary web presence on se.com (see secid:disclosure/se.com/cna); schneider-electric.com remains widely cited in OT/ICS advisories and redirects to se.com.",
+  "wikidata": [
+    "Q49053"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Schneider_Electric"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.se.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$",
+        "(?i)^psirt$",
+        "(?i)^cpcert$"
+      ],
+      "description": "Schneider Electric CPCERT / CNA",
+      "weight": 80,
+      "data": {
+        "canonical_name": "cna",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "cpcert@se.com",
+            "note": "Schneider Electric Cybersecurity Product CERT"
+          },
+          {
+            "type": "web",
+            "value": "https://www.se.com/ww/en/work/support/cybersecurity/report-a-vulnerability.jsp",
+            "note": "Schneider Electric security contact page"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.se.com/ww/en/work/support/cybersecurity/vulnerability-policy.jsp",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.se.com/ww/en/work/support/cybersecurity/security-notifications.jsp",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/schneider",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "schneider",
+          "assignerOrgId": "076d1eb6-cfab-4401-b34d-6dfc2a413bdb",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/schneider",
+          "scope": "All Schneider Electric products, including Proface, APC, and ProLeiT.",
+          "cna_id": "CNA-2017-0009"
+        },
+        "security_txt": {
+          "url": "https://se.com/.well-known/security.txt",
+          "checked": "2026-04-08"
+        },
+        "disclosure_policy": {
+          "url": "https://www.se.com/ww/en/work/support/cybersecurity/vulnerability-policy.jsp",
+          "checked": "2026-04-08"
+        }
+      }
+    }
+  ]
+}

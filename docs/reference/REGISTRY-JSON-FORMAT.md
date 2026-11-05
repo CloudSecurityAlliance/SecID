@@ -755,7 +755,7 @@ Each object in the `urls` array has a `type` and `url` field. The following opti
 | `lang` | LangConfig | Language availability and URL substitution config. See Language Resolution below. |
 | `note` | string | Context for when/why to use this URL |
 | `type` | string | Category when source has multiple ID types |
-| `known_values` | object | Enumeration of finite, stable values (see Known Values) |
+| `known_values` | object \| string[] | Enumeration of finite, stable values (see Known Values) |
 | `lookup_table` | object | Map of IDs to URLs for non-computable URLs (see Lookup Table) |
 | `variables` | object | Variable extraction for complex URL building (see Variable Extraction) |
 | `examples` | (string \| ExampleObject)[] | Test fixtures with expected outputs (see Examples) |
@@ -1161,6 +1161,8 @@ ISO standard numbers with titles:
 ```
 
 **Rule of thumb:** Ask "is this a class of objects?" If yes, describe it. For individual instances, only include in `known_values` when they're distinct enough to need disambiguation (ISO 27001 vs 42001) or when the set is small and stable.
+
+**Array form and pattern closing:** `known_values` may also be a `string[]` list when a large finite set shares a broad pattern (e.g., CSA's 1,131 research artifact slugs under `^[a-z0-9-]+$`). A non-empty `string[]` `known_values` always closes the node at resolution time (inputs not in the list do not match), and an `object` `known_values` closes the node whenever the node's pattern is open (`open_pattern: true` or detected as open by the pattern-breadth probes). For small sets (50 or fewer values), express the enumeration directly in `patterns` as an alternation rather than relying on `known_values` to close a loose regex.
 
 #### Lookup Table (in Node Data)
 

@@ -171,8 +171,18 @@ def expand_child_url(
 ) -> tuple[str | None, str | None]:
     """Mirror SecID-Service resolveChildUrl(child, target, parentNode) for a single node's data.
 
+    Precedence per REGISTRY-JSON-FORMAT.md (#177):
+      1. data.lookup_table[inp] (exact key match)
+      2. data.url (literal or template expansion)
+
     Returns ``(resolved_url, error_reason)``.
     """
+    lookup = data.get("lookup_table")
+    if isinstance(lookup, dict) and inp in lookup:
+        u = _extract_lookup_url(lookup[inp])
+        if u is not None:
+            return u, None
+
     url_tpl = data.get("url")
     if isinstance(url_tpl, str) and url_tpl:
         if "{" not in url_tpl:
@@ -232,12 +242,7 @@ def expand_child_url(
             return None, f"buildUrl rejected template {url_tpl!r} for input {inp!r}"
         return built, None
 
-    lookup = data.get("lookup_table")
     if isinstance(lookup, dict):
-        if inp in lookup:
-            u = _extract_lookup_url(lookup[inp])
-            if u is not None:
-                return u, None
         return None, f"input {inp!r} not found in data.lookup_table"
 
     return None, "node has neither data.url nor data.lookup_table"
@@ -458,8 +463,9 @@ def self_test() -> int:
                         },
                     },
                     {
-                        "patterns": ["^(a1|b2)$"],
+                        "patterns": ["^(a1|b2|AI)$"],
                         "data": {
+                            "url": "https://example.org/model/{id}/{id}/",
                             "lookup_table": {
                                 "a1": "https://example.org/items/first",
                                 "b2": {"url": "https://example.org/items/second"},
@@ -467,6 +473,7 @@ def self_test() -> int:
                             "examples": [
                                 {"input": "a1", "url": "https://example.org/items/first"},
                                 {"input": "b2", "url": "https://example.org/items/second"},
+                                {"input": "AI", "url": "https://example.org/model/AI/AI/"},
                             ],
                         },
                     },

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "namespace": "verizon.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor coordinated vulnerability disclosure entry for Verizon Communications.",
+  "official_name": "Verizon Communications Inc.",
+  "common_name": "Verizon",
+  "alternate_names": [
+    "Verizon Corporate Security"
+  ],
+  "notes": "Telecommunications and network services provider. Operates a Coordinated Vulnerability Disclosure program for reporting security vulnerabilities in Verizon products, networks, and web properties.",
+  "wikidata": [
+    "Q467752"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Verizon"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.verizon.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cvd$",
+        "(?i)^psirt$"
+      ],
+      "description": "Verizon Security Vulnerability Reporting — coordinated vulnerability disclosure",
+      "weight": 80,
+      "data": {
+        "canonical_name": "cvd",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "security@verizon.com",
+            "note": "Verizon Security Vulnerability Reporting"
+          },
+          {
+            "type": "web",
+            "value": "https://www.verizon.com/about/privacy/Target-Security-Vulnerability-Reporting",
+            "note": "Verizon Vulnerability Reporting Portal"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.verizon.com/about/privacy/Target-Security-Vulnerability-Reporting",
+            "note": "Security vulnerability reporting policy & intake"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

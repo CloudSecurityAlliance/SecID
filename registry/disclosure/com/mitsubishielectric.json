@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "namespace": "mitsubishielectric.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Global .com domain for Mitsubishi Electric PSIRT; companion to secid:disclosure/mitsubishielectric.co.jp/cna.",
+  "official_name": "Mitsubishi Electric Corporation",
+  "common_name": "Mitsubishi Electric",
+  "alternate_names": [
+    "mitsubishielectric.co.jp",
+    "Mitsubishi Electric PSIRT"
+  ],
+  "notes": "CVE Program partner. Country: Japan. Mitsubishi Electric hosts its English PSIRT disclosure policy and vulnerability advisories on mitsubishielectric.com while its CNA record is registered under mitsubishielectric.co.jp (see secid:disclosure/mitsubishielectric.co.jp/cna).",
+  "wikidata": [
+    "Q59170"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Mitsubishi_Electric"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.mitsubishielectric.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$",
+        "(?i)^psirt$"
+      ],
+      "description": "Mitsubishi Electric PSIRT / CNA",
+      "weight": 80,
+      "data": {
+        "canonical_name": "cna",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "Mitsubishielectric.Psirt@yd.MitsubishiElectric.co.jp",
+            "note": "Mitsubishi Electric PSIRT"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.mitsubishielectric.com/en/psirt/disclosurepolicy/index.html",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/index.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Mitsubishi",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "scope": "Vulnerabilities related to products of Mitsubishi Electric Group."
+        }
+      }
+    }
+  ]
+}

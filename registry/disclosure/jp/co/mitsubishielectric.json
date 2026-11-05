@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "namespace": "MitsubishiElectric.co.jp",
+  "namespace": "mitsubishielectric.co.jp",
   "type": "disclosure",
   "status": "draft",
   "status_notes": "Generated from CVE CNA partner data (cve.org), 2026-04-03.",
@@ -13,7 +13,7 @@
   "urls": [
     {
       "type": "website",
-      "url": "https://MitsubishiElectric.co.jp"
+      "url": "https://mitsubishielectric.co.jp"
     }
   ],
   "match_nodes": [
@@ -63,7 +63,11 @@
       }
     }
   ],
-  "tags": {"country": ["JP"]},
+  "tags": {
+    "country": [
+      "JP"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

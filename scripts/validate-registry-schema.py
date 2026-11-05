@@ -60,6 +60,22 @@ def _compile_node_pattern(pat: str) -> re.Pattern[str] | None:
         return None
 
 
+def check_lowercase_namespace_and_path(path: Path, doc: dict) -> list[str]:
+    """Ensure namespace and filename stem are lowercase (preserving Unicode IDNs per SPEC.md §4.2).
+
+    SecID-Service indexes registry files by verbatim `doc["namespace"]` and normalizes
+    incoming queries to lowercase, so any uppercase character (ASCII or Unicode) in
+    `namespace` makes the entry unreachable at runtime.
+    """
+    errs: list[str] = []
+    ns = doc.get("namespace")
+    if isinstance(ns, str) and ns != ns.lower():
+        errs.append(f"namespace {ns!r} must be lowercase ({ns.lower()!r})")
+    if path.stem != path.stem.lower():
+        errs.append(f"filename stem {path.stem!r} must be lowercase ({path.stem.lower()!r})")
+    return errs
+
+
 def check_child_examples(doc: dict) -> list[str]:
     """Ensure every child/grandchild ExampleObject.input matches its node's patterns[].
 
@@ -145,6 +161,10 @@ def main() -> int:
         if errors:
             # Report only the first error per file to keep output manageable.
             failures.append((path, errors[0].message[:200]))
+            continue
+        case_errors = check_lowercase_namespace_and_path(path, doc)
+        if case_errors:
+            failures.append((path, case_errors[0][:200]))
             continue
         child_ex_errors = check_child_examples(doc)
         if child_ex_errors:
