@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "namespace": "siemens-healthineers.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor cybersecurity & advisory entry for Siemens Healthineers; vulnerability handling and CVEs are coordinated with Siemens ProductCERT (secid:disclosure/siemens.com/cna).",
+  "official_name": "Siemens Healthineers AG",
+  "common_name": "Siemens Healthineers",
+  "alternate_names": null,
+  "notes": "Medical imaging, laboratory diagnostics, and healthcare IT company. Publishes product security advisories on siemens-healthineers.com and coordinates vulnerability handling with Siemens ProductCERT (see secid:disclosure/siemens.com/cna).",
+  "wikidata": [
+    "Q20001279"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Siemens_Healthineers"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.siemens-healthineers.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cert$",
+        "(?i)^cna$"
+      ],
+      "description": "Siemens Healthineers Product Security / ProductCERT",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "productcert@siemens.com",
+            "note": "Siemens ProductCERT"
+          },
+          {
+            "type": "web",
+            "value": "https://www.siemens-healthineers.com/support-documentation/cybersecurity",
+            "note": "Siemens Healthineers Cybersecurity portal"
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.siemens-healthineers.com/support-documentation/cybersecurity",
+            "note": "Siemens Healthineers security advisories & vulnerability reporting"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.siemens.com/global/en/products/services/cert/vulnerability-process.html",
+            "note": "ProductCERT vulnerability handling process"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

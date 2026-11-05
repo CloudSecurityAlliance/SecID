@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "namespace": "trane.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT entry for Trane / Trane Technologies building automation and HVAC systems.",
+  "official_name": "Trane Technologies plc",
+  "common_name": "Trane",
+  "alternate_names": [
+    "Trane Technologies",
+    "tranetechnologies.com"
+  ],
+  "notes": "HVAC and building management/automation systems vendor (Tracer SC+, Symbio, Pivot). Operates a coordinated product security and vulnerability response program under Trane Technologies.",
+  "wikidata": [
+    "Q1654295"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Trane_Technologies"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.trane.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "Trane Technologies Product Security — vulnerability reporting and advisories",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "web",
+            "value": "https://www.tranetechnologies.com/en/index/product-security.html",
+            "note": "Trane Technologies Product Security reporting"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.tranetechnologies.com/en/index/product-security.html",
+            "note": "Product security & vulnerability reporting policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.trane.com/commercial/north-america/us/en/products-systems/building-controls-automation/cybersecurity.html",
+            "note": "Trane Building Controls cybersecurity"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

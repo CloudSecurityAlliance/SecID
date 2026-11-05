@@ -544,7 +544,7 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Component | Status |
 |-----------|--------|
 | Identifier grammar + 10 types | **v1.0 frozen** |
-| Registry namespaces (YAML + JSON, 2,246 namespaces) | **Live** — auto-deploys to production resolver |
+| Registry namespaces (YAML + JSON, 2,263 namespaces) | **Live** — auto-deploys to production resolver |
 | [REST API + MCP server](https://github.com/CloudSecurityAlliance/SecID-Service) | **Live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
 | [Client SDKs](https://github.com/CloudSecurityAlliance/SecID-Client-SDK) (Python, TypeScript, Go) | In progress |
 | Registry validation skill | **Active** |
@@ -564,11 +564,11 @@ The identifier grammar, type list, and registry format are stable. The resolver 
 | Control | 246 |
 | Capability | 54 |
 | Methodology | 24 |
-| Disclosure | 487 |
-| Regulation | 94 |
-| Entity | 981 |
+| Disclosure | 501 |
+| Regulation | 95 |
+| Entity | 983 |
 | Reference | 287 |
-| **Total** | **2246** |
+| **Total** | **2263** |
 
 <!-- REGISTRY-COUNTS-END -->
 

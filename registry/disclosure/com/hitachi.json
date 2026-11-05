@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "namespace": "hitachi.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Global .com domain for Hitachi Incident Response Team (HIRT); companion to secid:disclosure/hitachi.co.jp/cna, secid:disclosure/hitachienergy.com/cna, and secid:disclosure/hitachivantara.com/cna.",
+  "official_name": "Hitachi, Ltd.",
+  "common_name": "Hitachi",
+  "alternate_names": [
+    "hitachi.co.jp",
+    "HIRT",
+    "Hitachi Incident Response Team"
+  ],
+  "notes": "CVE Program partner (CNA-2022-0014). Country: Japan. Hitachi hosts its English HIRT vulnerability disclosure policy and security advisories on hitachi.com while its CNA record is registered under hitachi.co.jp (see secid:disclosure/hitachi.co.jp/cna). For Hitachi Energy (power grids/OT) see secid:disclosure/hitachienergy.com/cna; for Hitachi Vantara see secid:disclosure/hitachivantara.com/cna.",
+  "wikidata": [
+    "Q53231"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Hitachi"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.hitachi.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^cna$",
+        "(?i)^hirt$",
+        "(?i)^psirt$"
+      ],
+      "description": "Hitachi Incident Response Team (HIRT) / CNA",
+      "weight": 80,
+      "data": {
+        "canonical_name": "cna",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "hirt@hitachi.co.jp",
+            "note": "Hitachi Incident Response Team (HIRT)"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.hitachi.com/hirt/publications/hirt-pub10008",
+            "note": "Disclosure policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.hitachi.com/hirt/security/security.html",
+            "note": "Security advisories"
+          },
+          {
+            "type": "website",
+            "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Hitachi",
+            "note": "CVE partner page"
+          }
+        ],
+        "examples": [],
+        "cve": {
+          "role": [
+            "cna"
+          ],
+          "assignerShortName": "Hitachi",
+          "assignerOrgId": "50d0f415-c707-4733-9afc-8f6c0e9b3f82",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Hitachi",
+          "scope": "Hitachi products excluding Hitachi Energy and Hitachi Vantara products.",
+          "cna_id": "CNA-2022-0014"
+        },
+        "disclosure_policy": {
+          "url": "https://www.hitachi.com/hirt/publications/hirt-pub10008",
+          "checked": "2026-04-08"
+        }
+      }
+    }
+  ]
+}

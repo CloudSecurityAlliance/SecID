@@ -16,14 +16,26 @@ How it works:
        lets contributors test without network access.
     2. Extracts declared subtype values per type using regex (sufficient for
        the simple TypeScript object-literal structure we use).
-    3. Scans all `registry/**/*.json` files. For every source-level match_node
-       with a `data.subtype` array, checks each value is declared for the
-       owning type.
-    4. Reports drift and exits non-zero if any value is undeclared.
+    3. Scans all `registry/**/*.json` files:
+       - Fails if any non-root (child/grandchild) match_node carries `data.subtype`
+         (subtype is a source-level-only property per docs/reference/TYPES-AND-SUBTYPES.md).
+       - For every source-level match_node with a `data.subtype` array, checks each
+         value is declared for the owning type.
+       - Optionally (`--completeness warn|fail`) checks that every source-level
+         match_node in a type with declared subtypes carries a non-empty `data.subtype`.
+    4. Reports drift and exits non-zero if any value is undeclared, misplaced on a
+       child node, or (under `--completeness fail`) missing.
 
 Usage:
     python3 scripts/validate-subtypes.py
         Fetch type-registry.ts at the pinned SecID-Service commit (default URL).
+
+    python3 scripts/validate-subtypes.py --completeness warn
+        Also warn on source-level match_nodes missing `data.subtype` in types that
+        have declared subtypes.
+
+    python3 scripts/validate-subtypes.py --self-test
+        Run offline unit tests for subtype validation rules.
 
     python3 scripts/validate-subtypes.py --type-registry-path /path/to/type-registry.ts
         Use a local copy (useful when SecID-Service is checked out locally).
@@ -48,7 +60,7 @@ from pathlib import Path
 # type-registry.ts changes, open a reviewed PR here bumping this SHA in BOTH
 # validators (validate-subtypes.py + validate-type-list.py) in lockstep. Do NOT
 # revert to `main`. (Override for local testing: --type-registry-url / -path.)
-SECID_SERVICE_PINNED_SHA = "371efbbaa261dc51117731efe43511a51197a467"
+SECID_SERVICE_PINNED_SHA = "203b80268367f306eab4018e1f1e91205656a8ac"
 
 DEFAULT_TYPE_REGISTRY_URL = (
     "https://raw.githubusercontent.com/CloudSecurityAlliance/"
@@ -61,6 +73,9 @@ TYPE_HEADER_RE = re.compile(r'type:\s*"([a-z][a-z0-9-]*)"\s*,')
 
 # Matches "value: \"kebab-or-dotted-string\"," — a SubtypeDef value.
 SUBTYPE_VALUE_RE = re.compile(r'value:\s*"([a-z0-9.\-]+)"\s*,')
+
+# Types that have been 100% subtype-tagged and must never regress (#101).
+ENFORCED_COMPLETE_TYPES = {"methodology"}
 
 
 def parse_type_registry(source: str) -> dict[str, set[str]]:
@@ -154,6 +169,154 @@ def collect_used_subtypes(registry_root: Path) -> dict[tuple[str, str], list[tup
     return used
 
 
+def iter_child_subtypes(nodes: list | None, trail: list[str] | None = None):
+    """Yield (node_trail, subtype_value) for any non-root match_node carrying data.subtype."""
+    current_trail = trail or []
+    for i, node in enumerate(nodes or []):
+        if not isinstance(node, dict):
+            continue
+        pats = node.get("patterns") or []
+        first_pat = pats[0] if pats and isinstance(pats[0], str) else "(no patterns)"
+        here = current_trail + [f"{i}:{first_pat}"]
+        if current_trail:
+            data = node.get("data")
+            if isinstance(data, dict) and "subtype" in data and data["subtype"] is not None:
+                yield " > ".join(here), data["subtype"]
+        children = node.get("children")
+        if isinstance(children, list):
+            yield from iter_child_subtypes(children, here)
+
+
+def collect_child_subtype_violations(registry_root: Path) -> list[tuple[Path, str, object]]:
+    """Scan registry JSON files for forbidden child/grandchild data.subtype fields."""
+    violations: list[tuple[Path, str, object]] = []
+    for path in sorted(registry_root.rglob("*.json")):
+        if path.parent == registry_root:
+            continue
+        try:
+            doc = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            continue
+        for where, raw_subtype in iter_child_subtypes(doc.get("match_nodes")):
+            violations.append((path, where, raw_subtype))
+    return violations
+
+
+def collect_missing_subtypes(
+    registry_root: Path, declared: dict[str, set[str]]
+) -> list[tuple[Path, str, str]]:
+    """Return (path, type_name, pattern_label) for source-level match_nodes that lack
+    a non-empty data.subtype in types that have declared subtypes in type-registry.ts.
+    """
+    missing: list[tuple[Path, str, str]] = []
+    for path in sorted(registry_root.rglob("*.json")):
+        if path.parent == registry_root:
+            continue
+        try:
+            doc = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            continue
+        type_name = doc.get("type")
+        if not isinstance(type_name, str) or not declared.get(type_name):
+            continue
+        for node in doc.get("match_nodes") or []:
+            if not isinstance(node, dict):
+                continue
+            data = node.get("data") or {}
+            if not isinstance(data, dict):
+                data = {}
+            subtypes = data.get("subtype")
+            has_subtype = False
+            if isinstance(subtypes, list):
+                has_subtype = any(isinstance(v, str) and v.strip() for v in subtypes)
+            elif isinstance(subtypes, str):
+                has_subtype = bool(subtypes.strip())
+            if not has_subtype:
+                pattern_label = ",".join(node.get("patterns") or []) or "(no patterns)"
+                missing.append((path, type_name, pattern_label))
+    return missing
+
+
+def self_test() -> int:
+    """Offline unit tests for subtype validation rules (#100, #101)."""
+    import tempfile
+
+    fake_ts = '''
+    export const TYPE_REGISTRY = [
+      {
+        type: "methodology",
+        subtypes: [
+          { value: "risk-analysis", label: "Risk Analysis" },
+          { value: "scoring", label: "Scoring" },
+        ],
+      },
+      {
+        type: "control",
+        subtypes: [],
+      },
+    ];
+    '''
+    declared = parse_type_registry(fake_ts)
+    assert declared == {
+        "methodology": {"risk-analysis", "scoring"},
+        "control": set(),
+    }, f"unexpected parse_type_registry result: {declared}"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        (root / "methodology.json").write_text('{"type": "methodology"}')
+        ns_dir = root / "methodology" / "org"
+        ns_dir.mkdir(parents=True)
+
+        doc = {
+            "type": "methodology",
+            "match_nodes": [
+                {
+                    "patterns": ["(?i)^good-source$"],
+                    "data": {"subtype": ["scoring"]},
+                    "children": [
+                        {
+                            "patterns": ["^v1$"],
+                            "data": {"subtype": ["scoring"]},
+                        }
+                    ],
+                },
+                {
+                    "patterns": ["(?i)^untagged-source$"],
+                    "data": {"official_name": "Untagged"},
+                },
+                {
+                    "patterns": ["(?i)^bad-value-source$"],
+                    "data": {"subtype": ["not-a-real-subtype"]},
+                },
+            ],
+        }
+        (ns_dir / "example.json").write_text(json.dumps(doc))
+
+        used = collect_used_subtypes(root)
+        child_violations = collect_child_subtype_violations(root)
+        missing = collect_missing_subtypes(root, declared)
+
+        checks = [
+            ("declared_value_collected", ("methodology", "scoring") in used),
+            ("undeclared_value_collected", ("methodology", "not-a-real-subtype") in used),
+            (
+                "child_subtype_flagged",
+                len(child_violations) == 1
+                and "0:(?i)^good-source$ > 0:^v1$" in child_violations[0][1],
+            ),
+            (
+                "missing_subtype_flagged",
+                len(missing) == 1 and missing[0][2] == "(?i)^untagged-source$",
+            ),
+        ]
+        failed = [name for name, ok in checks if not ok]
+        for name, ok in checks:
+            print(f"  {'ok' if ok else 'FAIL'}  {name}")
+        print("self-test:", "PASS" if not failed else f"FAIL ({', '.join(failed)})")
+        return 0 if not failed else 1
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
@@ -169,7 +332,21 @@ def main() -> int:
         default="registry",
         help="Path to the SecID registry/ directory (default: ./registry)",
     )
+    parser.add_argument(
+        "--completeness",
+        choices=("off", "warn", "fail"),
+        default="off",
+        help="Check source-level match_nodes in types with declared subtypes for missing data.subtype (default: off)",
+    )
+    parser.add_argument(
+        "--self-test",
+        action="store_true",
+        help="Run built-in unit tests and exit",
+    )
     args = parser.parse_args()
+
+    if args.self_test:
+        return self_test()
 
     registry_root = Path(args.registry_root)
     if not registry_root.is_dir():
@@ -184,6 +361,7 @@ def main() -> int:
 
     declared = parse_type_registry(source)
     used = collect_used_subtypes(registry_root)
+    child_violations = collect_child_subtype_violations(registry_root)
 
     failures: list[str] = []
     for (type_name, value), occurrences in sorted(used.items()):
@@ -195,6 +373,15 @@ def main() -> int:
                 f"  {type_name} + subtype: {value!r} used in {count} match_node(s); "
                 f"first occurrence: {sample[0]} (patterns: {sample[1]})"
             )
+
+    if child_violations:
+        print("FAIL: child/grandchild match_nodes must not carry data.subtype (source-level only)")
+        print()
+        for path, where, raw_subtype in child_violations:
+            print(f"  {path}: {where} has data.subtype={raw_subtype!r}")
+        print()
+        print("Move data.subtype to the source-level match_node in match_nodes[].")
+        return 1
 
     if failures:
         print("FAIL: registry data uses subtype values not declared in SecID-Service type-registry.ts")
@@ -209,10 +396,40 @@ def main() -> int:
         print("  3. Re-run this script — it should now pass.")
         return 1
 
+    missing_all = collect_missing_subtypes(registry_root, declared)
+    enforced_missing = [
+        item for item in missing_all if item[1] in ENFORCED_COMPLETE_TYPES
+    ]
+    if enforced_missing:
+        print(
+            f"FAIL: {len(enforced_missing)} source-level match_node(s) in enforced-complete "
+            f"type(s) {sorted(ENFORCED_COMPLETE_TYPES)} are missing data.subtype:"
+        )
+        for path, type_name, pattern_label in enforced_missing:
+            print(f"  [{type_name}] {path} (patterns: {pattern_label})")
+        return 1
+
+    if args.completeness != "off" and missing_all:
+        level = "FAIL" if args.completeness == "fail" else "WARN"
+        by_type: dict[str, list[tuple[Path, str]]] = {}
+        for path, type_name, pattern_label in missing_all:
+            by_type.setdefault(type_name, []).append((path, pattern_label))
+        summary = ", ".join(f"{t}={len(items)}" for t, items in sorted(by_type.items()))
+        print(
+            f"{level}: {len(missing_all)} source-level match_node(s) in types with declared "
+            f"subtypes have no data.subtype ({summary})"
+        )
+        for type_name, items in sorted(by_type.items()):
+            if args.completeness == "fail" or len(items) <= 25:
+                for path, pattern_label in items:
+                    print(f"  [{type_name}] {path} (patterns: {pattern_label})")
+        if args.completeness == "fail":
+            return 1
+
     total_uses = sum(len(v) for v in used.values())
     print(
         f"OK: {total_uses} subtype usage(s) across {len(used)} distinct (type, value) pairs; "
-        f"all declared in type-registry.ts"
+        f"all declared in type-registry.ts and no child-level subtype violations"
     )
     return 0
 

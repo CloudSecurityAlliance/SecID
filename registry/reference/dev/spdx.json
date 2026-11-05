@@ -540,15 +540,16 @@
         },
         {
           "patterns": [
-            "^(AI|Build|Core|Dataset|ExpandedLicensing|Extension|Licensing|Lite|Security|SimpleLicensing|Software)$"
+            "^(AI|Build|Core|Dataset|ExpandedLicensing|Extension|Licensing|Lite|Security|SimpleLicensing|Software)$",
+            "^(ai|build|core|dataset|expandedLicensing|extension|lite|security|simpleLicensing|software)$"
           ],
-          "description": "SPDX 3.x profile, in the capitalisation used by the model namespace and documentation path.",
+          "description": "SPDX 3.x profile (model namespace spelling or core:ProfileIdentifierType conformance spelling)",
           "weight": 100,
           "data": {
             "type": "profile",
             "since_version": "3.0",
             "description": "One of the profiles that partition the SPDX 3.x model.",
-            "notes": "This node matches the capitalised spelling — the model namespace and the /model/<Profile>/ documentation path (AI, ExpandedLicensing). The lowercase core:ProfileIdentifierType spellings that appear in a document's profileConformance field are handled by the sibling node below. Licensing is accepted only here: it has a /model/Licensing/ page but is not a ProfileIdentifierType value, so it never appears in profileConformance.",
+            "notes": "Accepts both the capitalised model namespace / documentation path spelling (AI, Dataset, ExpandedLicensing) and the camelCase core:ProfileIdentifierType enumeration values written into a document's profileConformance field (ai, dataset, expandedLicensing). Lookup table entries handle the lowercase profileConformance spellings first, while the url template resolves the capitalised model spellings (#177). Licensing is a documentation grouping over SimpleLicensing and ExpandedLicensing rather than a ProfileIdentifierType value, so only its capitalised documentation spelling is accepted.",
             "variables": {
               "profile": {
                 "extract": "^([A-Za-z]+)$",
@@ -556,49 +557,6 @@
               }
             },
             "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/{profile}/{profile}/",
-            "known_values": {
-              "Core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
-              "Software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types.",
-              "Security": "Vulnerability and VEX modelling — Vulnerability, VexNotAffectedVulnAssessmentRelationship, CVSS/EPSS/SSVC severity assessments.",
-              "Licensing": "Documentation grouping over SimpleLicensing and ExpandedLicensing. It has a /model/Licensing/ page but is NOT a core:ProfileIdentifierType value, so it never appears in a document's profileConformance field — only the capitalised documentation spelling resolves.",
-              "SimpleLicensing": "License expressions as strings — LicenseExpression and SimpleLicensingText.",
-              "ExpandedLicensing": "The structured license model — ListedLicense, CustomLicense, ConjunctiveLicenseSet, DisjunctiveLicenseSet, WithAdditionOperator.",
-              "Dataset": "Training and evaluation data — DatasetPackage plus provenance, collection-process, confidentiality and bias properties. The data half of an AI BOM.",
-              "AI": "AI models and their transparency metadata — AIPackage plus energy consumption, safety risk, explainability, hyperparameters and standards compliance.",
-              "Build": "Build provenance — Build element capturing build type, parameters, environment and start/end times.",
-              "Lite": "A minimal conformance profile: the reduced field set intended for lightweight SPDX 3.x producers.",
-              "Extension": "The extension mechanism — Extension and CdxPropertyEntry — for carrying data the core model does not define."
-            },
-            "provenance": {
-              "method": "Profile list cross-checked against core:ProfileIdentifierType individuals in the normative Turtle model and the /model/ documentation index; every /model/<Profile>/<Profile>/ page confirmed HTTP 200.",
-              "date": "2026-08-21",
-              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
-            },
-            "examples": [
-              {
-                "input": "AI",
-                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
-                "note": "AI profile overview"
-              },
-              {
-                "input": "Dataset",
-                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
-                "note": "Dataset profile — the data half of an AI BOM"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(ai|build|core|dataset|expandedLicensing|extension|lite|security|simpleLicensing|software)$"
-          ],
-          "description": "SPDX 3.x profile, in the core:ProfileIdentifierType spelling written into a document's profileConformance field.",
-          "weight": 100,
-          "data": {
-            "type": "profile",
-            "since_version": "3.0",
-            "description": "One of the ten values of the core:ProfileIdentifierType enumeration.",
-            "notes": "These are the exact strings that appear in an SPDX 3.x document's profileConformance field. They differ in case from the model namespace and documentation path, so resolution goes through a lookup_table rather than a template — the enumeration spelling cannot be mechanically transformed into the documentation path. Licensing is absent here because it is a documentation grouping, not a ProfileIdentifierType value.",
             "lookup_table": {
               "ai": {
                 "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
@@ -642,6 +600,17 @@
               }
             },
             "known_values": {
+              "Core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
+              "Software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types.",
+              "Security": "Vulnerability and VEX modelling — Vulnerability, VexNotAffectedVulnAssessmentRelationship, CVSS/EPSS/SSVC severity assessments.",
+              "Licensing": "Documentation grouping over SimpleLicensing and ExpandedLicensing. It has a /model/Licensing/ page but is NOT a core:ProfileIdentifierType value, so it never appears in a document's profileConformance field — only the capitalised documentation spelling resolves.",
+              "SimpleLicensing": "License expressions as strings — LicenseExpression and SimpleLicensingText.",
+              "ExpandedLicensing": "The structured license model — ListedLicense, CustomLicense, ConjunctiveLicenseSet, DisjunctiveLicenseSet, WithAdditionOperator.",
+              "Dataset": "Training and evaluation data — DatasetPackage plus provenance, collection-process, confidentiality and bias properties. The data half of an AI BOM.",
+              "AI": "AI models and their transparency metadata — AIPackage plus energy consumption, safety risk, explainability, hyperparameters and standards compliance.",
+              "Build": "Build provenance — Build element capturing build type, parameters, environment and start/end times.",
+              "Lite": "A minimal conformance profile: the reduced field set intended for lightweight SPDX 3.x producers.",
+              "Extension": "The extension mechanism — Extension and CdxPropertyEntry — for carrying data the core model does not define.",
               "ai": "AI models and their transparency metadata — AIPackage plus energy consumption, safety risk, explainability, hyperparameters and standards compliance.",
               "build": "Build provenance — Build element capturing build type, parameters, environment and start/end times.",
               "core": "Foundational classes and properties every SPDX 3.x document uses (Element, SpdxDocument, Relationship, Agent, Annotation).",
@@ -654,15 +623,25 @@
               "software": "Software artifacts — Package, File, Snippet, Sbom — and the software-specific relationship types."
             },
             "provenance": {
-              "method": "Enumeration values read from the core:ProfileIdentifierType named individuals in the normative Turtle model; each mapped documentation page confirmed HTTP 200.",
+              "method": "Profile list and core:ProfileIdentifierType enumeration cross-checked against the normative Turtle model and the /model/ documentation index; every /model/<Profile>/<Profile>/ page confirmed HTTP 200.",
               "date": "2026-08-21",
               "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
             },
             "examples": [
               {
+                "input": "AI",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+                "note": "AI profile overview (capitalised model namespace spelling)"
+              },
+              {
+                "input": "Dataset",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Dataset/",
+                "note": "Dataset profile — the data half of an AI BOM"
+              },
+              {
                 "input": "ai",
                 "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
-                "note": "profileConformance spelling of the AI profile"
+                "note": "profileConformance spelling of the AI profile (resolved via lookup_table)"
               },
               {
                 "input": "dataset",
@@ -860,6 +839,201 @@
                 "input": "AI/trainingEnergyConsumption",
                 "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Properties/trainingEnergyConsumption/",
                 "note": "Attaches to EnergyConsumption, not AIPackage"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^Dataset/DatasetPackage$"
+          ],
+          "description": "SPDX 3.x Dataset profile class (DatasetPackage)",
+          "weight": 100,
+          "data": {
+            "type": "class",
+            "profile": "Dataset",
+            "since_version": "3.0",
+            "description": "Specifies a data package and its associated information.",
+            "notes": "RDF IRI form is https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetPackage. In the JSON serialisation this is dataset_DatasetPackage in $defs of spdx-json-schema.json. DatasetPackage is a subclass of software:Package and represents the data half of an AI BOM.",
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/",
+            "known_values": {
+              "Dataset/DatasetPackage": "Specifies a data package and its associated information."
+            },
+            "provenance": {
+              "method": "Class definition taken verbatim from rdfs:comment on ns5:DatasetPackage in the normative Turtle model; Classes/DatasetPackage/ page confirmed HTTP 200.",
+              "date": "2026-11-05",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "Dataset/DatasetPackage",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/",
+                "note": "The central Dataset profile class — a dataset packaged as an SPDX Package"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^Dataset/(ConfidentialityLevelType|DatasetAvailabilityType|DatasetType)$"
+          ],
+          "description": "SPDX 3.x Dataset profile vocabulary (closed enumeration)",
+          "weight": 100,
+          "data": {
+            "type": "vocabulary",
+            "profile": "Dataset",
+            "since_version": "3.0",
+            "description": "A closed enumeration defined by the SPDX 3.x Dataset profile.",
+            "notes": "Members are addressable one level deeper, e.g. #Dataset/ConfidentialityLevelType/amber or #Dataset/DatasetAvailabilityType/directDownload.",
+            "variables": {
+              "term": {
+                "extract": "^Dataset/([A-Za-z]+)$",
+                "description": "Vocabulary name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/{term}/",
+            "known_values": {
+              "Dataset/ConfidentialityLevelType": "Categories of confidentiality level.",
+              "Dataset/DatasetAvailabilityType": "Availability of dataset.",
+              "Dataset/DatasetType": "Enumeration of dataset types."
+            },
+            "provenance": {
+              "method": "Vocabulary list and definitions taken verbatim from rdfs:comment on ns5 (Dataset) owl:Class vocabulary stanzas in the normative Turtle model; each Vocabularies/<name>/ page confirmed HTTP 200.",
+              "date": "2026-11-05",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "Dataset/ConfidentialityLevelType",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/ConfidentialityLevelType/"
+              },
+              {
+                "input": "Dataset/DatasetAvailabilityType",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/DatasetAvailabilityType/"
+              },
+              {
+                "input": "Dataset/DatasetType",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/DatasetType/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^Dataset/ConfidentialityLevelType/(amber|clear|green|red)$",
+            "^Dataset/DatasetAvailabilityType/(clickthrough|directDownload|query|registration|scrapingScript)$",
+            "^Dataset/DatasetType/(audio|categorical|graph|image|noAssertion|numeric|other|sensor|structured|syntactic|text|timeseries|timestamp|video)$"
+          ],
+          "description": "Member of an SPDX 3.x Dataset profile vocabulary",
+          "weight": 100,
+          "data": {
+            "type": "vocabulary_member",
+            "profile": "Dataset",
+            "since_version": "3.0",
+            "description": "A single permitted value of a Dataset profile enumeration.",
+            "notes": "The IRI form is https://spdx.org/rdf/3.0.1/terms/Dataset/<Vocabulary>/<member>. Resolution returns the vocabulary page that lists every member with its definition.",
+            "variables": {
+              "vocab": {
+                "extract": "^Dataset/([A-Za-z]+)/[A-Za-z]+$",
+                "description": "Vocabulary name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/{vocab}/",
+            "known_values": {
+              "Dataset/ConfidentialityLevelType/amber": "Data points in the dataset can be shared only with specific organizations and their clients on a need to know basis.",
+              "Dataset/ConfidentialityLevelType/clear": "Dataset may be distributed freely, without restriction.",
+              "Dataset/ConfidentialityLevelType/green": "Dataset can be shared within a community of peers and partners.",
+              "Dataset/ConfidentialityLevelType/red": "Data points in the dataset are highly confidential and can only be shared with named recipients.",
+              "Dataset/DatasetAvailabilityType/clickthrough": "The dataset is not publicly available and can only be accessed after affirmatively accepting terms on a clickthrough webpage.",
+              "Dataset/DatasetAvailabilityType/directDownload": "The dataset is publicly available and can be downloaded directly.",
+              "Dataset/DatasetAvailabilityType/query": "The dataset is publicly available, but not all at once, and can only be accessed through queries which return parts of the dataset.",
+              "Dataset/DatasetAvailabilityType/registration": "The dataset is not publicly available and an email registration is required before accessing the dataset, although without an affirmative acceptance of terms.",
+              "Dataset/DatasetAvailabilityType/scrapingScript": "The dataset provider is not making available the underlying data and the dataset must be reassembled, typically using the provided script for scraping the data.",
+              "Dataset/DatasetType/audio": "Data is audio based, such as a collection of music from the 80s.",
+              "Dataset/DatasetType/categorical": "Data that is classified into a discrete number of categories, such as the eye color of a population of people.",
+              "Dataset/DatasetType/graph": "Data is in the form of a graph where entries are somehow related to each other through edges, such a social network of friends.",
+              "Dataset/DatasetType/image": "Data is a collection of images such as pictures of animals.",
+              "Dataset/DatasetType/noAssertion": "Data type is not known.",
+              "Dataset/DatasetType/numeric": "Data consists only of numeric entries.",
+              "Dataset/DatasetType/other": "Data is of a type not included in this list.",
+              "Dataset/DatasetType/sensor": "Data is recorded from a physical sensor, such as a thermometer reading or biometric device.",
+              "Dataset/DatasetType/structured": "Data is stored in tabular format or retrieved from a relational database.",
+              "Dataset/DatasetType/syntactic": "Data describes the syntax or semantics of a language or text, such as a parse tree used for natural language processing.",
+              "Dataset/DatasetType/text": "Data consists of unstructured text, such as a book, Wikipedia article (without images), or transcript.",
+              "Dataset/DatasetType/timeseries": "Data is recorded in an ordered sequence of timestamped entries, such as the price of a stock over the course of a day.",
+              "Dataset/DatasetType/timestamp": "Data is recorded with a timestamp for each entry, but not necessarily ordered or at specific intervals, such as when a taxi ride starts and ends.",
+              "Dataset/DatasetType/video": "Data is video based, such as a collection of movie clips featuring Tom Hanks."
+            },
+            "provenance": {
+              "method": "Members and definitions taken verbatim from the owl:NamedIndividual stanzas under terms/Dataset/<Vocabulary>/ in the normative Turtle model.",
+              "date": "2026-11-05",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "Dataset/ConfidentialityLevelType/amber",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/ConfidentialityLevelType/",
+                "note": "Traffic Light Protocol amber confidentiality level"
+              },
+              {
+                "input": "Dataset/DatasetAvailabilityType/directDownload",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Vocabularies/DatasetAvailabilityType/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^Dataset/(anonymizationMethodUsed|confidentialityLevel|dataCollectionProcess|dataPreprocessing|datasetAvailability|datasetNoise|datasetSize|datasetType|datasetUpdateMechanism|hasSensitivePersonalInformation|intendedUse|knownBias|sensor)$"
+          ],
+          "description": "SPDX 3.x Dataset profile property",
+          "weight": 100,
+          "data": {
+            "type": "property",
+            "profile": "Dataset",
+            "since_version": "3.0",
+            "description": "A property defined by the SPDX 3.x Dataset profile.",
+            "notes": "All thirteen properties attach to DatasetPackage and capture dataset provenance, collection, preprocessing, availability, confidentiality, PII presence, intended use, and known bias. RDF IRI form: https://spdx.org/rdf/3.0.1/terms/Dataset/<property>.",
+            "variables": {
+              "term": {
+                "extract": "^Dataset/([A-Za-z]+)$",
+                "description": "Property name"
+              }
+            },
+            "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/{term}/",
+            "known_values": {
+              "Dataset/anonymizationMethodUsed": "Describes the anonymization methods used.",
+              "Dataset/confidentialityLevel": "Describes the confidentiality level of the data points contained in the dataset.",
+              "Dataset/dataCollectionProcess": "Describes how the dataset was collected.",
+              "Dataset/dataPreprocessing": "Describes the preprocessing steps that were applied to the raw data to create the given dataset.",
+              "Dataset/datasetAvailability": "The field describes the availability of a dataset.",
+              "Dataset/datasetNoise": "Describes potentially noisy elements of the dataset.",
+              "Dataset/datasetSize": "Captures the size of the dataset.",
+              "Dataset/datasetType": "Describes the type of the given dataset.",
+              "Dataset/datasetUpdateMechanism": "Describes a mechanism to update the dataset.",
+              "Dataset/hasSensitivePersonalInformation": "Describes if any sensitive personal information is present in the dataset.",
+              "Dataset/intendedUse": "Describes what the given dataset should be used for.",
+              "Dataset/knownBias": "Records the biases that the dataset is known to encompass.",
+              "Dataset/sensor": "Describes a sensor used for collecting the data."
+            },
+            "provenance": {
+              "method": "Property list and definitions taken verbatim from rdfs:comment on the ns5 (Dataset) owl:ObjectProperty and owl:DatatypeProperty stanzas in the normative Turtle model; each Properties/<name>/ page confirmed HTTP 200.",
+              "date": "2026-11-05",
+              "source_url": "https://spdx.org/rdf/3.0.1/spdx-model.ttl"
+            },
+            "examples": [
+              {
+                "input": "Dataset/knownBias",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/knownBias/",
+                "note": "Records biases known to exist in the dataset"
+              },
+              {
+                "input": "Dataset/hasSensitivePersonalInformation",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/hasSensitivePersonalInformation/"
+              },
+              {
+                "input": "Dataset/dataCollectionProcess",
+                "url": "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Properties/dataCollectionProcess/"
               }
             ]
           }

@@ -1,9 +1,8 @@
 {
-  "_comment": "Top-level match_nodes whose patterns[0] cannot honestly be a clean literal. Read by scripts/check-canonical-names.py: listed nodes are reported but do not fail; a stale entry (the node is fixed, renamed or gone) fails, so a fix must delete its entry. None of these can be fixed in the registry alone -- each category needs a resolver change, described under 'categories'.",
+  "_comment": "Top-level match_nodes whose patterns[0] cannot honestly be a single clean literal (numbered series or open identifiers). Read by scripts/check-canonical-names.py: listed nodes are allowlisted; a stale entry (the node is fixed, renamed or gone) fails, so a fix must delete its entry. SecID-Service and SecID-Server-API echo the caller's matchedName as the canonical slug for these regex-patterned nodes (#181).",
   "categories": {
-    "dotted-name": "The source's own name contains '.' (ITU-T X.805, IEEE 802.11). SecID-Service extractNameSlug accepts only [A-Za-z0-9_-], so the correct literal is rejected. Renaming to 'x-805' would break 'follow the source'. Fix: let extractNameSlug accept '.'.",
-    "family-template": "One node matches a numbered series (GLI-11, GLI-19; YD/T 1234; NIST 800-53). No single literal names every member, and a family literal would make every member's canonical SecID the family name. Fix: when patterns[0] is not a literal, echo the matched name instead of slugifying the description.",
-    "name-is-identifier": "The name is itself an open identifier (arXiv ID, DOI, ISBN, commit SHA). The canonical form is the input. Same fix as family-template."
+    "family-template": "One node matches a numbered series (GLI-11, GLI-19; YD/T 1234; NIST 800-53). No single literal names every member, and a family literal would make every member's canonical SecID the family name. Resolvers echo matchedName when patterns[0] is not a literal.",
+    "name-is-identifier": "The name is itself an open identifier (arXiv ID, DOI, ISBN, commit SHA). The canonical form is the input. Resolvers echo matchedName when patterns[0] is not a literal."
   },
   "entries": [
     {
@@ -52,16 +51,6 @@
       "category": "family-template"
     },
     {
-      "file": "registry/control/int/itu.json",
-      "pattern": "(?i)^x\\.805$",
-      "category": "dotted-name"
-    },
-    {
-      "file": "registry/control/int/itu.json",
-      "pattern": "(?i)^x\\.1051$",
-      "category": "dotted-name"
-    },
-    {
       "file": "registry/control/jp/or/jsa.json",
       "pattern": "(?i)^jis-?q-(\\d+(?:-\\d+)?)$",
       "category": "family-template"
@@ -90,16 +79,6 @@
       "file": "registry/control/org/csagroup.json",
       "pattern": "(?i)^z(\\d+(?:\\.\\d+)?)$",
       "category": "family-template"
-    },
-    {
-      "file": "registry/control/org/ieee.json",
-      "pattern": "(?i)^802\\.11$",
-      "category": "dotted-name"
-    },
-    {
-      "file": "registry/control/org/ieee.json",
-      "pattern": "(?i)^802\\.1x$",
-      "category": "dotted-name"
     },
     {
       "file": "registry/control/org/iogp.json",
@@ -275,11 +254,6 @@
       "file": "registry/reference/gov/whitehouse.json",
       "pattern": "^ncs-\\d{4}$",
       "category": "family-template"
-    },
-    {
-      "file": "registry/reference/int/itu.json",
-      "pattern": "(?i)^cybex-x.1500$",
-      "category": "dotted-name"
     },
     {
       "file": "registry/reference/org/acm.json",

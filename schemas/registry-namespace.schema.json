@@ -13,8 +13,9 @@
     },
     "namespace": {
       "type": "string",
-      "description": "Organization identifier — domain name, optionally with /path segments (e.g., 'mitre.org', 'github.com/advisories').",
-      "minLength": 1
+      "description": "Organization identifier — lowercase domain name, optionally with /path segments (e.g., 'mitre.org', 'github.com/advisories').",
+      "minLength": 1,
+      "pattern": "^[a-z0-9.-]+(/[a-z0-9._-]+)*$"
     },
     "type": {
       "type": "string",

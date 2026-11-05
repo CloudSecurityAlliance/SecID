@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "namespace": "bsi.bund.de",
+  "type": "regulation",
+  "status": "draft",
+  "status_notes": "Covers the statutory and ordinance instruments administered by BSI (BSIG, BSI-KritisV) and a regulatory cross-reference node for BSI C5 (whose control criteria live under secid:control/bsi.bund.de/c5).",
+  "official_name": "Bundesamt für Sicherheit in der Informationstechnik",
+  "common_name": "BSI Germany",
+  "alternate_names": [
+    "Federal Office for Information Security"
+  ],
+  "notes": "German federal cybersecurity authority. Administers the BSI Act (BSIG) and Critical Infrastructure Ordinance (BSI-KritisV). Note: BSI's technical control catalogues and attestation frameworks (IT-Grundschutz, C5, AIC4, A5, TR series) are catalogued under secid:control/bsi.bund.de; German federal statutes are also indexed by statutory citation under secid:regulation/gesetze-im-internet.de.",
+  "wikidata": [
+    "Q499492"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Federal_Office_for_Information_Security"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^bsig$",
+        "(?i)^bsig-2009$"
+      ],
+      "description": "BSIG — Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI Act)",
+      "weight": 100,
+      "data": {
+        "canonical_name": "bsig",
+        "official_name": "Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI-Gesetz — BSIG)",
+        "common_name": "BSIG",
+        "alternate_names": [
+          "BSI Act",
+          "BSI-Gesetz",
+          "BGBl. I 2009 S. 2821"
+        ],
+        "description": "German federal statute establishing the mandate, powers, critical-infrastructure security obligations (§ 8a/8b), and federal cloud/IT security standards authority of the Federal Office for Information Security (BSI).",
+        "notes": "Status: In force (enacted 14 August 2009, BGBl. I S. 2821; amended by IT-Sicherheitsgesetz 1.0 and 2.0; verified as of 2026-11-05).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsig_2009/"
+          },
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^bsi-kritisv$",
+        "(?i)^kritisv$"
+      ],
+      "description": "BSI-KritisV — Verordnung zur Bestimmung Kritischer Infrastrukturen nach dem BSI-Gesetz (BSI Critical Infrastructure Ordinance)",
+      "weight": 100,
+      "data": {
+        "canonical_name": "bsi-kritisv",
+        "official_name": "Verordnung zur Bestimmung Kritischer Infrastrukturen nach dem BSI-Gesetz (BSI-Kritisverordnung — BSI-KritisV)",
+        "common_name": "BSI-KritisV",
+        "alternate_names": [
+          "BSI Critical Infrastructure Ordinance",
+          "BGBl. I 2016 S. 958"
+        ],
+        "description": "Ordinance under § 10(1) BSIG defining sector thresholds and covered facilities across energy, water, food, IT/telecommunications, health, finance/insurance, transport, and municipal waste management.",
+        "notes": "Status: In force (enacted 22 April 2016, BGBl. I S. 958;verified as of 2026-11-05).",
+        "urls": [
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/bsi-kritisv/"
+          }
+        ]
+      }
+    },
+    {
+      "patterns": [
+        "(?i)^c5$"
+      ],
+      "description": "BSI C5 — Cloud Computing Compliance Criteria Catalogue (regulatory mandates and cross-reference to secid:control/bsi.bund.de/c5)",
+      "weight": 90,
+      "data": {
+        "official_name": "Cloud Computing Compliance Criteria Catalogue (C5) — Statutory and Regulatory Mandates",
+        "common_name": "BSI C5",
+        "description": "Regulatory entry for BSI C5 cloud security attestation mandates in German law (including federal procurement minimum criteria under BSIG and healthcare cloud data processing under § 393 SGB V).",
+        "notes": "Status: In force (mandatory for statutory health-insurance cloud processing under § 393 SGB V since 2024-07-01; C5:2026 edition published 2026-04-07; verified as of 2026-11-05). Cross-reference: C5 itself is an attestation control catalogue — resolve individual domains and criteria under secid:control/bsi.bund.de/c5 (e.g. secid:control/bsi.bund.de/c5@2026#OIS-01). For the statutory healthcare mandate see secid:regulation/gesetze-im-internet.de/sgb-v#§393.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html"
+          },
+          {
+            "type": "legal_text",
+            "url": "https://www.gesetze-im-internet.de/sgb_5/__393.html"
+          }
+        ]
+      }
+    }
+  ],
+  "tags": {
+    "country": [
+      "DE"
+    ]
+  }
+}

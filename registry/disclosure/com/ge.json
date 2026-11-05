@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "namespace": "ge.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Umbrella GE disclosure entry cross-referencing GE Vernova (secid:disclosure/gevernova.com/cna) and GE HealthCare (secid:disclosure/gehealthcare.com/cna).",
+  "official_name": "General Electric Company (GE Aerospace / GE Vernova / GE HealthCare)",
+  "common_name": "GE",
+  "alternate_names": [
+    "General Electric",
+    "GE Digital",
+    "GE Power",
+    "GE Grid Solutions"
+  ],
+  "notes": "Following the 2023–2024 corporate separation of General Electric into three independent companies, industrial/OT power and grid automation products (formerly GE Digital, GE Power, GE Grid Solutions) are covered by GE Vernova PSIRT (secid:disclosure/gevernova.com/cna, CNA-2022-0009), medical devices are covered by GE HealthCare (secid:disclosure/gehealthcare.com/cna, CNA-2022-0018), and aviation systems are operated by GE Aerospace (ge.com).",
+  "wikidata": [
+    "Q54173"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/General_Electric"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.ge.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$",
+        "(?i)^cna$"
+      ],
+      "description": "GE Product Security & Vulnerability Disclosure (routing for GE Aerospace, GE Vernova, and GE HealthCare)",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "GEV.PSIRT@gevernova.com",
+            "note": "GE Vernova PSIRT (energy, grid, and industrial automation/SCADA)"
+          },
+          {
+            "type": "email",
+            "value": "CVD@gehealthcare.com",
+            "note": "GE HealthCare Coordinated Vulnerability Disclosure"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.gevernova.com/gas-power/products/digital-and-controls/cybersecurity/vulnerability-response",
+            "note": "GE Vernova vulnerability response policy"
+          },
+          {
+            "type": "website",
+            "url": "https://www.gevernova.com/gas-power/products/digital-and-controls/cybersecurity/security-advisories",
+            "note": "GE Vernova security advisories"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.gehealthcare.com/security/cvd",
+            "note": "GE HealthCare coordinated vulnerability disclosure"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

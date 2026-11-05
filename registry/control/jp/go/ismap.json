@@ -22,13 +22,15 @@
   "match_nodes": [
     {
       "patterns": [
-        "(?i)^control-criteria$"
+        "(?i)^control-criteria$",
+        "(?i)^ismap$"
       ],
       "description": "Control Criteria of ISMAP — governance, management, and controls tiers cloud service providers must implement to register on the ISMAP Cloud Service List",
       "weight": 100,
       "data": {
+        "canonical_name": "control-criteria",
         "official_name": "Control Criteria of ISMAP",
-        "notes": "Structured as Chapter 3 Governance criteria (JIS Q 27014 / ISO/IEC 27014:2013), Chapter 4 Management criteria (JIS Q 27001 / ISO/IEC 27001:2013), and Chapter 5 Controls criteria (JIS Q 27002 / ISO/IEC 27002:2013 domains 5-18, with ISO/IEC 27017:2015 cloud-specific additions marked by a .P/.B/.PB suffix on the control ID).",
+        "notes": "Structured as Chapter 3 Governance criteria (JIS Q 27014 / ISO/IEC 27014:2013), Chapter 4 Management criteria (JIS Q 27001 / ISO/IEC 27001:2013), and Chapter 5 Controls criteria (JIS Q 27002 / ISO/IEC 27002:2013 domains 5-18, with ISO/IEC 27017:2015 cloud-specific additions marked by a .P/.B/.PB suffix on the control ID). Also matches the caller-friendly shorthand `/ismap` (resolving to canonical `control-criteria`).",
         "versions_available": [{"version": "2022-04-01"}],
         "version_required": false,
         "urls": [
@@ -39,7 +41,7 @@
             "note": "English reference translation PDF. Original Japanese governs interpretation."
           }
         ],
-        "examples": ["control-criteria"]
+        "examples": ["control-criteria", "ismap"]
       },
       "children": [
         {

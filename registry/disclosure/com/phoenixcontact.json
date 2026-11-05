@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "namespace": "phoenixcontact.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT entry for Phoenix Contact; CVEs and coordinated advisories are issued in partnership with CERT@VDE (secid:disclosure/vde.com/cna).",
+  "official_name": "PHOENIX CONTACT GmbH & Co. KG",
+  "common_name": "Phoenix Contact",
+  "alternate_names": [
+    "Phoenix Contact PSIRT"
+  ],
+  "notes": "German industrial automation, electrical interconnect, and OT networking vendor. Cooperative partner of CERT@VDE (see secid:disclosure/vde.com/cna), which acts as the CVE Numbering Authority for Phoenix Contact advisories.",
+  "wikidata": [
+    "Q462332"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Phoenix_Contact"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.phoenixcontact.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "Phoenix Contact PSIRT — product security incident response and vulnerability disclosure",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "psirt@phoenixcontact.com",
+            "note": "Phoenix Contact PSIRT"
+          },
+          {
+            "type": "email",
+            "value": "info@cert.vde.com",
+            "note": "CERT@VDE (CNA cooperative partner)"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.phoenixcontact.com/en-pc/company/cybersecurity/psirt",
+            "note": "Phoenix Contact PSIRT & vulnerability disclosure"
+          },
+          {
+            "type": "website",
+            "url": "https://cert.vde.com/en-us/advisories",
+            "note": "CERT@VDE security advisories"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

@@ -23,6 +23,7 @@
       "description": "FedRAMP Threat-Based Risk Profiling Methodology",
       "weight": 100,
       "data": {
+        "subtype": ["scoring"],
         "official_name": "FedRAMP Threat-Based Risk Profiling Methodology",
         "description": "A phase-based scoring methodology FedRAMP uses to assess the relative criticality of security controls against MITRE ATT&CK-derived threat scenarios. Produces prioritized control rankings rather than a control catalog of its own.",
         "urls": [{"type": "docs", "url": "https://www.fedramp.gov/threat-based-methodology/"}],

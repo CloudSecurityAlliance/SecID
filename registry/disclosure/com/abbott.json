@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "namespace": "abbott.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor PSIRT / coordinated vulnerability disclosure entry for Abbott medical devices and diagnostics.",
+  "official_name": "Abbott Laboratories",
+  "common_name": "Abbott",
+  "alternate_names": null,
+  "notes": "Healthcare and medical device manufacturer (cardiovascular, neuromodulation, diabetes care, diagnostics). Operates a coordinated product security vulnerability disclosure program for connected medical devices.",
+  "wikidata": [
+    "Q306764"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Abbott_Laboratories"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.abbott.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cvd$"
+      ],
+      "description": "Abbott Product Security — medical device coordinated vulnerability disclosure",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "web",
+            "value": "https://www.abbott.com/about-abbott/cybersecurity/submit-a-product-vulnerability.html",
+            "note": "Abbott Product Vulnerability Submission Form"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.abbott.com/about-abbott/cybersecurity/submit-a-product-vulnerability.html",
+            "note": "Coordinated vulnerability disclosure policy & intake"
+          },
+          {
+            "type": "website",
+            "url": "https://www.abbott.com/about-abbott/cybersecurity.html",
+            "note": "Abbott cybersecurity & product advisories"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}

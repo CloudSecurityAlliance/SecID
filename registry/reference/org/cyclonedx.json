@@ -867,6 +867,98 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^mlbom/componentData/governance/(custodians|stewards|owners)$"
+          ],
+          "description": "Data governance role on a CycloneDX componentData (dataset) object",
+          "weight": 100,
+          "data": {
+            "type": "field",
+            "since_version": "1.5",
+            "description": "Identifies the organizations or individuals responsible for a specific data governance role (custodians, stewards, or owners) over a dataset in an ML-BOM.",
+            "notes": "Each role array contains dataGovernanceResponsibleParty entries specifying an organization or contact. Anchor paths on the CycloneDX documentation page expand componentData under metadata.tools...modelCard.modelParameters.datasets.",
+            "variables": {
+              "role": {
+                "extract": "^mlbom/componentData/governance/([a-z]+)$",
+                "description": "Data governance role (custodians, stewards, or owners)"
+              }
+            },
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_governance_{role}",
+            "known_values": {
+              "mlbom/componentData/governance/custodians": "Data custodians are responsible for the safe custody, transport, and storage of data.",
+              "mlbom/componentData/governance/stewards": "Data stewards are responsible for data content, context, and associated business rules.",
+              "mlbom/componentData/governance/owners": "Data owners are concerned with risk and appropriate access to data."
+            },
+            "provenance": {
+              "method": "Field paths and descriptions read from definitions.dataGovernance in bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-11-05",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "schema_pointer": "#/definitions/dataGovernance/properties/{role}",
+            "examples": [
+              {
+                "input": "mlbom/componentData/governance/custodians",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_governance_custodians",
+                "note": "Entities responsible for safe custody, transport, and storage of the dataset"
+              },
+              {
+                "input": "mlbom/componentData/governance/stewards",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_governance_stewards"
+              },
+              {
+                "input": "mlbom/componentData/governance/owners",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_governance_owners"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^mlbom/componentData/contents/(attachment|url|properties)$"
+          ],
+          "description": "Dataset contents subfield on a CycloneDX componentData object",
+          "weight": 100,
+          "data": {
+            "type": "field",
+            "since_version": "1.5",
+            "description": "Specifies the inline payload, retrieval URL, or configuration properties of the dataset contents in an ML-BOM.",
+            "notes": "componentData.contents provides either an inline attachment (textual or base64-encoded data), a url where the dataset can be retrieved, or key-value properties documenting dataset configuration parameters.",
+            "variables": {
+              "subfield": {
+                "extract": "^mlbom/componentData/contents/([a-z]+)$",
+                "description": "componentData.contents property name"
+              }
+            },
+            "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_contents_{subfield}",
+            "known_values": {
+              "mlbom/componentData/contents/attachment": "A way to include textual or encoded data.",
+              "mlbom/componentData/contents/url": "The URL to where the data can be retrieved.",
+              "mlbom/componentData/contents/properties": "Provides the ability to document name-value parameters used for configuration."
+            },
+            "provenance": {
+              "method": "Field paths and descriptions read from definitions.componentData.properties.contents in bom-1.7.schema.json; every documentation anchor confirmed present in the rendered HTML of cyclonedx.org/docs/1.7/json/.",
+              "date": "2026-11-05",
+              "source_url": "https://cyclonedx.org/schema/bom-1.7.schema.json"
+            },
+            "schema_pointer": "#/definitions/componentData/properties/contents/properties/{subfield}",
+            "examples": [
+              {
+                "input": "mlbom/componentData/contents/url",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_contents_url",
+                "note": "URL where the dataset can be retrieved"
+              },
+              {
+                "input": "mlbom/componentData/contents/attachment",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_contents_attachment"
+              },
+              {
+                "input": "mlbom/componentData/contents/properties",
+                "url": "https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_modelParameters_datasets_items_oneOf_i0_contents_properties"
+              }
+            ]
+          }
         }
       ]
     }

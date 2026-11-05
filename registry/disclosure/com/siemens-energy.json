@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "namespace": "siemens-energy.com",
+  "type": "disclosure",
+  "status": "draft",
+  "status_notes": "Vendor cybersecurity & advisory entry for Siemens Energy; vulnerability handling and advisories are coordinated with Siemens ProductCERT (secid:disclosure/siemens.com/cna).",
+  "official_name": "Siemens Energy AG",
+  "common_name": "Siemens Energy",
+  "alternate_names": null,
+  "notes": "German energy technology and grid/power automation company spun off from Siemens AG in 2020. Coordinates vulnerability intake and security advisories via Siemens ProductCERT (see secid:disclosure/siemens.com/cna).",
+  "wikidata": [
+    "Q90412798"
+  ],
+  "wikipedia": [
+    "https://en.wikipedia.org/wiki/Siemens_Energy"
+  ],
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://www.siemens-energy.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^psirt$",
+        "(?i)^cert$",
+        "(?i)^cna$"
+      ],
+      "description": "Siemens Energy Product Security / ProductCERT",
+      "weight": 80,
+      "data": {
+        "canonical_name": "psirt",
+        "subtype": [
+          "psirt"
+        ],
+        "organization_type": "Vendor",
+        "contacts": [
+          {
+            "type": "email",
+            "value": "productcert@siemens.com",
+            "note": "Siemens ProductCERT"
+          },
+          {
+            "type": "web",
+            "value": "https://www.siemens.com/cert",
+            "note": "Siemens ProductCERT portal"
+          }
+        ],
+        "urls": [
+          {
+            "type": "docs",
+            "url": "https://www.siemens-energy.com/global/en/home/general/cybersecurity.html",
+            "note": "Siemens Energy cybersecurity & vulnerability reporting"
+          },
+          {
+            "type": "website",
+            "url": "https://www.siemens.com/global/en/products/services/cert.html#SiemensSecurityAdvisories",
+            "note": "Security advisories"
+          }
+        ],
+        "examples": []
+      }
+    }
+  ]
+}
