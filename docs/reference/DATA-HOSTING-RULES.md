@@ -92,7 +92,7 @@ Data that already has good machine-readable, per-item, reliable sources:
 
 SecID 2.0 serves public structured content directly from GitHub repositories under `CloudSecurityAlliance` via `raw.githubusercontent.com` (shelving Cloudflare R2 / S3 serving so transfer and storage costs stay `$0` and every dataset is trivially `git clone`-able and git-tag-versioned):
 
-- **The registry schema is unchanged (`ADR-010`):** Registry `match_nodes` point to extracted content using standard `data.url` templates (on subpath child nodes) and `data.urls[]` entries (on document-level source nodes) with `"format": "json"` (or `"markdown"`), `"content_type": "application/json"`, and `"parsability": "structured"`. No custom `data_federation` field is used.
+- **The registry schema is unchanged (`ADR-010`):** Registry `match_nodes` point to extracted content using standard `data.url` templates (on subpath child nodes) and `data.urls[]` entries (on document-level source nodes) with `"format": "json"` (or `"markdown"`) and `"parsability": "structured"` (`content_type` is omitted on `raw.githubusercontent.com` URLs because GitHub serves raw files with HTTP `Content-Type: text/plain`). No custom `data_federation` field is used.
 - **`SecID-Service` never proxies payload bytes:** The Worker resolves the SecID to its deterministic `raw.githubusercontent.com` URL (alongside the official publisher URL), and callers/SDKs fetch the JSON or Markdown directly from GitHub's CDN.
 
 ### 2. Domain-First Exhaustive Local Extraction & Sizing Before Committing to Git
@@ -155,7 +155,6 @@ Registry entries link to `SecID-Data*` using standard `match_node` URL fields (n
     "type": "lookup",
     "url": "https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/data/control/mil/disa/aaa-services/V2R2/stig.json",
     "format": "json",
-    "content_type": "application/json",
     "parsability": "structured",
     "note": "Extracted document metadata and rule index in SecID-Data-disa.mil."
   }

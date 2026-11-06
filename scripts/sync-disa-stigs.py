@@ -167,7 +167,6 @@ def build_node(d, compilation, checked, data_repo=None):
             "type": "lookup",
             "url": doc_url(d),
             "format": "json",
-            "content_type": "application/json",
             "parsability": "structured",
             "note": "Extracted document metadata and rule index in SecID-Data-disa.mil.",
         })
