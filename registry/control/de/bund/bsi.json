@@ -122,17 +122,39 @@
       "children": [
         {
           "patterns": [
-            "^[A-Z]{2,4}$"
+            "^(?:AM|BC|BCM|COM|COS|CRY|DEV|GC|HR|IAM|IDM|INQ|OIS|OPS|PI|PS|PSS|SIM|SP|SSO)$"
           ],
-          "description": "Control domain (e.g., OIS, CRY, IAM/IDM, OPS, GC). Contains multiple criteria.",
+          "description": "Control domain (e.g., OIS, CRY, IAM/IDM, OPS, GC/BC). Contains multiple criteria across C5:2020 and C5:2026.",
           "weight": 100,
           "data": {
-            "examples": ["OIS", "CRY", "IAM", "OPS", "GC"]
+            "examples": ["OIS", "CRY", "IAM", "OPS", "GC"],
+            "known_values": {
+              "AM": "Asset Management",
+              "BC": "General Conditions (C5:2020; renumbered GC in C5:2026)",
+              "BCM": "Business Continuity Management",
+              "COM": "Compliance",
+              "COS": "Communication Security",
+              "CRY": "Cryptography and Key Management",
+              "DEV": "Procurement, Development and Modification of Information Systems",
+              "GC": "General Conditions (C5:2026; formerly BC in C5:2020)",
+              "HR": "Personnel",
+              "IAM": "Identity and Access Management (C5:2026; formerly IDM in C5:2020)",
+              "IDM": "Identity and Access Management (C5:2020; renamed IAM in C5:2026)",
+              "INQ": "Dealing with Investigation Requests from Government Agencies",
+              "OIS": "Organisation of Information Security",
+              "OPS": "Operations",
+              "PI": "Portability and Interoperability",
+              "PS": "Physical Security",
+              "PSS": "Product Safety and Security",
+              "SIM": "Security Incident Management",
+              "SP": "Security Policies and Procedures (Security Policies and Instructions in C5:2020)",
+              "SSO": "Control and Monitoring of Service Providers and Suppliers"
+            }
           }
         },
         {
           "patterns": [
-            "^[A-Z]{2,4}-\\d{2}$"
+            "^(?:AM|BC|BCM|COM|COS|CRY|DEV|GC|HR|IAM|IDM|INQ|OIS|OPS|PI|PS|PSS|SIM|SP|SSO)-\\d{2}$"
           ],
           "description": "Specific criterion (e.g., OIS-01, CRY-05, OPS-24, GC-01).",
           "weight": 100,
@@ -142,7 +164,7 @@
         },
         {
           "patterns": [
-            "^[A-Z]{2,4}-\\d{2}\\.\\d{2}[A-Z]{1,2}$"
+            "^(?:AM|BCM|COM|COS|CRY|DEV|HR|IAM|INQ|OIS|OPS|PI|PS|PSS|SIM|SP|SSO)-\\d{2}\\.\\d{2}(?:B|AC|AS)$"
           ],
           "description": "Sub-criterion under a parent criterion (C5:2026 only), suffixed by type: Basic (B), Additional/Complementing (AC), or Additional/Sharpening (AS) — e.g. OIS-01.01B, OIS-01.01AC, OIS-01.01AS. C5:2026's 168 criteria expand into 623 such sub-criteria (verified against BSI's official editable workbook C5_2026_editable.xlsx). C5:2020 has no sub-numbering.",
           "weight": 100,
@@ -198,7 +220,7 @@
         },
         {
           "patterns": [
-            "^[A-Z]{2}-\\d{2}$"
+            "^(?:BC|BI|DM|DQ|EX|PC|PF|RE|SR)-\\d{2}$"
           ],
           "description": "Specific criterion (e.g., SR-01, DQ-03, EX-02, BI-01), or General Conditions item (BC-01…BC-06).",
           "weight": 100,
@@ -256,7 +278,7 @@
         },
         {
           "patterns": [
-            "^[A-Z]{2,4}\\.\\d+$"
+            "^(?:DEI|DEP|GCS|OPS|RET|VAV)\\.\\d+$"
           ],
           "description": "A5 subgroup (group.N), e.g. GCS.1 (Stakeholder & Impact Scoping).",
           "weight": 100,
@@ -266,7 +288,7 @@
         },
         {
           "patterns": [
-            "^[A-Z]{2,4}\\.\\d+\\.\\d+$"
+            "^(?:DEI|DEP|GCS|OPS|RET|VAV)\\.\\d+\\.\\d+$"
           ],
           "description": "A5 control / requirement (group.subgroup.N), e.g. GCS.1.1. Basismodul defines 57 controls; the Cloud-Infrastructure module adds cloud-specific controls (e.g. GCS.2.5). Verified against BSI's official OSCAL catalogs.",
           "weight": 100,

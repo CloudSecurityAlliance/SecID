@@ -113,24 +113,94 @@
       "weight": 100,
       "data": {
         "official_name": "OWASP AI Exchange Controls",
+        "notes": "Controls and control-group permalinks from the OWASP AI Exchange knowledge base (derived from OWASP/www-project-ai-security-and-privacy-guide content/ai_exchange/content/docs/*.md and firebase.json). Control IDs are uppercase concatenated words (e.g., RATELIMIT, INPUTDISTORTION), while owaspai.org's Firebase Hosting /goto/ and /go/ redirect rules match lowercase paths ({id_lower}).",
         "urls": [
           {"type": "website", "url": "https://owaspai.org"},
           {"type": "controls", "url": "https://owaspai.org/docs/ai_security_overview/#how-to-address-ai-security"},
-          {"type": "lookup", "url": "https://owaspai.org/goto/{id}/"}
+          {"type": "lookup", "url": "https://owaspai.org/goto/{id_lower}/"}
         ],
         "examples": ["RATELIMIT", "INPUTDISTORTION", "MODELACCESSCONTROL"]
       },
       "children": [
         {
-          "patterns": ["^[A-Z]+$"],
+          "patterns": [
+            "^(?:ADVERSARIALROBUSTDISTILLATION|AGENTSANDBOXING|AIPROGRAM|AITRANSPARENCY|ALLOWEDDATA|ANOMALOUSINPUTHANDLING|AUGMENTATIONDATACONFIDENTIALITY|AUGMENTATIONDATAINTEGRITY|CHECKCOMPLIANCE|CONFCOMPUTE|CONTINUOUSVALIDATION|DATALIMIT|DATAMINIMIZE|DATAQUALITYCONTROL|DETECTADVERSARIALINPUT|DETECTODDINPUT|DEVPROGRAM|DEVDATAPROTECT|DEVSECURITY|DISCRETE|DOSINPUTVALIDATION|ENCODEMODELOUTPUT|EVASIONINPUTHANDLING|EVASIONROBUSTMODEL|EXPLAINABILITY|FEDERATEDLEARNING|FILTERSENSITIVEMODELOUTPUT|GENERALCONTROLS|GOVERNANCECONTROLS|INPUTDISTORTION|INPUTSEGREGATION|LEASTMODELPRIVILEGE|LIMITRESOURCES|LIMITUNWANTED|MODELACCESSCONTROL|MODELALIGNMENT|MODELENSEMBLE|MODELINPUTCONFIDENTIALITY|MODELOBFUSCATION|MODELWATERMARKING|MONITORUSE|MORETRAINDATA|OBFUSCATETRAININGDATA|OBSCURECONFIDENCE|OVERSIGHT|POISONROBUSTMODEL|PROMPTINPUTVALIDATION|PROMPTINJECTIONIOHANDLING|PROMPTINJECTIONSEVENLAYERS|RATELIMIT|RUNTIMEMODELCONFIDENTIALITY|RUNTIMEMODELINTEGRITY|RUNTIMEMODELIOINTEGRITY|SECDEVPROGRAM|SECEDUCATE|SECPROGRAM|SEGREGATEDATA|SENSITIVEOUTPUTHANDLING|SHORTRETAIN|SMALLMODEL|SUPPLYCHAINMANAGE|TRAINADVERSARIAL|TRAINDATADISTORTION|UNWANTEDBIASTESTING|UNWANTEDINPUTSERIESHANDLING)$"
+          ],
           "description": "OWASP AI Exchange control ID — uppercase concatenated words",
           "weight": 100,
           "data": {
-            "url": "https://owaspai.org/goto/{id}/",
+            "url": "https://owaspai.org/goto/{id_lower}/",
             "examples": [
-              {"input": "RATELIMIT", "url": "https://owaspai.org/goto/RATELIMIT/", "note": "Rate limiting control for AI APIs"},
-              {"input": "INPUTDISTORTION", "url": "https://owaspai.org/goto/INPUTDISTORTION/", "note": "Input distortion to prevent adversarial examples"}
-            ]
+              {"input": "RATELIMIT", "url": "https://owaspai.org/goto/ratelimit/", "note": "Rate limiting control for AI APIs"},
+              {"input": "INPUTDISTORTION", "url": "https://owaspai.org/goto/inputdistortion/", "note": "Input distortion to prevent adversarial examples"}
+            ],
+            "known_values": {
+              "AIPROGRAM": "AI program",
+              "SECPROGRAM": "Security program",
+              "SECDEVPROGRAM": "Secure development program",
+              "DEVPROGRAM": "Development program",
+              "CHECKCOMPLIANCE": "Check compliance",
+              "SECEDUCATE": "Security education",
+              "DATAMINIMIZE": "Data minimize",
+              "ALLOWEDDATA": "Allowed data",
+              "SHORTRETAIN": "Short retain",
+              "OBFUSCATETRAININGDATA": "Obfuscate training data",
+              "DISCRETE": "Discrete",
+              "OVERSIGHT": "Oversight",
+              "LEASTMODELPRIVILEGE": "Least model privilege",
+              "MODELALIGNMENT": "Model alignment",
+              "AITRANSPARENCY": "AI transparency",
+              "CONTINUOUSVALIDATION": "Continuous validation",
+              "EXPLAINABILITY": "Explainability",
+              "UNWANTEDBIASTESTING": "Unwanted bias testing",
+              "MONITORUSE": "Monitor use",
+              "RATELIMIT": "Rate limit",
+              "MODELACCESSCONTROL": "Model access control",
+              "ANOMALOUSINPUTHANDLING": "Anomalous input handling",
+              "UNWANTEDINPUTSERIESHANDLING": "Unwanted input series handling",
+              "OBSCURECONFIDENCE": "Obscure confidence",
+              "EVASIONINPUTHANDLING": "Evasion input handling",
+              "EVASIONROBUSTMODEL": "Evasion robust model",
+              "TRAINADVERSARIAL": "Train adversarial",
+              "INPUTDISTORTION": "Input distortion",
+              "ADVERSARIALROBUSTDISTILLATION": "Adversarial robust distillation",
+              "PROMPTINJECTIONIOHANDLING": "Prompt injection I/O handling",
+              "INPUTSEGREGATION": "Input segregation",
+              "SENSITIVEOUTPUTHANDLING": "Sensitive output handling",
+              "SMALLMODEL": "Small model",
+              "MODELWATERMARKING": "Model watermarking",
+              "DOSINPUTVALIDATION": "DoS input validation",
+              "LIMITRESOURCES": "Limit resources",
+              "DEVSECURITY": "Dev security",
+              "SEGREGATEDATA": "Segregate data",
+              "CONFCOMPUTE": "Confidential compute",
+              "FEDERATEDLEARNING": "Federated learning",
+              "SUPPLYCHAINMANAGE": "Supply chain management",
+              "MODELENSEMBLE": "Model ensemble",
+              "MORETRAINDATA": "More training data",
+              "DATAQUALITYCONTROL": "Data quality control",
+              "TRAINDATADISTORTION": "Train data distortion",
+              "POISONROBUSTMODEL": "Poison robust model",
+              "RUNTIMEMODELINTEGRITY": "Runtime model integrity",
+              "RUNTIMEMODELIOINTEGRITY": "Runtime model I/O integrity",
+              "RUNTIMEMODELCONFIDENTIALITY": "Runtime model confidentiality",
+              "MODELOBFUSCATION": "Model obfuscation",
+              "ENCODEMODELOUTPUT": "Encode model output",
+              "MODELINPUTCONFIDENTIALITY": "Model input confidentiality",
+              "AUGMENTATIONDATACONFIDENTIALITY": "Augmentation data confidentiality",
+              "AUGMENTATIONDATAINTEGRITY": "Augmentation data integrity",
+              "AGENTSANDBOXING": "Agent sandboxing and isolation",
+              "GENERALCONTROLS": "General controls — Section 1",
+              "GOVERNANCECONTROLS": "General governance controls — Section 1.1",
+              "DATALIMIT": "General controls for sensitive data limitation — Section 1.2",
+              "LIMITUNWANTED": "Controls to limit the effects of unwanted behaviour — Section 1.3",
+              "PROMPTINJECTIONSEVENLAYERS": "Seven layers of prompt injection protection",
+              "DETECTODDINPUT": "Alias for ANOMALOUSINPUTHANDLING — Anomalous input handling",
+              "DETECTADVERSARIALINPUT": "Alias for EVASIONINPUTHANDLING — Evasion input handling",
+              "PROMPTINPUTVALIDATION": "Alias for PROMPTINJECTIONIOHANDLING — Prompt injection I/O handling",
+              "FILTERSENSITIVEMODELOUTPUT": "Alias for SENSITIVEOUTPUTHANDLING — Sensitive output handling",
+              "DEVDATAPROTECT": "Alias for DEVSECURITY — Dev security"
+            }
           }
         }
       ]

@@ -135,12 +135,26 @@
           "CWE XSD"
         ],
         "description": "The XSD that defines the CWE data format — what fields exist on a weakness, how relationships are expressed, what attributes are required.",
-        "notes": "CWE publishes two version numbers on independent tracks: the catalog/content version (e.g., 4.19.1) and the XSD schema version (e.g., 7.3). They are loosely coupled but not synchronized — a CWE major bump doesn't always mean an XSD major bump, and vice versa. Major XSD breaks: v5.0 → v6.0 was a structural rewrite (CWE 2.0 → 3.0), v6 → v7 added mapping/provenance infrastructure mid-CWE-4.x (with 4.12).",
+        "notes": "CWE publishes two version numbers on independent tracks: the catalog/content version (e.g., 5.0, 4.21, 4.20) and the XSD schema version (e.g., 8.0, 7.4, 7.3). They are loosely coupled but not synchronized — a CWE major bump doesn't always mean an XSD major bump, and vice versa. Major XSD breaks: v5.0 → v6.0 was a structural rewrite (CWE 2.0 → 3.0), v6 → v7 added mapping/provenance infrastructure mid-CWE-4.x (with 4.12), and v7.3 → v8.0 (shipped 2026-10-28 with CWE 5.0, alongside v7.4 for parallel CWE 4.21 transition support) replaced Category with Grouping and added Technical_Nuance, Dimensions, Overlaps relationships, and Custom_Phases for AI/Hardware.",
         "version_required": false,
         "versions_available": [
           {
-            "version": "7.3",
+            "version": "8.0",
+            "release_date": "2026-10-28",
             "status": "current",
+            "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v8.0.xsd",
+            "note": "CWE 5.0 major schema rewrite — replaces Category with Grouping, adds Technical_Nuance, Dimensions, Overlaps relationships, and Custom_Phases for AI and Hardware."
+          },
+          {
+            "version": "7.4",
+            "release_date": "2026-10-28",
+            "status": "superseded",
+            "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v7.4.xsd",
+            "note": "Parallel Schema 7.x transition release published with CWE 4.21 alongside CWE 5.0 / Schema 8.0."
+          },
+          {
+            "version": "7.3",
+            "status": "superseded",
             "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd"
           },
           {
@@ -286,6 +300,8 @@
           }
         ],
         "examples": [
+          "8.0",
+          "7.4",
           "7.3",
           "7.0",
           "6.0",
@@ -295,9 +311,99 @@
       "children": [
         {
           "patterns": [
+            "^8\\.0$"
+          ],
+          "description": "CWE XSD v8.0 (CWE 5.0) — Current.",
+          "weight": 100,
+          "data": {
+            "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v8.0.xsd",
+            "content_type": "text/xml",
+            "parsability": "structured",
+            "urls": [
+              {
+                "type": "docs",
+                "url": "https://cwe.mitre.org/documents/schema/schema_v8.0.html",
+                "content_type": "text/html",
+                "parsability": "scraped"
+              }
+            ],
+            "examples": [
+              {
+                "input": "8.0",
+                "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v8.0.xsd"
+              }
+            ],
+            "format": "xml"
+          }
+        },
+        {
+          "patterns": [
+            "^8\\.0$"
+          ],
+          "description": "CWE XSD v8.0 HTML schema documentation",
+          "weight": 20,
+          "data": {
+            "url": "https://cwe.mitre.org/documents/schema/schema_v8.0.html",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "8.0",
+                "url": "https://cwe.mitre.org/documents/schema/schema_v8.0.html"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^7\\.4$"
+          ],
+          "description": "CWE XSD v7.4 (CWE 4.21 — parallel Schema 7.x transition release).",
+          "weight": 95,
+          "data": {
+            "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v7.4.xsd",
+            "content_type": "text/xml",
+            "parsability": "structured",
+            "urls": [
+              {
+                "type": "docs",
+                "url": "https://cwe.mitre.org/documents/schema/schema_v7.4.html",
+                "content_type": "text/html",
+                "parsability": "scraped"
+              }
+            ],
+            "examples": [
+              {
+                "input": "7.4",
+                "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v7.4.xsd"
+              }
+            ],
+            "format": "xml"
+          }
+        },
+        {
+          "patterns": [
+            "^7\\.4$"
+          ],
+          "description": "CWE XSD v7.4 HTML schema documentation",
+          "weight": 20,
+          "data": {
+            "url": "https://cwe.mitre.org/documents/schema/schema_v7.4.html",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "examples": [
+              {
+                "input": "7.4",
+                "url": "https://cwe.mitre.org/documents/schema/schema_v7.4.html"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
             "^7\\.3$"
           ],
-          "description": "CWE XSD v7.3 (CWE 4.19–4.19.1) — Current.",
+          "description": "CWE XSD v7.3 (CWE 4.19–4.20).",
           "weight": 100,
           "data": {
             "url": "https://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd",

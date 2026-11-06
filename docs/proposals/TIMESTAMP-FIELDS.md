@@ -1,7 +1,7 @@
 # Proposal: `_checked` / `_updated` / `_note` Fields for Registry Data
 
-**Status:** Proposed
-**Date:** 2026-03-06
+**Status:** Partially Accepted (Namespace & Object `checked`/`updated`/`note` Accepted; Scalar `_checked`/`_updated` Suffixes Declined — see [2026-11-05 Decision](#decision-2026-11-05--issue-60))
+**Date:** 2026-03-06 (Decision recorded 2026-11-05)
 **Author:** SecID maintainers
 
 ## Problem Statement
@@ -201,6 +201,17 @@ The following registry files serve as the initial implementation to validate the
 
 - `registry/entity/com/redhat.json` — positive `security_txt` finding, source-level timestamps
 - `registry/entity/com/oracle.json` — null `security_txt` (confirmed negative), source-level timestamps
+
+## Decision (2026-11-05 — [Issue #60](https://github.com/CloudSecurityAlliance/SecID/issues/60))
+
+**Decision method:** AI decision (Gemini), reviewed by Codex (closing [#60](https://github.com/CloudSecurityAlliance/SecID/issues/60)).
+
+1. **Accepted (already in `schemas/registry-namespace.schema.json`):**
+   - **Namespace-level `checked`, `updated`, and `notes`:** Optional ISO 8601 (`YYYY-MM-DD`) `checked` and `updated` fields on the top-level namespace document (`schemas/registry-namespace.schema.json` lines 93–102), used to record when a namespace file's real-world facts were last verified or materially updated (e.g., `registry/entity/com/redhat.json`, `registry/entity/com/oracle.json`).
+   - **`UrlObject`-level `checked`, `updated`, and `note`:** Optional `checked`, `updated`, and `note` fields on structured URL objects in `urls[]` arrays (`schemas/registry-namespace.schema.json` `$defs/UrlObject`, lines 145–155).
+   - **Provenance and regulatory status snapshots:** Country-tag provenance (`_country_provenance.date` / `method` / `note`) and dated regulation status snapshots (`Status: <Proposed | Enacted | In force | Died on the Order Paper> (...; verified as of YYYY-MM-DD)` in `registry/regulation/`, enforced by `scripts/check-regulation-status.py` with 90-day/180-day freshness thresholds).
+2. **Declined:**
+   - **Per-scalar `field_checked` / `field_updated` / `field_note` sibling suffixes** (such as `security_txt_checked`, `url_checked`, `official_name_checked`). Multiplying every scalar property in `match_nodes[].data` by four sibling keys across 2,262 namespace files bloats the JSON schema and KV payload without proportionate value: structured URLs already live in `UrlObject` entries (which support `checked`/`updated`/`note` directly), and child `data.url` templates are continuously verified by `scripts/check-examples.py` (offline in CI, `--live` for HTTP reachability).
 
 ## References
 
