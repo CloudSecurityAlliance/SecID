@@ -143,12 +143,35 @@ def rule_ids(data_repo, slug, version):
 DATA_RAW = "https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main"
 
 
+def doc_url(d):
+    return f"{DATA_RAW}/data/control/mil/disa/{d['slug']}/{d['version']}/stig.json"
+
+
 def rule_url_template(d):
     return f"{DATA_RAW}/data/control/mil/disa/{d['slug']}/{d['version']}/rules/{{id}}.json"
 
 
 def build_node(d, compilation, checked, data_repo=None):
     label = f"{d['product']} {d['kind']}"
+    vids = rule_ids(data_repo, d["slug"], d["version"]) if data_repo else None
+    urls = [
+        {"type": "bulk_data", "url": f"{BASE}/{d['file']}", "format": "zip",
+         "parsability": "structured", "note": "XCCDF XML inside a ZIP. Revision-pinned URL.",
+         "checked": checked},
+        {"type": "website", "url": LIBRARY_PAGE, "note": "Always-current document library."},
+    ]
+    ver_entry = {"version": d["version"], "status": "current",
+                 "note": f"As published in {compilation}."}
+    if vids:
+        urls.insert(0, {
+            "type": "lookup",
+            "url": doc_url(d),
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "note": "Extracted document metadata and rule index in SecID-Data-disa.mil.",
+        })
+        ver_entry["url"] = doc_url(d)
     node = {
         "patterns": [f"(?i)^{d['slug']}$"],
         "description": f"{label} — DISA {'Security Technical Implementation Guide' if d['kind']=='STIG' else 'Security Requirements Guide'}",
@@ -159,21 +182,12 @@ def build_node(d, compilation, checked, data_repo=None):
             "notes": (f"Current release {d['version']}. Published as XCCDF XML inside {d['file']}. "
                       f"The per-document download URL is pinned to the current revision and 404s once "
                       f"superseded; the quarterly compilation is the stable citation. "),
-            "urls": [
-                {"type": "bulk_data", "url": f"{BASE}/{d['file']}", "format": "zip",
-                 "parsability": "structured", "note": "XCCDF XML inside a ZIP. Revision-pinned URL.",
-                 "checked": checked},
-                {"type": "website", "url": LIBRARY_PAGE, "note": "Always-current document library."},
-            ],
-            "versions_available": [
-                {"version": d["version"], "status": "current",
-                 "note": f"As published in {compilation}."}
-            ],
+            "urls": urls,
+            "versions_available": [ver_entry],
             "examples": [],
             GENERATED_KEY: compilation,
         },
     }
-    vids = rule_ids(data_repo, d["slug"], d["version"]) if data_repo else None
     # The note must describe what this node actually carries. Claiming enumerated V-IDs on
     # a node with no children (EPAS: no data directory in SecID-Data-disa.mil) tells a
     # reader the rules resolve when every lookup would fall through.

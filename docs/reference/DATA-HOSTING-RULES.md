@@ -84,190 +84,111 @@ Data that already has good machine-readable, per-item, reliable sources:
 | Twitter/X posts | User content, platform ToS | **Carefully** | Archive for preservation, cite original |
 | Reddit posts | User content, Reddit ToS | **Carefully** | Archive for preservation, cite original |
 
-## Data Repository Structure
+## Data Repository Structure (SecID 2.0)
 
-### Federation Model
+> **Historical note (2026-11-06):** Earlier drafts of this document (and [`SecID#64`](https://github.com/CloudSecurityAlliance/SecID/issues/64)) proposed per-type repositories (`SecID-weakness`, `SecID-control`, …) and a `data_federation` registry field, and [`ADR-011`](../../DECISIONS.md#adr-011-data-repositories-shard-by-region-keyed-by-the-authority-behind-the-material) explored regional repositories (`SecID-Data-North-America`, …). Those were superseded by [`ADR-010`](../../DECISIONS.md#adr-010-secid-20-serves-content-the-registry-is-unchanged), [`ADR-013`](../../DECISIONS.md#adr-013-a-single-source-corpus-promotes-out-of-its-region-repository-at-a-size-threshold), [`ADR-014`](../../DECISIONS.md#adr-014-every-secid-data--repository-uses-one-layout-mirroring-the-registry), and the 2026-11-06 **Domain-First Exhaustive Extraction & Zero-Egress GitHub Serving** decision below.
 
-Data is hosted in type-specific repos in the `CloudSecurityAlliance-DataSets` GitHub organization:
+### 1. Zero-Egress Serving via GitHub (`raw.githubusercontent.com`)
+
+SecID 2.0 serves public structured content directly from GitHub repositories under `CloudSecurityAlliance` via `raw.githubusercontent.com` (shelving Cloudflare R2 / S3 serving so transfer and storage costs stay `$0` and every dataset is trivially `git clone`-able and git-tag-versioned):
+
+- **The registry schema is unchanged (`ADR-010`):** Registry `match_nodes` point to extracted content using standard `data.url` templates (on subpath child nodes) and `data.urls[]` entries (on document-level source nodes) with `"format": "json"` (or `"markdown"`), `"content_type": "application/json"`, and `"parsability": "structured"`. No custom `data_federation` field is used.
+- **`SecID-Service` never proxies payload bytes:** The Worker resolves the SecID to its deterministic `raw.githubusercontent.com` URL (alongside the official publisher URL), and callers/SDKs fetch the JSON or Markdown directly from GitHub's CDN.
+
+### 2. Domain-First Exhaustive Local Extraction & Sizing Before Committing to Git
+
+Because **`git rm` does not reclaim space in `.git/objects/pack`** (without history-rewriting force-pushes that break clones and tags), we **never** commit half-extracted or binary-bloated content to a `SecID-Data*` repository with the plan to delete or split it later:
+
+1. **Exhaustive local extraction first:** For any target domain (`mitre.org`, `cloudsecurityalliance.org`, `nist.gov`, `cisa.gov`, `fedramp.gov`, `europa.eu`, etc.) or jurisdiction (`.gov`, `.ca`, `.uk`, `.de`, `.jp`), we aggressively discover and extract **every** SecID-resolvable artifact for that domain/jurisdiction locally first.
+2. **Text-only in Git (no binary bloat):** Only deterministic, human-diffable text (`.json`, `.md`, `.csv`, `.yaml`) enters `SecID-Data*` git history. Binary source files (`.pdf`, `.xlsx`, `.docx`, `.zip`) and PDF-extracted page/figure images (`.jpeg`, `.png`) must never be committed to `SecID-Data*` (text-only JSON/Markdown delta-compresses ~10:1 in Git — e.g., `SecID-Data-disa.mil` holds 54,185 JSON files / 245 MB on disk in an **18 MiB** `.git` packfile).
+3. **Measure, then choose the repository boundary:**
+   - **Anchor authorities & large domains (>50–100 MB unpacked or high-volume/high-cadence):** Get their own dedicated `CloudSecurityAlliance/SecID-Data-<domain>` or `SecID-Data-<tld>` repository from day one:
+     - `CloudSecurityAlliance/SecID-Data-disa.mil` *(live — 175 STIGs/SRGs, 53,674 rules)*
+     - `CloudSecurityAlliance/SecID-Data-nist.gov` *(SP 800-53, CSF, AI RMF, 800-171, SP series, CSRC Glossary)*
+     - `CloudSecurityAlliance/SecID-Data-cisa.gov` *(SCuBA baselines, CPGs, ZTMM, ICS/KEV guidance)*
+     - `CloudSecurityAlliance/SecID-Data-fedramp.gov` *(High/Moderate/Low/LI-SaaS baselines, KSIs, guidance)*
+     - `CloudSecurityAlliance/SecID-Data-cloudsecurityalliance.org` *(CCM, AICM, CAIQ, AI-CAIQ, CSA guidance)*
+     - `CloudSecurityAlliance/SecID-Data-europa.eu` *(GDPR, AI Act, NIS2, DORA, CRA, ENISA)*
+     - Jurisdiction/TLD shards where appropriate (`SecID-Data-gov`, `SecID-Data-ca`, `SecID-Data-uk`, `SecID-Data-de`, `SecID-Data-jp`) to stay comfortably below GitHub's 1 GB repository limit without creating hundreds of tiny repos.
+   - **Smaller domains (<50 MB when fully extracted):** Go into the general `CloudSecurityAlliance/SecID-Data` repository.
+4. **Point Once (No Registry URL Churn):**
+   - `CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards` (which predates SecID) is gradually phased out into `SecID-Data*`.
+   - We **never** point `SecID` registry nodes at `dataset-public-laws-regulations-standards`. Registry `raw.githubusercontent.com` links are added **only once** a domain's content has landed in its permanent `SecID-Data*` repository.
+
+### 3. Standard Repository Layout (`ADR-014`)
+
+Every `SecID-Data*` repository uses the identical layout established by [`SecID-Data-disa.mil`](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil), mirroring the registry's reverse-DNS convention so one path-derivation algorithm works everywhere:
 
 ```
-CloudSecurityAlliance-DataSets/
-├── SecID-weakness/          # CWE per-record, OWASP per-item (Rule 2)
-├── SecID-control/           # CCM, AICM, NIST CSF per-control (Rule 2)
-├── SecID-regulation/        # GDPR, AI Act per-article (Rule 2)
-├── SecID-disclosure/        # CNA details (Rule 2)
-├── SecID-reference/         # Archived + synthesized content (Rules 1+3)
+SecID-Data-<shard>/
+├── README.md                           # Corpus overview, provenance, refresh procedure
+├── AGENTS.md                           # Canonical agent instructions (CLAUDE.md / GEMINI.md shims)
+├── LICENSE                             # Repo license + per-source attribution in provenance
+├── data/                               # Extracted content, addressed mechanically by SecID
+│   └── <type>/
+│       └── <tld>/<domain>/             # Reverse-DNS (e.g. control/mil/disa, control/org/cloudsecurityalliance)
+│           └── <name>/
+│               └── <version>/
+│                   ├── <doc>.json      # Document-level metadata, provenance, and item index
+│                   └── rules/          # (or items/) Per-item JSON keyed by subpath ID
+│                       └── <id>.json
+├── schemas/                            # JSON Schemas validated in CI
+├── scripts/                            # Deterministic acquisition, extraction, and validation scripts
+├── indexes/                            # Generated corpus and provenance manifests
+└── docs/                               # Source notes and extraction documentation
 ```
 
-We don't need data repos for types with good existing sources:
-- **SecID-advisory** — CVE/GHSA/vendor advisories all have machine-readable sources
-- **SecID-ttp** — ATT&CK STIX and ATLAS YAML are excellent
-- **SecID-entity** — lightweight metadata, fits in the registry itself
-
-### Directory Layout
-
-The path mirrors the SecID string: `secid:weakness/mitre.org/cwe#CWE-79` → `data/mitre.org/cwe/CWE-79.json`
+A SecID maps to a path mechanically:
 
 ```
-SecID-weakness/
-├── README.md                           # Repo overview, rules, how to use
-├── AGENTS.md                           # AI agent instructions (CLAUDE.md / GEMINI.md import this)
-├── LICENSE.md                          # Repo-level license for our additions
-├── LICENSES/                           # Per-source license files
-│   ├── MITRE-CWE-TERMS-OF-USE.md      # CWE ToU reproduced in full
-│   ├── OWASP-CC-BY-SA-4.0.md          # OWASP license
-│   └── ...
-├── scripts/                            # Extraction/synthesis pipelines
-│   ├── split-cwe.py
-│   ├── extract-owasp-top10.py
-│   └── ...
-├── data/
-│   ├── README.md                       # "X namespaces, Y total items"
-│   ├── mitre.org/
-│   │   ├── README.md                   # "CWE — what it is, 944 weaknesses, source URL"
-│   │   └── cwe/
-│   │       ├── README.md               # "Per-CWE records, extracted from cwec_latest.xml"
-│   │       ├── CWE-79.json
-│   │       ├── CWE-89.json
-│   │       └── ...
-│   └── owasp.org/
-│       ├── README.md                   # "OWASP weakness taxonomies"
-│       ├── top10/
-│       │   └── 2021/
-│       │       ├── README.md           # "2021 edition, 10 items"
-│       │       ├── A01.json
-│       │       └── ...
-│       └── llm-top10/
-│           └── 2025/
-│               ├── LLM01.json
-│               └── ...
+secid:control/disa.mil/rhel-9@V2R9#V-257505
+  -> data/control/mil/disa/rhel-9/V2R9/rules/V-257505.json
 ```
 
-README.md at each level serves as the "index page" — explains what's at this level, how many items, where the data came from, and how to use it.
+### 4. Connecting Registry to Data
 
-### Per-Item JSON Envelope
+Registry entries link to `SecID-Data*` using standard `match_node` URL fields (no special schema extension):
 
-Every item file follows the same schema:
-
-```json
-{
-  "secid": "secid:weakness/mitre.org/cwe#CWE-79",
-  "schema_version": "1.0",
-
-  "provenance": {
-    "upstream_source": {
-      "url": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip",
-      "version": "4.14",
-      "license": "MITRE CWE Terms of Use",
-      "license_url": "https://cwe.mitre.org/about/termsofuse.html",
-      "attribution": "© The MITRE Corporation. CWE™ is a trademark of The MITRE Corporation."
-    },
-    "processed_source": {
-      "repo": "CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards",
-      "path": "frameworks-guidance/industry/MITRE/CWE/CWE-Research-Concepts-1000.json",
-      "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/frameworks-guidance/industry/MITRE/CWE/CWE-Research-Concepts-1000.json"
-    },
-    "extracted_at": "2026-04-04T00:00:00Z",
-    "extraction_script": "scripts/split-cwe.py",
-    "rule": 2,
-    "rule_reason": "CWE source is a monolithic XML dump. Split into per-weakness JSON for AI agent consumption."
-  },
-
-  "content": {
-    // Source-specific structured data — varies by namespace
-  },
-
-  "synthesis": {
-    // Optional — only present when Rule 3 applies
-    "model": "claude-opus-4-6",
-    "generated_at": "2026-04-04T00:00:00Z",
-    "summary": "...",
-    "key_facts": ["..."],
-    "related_secids": ["secid:advisory/mitre.org/cve#CVE-2024-XXXX"]
+- **Document-level node (`match_nodes[]`):** Includes a `lookup` entry in `data.urls[]` (and on `versions_available[].url`) pointing to the document JSON/Markdown in `SecID-Data*`:
+  ```json
+  {
+    "type": "lookup",
+    "url": "https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/data/control/mil/disa/aaa-services/V2R2/stig.json",
+    "format": "json",
+    "content_type": "application/json",
+    "parsability": "structured",
+    "note": "Extracted document metadata and rule index in SecID-Data-disa.mil."
   }
-}
-```
-
-Key fields:
-- **`secid`** — the SecID string this item corresponds to
-- **`provenance.upstream_source`** — where the original data came from, with license
-- **`provenance.processed_source`** — where we processed/stored the bulk data (links to the datasets repo)
-- **`provenance.rule`** — which hosting rule (1, 2, or 3) justifies hosting this data
-- **`content`** — the actual data, format varies by namespace
-- **`synthesis`** — AI-generated summary/extraction (optional, only for Rule 3 items)
-
-### Linking to the Datasets Repo
-
-When a bulk source has already been processed in the `dataset-public-laws-regulations-standards` repo, the provenance includes a `processed_source` field pointing to it:
-
-```json
-"processed_source": {
-  "repo": "CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards",
-  "path": "regulations-mandatory/EU/EU-GDPR-ACT/eu-gdpr-act.json",
-  "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/regulations-mandatory/EU/EU-GDPR-ACT/eu-gdpr-act.json"
-}
-```
-
-This creates a traceable chain: upstream source → bulk processing → per-item split.
-
-### Connecting Registry to Data
-
-The registry entry gains a `data_federation` field in its data block, pointing to the data repo:
-
-```json
-{
-  "data": {
-    "data_federation": {
-      "repo": "CloudSecurityAlliance-DataSets/SecID-weakness",
-      "path_template": "data/mitre.org/cwe/{id}.json",
-      "raw_url_template": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/SecID-weakness/main/data/mitre.org/cwe/{id}.json"
-    }
+  ```
+- **Item/subpath child node (`children[]`):** Sets `data.url` to the per-item `raw.githubusercontent.com` template:
+  ```json
+  {
+    "url": "https://raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data-disa.mil/main/data/control/mil/disa/aaa-services/V2R2/rules/{id}.json",
+    "format": "json",
+    "parsability": "structured"
   }
-}
-```
-
-The SecID-Service can use `raw_url_template` to fetch per-item data on demand. Users can clone the repo for bulk access.
+  ```
 
 ## Decision Flowchart
 
 ```
-Q: Should this data be in a SecID-Data repo?
+Q: Should this data be in a SecID-Data* repo?
 
 Step 0: Is the license compatible? (See license table above)
-  NO → STOP. Registry entry with description + access URL only.
+  NO → STOP. Registry entry with description + access URL only (or private repo for internal use).
   YES → Continue.
 
-Step 1: Does a reliable, machine-readable, per-item source already exist?
-  YES → Don't host. Point to it in the registry entry.
-        (CVE → cvelistV5, ATT&CK → STIX, GHSA → advisory-database)
+Step 1: Does a reliable, machine-readable, per-item source already exist upstream?
+  YES → Don't host. Point directly to upstream in the registry entry.
+        (CVE → cvelistV5, CWE → cwe-api.mitre.org REST API, ATT&CK → attack-stix-data, GHSA/OSV → api.osv.dev)
   NO → Continue.
 
-Step 2: Does the source exist but in a bad format? (PDF, Excel, giant XML, HTML)
-  YES → Rule 2. Extract into per-item JSON. Host in SecID-Data-{type}.
+Step 2: Aggressively discover and extract ALL SecID-resolvable content for the domain/jurisdiction locally (Rule 1/2/3).
+  → Strip binary files (.pdf, .xlsx, .jpeg, .png); keep deterministic .json / .md / .csv.
+  → Measure total unpacked and git-packed size.
 
-Step 3: Might the source disappear? (tweets, pastes, ephemeral pages)
-  YES → Rule 1. Archive raw content. Host in SecID-Data-reference.
-
-Step 4: Is the raw source reliable but useful knowledge needs extraction?
-  (Reddit thread → key facts, mailing list → timeline, blog series → summary)
-  YES → Rule 3. Archive raw + synthesize. Host in SecID-Data-reference.
-
-Step 5: None of the above?
-  → Don't host. The registry entry with URLs is sufficient.
+Step 3: Place in the permanent SecID-Data* repository and link once:
+  → Anchor / >50-100 MB domain or TLD → SecID-Data-<domain/tld> (e.g. SecID-Data-nist.gov, SecID-Data-cisa.gov, SecID-Data-europa.eu)
+  → Smaller domain → SecID-Data
+  → Wire raw.githubusercontent.com URLs into CloudSecurityAlliance/SecID registry nodes once landed.
 ```
-
-## V2 Scope Expansion
-
-The reference type will expand significantly in V2 to cover sources that need archiving (Rule 1) or synthesis (Rule 3):
-
-| Source | Rule(s) | What We Store |
-|--------|---------|---------------|
-| Twitter/X vulnerability disclosures | 1+3 | Raw thread + AI-synthesized structured disclosure |
-| Bluesky security announcements | 1+3 | Raw posts + synthesized summary |
-| Reddit /r/netsec discussions | 1+3 | Raw thread + AI-extracted key facts, timeline |
-| Paste site disclosures | 1 | Raw paste + metadata |
-| Mailing list threads (oss-security) | 3 | Raw emails + synthesized vulnerability report |
-| Conference talk summaries | 3 | Metadata + AI summary of technique/findings |
-| Blog post series | 1+3 | Archived content + consolidated analysis |
-
-These all go in `SecID-reference/` since they're reference materials, regardless of whether they describe vulnerabilities (advisory), techniques (ttp), or other topics. The SecID type in the identifier will be `reference` — the content may cross-reference other types via `related_secids`.

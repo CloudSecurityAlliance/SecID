@@ -559,3 +559,36 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Auto-committing upstream `CNAsList.json` overwrites in CI (`#76`)** — blindly re-running CNA generation without auditing `working-data/cna/known-broken.json` would clobber curated fixes or miss upstream URL replacements that require manual verification.
 
 ---
+
+## 2026-11-06: Zero-egress GitHub data serving, domain-first exhaustive local extraction, and `SecID-Data*` sharding (amending ADR-010, ADR-011, ADR-013; closing `#64`)
+
+**Date:** 2026-11-06
+**Status:** Accepted
+**Decision method:** Kurt directive (2026-11-06), recorded by Gemini and reviewed by Codex (closing [#64](https://github.com/CloudSecurityAlliance/SecID/issues/64))
+
+**Context:**
+1. `CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards` predates SecID and currently holds 645 MB of tracked files (256 MB `.git` packfile), of which 135.9 MB are PDF-extracted `.jpeg`/`.png` images that do not delta-compress in Git, and 67% is concentrated in a handful of large domains (`nist.gov` 217.7 MB, `cloudsecurityalliance.org` 94.1 MB, `pcisecuritystandards.org` 51.5 MB, `mitre.org` 39.8 MB, `fedramp.gov` 31.9 MB).
+2. In Git, committing large datasets into a general repository and later running `git rm` to split them out **does not reclaim space in `.git/objects/pack`** without rewriting history (`git filter-repo` + force-push).
+3. Similarly, wiring `SecID` registry nodes to `dataset-public-laws-regulations-standards` now and re-pointing them later when data moves to `SecID-Data*` would cause unnecessary URL churn across the registry.
+
+**Decision (Kurt, 2026-11-06):**
+1. **Zero-egress data serving via `raw.githubusercontent.com` (shelve R2 for now):**
+   - Serve SecID 2.0 public structured content directly from GitHub (`raw.githubusercontent.com/CloudSecurityAlliance/SecID-Data.../main/data/<type>/<reverse-dns>/...`) via standard `match_node` `data.url` / `data.urls[]` entries (`format: "json"`, `parsability: "structured"`).
+   - Shelve Cloudflare R2 direct serving for now so storage/transfer costs remain `$0` and datasets remain git-versioned and one-command `git clone`-able.
+2. **Domain-first exhaustive local extraction & measurement before committing to Git:**
+   - *"basically for any given domain (mitre.org, etc.) we agressively find and extract every possible secid thing locally, and then decide what to do. also for some like .gov or nist.gov or cisa.gov or europa.eu we'll just assume we need to do it from the start."* — Kurt, 2026-11-06.
+   - *"we should probably agressively try to get everything from a domain/country/etc and see how big it is.... we can put it in, but removing it doesn't really save space."* — Kurt, 2026-11-06.
+   - Before committing a domain or country to a `SecID-Data*` repository, aggressively discover and extract its complete SecID-resolvable corpus locally into the ADR-014 layout (`data/<type>/<reverse-dns>/<name>/<version>/...`), strip binary files (`.pdf`, `.xlsx`, `.jpeg`, `.png`), and measure both unpacked size and packed `.git` size.
+3. **Pragmatic `SecID-Data*` sharding (~50–100 MB threshold + anchor authorities, superseding ADR-011's 8-region grid):**
+   - *"also it seems like nist.gov, cisa.gov, fedramp.gov, they are important enough to simply have their own repo like disa.mil. what happens if we break it up more? it seems like... anything over 50-100 megs should probably be it's own repo?"* — Kurt, 2026-11-06.
+   - Major anchor authorities and domains/TLDs that exceed (or are projected to exceed) ~50–100 MB get dedicated `CloudSecurityAlliance/SecID-Data-<domain/tld>` repositories from the start (e.g., `SecID-Data-disa.mil`, `SecID-Data-nist.gov`, `SecID-Data-cisa.gov`, `SecID-Data-fedramp.gov`, `SecID-Data-cloudsecurityalliance.org`, `SecID-Data-europa.eu`, `SecID-Data-gov`, `SecID-Data-ca`), while smaller domains share `CloudSecurityAlliance/SecID-Data`.
+4. **Point Once & Phase Out `dataset-public-laws-regulations-standards`:**
+   - Gradually migrate public content out of `dataset-public-laws-regulations-standards` into `SecID-Data*` (moving proprietary content like PCI DSS/HITRUST to `dataset-private-laws-regulations-standards` and relying on upstream APIs/repos where authoritative per-item JSON already exists, such as MITRE's CWE REST API and `attack-stix-data`).
+   - Only add `raw.githubusercontent.com` links to `CloudSecurityAlliance/SecID` registry nodes **after** a domain's content is in its permanent `SecID-Data*` repository, so pointers are written once and never churned.
+
+**Rejected alternatives:**
+- **Serving content from Cloudflare R2 now** — incurs storage/operation setup and loses git-tag history and `git clone` simplicity when `raw.githubusercontent.com` serves per-item JSON at `$0` egress.
+- **Committing everything into a single `SecID-Data` repo first and running `git rm` later when a domain grows large** — `git rm` leaves deleted blobs in `.git/objects/pack` forever unless history is rewritten.
+- **Adding interim `raw.githubusercontent.com` links to `dataset-public-laws-regulations-standards` before migrating to `SecID-Data*`** — causes avoidable registry diff churn and breaks cached URLs when migrated.
+
+---
