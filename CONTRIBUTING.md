@@ -52,6 +52,8 @@ See [README.md](README.md#file-format) and [SPEC.md](SPEC.md#72-markdown-body-ri
 ## Guidelines
 
 - Follow existing patterns in the registry
+- **Minimal diffs in registry JSON files ([#102](https://github.com/CloudSecurityAlliance/SecID/issues/102)):** Never reformat or re-serialize an entire `registry/**/*.json` file with `json.dumps(..., indent=2)` when adding or editing a single `match_node`. Registry files use hand-tuned compact formatting for short arrays (`patterns`, `examples`, `urls`) alongside multi-line indentation for nested objects. Edit only the target node so `git diff` stays proportional to the change.
+- **Inventory and count conventions ([#102](https://github.com/CloudSecurityAlliance/SecID/issues/102)):** Always run `./scripts/update-counts.sh` after adding or removing namespace files or `match_nodes`. When reporting counts in PR descriptions or research notes, state explicitly whether the count is **namespace files** (`registry/<type>/**/*.json`), **source-level `match_nodes`** (top-level `match_nodes[]` entries, as reported by `scripts/update-counts.sh`), or **total recursive `match_nodes`** (including version and subpath children).
 - Use percent encoding for special characters in identifiers (see [SPEC.md](SPEC.md#82-percent-encoding))
 - For regex pattern changes, follow [docs/guides/REGEX-WORKFLOW.md](docs/guides/REGEX-WORKFLOW.md) and include regex safety checks in PR notes
 - Keep commit messages clear and concise

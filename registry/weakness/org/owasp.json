@@ -329,8 +329,7 @@
         "urls": [
           {"type": "website", "url": "https://genai.owasp.org/"},
           {"type": "docs", "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"},
-          {"type": "docs", "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/", "note": "Announcement blog post"},
-          {"type": "lookup", "url": "https://genai.owasp.org/agentic/{id}/"}
+          {"type": "docs", "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/", "note": "Announcement blog post"}
         ],
         "versions_available": [
           {"version": "2026", "release_date": "2025-12-10", "status": "current", "note": "First edition. Released December 2025, labelled '2026'. Developed by 100+ industry experts."}
@@ -339,14 +338,14 @@
       },
       "children": [
         {
-          "patterns": ["^ASI\\d{2}$"],
-          "description": "Agentic Top 10 item number (e.g., ASI01, ASI06)",
+          "patterns": ["^ASI(?:0[1-9]|10)$"],
+          "description": "Agentic Top 10 item number (ASI01–ASI10)",
           "weight": 100,
           "data": {
-            "url": "https://genai.owasp.org/agentic/{id}/",
+            "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
             "examples": [
-              {"input": "ASI01", "url": "https://genai.owasp.org/agentic/ASI01/"},
-              {"input": "ASI06", "url": "https://genai.owasp.org/agentic/ASI06/"}
+              {"input": "ASI01", "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/", "note": "Agent Goal Hijack"},
+              {"input": "ASI06", "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/", "note": "Memory and Context Poisoning"}
             ],
             "known_values": {
               "ASI01": "Agent Goal Hijack",
@@ -374,12 +373,12 @@
         "common_name": "AI Exchange",
         "alternate_names": null,
         "description": "Comprehensive AI security knowledge base with a 'Periodic Table of AI Security' organizing threats and controls.",
-        "notes": "The lookup URL https://owaspai.org/goto/{id}/ redirects to the detailed page for each threat or control. IDs are uppercase concatenated words (e.g., DIRECTPROMPTINJECTION). Maps to MITRE ATLAS, CWE, and other frameworks. Continuously updated with emerging threats. Each threat maps to controls in secid:control/owasp.org/ai-exchange.",
+        "notes": "The lookup URL https://owaspai.org/goto/{id_lower}/ redirects to the detailed page for each threat or control (owaspai.org's Firebase Hosting /goto/ and /go/ redirect rules match lowercase paths). IDs are uppercase concatenated words (e.g., DIRECTPROMPTINJECTION). Maps to MITRE ATLAS, CWE, and other frameworks. Continuously updated with emerging threats. Each threat maps to controls in secid:control/owasp.org/ai-exchange.",
         "urls": [
           {"type": "website", "url": "https://owaspai.org"},
           {"type": "docs", "url": "https://owaspai.org/docs/ai_security_overview/#periodic-table-of-ai-security", "note": "Periodic Table overview"},
           {"type": "docs", "url": "https://owaspai.org/docs/ai_security_overview/#how-to-address-ai-security", "note": "Threat addressing guide"},
-          {"type": "lookup", "url": "https://owaspai.org/goto/{id}/"}
+          {"type": "lookup", "url": "https://owaspai.org/goto/{id_lower}/"}
         ],
         "examples": ["DIRECTPROMPTINJECTION", "DATAPOISON", "MODELTHEFTUSE"]
       },
@@ -389,10 +388,10 @@
           "description": "AI Exchange threat/control ID — uppercase concatenated words",
           "weight": 100,
           "data": {
-            "url": "https://owaspai.org/goto/{id}/",
+            "url": "https://owaspai.org/goto/{id_lower}/",
             "examples": [
-              {"input": "DIRECTPROMPTINJECTION", "url": "https://owaspai.org/goto/DIRECTPROMPTINJECTION/"},
-              {"input": "DATAPOISON", "url": "https://owaspai.org/goto/DATAPOISON/"}
+              {"input": "DIRECTPROMPTINJECTION", "url": "https://owaspai.org/goto/directpromptinjection/"},
+              {"input": "DATAPOISON", "url": "https://owaspai.org/goto/datapoison/"}
             ],
             "known_values": {
               "DIRECTPROMPTINJECTION": "Direct prompt injection",

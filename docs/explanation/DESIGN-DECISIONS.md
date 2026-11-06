@@ -222,6 +222,15 @@ The `methodology` type is the third type added after the original seven (followi
 
 **Additional factor: process provenance.** When the relationship layer ships, every assertion ("CCM IAM-01 maps to NIST CSF PR.AC-1") will carry a methodology reference explaining how the mapping was produced and what evidentiary weight it carries. This is the foundational use case that no existing type can serve.
 
+**Sharpening the `methodology` vs `reference` boundary ([#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)):** A recurring edge case is a specification that defines both a **data format/vocabulary** (`reference`) and **professional-judgement rules** for choosing values within that vocabulary. Examples include CVSS (scoring methodology + vector/JSON format), TLP (sharing-boundary decision procedure + four colour labels), NIST SP 800-53A vs OSCAL Assessment Results (assessment procedure vs serialization format), and VEX / SARIF (status enumerations vs triage process). Two operational tests govern these boundary cases:
+
+1. **The Format-Stripping Test:** Strip away the wire format, schema, or label syntax. Does a substantial, citable analytical or operational procedure remain?
+   - **CVSS:** Yes — the metric evaluation rules, scope-change analysis, and scoring equations are a complete analytical methodology even without the `CVSS:4.0/...` vector syntax → dual-typed in `methodology/first.org/cvss` (the scoring process) and `reference/first.org/cvss` (the specification/schema).
+   - **TLP:** Yes — the sharing-boundary decision rules and recipient handling obligations are the substance of the standard; the four labels (`CLEAR`, `GREEN`, `AMBER`, `RED`) are the output of that procedure → `methodology/first.org/tlp`.
+   - **SP 800-53A vs OSCAL:** SP 800-53A defines *how* to examine, interview, and test controls (`methodology/nist.gov/sp-800-53a`); OSCAL defines *how* to serialize catalogs, profiles, and assessment results in JSON/XML/YAML (`reference/nist.gov/oscal`).
+   - **OpenVEX / CSAF / SARIF:** No — these specifications define data schemas and status enumerations (`not_affected`, `fixed`, `under_investigation`), leaving the underlying vulnerability investigation and reachability analysis to external engineering processes → `reference` only (`subtype: "schema"`).
+2. **The Provenance-Field Test:** In a relationship assertion or audit record, does this identifier belong in `"methodology": "secid:methodology/..."` (*how the analytical conclusion was derived*) or in `"schema": "secid:reference/..."` (*how the artifact is encoded*)? When both questions are asked independently by different callers (as with CVSS), dual registration in `methodology` and `reference` is intentional and cross-referenced in `notes`.
+
 ---
 
 ## Why No UUIDs?

@@ -36,6 +36,15 @@ Track and reference the processes used to produce security knowledge:
 
 **Classification criterion ("duck test"):** "If someone hands you this document and asks 'what do I DO with it?' — is the primary answer 'follow this process to produce an output'?" If yes, it's a methodology.
 
+### Sharper Boundary Test: `methodology` vs `reference` (Format Specifications with Embedded Judgement)
+
+Many format specifications (`reference` with `subtype: "schema"`) require an analyst to make a judgement to populate a field (e.g., choosing `"not_affected"` in OpenVEX or `"level": "error"` in SARIF). To keep `methodology` from absorbing every schema or protocol specification ([#73](https://github.com/CloudSecurityAlliance/SecID/issues/73)), apply the **format-stripping / process-provenance test**:
+
+1. **Format-stripping test:** If you strip away the serialization syntax (JSON/XML/vector string), does a **standalone, multi-step analytical or operational procedure** remain that practitioners follow and cite on its own?
+   - **Yes → `methodology` (or dual `methodology` + `reference`):** CVSS (`methodology/first.org/cvss` + `reference/first.org/cvss`) defines both a multi-metric severity-scoring process (exploitability, scope, impact evaluation rules) and a vector string / JSON representation. TLP (`methodology/first.org/tlp`) defines the information-sharing decision procedure and handling rules. NIST SP 800-53A (`methodology/nist.gov/sp-800-53a`) defines the examine/interview/test assessment procedure, whereas OSCAL Assessment Results (`reference/nist.gov/oscal`) is the serialization schema that records the output.
+   - **No → `reference` only:** OpenVEX, CSAF VEX, CycloneDX VEX, and SARIF define machine-readable data structures and field enumerations (`not_affected`, `fixed`, `under_investigation`), not the engineering or triage methodology used to determine whether a component is affected.
+2. **Process-provenance (`methodology:` field) test:** Would a relationship assertion or assessment record cite this SecID as the **method** by which a conclusion was reached (`"methodology": "secid:methodology/..."`), rather than the **schema** in which the record is formatted (`"schema": "secid:reference/..."`)? If it answers *how the conclusion was derived*, it is `methodology`; if it answers *how the record is serialized*, it is `reference`.
+
 ## Identifier Format
 
 ```

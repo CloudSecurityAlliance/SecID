@@ -30,11 +30,24 @@
         "common_name": "CWE",
         "alternate_names": null,
         "description": "The canonical software and hardware weakness taxonomy, operated by MITRE.",
-        "notes": "Hierarchical taxonomy with three structural levels: views (organize weaknesses by perspective, e.g., CWE-1000 Research Concepts), categories (group related weaknesses, e.g., CWE-19 Data Processing Errors), and weaknesses (specific flaw types, e.g., CWE-79 XSS). Over 900 weakness entries. Referenced by CVE, NVD, and virtually all vulnerability databases.\n\nAI/ML weaknesses added in the CWE-1400 series: CWE-1426 (Improper Validation of Generative AI Output), CWE-1427 (Improper Neutralization of Input for LLM Prompting), CWE-1434 (Insecure ML Model Inference Parameters).\n\nAll CWE IDs (views, categories, and weaknesses) use the same numeric format and the same URL template. The CWE number space is shared — no collisions between types. Updated regularly with community contributions.",
+        "notes": "Hierarchical taxonomy with three structural levels: views (organize weaknesses by perspective, e.g., CWE-1000 Research Concepts), groupings/categories (group related weaknesses, e.g., CWE-19 Data Processing Errors; renamed from Category to Grouping in CWE 5.0 / Schema 8.0), and weaknesses (specific flaw types, e.g., CWE-79 XSS). Over 950 weakness entries (1,477 total entries in CWE 5.0). Referenced by CVE, NVD, and virtually all vulnerability databases.\n\nAI/ML weaknesses added in the CWE-1400 series: CWE-1425 (Weaknesses Related to AI/ML Products view), CWE-1426 (Improper Validation of Generative AI Output), CWE-1427 (Improper Neutralization of Input for LLM Prompting), CWE-1434 (Insecure ML Model Inference Parameters).\n\nMultiple representations: Every CWE identifier resolves to its HTML definition page on cwe.mitre.org (weight 100, text/html) as well as to the official MITRE CWE REST API JSON endpoints at https://cwe-api.mitre.org/api/v1/ (weakness record endpoint /cwe/weakness/{num} at weight 50 and universal entry-type lookup /cwe/{num} at weight 40, application/json). Filter with ?content_type=application/json to return only REST API endpoints.",
         "urls": [
           {
             "type": "website",
             "url": "https://cwe.mitre.org"
+          },
+          {
+            "type": "api",
+            "url": "https://cwe-api.mitre.org/api/v1/",
+            "parsability": "structured",
+            "schema": "secid:reference/mitre.org/cwe-schema@8.0",
+            "auth": "none",
+            "note": "Official MITRE CWE REST API (updated for CWE 5.0 / Schema 8.0). Endpoints: /cwe/version, /cwe/{ids}, /cwe/weakness/{ids}, /cwe/category/{ids}, /cwe/view/{ids}, and /cwe/{id}/{parents|children|ancestors|descendants}."
+          },
+          {
+            "type": "docs",
+            "url": "https://github.com/CWE-CAPEC/REST-API-wg/blob/main/Quick%20Start.md",
+            "note": "CWE REST API Quick Start instructions and OpenAPI specification"
           },
           {
             "type": "docs",
@@ -45,6 +58,7 @@
             "type": "bulk_data",
             "url": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip",
             "format": "xml",
+            "schema": "secid:reference/mitre.org/cwe-schema@8.0",
             "note": "Full CWE list in XML format (zipped)"
           }
         ],
@@ -58,8 +72,26 @@
         "version_required": false,
         "versions_available": [
           {
-            "version": "4.19.1",
+            "version": "5.0",
+            "release_date": "2026-10-28",
             "status": "current",
+            "note": "Major release with XSD Schema 8.0 and updated CWE REST API (2026-10-28). Replaces Category with Grouping, adds Technical_Nuance, Dimensions, Overlaps relationships, and Custom_Phases for AI and Hardware. 956 weaknesses (1,477 total entries). (XSD 8.0)"
+          },
+          {
+            "version": "4.21",
+            "release_date": "2026-10-28",
+            "status": "superseded",
+            "note": "Parallel Schema 7.x transition release published alongside CWE 5.0 (2026-10-28) for consumers migrating to XSD 8.0. (XSD 7.4)"
+          },
+          {
+            "version": "4.20",
+            "release_date": "2026-04-30",
+            "status": "superseded",
+            "note": "Added Weaknesses Related to AI/ML Products view (CWE-1425) and 2 AI categories. (XSD 7.3)"
+          },
+          {
+            "version": "4.19.1",
+            "status": "superseded",
             "note": "Patch release. (XSD 7.3)"
           },
           {
@@ -319,10 +351,13 @@
           "patterns": [
             "^CWE-\\d+$"
           ],
-          "description": "CWE identifier (e.g., CWE-79, CWE-1427). Covers views, categories, and weaknesses — all use the same ID format.",
+          "description": "CWE identifier (e.g., CWE-79, CWE-1427). Covers views, categories/groupings, and weaknesses — all use the same ID format.",
           "weight": 100,
           "data": {
             "url": "https://cwe.mitre.org/data/definitions/{num}.html",
+            "content_type": "text/html",
+            "parsability": "scraped",
+            "auth": "none",
             "variables": {
               "num": {
                 "extract": "^CWE-(\\d+)$",
@@ -344,6 +379,83 @@
                 },
                 "url": "https://cwe.mitre.org/data/definitions/1427.html",
                 "note": "Improper Neutralization of Input for LLM Prompting — AI/ML weakness (CWE-1400 series)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^CWE-\\d+$"
+          ],
+          "description": "CWE JSON via REST API (weakness endpoint)",
+          "weight": 50,
+          "data": {
+            "url": "https://cwe-api.mitre.org/api/v1/cwe/weakness/{num}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "schema": "secid:reference/mitre.org/cwe-schema@8.0",
+            "auth": "none",
+            "note": "Official MITRE CWE REST API endpoint returning the full CWE weakness record in JSON (HTTP GET). For category/grouping or view IDs, use /api/v1/cwe/category/{num} or /api/v1/cwe/view/{num}.",
+            "variables": {
+              "num": {
+                "extract": "^CWE-(\\d+)$",
+                "description": "Numeric CWE ID (e.g., '79' from 'CWE-79')"
+              }
+            },
+            "examples": [
+              {
+                "input": "CWE-79",
+                "variables": {
+                  "num": "79"
+                },
+                "url": "https://cwe-api.mitre.org/api/v1/cwe/weakness/79"
+              },
+              {
+                "input": "CWE-1427",
+                "variables": {
+                  "num": "1427"
+                },
+                "url": "https://cwe-api.mitre.org/api/v1/cwe/weakness/1427",
+                "note": "Improper Neutralization of Input for LLM Prompting — CWE REST API JSON record"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^CWE-\\d+$"
+          ],
+          "description": "CWE JSON via REST API (entry type lookup across weaknesses, categories/groupings, and views)",
+          "weight": 40,
+          "data": {
+            "url": "https://cwe-api.mitre.org/api/v1/cwe/{num}",
+            "format": "json",
+            "content_type": "application/json",
+            "parsability": "structured",
+            "auth": "none",
+            "note": "Official MITRE CWE REST API endpoint returning the entry type (e.g., base_weakness, class_weakness, variant_weakness, category, view) for any CWE ID before fetching /cwe/weakness/{num}, /cwe/category/{num}, or /cwe/view/{num}.",
+            "variables": {
+              "num": {
+                "extract": "^CWE-(\\d+)$",
+                "description": "Numeric CWE ID (e.g., '79' from 'CWE-79')"
+              }
+            },
+            "examples": [
+              {
+                "input": "CWE-79",
+                "variables": {
+                  "num": "79"
+                },
+                "url": "https://cwe-api.mitre.org/api/v1/cwe/79"
+              },
+              {
+                "input": "CWE-1000",
+                "variables": {
+                  "num": "1000"
+                },
+                "url": "https://cwe-api.mitre.org/api/v1/cwe/1000",
+                "note": "Research Concepts view — resolves via universal CWE REST API type lookup"
               }
             ]
           }
