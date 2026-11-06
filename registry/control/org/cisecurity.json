@@ -93,12 +93,187 @@
       "weight": 100,
       "data": {
         "official_name": "CIS Benchmarks",
-        "notes": "Distinct from CIS Controls (the 18 organizational safeguards above). Prescriptive, consensus-developed secure-configuration recommendations for 100+ specific technologies across 25+ vendor product families (cloud platforms, containers, databases, operating systems, mobile devices, network devices), produced through open CIS Benchmarks Communities and freely downloadable as PDFs for non-commercial use.",
+        "notes": "Distinct from CIS Controls (the 18 organizational safeguards above). Prescriptive, consensus-developed secure-configuration recommendations for 100+ specific technologies across 25+ vendor product families (cloud platforms, containers, databases, operating systems, mobile devices, network devices), produced through open CIS Benchmarks Communities and freely downloadable as PDFs for non-commercial use. Registry-only entry per DATA-HOSTING-RULES.md (#63): CIS Benchmarks prose and PDFs are copyrighted by CIS under a non-commercial/no-redistribution license; SecID registers benchmark identities, versions, and recommendation ID patterns without redistributing per-check prose.",
         "urls": [
           {"type": "website", "url": "https://www.cisecurity.org/cis-benchmarks"}
         ],
         "examples": ["benchmarks"]
       }
+    },
+
+    {
+      "patterns": ["(?i)^aws-foundations-benchmark$", "(?i)^aws-benchmark$"],
+      "description": "CIS Amazon Web Services Foundations Benchmark",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Amazon Web Services Foundations Benchmark",
+        "common_name": "CIS AWS Foundations Benchmark",
+        "description": "Prescriptive security configuration recommendations for Amazon Web Services (IAM, Storage, Logging, Monitoring, Networking).",
+        "notes": "Registry-only entry per DATA-HOSTING-RULES.md (#63): per-recommendation prose requires CIS download registration and may not be redistributed without CIS permission.",
+        "versions_available": [
+          {"version": "7.1.0", "release_date": null, "status": "current", "note": "CIS Amazon Web Services Foundations Benchmark v7.1.0."},
+          {"version": "7.0.0", "release_date": null, "status": "superseded", "note": "CIS Amazon Web Services Foundations Benchmark v7.0.0."},
+          {"version": "6.0.0", "release_date": null, "status": "superseded", "note": "CIS Amazon Web Services Foundations Benchmark v6.0.0."},
+          {"version": "5.0.0", "release_date": "2025-03-01", "status": "superseded", "note": "CIS AWS Foundations Benchmark v5.0.0."},
+          {"version": "4.0.1", "release_date": "2024-11-01", "status": "superseded", "note": "CIS AWS Foundations Benchmark v4.0.1."},
+          {"version": "3.0.0", "release_date": "2024-01-31", "status": "superseded", "note": "CIS AWS Foundations Benchmark v3.0.0."},
+          {"version": "2.0.0", "release_date": "2023-06-30", "status": "superseded", "note": "CIS AWS Foundations Benchmark v2.0.0."},
+          {"version": "1.5.0", "release_date": "2022-08-16", "status": "superseded", "note": "CIS AWS Foundations Benchmark v1.5.0."},
+          {"version": "1.4.0", "release_date": null, "status": "superseded", "note": "CIS AWS Foundations Benchmark v1.4.0."},
+          {"version": "1.3.0", "release_date": null, "status": "superseded", "note": "CIS AWS Foundations Benchmark v1.3.0."},
+          {"version": "1.2.0", "release_date": null, "status": "superseded", "note": "CIS AWS Foundations Benchmark v1.2.0."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/benchmark/amazon_web_services"}
+        ],
+        "examples": ["1.4", "2.1.1", "3.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(?:\\.\\d{1,2}){0,3}$"],
+          "description": "CIS AWS Foundations Benchmark recommendation ID (2 to 5 dot-separated numeric components)",
+          "weight": 100,
+          "data": {
+            "note": "No per-recommendation public URL. Download the CIS AWS Foundations Benchmark from cisecurity.org.",
+            "examples": [
+              {"input": "1.4", "note": "Ensure no 'root' user account access key exists"},
+              {"input": "2.1.1", "note": "Ensure S3 Bucket Policy is set to deny HTTP requests"},
+              {"input": "3.1", "note": "Ensure CloudTrail is enabled in all regions"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^azure-foundations-benchmark$", "(?i)^azure-benchmark$"],
+      "description": "CIS Microsoft Azure Foundations Benchmark",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Microsoft Azure Foundations Benchmark",
+        "common_name": "CIS Azure Foundations Benchmark",
+        "description": "Prescriptive security configuration recommendations for Microsoft Azure (Identity, Defender, Storage, Database, Logging, Networking, Key Vault).",
+        "notes": "Registry-only entry per DATA-HOSTING-RULES.md (#63).",
+        "versions_available": [
+          {"version": "7.0.0", "release_date": null, "status": "current", "note": "CIS Microsoft Azure Foundations Benchmark v7.0.0."},
+          {"version": "6.0.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v6.0.0."},
+          {"version": "5.0.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v5.0.0."},
+          {"version": "4.0.0", "release_date": "2025-01-31", "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v4.0.0."},
+          {"version": "3.0.0", "release_date": "2024-06-28", "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v3.0.0."},
+          {"version": "2.1.0", "release_date": "2024-01-24", "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v2.1.0."},
+          {"version": "2.0.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v2.0.0."},
+          {"version": "1.5.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v1.5.0."},
+          {"version": "1.4.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v1.4.0."},
+          {"version": "1.3.1", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v1.3.1."},
+          {"version": "1.3.0", "release_date": null, "status": "superseded", "note": "CIS Microsoft Azure Foundations Benchmark v1.3.0."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/benchmark/azure"}
+        ],
+        "examples": ["1.1.1", "2.2.1.1", "2.1.1.2.1", "3.1.1", "6.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(?:\\.\\d{1,2}){0,3}$"],
+          "description": "CIS Azure Foundations Benchmark recommendation ID (2 to 5 dot-separated numeric components)",
+          "weight": 100,
+          "data": {
+            "note": "No per-recommendation public URL. Download the CIS Microsoft Azure Foundations Benchmark from cisecurity.org.",
+            "examples": [
+              {"input": "1.1.1", "note": "Ensure Security Defaults is enabled on Microsoft Entra ID"},
+              {"input": "2.2.1.1", "note": "Four-component CIS Azure recommendation identifier"},
+              {"input": "2.1.1.2.1", "note": "Five-component CIS Azure recommendation identifier"},
+              {"input": "3.1.1", "note": "Ensure that 'Secure transfer required' is set to 'Enabled'"},
+              {"input": "6.1", "note": "Ensure that RDP access from the Internet is evaluated and restricted"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^gcp-foundations-benchmark$", "(?i)^gcp-benchmark$"],
+      "description": "CIS Google Cloud Platform Foundation Benchmark",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Google Cloud Platform Foundation Benchmark",
+        "common_name": "CIS GCP Foundation Benchmark",
+        "description": "Prescriptive security configuration recommendations for Google Cloud Platform (IAM, Logging & Monitoring, Networking, Virtual Machines, Cloud Storage, Cloud SQL, BigQuery).",
+        "notes": "Registry-only entry per DATA-HOSTING-RULES.md (#63).",
+        "versions_available": [
+          {"version": "5.0.1", "release_date": null, "status": "current", "note": "CIS Google Cloud Platform Foundation Benchmark v5.0.1."},
+          {"version": "5.0.0", "release_date": null, "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v5.0.0."},
+          {"version": "4.0.0", "release_date": "2025-02-28", "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v4.0.0."},
+          {"version": "3.0.0", "release_date": "2024-02-29", "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v3.0.0."},
+          {"version": "2.0.0", "release_date": "2022-11-18", "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v2.0.0."},
+          {"version": "1.3.0", "release_date": null, "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v1.3.0."},
+          {"version": "1.2.0", "release_date": null, "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v1.2.0."},
+          {"version": "1.1.0", "release_date": null, "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v1.1.0."},
+          {"version": "1.0.0", "release_date": null, "status": "superseded", "note": "CIS Google Cloud Platform Foundation Benchmark v1.0.0."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/benchmark/google_cloud_computing_platform"}
+        ],
+        "examples": ["1.1", "2.1", "5.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(?:\\.\\d{1,2}){0,3}$"],
+          "description": "CIS GCP Foundation Benchmark recommendation ID (2 to 5 dot-separated numeric components)",
+          "weight": 100,
+          "data": {
+            "note": "No per-recommendation public URL. Download the CIS Google Cloud Platform Foundation Benchmark from cisecurity.org.",
+            "examples": [
+              {"input": "1.1", "note": "Ensure that corporate login credentials are used"},
+              {"input": "2.1", "note": "Ensure that Cloud Audit Logging is configured properly"},
+              {"input": "5.1", "note": "Ensure that Cloud Storage bucket is not anonymously or publicly accessible"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "patterns": ["(?i)^kubernetes-benchmark$", "(?i)^k8s-benchmark$"],
+      "description": "CIS Kubernetes Benchmark",
+      "weight": 100,
+      "data": {
+        "official_name": "CIS Kubernetes Benchmark",
+        "common_name": "CIS Kubernetes Benchmark",
+        "description": "Prescriptive security configuration recommendations for Kubernetes control plane, etcd, worker nodes, and policies.",
+        "notes": "Registry-only entry per DATA-HOSTING-RULES.md (#63).",
+        "versions_available": [
+          {"version": "2.1.0", "release_date": null, "status": "current", "note": "CIS Kubernetes Benchmark v2.1.0."},
+          {"version": "2.0.1", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v2.0.1."},
+          {"version": "1.11.1", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v1.11.1."},
+          {"version": "1.11.0", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v1.11.0."},
+          {"version": "1.10.0", "release_date": "2024-12-01", "status": "superseded", "note": "CIS Kubernetes Benchmark v1.10.0."},
+          {"version": "1.9.0", "release_date": "2024-04-01", "status": "superseded", "note": "CIS Kubernetes Benchmark v1.9.0."},
+          {"version": "1.8.0", "release_date": "2023-08-30", "status": "superseded", "note": "CIS Kubernetes Benchmark v1.8.0."},
+          {"version": "1.7.0", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v1.7.0."},
+          {"version": "1.6.1", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v1.6.1."},
+          {"version": "1.5.1", "release_date": null, "status": "superseded", "note": "CIS Kubernetes Benchmark v1.5.1."}
+        ],
+        "urls": [
+          {"type": "website", "url": "https://www.cisecurity.org/benchmark/kubernetes"}
+        ],
+        "examples": ["1.2.1", "4.2.1", "5.1.1"]
+      },
+      "children": [
+        {
+          "patterns": ["^\\d{1,2}\\.\\d{1,2}(?:\\.\\d{1,2}){0,3}$"],
+          "description": "CIS Kubernetes Benchmark recommendation ID (2 to 5 dot-separated numeric components)",
+          "weight": 100,
+          "data": {
+            "note": "No per-recommendation public URL. Download the CIS Kubernetes Benchmark from cisecurity.org.",
+            "examples": [
+              {"input": "1.2.1", "note": "Ensure that the --anonymous-auth argument is set to false"},
+              {"input": "4.2.1", "note": "Ensure that the --anonymous-auth argument is set to false on kubelet"},
+              {"input": "5.1.1", "note": "Ensure that the cluster-admin role is only used where required"}
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {"country": ["US"]}

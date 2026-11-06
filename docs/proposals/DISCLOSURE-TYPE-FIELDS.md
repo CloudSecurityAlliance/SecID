@@ -405,11 +405,11 @@ Safe harbor, bug bounty, security.txt, and disclosure policy require new researc
 
 ## Implementation Status
 
-### Phase 1: Documentation — not started
+### Phase 1: Documentation — DONE (2026-11-06)
 
-Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field names list needs documenting.
+Field definitions and reserved field names (`cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`) added to [REGISTRY-JSON-FORMAT.md](../reference/REGISTRY-JSON-FORMAT.md).
 
-### Phase 2: CVE data migration — DONE (2026-04-08)
+### Phase 2: CVE data migration — DONE (2026-04-08; 100% CNA slug completion 2026-11-06)
 
 **Script:** `scripts/migrate-disclosure-cve-fields.py`
 
@@ -423,7 +423,7 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 - 0 JSON parse errors
 - `cve_program_role` and `scope` removed from all `data` objects
 - Structured `cve` object added with: `role` (array), `assignerShortName`, `assignerOrgId`, `cna_partner_url`, `scope`, `root` reference, `last_assigned_cve`, `last_assigned_date`
-- 22 nodes with `role` but no resolved CNA slug (manual follow-up needed)
+- Remaining 23 CNA nodes that initially lacked a resolved `assignerShortName` (including `fortinet`, `Canon`, `CoolKit`, `alibaba`, `Meta`, `MyMMT`, `Mitsubishi`, `MolDev`, `Panasonic_Holdings_Corporation`, `Phoenix`, `tlt_net`, `CERTVDE`, `YokogawaGroup`, `zdi`, `TianoCore`, `Caliptra`, `fedora`, `CPANSec`, `openjs`, `Zowe`, `OpenBMC`) enriched from `CNAsList.json` and `cvelistV5` on 2026-11-06 (`0` unmapped CNA nodes remaining)
 - Live resolver updated — structured CVE data serving at secid.cloudsecurityalliance.org
 
 **Bug fix (2026-04-08):** Initial migration mapped all nodes in a namespace to the same CNA slug. For multi-CNA namespaces (Google with 6 CNAs, Broadcom with 4, Cisco with 2, etc.) this produced incorrect `assignerShortName` and `assignerOrgId` on most nodes. Fixed with per-node slug resolution using a reverse map from the generate script's `make_node_name()` logic, plus namespace-specific overrides for generic node names.
@@ -439,10 +439,10 @@ Field definitions need to be added to REGISTRY-JSON-FORMAT.md. Reserved field na
 | Field | Status | Results |
 |-------|--------|---------|
 | `security_txt` | **DONE** (2026-04-08) | 170 found (130 valid), 277 null, 39 timeouts. Script: `scripts/check-security-txt.py` |
-| `disclosure_policy` | **DONE** (2026-04-08) | 488 nodes populated from CVE Program CNAsList.json. Script: `scripts/enrich-cna-from-cnalist.py` |
-| `cve.cna_id` | **DONE** (2026-04-08) | 491 nodes enriched with formal CNA ID (e.g., CNA-2005-0006). Same script. |
-| `safe_harbor` | Deferred | Manual research per vendor — tracked in TODO.md |
-| `bug_bounty` | Deferred | Manual research per vendor — tracked in TODO.md |
+| `disclosure_policy` | **DONE** (2026-04-08) | 511 nodes populated from CVE Program CNAsList.json. Script: `scripts/enrich-cna-from-cnalist.py` |
+| `cve.cna_id` | **DONE** (2026-04-08) | 514 nodes enriched with formal CNA ID (e.g., CNA-2005-0006). Same script. |
+| `safe_harbor` | **Top-20 DONE** (2026-11-06) | Populated across all 20 top-vendor disclosure namespaces ([#56](https://github.com/CloudSecurityAlliance/SecID/issues/56)) |
+| `bug_bounty` | **Top-20 DONE** (2026-11-06) | Populated across all 20 top-vendor disclosure namespaces ([#57](https://github.com/CloudSecurityAlliance/SecID/issues/57)) |
 
 ## Open Questions
 

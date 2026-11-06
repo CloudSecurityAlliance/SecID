@@ -1,0 +1,110 @@
+name: CNA Refresh & Known-Broken Audit
+
+# Scheduled/manual check for upstream CVE Program CNAsList.json changes (#76).
+#
+# Never overwrites registry files automatically — runs in report/dry-run mode so
+# `working-data/cna/known-broken.json` annotations are preserved and any newly
+# added CNAs or upstream URL replacements are surfaced in the workflow summary.
+
+on:
+  schedule:
+    # Run weekly on Mondays at 07:17 UTC
+    - cron: "17 7 * * 1"
+  workflow_dispatch:
+    inputs:
+      stale_days:
+        description: "Days threshold for marking known-broken overlay entries stale"
+        required: false
+        default: "90"
+
+permissions:
+  contents: read
+
+jobs:
+  audit-cna:
+    name: Audit CNAsList.json vs Registry & Known-Broken Overlay
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SecID
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch upstream CNAsList.json
+        run: |
+          curl -fsSL \
+            "https://raw.githubusercontent.com/CVEProject/cve-website/main/src/assets/data/CNAsList.json" \
+            -o /tmp/CNAsList.json
+          python3 -c 'import json; d = json.load(open("/tmp/CNAsList.json")); print(f"Fetched {len(d)} upstream CNAs")'
+
+      - name: Audit known-broken overlay against upstream CNAsList.json
+        id: audit_overlay
+        continue-on-error: true
+        run: |
+          STALE_DAYS="${{ github.event.inputs.stale_days || '90' }}"
+          python3 scripts/audit-known-broken.py \
+            --cnas-list /tmp/CNAsList.json \
+            --stale-days "$STALE_DAYS" | tee /tmp/audit-known-broken.txt
+
+      - name: Check for new or unenriched CNAs in registry/disclosure
+        run: |
+          python3 - << 'EOF' | tee /tmp/cna-coverage.txt
+          import json
+          from pathlib import Path
+
+          cnas = json.loads(Path("/tmp/CNAsList.json").read_text())
+          upstream_by_short = {c["shortName"].lower(): c for c in cnas if c.get("shortName")}
+
+          reg_shorts = set()
+          missing_short = []
+          for p in sorted(Path("registry/disclosure").rglob("*.json")):
+              if "/_" in str(p):
+                  continue
+              d = json.loads(p.read_text())
+              for mn in d.get("match_nodes", []):
+                  cve = mn.get("data", {}).get("cve")
+                  if isinstance(cve, dict) and cve.get("role"):
+                      sn = cve.get("assignerShortName")
+                      if sn:
+                          reg_shorts.add(sn.lower())
+                      else:
+                          missing_short.append(str(p))
+
+          new_upstream = sorted(set(upstream_by_short) - reg_shorts)
+          print(f"Upstream CNAs: {len(upstream_by_short)}")
+          print(f"Registered CNA shortNames in SecID: {len(reg_shorts)}")
+          print(f"Registry CNA nodes missing assignerShortName: {len(missing_short)}")
+          print(f"Upstream CNAs not yet in registry/disclosure: {len(new_upstream)}")
+          for sn in new_upstream[:30]:
+              c = upstream_by_short[sn]
+              print(f"  + {c.get('shortName')} ({c.get('cnaID')}): {c.get('organizationName')}")
+          EOF
+
+      - name: Verify known-broken overlay application is clean (dry-run)
+        run: |
+          python3 scripts/apply-known-broken.py --dry-run | tee /tmp/apply-known-broken.txt
+
+      - name: Write Job Summary
+        if: always()
+        run: |
+          {
+            echo "## CNA Refresh & Known-Broken Audit"
+            echo ""
+            echo "### 1. Upstream CNA Coverage"
+            echo '```'
+            cat /tmp/cna-coverage.txt
+            echo '```'
+            echo ""
+            echo "### 2. Known-Broken Overlay Audit"
+            echo '```'
+            cat /tmp/audit-known-broken.txt
+            echo '```'
+            echo ""
+            echo "### 3. Overlay Application Check (Dry Run)"
+            echo '```'
+            cat /tmp/apply-known-broken.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

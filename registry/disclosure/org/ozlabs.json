@@ -54,9 +54,19 @@
           "role": [
             "cna"
           ],
-          "scope": "Vulnerabilities related to the repositories maintained by the OpenBMC project."
+          "scope": "Vulnerabilities related to the repositories maintained by the OpenBMC project.",
+          "assignerShortName": "OpenBMC",
+          "cna_id": "CNA-2021-0066",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/OpenBMC",
+          "assignerOrgId": "7eaec9cd-e18a-43f9-bb90-5f82d308c514",
+          "last_assigned_cve": "CVE-2022-3409",
+          "last_assigned_date": "2022-10-27"
         },
-        "security_txt": null
+        "security_txt": null,
+        "disclosure_policy": {
+          "url": "https://github.com/openbmc/openbmc/wiki/Security-working-group",
+          "checked": "2026-11-06"
+        }
       }
     }
   ]

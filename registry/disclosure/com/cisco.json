@@ -69,7 +69,25 @@
         "disclosure_policy": {
           "url": "https://www.cisco.com/c/en/us/about/security-center/security-vulnerability-policy.html",
           "checked": "2026-04-08"
-        }
+        },
+        "safe_harbor": null,
+        "bug_bounty": [
+          {
+            "url": "https://sec.cloudapps.cisco.com/security/center/resources/cisco_bug_bounty_faq.html",
+            "paid": true,
+            "checked": "2026-11-06"
+          },
+          {
+            "url": "https://bugcrowd.com/cisconetworking",
+            "paid": true,
+            "checked": "2026-11-06"
+          },
+          {
+            "url": "https://bugcrowd.com/thousandeyes-og",
+            "paid": true,
+            "checked": "2026-11-06"
+          }
+        ]
       }
     },
     {
@@ -124,7 +142,9 @@
         "disclosure_policy": {
           "url": "https://tools.cisco.com/security/center/resources/vendor_vulnerability_policy.html",
           "checked": "2026-04-08"
-        }
+        },
+        "safe_harbor": null,
+        "bug_bounty": null
       }
     }
   ]

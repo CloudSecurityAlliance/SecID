@@ -831,27 +831,53 @@ Example (from `registry/control/org/cloudsecurityalliance.json`, the STAR entry)
 
 **Disclosure-type data** (vulnerability reporting — `type: disclosure`):
 
+See [DISCLOSURE-TYPE-FIELDS.md](../proposals/DISCLOSURE-TYPE-FIELDS.md) for the complete specification. Five field names inside `data` are reserved for structured disclosure metadata (`cve`, `safe_harbor`, `bug_bounty`, `security_txt`, `disclosure_policy`); contributors adding ad-hoc fields to `data` must avoid these reserved names. Consistent with SecID's null-vs-absent convention, `null` means "researched and confirmed absent," while an absent key means "not yet researched."
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `scope` | string | What products/projects this disclosure program covers. The key field — answers "does this program cover my product?" |
-| `cve_program_role` | string | Role in the CVE Program (e.g., "CNA", "Root", "CNA-LR", "Top-Level Root", "Secretariat"). |
-| `organization_type` | string | Organization classification (e.g., "Vendor", "Open Source", "CERT", "Bug Bounty Provider"). |
-| `contacts` | array \| null | Reporting contacts. Each entry: `type` ("email", "web", "github_pvr"), `value` (address/URL), `note`, optionally `preferred` (boolean). |
+| `organization_type` | string | Organization classification (e.g., `"Vendor"`, `"Vendor, Open Source"`, `"CERT"`, `"Bug Bounty Provider"`). |
+| `contacts` | array \| null | Reporting contacts. Each entry: `type` (`"email"`, `"web"`, `"github_pvr"`), `value` (address/URL), `note`, optionally `preferred` (boolean). |
+| `cve` | object \| null | Structured CVE Program participation and posture. For CVE Program participants: `role` (`string[]` of lowercase sorted values from `["adp", "cna", "cna-lr", "root", "secretariat", "tlr"]`), `assignerShortName` (source-cased CNA short name), `assignerOrgId` (UUID), `cna_id` (formal ID such as `"CNA-2009-0001"`), `cna_partner_url`, `scope`, `root` (`{assignerShortName, assignerOrgId}`), `last_assigned_cve`, `last_assigned_date`. For non-participants: `posture` (free-text CVE stance) and optional `statement_url`. |
+| `safe_harbor` | object \| null | Legal safe-harbor protection statement for good-faith security research (`{url, checked?, note?}`), or `null` if researched and absent. |
+| `bug_bounty` | array \| null | Bug bounty program(s) (`[{url, paid?, checked?, note?}]`), where `paid: true` indicates monetary rewards and `paid: false` indicates a non-paying VDP on a bounty platform; `null` if no bug bounty program exists. |
+| `security_txt` | object \| null | RFC 9116 machine-readable security contact file (`{url, checked?, note?}`), or `null` if absent. |
+| `disclosure_policy` | object \| null | Vulnerability disclosure policy (`{url, stated_timeline?, checked?, note?}`), or `null` if absent. |
 
 Example:
 
 ```json
 {
-  "scope": "Vulnerabilities in open source projects affecting Red Hat software",
-  "cve_program_role": "CNA (reports to Red Hat Root)",
-  "organization_type": "Vendor, Open Source",
+  "organization_type": "Vendor",
   "contacts": [
-    {"type": "email", "value": "secalert@redhat.com", "note": "CNA contact email"},
-    {"type": "web", "value": "https://access.redhat.com/security/team/contact", "note": "Security contact page"}
+    {"type": "web", "value": "https://msrc.microsoft.com/create-report", "note": "MSRC Researcher Portal"}
   ],
-  "urls": [
-    {"type": "docs", "url": "https://access.redhat.com/articles/...", "note": "Disclosure policy"}
-  ]
+  "cve": {
+    "role": ["cna", "root"],
+    "assignerShortName": "microsoft",
+    "assignerOrgId": "f38d906d-7342-40ea-92c1-6c4a2c6478c8",
+    "cna_id": "CNA-2005-0002",
+    "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/microsoft",
+    "scope": "Microsoft products and services."
+  },
+  "safe_harbor": {
+    "url": "https://www.microsoft.com/en-us/msrc/cvd",
+    "checked": "2026-11-06"
+  },
+  "bug_bounty": [
+    {
+      "url": "https://www.microsoft.com/en-us/msrc/bounty",
+      "paid": true,
+      "checked": "2026-11-06"
+    }
+  ],
+  "security_txt": {
+    "url": "https://microsoft.com/.well-known/security.txt",
+    "checked": "2026-04-08"
+  },
+  "disclosure_policy": {
+    "url": "https://www.microsoft.com/en-us/msrc/cvd?rtc=1",
+    "checked": "2026-04-08"
+  }
 }
 ```
 

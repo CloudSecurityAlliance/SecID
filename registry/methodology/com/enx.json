@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "namespace": "enx.com",
+  "type": "methodology",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "ENX Association",
+  "common_name": "ENX",
+  "alternate_names": null,
+  "notes": "ENX Association governs TISAX (Trusted Information Security Assessment Exchange), the European automotive industry's mutual-recognition assessment and exchange mechanism for supplier information security audits based on the VDA/ENX ISA (Information Security Assessment) catalog.",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://enx.com"
+    },
+    {
+      "type": "website",
+      "url": "https://portal.enx.com"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^tisax$"
+      ],
+      "description": "TISAX — Trusted Information Security Assessment Exchange assessment and mutual-recognition methodology",
+      "weight": 100,
+      "data": {
+        "subtype": [
+          "audit-certification"
+        ],
+        "official_name": "Trusted Information Security Assessment Exchange",
+        "common_name": "TISAX",
+        "alternate_names": null,
+        "description": "Automotive industry conformity assessment and exchange methodology governed by ENX Association on behalf of VDA. Audits suppliers against the ENX/VDA ISA catalog at three Assessment Levels (AL1 self-assessment, AL2 plausibility check, AL3 on-site audit) and issues TISAX labels shared across participants.",
+        "notes": "TISAX is the assessment and certification exchange methodology; the underlying control catalog is ISA (see secid:control/enx.com/isa).",
+        "cross_references": [
+          {
+            "target": "secid:control/enx.com/isa",
+            "relationship": "assesses",
+            "note": "TISAX assessments evaluate conformity against the ENX/VDA Information Security Assessment (ISA) catalog."
+          }
+        ],
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://enx.com/en-US/TISAX/"
+          },
+          {
+            "type": "docs",
+            "url": "https://portal.enx.com/en-US/TISAX/downloads/"
+          }
+        ],
+        "examples": [
+          "tisax"
+        ]
+      }
+    }
+  ],
+  "tags": {
+    "country": [
+      "DE",
+      "EU"
+    ]
+  }
+}

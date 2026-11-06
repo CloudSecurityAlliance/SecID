@@ -55,6 +55,19 @@ Consumers can filter for `"glossary" in subtype` to find all glossary-shaped ref
 
 Subtypes are placed at the **source-level** match_node (the top-level entries in `match_nodes[]`), not on individual children. The subtype describes the whole namespace entry's character. Don't confuse subtypes with the existing child-level `data.type:` fields used for internal node typing — those describe what *kind of item* a specific child matches within a source's internal taxonomy (e.g., an ATT&CK child match_node with `type: "tactic"` vs. `type: "technique"`). Different level, different purpose.
 
+### Exhaustive-partition vs. specialization subtypes
+
+SecID's declared subtypes follow two distinct structural models, enforced differently by `scripts/validate-subtypes.py` ([#53](https://github.com/CloudSecurityAlliance/SecID/issues/53)):
+
+1. **Exhaustive-partition subtypes (`methodology`):** Every source-level `match_node` in `registry/methodology/` belongs to at least one of the 11 declared methodology categories (`mapping`, `scoring`, `risk-management`, `vulnerability-management`, `threat-modeling`, `security-testing`, `digital-forensics`, `incident-management`, `supply-chain`, `audit-certification`, `classification`). `scripts/validate-subtypes.py` includes `"methodology"` in `ENFORCED_COMPLETE_TYPES`, so CI fails if any new `methodology` source-level `match_node` omits `data.subtype`.
+2. **Specialization (carve-out) subtypes (`advisory`, `disclosure`, `entity`, `reference`):** The declared subtypes in these four types identify specialized subsets that differ in character from the type's default baseline items:
+   - `advisory`: `"incident"` carves out harm/incident reports (`AIID`, `AIAAIC`, `FDA MAUDE`, `NHTSA SGO`, `CA DMV AV reports`) from standard vulnerability advisories (CVE, GHSA, vendor security bulletins), which remain untagged.
+   - `disclosure`: `"coordinator"` and `"psirt"` carve out neutral CVD coordinators and dedicated vendor PSIRTs from standard CNA-only disclosure records (whose CVE roles live in structured `data.cve.role` per [DISCLOSURE-TYPE-FIELDS](../proposals/DISCLOSURE-TYPE-FIELDS.md)).
+   - `entity`: `"consortium"` carves out multi-organization alliances/foundations from standard single-company or government-agency entities.
+   - `reference`: `"glossary"` (166 nodes) and `"strategy"` (240 nodes) carve out terminology glossaries and national/organizational strategy documents from general reference publications, RFCs, academic preprints, identifier systems, and data schemas, which remain untagged until additional document-kind subtypes are promoted.
+
+Because baseline nodes in specialization-subtype types intentionally omit `data.subtype`, `scripts/validate-subtypes.py` validates that every present `data.subtype` value is declared in `SecID-Service/src/type-registry.ts` and appears only at the source level, without requiring 100% of `advisory`, `disclosure`, `entity`, or `reference` nodes to carry a subtype.
+
 ## Named subtypes in use today
 
 Five types currently carry named `subtype:` tags on entries: `reference` (for glossaries and strategies), `methodology` (the full 11-category set tagged on all ~40 entries), `advisory` (for incident reports), `entity` (for multi-organization consortia), and `disclosure` (for coordinators and PSIRTs). Other named subtypes are either anticipated (assertion-content revision direction), pattern-match candidates (regulation, and the entity organization/product/service split), or implicit overloads that predate the convention.
@@ -111,18 +124,18 @@ Note: METHODOLOGY-ARCHITECTURE.md's table placed NIST 800-61 under "Vulnerabilit
 
 **Subtypes vs. structured fields.** CNA status (`cve.role`), bug bounty programs (`bug_bounty[]`), and security.txt (`security_txt`) were once floated as disclosure subtypes but are instead carried by explicit first-class fields ([DISCLOSURE-TYPE-FIELDS](../proposals/DISCLOSURE-TYPE-FIELDS.md)). The governing rule: **subtypes name provisional, still-emergent groupings we want to identify but aren't set in stone; a fact important enough to earn explicit first-class support graduates into a structured field** — and must not then be duplicated as a subtype (one source of truth).
 
-## Anticipated subtypes (pending proposal)
+## Anticipated subtypes (accepted direction, tagged on demand)
 
-### `control` and `reference` (from ASSERTION-CONTENT-TYPES revision direction)
+### `control` and `reference` (from ASSERTION-CONTENT-TYPES decision)
 
-The [ASSERTION-CONTENT-TYPES](../proposals/ASSERTION-CONTENT-TYPES.md) proposal is "Under revision" and is expected to collapse toward fewer new types, using existing `control` and `reference` with subtype tags. Concrete subtypes flagged in the revision direction:
+The [ASSERTION-CONTENT-TYPES](../proposals/ASSERTION-CONTENT-TYPES.md) proposal was resolved on 2026-11-06 ([#61](https://github.com/CloudSecurityAlliance/SecID/issues/61)) with **0 new top-level types**, collapsing its domain into existing `control` and `reference` types with subtype tags plus the Relationship Layer:
 
-| Type | `subtype:` value (anticipated) | What it means | Example entries |
+| Type | `subtype:` value (accepted direction) | What it means | Example entries |
 |------|--------------------------------|---------------|-----------------|
 | `control` | `"body-of-knowledge"` | Normative curricula that define what a credential tests for | CISSP CBK, CCSK BoK, CISA Job Practice Areas |
 | `reference` | `"course"` | Instructional content with addressable internal structure | CCSK Foundation, SANS SEC401, AWS Security Workshops |
 
-These will be added to "Named subtypes in use today" when the ASSERTION-CONTENT-TYPES revision lands as Accepted. Org-level compliance attestations (SOC 2 holder, FedRAMP authorization for org X) are anticipated to go to the relationship layer, not the registry; professional credentials (CISSP, CCSK) may still need their own home, which is part of why the proposal is still under revision.
+These values will be registered in `SecID-Service/src/type-registry.ts` and moved to "Named subtypes in use today" when the first dedicated BoK or course match_node is tagged. Organizational compliance attestations (SOC 2 holder, FedRAMP authorization for org X) belong in the Relationship Layer, while conformity-assessment methodologies live in `methodology` with `subtype: ["audit-certification"]` (e.g., `methodology/enx.com/tisax`, `methodology/cloudsecurityalliance.org/ccm-auditing-guidelines`).
 
 ## Candidate subtypes (pattern-match, not formally proposed)
 
@@ -207,6 +220,7 @@ Patterns that predate the `subtype:` convention and are documented in [DESIGN-DE
 |------|----------------------|----------------|-----------------|---------------------------------------------|
 | `control` | Prescriptive benchmarks | "Test for these behaviors" eval suites that function as requirements | HarmBench, WMDP | `["benchmark"]` |
 | `control` | Documentation standards | Templates for describing a model/system, treated as a normative format requirement | Model Cards | `["documentation-standard"]` |
+| `control` | Executable check catalogs | Automated posture/compliance check catalogs whose check IDs are cited as concrete security requirements in findings and crosswalks ([#186](https://github.com/CloudSecurityAlliance/SecID/issues/186), [#58](https://github.com/CloudSecurityAlliance/SecID/issues/58)) | Prowler (`control/prowler.com/checks`), DISA STIGs (`control/disa.mil/stig`) | `["check-catalog"]` |
 
 We are not doing a backfill sweep of these implicit overloads. New entries that match these patterns should carry the `subtype:` value from day one, and existing entries pick it up opportunistically when they're touched for other reasons. Over time the implicit overloads become explicit.
 
@@ -238,7 +252,7 @@ So the practical rule: **try a subtype first**. If lived experience shows the fo
 |----------|----------|-----------|--------|
 | [GLOSSARY-DEFINITION-COMPARISON](../proposals/GLOSSARY-DEFINITION-COMPARISON.md) | Glossaries stay in `reference` | `subtype: ["glossary"]` + `data_repo:` pointer (Phase 1); copy into registry (Phase 2) | Accepted 2026-05-20 |
 | [METHODOLOGY-ARCHITECTURE](../proposals/METHODOLOGY-ARCHITECTURE.md) | The category structure for methodology entries (10 categories + 11th "classification" added on tagging sweep) | 11 `subtype:` values applied to all 43 source-level methodology match_nodes on 2026-05-20 | Implemented (categorization landed; arch doc is "Research / design") |
-| [ASSERTION-CONTENT-TYPES](../proposals/ASSERTION-CONTENT-TYPES.md) | Originally proposed two new types (`assertion`, `content`); revision direction collapses toward existing `control` (BoKs as normative knowledge specs) + `reference` (courses as content artifacts) + relationship-layer (org compliance attestations) | Anticipated: `subtype: ["body-of-knowledge"]` on control, `subtype: ["course"]` on reference | Under revision |
+| [ASSERTION-CONTENT-TYPES](../proposals/ASSERTION-CONTENT-TYPES.md) | Declined 2-type split (`assertion`, `content`); collapsed into existing `control` (BoKs as normative knowledge specs), `reference` (courses as instructional artifacts), `methodology` (`audit-certification`), and Relationship Layer (org compliance attestations) | `subtype: ["body-of-knowledge"]` on control, `subtype: ["course"]` on reference | Decided 2026-11-06 ([#61](https://github.com/CloudSecurityAlliance/SecID/issues/61)) |
 | [ENTITY-REGULATION-CONTROL-SPLIT](../proposals/ENTITY-REGULATION-CONTROL-SPLIT.md) | Regulations stay in `control/`; small entity-cleanup may still extract clearly-org-not-control entries into `entity/` | Cross-reference fields (`publishedBy:`, `authorizedBy:`) instead of type split | Declined (with rationale) 2026-05-17 |
 | [CONSORTIUM-AND-COORDINATOR-SUBTYPES](../proposals/CONSORTIUM-AND-COORDINATOR-SUBTYPES.md) | First `entity` + `disclosure` subtypes; declines `cna`/`bug-bounty`/`security.txt` (kept as structured fields) | `subtype: ["consortium"]` (entity); `subtype: ["coordinator"]` / `["psirt"]` (disclosure) | Draft 2026-07-08 |
 
