@@ -69,7 +69,18 @@
         "disclosure_policy": {
           "url": "https://aws.amazon.com/security/vulnerability-reporting",
           "checked": "2026-04-08"
-        }
+        },
+        "safe_harbor": {
+          "url": "https://aws.amazon.com/security/vulnerability-reporting/",
+          "checked": "2026-11-06"
+        },
+        "bug_bounty": [
+          {
+            "url": "https://hackerone.com/amazonvrp",
+            "paid": true,
+            "checked": "2026-11-06"
+          }
+        ]
       }
     }
   ]

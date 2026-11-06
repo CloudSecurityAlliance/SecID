@@ -37,6 +37,52 @@
         "subtype": ["mapping"],
         "examples": ["control-to-capability"]
       }
+    },
+    {
+      "patterns": ["(?i)^ccm-auditing-guidelines$", "(?i)^star-auditing-guidelines$"],
+      "description": "CSA Cloud Controls Matrix (CCM) Auditing Guidelines — conformity assessment and audit methodology for evaluating cloud controls under CCM and CSA STAR.",
+      "weight": 100,
+      "data": {
+        "subtype": ["audit-certification"],
+        "official_name": "Cloud Controls Matrix Auditing Guidelines",
+        "common_name": "CCM Auditing Guidelines",
+        "notes": "Defines the assessment methodology, audit objectives, interview prompts, and evidence artifacts for auditing CCM controls. Per-control audit procedures are keyed 1:1 to CCM control IDs (XXX-NN) and are bundled with secid:control/cloudsecurityalliance.org/ccm; the standalone methodology artifacts are also indexed under secid:reference/cloudsecurityalliance.org/artifacts#ccm-v4-1-auditing-guidelines and #auditors-guidance-document-star-certification-auditing-the-cloud-controls-matrix.",
+        "cross_references": [
+          {
+            "target": "secid:control/cloudsecurityalliance.org/ccm",
+            "relationship": "assesses",
+            "note": "Audits conformity against the Cloud Controls Matrix (CCM)."
+          }
+        ],
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/ccm-v4-1-auditing-guidelines"},
+          {"type": "docs", "url": "https://cloudsecurityalliance.org/artifacts/auditors-guidance-document-star-certification-auditing-the-cloud-controls-matrix"}
+        ],
+        "examples": ["ccm-auditing-guidelines"]
+      }
+    },
+    {
+      "patterns": ["(?i)^aicm-auditing-guidelines$", "(?i)^star-for-ai-auditing-guidelines$"],
+      "description": "CSA AI Controls Matrix (AICM) Auditing Guidelines — conformity assessment and audit methodology for evaluating AI security controls under AICM and CSA STAR for AI.",
+      "weight": 100,
+      "data": {
+        "subtype": ["audit-certification"],
+        "official_name": "AI Controls Matrix Auditing Guidelines",
+        "common_name": "AICM Auditing Guidelines",
+        "notes": "Defines the assessment methodology, role-specific audit objectives (Model Provider, Cloud Service Provider, Application Provider, Orchestrated Service Provider, AI Customer), and evidence artifacts for auditing AICM controls. Per-control audit procedures are keyed 1:1 to AICM control IDs (XXX-NN) and are bundled with secid:control/cloudsecurityalliance.org/aicm; the standalone methodology artifacts are also indexed under secid:reference/cloudsecurityalliance.org/artifacts#aicm-auditing-guidelines and #auditors-guidance-document-star-for-ai-certification.",
+        "cross_references": [
+          {
+            "target": "secid:control/cloudsecurityalliance.org/aicm",
+            "relationship": "assesses",
+            "note": "Audits conformity against the AI Controls Matrix (AICM)."
+          }
+        ],
+        "urls": [
+          {"type": "website", "url": "https://cloudsecurityalliance.org/artifacts/aicm-auditing-guidelines"},
+          {"type": "docs", "url": "https://cloudsecurityalliance.org/artifacts/auditors-guidance-document-star-for-ai-certification"}
+        ],
+        "examples": ["aicm-auditing-guidelines"]
+      }
     }
   ]
 }

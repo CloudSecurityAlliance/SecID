@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "namespace": "prowler.com",
+  "type": "control",
+  "status": "draft",
+  "status_notes": null,
+  "official_name": "Prowler",
+  "common_name": "Prowler",
+  "alternate_names": [
+    "Prowler Open Source",
+    "Prowler Cloud"
+  ],
+  "notes": "Open-source cloud security posture management (CSPM) check catalog and assessment tool (Apache-2.0) covering AWS, Microsoft Azure, Google Cloud, Kubernetes, Microsoft 365, and GitHub. Prowler check IDs are widely cited in cloud security findings, posture reports, and compliance crosswalks (CIS Benchmarks, NIST 800-53, PCI DSS, SOC 2, ENS, NIS2, MITRE ATT&CK).",
+  "wikidata": null,
+  "wikipedia": null,
+  "urls": [
+    {
+      "type": "website",
+      "url": "https://prowler.com/"
+    },
+    {
+      "type": "lookup",
+      "url": "https://hub.prowler.com/"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/prowler-cloud/prowler"
+    }
+  ],
+  "match_nodes": [
+    {
+      "patterns": [
+        "(?i)^checks$",
+        "(?i)^prowler$"
+      ],
+      "description": "Prowler Cloud Security Check Catalog",
+      "weight": 100,
+      "data": {
+        "official_name": "Prowler Cloud Security Check Catalog",
+        "common_name": "Prowler Checks",
+        "alternate_names": [
+          "Prowler Hub"
+        ],
+        "description": "Catalog of 1,000+ automated cloud security posture checks across AWS, Azure, Google Cloud, Kubernetes, Microsoft 365, and GitHub, each with a canonical snake_case check ID, risk statement, audit logic, remediation steps, and compliance framework mappings.",
+        "notes": "Published under Apache-2.0 in github.com/prowler-cloud/prowler and indexed at hub.prowler.com. Check IDs follow <service>_<resource>_<check_name> snake_case naming (e.g., s3_bucket_public_access, iam_root_mfa_enabled).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://hub.prowler.com/"
+          },
+          {
+            "type": "github",
+            "url": "https://github.com/prowler-cloud/prowler"
+          }
+        ],
+        "examples": [
+          "s3_bucket_public_access",
+          "iam_root_mfa_enabled"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^[a-z0-9]+(?:_[a-z0-9]+)+$"
+          ],
+          "description": "Prowler check ID (snake_case <service>_<check_slug> identifier)",
+          "weight": 100,
+          "open_pattern": true,
+          "data": {
+            "url": "https://hub.prowler.com/check/{id_lower}",
+            "examples": [
+              {
+                "input": "s3_bucket_public_access",
+                "url": "https://hub.prowler.com/check/s3_bucket_public_access",
+                "note": "Check if S3 buckets have public access enabled"
+              },
+              {
+                "input": "iam_root_mfa_enabled",
+                "url": "https://hub.prowler.com/check/iam_root_mfa_enabled",
+                "note": "Ensure MFA is enabled for the root account"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "country": [
+      "US",
+      "ES"
+    ]
+  }
+}

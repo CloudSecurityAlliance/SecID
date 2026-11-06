@@ -1,9 +1,37 @@
 # Proposal: `assertion` and `content` Types (11th and 12th SecID Types)
 
-Status: Research / proposal
-Date: 2026-05-12
+Status: **Declined as 2-type split; collapsed into existing types + Relationship Layer (2026-11-06)**
+Date: 2026-05-12 (proposal); 2026-11-06 (revision and decision)
 Author: Kurt Seifried, with AI-assisted design
-Reviewers: open — please add review notes inline or as PR comments
+Reviewers: open — please add review notes inline or as PR comments; the decision below is explicitly open to challenge
+
+> **Quick orientation for readers**: this proposal originally argued for adding two new top-level SecID types (`assertion` and `content`) to cover professional credentials, compliance attestations, bodies of knowledge, and training courses. After subsequent type-boundary and subtype analysis ([TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md), [#61](https://github.com/CloudSecurityAlliance/SecID/issues/61)), we decided **not** to add new top-level types (`0` new types). The original proposal is preserved intact below the revision section so future readers can see the argument and challenge the decision if warranted.
+
+---
+
+## Revision and Analysis (2026-11-06)
+
+### Decision Summary: 0 New Top-Level Types
+
+Adding top-level types to SecID requires coordinated code, schema, and SDK releases across four repositories (`SecID`, `SecID-Service`, `SecID-Server-API`, `SecID-Client-SDK`). Per [DESIGN-DECISIONS.md](../explanation/DESIGN-DECISIONS.md) and [TYPES-AND-SUBTYPES.md](../reference/TYPES-AND-SUBTYPES.md), a top-level split is justified only when existing types plus `data.subtype` tags and the Relationship Layer cannot represent the domain cleanly.
+
+Re-evaluating the four concept clusters in this proposal against SecID's existing 10 types and the Relationship Layer shows that **zero new top-level types are required**:
+
+| Concept cluster from original proposal | Where it lives in SecID | Why no new top-level type is needed |
+|---|---|---|
+| **1. Organizational compliance attestations** (SOC 2 Type II report, ISO 27001 certification, FedRAMP Moderate authorization, TISAX label, CSA STAR Level 1/2) | **Relationship Layer** (`entity --attestedTo--> control` / `methodology`) + existing `control` and `methodology` (`subtype: ["audit-certification"]`) | The standard being audited is already a `control` (`control/aicpa.org/tsc`, `control/iso.org/27001`, `control/fedramp.gov/baselines#moderate`, `control/enx.com/isa`), the conformity-assessment scheme is already a `methodology` (`subtype: ["audit-certification"]`, e.g., `methodology/iso.org/27006`, `methodology/enx.com/tisax`), and public attestation registries are already indexed via `data.type: "registry"` (e.g., `control/cloudsecurityalliance.org/star`). The time-bounded fact that *Entity X holds Attestation Y from Auditor Z* is a relationship assertion, not a static registry identity. |
+| **2. Bodies of Knowledge (BoKs) & exam outlines** (CISSP CBK, CCSK BoK, CISA Job Practice Areas) | **`control`** with `data.subtype: ["body-of-knowledge"]` (or **`methodology`** for competency taxonomies like NIST NICE `methodology/nist.gov/nice`) | A normative Body of Knowledge specifies required domain competencies with hierarchical subpaths (`#domain/d3`), structurally identical to a control framework's domain/objective hierarchy. Tagging BoKs with `subtype: ["body-of-knowledge"]` under `control` gives consumers clean filtering (`secid:control?subtype=body-of-knowledge`) at zero multi-repo cost. |
+| **3. Courses & instructional materials** (CCSK Foundation, CCSK v5 Prep Kit, SANS SEC401, vendor learning paths) | **`reference`** with `data.subtype: ["course"]` | Courses, study guides, and curricula are published reference artifacts with optional module/lesson subpaths. CSA's own `ccsk-v5-curriculum`, `ccsk-v5-prep-kit`, and `ccsk-course-outlines` already resolve under `reference/cloudsecurityalliance.org/artifacts`. Tagging structured courses with `subtype: ["course"]` under `reference` avoids semantic collision between a generic `content` type and `reference`. |
+| **4. Professional & auditor credentials** (CISSP, CCSK, OSCP, PCI QSA, ISO 27001 Lead Auditor) | **Deferred** (candidate `reference` or `entity` subtype `["credential"]` if caller demand emerges) | Unlike controls, advisories, and regulations, zero caller demand-signal queries have requested standalone resolution of individual professional certifications. If demand emerges, `subtype: ["credential"]` on the issuing body's `reference` or `entity` namespace can be introduced first and promoted only if the four split criteria are met. |
+
+### Answers to the Original Open Questions
+
+1. **One `content` type or split BoK and course?** Split across existing types: normative BoKs belong in `control` (`subtype: ["body-of-knowledge"]`), while instructional courses belong in `reference` (`subtype: ["course"]`).
+2. **`assesses_framework` vs `tests_curriculum`?** Handled by standard `cross_references` entries (`relationship: "assesses"` or `"teaches"`, already used by `methodology/enx.com/tisax` and `methodology/cloudsecurityalliance.org/ccm-auditing-guidelines`).
+3. **Renewal cycle and holder status?** Holder status and completion events belong strictly in the Relationship Layer.
+4. **Multi-repo cost timing?** Avoided entirely (`0` new top-level types).
+
+---
 
 ## Summary
 

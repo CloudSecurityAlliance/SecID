@@ -54,9 +54,24 @@
           "role": [
             "cna"
           ],
-          "scope": "Fortinet issues only."
+          "scope": "Fortinet issues only.",
+          "assignerShortName": "fortinet",
+          "cna_id": "CNA-2016-0010",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/fortinet",
+          "assignerOrgId": "6abe59d8-c742-4dff-8ce8-9b0ca1073da8",
+          "last_assigned_cve": "CVE-2026-35616",
+          "last_assigned_date": "2026-04-04"
         },
-        "security_txt": null
+        "security_txt": null,
+        "safe_harbor": {
+          "url": "https://www.fortiguard.com/psirt_policy",
+          "checked": "2026-11-06"
+        },
+        "bug_bounty": null,
+        "disclosure_policy": {
+          "url": "https://www.fortiguard.com/psirt_policy",
+          "checked": "2026-11-06"
+        }
       }
     }
   ]

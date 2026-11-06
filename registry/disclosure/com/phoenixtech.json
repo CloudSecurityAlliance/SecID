@@ -48,12 +48,22 @@
           "role": [
             "cna"
           ],
-          "scope": "All Phoenix Technologies products (supported products and end-of-life/end-of-service products), as well as vulnerabilities in third-party software discovered by Phoenix Technologies that are not in another CNA’s scope."
+          "scope": "All Phoenix Technologies products (supported products and end-of-life/end-of-service products), as well as vulnerabilities in third-party software discovered by Phoenix Technologies that are not in another CNA’s scope.",
+          "assignerShortName": "Phoenix",
+          "cna_id": "CNA-2023-0049",
+          "cna_partner_url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/Phoenix",
+          "assignerOrgId": "22d9ba52-f336-4b0d-bf1f-0efbdcc3c1de",
+          "last_assigned_cve": "CVE-2024-12533",
+          "last_assigned_date": "2025-05-13"
         },
         "security_txt": {
           "url": "https://phoenixtech.com/.well-known/security.txt",
           "checked": "2026-04-08",
           "note": "File exists but missing Contact: field"
+        },
+        "disclosure_policy": {
+          "url": "https://phoenixtech.com/vulnerability-disclosure-policy/",
+          "checked": "2026-11-06"
         }
       }
     }
