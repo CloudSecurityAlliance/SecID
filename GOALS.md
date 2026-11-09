@@ -49,14 +49,16 @@ Three versions, three questions: **1.0** asks *where is it* (shipped), **2.0** a
 
 ### What 2.0 creates
 
-| Repository | Purpose |
-|---|---|
-| `SecID-Data-{International, North-America, Latin-America, Europe, Asia, Middle-East, Africa, Oceania}` | Extracted content, sharded by the authority behind it |
-| `SecID-Data-Staging` | Acquired but not yet classified; everything here has an exit |
-| `SecID-Data-Vendor` | Product security capabilities (AWS, Azure, GCP, others) — sharded by vendor rather than region, because capability data has no jurisdiction. Promotes to `SecID-Data-<domain>` at a published size threshold |
+See [DATA-HOSTING-RULES.md §3](docs/reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories) for the complete inventory of all 28 `SecID-Data-*` repositories and their tracking issues (`#238`–`#272`):
 
-Object storage carries what git should not: R2 for serving source originals and extraction artifacts, S3 with
-requester-pays for bulk and archival access.
+| Repository Group | Purpose |
+|---|---|
+| **Anchor Authorities (`SecID-Data-disa.mil` [live], `SecID-Data-cloudsecurityalliance.org`, `SecID-Data-nist.gov`, `SecID-Data-fedramp.gov`, `SecID-Data-cisa.gov`, `SecID-Data-mitre.org`, `SecID-Data-owasp.org`)** | Dedicated repositories for major standards and US federal operational authorities (`>50–100 MB` or high-demand anchors), including rolled-in sibling domains (`cve.org` → `mitre.org`, `cyclonedx.org`+`owaspai.org` → `owasp.org`). |
+| **Major Jurisdictions (`SecID-Data-europa.eu`, `SecID-Data-gov`, `SecID-Data-ca`, `SecID-Data-jp`, `SecID-Data-uk`, `SecID-Data-de`, `SecID-Data-au`, `SecID-Data-sg`, `SecID-Data-in`, `SecID-Data-cn`)** | One repository per major national/supranational jurisdiction containing all of its statutes, regulations, national cyber controls, and sector guidelines (`tags.sector`), so practitioners can clone 100% of their jurisdiction. |
+| **Shared Repository (`SecID-Data`)** | General shared repository for `<50 MB` open global standards (OpenSSF/SPDX/OpenVEX/SLSA/CNCF, IETF/RFCs, FIRST, OASIS), format schemas (`#203`), cross-domain glossaries (`#62`), vendor capability baselines, and smaller country jurisdictions until they cross the ~50–100 MB promotion threshold. |
+| **Defensive Upstream Mirror Forks (`SecID-Data-cvelistV5`, `SecID-Data-advisory-database`, `SecID-Data-vulnrichment`, `SecID-Data-attack-stix-data`, `SecID-Data-cve-schema`, `SecID-Data-osv-schema`, `SecID-Data-CSAF`, `SecID-Data-vulndb`, `SecID-Data-rustsec-advisory-db`, `SecID-Data-pypa-advisory-database`)** | Public GitHub forks (at `$0` GitHub storage quota) with gated daily sync, providing one-line failover insurance if an upstream repository breaks layout or corrupts records. |
+
+Public structured text (`.json`, `.md`, `.csv`, `.yaml`) is served directly from GitHub via `raw.githubusercontent.com` at zero egress cost (Cloudflare R2 serving is shelved per the 2026-11-06 decision in [DECISIONS.md](DECISIONS.md)).
 
 ## SecID 3.0 goals — run it yourself
 

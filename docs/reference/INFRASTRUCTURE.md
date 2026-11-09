@@ -29,6 +29,7 @@ SecID is split across multiple repositories for clear separation of concerns:
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver | Python reference implementation (REST API + optional MCP, pluggable storage). TypeScript and Go implementations are planned. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Official clients | Python, TypeScript, Go libraries. Claude skills for using SecID. |
 | **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | Data (SecID 2.0) | DISA STIG/SRG content, ingested quarterly. The first data repository; sets the standard layout for `SecID-Data-*` repos (ADR-013, ADR-014). |
+| **SecID-Data-\*** | Data (SecID 2.0) | Dedicated repositories for anchor authorities (`nist.gov`, `cisa.gov`, `fedramp.gov`, `cloudsecurityalliance.org`, `mitre.org`, `owasp.org`), major jurisdictions (`europa.eu`, `gov`, `ca`, `jp`, `uk`, `de`, `au`, `sg`, `in`, `cn`), the shared `SecID-Data` repo, and defensive upstream mirror forks (`cvelistV5`, `advisory-database`, `vulnrichment`, `attack-stix-data`, etc.). Canonical list in [DATA-HOSTING-RULES.md §3](DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories) (`#238`–`#272`). |
 
 **Why split?**
 - Different release cadences
