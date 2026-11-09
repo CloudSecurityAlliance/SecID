@@ -95,7 +95,10 @@
         "examples": [
           "politica-nacional-ciberseguridad@2023-2028",
           "politica-nacional-ciberseguridad@2017-2022"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -118,13 +121,6 @@
                 "type": "website",
                 "url": "https://www.bcn.cl/leychile/navegar?idNorma=1198702"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023-2028",
-                "url": "https://www.diariooficial.interior.gob.cl/publicaciones/2023/12/04/43717/01/2415658.pdf",
-                "note": "Chilean National Cybersecurity Policy 2023-2028"
-              }
             ]
           }
         },
@@ -144,15 +140,48 @@
                 "type": "pdf",
                 "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017-2022",
-                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Chile_NCSP%20%28ENG%29.pdf",
-                "note": "Chilean National Cybersecurity Policy 2017-2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|3\\.A|3\\.B|3\\.C|3\\.D|4|4\\.A|4\\.B|5|5\\.A|5\\.B|5\\.C|6|7|7\\.A|7\\.B|8|9)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "3.A",
+                  "3.B",
+                  "3.C",
+                  "3.D",
+                  "4",
+                  "4.A",
+                  "4.B",
+                  "5",
+                  "5.A",
+                  "5.B",
+                  "5.C",
+                  "6",
+                  "7",
+                  "7.A",
+                  "7.B",
+                  "8",
+                  "9"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.cl/politica-nacional-ciberseguridad/2017-2022).",
+                "examples": [
+                  "1",
+                  "5",
+                  "9"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -218,7 +247,10 @@
         "examples": [
           "politica-nacional-ia@2024",
           "politica-nacional-ia@2021-2030"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -235,13 +267,6 @@
               {
                 "type": "website",
                 "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://minciencia.gob.cl/areas/inteligencia-artificial/politica-nacional-de-inteligencia-artificial/",
-                "note": "Chilean National AI Policy (2024 Update)"
               }
             ]
           }
@@ -266,15 +291,44 @@
                 "type": "website",
                 "url": "https://www.bcn.cl/leychile/navegar?idNorma=1167563"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021-2030",
-                "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
-                "note": "Chilean National AI Policy 2021-2030"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Principio\\ 1|Principio\\ 2|Principio\\ 3|Principio\\ 4|Eje\\ 1|1\\.1|1\\.2|1\\.3|Eje\\ 2|Eje\\ 3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Principio 1",
+                  "Principio 2",
+                  "Principio 3",
+                  "Principio 4",
+                  "Eje 1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "Eje 2",
+                  "Eje 3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "3.6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.cl/politica-nacional-ia/2021-2030).",
+                "examples": [
+                  "Principio 1",
+                  "Eje 2",
+                  "3.6"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

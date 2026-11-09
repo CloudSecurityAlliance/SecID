@@ -56,6 +56,7 @@
           "description": "Uzbekistan-2030 Strategy (Presidential Decree No. PF-158) & Defense Doctrine of Uzbekistan (2023)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://lex.uz/docs/6600413",
             "examples": [
               {
@@ -113,11 +114,41 @@
           "description": "Strategy for the Development of Artificial Intelligence Technologies until 2030 (Presidential Resolution No. PQ-358) (2024)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://lex.uz/docs/7158604",
             "examples": [
               {
                 "input": "2024",
                 "url": "https://lex.uz/docs/7158604"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1\\-боб|2\\-боб|3\\-боб|4\\-боб|5\\-боб|6\\-боб)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1-боб",
+              "2-боб",
+              "3-боб",
+              "4-боб",
+              "5-боб",
+              "6-боб"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/lex.uz/ai-technologies-development-strategy-2030/2024).",
+            "examples": [
+              {
+                "input": "1-боб",
+                "note": "Умумий маълумот"
+              },
+              {
+                "input": "3-боб",
+                "note": "Стратегиянинг мақсад ва вазифалари"
               }
             ]
           }

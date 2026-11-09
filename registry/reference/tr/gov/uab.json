@@ -68,6 +68,7 @@
           "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2024)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
             "examples": [
               {
@@ -85,6 +86,7 @@
           "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2020)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
             "examples": [
               {
@@ -109,7 +111,7 @@
         "examples": [
           "national-artificial-intelligence-strategy@2024"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2024",
@@ -138,7 +140,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -149,14 +153,102 @@
           "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2024)",
           "weight": 100,
           "data": {
-            "url": "https://cbddo.gov.tr/uyzs",
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://cbddo.gov.tr/uyzs"
+            "type": "version",
+            "url": "https://cbddo.gov.tr/uyzs"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Eylem\\ 1\\.1|Eylem\\ 1\\.2|Eylem\\ 1\\.3|Eylem\\ 1\\.4|Eylem\\ 1\\.6|Eylem\\ 1\\.7|Eylem\\ 1\\.8|Eylem\\ 1\\.9|Eylem\\ 1\\.10|Eylem\\ 1\\.11|Eylem\\ 1\\.12|Eylem\\ 1\\.13|Eylem\\ 1\\.14|Eylem\\ 1\\.15|Eylem\\ 1\\.16|Eylem\\ 1\\.17|Eylem\\ 1\\.18|Eylem\\ 1\\.19|Eylem\\ 1\\.20|Eylem\\ 2\\.1|Eylem\\ 2\\.2|Eylem\\ 2\\.3|Eylem\\ 2\\.4|Eylem\\ 2\\.5|Eylem\\ 2\\.7|Eylem\\ 2\\.8|Eylem\\ 2\\.9|Eylem\\ 2\\.10|Eylem\\ 2\\.11|Eylem\\ 3\\.1|Eylem\\ 3\\.3|Eylem\\ 3\\.4|Eylem\\ 4\\.1|Eylem\\ 4\\.2|Eylem\\ 4\\.3|Eylem\\ 4\\.4|Eylem\\ 4\\.5|Eylem\\ 4\\.6|Eylem\\ 4\\.8|Eylem\\ 4\\.9|Eylem\\ 4\\.10|Eylem\\ 4\\.11|Eylem\\ 5\\.1|Eylem\\ 5\\.2|Eylem\\ 5\\.3|Eylem\\ 5\\.4|Eylem\\ 5\\.5|Eylem\\ 5\\.6|Eylem\\ 6\\.1|Eylem\\ 6\\.2|Eylem\\ 6\\.3|Eylem\\ 6\\.4|Eylem\\ 6\\.5|Eylem\\ 6\\.6|Eylem\\ 6\\.7|Eylem\\ 6\\.9|Eylem\\ 6\\.10|Eylem\\ 6\\.11|Eylem\\ 6\\.12|Eylem\\ 6\\.13|Eylem\\ 6\\.14|Eylem\\ 6\\.15|Eylem\\ 6\\.16|Eylem\\ 6\\.17|Eylem\\ 6\\.18|Eylem\\ 6\\.19)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Eylem 1.1",
+                  "Eylem 1.2",
+                  "Eylem 1.3",
+                  "Eylem 1.4",
+                  "Eylem 1.6",
+                  "Eylem 1.7",
+                  "Eylem 1.8",
+                  "Eylem 1.9",
+                  "Eylem 1.10",
+                  "Eylem 1.11",
+                  "Eylem 1.12",
+                  "Eylem 1.13",
+                  "Eylem 1.14",
+                  "Eylem 1.15",
+                  "Eylem 1.16",
+                  "Eylem 1.17",
+                  "Eylem 1.18",
+                  "Eylem 1.19",
+                  "Eylem 1.20",
+                  "Eylem 2.1",
+                  "Eylem 2.2",
+                  "Eylem 2.3",
+                  "Eylem 2.4",
+                  "Eylem 2.5",
+                  "Eylem 2.7",
+                  "Eylem 2.8",
+                  "Eylem 2.9",
+                  "Eylem 2.10",
+                  "Eylem 2.11",
+                  "Eylem 3.1",
+                  "Eylem 3.3",
+                  "Eylem 3.4",
+                  "Eylem 4.1",
+                  "Eylem 4.2",
+                  "Eylem 4.3",
+                  "Eylem 4.4",
+                  "Eylem 4.5",
+                  "Eylem 4.6",
+                  "Eylem 4.8",
+                  "Eylem 4.9",
+                  "Eylem 4.10",
+                  "Eylem 4.11",
+                  "Eylem 5.1",
+                  "Eylem 5.2",
+                  "Eylem 5.3",
+                  "Eylem 5.4",
+                  "Eylem 5.5",
+                  "Eylem 5.6",
+                  "Eylem 6.1",
+                  "Eylem 6.2",
+                  "Eylem 6.3",
+                  "Eylem 6.4",
+                  "Eylem 6.5",
+                  "Eylem 6.6",
+                  "Eylem 6.7",
+                  "Eylem 6.9",
+                  "Eylem 6.10",
+                  "Eylem 6.11",
+                  "Eylem 6.12",
+                  "Eylem 6.13",
+                  "Eylem 6.14",
+                  "Eylem 6.15",
+                  "Eylem 6.16",
+                  "Eylem 6.17",
+                  "Eylem 6.18",
+                  "Eylem 6.19"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/uab.gov.tr/national-artificial-intelligence-strategy/2024).",
+                "examples": [
+                  {
+                    "input": "Eylem 1.13",
+                    "version": "2024",
+                    "note": "Ortaöğretim seviyesinde YZ öğretim programı hazırlanacaktır"
+                  },
+                  {
+                    "input": "Eylem 1.16",
+                    "version": "2024",
+                    "note": "HİSAR Projesi kapsamında eğitici eğitimi tamamlanacaktır"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "patterns": [
@@ -166,14 +258,59 @@
           "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2021)",
           "weight": 100,
           "data": {
-            "url": "https://cbddo.gov.tr/uyzs",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://cbddo.gov.tr/uyzs"
+            "type": "version",
+            "url": "https://cbddo.gov.tr/uyzs"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Objective\\ 1\\.2|Objective\\ 1\\.4|Objective\\ 2\\.1|Objective\\ 2\\.3|Objective\\ 3\\.1|Objective\\ 3\\.2|Objective\\ 3\\.4|Objective\\ 4\\.1|Objective\\ 4\\.2|Objective\\ 4\\.3|Objective\\ 4\\.4|Objective\\ 5\\.1|Objective\\ 5\\.3|Objective\\ 6\\.1|Objective\\ 6\\.2|Objective\\ 6\\.3|Objective\\ 6\\.5|Priority\\ 1|Strategic\\ Priority\\ 2|Strategic\\ Priority\\ 3|Strategic\\ Priority\\ 4|Strategic\\ Priority\\ 5|Strategic\\ Priority\\ 6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Objective 1.2",
+                  "Objective 1.4",
+                  "Objective 2.1",
+                  "Objective 2.3",
+                  "Objective 3.1",
+                  "Objective 3.2",
+                  "Objective 3.4",
+                  "Objective 4.1",
+                  "Objective 4.2",
+                  "Objective 4.3",
+                  "Objective 4.4",
+                  "Objective 5.1",
+                  "Objective 5.3",
+                  "Objective 6.1",
+                  "Objective 6.2",
+                  "Objective 6.3",
+                  "Objective 6.5",
+                  "Priority 1",
+                  "Strategic Priority 2",
+                  "Strategic Priority 3",
+                  "Strategic Priority 4",
+                  "Strategic Priority 5",
+                  "Strategic Priority 6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/uab.gov.tr/national-artificial-intelligence-strategy/2021).",
+                "examples": [
+                  {
+                    "input": "Objective 4.1",
+                    "version": "2021",
+                    "note": "An agile and inclusive legal harmonization process will be"
+                  },
+                  {
+                    "input": "Objective 4.4",
+                    "version": "2021",
+                    "note": "Data capacity will be improved in order to evaluate the"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

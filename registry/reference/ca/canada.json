@@ -104,6 +104,37 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|Chapter\\ 5|Chapter\\ 6|Chapter\\ 7|Chapter\\ 8)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Chapter 1",
+              "Chapter 2",
+              "Chapter 3",
+              "Chapter 4",
+              "Chapter 5",
+              "Chapter 6",
+              "Chapter 7",
+              "Chapter 8"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-security-policy/2004).",
+            "examples": [
+              {
+                "input": "Chapter 1",
+                "note": "Canada’s Approach to National Security"
+              },
+              {
+                "input": "Chapter 2",
+                "note": "Building an Integrated Security System"
+              }
+            ]
+          }
         }
       ]
     },
@@ -236,6 +267,37 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:I|II|III|IV|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "III",
+              "IV",
+              "Annex A",
+              "Annex B",
+              "Annex C",
+              "Annex D"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/our-north-strong-and-free/2024).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "Canada in a Time of Global Uncertainty"
+              },
+              {
+                "input": "II",
+                "note": "Our Vision for Defence"
+              }
+            ]
+          }
         }
       ]
     },
@@ -247,7 +309,9 @@
       "description": "National Security Transparency Commitment",
       "weight": 100,
       "data": {
-        "subtype": ["strategy"],
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Security Transparency Commitment",
         "common_name": "NSTC",
         "alternate_names": [
@@ -328,6 +392,44 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\.1|1\\.2|1\\.3|2|2\\.1|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|2\\.3\\.3|2\\.3\\.4|2\\.4|3|4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.3.1",
+              "2.3.2",
+              "2.3.3",
+              "2.3.4",
+              "2.4",
+              "3",
+              "4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/enterprise-cyber-security-strategy/2024).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "1.1",
+                "note": "Context"
+              }
+            ]
+          }
         }
       ]
     },
@@ -338,7 +440,9 @@
       "description": "Government of Canada Enterprise Cyber Security Strategy — Glossary",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "Government of Canada Enterprise Cyber Security Strategy — Glossary",
         "common_name": null,
         "alternate_names": null,
@@ -424,7 +528,10 @@
           "national-ai-strategy@2026",
           "pan-canadian-ai-strategy@2022",
           "pan-canadian-ai-strategy@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -446,15 +553,41 @@
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026",
-                "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
-                "note": "Canada's National Artificial Intelligence Strategy: AI for All (2026)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ 4|PILLAR\\ 1|PILLAR\\ 2|PILLAR\\ 3|PILLAR\\ 5|PILLAR\\ 6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR 4",
+                  "PILLAR 1",
+                  "PILLAR 2",
+                  "PILLAR 3",
+                  "PILLAR 5",
+                  "PILLAR 6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-ai-strategy/2026).",
+                "examples": [
+                  {
+                    "input": "PILLAR 4",
+                    "version": "2026",
+                    "note": "Building the Canadian Sovereign AI Foundation"
+                  },
+                  {
+                    "input": "PILLAR 1",
+                    "version": "2026",
+                    "note": "Protecting Canadians and Safeguarding our Democracy"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -470,13 +603,6 @@
               {
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
-                "note": "Pan-Canadian AI Strategy Phase 2 (2022)"
               }
             ]
           }
@@ -495,13 +621,6 @@
               {
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
-                "note": "Pan-Canadian AI Strategy Phase 1 (2017)"
               }
             ]
           }

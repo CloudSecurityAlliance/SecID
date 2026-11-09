@@ -56,11 +56,42 @@
           "description": "Malaysia National Security Policy (Dasar Keselamatan Negara 2021–2025) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/",
             "examples": [
               {
                 "input": "2021",
                 "url": "https://www.mkn.gov.my/web/ms/dasar-keselamatan-negara/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:BAHAGIAN\\ I|BAHAGIAN\\ II|BAHAGIAN\\ III|BAHAGIAN\\ IV|BAHAGIAN\\ V|BAHAGIAN\\ VI|BAHAGIAN\\ VII)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "BAHAGIAN I",
+              "BAHAGIAN II",
+              "BAHAGIAN III",
+              "BAHAGIAN IV",
+              "BAHAGIAN V",
+              "BAHAGIAN VI",
+              "BAHAGIAN VII"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/dasar-keselamatan-negara/2021).",
+            "examples": [
+              {
+                "input": "BAHAGIAN I",
+                "note": "PENGENALAN DASAR KESELAMATAN NEGARA"
+              },
+              {
+                "input": "BAHAGIAN II",
+                "note": "NILAI TERAS KESELAMATAN NEGARA DASAR KESELAMATAN NEGARA"
               }
             ]
           }
@@ -80,7 +111,7 @@
         "examples": [
           "malaysia-cyber-security-strategy@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -109,7 +140,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -120,14 +153,51 @@
           "description": "Malaysia Cyber Security Strategy (MCSS) (2025)",
           "weight": 100,
           "data": {
-            "url": "https://www.nacsa.gov.my/mcss.php",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.nacsa.gov.my/mcss.php"
+            "type": "version",
+            "url": "https://www.nacsa.gov.my/mcss.php"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.3|1\\.4|2\\.1|2\\.2|2\\.3|3\\.1|4\\.1|4\\.2|4\\.3|5\\.1|5\\.3|5\\.4|5\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "1.4",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3.1",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "5.1",
+                  "5.3",
+                  "5.4",
+                  "5.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/malaysia-cyber-security-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2025",
+                    "note": "Cyber Security Threat Landscape"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2025",
+                    "note": "Public Trust and Perspectives"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "patterns": [
@@ -137,13 +207,8 @@
           "description": "Malaysia Cyber Security Strategy (MCSS) (2020)",
           "weight": 100,
           "data": {
-            "url": "https://www.nacsa.gov.my/mcss.php",
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.nacsa.gov.my/mcss.php"
-              }
-            ]
+            "type": "version",
+            "url": "https://www.nacsa.gov.my/mcss.php"
           }
         }
       ]
@@ -201,6 +266,7 @@
           "description": "Malaysia National Artificial Intelligence Roadmap (AI-RMAP 2021–2025) & National AI Action Plan 2026–2030 (2025)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mosti.gov.my/",
             "examples": [
               {
@@ -218,6 +284,7 @@
           "description": "Malaysia National Artificial Intelligence Roadmap (AI-RMAP 2021–2025) & National AI Action Plan 2026–2030 (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mosti.gov.my/",
             "examples": [
               {

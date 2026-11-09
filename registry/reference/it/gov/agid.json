@@ -31,7 +31,9 @@
       "description": "Glossario CERT-AGID",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "Glossario CERT-AGID",
         "common_name": null,
         "alternate_names": null,
@@ -111,7 +113,10 @@
         "examples": [
           "strategia-italiana-ia@2024-2026",
           "strategia-italiana-ia@2022-2024"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -129,13 +134,6 @@
               {
                 "type": "pdf",
                 "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2024-2026",
-                "url": "https://www.agid.gov.it/sites/agid/files/2024-07/Italian_strategy_for_artificial_intelligence_2024-2026.pdf",
-                "note": "Italian Strategy for Artificial Intelligence 2024-2026"
               }
             ]
           }
@@ -156,20 +154,49 @@
                 "type": "pdf",
                 "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022-2024",
-                "url": "https://assets.innovazione.gov.it/1637777513-strategic-program-aiweb.pdf",
-                "note": "Italian Strategic Program on Artificial Intelligence 2022-2024"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.2\\.1|1\\.2\\.2|1\\.3|2\\.1|2\\.2|2\\.3|3\\.1|3\\.2|3\\.3|4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.2.1",
+                  "1.2.2",
+                  "1.3",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/agid.gov.it/strategia-italiana-ia/2022-2024).",
+                "examples": [
+                  "1.1",
+                  "2.2",
+                  "4"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
   ],
-  "tags": {"country": ["IT"]},
+  "tags": {
+    "country": [
+      "IT"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

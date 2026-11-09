@@ -30,7 +30,9 @@
       "description": "Cybersecurity Woordenboek (Dutch)",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "Cybersecurity Woordenboek (Dutch)",
         "common_name": null,
         "alternate_names": null,
@@ -106,6 +108,37 @@
                 "input": "2022-2028",
                 "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
                 "note": "Nederlandse Cybersecuritystrategie 2022–2028"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|Pijler\\ I|Pijler\\ II|Pijler\\ III|Pijler\\ IV|4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "Pijler I",
+              "Pijler II",
+              "Pijler III",
+              "Pijler IV",
+              "4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.nl/nederlandse-cybersecuritystrategie/2022-2028).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Maatschappelijke opgave cybersecurity"
+              },
+              {
+                "input": "2",
+                "note": "Visie: Digitale veiligheid voor iedereen een vanzelfsprekendheid"
               }
             ]
           }

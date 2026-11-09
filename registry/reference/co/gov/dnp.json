@@ -135,7 +135,10 @@
           "politica-nacional-seguridad-digital@2020",
           "politica-nacional-seguridad-digital@2016",
           "politica-nacional-seguridad-digital@2011"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -154,15 +157,43 @@
                 "type": "pdf",
                 "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025-2027",
-                "url": "https://www.mintic.gov.co/portal/715/articles-403023_recurso_2.pdf",
-                "note": "Colombian National Digital Security Strategy 2025-2027"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV|1|2|3|4|5|6|6\\.1|6\\.2|6\\.3|6\\.4|7)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "6.4",
+                  "7"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-seguridad-digital/2025-2027).",
+                "examples": [
+                  "I",
+                  "4",
+                  "7"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -180,15 +211,47 @@
                 "type": "pdf",
                 "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3995.pdf",
-                "note": "Colombia CONPES 3995 (2020)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|3|4|4\\.1|4\\.2|4\\.3|5|5\\.1|5\\.2|5\\.3|5\\.3\\.1|5\\.3\\.2|5\\.3\\.3|5\\.4|5\\.5|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "3",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "5.3.1",
+                  "5.3.2",
+                  "5.3.3",
+                  "5.4",
+                  "5.5",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-seguridad-digital/2020).",
+                "examples": [
+                  "1",
+                  "5",
+                  "6"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -206,15 +269,62 @@
                 "type": "pdf",
                 "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2016",
-                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3854.pdf",
-                "note": "Colombia CONPES 3854 (2016)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.1\\.1|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.4|5|5\\.1|5\\.2|5\\.2\\.1|5\\.2\\.4|5\\.3\\.1|5\\.3\\.4|5\\.4|5\\.5|5\\.6|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.1.1",
+                  "2.2",
+                  "2.3",
+                  "2.3.1",
+                  "2.3.2",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.2.1",
+                  "5.2.4",
+                  "5.3.1",
+                  "5.3.4",
+                  "5.4",
+                  "5.5",
+                  "5.6",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-seguridad-digital/2016).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2016",
+                    "note": "INTRODUCCIÓN"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2016",
+                    "note": "ANTECEDENTES Y JUSTIFICACIÓN"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -232,15 +342,44 @@
                 "type": "pdf",
                 "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2011",
-                "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Colombia_2011_articles-3510_documento.pdf",
-                "note": "Colombia CONPES 3701 (2011)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV|V|VI|VII|VIII|IX)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "V",
+                  "VI",
+                  "VII",
+                  "VIII",
+                  "IX"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-seguridad-digital/2011).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2011",
+                    "note": "INTRODUCTION"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2011",
+                    "note": "BACKGROUND"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -309,7 +448,10 @@
         "examples": [
           "politica-nacional-ia@2025",
           "politica-nacional-ia@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -328,15 +470,80 @@
                 "type": "pdf",
                 "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4144.pdf",
-                "note": "Colombia CONPES 4144 National AI Policy (2025)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|2\\.6|2\\.6\\.1|2\\.6\\.2|2\\.7|2\\.8|3|4|4\\.1|4\\.1\\.3|4\\.2|4\\.2\\.1|4\\.2\\.2|4\\.2\\.3|4\\.2\\.4|4\\.2\\.5|4\\.3|4\\.3\\.1|4\\.3\\.2|4\\.3\\.3|4\\.3\\.4|4\\.4|4\\.4\\.1|4\\.4\\.2|4\\.4\\.3|4\\.4\\.4|4\\.5|4\\.5\\.1|4\\.5\\.2|4\\.5\\.3|4\\.5\\.4|4\\.5\\.5|4\\.5\\.6|4\\.6|4\\.6\\.1|4\\.6\\.2|4\\.6\\.3|5|5\\.1|5\\.2|5\\.3|5\\.3\\.1|5\\.3\\.4|5\\.4|5\\.5|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "2.6",
+                  "2.6.1",
+                  "2.6.2",
+                  "2.7",
+                  "2.8",
+                  "3",
+                  "4",
+                  "4.1",
+                  "4.1.3",
+                  "4.2",
+                  "4.2.1",
+                  "4.2.2",
+                  "4.2.3",
+                  "4.2.4",
+                  "4.2.5",
+                  "4.3",
+                  "4.3.1",
+                  "4.3.2",
+                  "4.3.3",
+                  "4.3.4",
+                  "4.4",
+                  "4.4.1",
+                  "4.4.2",
+                  "4.4.3",
+                  "4.4.4",
+                  "4.5",
+                  "4.5.1",
+                  "4.5.2",
+                  "4.5.3",
+                  "4.5.4",
+                  "4.5.5",
+                  "4.5.6",
+                  "4.6",
+                  "4.6.1",
+                  "4.6.2",
+                  "4.6.3",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "5.3.1",
+                  "5.3.4",
+                  "5.4",
+                  "5.5",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-ia/2025).",
+                "examples": [
+                  "1",
+                  "4.3.4",
+                  "6"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -354,15 +561,51 @@
                 "type": "pdf",
                 "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf",
-                "note": "Colombia CONPES 3975 Digital Transformation and AI Policy (2019)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|5|5\\.1|5\\.2|5\\.3|5\\.3\\.1|5\\.3\\.2|5\\.3\\.3|5\\.3\\.4|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "3",
+                  "3.1",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "4.5",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "5.3.1",
+                  "5.3.2",
+                  "5.3.3",
+                  "5.3.4",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dnp.gov.co/politica-nacional-ia/2019).",
+                "examples": [
+                  "1",
+                  "4.3",
+                  "6"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

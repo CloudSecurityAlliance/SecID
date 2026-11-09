@@ -28,7 +28,7 @@
         "examples": [
           "national-defense-report@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -57,7 +57,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -68,13 +70,8 @@
           "description": "2025 Republic of China National Defense Report (中華民國114年國防報告書)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
-              }
-            ]
+            "type": "version",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
           }
         },
         {
@@ -85,14 +82,38 @@
           "description": "2023 Republic of China National Defense Report (中華民國112年國防報告書)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+            "type": "version",
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PART\\ 1|PART\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PART 1",
+                  "PART 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/national-defense-report/2023).",
+                "examples": [
+                  {
+                    "input": "PART 1",
+                    "version": "2023",
+                    "note": "國防開支 投資和平"
+                  },
+                  {
+                    "input": "PART 5",
+                    "version": "2023",
+                    "note": "犧牲 團結 負責"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -109,7 +130,7 @@
         "examples": [
           "quadrennial-defense-review@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -138,7 +159,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -149,14 +172,58 @@
           "description": "2025 Republic of China Quadrennial Defense Review (中華民國114年四年期國防總檢討)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+            "type": "version",
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Chapter\\ 1|Chapter\\ 1\\ Section\\ 1|Chapter\\ 1\\ Section\\ 2|Chapter\\ 1\\ Section\\ 3|Chapter\\ 1\\ Section\\ 4|Chapter\\ 2|Chapter\\ 2\\ Section\\ 1|Chapter\\ 2\\ Section\\ 2|Chapter\\ 3|Chapter\\ 3\\ Section\\ 1|Chapter\\ 3\\ Section\\ 2|Chapter\\ 3\\ Section\\ 3|Chapter\\ 3\\ Section\\ 4|Chapter\\ 3\\ Section\\ 5|Chapter\\ 3\\ Section\\ 6|Chapter\\ 4|Chapter\\ 4\\ Section\\ 1|Chapter\\ 4\\ Section\\ 2|Chapter\\ 4\\ Section\\ 3|Chapter\\ 4\\ Section\\ 4|Chapter\\ 4\\ Section\\ 5|Chapter\\ 5|Chapter\\ 5\\ Section\\ 1|Chapter\\ 5\\ Section\\ 2|Chapter\\ 5\\ Section\\ 3|Chapter\\ 6|Chapter\\ 6\\ Section\\ 1|Chapter\\ 6\\ Section\\ 2|Chapter\\ 6\\ Section\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Chapter 1",
+                  "Chapter 1 Section 1",
+                  "Chapter 1 Section 2",
+                  "Chapter 1 Section 3",
+                  "Chapter 1 Section 4",
+                  "Chapter 2",
+                  "Chapter 2 Section 1",
+                  "Chapter 2 Section 2",
+                  "Chapter 3",
+                  "Chapter 3 Section 1",
+                  "Chapter 3 Section 2",
+                  "Chapter 3 Section 3",
+                  "Chapter 3 Section 4",
+                  "Chapter 3 Section 5",
+                  "Chapter 3 Section 6",
+                  "Chapter 4",
+                  "Chapter 4 Section 1",
+                  "Chapter 4 Section 2",
+                  "Chapter 4 Section 3",
+                  "Chapter 4 Section 4",
+                  "Chapter 4 Section 5",
+                  "Chapter 5",
+                  "Chapter 5 Section 1",
+                  "Chapter 5 Section 2",
+                  "Chapter 5 Section 3",
+                  "Chapter 6",
+                  "Chapter 6 Section 1",
+                  "Chapter 6 Section 2",
+                  "Chapter 6 Section 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2025).",
+                "examples": [
+                  "Chapter 1",
+                  "Chapter 3 Section 6",
+                  "Chapter 6 Section 3"
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "patterns": [
@@ -166,14 +233,36 @@
           "description": "2021 Republic of China Quadrennial Defense Review (中華民國110年四年期國防總檢討)",
           "weight": 100,
           "data": {
-            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+            "type": "version",
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|6|7)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2021).",
+                "examples": [
+                  "1",
+                  "4",
+                  "7"
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

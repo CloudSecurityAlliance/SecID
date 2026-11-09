@@ -49,6 +49,7 @@
           "description": "National Security Strategy of the Republic of Lithuania (Nacionalinio saugumo strategija) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://kam.lt/en/national-security-strategy-and-defence-policy/",
             "examples": [
               {
@@ -101,6 +102,7 @@
           "description": "National Cyber Security Strategy of Lithuania (2018–2023) (2018)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.nksc.lt/en/about-us/strategy/",
             "examples": [
               {
@@ -146,12 +148,51 @@
           "description": "Lithuanian Artificial Intelligence Strategy: A Vision of the Future (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/",
             "examples": [
               {
                 "input": "2019",
                 "url": "https://eimin.lrv.lt/en/sector-activities/digital-agenda/artificial-intelligence/"
               }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\ Principle\\ 1|1\\ Principle\\ 2|1\\ Principle\\ 3|1\\ Principle\\ 4|2|3|3\\ Principle\\ 1|3\\ Principle\\ 2|3\\ Principle\\ 3|4|4\\ Principle\\ 1|4\\ Principle\\ 2|4\\ Principle\\ 3|5|5\\ Principle\\ 1|5\\ Principle\\ 2|6|6\\ Principle\\ 1|6\\ Principle\\ 2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1 Principle 1",
+              "1 Principle 2",
+              "1 Principle 3",
+              "1 Principle 4",
+              "2",
+              "3",
+              "3 Principle 1",
+              "3 Principle 2",
+              "3 Principle 3",
+              "4",
+              "4 Principle 1",
+              "4 Principle 2",
+              "4 Principle 3",
+              "5",
+              "5 Principle 1",
+              "5 Principle 2",
+              "6",
+              "6 Principle 1",
+              "6 Principle 2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/kam.lrv.lt/lithuanian-artificial-intelligence-strategy/2019).",
+            "examples": [
+              "1",
+              "4",
+              "6 Principle 2"
             ]
           }
         }

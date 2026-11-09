@@ -56,11 +56,43 @@
           "description": "National Security Policy of Pakistan (2022–2026) (2022)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://nsd.gov.pk/",
             "examples": [
               {
                 "input": "2022",
                 "url": "https://nsd.gov.pk/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:SECTION\\ I|SECTION\\ II|SECTION\\ III|SECTION\\ IV|SECTION\\ V|SECTION\\ VI|SECTION\\ VII|SECTION\\ VIII)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION I",
+              "SECTION II",
+              "SECTION III",
+              "SECTION IV",
+              "SECTION V",
+              "SECTION VI",
+              "SECTION VII",
+              "SECTION VIII"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/moitt.gov.pk/national-security-policy-of-pakistan/2022).",
+            "examples": [
+              {
+                "input": "SECTION I",
+                "note": "POLICY FORMULATION POLICY FORMULATION"
+              },
+              {
+                "input": "SECTION II",
+                "note": "NATIONAL SECURITY FRAMEWORK NATIONAL SECURITY FRAMEWORK"
               }
             ]
           }
@@ -101,6 +133,7 @@
           "description": "National Cyber Security Policy of Pakistan (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://moitt.gov.pk/Detail/ef02f4d9-c0bc-4c9a-b79a-c514f07b6d85",
             "examples": [
               {
@@ -146,6 +179,7 @@
           "description": "National Artificial Intelligence Policy of Pakistan (2025)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://moitt.gov.pk/",
             "examples": [
               {

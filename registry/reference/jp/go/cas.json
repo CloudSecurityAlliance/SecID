@@ -88,7 +88,10 @@
         "examples": [
           "national-security-strategy@2022",
           "national-security-strategy@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -110,15 +113,50 @@
                 "type": "pdf",
                 "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-j.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.cas.go.jp/jp/siryou/221216anzenhoshou/nss-e.pdf",
-                "note": "National Security Strategy of Japan (2022)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV|IV\\.1|IV\\.2|V|VI|VI\\.1|VI\\.2|VII|VII\\.1|VII\\.2|VIII|IX)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "IV.1",
+                  "IV.2",
+                  "V",
+                  "VI",
+                  "VI.1",
+                  "VI.2",
+                  "VII",
+                  "VII.1",
+                  "VII.2",
+                  "VIII",
+                  "IX"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/national-security-strategy/2022).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2022",
+                    "note": "Purpose"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2022",
+                    "note": "Japan’s National Interests"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -135,15 +173,45 @@
                 "type": "pdf",
                 "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://www.cas.go.jp/jp/siryou/131217anzenhoshou/nss-e.pdf",
-                "note": "National Security Strategy of Japan (2013)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|II\\.1|II\\.2|III|III\\.1|III\\.2|IV|IV\\.1|IV\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "II.1",
+                  "II.2",
+                  "III",
+                  "III.1",
+                  "III.2",
+                  "IV",
+                  "IV.1",
+                  "IV.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/national-security-strategy/2013).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2013",
+                    "note": "Purpose"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2013",
+                    "note": "Fundamental Principle of National Security"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -229,7 +297,10 @@
           "ai-strategy@2025",
           "ai-strategy@2022",
           "ai-strategy@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -252,15 +323,46 @@
                 "type": "pdf",
                 "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20251223.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260312.pdf",
-                "note": "Japan Artificial Intelligence Basic Plan (2025)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 3\\ Section\\ 1|Chapter\\ 3\\ Section\\ 2|Chapter\\ 3\\ Section\\ 3|Section\\ 4|Chapter\\ 4|Chapter\\ 4\\ Section\\ 1|Chapter\\ 4\\ Section\\ 2|Chapter\\ 4\\ Section\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Chapter 1",
+                  "Chapter 2",
+                  "Chapter 3",
+                  "Chapter 3 Section 1",
+                  "Chapter 3 Section 2",
+                  "Chapter 3 Section 3",
+                  "Section 4",
+                  "Chapter 4",
+                  "Chapter 4 Section 1",
+                  "Chapter 4 Section 2",
+                  "Chapter 4 Section 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/ai-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "Chapter 3 Section 1",
+                    "version": "2025",
+                    "note": "Accelerating AI Deployment"
+                  },
+                  {
+                    "input": "Chapter 3 Section 2",
+                    "version": "2025",
+                    "note": "Strategically Strengthening AI Development Capabilities"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -281,15 +383,39 @@
                 "type": "pdf",
                 "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2022_honbun.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2022en.pdf",
-                "note": "Japan AI Strategy 2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PART\\ I|PART\\ II|PART\\ III|Part\\ IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PART I",
+                  "PART II",
+                  "PART III",
+                  "Part IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/ai-strategy/2022).",
+                "examples": [
+                  {
+                    "input": "PART I",
+                    "version": "2022",
+                    "note": "BASIC CONCEPT"
+                  },
+                  {
+                    "input": "PART II",
+                    "version": "2022",
+                    "note": "DEALING WITH IMMINENT CRISES"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -305,13 +431,6 @@
               {
                 "type": "pdf",
                 "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www8.cao.go.jp/cstp/ai/aistrategy2021_honbun.pdf",
-                "note": "Japan AI Strategy 2021"
               }
             ]
           }
@@ -335,15 +454,39 @@
                 "type": "pdf",
                 "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf",
-                "note": "Japan AI Strategy 2019"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|III|IV|V)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "III",
+                  "IV",
+                  "V"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/ai-strategy/2019).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2019",
+                    "note": "Basic Concept"
+                  },
+                  {
+                    "input": "IV",
+                    "version": "2019",
+                    "note": "Ethics"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     }

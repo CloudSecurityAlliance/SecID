@@ -49,6 +49,7 @@
           "description": "Vietnam National Defense White Paper (Sách trắng Quốc phòng Việt Nam) (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://mod.gov.vn/",
             "examples": [
               {
@@ -106,11 +107,69 @@
           "description": "National Cyber Security and Safety Strategy, Proactively Responding to Challenges from Cyberspace until 2025, Vision 2030 (Decision No. 964/QĐ-TTg) (2022)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://chinhphu.vn/?docid=206362&pageid=27160",
             "examples": [
               {
                 "input": "2022",
                 "url": "https://chinhphu.vn/?docid=206362&pageid=27160"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:Điều\\ 1|I|II|III|III\\.1|III\\.2|III\\.3|IV|IV\\.1|IV\\.2|IV\\.3|IV\\.4|IV\\.5|IV\\.6|IV\\.7|IV\\.8|IV\\.9|IV\\.10|IV\\.11|IV\\.12|V|V\\.1|V\\.2|V\\.3|V\\.4|V\\.5|V\\.6|V\\.7|V\\.8|V\\.9|V\\.10|V\\.11|V\\.12|Điều\\ 2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Điều 1",
+              "I",
+              "II",
+              "III",
+              "III.1",
+              "III.2",
+              "III.3",
+              "IV",
+              "IV.1",
+              "IV.2",
+              "IV.3",
+              "IV.4",
+              "IV.5",
+              "IV.6",
+              "IV.7",
+              "IV.8",
+              "IV.9",
+              "IV.10",
+              "IV.11",
+              "IV.12",
+              "V",
+              "V.1",
+              "V.2",
+              "V.3",
+              "V.4",
+              "V.5",
+              "V.6",
+              "V.7",
+              "V.8",
+              "V.9",
+              "V.10",
+              "V.11",
+              "V.12",
+              "Điều 2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/chinhphu.vn/national-cybersecurity-and-safety-strategy/2022).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "QUAN ĐIỂM"
+              },
+              {
+                "input": "II",
+                "note": "TÂM NHÌN ĐÉN NĂM 2030"
               }
             ]
           }
@@ -163,11 +222,53 @@
           "description": "National Strategy on R&D and Application of Artificial Intelligence until 2030 (Decision No. 127/QĐ-TTg) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565",
             "examples": [
               {
                 "input": "2021",
                 "url": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=202565"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:I|II|II\\.1|II\\.2|III|III\\.1|III\\.2|III\\.3|III\\.4|III\\.5|IV|IV\\.1|IV\\.2|IV\\.3|IV\\.4|IV\\.5|Điều\\ 2|Điều\\ 3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "II.1",
+              "II.2",
+              "III",
+              "III.1",
+              "III.2",
+              "III.3",
+              "III.4",
+              "III.5",
+              "IV",
+              "IV.1",
+              "IV.2",
+              "IV.3",
+              "IV.4",
+              "IV.5",
+              "Điều 2",
+              "Điều 3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/chinhphu.vn/national-strategy-on-rd-and-application-of-ai/2021).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "QUAN ĐIỂM CHÍ ĐẠO"
+              },
+              {
+                "input": "II",
+                "note": "MỤC TIÊU"
               }
             ]
           }

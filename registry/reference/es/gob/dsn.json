@@ -96,7 +96,10 @@
           "estrategia-seguridad-nacional@2021",
           "estrategia-seguridad-nacional@2017",
           "estrategia-seguridad-nacional@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -118,15 +121,40 @@
                 "type": "pdf",
                 "url": "https://www.boe.es/boe/dias/2021/12/31/pdfs/BOE-A-2021-21884.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.dsn.gob.es/sites/default/files/documents/ESN2021%20Accesible_1.pdf",
-                "note": "Spanish National Security Strategy (2021)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Capítulo\\ 1|Capítulo\\ 2|Capítulo\\ 3|Capítulo\\ 4|Capítulo\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Capítulo 1",
+                  "Capítulo 2",
+                  "Capítulo 3",
+                  "Capítulo 4",
+                  "Capítulo 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-seguridad-nacional/2021).",
+                "examples": [
+                  {
+                    "input": "Capítulo 1",
+                    "version": "2021",
+                    "note": "SEGURIDAD GLOBAL Y VECTORES DE TRANSFORMACIÓN"
+                  },
+                  {
+                    "input": "Capítulo 2",
+                    "version": "2021",
+                    "note": "UNA ESPAÑA SEGURA Y RESILIENTE"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -143,15 +171,42 @@
                 "type": "pdf",
                 "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://www.boe.es/boe/dias/2017/12/21/pdfs/BOE-A-2017-15181.pdf",
-                "note": "Spanish National Security Strategy (2017)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|CAPÍTULO\\ 1|CAPÍTULO\\ 2|CAPÍTULO\\ 3|CAPÍTULO\\ 4|CAPÍTULO\\ 5|CAPÍTULO\\ 6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "CAPÍTULO 1",
+                  "CAPÍTULO 2",
+                  "CAPÍTULO 3",
+                  "CAPÍTULO 4",
+                  "CAPÍTULO 5",
+                  "CAPÍTULO 6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-seguridad-nacional/2017).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2017",
+                    "note": "DISPOSICIONES GENERALES PRESIDENCIA DEL GOBIERNO"
+                  },
+                  {
+                    "input": "CAPÍTULO 1",
+                    "version": "2017",
+                    "note": "Una Seguridad Nacional para la España de hoy"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -168,15 +223,40 @@
                 "type": "pdf",
                 "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://www.lamoncloa.gob.es/documents/seguridad_1406connavegacionfinalaccesiblebpdf.pdf",
-                "note": "Spanish National Security Strategy (2013)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Capítulo\\ 5|Capítulo\\ 1|Capítulo\\ 2|Capítulo\\ 3|Capítulo\\ 4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Capítulo 5",
+                  "Capítulo 1",
+                  "Capítulo 2",
+                  "Capítulo 3",
+                  "Capítulo 4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-seguridad-nacional/2013).",
+                "examples": [
+                  {
+                    "input": "Capítulo 5",
+                    "version": "2013",
+                    "note": "Un nuevo Sistema de Seguridad Nacional"
+                  },
+                  {
+                    "input": "Capítulo 1",
+                    "version": "2013",
+                    "note": "Una visión integral de la Seguridad Nacional"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -250,7 +330,10 @@
           "estrategia-nacional-ciberseguridad@2019",
           "estrategia-nacional-ciberseguridad@2022",
           "estrategia-nacional-ciberseguridad@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -267,13 +350,6 @@
               {
                 "type": "website",
                 "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.mpr.gob.es/prencom/notas/paginas/2022/290322-ciberseguridad.aspx",
-                "note": "Spanish National Cybersecurity Plan (2022)"
               }
             ]
           }
@@ -297,15 +373,44 @@
                 "type": "pdf",
                 "url": "https://www.boe.es/boe/dias/2019/04/30/pdfs/BOE-A-2019-6347.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www.dsn.gob.es/sites/default/files/2025-04/Estrategia%20Nacional%20de%20Ciberseguridad%202019%20-%20%20Interactivo_0%20%281%29_0.pdf",
-                "note": "Spanish National Cybersecurity Strategy (2019)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Capítulo\\ 1|Capítulo\\ 4|LÍNEA\\ DE\\ ACCIÓN\\ 2|Capítulo\\ 5|Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|Chapter\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Capítulo 1",
+                  "Capítulo 4",
+                  "LÍNEA DE ACCIÓN 2",
+                  "Capítulo 5",
+                  "Chapter 1",
+                  "Chapter 2",
+                  "Chapter 3",
+                  "Chapter 4",
+                  "Chapter 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ciberseguridad/2019).",
+                "examples": [
+                  {
+                    "input": "Capítulo 1",
+                    "version": "2019",
+                    "note": "El ciberespacio como espacio común global"
+                  },
+                  {
+                    "input": "Capítulo 4",
+                    "version": "2019",
+                    "note": "Líneas de acción y medidas"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -322,15 +427,40 @@
                 "type": "pdf",
                 "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://www.lamoncloa.gob.es/documents/20131332estrategiadeciberseguridadx.pdf",
-                "note": "Spanish National Cybersecurity Strategy (2013)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Capítulo\\ 1|Capítulo\\ 2|Capítulo\\ 3|Capítulo\\ 4|Capítulo\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Capítulo 1",
+                  "Capítulo 2",
+                  "Capítulo 3",
+                  "Capítulo 4",
+                  "Capítulo 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ciberseguridad/2013).",
+                "examples": [
+                  {
+                    "input": "Capítulo 1",
+                    "version": "2013",
+                    "note": "El ciberespacio y su seguridad"
+                  },
+                  {
+                    "input": "Capítulo 2",
+                    "version": "2013",
+                    "note": "Propósito y principios rectores de la ciberseguridad"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -385,7 +515,10 @@
         "examples": [
           "estrategia-nacional-ia@2024",
           "estrategia-nacional-ia@2020"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -403,15 +536,58 @@
                 "type": "pdf",
                 "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://portal.mineco.gob.es/es-es/digitalizacionIA/Documents/Estrategia_IA_2024.pdf",
-                "note": "Spanish AI Strategy (2024)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:3|1\\.1|1\\.2|1\\.3|2\\.1|2\\.2|2\\.3|3\\.1|3\\.2|3\\.3|3\\.4|4\\.1|4\\.2|5\\.1|5\\.2|5\\.3|6\\.1|6\\.2|6\\.3|7\\.1|7\\.2|8\\.1|8\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "3",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "4.1",
+                  "4.2",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "7.1",
+                  "7.2",
+                  "8.1",
+                  "8.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ia/2024).",
+                "examples": [
+                  {
+                    "input": "3",
+                    "version": "2024",
+                    "note": "Fase de uso / consumo"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2024",
+                    "note": "Refuerzo de la supercomputación en IA"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -428,15 +604,40 @@
                 "type": "pdf",
                 "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
-                "note": "Spanish National AI Strategy (2020)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:III|IV|V|V\\.1|V\\.2|EJE\\ ESTRATÉGICO\\ 1|EJE\\ ESTRATÉGICO\\ 2|EJE\\ ESTRATÉGICO\\ 3|EJE\\ ESTRATÉGICO\\ 4|EJE\\ ESTRATÉGICO\\ 5|EJE\\ ESTRATÉGICO\\ 6|ANEXO\\ 2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "III",
+                  "IV",
+                  "V",
+                  "V.1",
+                  "V.2",
+                  "EJE ESTRATÉGICO 1",
+                  "EJE ESTRATÉGICO 2",
+                  "EJE ESTRATÉGICO 3",
+                  "EJE ESTRATÉGICO 4",
+                  "EJE ESTRATÉGICO 5",
+                  "EJE ESTRATÉGICO 6",
+                  "ANEXO 2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ia/2020).",
+                "examples": [
+                  "III",
+                  "EJE ESTRATÉGICO 2",
+                  "ANEXO 2"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

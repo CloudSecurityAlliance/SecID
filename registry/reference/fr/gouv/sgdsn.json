@@ -89,7 +89,10 @@
           "revue-nationale-strategique@2025",
           "revue-nationale-strategique@2022",
           "revue-nationale-strategique@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -111,15 +114,194 @@
                 "type": "pdf",
                 "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250713_NP_SGDSN_Plaquette_RNS2025_FR.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
-                "note": "Revue nationale stratégique 2025"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Partie 1 [AB] \\d+(?:\\.\\d+)*|OS (?:1[01]|[1-9])(?: \\d+(?:\\.\\d+)*)?|Partie 3 \\d+(?:\\.\\d+)*)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Partie 1 A 1",
+                  "Partie 1 A 1.1",
+                  "Partie 1 A 1.1.1",
+                  "Partie 1 A 1.1.2",
+                  "Partie 1 A 1.2",
+                  "Partie 1 A 1.3",
+                  "Partie 1 A 1.4",
+                  "Partie 1 A 1.4.1",
+                  "Partie 1 A 1.5",
+                  "Partie 1 A 1.5.1",
+                  "Partie 1 A 1.5.2",
+                  "Partie 1 A 1.5.3",
+                  "Partie 1 A 1.6",
+                  "Partie 1 A 1.6.1",
+                  "Partie 1 A 1.6.2",
+                  "Partie 1 A 1.6.3",
+                  "Partie 1 A 1.6.4",
+                  "Partie 1 A 1.6.5",
+                  "Partie 1 A 2",
+                  "Partie 1 A 2.1",
+                  "Partie 1 A 2.2",
+                  "Partie 1 A 2.3",
+                  "Partie 1 A 3",
+                  "Partie 1 A 3.1",
+                  "Partie 1 A 3.2",
+                  "Partie 1 A 3.3",
+                  "Partie 1 A 3.4",
+                  "Partie 1 A 3.5",
+                  "Partie 1 B 1",
+                  "Partie 1 B 2",
+                  "Partie 1 B 3",
+                  "Partie 1 B 4",
+                  "Partie 1 B 5",
+                  "Partie 1 B 6",
+                  "Partie 1 B 7",
+                  "OS 1",
+                  "OS 1 1",
+                  "OS 1 1.1",
+                  "OS 1 1.2",
+                  "OS 1 1.3",
+                  "OS 1 1.4",
+                  "OS 1 1.5",
+                  "OS 1 1.6",
+                  "OS 1 1.7",
+                  "OS 1 1.8",
+                  "OS 1 1.9",
+                  "OS 1 2",
+                  "OS 1 3",
+                  "OS 1 4",
+                  "OS 2",
+                  "OS 2 1",
+                  "OS 2 2",
+                  "OS 2 2.1",
+                  "OS 2 2.2",
+                  "OS 2 2.3",
+                  "OS 2 2.4",
+                  "OS 3",
+                  "OS 3 1",
+                  "OS 3 2",
+                  "OS 3 2.1",
+                  "OS 3 2.2",
+                  "OS 3 2.3",
+                  "OS 3 2.4",
+                  "OS 4",
+                  "OS 4 1",
+                  "OS 4 2",
+                  "OS 4 2.1",
+                  "OS 4 2.2",
+                  "OS 4 2.3",
+                  "OS 4 2.4",
+                  "OS 4 2.5",
+                  "OS 5",
+                  "OS 5 1",
+                  "OS 5 2",
+                  "OS 5 2.1",
+                  "OS 5 2.2",
+                  "OS 5 2.3",
+                  "OS 5 2.4",
+                  "OS 6",
+                  "OS 6 1",
+                  "OS 6 2",
+                  "OS 6 2.1",
+                  "OS 6 2.2",
+                  "OS 6 2.3",
+                  "OS 6 2.4",
+                  "OS 6 2.5",
+                  "OS 6 2.6",
+                  "OS 7",
+                  "OS 7 1",
+                  "OS 7 2",
+                  "OS 7 2.1",
+                  "OS 7 2.2",
+                  "OS 7 2.3",
+                  "OS 7 2.4",
+                  "OS 7 2.5",
+                  "OS 7 2.6",
+                  "OS 8",
+                  "OS 8 1",
+                  "OS 8 2",
+                  "OS 8 2.1",
+                  "OS 8 2.2",
+                  "OS 8 2.3",
+                  "OS 8 2.4",
+                  "OS 9",
+                  "OS 9 1",
+                  "OS 9 2",
+                  "OS 9 2.1",
+                  "OS 9 2.2",
+                  "OS 9 2.3",
+                  "OS 9 2.4",
+                  "OS 9 2.5",
+                  "OS 10",
+                  "OS 10 1",
+                  "OS 10 2",
+                  "OS 10 2.1",
+                  "OS 10 2.2",
+                  "OS 10 2.3",
+                  "OS 10 2.4",
+                  "OS 11",
+                  "OS 11 1",
+                  "OS 11 2",
+                  "OS 11 2.1",
+                  "OS 11 2.1.1",
+                  "OS 11 2.1.2",
+                  "OS 11 2.1.2.1",
+                  "OS 11 2.1.2.2",
+                  "OS 11 2.1.2.3",
+                  "OS 11 2.1.2.4",
+                  "OS 11 2.1.2.5",
+                  "OS 11 2.1.3",
+                  "OS 11 2.1.4",
+                  "OS 11 2.2",
+                  "Partie 3 1",
+                  "Partie 3 1.1",
+                  "Partie 3 1.2",
+                  "Partie 3 1.2.1",
+                  "Partie 3 1.2.2",
+                  "Partie 3 1.2.3",
+                  "Partie 3 1.2.4",
+                  "Partie 3 1.3",
+                  "Partie 3 1.3.1",
+                  "Partie 3 1.3.2",
+                  "Partie 3 1.3.3",
+                  "Partie 3 1.3.4",
+                  "Partie 3 1.3.5",
+                  "Partie 3 2",
+                  "Partie 3 2.1",
+                  "Partie 3 2.2",
+                  "Partie 3 2.3",
+                  "Partie 3 2.3.1",
+                  "Partie 3 2.3.2",
+                  "Partie 3 2.4",
+                  "Partie 3 2.4.1",
+                  "Partie 3 2.4.2",
+                  "Partie 3 2.4.3",
+                  "Partie 3 2.4.4",
+                  "Partie 3 2.4.5",
+                  "Partie 3 3",
+                  "Partie 3 3.1",
+                  "Partie 3 3.2",
+                  "Partie 3 3.2.1",
+                  "Partie 3 3.2.2",
+                  "Partie 3 3.2.3",
+                  "Partie 3 3.2.4",
+                  "Partie 3 3.2.5",
+                  "Partie 3 3.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2025).",
+                "examples": [
+                  "Partie 1 A 1",
+                  "OS 6 2.3",
+                  "Partie 3 3.3"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -136,15 +318,94 @@
                 "type": "pdf",
                 "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
-                "note": "Revue nationale stratégique 2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Partie [12] \\d+(?:\\.\\d+)*|Objectif stratégique (?:10|[1-9])(?: \\d+(?:\\.\\d+)*)?)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Partie 1 1",
+                  "Partie 1 1.1",
+                  "Partie 1 1.2",
+                  "Partie 1 1.3",
+                  "Partie 1 1.4",
+                  "Partie 1 1.5",
+                  "Partie 1 2",
+                  "Partie 1 2.1",
+                  "Partie 1 2.2",
+                  "Partie 1 2.3",
+                  "Partie 1 2.4",
+                  "Partie 2 1",
+                  "Partie 2 1.1",
+                  "Partie 2 1.2",
+                  "Partie 2 2",
+                  "Partie 2 2.1",
+                  "Partie 2 2.2",
+                  "Partie 2 2.3",
+                  "Partie 2 2.4",
+                  "Partie 2 2.5",
+                  "Partie 2 2.6",
+                  "Partie 2 3",
+                  "Objectif stratégique 1",
+                  "Objectif stratégique 1 1",
+                  "Objectif stratégique 1 2",
+                  "Objectif stratégique 2",
+                  "Objectif stratégique 2 1",
+                  "Objectif stratégique 2 2",
+                  "Objectif stratégique 2 3",
+                  "Objectif stratégique 3",
+                  "Objectif stratégique 3 1",
+                  "Objectif stratégique 3 2",
+                  "Objectif stratégique 3 3",
+                  "Objectif stratégique 4",
+                  "Objectif stratégique 4 1",
+                  "Objectif stratégique 4 2",
+                  "Objectif stratégique 4 3",
+                  "Objectif stratégique 5",
+                  "Objectif stratégique 5 1",
+                  "Objectif stratégique 5 2",
+                  "Objectif stratégique 5 3",
+                  "Objectif stratégique 6",
+                  "Objectif stratégique 6 1",
+                  "Objectif stratégique 6 2",
+                  "Objectif stratégique 6 3",
+                  "Objectif stratégique 7",
+                  "Objectif stratégique 7 1",
+                  "Objectif stratégique 7 1.1",
+                  "Objectif stratégique 7 1.2",
+                  "Objectif stratégique 7 1.3",
+                  "Objectif stratégique 7 1.4",
+                  "Objectif stratégique 7 1.5",
+                  "Objectif stratégique 7 2",
+                  "Objectif stratégique 8",
+                  "Objectif stratégique 8 1",
+                  "Objectif stratégique 8 2",
+                  "Objectif stratégique 9",
+                  "Objectif stratégique 9 1",
+                  "Objectif stratégique 9 2",
+                  "Objectif stratégique 9 3",
+                  "Objectif stratégique 10",
+                  "Objectif stratégique 10 1",
+                  "Objectif stratégique 10 2",
+                  "Objectif stratégique 10 3",
+                  "Objectif stratégique 10 4",
+                  "Objectif stratégique 10 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2022).",
+                "examples": [
+                  "Partie 1 1",
+                  "Objectif stratégique 4",
+                  "Objectif stratégique 10 5"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -161,15 +422,66 @@
                 "type": "website",
                 "url": "https://www.sgdsn.gouv.fr"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://www.sgdsn.gouv.fr",
-                "note": "Revue stratégique de défense et de sécurité nationale 2017"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Partie\\ A\\ 1|Partie\\ A\\ 1\\.1|Partie\\ A\\ 1\\.2|Partie\\ A\\ 1\\.3|Partie\\ A\\ 2|Partie\\ A\\ 2\\.1|Partie\\ A\\ 2\\.2|Partie\\ A\\ 3|Partie\\ A\\ 3\\.1|Partie\\ A\\ 3\\.2|Partie\\ A\\ 3\\.3|Partie\\ A\\ 3\\.4|Partie\\ A\\ 3\\.5|Partie\\ A\\ 4|Partie\\ A\\ 4\\.1|Partie\\ A\\ 4\\.2|Partie\\ B\\ 1|Partie\\ B\\ 1\\.1|Partie\\ B\\ 1\\.2|Partie\\ B\\ 1\\.3|Partie\\ B\\ 2|Partie\\ B\\ 3|Partie\\ C\\ 1|Partie\\ C\\ 1\\.1|Partie\\ C\\ 1\\.2|Partie\\ C\\ 2|Partie\\ C\\ 2\\.1|Partie\\ C\\ 2\\.2|Partie\\ C\\ 3|Partie\\ C\\ 3\\.1|Partie\\ C\\ 3\\.2|Partie\\ C\\ 3\\.3|Partie\\ C\\ 4|Partie\\ C\\ 5|Partie\\ C\\ 5\\.1|Partie\\ C\\ 5\\.2|Partie\\ C\\ 5\\.3|Partie\\ C\\ 5\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Partie A 1",
+                  "Partie A 1.1",
+                  "Partie A 1.2",
+                  "Partie A 1.3",
+                  "Partie A 2",
+                  "Partie A 2.1",
+                  "Partie A 2.2",
+                  "Partie A 3",
+                  "Partie A 3.1",
+                  "Partie A 3.2",
+                  "Partie A 3.3",
+                  "Partie A 3.4",
+                  "Partie A 3.5",
+                  "Partie A 4",
+                  "Partie A 4.1",
+                  "Partie A 4.2",
+                  "Partie B 1",
+                  "Partie B 1.1",
+                  "Partie B 1.2",
+                  "Partie B 1.3",
+                  "Partie B 2",
+                  "Partie B 3",
+                  "Partie C 1",
+                  "Partie C 1.1",
+                  "Partie C 1.2",
+                  "Partie C 2",
+                  "Partie C 2.1",
+                  "Partie C 2.2",
+                  "Partie C 3",
+                  "Partie C 3.1",
+                  "Partie C 3.2",
+                  "Partie C 3.3",
+                  "Partie C 4",
+                  "Partie C 5",
+                  "Partie C 5.1",
+                  "Partie C 5.2",
+                  "Partie C 5.3",
+                  "Partie C 5.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2017).",
+                "examples": [
+                  "Partie A 1",
+                  "Partie B 1.3",
+                  "Partie C 5.4"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -240,7 +552,10 @@
           "strategie-nationale-securite-numerique@2026-2030",
           "strategie-nationale-securite-numerique@2021",
           "strategie-nationale-securite-numerique@2015"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -259,15 +574,49 @@
                 "type": "website",
                 "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026-2030",
-                "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
-                "note": "Stratégie nationale de cybersécurité 2026-2030"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ 5|OBJECTIVE\\ 1|OBJECTIVE\\ 2|OBJECTIVE\\ 3|OBJECTIVE\\ 4|OBJECTIVE\\ 5|OBJECTIVE\\ 6|OBJECTIVE\\ 7|OBJECTIVE\\ 8|OBJECTIVE\\ 10|OBJECTIVE\\ 11|OBJECTIVE\\ 12|OBJECTIVE\\ 13|OBJECTIVE\\ 14)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR 5",
+                  "OBJECTIVE 1",
+                  "OBJECTIVE 2",
+                  "OBJECTIVE 3",
+                  "OBJECTIVE 4",
+                  "OBJECTIVE 5",
+                  "OBJECTIVE 6",
+                  "OBJECTIVE 7",
+                  "OBJECTIVE 8",
+                  "OBJECTIVE 10",
+                  "OBJECTIVE 11",
+                  "OBJECTIVE 12",
+                  "OBJECTIVE 13",
+                  "OBJECTIVE 14"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/strategie-nationale-securite-numerique/2026-2030).",
+                "examples": [
+                  {
+                    "input": "OBJECTIVE 1",
+                    "version": "2026-2030",
+                    "note": "Develop an inclusive culture of cybersecurity from an early age"
+                  },
+                  {
+                    "input": "OBJECTIVE 2",
+                    "version": "2026-2030",
+                    "note": "Invest in all areas of cybersecurity training"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -283,13 +632,6 @@
               {
                 "type": "website",
                 "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16",
-                "note": "Stratégie nationale d'accélération pour la cybersécurité (2021)"
               }
             ]
           }
@@ -308,13 +650,6 @@
               {
                 "type": "website",
                 "url": "https://cyber.gouv.fr/"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2015",
-                "url": "https://cyber.gouv.fr/",
-                "note": "Stratégie nationale pour la sécurité du numérique (2015)"
               }
             ]
           }

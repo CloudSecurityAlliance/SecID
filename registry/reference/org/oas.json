@@ -76,7 +76,10 @@
         "examples": [
           "inter-american-cybersecurity-strategy@2004",
           "inter-american-cybersecurity-strategy@2022"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -94,15 +97,48 @@
                 "type": "pdf",
                 "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.oas.org/en/sms/cicte/docs/National-Cybersecurity-Strategies-Lessons-learned-and-reflections-ENG.pdf",
-                "note": "OAS/CICTE National Cybersecurity Strategies Report (2022)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Part\\ 1|Part\\ 2|Part\\ 3|Part\\ 4|Part\\ 5|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D|Annex\\ E|Annex\\ F|Annex\\ G|Annex\\ H)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Part 1",
+                  "Part 2",
+                  "Part 3",
+                  "Part 4",
+                  "Part 5",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C",
+                  "Annex D",
+                  "Annex E",
+                  "Annex F",
+                  "Annex G",
+                  "Annex H"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/oas.org/inter-american-cybersecurity-strategy/2022).",
+                "examples": [
+                  {
+                    "input": "Part 1",
+                    "version": "2022",
+                    "note": "ADVOCATING FOR A NATIONAL CYBERSECURITY STRATEGY"
+                  },
+                  {
+                    "input": "Part 2",
+                    "version": "2022",
+                    "note": "PAVING THE WAY FOR YOUR COUNTRY"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -118,13 +154,6 @@
               {
                 "type": "website",
                 "url": "https://www.oas.org/ext/en/security/prog-cyber"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2004",
-                "url": "https://www.oas.org/ext/en/security/prog-cyber",
-                "note": "OAS Inter-American Cybersecurity Strategy (2004)"
               }
             ]
           }

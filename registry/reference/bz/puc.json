@@ -91,6 +91,25 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:ANNEX\\ 1|ANNEX\\ 2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "ANNEX 1",
+              "ANNEX 2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/puc.bz/national-cybersecurity-strategy/2020-2023).",
+            "examples": [
+              "ANNEX 1",
+              "ANNEX 2"
+            ]
+          }
         }
       ]
     }

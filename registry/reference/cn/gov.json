@@ -93,6 +93,58 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:一|二|二\\ （一）|二\\ （二）|二\\ （三）|二\\ （四）|三|三\\ （一）|三\\ （二）|三\\ （三）|三\\ （四）|三\\ （五）|三\\ （六）|四|四\\ （一）|四\\ （二）|四\\ （三）|五|五\\ （一）|五\\ （二）|五\\ （三）|五\\ （四）|五\\ （五）|五\\ （六）|六|六\\ （一）|六\\ （二）|六\\ （三）|六\\ （四）)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "一",
+              "二",
+              "二 （一）",
+              "二 （二）",
+              "二 （三）",
+              "二 （四）",
+              "三",
+              "三 （一）",
+              "三 （二）",
+              "三 （三）",
+              "三 （四）",
+              "三 （五）",
+              "三 （六）",
+              "四",
+              "四 （一）",
+              "四 （二）",
+              "四 （三）",
+              "五",
+              "五 （一）",
+              "五 （二）",
+              "五 （三）",
+              "五 （四）",
+              "五 （五）",
+              "五 （六）",
+              "六",
+              "六 （一）",
+              "六 （二）",
+              "六 （三）",
+              "六 （四）"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.cn/next-generation-ai-development-plan/2017).",
+            "examples": [
+              {
+                "input": "一",
+                "note": "战略态势"
+              },
+              {
+                "input": "二",
+                "note": "总体要求"
+              }
+            ]
+          }
         }
       ]
     },
@@ -238,6 +290,35 @@
                 "input": "2019",
                 "url": "https://www.gov.cn/zhengce/2019-07/24/content_5414325.htm",
                 "note": "China's National Defense in the New Era (2019)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:一|二|三|四|五|六)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "一",
+              "二",
+              "三",
+              "四",
+              "五",
+              "六"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.cn/national-defense-in-the-new-era/2019).",
+            "examples": [
+              {
+                "input": "一",
+                "note": "国际安全形势"
+              },
+              {
+                "input": "二",
+                "note": "新时代中国防御性国防政策"
               }
             ]
           }

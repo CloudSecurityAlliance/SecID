@@ -97,7 +97,10 @@
           "strategia-nazionale-cybersicurezza@2022-2026",
           "strategia-nazionale-cybersicurezza@2017",
           "strategia-nazionale-cybersicurezza@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -116,15 +119,38 @@
                 "type": "website",
                 "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022-2026",
-                "url": "https://www.acn.gov.it/portale/en/strategia-nazionale-di-cybersicurezza",
-                "note": "Italian National Cybersecurity Strategy 2022-2026"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/acn.gov.it/strategia-nazionale-cybersicurezza/2022-2026).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2022-2026",
+                    "note": "PROTECTION GOAL"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2022-2026",
+                    "note": "RESPONSE GOAL"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -141,15 +167,53 @@
                 "type": "pdf",
                 "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://www.governo.it/sites/governo.it/files/piano-nazionale-cyber-2017.pdf",
-                "note": "Italian National Cybersecurity Plan (2017)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.3|1\\.4|2\\.3|3\\.3|4\\.1|4\\.3|5\\.1|5\\.3|6\\.1|6\\.3|6\\.4|7\\.4|7\\.5|8\\.1|8\\.2|9\\.1|10\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.3",
+                  "1.4",
+                  "2.3",
+                  "3.3",
+                  "4.1",
+                  "4.3",
+                  "5.1",
+                  "5.3",
+                  "6.1",
+                  "6.3",
+                  "6.4",
+                  "7.4",
+                  "7.5",
+                  "8.1",
+                  "8.2",
+                  "9.1",
+                  "10.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/acn.gov.it/strategia-nazionale-cybersicurezza/2017).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2017",
+                    "note": "Analisi delle minacce e delle vulnerabilità"
+                  },
+                  {
+                    "input": "1.3",
+                    "version": "2017",
+                    "note": "Sviluppo delle capacità di contra sto alla minaccia cibernetica"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -165,13 +229,6 @@
               {
                 "type": "pdf",
                 "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://www.agid.gov.it/sites/agid/files/2024-05/quadro-strategico-nazionale-cyber_0.pdf",
-                "note": "Italian National Strategic Framework for Cyberspace Security (2013)"
               }
             ]
           }

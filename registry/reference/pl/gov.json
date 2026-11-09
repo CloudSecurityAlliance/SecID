@@ -49,6 +49,7 @@
           "description": "National Security Strategy of the Republic of Poland (Strategia Bezpieczeństwa Narodowego RP) (2020)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.bbn.gov.pl/pl/wydarzenia/8806,Strategia-Bezpieczenstwa-Narodowego-RP.html",
             "examples": [
               {
@@ -101,11 +102,67 @@
           "description": "Cybersecurity Strategy of the Republic of Poland (Strategia Cyberbezpieczeństwa RP) (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024",
             "examples": [
               {
                 "input": "2019",
                 "url": "https://www.gov.pl/web/cyfryzacja/strategia-cyberbezpieczenstwa-rzeczypospolitej-polskiej-na-lata-2019-2024"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|5|5\\.1|5\\.2|5\\.3|5\\.4|5\\.5|5\\.6|6|6\\.1|6\\.2|6\\.3|7|7\\.1|7\\.2|7\\.3|7\\.4|8|8\\.1|8\\.2|8\\.3|9|9\\.1|9\\.2|10|11)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5",
+              "5.1",
+              "5.2",
+              "5.3",
+              "5.4",
+              "5.5",
+              "5.6",
+              "6",
+              "6.1",
+              "6.2",
+              "6.3",
+              "7",
+              "7.1",
+              "7.2",
+              "7.3",
+              "7.4",
+              "8",
+              "8.1",
+              "8.2",
+              "8.3",
+              "9",
+              "9.1",
+              "9.2",
+              "10",
+              "11"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.pl/cybersecurity-strategy-of-poland/2019).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction – rationale for actions to increase cybersecurity"
+              },
+              {
+                "input": "2",
+                "note": "Strategic context of cyberse- curity in the Republic of Poland"
               }
             ]
           }
@@ -146,6 +203,7 @@
           "description": "Policy for the Development of Artificial Intelligence in Poland from 2020 (Polityka dla rozwoju sztucznej inteligencji w Polsce) (2020)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.gov.pl/web/cyfryzacja/polityka-dla-rozwoju-sztucznej-inteligencji-w-polsce-od-roku-2020",
             "examples": [
               {

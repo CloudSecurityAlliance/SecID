@@ -24,7 +24,9 @@
       "description": "Krátky slovník hybridných hrozieb (Slovak NBU)",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "Krátky slovník hybridných hrozieb (Slovak NBU)",
         "common_name": null,
         "alternate_names": null,
@@ -73,11 +75,38 @@
           "description": "Security Strategy of the Slovak Republic (Bezpečnostná stratégia Slovenskej republiky) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mosr.sk/bezpecnostna-strategia-sr/",
             "examples": [
               {
                 "input": "2021",
                 "url": "https://www.mosr.sk/bezpecnostna-strategia-sr/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:I|IV|VI)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "IV",
+              "VI"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nbu.gov.sk/security-strategy-of-the-slovak-republic/2021).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "ÚVOD"
+              },
+              {
+                "input": "IV",
+                "note": "BEZPEČNOSTNÉ PROSTREDIE SLOVENSKEJ REPUBLIKY"
               }
             ]
           }
@@ -125,6 +154,7 @@
           "description": "National Strategy for Cyber Security of the Slovak Republic (2021–2025) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.nbu.gov.sk/urad/o-urade/kyberneticka-bezpecnost/narodna-strategia-kybernetickej-bezpecnosti/",
             "examples": [
               {
@@ -177,6 +207,7 @@
           "description": "Action Plan for the Digital Transformation of Slovakia (AI Pillar) (2023)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://mirri.gov.sk/sekcie/informatizacia/strategia-digitalnej-transformacie-slovenska/",
             "examples": [
               {

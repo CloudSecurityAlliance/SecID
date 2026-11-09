@@ -228,7 +228,10 @@
           "national-security-strategy@2025",
           "national-security-strategy@2022",
           "national-security-strategy@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -246,15 +249,50 @@
                 "type": "pdf",
                 "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/12/2025-National-Security-Strategy.pdf",
-                "note": "2025 US National Security Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|I\\.1|I\\.2|II|II\\.1|II\\.2|III|IV|IV\\.1|IV\\.2|A|B|C|D|E)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "I.1",
+                  "I.2",
+                  "II",
+                  "II.1",
+                  "II.2",
+                  "III",
+                  "IV",
+                  "IV.1",
+                  "IV.2",
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "E"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-security-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2025",
+                    "note": "Introduction – What Is American Strategy?"
+                  },
+                  {
+                    "input": "I.1",
+                    "version": "2025",
+                    "note": "How American “Strategy” Went Astray"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -271,15 +309,40 @@
                 "type": "pdf",
                 "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2022/10/Biden-Harris-Administrations-National-Security-Strategy-10.2022.pdf",
-                "note": "2022 US National Security Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PART\\ I|PART\\ II|PART\\ III|PART\\ IV|PART\\ V)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PART I",
+                  "PART II",
+                  "PART III",
+                  "PART IV",
+                  "PART V"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-security-strategy/2022).",
+                "examples": [
+                  {
+                    "input": "PART I",
+                    "version": "2022",
+                    "note": "THE COMPETITION FOR WHAT COMES NEXT"
+                  },
+                  {
+                    "input": "PART II",
+                    "version": "2022",
+                    "note": "INVESTING IN OUR STRENGTH"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -295,13 +358,6 @@
               {
                 "type": "pdf",
                 "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905.pdf",
-                "note": "2017 US National Security Strategy"
               }
             ]
           }
@@ -321,15 +377,41 @@
                 "type": "pdf",
                 "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2015",
-                "url": "https://obamawhitehouse.archives.gov/sites/default/files/docs/2015_national_security_strategy_2.pdf",
-                "note": "2015 US National Security Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV|V|VI)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "V",
+                  "VI"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-security-strategy/2015).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2015",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2015",
+                    "note": "Security"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -346,15 +428,39 @@
                 "type": "pdf",
                 "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2010",
-                "url": "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf",
-                "note": "2010 US National Security Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-security-strategy/2010).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2010",
+                    "note": "Overview of National Security Strategy"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2010",
+                    "note": "Strategic Approach"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -424,7 +530,10 @@
           "national-cybersecurity-strategy@2026",
           "national-cybersecurity-strategy@2023",
           "national-cybersecurity-strategy@2018"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -442,15 +551,41 @@
                 "type": "website",
                 "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026",
-                "url": "https://www.whitehouse.gov/releases/2026/03/white-house-unveils-president-trumps-cyber-strategy-for-america/",
-                "note": "2026 President Trump's Cyber Strategy for America"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy/2026).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2026",
+                    "note": "Shape Adversary Behavior"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2026",
+                    "note": "Promote Common Sense Regulation"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -467,15 +602,67 @@
                 "type": "pdf",
                 "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/03/National-Cybersecurity-Strategy-2023.pdf",
-                "note": "2023 US National Cybersecurity Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ ONE|STRATEGIC\\ OBJECTIVE\\ 1\\.1|STRATEGIC\\ OBJECTIVE\\ 1\\.2|STRATEGIC\\ OBJECTIVE\\ 1\\.3|STRATEGIC\\ OBJECTIVE\\ 1\\.4|STRATEGIC\\ OBJECTIVE\\ 1\\.5|PILLAR\\ TWO|STRATEGIC\\ OBJECTIVE\\ 2\\.1|STRATEGIC\\ OBJECTIVE\\ 2\\.2|STRATEGIC\\ OBJECTIVE\\ 2\\.3|STRATEGIC\\ OBJECTIVE\\ 2\\.4|STRATEGIC\\ OBJECTIVE\\ 2\\.5|PILLAR\\ THREE|STRATEGIC\\ OBJECTIVE\\ 3\\.1|STRATEGIC\\ OBJECTIVE\\ 3\\.2|STRATEGIC\\ OBJECTIVE\\ 3\\.3|STRATEGIC\\ OBJECTIVE\\ 3\\.4|STRATEGIC\\ OBJECTIVE\\ 3\\.5|STRATEGIC\\ OBJECTIVE\\ 3\\.6|PILLAR\\ FOUR|STRATEGIC\\ OBJECTIVE\\ 4\\.1|STRATEGIC\\ OBJECTIVE\\ 4\\.2|STRATEGIC\\ OBJECTIVE\\ 4\\.3|STRATEGIC\\ OBJECTIVE\\ 4\\.4|STRATEGIC\\ OBJECTIVE\\ 4\\.5|STRATEGIC\\ OBJECTIVE\\ 4\\.6|PILLAR\\ FIVE|STRATEGIC\\ OBJECTIVE\\ 5\\.1|STRATEGIC\\ OBJECTIVE\\ 5\\.2|STRATEGIC\\ OBJECTIVE\\ 5\\.3|STRATEGIC\\ OBJECTIVE\\ 5\\.4|STRATEGIC\\ OBJECTIVE\\ 5\\.5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR ONE",
+                  "STRATEGIC OBJECTIVE 1.1",
+                  "STRATEGIC OBJECTIVE 1.2",
+                  "STRATEGIC OBJECTIVE 1.3",
+                  "STRATEGIC OBJECTIVE 1.4",
+                  "STRATEGIC OBJECTIVE 1.5",
+                  "PILLAR TWO",
+                  "STRATEGIC OBJECTIVE 2.1",
+                  "STRATEGIC OBJECTIVE 2.2",
+                  "STRATEGIC OBJECTIVE 2.3",
+                  "STRATEGIC OBJECTIVE 2.4",
+                  "STRATEGIC OBJECTIVE 2.5",
+                  "PILLAR THREE",
+                  "STRATEGIC OBJECTIVE 3.1",
+                  "STRATEGIC OBJECTIVE 3.2",
+                  "STRATEGIC OBJECTIVE 3.3",
+                  "STRATEGIC OBJECTIVE 3.4",
+                  "STRATEGIC OBJECTIVE 3.5",
+                  "STRATEGIC OBJECTIVE 3.6",
+                  "PILLAR FOUR",
+                  "STRATEGIC OBJECTIVE 4.1",
+                  "STRATEGIC OBJECTIVE 4.2",
+                  "STRATEGIC OBJECTIVE 4.3",
+                  "STRATEGIC OBJECTIVE 4.4",
+                  "STRATEGIC OBJECTIVE 4.5",
+                  "STRATEGIC OBJECTIVE 4.6",
+                  "PILLAR FIVE",
+                  "STRATEGIC OBJECTIVE 5.1",
+                  "STRATEGIC OBJECTIVE 5.2",
+                  "STRATEGIC OBJECTIVE 5.3",
+                  "STRATEGIC OBJECTIVE 5.4",
+                  "STRATEGIC OBJECTIVE 5.5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy/2023).",
+                "examples": [
+                  {
+                    "input": "PILLAR ONE",
+                    "version": "2023",
+                    "note": "DEFEND CRITICAL INFRASTRUCTURE"
+                  },
+                  {
+                    "input": "STRATEGIC OBJECTIVE 1.2",
+                    "version": "2023",
+                    "note": "SCALE PUBLIC-PRIVATE COLLABORATION"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -492,15 +679,38 @@
                 "type": "pdf",
                 "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://trumpwhitehouse.archives.gov/wp-content/uploads/2018/09/National-Cyber-Strategy.pdf",
-                "note": "2018 US National Cyber Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ II|PILLAR\\ III|PILLAR\\ IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR II",
+                  "PILLAR III",
+                  "PILLAR IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy/2018).",
+                "examples": [
+                  {
+                    "input": "PILLAR II",
+                    "version": "2018",
+                    "note": "Promote American Prosperity"
+                  },
+                  {
+                    "input": "PILLAR III",
+                    "version": "2018",
+                    "note": "Preserve Peace through Strength"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -551,7 +761,10 @@
         "examples": [
           "national-cybersecurity-strategy-implementation-plan@2",
           "national-cybersecurity-strategy-implementation-plan@1"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -569,15 +782,168 @@
                 "type": "pdf",
                 "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2",
-                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/05/National-Cybersecurity-Strategy-Implementation-Plan-Version-2.pdf",
-                "note": "NCSIP Version 2 (May 2024)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ One|Strategic\\ Objective\\ 1\\.1|Initiative\\ 1\\.1\\.1|Initiative\\ 1\\.1\\.2|Initiative\\ 1\\.1\\.3|Initiative\\ 1\\.1\\.4|Initiative\\ 1\\.1\\.5|Strategic\\ Objective\\ 1\\.2|Initiative\\ 1\\.2\\.1|Initiative\\ 1\\.2\\.2|Initiative\\ 1\\.2\\.3|Initiative\\ 1\\.2\\.4|Initiative\\ 1\\.2\\.5|Initiative\\ 1\\.2\\.6|Initiative\\ 1\\.2\\.7|Initiative\\ 1\\.2\\.8|Strategic\\ Objective\\ 1\\.3|Initiative\\ 1\\.3\\.1|Initiative\\ 1\\.3\\.2|Initiative\\ 1\\.3\\.3|Strategic\\ Objective\\ 1\\.4|Initiative\\ 1\\.4\\.1|Initiative\\ 1\\.4\\.2|Initiative\\ 1\\.4\\.3|Initiative\\ 1\\.4\\.4|Initiative\\ 1\\.4\\.5|Strategic\\ Objective\\ 1\\.5|Initiative\\ 1\\.5\\.1|Initiative\\ 1\\.5\\.2|Initiative\\ 1\\.5\\.3|Initiative\\ 1\\.5\\.4|Initiative\\ 1\\.5\\.5|Pillar\\ Two|Strategic\\ Objective\\ 2\\.1|Initiative\\ 2\\.1\\.1|Initiative\\ 2\\.1\\.2|Initiative\\ 2\\.1\\.3|Initiative\\ 2\\.1\\.4|Initiative\\ 2\\.1\\.5|Initiative\\ 2\\.1\\.6|Initiative\\ 2\\.1\\.7|Strategic\\ Objective\\ 2\\.2|Initiative\\ 2\\.2\\.1|Initiative\\ 2\\.2\\.2|Strategic\\ Objective\\ 2\\.3|Initiative\\ 2\\.3\\.1|Initiative\\ 2\\.3\\.2|Strategic\\ Objective\\ 2\\.4|Initiative\\ 2\\.4\\.1|Strategic\\ Objective\\ 2\\.5|Initiative\\ 2\\.5\\.1|Initiative\\ 2\\.5\\.2|Initiative\\ 2\\.5\\.3|Initiative\\ 2\\.5\\.4|Initiative\\ 2\\.5\\.5|Initiative\\ 2\\.5\\.6|Initiative\\ 2\\.5\\.7|Pillar\\ Three|Strategic\\ Objective\\ 3\\.1|Initiative\\ 3\\.1\\.1|Strategic\\ Objective\\ 3\\.2|Initiative\\ 3\\.2\\.1|Initiative\\ 3\\.2\\.2|Initiative\\ 3\\.2\\.3|Initiative\\ 3\\.2\\.4|Strategic\\ Objective\\ 3\\.3|Initiative\\ 3\\.3\\.1|Initiative\\ 3\\.3\\.2|Initiative\\ 3\\.3\\.3|Initiative\\ 3\\.3\\.4|Initiative\\ 3\\.3\\.5|Strategic\\ Objective\\ 3\\.4|Initiative\\ 3\\.4\\.1|Initiative\\ 3\\.4\\.2|Initiative\\ 3\\.4\\.3|Strategic\\ Objective\\ 3\\.5|Initiative\\ 3\\.5\\.1|Initiative\\ 3\\.5\\.2|Strategic\\ Objective\\ 3\\.6|Initiative\\ 3\\.6\\.1|Pillar\\ Four|Strategic\\ Objective\\ 4\\.1|Initiative\\ 4\\.1\\.1|Initiative\\ 4\\.1\\.2|Initiative\\ 4\\.1\\.3|Initiative\\ 4\\.1\\.4|Initiative\\ 4\\.1\\.5|Initiative\\ 4\\.1\\.6|Initiative\\ 4\\.1\\.7|Initiative\\ 4\\.1\\.8|Strategic\\ Objective\\ 4\\.2|Initiative\\ 4\\.2\\.1|Strategic\\ Objective\\ 4\\.3|Initiative\\ 4\\.3\\.1|Initiative\\ 4\\.3\\.2|Initiative\\ 4\\.3\\.3|Strategic\\ Objective\\ 4\\.4|Initiative\\ 4\\.4\\.1|Initiative\\ 4\\.4\\.2|Initiative\\ 4\\.4\\.3|Initiative\\ 4\\.4\\.4|Initiative\\ 4\\.4\\.5|Strategic\\ Objective\\ 4\\.5|Initiative\\ 4\\.5\\.1|Strategic\\ Objective\\ 4\\.6|Initiative\\ 4\\.6\\.1|Initiative\\ 4\\.6\\.2|Initiative\\ 4\\.6\\.3|Pillar\\ Five|Strategic\\ Objective\\ 5\\.1|Initiative\\ 5\\.1\\.1|Initiative\\ 5\\.1\\.2|Initiative\\ 5\\.1\\.3|Initiative\\ 5\\.1\\.4|Initiative\\ 5\\.1\\.5|Strategic\\ Objective\\ 5\\.2|Initiative\\ 5\\.2\\.1|Initiative\\ 5\\.2\\.2|Strategic\\ Objective\\ 5\\.3|Initiative\\ 5\\.3\\.1|Strategic\\ Objective\\ 5\\.4|Initiative\\ 5\\.4\\.1|Strategic\\ Objective\\ 5\\.5|Initiative\\ 5\\.5\\.1|Initiative\\ 5\\.5\\.2|Initiative\\ 5\\.5\\.3|Initiative\\ 5\\.5\\.4|Initiative\\ 5\\.5\\.5|Initiative\\ 5\\.5\\.6|Implementation\\ 6\\.1|Initiative\\ 6\\.1\\.1|Initiative\\ 6\\.1\\.2|Initiative\\ 6\\.1\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar One",
+                  "Strategic Objective 1.1",
+                  "Initiative 1.1.1",
+                  "Initiative 1.1.2",
+                  "Initiative 1.1.3",
+                  "Initiative 1.1.4",
+                  "Initiative 1.1.5",
+                  "Strategic Objective 1.2",
+                  "Initiative 1.2.1",
+                  "Initiative 1.2.2",
+                  "Initiative 1.2.3",
+                  "Initiative 1.2.4",
+                  "Initiative 1.2.5",
+                  "Initiative 1.2.6",
+                  "Initiative 1.2.7",
+                  "Initiative 1.2.8",
+                  "Strategic Objective 1.3",
+                  "Initiative 1.3.1",
+                  "Initiative 1.3.2",
+                  "Initiative 1.3.3",
+                  "Strategic Objective 1.4",
+                  "Initiative 1.4.1",
+                  "Initiative 1.4.2",
+                  "Initiative 1.4.3",
+                  "Initiative 1.4.4",
+                  "Initiative 1.4.5",
+                  "Strategic Objective 1.5",
+                  "Initiative 1.5.1",
+                  "Initiative 1.5.2",
+                  "Initiative 1.5.3",
+                  "Initiative 1.5.4",
+                  "Initiative 1.5.5",
+                  "Pillar Two",
+                  "Strategic Objective 2.1",
+                  "Initiative 2.1.1",
+                  "Initiative 2.1.2",
+                  "Initiative 2.1.3",
+                  "Initiative 2.1.4",
+                  "Initiative 2.1.5",
+                  "Initiative 2.1.6",
+                  "Initiative 2.1.7",
+                  "Strategic Objective 2.2",
+                  "Initiative 2.2.1",
+                  "Initiative 2.2.2",
+                  "Strategic Objective 2.3",
+                  "Initiative 2.3.1",
+                  "Initiative 2.3.2",
+                  "Strategic Objective 2.4",
+                  "Initiative 2.4.1",
+                  "Strategic Objective 2.5",
+                  "Initiative 2.5.1",
+                  "Initiative 2.5.2",
+                  "Initiative 2.5.3",
+                  "Initiative 2.5.4",
+                  "Initiative 2.5.5",
+                  "Initiative 2.5.6",
+                  "Initiative 2.5.7",
+                  "Pillar Three",
+                  "Strategic Objective 3.1",
+                  "Initiative 3.1.1",
+                  "Strategic Objective 3.2",
+                  "Initiative 3.2.1",
+                  "Initiative 3.2.2",
+                  "Initiative 3.2.3",
+                  "Initiative 3.2.4",
+                  "Strategic Objective 3.3",
+                  "Initiative 3.3.1",
+                  "Initiative 3.3.2",
+                  "Initiative 3.3.3",
+                  "Initiative 3.3.4",
+                  "Initiative 3.3.5",
+                  "Strategic Objective 3.4",
+                  "Initiative 3.4.1",
+                  "Initiative 3.4.2",
+                  "Initiative 3.4.3",
+                  "Strategic Objective 3.5",
+                  "Initiative 3.5.1",
+                  "Initiative 3.5.2",
+                  "Strategic Objective 3.6",
+                  "Initiative 3.6.1",
+                  "Pillar Four",
+                  "Strategic Objective 4.1",
+                  "Initiative 4.1.1",
+                  "Initiative 4.1.2",
+                  "Initiative 4.1.3",
+                  "Initiative 4.1.4",
+                  "Initiative 4.1.5",
+                  "Initiative 4.1.6",
+                  "Initiative 4.1.7",
+                  "Initiative 4.1.8",
+                  "Strategic Objective 4.2",
+                  "Initiative 4.2.1",
+                  "Strategic Objective 4.3",
+                  "Initiative 4.3.1",
+                  "Initiative 4.3.2",
+                  "Initiative 4.3.3",
+                  "Strategic Objective 4.4",
+                  "Initiative 4.4.1",
+                  "Initiative 4.4.2",
+                  "Initiative 4.4.3",
+                  "Initiative 4.4.4",
+                  "Initiative 4.4.5",
+                  "Strategic Objective 4.5",
+                  "Initiative 4.5.1",
+                  "Strategic Objective 4.6",
+                  "Initiative 4.6.1",
+                  "Initiative 4.6.2",
+                  "Initiative 4.6.3",
+                  "Pillar Five",
+                  "Strategic Objective 5.1",
+                  "Initiative 5.1.1",
+                  "Initiative 5.1.2",
+                  "Initiative 5.1.3",
+                  "Initiative 5.1.4",
+                  "Initiative 5.1.5",
+                  "Strategic Objective 5.2",
+                  "Initiative 5.2.1",
+                  "Initiative 5.2.2",
+                  "Strategic Objective 5.3",
+                  "Initiative 5.3.1",
+                  "Strategic Objective 5.4",
+                  "Initiative 5.4.1",
+                  "Strategic Objective 5.5",
+                  "Initiative 5.5.1",
+                  "Initiative 5.5.2",
+                  "Initiative 5.5.3",
+                  "Initiative 5.5.4",
+                  "Initiative 5.5.5",
+                  "Initiative 5.5.6",
+                  "Implementation 6.1",
+                  "Initiative 6.1.1",
+                  "Initiative 6.1.2",
+                  "Initiative 6.1.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy-implementation-plan/2).",
+                "examples": [
+                  {
+                    "input": "Pillar One",
+                    "version": "2",
+                    "note": "Defend Critical Infrastructure"
+                  },
+                  {
+                    "input": "Initiative 1.1.1",
+                    "version": "2",
+                    "note": "Establish an initiative on cyber regulatory harmonization"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -594,15 +960,135 @@
                 "type": "pdf",
                 "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "1",
-                "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2023/07/National-Cybersecurity-Strategy-Implementation-Plan-WH.gov_.pdf",
-                "note": "NCSIP Version 1 (July 2023)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ One|Strategic\\ Objective\\ 1\\.1|Initiative\\ 1\\.1\\.1|Initiative\\ 1\\.1\\.2|Initiative\\ 1\\.1\\.3|Strategic\\ Objective\\ 1\\.2|Initiative\\ 1\\.2\\.1|Initiative\\ 1\\.2\\.2|Initiative\\ 1\\.2\\.3|Initiative\\ 1\\.2\\.4|Initiative\\ 1\\.2\\.5|Strategic\\ Objective\\ 1\\.3|Initiative\\ 1\\.3\\.1|Strategic\\ Objective\\ 1\\.4|Initiative\\ 1\\.4\\.1|Initiative\\ 1\\.4\\.2|Initiative\\ 1\\.4\\.3|Initiative\\ 1\\.4\\.4|Strategic\\ Objective\\ 1\\.5|Initiative\\ 1\\.5\\.1|Initiative\\ 1\\.5\\.2|Initiative\\ 1\\.5\\.3|Pillar\\ Two|Strategic\\ Objective\\ 2\\.1|Initiative\\ 2\\.1\\.1|Initiative\\ 2\\.1\\.2|Initiative\\ 2\\.1\\.3|Initiative\\ 2\\.1\\.4|Initiative\\ 2\\.1\\.5|Strategic\\ Objective\\ 2\\.2|Initiative\\ 2\\.2\\.1|Strategic\\ Objective\\ 2\\.3|Initiative\\ 2\\.3\\.1|Initiative\\ 2\\.3\\.2|Strategic\\ Objective\\ 2\\.4|Initiative\\ 2\\.4\\.1|Strategic\\ Objective\\ 2\\.5|Initiative\\ 2\\.5\\.1|Initiative\\ 2\\.5\\.2|Initiative\\ 2\\.5\\.3|Initiative\\ 2\\.5\\.4|Initiative\\ 2\\.5\\.5|Pillar\\ Three|Strategic\\ Objective\\ 3\\.2|Initiative\\ 3\\.2\\.1|Initiative\\ 3\\.2\\.2|Strategic\\ Objective\\ 3\\.3|Initiative\\ 3\\.3\\.1|Initiative\\ 3\\.3\\.2|Initiative\\ 3\\.3\\.3|Strategic\\ Objective\\ 3\\.4|Initiative\\ 3\\.4\\.1|Initiative\\ 3\\.4\\.2|Initiative\\ 3\\.4\\.3|Strategic\\ Objective\\ 3\\.5|Initiative\\ 3\\.5\\.1|Initiative\\ 3\\.5\\.2|Strategic\\ Objective\\ 3\\.6|Initiative\\ 3\\.6\\.1|Pillar\\ Four|Strategic\\ Objective\\ 4\\.1|Initiative\\ 4\\.1\\.1|Initiative\\ 4\\.1\\.2|Initiative\\ 4\\.1\\.3|Initiative\\ 4\\.1\\.4|Initiative\\ 4\\.1\\.5|Strategic\\ Objective\\ 4\\.2|Initiative\\ 4\\.2\\.1|Strategic\\ Objective\\ 4\\.3|Initiative\\ 4\\.3\\.1|Initiative\\ 4\\.3\\.2|Initiative\\ 4\\.3\\.3|Strategic\\ Objective\\ 4\\.4|Initiative\\ 4\\.4\\.1|Initiative\\ 4\\.4\\.2|Initiative\\ 4\\.4\\.3|Strategic\\ Objective\\ 4\\.6|Initiative\\ 4\\.6\\.1|Pillar\\ Five|Strategic\\ Objective\\ 5\\.1|Initiative\\ 5\\.1\\.1|Initiative\\ 5\\.1\\.2|Initiative\\ 5\\.1\\.3|Initiative\\ 5\\.1\\.4|Strategic\\ Objective\\ 5\\.2|Initiative\\ 5\\.2\\.1|Initiative\\ 5\\.2\\.2|Strategic\\ Objective\\ 5\\.3|Initiative\\ 5\\.3\\.1|Strategic\\ Objective\\ 5\\.4|Initiative\\ 5\\.4\\.1|Strategic\\ Objective\\ 5\\.5|Initiative\\ 5\\.5\\.1|Initiative\\ 5\\.5\\.2|Initiative\\ 5\\.5\\.3|Initiative\\ 5\\.5\\.4|Implementation\\ 6\\.1|Initiative\\ 6\\.1\\.1|Initiative\\ 6\\.1\\.2|Initiative\\ 6\\.1\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar One",
+                  "Strategic Objective 1.1",
+                  "Initiative 1.1.1",
+                  "Initiative 1.1.2",
+                  "Initiative 1.1.3",
+                  "Strategic Objective 1.2",
+                  "Initiative 1.2.1",
+                  "Initiative 1.2.2",
+                  "Initiative 1.2.3",
+                  "Initiative 1.2.4",
+                  "Initiative 1.2.5",
+                  "Strategic Objective 1.3",
+                  "Initiative 1.3.1",
+                  "Strategic Objective 1.4",
+                  "Initiative 1.4.1",
+                  "Initiative 1.4.2",
+                  "Initiative 1.4.3",
+                  "Initiative 1.4.4",
+                  "Strategic Objective 1.5",
+                  "Initiative 1.5.1",
+                  "Initiative 1.5.2",
+                  "Initiative 1.5.3",
+                  "Pillar Two",
+                  "Strategic Objective 2.1",
+                  "Initiative 2.1.1",
+                  "Initiative 2.1.2",
+                  "Initiative 2.1.3",
+                  "Initiative 2.1.4",
+                  "Initiative 2.1.5",
+                  "Strategic Objective 2.2",
+                  "Initiative 2.2.1",
+                  "Strategic Objective 2.3",
+                  "Initiative 2.3.1",
+                  "Initiative 2.3.2",
+                  "Strategic Objective 2.4",
+                  "Initiative 2.4.1",
+                  "Strategic Objective 2.5",
+                  "Initiative 2.5.1",
+                  "Initiative 2.5.2",
+                  "Initiative 2.5.3",
+                  "Initiative 2.5.4",
+                  "Initiative 2.5.5",
+                  "Pillar Three",
+                  "Strategic Objective 3.2",
+                  "Initiative 3.2.1",
+                  "Initiative 3.2.2",
+                  "Strategic Objective 3.3",
+                  "Initiative 3.3.1",
+                  "Initiative 3.3.2",
+                  "Initiative 3.3.3",
+                  "Strategic Objective 3.4",
+                  "Initiative 3.4.1",
+                  "Initiative 3.4.2",
+                  "Initiative 3.4.3",
+                  "Strategic Objective 3.5",
+                  "Initiative 3.5.1",
+                  "Initiative 3.5.2",
+                  "Strategic Objective 3.6",
+                  "Initiative 3.6.1",
+                  "Pillar Four",
+                  "Strategic Objective 4.1",
+                  "Initiative 4.1.1",
+                  "Initiative 4.1.2",
+                  "Initiative 4.1.3",
+                  "Initiative 4.1.4",
+                  "Initiative 4.1.5",
+                  "Strategic Objective 4.2",
+                  "Initiative 4.2.1",
+                  "Strategic Objective 4.3",
+                  "Initiative 4.3.1",
+                  "Initiative 4.3.2",
+                  "Initiative 4.3.3",
+                  "Strategic Objective 4.4",
+                  "Initiative 4.4.1",
+                  "Initiative 4.4.2",
+                  "Initiative 4.4.3",
+                  "Strategic Objective 4.6",
+                  "Initiative 4.6.1",
+                  "Pillar Five",
+                  "Strategic Objective 5.1",
+                  "Initiative 5.1.1",
+                  "Initiative 5.1.2",
+                  "Initiative 5.1.3",
+                  "Initiative 5.1.4",
+                  "Strategic Objective 5.2",
+                  "Initiative 5.2.1",
+                  "Initiative 5.2.2",
+                  "Strategic Objective 5.3",
+                  "Initiative 5.3.1",
+                  "Strategic Objective 5.4",
+                  "Initiative 5.4.1",
+                  "Strategic Objective 5.5",
+                  "Initiative 5.5.1",
+                  "Initiative 5.5.2",
+                  "Initiative 5.5.3",
+                  "Initiative 5.5.4",
+                  "Implementation 6.1",
+                  "Initiative 6.1.1",
+                  "Initiative 6.1.2",
+                  "Initiative 6.1.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy-implementation-plan/1).",
+                "examples": [
+                  {
+                    "input": "Pillar One",
+                    "version": "1",
+                    "note": "Defend Critical Infrastructure"
+                  },
+                  {
+                    "input": "Initiative 1.1.1",
+                    "version": "1",
+                    "note": "Establish an initiative on cyber regulatory harmonization"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -670,6 +1156,32 @@
                 "input": "2025",
                 "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
                 "note": "Winning the Race: America's AI Action Plan (July 2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:Pillar\\ I|Pillar\\ II|Pillar\\ III)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Pillar I",
+              "Pillar II",
+              "Pillar III"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/ai-action-plan/2025).",
+            "examples": [
+              {
+                "input": "Pillar I",
+                "note": "Accelerate AI Innovation"
+              },
+              {
+                "input": "Pillar II",
+                "note": "Build American AI Infrastructure"
               }
             ]
           }

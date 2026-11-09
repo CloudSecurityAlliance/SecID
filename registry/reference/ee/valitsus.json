@@ -106,7 +106,10 @@
           "national-security-concept@2026",
           "national-security-concept@2023",
           "national-security-concept@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -124,15 +127,43 @@
                 "type": "website",
                 "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026",
-                "url": "https://valitsus.ee/en/news/government-approved-new-national-security-concept-estonia",
-                "note": "National Security Concept of Estonia (2026)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/valitsus.ee/national-security-concept/2026).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2026",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2026",
+                    "note": "Principles of Estonia’s security policy"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -148,13 +179,6 @@
               {
                 "type": "pdf",
                 "url": "https://valitsus.ee/media/6098/download"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://valitsus.ee/media/6098/download",
-                "note": "National Security Concept of Estonia (2023)"
               }
             ]
           }
@@ -174,13 +198,6 @@
                 "type": "website",
                 "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
-                "note": "National Security Concept of Estonia (2017)"
-              }
             ]
           }
         },
@@ -199,13 +216,6 @@
                 "type": "website",
                 "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
               }
-            ],
-            "examples": [
-              {
-                "input": "2010",
-                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
-                "note": "National Security Concept of Estonia (2010)"
-              }
             ]
           }
         },
@@ -223,13 +233,6 @@
               {
                 "type": "website",
                 "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2004",
-                "url": "https://riigikantselei.ee/en/supporting-government-and-prime-minister/organisation-and-planning-work-government/national",
-                "note": "National Security Concept of Estonia (2004)"
               }
             ]
           }

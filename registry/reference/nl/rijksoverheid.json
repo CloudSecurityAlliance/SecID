@@ -79,7 +79,10 @@
         "examples": [
           "veiligheidsstrategie@2023-2029",
           "veiligheidsstrategie@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -97,15 +100,42 @@
                 "type": "website",
                 "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023-2029",
-                "url": "https://www.rijksoverheid.nl/documenten/2023/04/03/veiligheidsstrategie-voor-het-koninkrijk-der-nederlanden",
-                "note": "De Veiligheidsstrategie voor het Koninkrijk der Nederlanden (2023–2029)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Deel\\ 1|Deel\\ 1\\ 1|Deel\\ 1\\ 2|Deel\\ 1\\ 4|Deel\\ 1\\ 5|Deel\\ 1\\ 7|Deel\\ 2|Deel\\ 2\\ 1|Deel\\ 2\\ 2|Deel\\ 2\\ 3|Deel\\ 3|Deel\\ 3\\ 1|Deel\\ 3\\ 2|Deel\\ 3\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Deel 1",
+                  "Deel 1 1",
+                  "Deel 1 2",
+                  "Deel 1 4",
+                  "Deel 1 5",
+                  "Deel 1 7",
+                  "Deel 2",
+                  "Deel 2 1",
+                  "Deel 2 2",
+                  "Deel 2 3",
+                  "Deel 3",
+                  "Deel 3 1",
+                  "Deel 3 2",
+                  "Deel 3 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/rijksoverheid.nl/veiligheidsstrategie/2023-2029).",
+                "examples": [
+                  "Deel 1",
+                  "Deel 2 1",
+                  "Deel 3 3"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -121,13 +151,6 @@
               {
                 "type": "website",
                 "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2019/06/07/nationale-veiligheidsstrategie-2019",
-                "note": "Nationale Veiligheidsstrategie 2019"
               }
             ]
           }
@@ -187,7 +210,10 @@
         "examples": [
           "nederlandse-cybersecuritystrategie@2022-2028",
           "nederlandse-cybersecuritystrategie@2018"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -209,15 +235,43 @@
                 "type": "website",
                 "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022-2028",
-                "url": "https://www.rijksoverheid.nl/documenten/rapporten/2022/10/10/tk-bijlage-1-nederlandse-cybersecuritystrategie-2022-2028",
-                "note": "Nederlandse Cybersecuritystrategie 2022–2028"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|Pijler\\ I|Pijler\\ II|Pijler\\ III|Pijler\\ IV|4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "Pijler I",
+                  "Pijler II",
+                  "Pijler III",
+                  "Pijler IV",
+                  "4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/rijksoverheid.nl/nederlandse-cybersecuritystrategie/2022-2028).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2022-2028",
+                    "note": "Maatschappelijke opgave cybersecurity"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2022-2028",
+                    "note": "Visie: Digitale veiligheid voor iedereen een vanzelfsprekendheid"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -233,13 +287,6 @@
               {
                 "type": "website",
                 "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
-                "note": "Nederlandse Cybersecurity Agenda (2018)"
               }
             ]
           }

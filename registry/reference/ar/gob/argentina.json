@@ -80,7 +80,10 @@
         "examples": [
           "estrategia-nacional-ciberseguridad@2023",
           "estrategia-nacional-ciberseguridad@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -98,15 +101,36 @@
                 "type": "website",
                 "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/385000-389999/389245/norma.htm",
-                "note": "Argentine 2nd National Cybersecurity Strategy (2023)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:ARTÍCULO\\ 1°|ARTÍCULO\\ 2°|ARTÍCULO\\ 3°|ARTÍCULO\\ 4°|ARTÍCULO\\ 5°|ARTÍCULO\\ 6°|ARTÍCULO\\ 7°|ARTÍCULO\\ 8°)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "ARTÍCULO 1°",
+                  "ARTÍCULO 2°",
+                  "ARTÍCULO 3°",
+                  "ARTÍCULO 4°",
+                  "ARTÍCULO 5°",
+                  "ARTÍCULO 6°",
+                  "ARTÍCULO 7°",
+                  "ARTÍCULO 8°"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/argentina.gob.ar/estrategia-nacional-ciberseguridad/2023).",
+                "examples": [
+                  "ARTÍCULO 1°",
+                  "ARTÍCULO 5°",
+                  "ARTÍCULO 8°"
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -126,13 +150,6 @@
               {
                 "type": "pdf",
                 "url": "https://www.itu.int/en/ITU-D/Cybersecurity/Documents/National_Strategies_Repository/Argentina%20National%20Cybersecurity%20Strategy_anexo_5740509_1.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/320000-324999/323597/norma.htm",
-                "note": "Argentine 1st National Cybersecurity Strategy (2019)"
               }
             ]
           }

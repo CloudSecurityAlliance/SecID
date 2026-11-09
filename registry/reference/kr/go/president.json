@@ -320,7 +320,10 @@
         ],
         "examples": [
           "national-cybersecurity-basic-plan@2024"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -337,13 +340,6 @@
               {
                 "type": "website",
                 "url": "https://nsp.nanet.go.kr/trend/latest/detail.do?latestTrendControlNo=TREN0000002488&listChk=list"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://nsp.nanet.go.kr/trend/latest/detail.do?latestTrendControlNo=TREN0000002488&listChk=list",
-                "note": "ROK National Cybersecurity Basic Plan (2024)"
               }
             ]
           }
@@ -363,15 +359,39 @@
                 "type": "pdf",
                 "url": "https://www.korea.kr/common/download.do?fileId=190113953&tblKey=GMN"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www.korea.kr/common/download.do?fileId=190113953&tblKey=GMN",
-                "note": "ROK National Cybersecurity Basic Plan (2019)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/president.go.kr/national-cybersecurity-basic-plan/2019).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2019",
+                    "note": "추진 배경"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2019",
+                    "note": "성과 및 진단"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -427,7 +447,10 @@
         "examples": [
           "national-ai-strategy@2024",
           "national-ai-strategy@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -444,13 +467,6 @@
               {
                 "type": "website",
                 "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://www.msit.go.kr/eng/bbs/view.do?sCode=eng&mId=4&bbsSeqNo=42&nttSeqNo=1037",
-                "note": "ROK National AI Strategy (2024)"
               }
             ]
           }
@@ -470,15 +486,38 @@
                 "type": "website",
                 "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
-                "note": "ROK National Strategy for Artificial Intelligence (2019)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/president.go.kr/national-ai-strategy/2019).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2019",
+                    "note": "Establishment of Global-Leading AI Ecosystem"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2019",
+                    "note": "The Country that Makes Best Use of AI"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     }

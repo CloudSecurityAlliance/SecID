@@ -49,11 +49,52 @@
           "description": "National Security Strategy of the Republic of Serbia (Стратегија националне безбедности Републике Србије) (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mod.gov.rs/eng/4350/strategije-4350",
             "examples": [
               {
                 "input": "2019",
                 "url": "https://www.mod.gov.rs/eng/4350/strategije-4350"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|4\\.7|5|5\\.1|5\\.1\\.1|5\\.1\\.2|5\\.2|6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4",
+              "4.5",
+              "4.6",
+              "4.7",
+              "5",
+              "5.1",
+              "5.1.1",
+              "5.1.2",
+              "5.2",
+              "6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mtt.gov.rs/national-security-strategy-of-serbia/2019).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "STRATEGIC ENVIRONMENT"
+              },
+              {
+                "input": "2",
+                "note": "SECURITY CHALLENGES, RISKS AND THREATS"
               }
             ]
           }
@@ -101,6 +142,7 @@
           "description": "Strategy for the Development of the Information Society and Information Security in the Republic of Serbia (2021–2026) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://mit.gov.rs/tekst/sr/553/strategije.php",
             "examples": [
               {
@@ -165,6 +207,7 @@
           "description": "Strategy for the Development of Artificial Intelligence in the Republic of Serbia (2025–2030 / 2020–2025) (2025)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
             "examples": [
               {
@@ -182,6 +225,7 @@
           "description": "Strategy for the Development of Artificial Intelligence in the Republic of Serbia (2025–2030 / 2020–2025) (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.ai.gov.rs/tekst/en/92/ai-strategy.php",
             "examples": [
               {

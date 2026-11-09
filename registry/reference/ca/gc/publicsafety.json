@@ -104,7 +104,10 @@
           "national-cyber-security-strategy@2025",
           "national-cyber-security-strategy@2018",
           "national-cyber-security-strategy@2010"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -126,15 +129,47 @@
                 "type": "pdf",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/ntnl-cbr-scrt-strtg-2025-en.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2025/index-en.aspx",
-                "note": "2025 National Cyber Security Strategy (Securing Canada's Digital Future)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ 1|Pillar\\ 2|Pillar\\ 3|Objective\\ 1\\.1|Objective\\ 1\\.2|Objective\\ 1\\.3|Objective\\ 2\\.1|Objective\\ 2\\.2|Objective\\ 2\\.3|Objective\\ 3\\.1|Objective\\ 3\\.2|Objective\\ 3\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar 1",
+                  "Pillar 2",
+                  "Pillar 3",
+                  "Objective 1.1",
+                  "Objective 1.2",
+                  "Objective 1.3",
+                  "Objective 2.1",
+                  "Objective 2.2",
+                  "Objective 2.3",
+                  "Objective 3.1",
+                  "Objective 3.2",
+                  "Objective 3.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "Pillar 2",
+                    "version": "2025",
+                    "note": "Make Canada a Global Cyber Security Industry Leader"
+                  },
+                  {
+                    "input": "Pillar 3",
+                    "version": "2025",
+                    "note": "Detect and Disrupt Cyber Threat Actors"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -150,13 +185,6 @@
               {
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg/index-en.aspx",
-                "note": "2018 National Cyber Security Strategy"
               }
             ]
           }
@@ -175,13 +203,6 @@
               {
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2010",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-cbr-scrt-strtgy/archive-index-en.aspx",
-                "note": "2010 Canada's Cyber Security Strategy"
               }
             ]
           }
@@ -237,7 +258,10 @@
         "examples": [
           "national-cyber-security-action-plan@2019-2024",
           "national-cyber-security-action-plan@2010-2015"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -255,15 +279,38 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019-2024",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019/index-en.aspx",
-                "note": "National Cyber Security Action Plan (2019-2024)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Goal\\ 1|Goal\\ 2|Goal\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Goal 1",
+                  "Goal 2",
+                  "Goal 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-action-plan/2019-2024).",
+                "examples": [
+                  {
+                    "input": "Goal 1",
+                    "version": "2019-2024",
+                    "note": "Secure and Resilient Systems"
+                  },
+                  {
+                    "input": "Goal 2",
+                    "version": "2019-2024",
+                    "note": "An Innovative and Adaptive Cyber Ecosystem"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -280,15 +327,38 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2010-2015",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ctn-pln-cbr-scrt/index-en.aspx",
-                "note": "Action Plan 2010-2015 for Canada's Cyber Security Strategy"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ 1|Pillar\\ 2|Pillar\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar 1",
+                  "Pillar 2",
+                  "Pillar 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-action-plan/2010-2015).",
+                "examples": [
+                  {
+                    "input": "Pillar 1",
+                    "version": "2010-2015",
+                    "note": "Securing Government systems"
+                  },
+                  {
+                    "input": "Pillar 3",
+                    "version": "2010-2015",
+                    "note": "Helping Canadians to be secure online"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -352,6 +422,34 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:Goal\\ 1|Goal\\ 2|Goal\\ 3|Annex\\ A|Annex\\ B)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Goal 1",
+              "Goal 2",
+              "Goal 3",
+              "Annex A",
+              "Annex B"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy-mid-term-review/2022).",
+            "examples": [
+              {
+                "input": "Goal 1",
+                "note": "Secure and Resilient Canadian Systems"
+              },
+              {
+                "input": "Goal 2",
+                "note": "An Innovative and Adaptive Cyber Ecosystem"
+              }
+            ]
+          }
         }
       ]
     },
@@ -405,7 +503,10 @@
         "examples": [
           "national-cyber-security-strategy-evaluation@2022",
           "national-cyber-security-strategy-evaluation@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -423,15 +524,58 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-vtn-ntnl-cbr-strtgy/index-en.aspx",
-                "note": "Mid-Term Evaluation of the National Cyber Security Strategy (2022)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|2|2\\.1|2\\.2|3|3\\.1|3\\.1\\.1|3\\.2|3\\.2\\.1|3\\.2\\.2|3\\.2\\.2\\.1|3\\.2\\.2\\.2|3\\.2\\.2\\.3|3\\.2\\.3|3\\.2\\.4|3\\.3|3\\.3\\.1|4|5|6|Annex\\ A|Annex\\ B)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "3",
+                  "3.1",
+                  "3.1.1",
+                  "3.2",
+                  "3.2.1",
+                  "3.2.2",
+                  "3.2.2.1",
+                  "3.2.2.2",
+                  "3.2.2.3",
+                  "3.2.3",
+                  "3.2.4",
+                  "3.3",
+                  "3.3.1",
+                  "4",
+                  "5",
+                  "6",
+                  "Annex A",
+                  "Annex B"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy-evaluation/2022).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2022",
+                    "note": "Background"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2022",
+                    "note": "PS NCSS Initiatives"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -448,15 +592,59 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/vltn-cnd-scrt-strtg/index-en.aspx",
-                "note": "Horizontal Evaluation of Canada's Cyber Security Strategy (2017)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|3\\.1\\.1|3\\.1\\.2|3\\.1\\.3|3\\.1\\.4|3\\.1\\.5|3\\.2|3\\.3|3\\.3\\.1|3\\.3\\.2|3\\.3\\.3|4|5|6|Annex\\ A|Annex\\ B)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "3",
+                  "3.1",
+                  "3.1.1",
+                  "3.1.2",
+                  "3.1.3",
+                  "3.1.4",
+                  "3.1.5",
+                  "3.2",
+                  "3.3",
+                  "3.3.1",
+                  "3.3.2",
+                  "3.3.3",
+                  "4",
+                  "5",
+                  "6",
+                  "Annex A",
+                  "Annex B"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy-evaluation/2017).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2017",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2017",
+                    "note": "Horizontal Governance and Oversight"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -485,7 +673,35 @@
         "examples": [
           "cyber-review-consultations-report-2017"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Appendix\\ A|Appendix\\ B|Appendix\\ C)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Appendix A",
+              "Appendix B",
+              "Appendix C"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/cyber-review-consultations-report-2017).",
+            "examples": [
+              {
+                "input": "Appendix A",
+                "note": "Snapshot of Responses"
+              },
+              {
+                "input": "Appendix B",
+                "note": "Stakeholder insights"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -495,7 +711,9 @@
       "description": "Federal Cyber Incident Response Plan",
       "weight": 95,
       "data": {
-        "subtype": ["strategy"],
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "Federal Cyber Incident Response Plan",
         "common_name": "FCIRP",
         "alternate_names": [
@@ -544,6 +762,62 @@
                 "input": "2023",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx",
                 "note": "Federal Cyber Incident Response Plan (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|3\\.3|3\\.4|4|4\\.1|4\\.2|4\\.3|5|6|6\\.1|6\\.2|6\\.3|6\\.4|Appendix\\ A|Appendix\\ B|Appendix\\ C|Appendix\\ D|Appendix\\ E|Appendix\\ F|Appendix\\ G)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "1.4",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "2.5",
+              "3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5",
+              "6",
+              "6.1",
+              "6.2",
+              "6.3",
+              "6.4",
+              "Appendix A",
+              "Appendix B",
+              "Appendix C",
+              "Appendix D",
+              "Appendix E",
+              "Appendix F",
+              "Appendix G"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/federal-cyber-incident-response-plan/2023).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Preamble"
+              },
+              {
+                "input": "1.1",
+                "note": "About this document"
               }
             ]
           }
@@ -609,6 +883,37 @@
                 "input": "2009",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx",
                 "note": "National Strategy for Critical Infrastructure (2009)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-strategy-critical-infrastructure/2009).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Purpose"
+              },
+              {
+                "input": "2",
+                "note": "Strategic objectives"
               }
             ]
           }
@@ -688,7 +993,10 @@
         "examples": [
           "action-plan-critical-infrastructure@2021-2023",
           "action-plan-critical-infrastructure@2018-2020"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -706,15 +1014,53 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021-2023",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2021-ctn-pln-crtcl-nfrstrctr/index-en.aspx",
-                "note": "Action Plan for Critical Infrastructure (2021-2023)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|6|7|8|9|10|11|12|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D|Annex\\ E|Annex\\ F)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C",
+                  "Annex D",
+                  "Annex E",
+                  "Annex F"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure/2021-2023).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2021-2023",
+                    "note": "Address cross-sector issues through multi-sector meetings"
+                  },
+                  {
+                    "input": "3",
+                    "version": "2021-2023",
+                    "note": "Continuing collaboration with Lead Federal Departments (LFDs)"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -731,15 +1077,58 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018-2020",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2018-20/index-en.aspx",
-                "note": "Action Plan for Critical Infrastructure (2018-2020)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D|Annex\\ E|Annex\\ F)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "14",
+                  "15",
+                  "16",
+                  "17",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C",
+                  "Annex D",
+                  "Annex E",
+                  "Annex F"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure/2018-2020).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2018-2020",
+                    "note": "Address cross-sector issues through multi-sector meetings"
+                  },
+                  {
+                    "input": "3",
+                    "version": "2018-2020",
+                    "note": "Ongoing collaboration with LFDs"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -756,15 +1145,43 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2014-2017",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr-2014-17/index-en.aspx",
-                "note": "Action Plan for Critical Infrastructure (2014-2017)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|3|Annex\\ C|Annex\\ F)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "Annex C",
+                  "Annex F"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure/2014-2017).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2014-2017",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2014-2017",
+                    "note": "A Renewed Action Plan (2014-2017)"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -781,15 +1198,35 @@
                 "type": "website",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx"
               }
-            ],
-            "examples": [
-              {
-                "input": "2010",
-                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/archive-pln-crtcl-nfrstrctr/index-en.aspx",
-                "note": "Action Plan for Critical Infrastructure (2010)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|3|Annex\\ A)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "Annex A"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure/2010).",
+                "examples": [
+                  "1",
+                  "2.2",
+                  "Annex A"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -818,7 +1255,34 @@
         "examples": [
           "critical-infrastructure-consultation-report-2022"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Objective\\ 1\\ I|Objective\\ 1\\ II|Objective\\ 2\\ I|Objective\\ 2\\ II|Objective\\ 3\\ I|Objective\\ 3\\ II|Objective\\ 3\\ III)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Objective 1 I",
+              "Objective 1 II",
+              "Objective 2 I",
+              "Objective 2 II",
+              "Objective 3 I",
+              "Objective 3 II",
+              "Objective 3 III"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/critical-infrastructure-consultation-report-2022).",
+            "examples": [
+              "Objective 1 I",
+              "Objective 2 II",
+              "Objective 3 III"
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -879,6 +1343,32 @@
                 "input": "2012",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/rslnc-gnst-trrrsm/index-en.aspx",
                 "note": "Building Resilience Against Terrorism: Canada's Counter-terrorism Strategy (2012)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:Annex\\ A|Annex\\ B|Annex\\ D)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Annex A",
+              "Annex B",
+              "Annex D"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/counter-terrorism-strategy/2012).",
+            "examples": [
+              {
+                "input": "Annex A",
+                "note": "Roles and Responsibilities Relating to Counter-terrorism"
+              },
+              {
+                "input": "Annex B",
+                "note": "Counter-terrorism Legal Framework"
               }
             ]
           }
@@ -948,7 +1438,9 @@
       "description": "National Security Transparency Advisory Group (NS-TAG) Reports",
       "weight": 90,
       "data": {
-        "subtype": ["strategy"],
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Security Transparency Advisory Group Reports",
         "common_name": "NS-TAG Reports",
         "alternate_names": [
@@ -968,8 +1460,177 @@
         ],
         "examples": [
           "nstag-reports"
-        ]
-      }
+        ],
+        "version_required": true,
+        "versions_available": [
+          {
+            "version": "2024",
+            "release_date": "2024-03-01",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx",
+            "note": "Third Report (2024) — The Digitization of National Security: Technology, Transparency & Trust"
+          },
+          {
+            "version": "2022",
+            "release_date": "2022-05-12",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-nsiirc-isnrccr/index-en.aspx",
+            "note": "Second Report (2022) — How National Security and Intelligence Institutions Engage with Racialized Communities"
+          }
+        ],
+        "version_disambiguation": "Specify report year (@2024 for Digitization of National Security, @2022 for Engagement with Racialized Communities)."
+      },
+      "children": [
+        {
+          "patterns": [
+            "^2024$"
+          ],
+          "description": "Third Report (2024) — The Digitization of National Security: Technology, Transparency & Trust",
+          "weight": 100,
+          "data": {
+            "type": "version",
+            "official_name": "The Digitization of National Security: Technology, Transparency & Trust (2024)",
+            "release_date": "2024-03-01",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx",
+                "note": "Primary official publication — NS-TAG 2024 Digitization of National Security Report"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports.md",
+                "note": "CSA public dataset extraction (Markdown)"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports-sections.json",
+                "note": "CSA public dataset extracted sections index (JSON)"
+              }
+            ]
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|Recommendation\\ 1|Recommendation\\ 2|Recommendation\\ 3|Recommendation\\ 4|Recommendation\\ 5|Recommendation\\ 6|Recommendation\\ 7|Recommendation\\ 8|Recommendation\\ 9|Recommendation\\ 10|Recommendation\\ 11|Recommendation\\ 12|Recommendation\\ 13|Recommendation\\ 14|Recommendation\\ 15|Recommendation\\ 16|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D)$"
+              ],
+              "description": "Section, recommendation, or annex identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "3",
+                  "Recommendation 1",
+                  "Recommendation 2",
+                  "Recommendation 3",
+                  "Recommendation 4",
+                  "Recommendation 5",
+                  "Recommendation 6",
+                  "Recommendation 7",
+                  "Recommendation 8",
+                  "Recommendation 9",
+                  "Recommendation 10",
+                  "Recommendation 11",
+                  "Recommendation 12",
+                  "Recommendation 13",
+                  "Recommendation 14",
+                  "Recommendation 15",
+                  "Recommendation 16",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C",
+                  "Annex D"
+                ],
+                "note": "Extracted section/heading identifiers for the 2024 NS-TAG digitization report in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
+                "examples": [
+                  "1",
+                  "Recommendation 2",
+                  "Annex D"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Second Report (2022) — How National Security and Intelligence Institutions Engage with Racialized Communities",
+          "weight": 95,
+          "data": {
+            "type": "version",
+            "official_name": "How National Security and Intelligence Institutions Engage with Racialized Communities (2022)",
+            "release_date": "2022-05-12",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-nsiirc-isnrccr/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-nsiirc-isnrccr/index-en.aspx",
+                "note": "Primary official publication — NS-TAG 2022 Racialized Communities Report"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports.md",
+                "note": "CSA public dataset extraction (Markdown)"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports-sections.json",
+                "note": "CSA public dataset extracted sections index (JSON)"
+              }
+            ]
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|Annex\\ A|Annex\\ B|Annex\\ C)$"
+              ],
+              "description": "Section or annex identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "4.5",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C"
+                ],
+                "note": "Extracted section/heading identifiers for the 2022 NS-TAG racialized-communities report in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
+                "examples": [
+                  "1",
+                  "2.1",
+                  "Annex A"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
   "tags": {
