@@ -160,6 +160,31 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:4|5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "4",
+              "5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/smartnation.gov.sg/national-ai-strategy).",
+            "examples": [
+              {
+                "input": "4",
+                "note": "PERSONALISED EDUCATION THROUGH ADAPTIVE LEARNING AND ASSESSMENT Challenge Objective"
+              },
+              {
+                "input": "5",
+                "note": "BORDER CLEARANCE OPERATIONS Challenge Objective"
+              }
+            ]
+          }
         }
       ]
     }

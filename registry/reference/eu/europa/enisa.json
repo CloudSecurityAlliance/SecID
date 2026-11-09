@@ -30,7 +30,9 @@
       "description": "ENISA Glossary of Terms",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "ENISA Glossary of Terms",
         "common_name": null,
         "alternate_names": null,
@@ -131,6 +133,47 @@
                 "input": "2020",
                 "url": "https://www.enisa.europa.eu/publications/national-capabilities-assessment-framework",
                 "note": "ENISA National Capabilities Assessment Framework (2020)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1\\.1|1\\.2|1\\.3|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|4\\.1|4\\.2|annex\\-A|annex\\-B|annex\\-C)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1.1",
+              "1.2",
+              "1.3",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "2.5",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "3.5",
+              "4.1",
+              "4.2",
+              "annex-A",
+              "annex-B",
+              "annex-C"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/enisa.europa.eu/ncaf).",
+            "examples": [
+              {
+                "input": "1.1",
+                "note": "STUDY SCOPE AND OBJECTIVES"
+              },
+              {
+                "input": "1.2",
+                "note": "METHODOLOGICAL APPROACH"
               }
             ]
           }
@@ -236,6 +279,66 @@
                 "input": "2012",
                 "url": "https://www.enisa.europa.eu/publications/national-cyber-security-strategies-an-implementation-guide",
                 "note": "ENISA NCSS Implementation Guide (2012)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|1\\.5|2|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|3\\.7|3\\.8|3\\.9|3\\.10|3\\.11|3\\.12|3\\.13|3\\.14|3\\.15|3\\.16|3\\.17|3\\.18|4|4\\.1|4\\.2|5|annex\\-I|annex\\-II|6|6\\.3\\.1|6\\.3\\.2|6\\.3\\.3|7)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "1.4",
+              "1.5",
+              "2",
+              "3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "3.5",
+              "3.6",
+              "3.7",
+              "3.8",
+              "3.9",
+              "3.10",
+              "3.11",
+              "3.12",
+              "3.13",
+              "3.14",
+              "3.15",
+              "3.16",
+              "3.17",
+              "3.18",
+              "4",
+              "4.1",
+              "4.2",
+              "5",
+              "annex-I",
+              "annex-II",
+              "6",
+              "6.3.1",
+              "6.3.2",
+              "6.3.3",
+              "7"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/enisa.europa.eu/ncss-good-practice-guide).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "1.1",
+                "note": "The European policy context"
               }
             ]
           }

@@ -81,6 +81,7 @@
           "description": "Australian National Defence Strategy & Defence Strategic Review (2024)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.defence.gov.au/about/strategic-planning/2024-national-defence-strategy-2024-integrated-investment-program",
             "examples": [
               {
@@ -99,6 +100,7 @@
           "description": "Australian National Defence Strategy & Defence Strategic Review (2023)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.defence.gov.au/about/reviews-inquiries/defence-strategic-review",
             "examples": [
               {
@@ -117,6 +119,7 @@
           "description": "Australian National Defence Strategy & Defence Strategic Review (2020)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.defence.gov.au/about/strategic-planning/2020-defence-strategic-update",
             "examples": [
               {
@@ -125,6 +128,68 @@
               }
             ],
             "name": "2020 Defence Strategic Update"
+          }
+        },
+        {
+          "patterns": [
+            "^(?:3\\.3|1\\.19|2\\.5|3\\.10|6\\.5|8\\.29|8\\.41|8\\.63|10|10\\.11|10\\.39|11|12|13|14|chapter\\-1|chapter\\-2|chapter\\-3|3\\.5|3\\.7|chapter\\-4|chapter\\-5|chapter\\-6|6\\.8|6\\.15|chapter\\-7|7\\.8|7\\.21|chapter\\-8|8\\.7|8\\.12|8\\.14|8\\.19|8\\.20|chapter\\-9|chapter\\-10|10\\.4|chapter\\-11|11\\.8)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3.3",
+              "1.19",
+              "2.5",
+              "3.10",
+              "6.5",
+              "8.29",
+              "8.41",
+              "8.63",
+              "10",
+              "10.11",
+              "10.39",
+              "11",
+              "12",
+              "13",
+              "14",
+              "chapter-1",
+              "chapter-2",
+              "chapter-3",
+              "3.5",
+              "3.7",
+              "chapter-4",
+              "chapter-5",
+              "chapter-6",
+              "6.8",
+              "6.15",
+              "chapter-7",
+              "7.8",
+              "7.21",
+              "chapter-8",
+              "8.7",
+              "8.12",
+              "8.14",
+              "8.19",
+              "8.20",
+              "chapter-9",
+              "chapter-10",
+              "10.4",
+              "chapter-11",
+              "11.8"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/defence.gov.au/national-defence-strategy).",
+            "examples": [
+              {
+                "input": "3.3",
+                "note": "The Government’s plans include:"
+              },
+              {
+                "input": "1.19",
+                "note": "Instead of a 10-year warning time, the Review has identified three distinct time periods for Defence planning:"
+              }
+            ]
           }
         }
       ]

@@ -177,6 +177,36 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:capitulo\\-2|capitulo\\-5|capitulo\\-1|capitulo\\-3|capitulo\\-4|I|capitulo\\-6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "capitulo-2",
+              "capitulo-5",
+              "capitulo-1",
+              "capitulo-3",
+              "capitulo-4",
+              "I",
+              "capitulo-6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-seguridad-nacional).",
+            "examples": [
+              {
+                "input": "capitulo-2",
+                "note": "L E"
+              },
+              {
+                "input": "capitulo-5",
+                "note": "UN NUEVO SISTEMA DE SEGURIDAD NACIONAL 53 ensa nacional 40"
+              }
+            ]
+          }
         }
       ]
     },
@@ -331,6 +361,44 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:capitulo\\-1|capitulo\\-3|capitulo\\-4|capitulo\\-5|capitulo\\-2|objetivo\\-I|objetivo\\-II|objetivo\\-III|objetivo\\-IV|objetivo\\-V|chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "capitulo-1",
+              "capitulo-3",
+              "capitulo-4",
+              "capitulo-5",
+              "capitulo-2",
+              "objetivo-I",
+              "objetivo-II",
+              "objetivo-III",
+              "objetivo-IV",
+              "objetivo-V",
+              "chapter-1",
+              "chapter-2",
+              "chapter-3",
+              "chapter-4",
+              "chapter-5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ciberseguridad).",
+            "examples": [
+              {
+                "input": "capitulo-1",
+                "note": "El ciberespacio y su seguridad"
+              },
+              {
+                "input": "capitulo-3",
+                "note": "Objetivos de la ciberseguridad"
+              }
+            ]
+          }
         }
       ]
     },
@@ -434,6 +502,64 @@
                 "input": "2020",
                 "url": "https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/ENIA2B.pdf",
                 "note": "Spanish National AI Strategy (2020)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:III|IV|1|2|8|9|3|15|4|5|25|V\\.1|V\\.2|1\\.1|1\\.2|1\\.3|2\\.1|2\\.2|2\\.3|3\\.1|3\\.2|3\\.3|3\\.4|4\\.1|4\\.2|5\\.1|5\\.2|5\\.3|6\\.1|6\\.2|6\\.3|7\\.1|7\\.2|8\\.1|8\\.3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "III",
+              "IV",
+              "1",
+              "2",
+              "8",
+              "9",
+              "3",
+              "15",
+              "4",
+              "5",
+              "25",
+              "V.1",
+              "V.2",
+              "1.1",
+              "1.2",
+              "1.3",
+              "2.1",
+              "2.2",
+              "2.3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "4.1",
+              "4.2",
+              "5.1",
+              "5.2",
+              "5.3",
+              "6.1",
+              "6.2",
+              "6.3",
+              "7.1",
+              "7.2",
+              "8.1",
+              "8.3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ia).",
+            "examples": [
+              {
+                "input": "III",
+                "note": "PLAN DE ACCIÓN"
+              },
+              {
+                "input": "IV",
+                "note": "RESUMEN DE MEDIDAS"
               }
             ]
           }

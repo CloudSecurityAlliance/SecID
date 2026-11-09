@@ -170,6 +170,108 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:3\\.4|3\\.5|4\\.1|4\\.2|2\\.2\\.1|2\\.2\\.2|5\\.1|5\\.2|5\\.3|5\\.4|1\\.1|1\\.2|1\\.4|1\\.5|2\\.1|2\\.2|2\\.3|2\\.4|1\\.1\\.2|2\\.5|2\\.6|1\\.1\\.1|1\\.3|1\\.1\\.4|1\\.1\\.5|4|5|1\\.1\\.3|1\\.4\\.1|53|1\\.5\\.1|1\\.5\\.2|1\\.5\\.3|1\\.6\\.1|1\\.6\\.2|1\\.6\\.3|1\\.6\\.4|1\\.6\\.5|3\\.1|3\\.2|3\\.3|6|7|1\\.6|1\\.7|1\\.8|1\\.9|2\\.1\\.1|2\\.1\\.2|2\\.1\\.2\\.1|2\\.1\\.2\\.2|2\\.1\\.2\\.3|2\\.1\\.2\\.4|2\\.1\\.2\\.5|2\\.1\\.3|2\\.1\\.4|1\\.2\\.1|1\\.2\\.2|1\\.2\\.3|1\\.2\\.4|1\\.3\\.1|1\\.3\\.2|1\\.3\\.3|1\\.3\\.4|1\\.3\\.5|2\\.3\\.1|2\\.3\\.2|2\\.4\\.1|2\\.4\\.2|2\\.4\\.3|2\\.4\\.4|2\\.4\\.5|3\\.3\\.1|3\\.2\\.1|3\\.2\\.2|3\\.2\\.3|3\\.2\\.4|3\\.2\\.5|3\\.3\\.3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3.4",
+              "3.5",
+              "4.1",
+              "4.2",
+              "2.2.1",
+              "2.2.2",
+              "5.1",
+              "5.2",
+              "5.3",
+              "5.4",
+              "1.1",
+              "1.2",
+              "1.4",
+              "1.5",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "1.1.2",
+              "2.5",
+              "2.6",
+              "1.1.1",
+              "1.3",
+              "1.1.4",
+              "1.1.5",
+              "4",
+              "5",
+              "1.1.3",
+              "1.4.1",
+              "53",
+              "1.5.1",
+              "1.5.2",
+              "1.5.3",
+              "1.6.1",
+              "1.6.2",
+              "1.6.3",
+              "1.6.4",
+              "1.6.5",
+              "3.1",
+              "3.2",
+              "3.3",
+              "6",
+              "7",
+              "1.6",
+              "1.7",
+              "1.8",
+              "1.9",
+              "2.1.1",
+              "2.1.2",
+              "2.1.2.1",
+              "2.1.2.2",
+              "2.1.2.3",
+              "2.1.2.4",
+              "2.1.2.5",
+              "2.1.3",
+              "2.1.4",
+              "1.2.1",
+              "1.2.2",
+              "1.2.3",
+              "1.2.4",
+              "1.3.1",
+              "1.3.2",
+              "1.3.3",
+              "1.3.4",
+              "1.3.5",
+              "2.3.1",
+              "2.3.2",
+              "2.4.1",
+              "2.4.2",
+              "2.4.3",
+              "2.4.4",
+              "2.4.5",
+              "3.3.1",
+              "3.2.1",
+              "3.2.2",
+              "3.2.3",
+              "3.2.4",
+              "3.2.5",
+              "3.3.3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique).",
+            "examples": [
+              {
+                "input": "3.4",
+                "note": "Rivalités énergétiques"
+              },
+              {
+                "input": "3.5",
+                "note": "Criminalité organisée"
+              }
+            ]
+          }
         }
       ]
     },
@@ -315,6 +417,43 @@
                 "input": "2015",
                 "url": "https://cyber.gouv.fr/",
                 "note": "Stratégie nationale pour la sécurité du numérique (2015)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-5|objective\\-1|objective\\-2|objective\\-3|objective\\-4|objective\\-5|objective\\-6|objective\\-7|objective\\-8|objective\\-10|objective\\-11|objective\\-12|objective\\-13|objective\\-14)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-5",
+              "objective-1",
+              "objective-2",
+              "objective-3",
+              "objective-4",
+              "objective-5",
+              "objective-6",
+              "objective-7",
+              "objective-8",
+              "objective-10",
+              "objective-11",
+              "objective-12",
+              "objective-13",
+              "objective-14"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/strategie-nationale-securite-numerique).",
+            "examples": [
+              {
+                "input": "pillar-5",
+                "note": "| SUPPORTING THE SECURITY AND STABILITY OF CYBERSPACE IN EUROPE AND INTERNATIONALLY"
+              },
+              {
+                "input": "objective-1",
+                "note": "Develop an inclusive culture of cybersecurity from an early age"
               }
             ]
           }

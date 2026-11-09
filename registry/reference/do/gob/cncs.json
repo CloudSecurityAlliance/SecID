@@ -150,6 +150,35 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:articulo\\-1|articulo\\-2|articulo\\-3|articulo\\-4|articulo\\-5|articulo\\-6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "articulo-1",
+              "articulo-2",
+              "articulo-3",
+              "articulo-4",
+              "articulo-5",
+              "articulo-6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ciberseguridad).",
+            "examples": [
+              {
+                "input": "articulo-1",
+                "note": "Objeto y vigencia de la Estrategia Nacional de Ciberseguridad 2030. Se"
+              },
+              {
+                "input": "articulo-2",
+                "note": "Misión de la Estrategia Nacional de Ciberseguridad 2030. La Estrategia"
+              }
+            ]
+          }
         }
       ]
     },
@@ -214,6 +243,94 @@
                 "input": "2023",
                 "url": "https://agendadigital.gob.do/wp-content/uploads/2023/10/Final_ENIA-Estrategia-Nacional-de-Inteligencia-Artificial-de-la-Republica-Dominicana-.pdf",
                 "note": "Dominican Republic National AI Strategy (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:01|04|1\\.1\\.1|1\\.2\\.2|1\\.2\\.4|1\\.2\\.5|1\\.3\\.1|1\\.3\\.2|1\\.3\\.4|15|1\\.3\\.5|2\\.1\\.1|2\\.1\\.2|2\\.1\\.4|2\\.1\\.5|2\\.1\\.6|2\\.1\\.7|2\\.2\\.1|2\\.2\\.2|3\\.1\\.1|3\\.1\\.2|4\\.1\\.2|4\\.2\\.1|4\\.2\\.4|4\\.2\\.5|4\\.3\\.2|4\\.4\\.1|5\\.1\\.1|5\\.1\\.3|5\\.2\\.1|5\\.2\\.2|5\\.2\\.3|5\\.3\\.1|5\\.3\\.2|6\\.1\\.1|6\\.1\\.2|7\\.1\\.1|7\\.1\\.2|7\\.1\\.3|7\\.1\\.4|7\\.1\\.5|7\\.1\\.6|7\\.2\\.1|98\\.0|90\\.00|7\\.00|17\\.9|36\\.7|3\\.0|3\\.7|2\\.0|50\\.4|12|14|16|18|26|34|7\\.50|24|10\\.0|1\\.0|15\\.0|4\\.0|13\\.0)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "01",
+              "04",
+              "1.1.1",
+              "1.2.2",
+              "1.2.4",
+              "1.2.5",
+              "1.3.1",
+              "1.3.2",
+              "1.3.4",
+              "15",
+              "1.3.5",
+              "2.1.1",
+              "2.1.2",
+              "2.1.4",
+              "2.1.5",
+              "2.1.6",
+              "2.1.7",
+              "2.2.1",
+              "2.2.2",
+              "3.1.1",
+              "3.1.2",
+              "4.1.2",
+              "4.2.1",
+              "4.2.4",
+              "4.2.5",
+              "4.3.2",
+              "4.4.1",
+              "5.1.1",
+              "5.1.3",
+              "5.2.1",
+              "5.2.2",
+              "5.2.3",
+              "5.3.1",
+              "5.3.2",
+              "6.1.1",
+              "6.1.2",
+              "7.1.1",
+              "7.1.2",
+              "7.1.3",
+              "7.1.4",
+              "7.1.5",
+              "7.1.6",
+              "7.2.1",
+              "98.0",
+              "90.00",
+              "7.00",
+              "17.9",
+              "36.7",
+              "3.0",
+              "3.7",
+              "2.0",
+              "50.4",
+              "12",
+              "14",
+              "16",
+              "18",
+              "26",
+              "34",
+              "7.50",
+              "24",
+              "10.0",
+              "1.0",
+              "15.0",
+              "4.0",
+              "13.0"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ia).",
+            "examples": [
+              {
+                "input": "01",
+                "note": "Desarrollar la Industria 4.0 con un enfoque inspirado en misiones"
+              },
+              {
+                "input": "04",
+                "note": "HUB de Talento Humano e"
               }
             ]
           }

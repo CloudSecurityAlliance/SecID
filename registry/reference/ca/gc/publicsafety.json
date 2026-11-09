@@ -185,6 +185,41 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-1|objective\\-1\\.1|objective\\-1\\.2|objective\\-1\\.3|pillar\\-2|objective\\-2\\.1|objective\\-2\\.2|objective\\-2\\.3|pillar\\-3|objective\\-3\\.1|objective\\-3\\.2|objective\\-3\\.3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-1",
+              "objective-1.1",
+              "objective-1.2",
+              "objective-1.3",
+              "pillar-2",
+              "objective-2.1",
+              "objective-2.2",
+              "objective-2.3",
+              "pillar-3",
+              "objective-3.1",
+              "objective-3.2",
+              "objective-3.3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy).",
+            "examples": [
+              {
+                "input": "pillar-1",
+                "note": "Work with Partners to Protect Canadians and Canadian Businesses from Cyber Threats"
+              },
+              {
+                "input": "objective-1.1",
+                "note": "Forge Whole-of-Society Partnerships"
+              }
+            ]
+          }
         }
       ]
     },
@@ -289,6 +324,32 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-1|pillar\\-2|pillar\\-3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-1",
+              "pillar-2",
+              "pillar-3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-action-plan).",
+            "examples": [
+              {
+                "input": "pillar-1",
+                "note": "Securing Government systems"
+              },
+              {
+                "input": "pillar-2",
+                "note": "Partnering to secure vital cyber systems outside the federal Government"
+              }
+            ]
+          }
         }
       ]
     },
@@ -349,6 +410,36 @@
                 "input": "2022",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/ntnl-cbr-scrt-strtg-2019-md-trm/index-en.aspx",
                 "note": "NCSS Mid-term Review Report (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:annex\\-A|annex\\-B|1|2|3|4|5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "annex-A",
+              "annex-B",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy-mid-term-review).",
+            "examples": [
+              {
+                "input": "annex-A",
+                "note": "Glossary"
+              },
+              {
+                "input": "annex-B",
+                "note": "The Cyber Threat Landscape"
               }
             ]
           }
@@ -457,6 +548,60 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\.1|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|3\\.1\\.1|3\\.1\\.2|3\\.1\\.3|3\\.1\\.4|3\\.1\\.5|3\\.2|3\\.3|3\\.3\\.1|3\\.3\\.2|3\\.3\\.3|4|5|6|annex\\-A|annex\\-B|3\\.2\\.1|3\\.2\\.2|3\\.2\\.2\\.1|3\\.2\\.2\\.2|3\\.2\\.2\\.3|3\\.2\\.3|3\\.2\\.4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "3",
+              "3.1",
+              "3.1.1",
+              "3.1.2",
+              "3.1.3",
+              "3.1.4",
+              "3.1.5",
+              "3.2",
+              "3.3",
+              "3.3.1",
+              "3.3.2",
+              "3.3.3",
+              "4",
+              "5",
+              "6",
+              "annex-A",
+              "annex-B",
+              "3.2.1",
+              "3.2.2",
+              "3.2.2.1",
+              "3.2.2.2",
+              "3.2.2.3",
+              "3.2.3",
+              "3.2.4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-cyber-security-strategy-evaluation).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "1.1",
+                "note": "Horizontal Governance and Oversight"
+              }
+            ]
+          }
         }
       ]
     },
@@ -485,7 +630,35 @@
         "examples": [
           "cyber-review-consultations-report-2017"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:appendix\\-A|appendix\\-B|appendix\\-C)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "appendix-A",
+              "appendix-B",
+              "appendix-C"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/cyber-review-consultations-report-2017).",
+            "examples": [
+              {
+                "input": "appendix-A",
+                "note": "Snapshot of Responses"
+              },
+              {
+                "input": "appendix-B",
+                "note": "Stakeholder insights"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -495,7 +668,9 @@
       "description": "Federal Cyber Incident Response Plan",
       "weight": 95,
       "data": {
-        "subtype": ["strategy"],
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "Federal Cyber Incident Response Plan",
         "common_name": "FCIRP",
         "alternate_names": [
@@ -544,6 +719,62 @@
                 "input": "2023",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/fdrl-cbr-ncdnt-rspns-pln-2023/index-en.aspx",
                 "note": "Federal Cyber Incident Response Plan (2023)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|3\\.3|3\\.4|4|4\\.1|4\\.2|4\\.3|5|6|6\\.1|6\\.2|6\\.3|6\\.4|appendix\\-A|appendix\\-B|appendix\\-C|appendix\\-D|appendix\\-E|appendix\\-F|appendix\\-G)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "1.4",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "2.5",
+              "3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5",
+              "6",
+              "6.1",
+              "6.2",
+              "6.3",
+              "6.4",
+              "appendix-A",
+              "appendix-B",
+              "appendix-C",
+              "appendix-D",
+              "appendix-E",
+              "appendix-F",
+              "appendix-G"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/federal-cyber-incident-response-plan).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Preamble"
+              },
+              {
+                "input": "1.1",
+                "note": "About this document"
               }
             ]
           }
@@ -609,6 +840,37 @@
                 "input": "2009",
                 "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/srtg-crtcl-nfrstrctr/index-en.aspx",
                 "note": "National Strategy for Critical Infrastructure (2009)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-strategy-critical-infrastructure).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Purpose"
+              },
+              {
+                "input": "2",
+                "note": "Strategic objectives"
               }
             ]
           }
@@ -790,6 +1052,55 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|2\\.1|2\\.2|2\\.3|3|annex\\-A|annex\\-B|annex\\-C|annex\\-D|annex\\-E|annex\\-F|4|5|6|7|8|9|10|11|12|13|14|15|16|17)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "3",
+              "annex-A",
+              "annex-B",
+              "annex-C",
+              "annex-D",
+              "annex-E",
+              "annex-F",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "2",
+                "note": "Action Plan"
+              }
+            ]
+          }
         }
       ]
     },
@@ -882,6 +1193,32 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:annex\\-A|annex\\-B|annex\\-D)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "annex-A",
+              "annex-B",
+              "annex-D"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/counter-terrorism-strategy).",
+            "examples": [
+              {
+                "input": "annex-A",
+                "note": "Roles and Responsibilities Relating to Counter-terrorism"
+              },
+              {
+                "input": "annex-B",
+                "note": "Counter-terrorism Legal Framework"
+              }
+            ]
+          }
         }
       ]
     },
@@ -938,7 +1275,29 @@
         "examples": [
           "national-security-consultations-report-2017"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:appendix\\-A)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "appendix-A"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/national-security-consultations-report-2017).",
+            "examples": [
+              {
+                "input": "appendix-A",
+                "note": "Appendix A"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -948,7 +1307,9 @@
       "description": "National Security Transparency Advisory Group (NS-TAG) Reports",
       "weight": 90,
       "data": {
-        "subtype": ["strategy"],
+        "subtype": [
+          "strategy"
+        ],
         "official_name": "National Security Transparency Advisory Group Reports",
         "common_name": "NS-TAG Reports",
         "alternate_names": [
@@ -969,7 +1330,54 @@
         "examples": [
           "nstag-reports"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1\\.1|1\\.2|2\\.2\\.1|2\\.2\\.2|2\\.2\\.3|2\\.4|2\\.5|annex\\-D|1|2|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|annex\\-A|annex\\-B|annex\\-C)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1.1",
+              "1.2",
+              "2.2.1",
+              "2.2.2",
+              "2.2.3",
+              "2.4",
+              "2.5",
+              "annex-D",
+              "1",
+              "2",
+              "3",
+              "3.1",
+              "3.2",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4",
+              "4.5",
+              "annex-A",
+              "annex-B",
+              "annex-C"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
+            "examples": [
+              {
+                "input": "1.1",
+                "note": "Public trust and government response"
+              },
+              {
+                "input": "1.2",
+                "note": "Openness on digitization"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -56,6 +56,7 @@
           "description": "Resolution on the National Security Strategy of the Republic of Slovenia (ReSNV-2) (2019)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.gov.si/en/topics/national-security/",
             "examples": [
               {
@@ -101,11 +102,61 @@
           "description": "Cyber Security Strategy of the Republic of Slovenia (2016)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.gov.si/en/topics/cyber-security/",
             "examples": [
               {
                 "input": "2016",
                 "url": "https://www.gov.si/en/topics/cyber-security/"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|5|6|7|7\\.1|7\\.2|7\\.3|8|8\\.1|8\\.2|8\\.3|8\\.4|8\\.5|8\\.6|8\\.7|8\\.8|9)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4",
+              "4.5",
+              "4.6",
+              "5",
+              "6",
+              "7",
+              "7.1",
+              "7.2",
+              "7.3",
+              "8",
+              "8.1",
+              "8.2",
+              "8.3",
+              "8.4",
+              "8.5",
+              "8.6",
+              "8.7",
+              "8.8",
+              "9"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.si/cyber-security-strategy-of-slovenia).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "2",
+                "note": "Analysis of the present situation"
               }
             ]
           }
@@ -153,6 +204,7 @@
           "description": "National Programme for Promoting the Development and Use of AI in the Republic of Slovenia until 2025 (NpUI) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.gov.si/en/topics/artificial-intelligence/",
             "examples": [
               {

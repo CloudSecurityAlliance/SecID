@@ -203,6 +203,35 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|appendix\\-I|appendix\\-II|appendix\\-III|appendix\\-IV)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "appendix-I",
+              "appendix-II",
+              "appendix-III",
+              "appendix-IV"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/meity.gov.in/national-ai-strategy).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Workforce"
+              },
+              {
+                "input": "2",
+                "note": "Students"
+              }
+            ]
+          }
         }
       ]
     }

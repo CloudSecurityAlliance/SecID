@@ -195,6 +195,40 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:appendix\\-A|10|11|13|14|15|16|17|19|4|5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "appendix-A",
+              "10",
+              "11",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "19",
+              "4",
+              "5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/homeaffairs.gov.au/cyber-security-strategy).",
+            "examples": [
+              {
+                "input": "appendix-A",
+                "note": "Cyber Security Strategy 2020 Funding Commitments Measure Expenditure Cyber Enhanced Situational Awareness and Response"
+              },
+              {
+                "input": "10",
+                "note": "Promote the safe use of emerging technology"
+              }
+            ]
+          }
         }
       ]
     },
@@ -298,6 +332,50 @@
                 "input": "2023-2025",
                 "url": "https://www.homeaffairs.gov.au/about-us/our-portfolios/cyber-security/strategy/2023-2030-australian-cyber-security-strategy",
                 "note": "Horizon 1 Action Plan (2023–2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|appendix\\-A)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "appendix-A"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/homeaffairs.gov.au/cyber-security-strategy-action-plan).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Support small and medium businesses to strengthen their cyber security"
+              },
+              {
+                "input": "2",
+                "note": "Help Australians defend themselves from cyber threats"
               }
             ]
           }
@@ -434,6 +512,70 @@
                 "input": "2021",
                 "url": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence",
                 "note": "Australia's AI Action Plan (2021)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:part\\-1|part\\-2|part\\-3|1|1\\.1|1\\.2|1\\.3|2|2\\.1|2\\.2|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.3\\.2|4\\.4|4\\.5|5|5\\.1|6|6\\.1|6\\.2|7|7\\.1|8|8\\.1|8\\.1\\.3|9|9\\.1|9\\.1\\.1|9\\.2|10|10\\.1|10\\.2|10\\.3|10\\.3\\.1|10\\.4|part\\-4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "part-1",
+              "part-2",
+              "part-3",
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "2",
+              "2.1",
+              "2.2",
+              "3",
+              "3.1",
+              "3.2",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.3.2",
+              "4.4",
+              "4.5",
+              "5",
+              "5.1",
+              "6",
+              "6.1",
+              "6.2",
+              "7",
+              "7.1",
+              "8",
+              "8.1",
+              "8.1.3",
+              "9",
+              "9.1",
+              "9.1.1",
+              "9.2",
+              "10",
+              "10.1",
+              "10.2",
+              "10.3",
+              "10.3.1",
+              "10.4",
+              "part-4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/homeaffairs.gov.au/national-ai-plan).",
+            "examples": [
+              {
+                "input": "part-1",
+                "note": "Introducing the first version of Australia’s AI Safety Standard"
+              },
+              {
+                "input": "part-2",
+                "note": "Foundational concepts for the standard: risks, harms and legal context AI systems have specific characteristics that amplify risks"
               }
             ]
           }

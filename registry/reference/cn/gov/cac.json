@@ -91,6 +91,38 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:一|二|三|四|（五）|（六）|（七）|（八）|（九）)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "一",
+              "二",
+              "三",
+              "四",
+              "（五）",
+              "（六）",
+              "（七）",
+              "（八）",
+              "（九）"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/national-cyberspace-security-strategy).",
+            "examples": [
+              {
+                "input": "一",
+                "note": "机遇和挑战"
+              },
+              {
+                "input": "二",
+                "note": "目标"
+              }
+            ]
+          }
         }
       ]
     },
@@ -155,6 +187,36 @@
                 "input": "2017",
                 "url": "https://www.xinhuanet.com/politics/2017-03/01/c_1120552767.htm",
                 "note": "China International Strategy of Cooperation on Cyberspace (2017)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:第一章|第二章|第三章|第四章|七|八|九)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第二章",
+              "第三章",
+              "第四章",
+              "七",
+              "八",
+              "九"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/international-strategy-of-cooperation-on-cyberspace).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "机遇与挑战"
+              },
+              {
+                "input": "第二章",
+                "note": "基本原则"
               }
             ]
           }
@@ -229,6 +291,35 @@
                 "input": "2021-2025",
                 "url": "https://www.cac.gov.cn/2021-12/27/c_1642205312337636.htm",
                 "note": "14th Five-Year Plan for National Informatization (2021–2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:一|二|三|四|五|六)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "一",
+              "二",
+              "三",
+              "四",
+              "五",
+              "六"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/14th-five-year-plan-national-informatization).",
+            "examples": [
+              {
+                "input": "一",
+                "note": "现状与形势"
+              },
+              {
+                "input": "二",
+                "note": "总体部署"
               }
             ]
           }

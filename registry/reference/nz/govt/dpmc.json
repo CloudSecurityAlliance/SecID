@@ -95,6 +95,51 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|11|21|25|22|26|23|28|31|33|39|34|58|priority\\-1|priority\\-2|priority\\-3|64|68|70|87|91|96)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "11",
+              "21",
+              "25",
+              "22",
+              "26",
+              "23",
+              "28",
+              "31",
+              "33",
+              "39",
+              "34",
+              "58",
+              "priority-1",
+              "priority-2",
+              "priority-3",
+              "64",
+              "68",
+              "70",
+              "87",
+              "91",
+              "96"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dpmc.govt.nz/national-security-strategy).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "New Zealand is deeply engaged in our region and the world. With this connection"
+              },
+              {
+                "input": "11",
+                "note": "Our vision for national security is positive"
+              }
+            ]
+          }
         }
       ]
     },
@@ -267,6 +312,38 @@
                 "input": "2011",
                 "url": "https://www.dpmc.govt.nz/publications/new-zealands-cyber-security-strategy-2011",
                 "note": "New Zealand's Cyber Security Strategy 2011"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:appendix\\-1|3|priority\\-1|priority\\-2|priority\\-3|objective\\-1|objective\\-2|objective\\-3|objective\\-4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "appendix-1",
+              "3",
+              "priority-1",
+              "priority-2",
+              "priority-3",
+              "objective-1",
+              "objective-2",
+              "objective-3",
+              "objective-4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dpmc.govt.nz/cyber-security-strategy).",
+            "examples": [
+              {
+                "input": "appendix-1",
+                "note": "NEW ZEALAND’S CYBER SECURITY STRATEGY"
+              },
+              {
+                "input": "3",
+                "note": "Incident Response and Planning"
               }
             ]
           }

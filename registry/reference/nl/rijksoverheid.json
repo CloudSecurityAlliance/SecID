@@ -131,6 +131,35 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:4|5|7|1|2|3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "4",
+              "5",
+              "7",
+              "1",
+              "2",
+              "3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/rijksoverheid.nl/veiligheidsstrategie).",
+            "examples": [
+              {
+                "input": "4",
+                "note": "Maatschappelijke spanningen, dalend vertrouwen, desinformatie en een radicale onderstroom"
+              },
+              {
+                "input": "5",
+                "note": "Druk op de democratische rechtsorde"
+              }
+            ]
+          }
         }
       ]
     },
@@ -240,6 +269,33 @@
                 "input": "2018",
                 "url": "https://www.nctv.nl/onderwerpen/nederlandse-cybersecuritystrategie-2022-2028",
                 "note": "Nederlandse Cybersecurity Agenda (2018)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/rijksoverheid.nl/nederlandse-cybersecuritystrategie).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Maatschappelijke opgave cybersecurity"
+              },
+              {
+                "input": "2",
+                "note": "Visie: Digitale veiligheid voor iedereen een vanzelfsprekendheid"
               }
             ]
           }

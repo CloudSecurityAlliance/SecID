@@ -355,6 +355,52 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:I|II|III|IV|V|VI|part\\-I|part\\-II|part\\-III|part\\-IV|part\\-V|I\\.1|I\\.2|II\\.1|II\\.2|IV\\.1|IV\\.2|3|A|B|C|D|E)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "III",
+              "IV",
+              "V",
+              "VI",
+              "part-I",
+              "part-II",
+              "part-III",
+              "part-IV",
+              "part-V",
+              "I.1",
+              "I.2",
+              "II.1",
+              "II.2",
+              "IV.1",
+              "IV.2",
+              "3",
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-security-strategy).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "Overview of National Security Strategy"
+              },
+              {
+                "input": "II",
+                "note": "Strategic Approach"
+              }
+            ]
+          }
         }
       ]
     },
@@ -501,6 +547,44 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-I|pillar\\-II|pillar\\-III|pillar\\-IV|pillar\\-ONE|pillar\\-TWO|pillar\\-THREE|pillar\\-FOUR|pillar\\-FIVE|1|2|3|4|5|6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-I",
+              "pillar-II",
+              "pillar-III",
+              "pillar-IV",
+              "pillar-ONE",
+              "pillar-TWO",
+              "pillar-THREE",
+              "pillar-FOUR",
+              "pillar-FIVE",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy).",
+            "examples": [
+              {
+                "input": "pillar-I",
+                "note": "Protect the American People,"
+              },
+              {
+                "input": "pillar-II",
+                "note": "Promote American Prosperity"
+              }
+            ]
+          }
         }
       ]
     },
@@ -603,6 +687,34 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-One|pillar\\-Two|pillar\\-Three|pillar\\-Four|pillar\\-Five)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-One",
+              "pillar-Two",
+              "pillar-Three",
+              "pillar-Four",
+              "pillar-Five"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/national-cybersecurity-strategy-implementation-plan).",
+            "examples": [
+              {
+                "input": "pillar-One",
+                "note": "Defend Critical Infrastructure"
+              },
+              {
+                "input": "pillar-Two",
+                "note": "Disrupt and Dismantle Threat Actors"
+              }
+            ]
+          }
         }
       ]
     },
@@ -670,6 +782,32 @@
                 "input": "2025",
                 "url": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf",
                 "note": "Winning the Race: America's AI Action Plan (July 2025)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-I|pillar\\-II|pillar\\-III)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-I",
+              "pillar-II",
+              "pillar-III"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/whitehouse.gov/ai-action-plan).",
+            "examples": [
+              {
+                "input": "pillar-I",
+                "note": "Accelerate AI Innovation"
+              },
+              {
+                "input": "pillar-II",
+                "note": "Build American AI Infrastructure"
               }
             ]
           }

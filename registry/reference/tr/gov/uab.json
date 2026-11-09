@@ -68,6 +68,7 @@
           "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2024)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
             "examples": [
               {
@@ -85,6 +86,7 @@
           "description": "National Cyber Security Strategy and Action Plan of Türkiye (2024–2028) (2020)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.uab.gov.tr/ulusal-siber-guvenlik-stratejisi-ve-eylem-plani",
             "examples": [
               {
@@ -149,6 +151,7 @@
           "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2024)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://cbddo.gov.tr/uyzs",
             "examples": [
               {
@@ -166,11 +169,54 @@
           "description": "National Artificial Intelligence Strategy of Türkiye (Ulusal Yapay Zekâ Stratejisi 2021–2025 & 2024–2025 Update) (2021)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://cbddo.gov.tr/uyzs",
             "examples": [
               {
                 "input": "2021",
                 "url": "https://cbddo.gov.tr/uyzs"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:objective\\-1\\.2|objective\\-1\\.4|objective\\-2\\.1|objective\\-2\\.3|objective\\-3\\.1|objective\\-3\\.2|objective\\-3\\.4|objective\\-4\\.1|objective\\-4\\.2|objective\\-4\\.3|objective\\-4\\.4|objective\\-5\\.1|objective\\-5\\.3|objective\\-6\\.1|objective\\-6\\.2|objective\\-6\\.3|objective\\-6\\.4|objective\\-6\\.5|priority\\-1)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "objective-1.2",
+              "objective-1.4",
+              "objective-2.1",
+              "objective-2.3",
+              "objective-3.1",
+              "objective-3.2",
+              "objective-3.4",
+              "objective-4.1",
+              "objective-4.2",
+              "objective-4.3",
+              "objective-4.4",
+              "objective-5.1",
+              "objective-5.3",
+              "objective-6.1",
+              "objective-6.2",
+              "objective-6.3",
+              "objective-6.4",
+              "objective-6.5",
+              "priority-1"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/uab.gov.tr/national-artificial-intelligence-strategy).",
+            "examples": [
+              {
+                "input": "objective-1.2",
+                "note": "The academic and technical capacity of universities in the ﬁeld of AI will be developed"
+              },
+              {
+                "input": "objective-1.4",
+                "note": "In line with their interests, abilities and temperaments, pre-higher education students"
               }
             ]
           }

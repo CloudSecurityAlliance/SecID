@@ -89,6 +89,33 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:pillar\\-1|pillar\\-2|pillar\\-3|pillar\\-4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "pillar-1",
+              "pillar-2",
+              "pillar-3",
+              "pillar-4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mcit.gov.qa/national-ai-strategy).",
+            "examples": [
+              {
+                "input": "pillar-1",
+                "note": "Race for Talent in the “AI+X” Era"
+              },
+              {
+                "input": "pillar-2",
+                "note": "Data Access is Paramount"
+              }
+            ]
+          }
         }
       ]
     }

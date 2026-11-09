@@ -128,6 +128,44 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:part\\-1|part\\-2|part\\-3|1|3|part\\-4|part\\-5|annex\\-A|annex\\-B|annex\\-C|annex\\-D|annex\\-E|annex\\-F|annex\\-G|annex\\-H)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "part-1",
+              "part-2",
+              "part-3",
+              "1",
+              "3",
+              "part-4",
+              "part-5",
+              "annex-A",
+              "annex-B",
+              "annex-C",
+              "annex-D",
+              "annex-E",
+              "annex-F",
+              "annex-G",
+              "annex-H"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/oas.org/inter-american-cybersecurity-strategy).",
+            "examples": [
+              {
+                "input": "part-1",
+                "note": "ADVOCATING FOR A NATIONAL CYBERSECURITY STRATEGY"
+              },
+              {
+                "input": "part-2",
+                "note": "PAVING THE WAY FOR YOUR COUNTRY"
+              }
+            ]
+          }
         }
       ]
     }

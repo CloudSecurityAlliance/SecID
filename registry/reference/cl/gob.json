@@ -153,6 +153,34 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:C|D|6|7|9)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "C",
+              "D",
+              "6",
+              "7",
+              "9"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.cl/politica-nacional-ciberseguridad).",
+            "examples": [
+              {
+                "input": "C",
+                "note": "To promote cooperation and coordination between institutions"
+              },
+              {
+                "input": "D",
+                "note": "To manage risks in the cyberspace"
+              }
+            ]
+          }
         }
       ]
     },
@@ -272,6 +300,41 @@
                 "input": "2021-2030",
                 "url": "https://minciencia.gob.cl/uploads/filer_public/bc/38/bc389daf-4514-4306-867c-760ae7686e2c/documento_politica_ia_digital_.pdf",
                 "note": "Chilean National AI Policy 2021-2030"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:3\\.6|1|4|1\\.1|1\\.2|1\\.3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.3\\.6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3.6",
+              "1",
+              "4",
+              "1.1",
+              "1.2",
+              "1.3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "3.5",
+              "3.3.6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.cl/politica-nacional-ia).",
+            "examples": [
+              {
+                "input": "3.6",
+                "note": "Género 64"
+              },
+              {
+                "input": "1",
+                "note": "IA CON CENTRO EN EL BIENESTAR DE LAS PERSONAS, RESPETO A LOS DERECHOS HUMANOS Y LA SEGURIDAD"
               }
             ]
           }

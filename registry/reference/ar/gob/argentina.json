@@ -136,6 +136,32 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:5|9|10)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "5",
+              "9",
+              "10"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/argentina.gob.ar/estrategia-nacional-ciberseguridad).",
+            "examples": [
+              {
+                "input": "5",
+                "note": "Proponer a la la SUBSECRETARÍA DE TECNOLOGÍAS DE LA INFORMACIÓN de"
+              },
+              {
+                "input": "9",
+                "note": "Desarrollar cualquier otra actividad, a consideración de la"
+              }
+            ]
+          }
         }
       ]
     },

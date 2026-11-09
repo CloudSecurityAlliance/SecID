@@ -37,7 +37,9 @@
       "description": "ENISA Glossary of Terms",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "ENISA Glossary of Terms",
         "common_name": null,
         "alternate_names": null,
@@ -122,6 +124,34 @@
                 "input": "2022",
                 "url": "https://data.consilium.europa.eu/doc/document/ST-7371-2022-INIT/en/pdf",
                 "note": "EU Strategic Compass for Security and Defence (2022)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|7|3|5|6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "7",
+              "3",
+              "5",
+              "6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/strategic-compass).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Reinforce our civilian and military CSDP missions and operations by providing them with"
+              },
+              {
+                "input": "7",
+                "note": "Spend more and better in defence and improve our capability development and planning"
               }
             ]
           }
@@ -270,6 +300,61 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|4|1|2\\.6|2\\.7|3\\.3|3\\.4|3\\.5|4\\.1|4\\.2|4\\.3|5|I|II|1\\.3|1\\.4|1\\.5|1\\.6|1\\.7|1\\.8|III|IV)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1.1",
+              "1.2",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "2.5",
+              "3",
+              "3.1",
+              "3.2",
+              "4",
+              "1",
+              "2.6",
+              "2.7",
+              "3.3",
+              "3.4",
+              "3.5",
+              "4.1",
+              "4.2",
+              "4.3",
+              "5",
+              "I",
+              "II",
+              "1.3",
+              "1.4",
+              "1.5",
+              "1.6",
+              "1.7",
+              "1.8",
+              "III",
+              "IV"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/cybersecurity-strategy).",
+            "examples": [
+              {
+                "input": "1.1",
+                "note": "Context"
+              },
+              {
+                "input": "1.2",
+                "note": "Principles for cybersecurity"
+              }
+            ]
+          }
         }
       ]
     },
@@ -413,6 +498,81 @@
                 "input": "2018",
                 "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
                 "note": "EU Coordinated Plan on Artificial Intelligence (2018)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|2\\.6|2\\.7|3|annex\\-I|A|B|D|E|F|G|H|4|5|6|I|chapter\\-1|1\\.1|1\\.2|1\\.3|chapter\\-2|chapter\\-3|II|chapter\\-4|chapter\\-5|chapter\\-6|chapter\\-7|III|chapter\\-8|chapter\\-9|chapter\\-10|IV|chapter\\-11|chapter\\-12|chapter\\-13|chapter\\-14|chapter\\-15|chapter\\-16|chapter\\-17|appendix\\-1|appendix\\-2|3\\.1|3\\.2|3\\.3|4\\.1|4\\.2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "2.5",
+              "2.6",
+              "2.7",
+              "3",
+              "annex-I",
+              "A",
+              "B",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H",
+              "4",
+              "5",
+              "6",
+              "I",
+              "chapter-1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "chapter-2",
+              "chapter-3",
+              "II",
+              "chapter-4",
+              "chapter-5",
+              "chapter-6",
+              "chapter-7",
+              "III",
+              "chapter-8",
+              "chapter-9",
+              "chapter-10",
+              "IV",
+              "chapter-11",
+              "chapter-12",
+              "chapter-13",
+              "chapter-14",
+              "chapter-15",
+              "chapter-16",
+              "chapter-17",
+              "appendix-1",
+              "appendix-2",
+              "3.1",
+              "3.2",
+              "3.3",
+              "4.1",
+              "4.2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/ai-strategy).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "INTRODUCTION – THE EUROPEAN AI STRATEGY"
+              },
+              {
+                "input": "2",
+                "note": "THE COORDINATED PLAN ON AI – OVERVIEW"
               }
             ]
           }

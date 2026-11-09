@@ -68,6 +68,7 @@
           "description": "2025 Republic of China National Defense Report (中華民國114年國防報告書)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "examples": [
               {
@@ -85,11 +86,41 @@
           "description": "2023 Republic of China National Defense Report (中華民國112年國防報告書)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
             "examples": [
               {
                 "input": "2023",
                 "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:part\\-1|part\\-2|part\\-3|part\\-4|part\\-5|2\\.3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "part-1",
+              "part-2",
+              "part-3",
+              "part-4",
+              "part-5",
+              "2.3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/national-defense-report).",
+            "examples": [
+              {
+                "input": "part-1",
+                "note": "國防開支 投資和平"
+              },
+              {
+                "input": "part-2",
+                "note": "PART 2"
               }
             ]
           }
@@ -149,6 +180,7 @@
           "description": "2025 Republic of China Quadrennial Defense Review (中華民國114年四年期國防總檢討)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
             "examples": [
               {
@@ -166,11 +198,47 @@
           "description": "2021 Republic of China Quadrennial Defense Review (中華民國110年四年期國防總檢討)",
           "weight": 100,
           "data": {
+            "type": "version",
             "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
             "examples": [
               {
                 "input": "2021",
                 "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:8|1|2|3|4|5|chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5|chapter\\-6)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "8",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "chapter-1",
+              "chapter-2",
+              "chapter-3",
+              "chapter-4",
+              "chapter-5",
+              "chapter-6"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review).",
+            "examples": [
+              {
+                "input": "8",
+                "note": "Joint Logistic Support Capabilities"
+              },
+              {
+                "input": "1",
+                "note": "Security in Taiwan Strait amid the International Shifts"
               }
             ]
           }

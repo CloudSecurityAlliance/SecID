@@ -372,6 +372,33 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:I|II|III|IV)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "III",
+              "IV"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/president.go.kr/national-cybersecurity-basic-plan).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "추진 배경"
+              },
+              {
+                "input": "II",
+                "note": "성과 및 진단"
+              }
+            ]
+          }
         }
       ]
     },
@@ -476,6 +503,33 @@
                 "input": "2019",
                 "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148868542",
                 "note": "ROK National Strategy for Artificial Intelligence (2019)"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:81\\.6|1|2|3)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "81.6",
+              "1",
+              "2",
+              "3"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/president.go.kr/national-ai-strategy).",
+            "examples": [
+              {
+                "input": "81.6",
+                "note": "73.9 78.1 71.8"
+              },
+              {
+                "input": "1",
+                "note": "Establishment of Global-Leading AI Ecosystem"
               }
             ]
           }

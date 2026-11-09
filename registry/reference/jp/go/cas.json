@@ -144,6 +144,52 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:I|II|II\\.1|II\\.2|III|III\\.1|III\\.2|IV|IV\\.1|IV\\.2|3|4|5|6|V|VI|VI\\.1|VI\\.2|VII|VII\\.1|VII\\.2|VIII|IX)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "II.1",
+              "II.2",
+              "III",
+              "III.1",
+              "III.2",
+              "IV",
+              "IV.1",
+              "IV.2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "V",
+              "VI",
+              "VI.1",
+              "VI.2",
+              "VII",
+              "VII.1",
+              "VII.2",
+              "VIII",
+              "IX"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/national-security-strategy).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "Purpose"
+              },
+              {
+                "input": "II",
+                "note": "Fundamental Principle of National Security"
+              }
+            ]
+          }
         }
       ]
     },
@@ -341,6 +387,42 @@
                 "input": "2019",
                 "url": "https://www8.cao.go.jp/cstp/ai/aistratagy2019en.pdf",
                 "note": "Japan AI Strategy 2019"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:I|4|III|IV|V|part\\-I|part\\-II|part\\-III|part\\-IV|chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "4",
+              "III",
+              "IV",
+              "V",
+              "part-I",
+              "part-II",
+              "part-III",
+              "part-IV",
+              "chapter-1",
+              "chapter-2",
+              "chapter-3",
+              "chapter-4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cas.go.jp/ai-strategy).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "Basic Concept"
+              },
+              {
+                "input": "4",
+                "note": "AI Core - System Components of AI"
               }
             ]
           }

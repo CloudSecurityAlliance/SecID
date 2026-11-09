@@ -29,7 +29,9 @@
       "description": "Glossário de Segurança da Informação (GSI/PR Brazil)",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "Glossário de Segurança da Informação (GSI/PR Brazil)",
         "common_name": null,
         "alternate_names": null,
@@ -231,6 +233,82 @@
                 "input": "2008",
                 "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
                 "note": "Brazil END 2008"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^(?:2\\.1|2\\.1\\.1|2\\.1\\.4|2\\.1\\.5|2\\.1\\.3|2\\.1\\.7|2\\.2|2\\.2\\.1|2\\.2\\.2|2\\.2\\.4|2\\.2\\.5|2\\.2\\.6|2\\.2\\.10|2\\.2\\.7|2\\.2\\.11|2\\.2\\.15|2\\.2\\.16|2\\.3|2\\.3\\.1|2\\.3\\.5|2\\.3\\.2|2\\.3\\.6|2\\.3\\.3|2\\.3\\.7|2\\.3\\.10|2\\.3\\.11|2\\.3\\.8|2\\.3\\.12|2\\.3\\.9|2\\.3\\.15|2\\.3\\.13|2\\.3\\.16|2\\.3\\.14|IV|V|VIII|III|VI|II|5|5\\.1|5\\.2|3\\.1|3\\.2|3\\.3|3\\.4|3\\.6|3\\.5|3\\.6\\.1|3\\.6\\.2|3\\.6\\.3|3\\.6\\.4|3\\.6\\.5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "2.1",
+              "2.1.1",
+              "2.1.4",
+              "2.1.5",
+              "2.1.3",
+              "2.1.7",
+              "2.2",
+              "2.2.1",
+              "2.2.2",
+              "2.2.4",
+              "2.2.5",
+              "2.2.6",
+              "2.2.10",
+              "2.2.7",
+              "2.2.11",
+              "2.2.15",
+              "2.2.16",
+              "2.3",
+              "2.3.1",
+              "2.3.5",
+              "2.3.2",
+              "2.3.6",
+              "2.3.3",
+              "2.3.7",
+              "2.3.10",
+              "2.3.11",
+              "2.3.8",
+              "2.3.12",
+              "2.3.9",
+              "2.3.15",
+              "2.3.13",
+              "2.3.16",
+              "2.3.14",
+              "IV",
+              "V",
+              "VIII",
+              "III",
+              "VI",
+              "II",
+              "5",
+              "5.1",
+              "5.2",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4",
+              "3.6",
+              "3.5",
+              "3.6.1",
+              "3.6.2",
+              "3.6.3",
+              "3.6.4",
+              "3.6.5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pnd-end).",
+            "examples": [
+              {
+                "input": "2.1",
+                "note": "FUNDAMENTOS"
+              },
+              {
+                "input": "2.1.1",
+                "note": "Coordenada pelo Ministério da Defesa, a natureza, e a garantia aos cidadãos do exer-"
               }
             ]
           }
@@ -527,11 +605,57 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:3\\.4|3\\.4\\.5|1|1\\.1|1\\.1\\.2|1\\.3|1\\.1\\.4|2|3|3\\.1|3\\.2|3\\.3|3\\.3\\.4|4|1\\.2|1\\.4|2\\.1|2\\.2|4\\.2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3.4",
+              "3.4.5",
+              "1",
+              "1.1",
+              "1.1.2",
+              "1.3",
+              "1.1.4",
+              "2",
+              "3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.3.4",
+              "4",
+              "1.2",
+              "1.4",
+              "2.1",
+              "2.2",
+              "4.2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pbia).",
+            "examples": [
+              {
+                "input": "3.4",
+                "note": "Ações estruturantes 31"
+              },
+              {
+                "input": "3.4.5",
+                "note": "Eixo 5: Apoio ao processo regulatório e de governança da IA 42"
+              }
+            ]
+          }
         }
       ]
     }
   ],
-  "tags": {"country": ["BR"]},
+  "tags": {
+    "country": [
+      "BR"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

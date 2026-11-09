@@ -37,7 +37,9 @@
       "description": "NCSC-FI Glossary of Central Cyber Security Terms",
       "weight": 100,
       "data": {
-        "subtype": ["glossary"],
+        "subtype": [
+          "glossary"
+        ],
         "official_name": "NCSC-FI Glossary of Central Cyber Security Terms",
         "common_name": null,
         "alternate_names": null,
@@ -203,6 +205,47 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:3|4|3\\.1|3\\.2|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|5|5\\.1|5\\.2|6|6\\.1|6\\.2|6\\.3|6\\.4)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3",
+              "4",
+              "3.1",
+              "3.2",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4",
+              "4.5",
+              "4.6",
+              "5",
+              "5.1",
+              "5.2",
+              "6",
+              "6.1",
+              "6.2",
+              "6.3",
+              "6.4"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.fi/kyberturvallisuusstrategia).",
+            "examples": [
+              {
+                "input": "3",
+                "note": "CYBER SECURITY MANAGEMENT AND THE NATIONAL APPROACH"
+              },
+              {
+                "input": "4",
+                "note": "STRATEGIC GUIDELINES FOR CYBER SECURITY"
+              }
+            ]
+          }
         }
       ]
     },
@@ -312,7 +355,11 @@
       ]
     }
   ],
-  "tags": {"country": ["FI"]},
+  "tags": {
+    "country": [
+      "FI"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

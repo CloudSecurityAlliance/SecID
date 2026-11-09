@@ -126,6 +126,34 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "chapter-1",
+              "chapter-2",
+              "chapter-3",
+              "chapter-4",
+              "chapter-5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/csa.gov.sg/singapore-cybersecurity-strategy).",
+            "examples": [
+              {
+                "input": "chapter-1",
+                "note": "BUILD RESILIENT INFRASTRUCTURE"
+              },
+              {
+                "input": "chapter-2",
+                "note": "ENABLE A SAFER CYBERSPACE"
+              }
+            ]
+          }
         }
       ]
     },

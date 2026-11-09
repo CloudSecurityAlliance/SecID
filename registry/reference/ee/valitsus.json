@@ -233,6 +233,37 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.5)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.5"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/valitsus.ee/national-security-concept).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "2",
+                "note": "Principles of Estonia’s security policy"
+              }
+            ]
+          }
         }
       ]
     }
