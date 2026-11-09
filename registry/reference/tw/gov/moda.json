@@ -28,7 +28,7 @@
         "examples": [
           "national-cyber-security-program@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -65,7 +65,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -79,12 +81,6 @@
           "data": {
             "type": "version",
             "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://moda.gov.tw/en/ACS/laws/strategy/642"
-              }
-            ],
             "name": "National Cyber Security Program of Taiwan (2025–2028) — Phase 7"
           }
         },
@@ -99,55 +95,57 @@
           "data": {
             "type": "version",
             "url": "https://moda.gov.tw/en/ACS/laws/strategy/642",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://moda.gov.tw/en/ACS/laws/strategy/642"
-              }
-            ],
             "name": "National Cyber Security Program of Taiwan (2021–2024) — Phase 6"
-          }
-        },
-        {
-          "patterns": [
-            "^(?:I|II|III|III\\.1|2|3|4|IV|2\\.3|IV\\.1|1\\.3|1\\.4|3\\.3|4\\.1|4\\.2|4\\.3|V|VI)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "I",
-              "II",
-              "III",
-              "III.1",
-              "2",
-              "3",
-              "4",
-              "IV",
-              "2.3",
-              "IV.1",
-              "1.3",
-              "1.4",
-              "3.3",
-              "4.1",
-              "4.2",
-              "4.3",
-              "V",
-              "VI"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/moda.gov.tw/national-cyber-security-program).",
-            "examples": [
-              {
-                "input": "I",
-                "note": "Background"
-              },
-              {
-                "input": "II",
-                "note": "Global Cyber Security Threats and International Policy Trends"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|III\\.1|2|3|4|IV|2\\.2\\.1|2\\.2\\.2|2\\.3|3\\.3\\.1|3\\.3\\.2|IV\\.1|1\\.3|1\\.4|3\\.3|4\\.1|4\\.2|4\\.3|V|VI)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "III.1",
+                  "2",
+                  "3",
+                  "4",
+                  "IV",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.3",
+                  "3.3.1",
+                  "3.3.2",
+                  "IV.1",
+                  "1.3",
+                  "1.4",
+                  "3.3",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "V",
+                  "VI"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/moda.gov.tw/national-cyber-security-program/2021).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2021",
+                    "note": "Background"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2021",
+                    "note": "Global Cyber Security Threats and International Policy Trends"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

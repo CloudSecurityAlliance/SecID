@@ -94,7 +94,7 @@
         },
         {
           "patterns": [
-            "^(?:一|二|三|四|（五）|（六）|（七）|（八）|（九）)$"
+            "^(?:一|一\\ （一）|一\\ （二）|三\\ （一）|三\\ （二）|三\\ （三）|三\\ （四）|四|四\\ （一）|四\\ （二）|四\\ （三）|四\\ （四）)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -102,24 +102,27 @@
             "type": "section",
             "known_values": [
               "一",
-              "二",
-              "三",
+              "一 （一）",
+              "一 （二）",
+              "三 （一）",
+              "三 （二）",
+              "三 （三）",
+              "三 （四）",
               "四",
-              "（五）",
-              "（六）",
-              "（七）",
-              "（八）",
-              "（九）"
+              "四 （一）",
+              "四 （二）",
+              "四 （三）",
+              "四 （四）"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/national-cyberspace-security-strategy).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/national-cyberspace-security-strategy/2016).",
             "examples": [
               {
                 "input": "一",
                 "note": "机遇和挑战"
               },
               {
-                "input": "二",
-                "note": "目标"
+                "input": "一 （一）",
+                "note": "重大机遇"
               }
             ]
           }
@@ -193,7 +196,7 @@
         },
         {
           "patterns": [
-            "^(?:第一章|第二章|第三章|第四章|七|八|九)$"
+            "^(?:第一章|第二章|第二章\\ 一|第二章\\ 二|第二章\\ 三|第二章\\ 四|第三章|第三章\\ 一|第三章\\ 二|第三章\\ 三|第三章\\ 四|第三章\\ 五|第三章\\ 六|第四章|第四章\\ 一|第四章\\ 二|第四章\\ 三|第四章\\ 四|第四章\\ 五|第四章\\ 六|七|八|九)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -202,13 +205,29 @@
             "known_values": [
               "第一章",
               "第二章",
+              "第二章 一",
+              "第二章 二",
+              "第二章 三",
+              "第二章 四",
               "第三章",
+              "第三章 一",
+              "第三章 二",
+              "第三章 三",
+              "第三章 四",
+              "第三章 五",
+              "第三章 六",
               "第四章",
+              "第四章 一",
+              "第四章 二",
+              "第四章 三",
+              "第四章 四",
+              "第四章 五",
+              "第四章 六",
               "七",
               "八",
               "九"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/international-strategy-of-cooperation-on-cyberspace).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/international-strategy-of-cooperation-on-cyberspace/2017).",
             "examples": [
               {
                 "input": "第一章",
@@ -297,7 +316,7 @@
         },
         {
           "patterns": [
-            "^(?:一|二|三|四|五|六)$"
+            "^(?:一|一\\ （一）|一\\ （二）|二|二\\ （一）|二\\ （二）|二\\ （三）|三|四|四\\ （一）|四\\ （二）|四\\ （三）|四\\ （四）|四\\ （五）|四\\ （六）|四\\ （七）|四\\ （八）|四\\ （九）|四\\ （十）|五|五\\ （一）|五\\ （二）|五\\ （三）|五\\ （四）|五\\ （五）|五\\ （六）|五\\ （七）|五\\ （八）|五\\ （九）|五\\ （十）|六|六\\ （一）|六\\ （二）|六\\ （三）|六\\ （四）|六\\ （五）|六\\ （六）)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -305,21 +324,52 @@
             "type": "section",
             "known_values": [
               "一",
+              "一 （一）",
+              "一 （二）",
               "二",
+              "二 （一）",
+              "二 （二）",
+              "二 （三）",
               "三",
               "四",
+              "四 （一）",
+              "四 （二）",
+              "四 （三）",
+              "四 （四）",
+              "四 （五）",
+              "四 （六）",
+              "四 （七）",
+              "四 （八）",
+              "四 （九）",
+              "四 （十）",
               "五",
-              "六"
+              "五 （一）",
+              "五 （二）",
+              "五 （三）",
+              "五 （四）",
+              "五 （五）",
+              "五 （六）",
+              "五 （七）",
+              "五 （八）",
+              "五 （九）",
+              "五 （十）",
+              "六",
+              "六 （一）",
+              "六 （二）",
+              "六 （三）",
+              "六 （四）",
+              "六 （五）",
+              "六 （六）"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/14th-five-year-plan-national-informatization).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cac.gov.cn/14th-five-year-plan-national-informatization/2021-2025).",
             "examples": [
               {
                 "input": "一",
                 "note": "现状与形势"
               },
               {
-                "input": "二",
-                "note": "总体部署"
+                "input": "一 （一）",
+                "note": "发展现状"
               }
             ]
           }

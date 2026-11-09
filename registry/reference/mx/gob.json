@@ -165,7 +165,10 @@
         "examples": [
           "programa-seguridad-nacional@2014-2018",
           "programa-seguridad-nacional@2009-2012"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -184,15 +187,51 @@
                 "type": "website",
                 "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014"
               }
-            ],
-            "examples": [
-              {
-                "input": "2014-2018",
-                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5342824&fecha=30/04/2014",
-                "note": "Mexican National Security Program 2014-2018"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|I\\.1|2|V|C|D|3|II|II\\.4|5|1|4|III|7|IV|8)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "I.1",
+                  "2",
+                  "V",
+                  "C",
+                  "D",
+                  "3",
+                  "II",
+                  "II.4",
+                  "5",
+                  "1",
+                  "4",
+                  "III",
+                  "7",
+                  "IV",
+                  "8"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.mx/programa-seguridad-nacional/2014-2018).",
+                "examples": [
+                  {
+                    "input": "I.1",
+                    "version": "2014-2018",
+                    "note": "Visión del Ejecutivo Federal"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2014-2018",
+                    "note": "Marco jurídico y conceptual"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -209,45 +248,6 @@
               {
                 "type": "website",
                 "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2009-2012",
-                "url": "https://dof.gob.mx/nota_detalle.php?codigo=5106076&fecha=20/08/2009",
-                "note": "Mexican National Security Program 2009-2012"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:I|I\\.1|D|II|II\\.4|III|7|IV|8)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "I",
-              "I.1",
-              "D",
-              "II",
-              "II.4",
-              "III",
-              "7",
-              "IV",
-              "8"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.mx/programa-seguridad-nacional).",
-            "examples": [
-              {
-                "input": "I",
-                "note": "Una política multidimensional para la Seguridad Nacional de México en el siglo XXI"
-              },
-              {
-                "input": "I.1",
-                "note": "Visión del Ejecutivo Federal"
               }
             ]
           }

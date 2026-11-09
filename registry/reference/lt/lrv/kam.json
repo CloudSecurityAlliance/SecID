@@ -157,6 +157,32 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:PRINCIPLE\\ 3|PRINCIPLE\\ 1|PRINCIPLE\\ 2)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "PRINCIPLE 3",
+              "PRINCIPLE 1",
+              "PRINCIPLE 2"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/kam.lrv.lt/lithuanian-artificial-intelligence-strategy/2019).",
+            "examples": [
+              {
+                "input": "PRINCIPLE 3",
+                "note": "TO TARGET KEY ECONOMIC SECTORS THAT WILL BENEFIT THE MOST"
+              },
+              {
+                "input": "PRINCIPLE 1",
+                "note": "TO DEVELOP THE SKILLS NEEDED FOR A FUTURE WITH AI FROM THE"
+              }
+            ]
+          }
         }
       ]
     }

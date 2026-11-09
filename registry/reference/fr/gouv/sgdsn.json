@@ -89,7 +89,10 @@
           "revue-nationale-strategique@2025",
           "revue-nationale-strategique@2022",
           "revue-nationale-strategique@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -111,15 +114,106 @@
                 "type": "pdf",
                 "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250713_NP_SGDSN_Plaquette_RNS2025_FR.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.sgdsn.gouv.fr/files/2025-08/20250713_NP_SGDSN_Actualisation_2025_RNS_FR.pdf",
-                "note": "Revue nationale stratégique 2025"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1\\.1|1\\.1\\.2|1\\.1\\.3|1\\.1\\.4|1\\.4\\.1|1\\.5\\.1|1\\.5\\.2|1\\.5\\.3|1\\.6\\.1|1\\.6\\.2|1\\.6\\.3|1\\.6\\.4|1\\.6\\.5|2\\.1|2\\.2|2\\.3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|2|3|4|5|6|7|1\\.5|1\\.6|1\\.7|1\\.8|1\\.9|2\\.2\\.1|2\\.2\\.2|2\\.2\\.3|2\\.2\\.4|2\\.2\\.5|2\\.2\\.6|2\\.1\\.1|2\\.1\\.2|2\\.1\\.2\\.1|2\\.1\\.2\\.2|2\\.1\\.2\\.3|2\\.1\\.2\\.4|2\\.1\\.2\\.5|2\\.1\\.3|2\\.1\\.4|1\\.2\\.1|1\\.2\\.2|1\\.2\\.3|1\\.2\\.4|1\\.3\\.1|1\\.3\\.2|1\\.3\\.3|1\\.3\\.4|1\\.3\\.5|2\\.3\\.1|2\\.3\\.2|2\\.4\\.1|2\\.4\\.2|2\\.4\\.3|2\\.4\\.4|2\\.4\\.5|3\\.3\\.1|3\\.2\\.1|3\\.2\\.2|3\\.2\\.3|3\\.2\\.4|3\\.2\\.5|3\\.3\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1.1",
+                  "1.1.2",
+                  "1.1.3",
+                  "1.1.4",
+                  "1.4.1",
+                  "1.5.1",
+                  "1.5.2",
+                  "1.5.3",
+                  "1.6.1",
+                  "1.6.2",
+                  "1.6.3",
+                  "1.6.4",
+                  "1.6.5",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "1.5",
+                  "1.6",
+                  "1.7",
+                  "1.8",
+                  "1.9",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.3",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.2.6",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.2.1",
+                  "2.1.2.2",
+                  "2.1.2.3",
+                  "2.1.2.4",
+                  "2.1.2.5",
+                  "2.1.3",
+                  "2.1.4",
+                  "1.2.1",
+                  "1.2.2",
+                  "1.2.3",
+                  "1.2.4",
+                  "1.3.1",
+                  "1.3.2",
+                  "1.3.3",
+                  "1.3.4",
+                  "1.3.5",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.4.1",
+                  "2.4.2",
+                  "2.4.3",
+                  "2.4.4",
+                  "2.4.5",
+                  "3.3.1",
+                  "3.2.1",
+                  "3.2.2",
+                  "3.2.3",
+                  "3.2.4",
+                  "3.2.5",
+                  "3.3.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2025).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2025",
+                    "note": "Une dégradation accélérée de l’environnement sécuritaire mondial"
+                  },
+                  {
+                    "input": "1.1.1",
+                    "version": "2025",
+                    "note": "Fédération de Russie"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -136,15 +230,55 @@
                 "type": "pdf",
                 "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.sgdsn.gouv.fr/files/files/rns-2022-def.pdf",
-                "note": "Revue nationale stratégique 2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.4|1\\.5|2\\.1|2\\.2|2\\.3|2\\.4|1|1\\.1\\.1|1\\.1\\.2|2\\.5|2\\.6|3|2|1\\.3|1\\.1\\.4|1\\.1\\.5|4|5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.4",
+                  "1.5",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "1",
+                  "1.1.1",
+                  "1.1.2",
+                  "2.5",
+                  "2.6",
+                  "3",
+                  "2",
+                  "1.3",
+                  "1.1.4",
+                  "1.1.5",
+                  "4",
+                  "5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2022).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2022",
+                    "note": "DE LA COMPÉTITION À LA CONFRONTATION STRATÉGIQUE"
+                  },
+                  {
+                    "input": "1.5",
+                    "version": "2022",
+                    "note": "FOYERS DE CRISES ET OPPORTUNISMES RÉGIONAUX"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -161,117 +295,54 @@
                 "type": "website",
                 "url": "https://www.sgdsn.gouv.fr"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://www.sgdsn.gouv.fr",
-                "note": "Revue stratégique de défense et de sécurité nationale 2017"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:3\\.4|3\\.5|4\\.1|4\\.2|2\\.2\\.1|2\\.2\\.2|5\\.1|5\\.2|5\\.3|5\\.4|1\\.1|1\\.2|1\\.4|1\\.5|2\\.1|2\\.2|2\\.3|2\\.4|1\\.1\\.2|2\\.5|2\\.6|1\\.1\\.1|1\\.3|1\\.1\\.4|1\\.1\\.5|4|5|1\\.1\\.3|1\\.4\\.1|53|1\\.5\\.1|1\\.5\\.2|1\\.5\\.3|1\\.6\\.1|1\\.6\\.2|1\\.6\\.3|1\\.6\\.4|1\\.6\\.5|3\\.1|3\\.2|3\\.3|6|7|1\\.6|1\\.7|1\\.8|1\\.9|2\\.1\\.1|2\\.1\\.2|2\\.1\\.2\\.1|2\\.1\\.2\\.2|2\\.1\\.2\\.3|2\\.1\\.2\\.4|2\\.1\\.2\\.5|2\\.1\\.3|2\\.1\\.4|1\\.2\\.1|1\\.2\\.2|1\\.2\\.3|1\\.2\\.4|1\\.3\\.1|1\\.3\\.2|1\\.3\\.3|1\\.3\\.4|1\\.3\\.5|2\\.3\\.1|2\\.3\\.2|2\\.4\\.1|2\\.4\\.2|2\\.4\\.3|2\\.4\\.4|2\\.4\\.5|3\\.3\\.1|3\\.2\\.1|3\\.2\\.2|3\\.2\\.3|3\\.2\\.4|3\\.2\\.5|3\\.3\\.3)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "3.4",
-              "3.5",
-              "4.1",
-              "4.2",
-              "2.2.1",
-              "2.2.2",
-              "5.1",
-              "5.2",
-              "5.3",
-              "5.4",
-              "1.1",
-              "1.2",
-              "1.4",
-              "1.5",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "1.1.2",
-              "2.5",
-              "2.6",
-              "1.1.1",
-              "1.3",
-              "1.1.4",
-              "1.1.5",
-              "4",
-              "5",
-              "1.1.3",
-              "1.4.1",
-              "53",
-              "1.5.1",
-              "1.5.2",
-              "1.5.3",
-              "1.6.1",
-              "1.6.2",
-              "1.6.3",
-              "1.6.4",
-              "1.6.5",
-              "3.1",
-              "3.2",
-              "3.3",
-              "6",
-              "7",
-              "1.6",
-              "1.7",
-              "1.8",
-              "1.9",
-              "2.1.1",
-              "2.1.2",
-              "2.1.2.1",
-              "2.1.2.2",
-              "2.1.2.3",
-              "2.1.2.4",
-              "2.1.2.5",
-              "2.1.3",
-              "2.1.4",
-              "1.2.1",
-              "1.2.2",
-              "1.2.3",
-              "1.2.4",
-              "1.3.1",
-              "1.3.2",
-              "1.3.3",
-              "1.3.4",
-              "1.3.5",
-              "2.3.1",
-              "2.3.2",
-              "2.4.1",
-              "2.4.2",
-              "2.4.3",
-              "2.4.4",
-              "2.4.5",
-              "3.3.1",
-              "3.2.1",
-              "3.2.2",
-              "3.2.3",
-              "3.2.4",
-              "3.2.5",
-              "3.3.3"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique).",
-            "examples": [
-              {
-                "input": "3.4",
-                "note": "Rivalités énergétiques"
-              },
-              {
-                "input": "3.5",
-                "note": "Criminalité organisée"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.3|2|2\\.2\\.1|2\\.2\\.2|3|3\\.3\\.1|3\\.3\\.2|3\\.3\\.3|3\\.4|3\\.5|4|4\\.1|4\\.2|5\\.1|5\\.2|5\\.3|5\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "2",
+                  "2.2.1",
+                  "2.2.2",
+                  "3",
+                  "3.3.1",
+                  "3.3.2",
+                  "3.3.3",
+                  "3.4",
+                  "3.5",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "5.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/revue-nationale-strategique/2017).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2017",
+                    "note": "Remise en cause de l’ordre multilatéral"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2017",
+                    "note": "Déconstruction de l’architecture de sécurité en Europe"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -342,7 +413,10 @@
           "strategie-nationale-securite-numerique@2026-2030",
           "strategie-nationale-securite-numerique@2021",
           "strategie-nationale-securite-numerique@2015"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -361,15 +435,49 @@
                 "type": "website",
                 "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026-2030",
-                "url": "https://www.sgdsn.gouv.fr/publications/strategie-nationale-de-cybersecurite-2026-2030",
-                "note": "Stratégie nationale de cybersécurité 2026-2030"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ 5|OBJECTIVE\\ 1|OBJECTIVE\\ 2|OBJECTIVE\\ 3|OBJECTIVE\\ 4|OBJECTIVE\\ 5|OBJECTIVE\\ 6|OBJECTIVE\\ 7|OBJECTIVE\\ 8|OBJECTIVE\\ 10|OBJECTIVE\\ 11|OBJECTIVE\\ 12|OBJECTIVE\\ 13|OBJECTIVE\\ 14)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR 5",
+                  "OBJECTIVE 1",
+                  "OBJECTIVE 2",
+                  "OBJECTIVE 3",
+                  "OBJECTIVE 4",
+                  "OBJECTIVE 5",
+                  "OBJECTIVE 6",
+                  "OBJECTIVE 7",
+                  "OBJECTIVE 8",
+                  "OBJECTIVE 10",
+                  "OBJECTIVE 11",
+                  "OBJECTIVE 12",
+                  "OBJECTIVE 13",
+                  "OBJECTIVE 14"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/strategie-nationale-securite-numerique/2026-2030).",
+                "examples": [
+                  {
+                    "input": "OBJECTIVE 1",
+                    "version": "2026-2030",
+                    "note": "Develop an inclusive culture of cybersecurity from an early age"
+                  },
+                  {
+                    "input": "OBJECTIVE 2",
+                    "version": "2026-2030",
+                    "note": "Invest in all areas of cybersecurity training"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -385,13 +493,6 @@
               {
                 "type": "website",
                 "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.entreprises.gouv.fr/priorites-et-actions/autonomie-strategique/soutenir-linnovation-dans-les-secteurs-strategiques-16",
-                "note": "Stratégie nationale d'accélération pour la cybersécurité (2021)"
               }
             ]
           }
@@ -410,50 +511,6 @@
               {
                 "type": "website",
                 "url": "https://cyber.gouv.fr/"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2015",
-                "url": "https://cyber.gouv.fr/",
-                "note": "Stratégie nationale pour la sécurité du numérique (2015)"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:pillar\\-5|objective\\-1|objective\\-2|objective\\-3|objective\\-4|objective\\-5|objective\\-6|objective\\-7|objective\\-8|objective\\-10|objective\\-11|objective\\-12|objective\\-13|objective\\-14)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "pillar-5",
-              "objective-1",
-              "objective-2",
-              "objective-3",
-              "objective-4",
-              "objective-5",
-              "objective-6",
-              "objective-7",
-              "objective-8",
-              "objective-10",
-              "objective-11",
-              "objective-12",
-              "objective-13",
-              "objective-14"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/sgdsn.gouv.fr/strategie-nationale-securite-numerique).",
-            "examples": [
-              {
-                "input": "pillar-5",
-                "note": "| SUPPORTING THE SECURITY AND STABILITY OF CYBERSPACE IN EUROPE AND INTERNATIONALLY"
-              },
-              {
-                "input": "objective-1",
-                "note": "Develop an inclusive culture of cybersecurity from an early age"
               }
             ]
           }

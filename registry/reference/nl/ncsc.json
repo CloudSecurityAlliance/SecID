@@ -114,7 +114,7 @@
         },
         {
           "patterns": [
-            "^(?:1|2|3|4)$"
+            "^(?:1|2|3|Pijler\\ I|Pijler\\ II|Pijler\\ III|Pijler\\ IV|4)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -124,9 +124,13 @@
               "1",
               "2",
               "3",
+              "Pijler I",
+              "Pijler II",
+              "Pijler III",
+              "Pijler IV",
               "4"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.nl/nederlandse-cybersecuritystrategie).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.nl/nederlandse-cybersecuritystrategie/2022-2028).",
             "examples": [
               {
                 "input": "1",

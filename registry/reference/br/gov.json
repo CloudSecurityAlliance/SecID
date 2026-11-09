@@ -130,7 +130,10 @@
           "pnd-end@2020",
           "pnd-end@2012",
           "pnd-end@2008"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -147,13 +150,6 @@
               {
                 "type": "website",
                 "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%2012.725-2025&OpenDocument",
-                "note": "Brazil PND/END 2025"
               }
             ]
           }
@@ -177,15 +173,89 @@
                 "type": "website",
                 "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%2061-2024&OpenDocument"
               }
-            ],
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.gov.br/defesa/pt-br/assuntos/copy_of_estado-e-defesa/pnd_end_congresso_1.pdf",
-                "note": "Brazil PND/END 2020"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.1\\.1|2\\.1\\.4|2\\.1\\.5|2\\.1\\.3|2\\.1\\.7|2\\.2|2\\.2\\.1|2\\.2\\.2|2\\.2\\.4|2\\.2\\.5|2\\.2\\.6|2\\.2\\.10|2\\.2\\.7|2\\.2\\.11|2\\.2\\.15|2\\.2\\.16|2\\.3|2\\.3\\.5|2\\.3\\.2|2\\.3\\.6|2\\.3\\.7|2\\.3\\.11|2\\.3\\.8|2\\.3\\.12|2\\.3\\.9|2\\.3\\.15|2\\.3\\.13|2\\.3\\.16|2\\.3\\.14|3|4|IV|V|VIII|III|VI|II|5|5\\.1|5\\.2|3\\.1|3\\.2|3\\.3|3\\.4|3\\.6|3\\.5|3\\.6\\.1|3\\.6\\.2|3\\.6\\.3|3\\.6\\.4|3\\.6\\.5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.1.1",
+                  "2.1.4",
+                  "2.1.5",
+                  "2.1.3",
+                  "2.1.7",
+                  "2.2",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.2.4",
+                  "2.2.5",
+                  "2.2.6",
+                  "2.2.10",
+                  "2.2.7",
+                  "2.2.11",
+                  "2.2.15",
+                  "2.2.16",
+                  "2.3",
+                  "2.3.5",
+                  "2.3.2",
+                  "2.3.6",
+                  "2.3.7",
+                  "2.3.11",
+                  "2.3.8",
+                  "2.3.12",
+                  "2.3.9",
+                  "2.3.15",
+                  "2.3.13",
+                  "2.3.16",
+                  "2.3.14",
+                  "3",
+                  "4",
+                  "IV",
+                  "V",
+                  "VIII",
+                  "III",
+                  "VI",
+                  "II",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.6",
+                  "3.5",
+                  "3.6.1",
+                  "3.6.2",
+                  "3.6.3",
+                  "3.6.4",
+                  "3.6.5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pnd-end/2020).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2020",
+                    "note": "INTRODUÇÃO minada de Política Nacional de Defesa - PND, já"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2020",
+                    "note": "O CONTEXTO DA POLÍTICA NACIONAL DE DEFESA"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -201,13 +271,6 @@
               {
                 "type": "website",
                 "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2012",
-                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DLG%20373-2013&OpenDocument",
-                "note": "Brazil PND/END 2012"
               }
             ]
           }
@@ -226,89 +289,6 @@
               {
                 "type": "website",
                 "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2008",
-                "url": "https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/DEC%206.703-2008&OpenDocument",
-                "note": "Brazil END 2008"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:2\\.1|2\\.1\\.1|2\\.1\\.4|2\\.1\\.5|2\\.1\\.3|2\\.1\\.7|2\\.2|2\\.2\\.1|2\\.2\\.2|2\\.2\\.4|2\\.2\\.5|2\\.2\\.6|2\\.2\\.10|2\\.2\\.7|2\\.2\\.11|2\\.2\\.15|2\\.2\\.16|2\\.3|2\\.3\\.1|2\\.3\\.5|2\\.3\\.2|2\\.3\\.6|2\\.3\\.3|2\\.3\\.7|2\\.3\\.10|2\\.3\\.11|2\\.3\\.8|2\\.3\\.12|2\\.3\\.9|2\\.3\\.15|2\\.3\\.13|2\\.3\\.16|2\\.3\\.14|IV|V|VIII|III|VI|II|5|5\\.1|5\\.2|3\\.1|3\\.2|3\\.3|3\\.4|3\\.6|3\\.5|3\\.6\\.1|3\\.6\\.2|3\\.6\\.3|3\\.6\\.4|3\\.6\\.5)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "2.1",
-              "2.1.1",
-              "2.1.4",
-              "2.1.5",
-              "2.1.3",
-              "2.1.7",
-              "2.2",
-              "2.2.1",
-              "2.2.2",
-              "2.2.4",
-              "2.2.5",
-              "2.2.6",
-              "2.2.10",
-              "2.2.7",
-              "2.2.11",
-              "2.2.15",
-              "2.2.16",
-              "2.3",
-              "2.3.1",
-              "2.3.5",
-              "2.3.2",
-              "2.3.6",
-              "2.3.3",
-              "2.3.7",
-              "2.3.10",
-              "2.3.11",
-              "2.3.8",
-              "2.3.12",
-              "2.3.9",
-              "2.3.15",
-              "2.3.13",
-              "2.3.16",
-              "2.3.14",
-              "IV",
-              "V",
-              "VIII",
-              "III",
-              "VI",
-              "II",
-              "5",
-              "5.1",
-              "5.2",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.4",
-              "3.6",
-              "3.5",
-              "3.6.1",
-              "3.6.2",
-              "3.6.3",
-              "3.6.4",
-              "3.6.5"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pnd-end).",
-            "examples": [
-              {
-                "input": "2.1",
-                "note": "FUNDAMENTOS"
-              },
-              {
-                "input": "2.1.1",
-                "note": "Coordenada pelo Ministério da Defesa, a natureza, e a garantia aos cidadãos do exer-"
               }
             ]
           }
@@ -552,7 +532,10 @@
         "examples": [
           "pbia@2024-2028",
           "ebia@2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -571,15 +554,58 @@
                 "type": "pdf",
                 "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537"
               }
-            ],
-            "examples": [
-              {
-                "input": "2024-2028",
-                "url": "https://www.cgee.org.br/documents/37878/43769/CGEE_PBIA.pdf/6174f551-a40f-7302-b74b-48c8d840fc65?t=1756481406537",
-                "note": "Brazil PBIA 2024-2028"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.4|3\\.4|3\\.4\\.5|1|1\\.1|1\\.1\\.2|1\\.3|1\\.1\\.4|2|3|3\\.1|3\\.2|3\\.3|3\\.3\\.4|4|Anexo\\ 1|Anexo\\ 2|1\\.2|2\\.1|2\\.2|2\\.3|4\\.2|Anexo\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.4",
+                  "3.4",
+                  "3.4.5",
+                  "1",
+                  "1.1",
+                  "1.1.2",
+                  "1.3",
+                  "1.1.4",
+                  "2",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.3.4",
+                  "4",
+                  "Anexo 1",
+                  "Anexo 2",
+                  "1.2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "4.2",
+                  "Anexo 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pbia/2024-2028).",
+                "examples": [
+                  {
+                    "input": "1.4",
+                    "version": "2024-2028",
+                    "note": "Programa de Pesquisa e Desenvolvimento em IA"
+                  },
+                  {
+                    "input": "3.4",
+                    "version": "2024-2028",
+                    "note": "Ações estruturantes"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -595,55 +621,6 @@
               {
                 "type": "website",
                 "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://antigo.mctic.gov.br/mctic/opencms/legislacao/portarias/Portaria_MCTI_n_4617_de_06042021.html",
-                "note": "Brazil EBIA 2021"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:3\\.4|3\\.4\\.5|1|1\\.1|1\\.1\\.2|1\\.3|1\\.1\\.4|2|3|3\\.1|3\\.2|3\\.3|3\\.3\\.4|4|1\\.2|1\\.4|2\\.1|2\\.2|4\\.2)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "3.4",
-              "3.4.5",
-              "1",
-              "1.1",
-              "1.1.2",
-              "1.3",
-              "1.1.4",
-              "2",
-              "3",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.3.4",
-              "4",
-              "1.2",
-              "1.4",
-              "2.1",
-              "2.2",
-              "4.2"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pbia).",
-            "examples": [
-              {
-                "input": "3.4",
-                "note": "Ações estruturantes 31"
-              },
-              {
-                "input": "3.4.5",
-                "note": "Eixo 5: Apoio ao processo regulatório e de governança da IA 42"
               }
             ]
           }

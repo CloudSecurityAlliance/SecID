@@ -29,7 +29,7 @@
         "examples": [
           "national-defence-strategy@2024"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2024",
@@ -70,7 +70,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -83,14 +85,46 @@
           "data": {
             "type": "version",
             "url": "https://www.defence.gov.au/about/strategic-planning/2024-national-defence-strategy-2024-integrated-investment-program",
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://www.defence.gov.au/about/strategic-planning/2024-national-defence-strategy-2024-integrated-investment-program"
-              }
-            ],
             "name": "2024 National Defence Strategy (NDS)"
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|Chapter\\ 5|Chapter\\ 6|Chapter\\ 7|Chapter\\ 8|Chapter\\ 9|Chapter\\ 10|Chapter\\ 11)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Chapter 1",
+                  "Chapter 2",
+                  "Chapter 3",
+                  "Chapter 4",
+                  "Chapter 5",
+                  "Chapter 6",
+                  "Chapter 7",
+                  "Chapter 8",
+                  "Chapter 9",
+                  "Chapter 10",
+                  "Chapter 11"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/defence.gov.au/national-defence-strategy/2024).",
+                "examples": [
+                  {
+                    "input": "Chapter 1",
+                    "version": "2024",
+                    "note": "Strategic Environment"
+                  },
+                  {
+                    "input": "Chapter 2",
+                    "version": "2024",
+                    "note": "National Defence"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -102,12 +136,6 @@
           "data": {
             "type": "version",
             "url": "https://www.defence.gov.au/about/reviews-inquiries/defence-strategic-review",
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://www.defence.gov.au/about/reviews-inquiries/defence-strategic-review"
-              }
-            ],
             "name": "2023 National Defence Strategic Review (DSR)"
           }
         },
@@ -121,75 +149,7 @@
           "data": {
             "type": "version",
             "url": "https://www.defence.gov.au/about/strategic-planning/2020-defence-strategic-update",
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.defence.gov.au/about/strategic-planning/2020-defence-strategic-update"
-              }
-            ],
             "name": "2020 Defence Strategic Update"
-          }
-        },
-        {
-          "patterns": [
-            "^(?:3\\.3|1\\.19|2\\.5|3\\.10|6\\.5|8\\.29|8\\.41|8\\.63|10|10\\.11|10\\.39|11|12|13|14|chapter\\-1|chapter\\-2|chapter\\-3|3\\.5|3\\.7|chapter\\-4|chapter\\-5|chapter\\-6|6\\.8|6\\.15|chapter\\-7|7\\.8|7\\.21|chapter\\-8|8\\.7|8\\.12|8\\.14|8\\.19|8\\.20|chapter\\-9|chapter\\-10|10\\.4|chapter\\-11|11\\.8)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "3.3",
-              "1.19",
-              "2.5",
-              "3.10",
-              "6.5",
-              "8.29",
-              "8.41",
-              "8.63",
-              "10",
-              "10.11",
-              "10.39",
-              "11",
-              "12",
-              "13",
-              "14",
-              "chapter-1",
-              "chapter-2",
-              "chapter-3",
-              "3.5",
-              "3.7",
-              "chapter-4",
-              "chapter-5",
-              "chapter-6",
-              "6.8",
-              "6.15",
-              "chapter-7",
-              "7.8",
-              "7.21",
-              "chapter-8",
-              "8.7",
-              "8.12",
-              "8.14",
-              "8.19",
-              "8.20",
-              "chapter-9",
-              "chapter-10",
-              "10.4",
-              "chapter-11",
-              "11.8"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/defence.gov.au/national-defence-strategy).",
-            "examples": [
-              {
-                "input": "3.3",
-                "note": "The Government’s plans include:"
-              },
-              {
-                "input": "1.19",
-                "note": "Instead of a 10-year warning time, the Review has identified three distinct time periods for Defence planning:"
-              }
-            ]
           }
         }
       ]

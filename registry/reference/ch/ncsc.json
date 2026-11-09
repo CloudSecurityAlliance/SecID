@@ -150,7 +150,10 @@
           "nationale-cyberstrategie@2023-2027",
           "nationale-cyberstrategie@2018-2022",
           "nationale-cyberstrategie@2012-2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -173,15 +176,52 @@
                 "type": "website",
                 "url": "https://www.bacs.admin.ch/en/national-cyberstrategy-ncs"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023-2027",
-                "url": "https://www.bacs.admin.ch/dam/en/sd-web/EWp0lV9EvWUy/Nationale-Cyberstrategie-NCS-2023-04-13-EN.pdf",
-                "note": "Swiss National Cyberstrategy (NCS) 2023-2027"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|1\\.2|1\\.3|2|2\\.1|2\\.2|2\\.3|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|4|5|6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "4",
+                  "5",
+                  "6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/nationale-cyberstrategie/2023-2027).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2023-2027",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2023-2027",
+                    "note": "The cyberthreat situation"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -199,15 +239,69 @@
                 "type": "pdf",
                 "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018-2022",
-                "url": "https://www.bacs.admin.ch/dam/de/sd-web/CiKJGrzXNyJ7/Nationale_Strategie_Schutz_Schweiz_vor_Cyber-Risiken_NCS_2018-22_DE.pdf",
-                "note": "Swiss National Cyberstrategy (NCS) 2018-2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.1\\.1|2\\.1\\.2|2\\.2|2\\.2\\.1|2\\.2\\.2|2\\.3|3|3\\.1|3\\.2|3\\.3|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|4\\.7|4\\.8|4\\.9|4\\.10|5|5\\.1|5\\.2|5\\.2\\.1|5\\.2\\.2|5\\.2\\.3|5\\.3|5\\.4|6|7)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.2",
+                  "2.2.1",
+                  "2.2.2",
+                  "2.3",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "4.5",
+                  "4.6",
+                  "4.7",
+                  "4.8",
+                  "4.9",
+                  "4.10",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.2.1",
+                  "5.2.2",
+                  "5.2.3",
+                  "5.3",
+                  "5.4",
+                  "6",
+                  "7"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/nationale-cyberstrategie/2018-2022).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2018-2022",
+                    "note": "Einleitung"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2018-2022",
+                    "note": "Ausgangslage"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -225,86 +319,54 @@
                 "type": "pdf",
                 "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2012-2017",
-                "url": "https://www.bacs.admin.ch/dam/de/sd-web/JQFmJLTCAVPI/strategie-zum-schutz-der-schweiz-vor-cyberrisiken-2012-de.pdf",
-                "note": "Swiss National Cyberstrategy (NCS) 2012-2017"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:2\\.1|2\\.2|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|3\\.7|4\\.1|4\\.2|4\\.3|4\\.3\\.1|4\\.3\\.2|4\\.3\\.3|4\\.3\\.4|4\\.3\\.5|4\\.3\\.6|4\\.3\\.8|1|2|2\\.1\\.1|2\\.1\\.2|2\\.2\\.1|2\\.2\\.2|2\\.3|3|4|4\\.4|4\\.5|4\\.6|4\\.7|4\\.8|4\\.9|4\\.10|5|5\\.1|5\\.2|5\\.2\\.1|5\\.2\\.2|5\\.2\\.3|5\\.3|5\\.4|6|7|1\\.1|1\\.2|1\\.3)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "2.1",
-              "2.2",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.4",
-              "3.5",
-              "3.6",
-              "3.7",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.3.1",
-              "4.3.2",
-              "4.3.3",
-              "4.3.4",
-              "4.3.5",
-              "4.3.6",
-              "4.3.8",
-              "1",
-              "2",
-              "2.1.1",
-              "2.1.2",
-              "2.2.1",
-              "2.2.2",
-              "2.3",
-              "3",
-              "4",
-              "4.4",
-              "4.5",
-              "4.6",
-              "4.7",
-              "4.8",
-              "4.9",
-              "4.10",
-              "5",
-              "5.1",
-              "5.2",
-              "5.2.1",
-              "5.2.2",
-              "5.2.3",
-              "5.3",
-              "5.4",
-              "6",
-              "7",
-              "1.1",
-              "1.2",
-              "1.3"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/nationale-cyberstrategie).",
-            "examples": [
-              {
-                "input": "2.1",
-                "note": "Methoden"
-              },
-              {
-                "input": "2.2",
-                "note": "Akteure und Motive"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:2\\.1|2\\.2|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|3\\.7|4\\.1|4\\.2|4\\.3|4\\.3\\.1|4\\.3\\.2|4\\.3\\.3|4\\.3\\.4|4\\.3\\.5|4\\.3\\.6|4\\.3\\.8)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "2.1",
+                  "2.2",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "3.6",
+                  "3.7",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.3.1",
+                  "4.3.2",
+                  "4.3.3",
+                  "4.3.4",
+                  "4.3.5",
+                  "4.3.6",
+                  "4.3.8"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/nationale-cyberstrategie/2012-2017).",
+                "examples": [
+                  {
+                    "input": "2.1",
+                    "version": "2012-2017",
+                    "note": "Methoden"
+                  },
+                  {
+                    "input": "2.2",
+                    "version": "2012-2017",
+                    "note": "Akteure und Motive"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -360,7 +422,10 @@
         "examples": [
           "sicherheitspolitischer-bericht@2022",
           "sicherheitspolitischer-bericht@2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -378,15 +443,44 @@
                 "type": "pdf",
                 "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.sepos.admin.ch/dam/en/sd-web/YfeFpOXbcs3-/Supplementary-Report-Security-Policy-Report-2021.pdf",
-                "note": "Swiss Security Policy Supplementary Report (2022)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:4\\.1|4\\.2|7\\.1|7\\.2|7\\.3|9\\.1|9\\.2|9\\.3|9\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "4.1",
+                  "4.2",
+                  "7.1",
+                  "7.2",
+                  "7.3",
+                  "9.1",
+                  "9.2",
+                  "9.3",
+                  "9.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/sicherheitspolitischer-bericht/2022).",
+                "examples": [
+                  {
+                    "input": "4.1",
+                    "version": "2022",
+                    "note": "Decisions and measures"
+                  },
+                  {
+                    "input": "4.2",
+                    "version": "2022",
+                    "note": "Reactions in public and politics"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -403,77 +497,67 @@
                 "type": "pdf",
                 "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.sepos.admin.ch/dam/en/sd-web/G7GudMOnqfd8/Security-Policy-Report-2021.pdf",
-                "note": "Swiss Security Policy Report (2021)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:2\\.1|2\\.1\\.1|2\\.1\\.2|2\\.1\\.3|2\\.1\\.4|2\\.1\\.5|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|2\\.3\\.3|2\\.3\\.4|2\\.3\\.5|2\\.3\\.6|2\\.3\\.7|2\\.3\\.8|2\\.3\\.9|2\\.3\\.10|3\\.1|3\\.2|3\\.3|4\\.1|4\\.2|4\\.2\\.1|4\\.2\\.2|4\\.2\\.3|4\\.2\\.4|4\\.2\\.5|4\\.2\\.6|4\\.2\\.7|4\\.2\\.8|4\\.2\\.9|7\\.1|7\\.2|7\\.3|9\\.1|9\\.2|9\\.3|9\\.4)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "2.1",
-              "2.1.1",
-              "2.1.2",
-              "2.1.3",
-              "2.1.4",
-              "2.1.5",
-              "2.2",
-              "2.3",
-              "2.3.1",
-              "2.3.2",
-              "2.3.3",
-              "2.3.4",
-              "2.3.5",
-              "2.3.6",
-              "2.3.7",
-              "2.3.8",
-              "2.3.9",
-              "2.3.10",
-              "3.1",
-              "3.2",
-              "3.3",
-              "4.1",
-              "4.2",
-              "4.2.1",
-              "4.2.2",
-              "4.2.3",
-              "4.2.4",
-              "4.2.5",
-              "4.2.6",
-              "4.2.7",
-              "4.2.8",
-              "4.2.9",
-              "7.1",
-              "7.2",
-              "7.3",
-              "9.1",
-              "9.2",
-              "9.3",
-              "9.4"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/sicherheitspolitischer-bericht).",
-            "examples": [
-              {
-                "input": "2.1",
-                "note": "Global trends relevant to security policy"
-              },
-              {
-                "input": "2.1.1",
-                "note": "Increased competition between the great powers"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:2\\.1|2\\.1\\.1|2\\.1\\.2|2\\.1\\.3|2\\.1\\.4|2\\.1\\.5|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|2\\.3\\.3|2\\.3\\.4|2\\.3\\.5|2\\.3\\.6|2\\.3\\.7|2\\.3\\.8|2\\.3\\.9|2\\.3\\.10|3\\.1|3\\.2|3\\.3|4\\.1|4\\.2|4\\.2\\.1|4\\.2\\.2|4\\.2\\.3|4\\.2\\.4|4\\.2\\.5|4\\.2\\.6|4\\.2\\.7|4\\.2\\.8|4\\.2\\.9)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "2.1",
+                  "2.1.1",
+                  "2.1.2",
+                  "2.1.3",
+                  "2.1.4",
+                  "2.1.5",
+                  "2.2",
+                  "2.3",
+                  "2.3.1",
+                  "2.3.2",
+                  "2.3.3",
+                  "2.3.4",
+                  "2.3.5",
+                  "2.3.6",
+                  "2.3.7",
+                  "2.3.8",
+                  "2.3.9",
+                  "2.3.10",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "4.1",
+                  "4.2",
+                  "4.2.1",
+                  "4.2.2",
+                  "4.2.3",
+                  "4.2.4",
+                  "4.2.5",
+                  "4.2.6",
+                  "4.2.7",
+                  "4.2.8",
+                  "4.2.9"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.ch/sicherheitspolitischer-bericht/2021).",
+                "examples": [
+                  {
+                    "input": "2.1",
+                    "version": "2021",
+                    "note": "Global trends relevant to security policy"
+                  },
+                  {
+                    "input": "2.1.1",
+                    "version": "2021",
+                    "note": "Increased competition between the great powers"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

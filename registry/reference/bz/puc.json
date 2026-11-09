@@ -94,7 +94,7 @@
         },
         {
           "patterns": [
-            "^(?:1|2|annex\\-1|4\\.3|6\\.2|6\\.3|7\\.1|5\\.3|5\\.4|1\\.3|1\\.4|3\\.4|3\\.5|3\\.6|3\\.7|4\\.2|annex\\-2)$"
+            "^(?:1|2|ANNEX\\ 1|1\\.1|2\\.2|2\\.3|3\\.1|3\\.2|3\\.3|4\\.1|4\\.3|5\\.1|7\\.1|1\\.2|2\\.1|5\\.2|5\\.4|1\\.3|1\\.4|3\\.4|3\\.5|3\\.6|3\\.7|4\\.2|ANNEX\\ 2)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -103,12 +103,20 @@
             "known_values": [
               "1",
               "2",
-              "annex-1",
+              "ANNEX 1",
+              "1.1",
+              "2.2",
+              "2.3",
+              "3.1",
+              "3.2",
+              "3.3",
+              "4.1",
               "4.3",
-              "6.2",
-              "6.3",
+              "5.1",
               "7.1",
-              "5.3",
+              "1.2",
+              "2.1",
+              "5.2",
               "5.4",
               "1.3",
               "1.4",
@@ -117,17 +125,17 @@
               "3.6",
               "3.7",
               "4.2",
-              "annex-2"
+              "ANNEX 2"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/puc.bz/national-cybersecurity-strategy).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/puc.bz/national-cybersecurity-strategy/2020-2023).",
             "examples": [
               {
-                "input": "1",
-                "note": "We as a Government recognize our cybersecurity gaps and challenges BUT at the same"
+                "input": "ANNEX 1",
+                "note": "Areas of Priority"
               },
               {
-                "input": "2",
-                "note": "We also recognize that ‘no man is an island’ and this must be a national effort. Relying"
+                "input": "4.3",
+                "note": "Organize training for the judiciary and prosecutors"
               }
             ]
           }

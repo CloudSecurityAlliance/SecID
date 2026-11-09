@@ -74,7 +74,10 @@
         "examples": [
           "singapore-cybersecurity-strategy@2021",
           "singapore-cybersecurity-strategy@2016"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -92,15 +95,40 @@
                 "type": "website",
                 "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.csa.gov.sg/resources/publications/singapore-cybersecurity-strategy-2021",
-                "note": "Singapore Cybersecurity Strategy 2021"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:CHAPTER\\ 1|CHAPTER\\ 2|CHAPTER\\ 3|CHAPTER\\ 4|CHAPTER\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "CHAPTER 1",
+                  "CHAPTER 2",
+                  "CHAPTER 3",
+                  "CHAPTER 4",
+                  "CHAPTER 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/csa.gov.sg/singapore-cybersecurity-strategy/2021).",
+                "examples": [
+                  {
+                    "input": "CHAPTER 1",
+                    "version": "2021",
+                    "note": "BUILD RESILIENT INFRASTRUCTURE"
+                  },
+                  {
+                    "input": "CHAPTER 2",
+                    "version": "2021",
+                    "note": "ENABLE A SAFER CYBERSPACE"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -116,41 +144,6 @@
               {
                 "type": "website",
                 "url": "https://www.csa.gov.sg/resources/publications/singapore-s-cybersecurity-strategy-2016/"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2016",
-                "url": "https://www.csa.gov.sg/resources/publications/singapore-s-cybersecurity-strategy-2016/",
-                "note": "Singapore's Cybersecurity Strategy 2016"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "chapter-1",
-              "chapter-2",
-              "chapter-3",
-              "chapter-4",
-              "chapter-5"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/csa.gov.sg/singapore-cybersecurity-strategy).",
-            "examples": [
-              {
-                "input": "chapter-1",
-                "note": "BUILD RESILIENT INFRASTRUCTURE"
-              },
-              {
-                "input": "chapter-2",
-                "note": "ENABLE A SAFER CYBERSPACE"
               }
             ]
           }

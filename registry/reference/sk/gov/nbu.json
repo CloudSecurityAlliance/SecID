@@ -87,7 +87,7 @@
         },
         {
           "patterns": [
-            "^(?:I|IV|30|31|32|33|34|35|36|37|38|39|40|41|42|43|64|VI)$"
+            "^(?:I|IV|VI)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -96,24 +96,9 @@
             "known_values": [
               "I",
               "IV",
-              "30",
-              "31",
-              "32",
-              "33",
-              "34",
-              "35",
-              "36",
-              "37",
-              "38",
-              "39",
-              "40",
-              "41",
-              "42",
-              "43",
-              "64",
               "VI"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nbu.gov.sk/security-strategy-of-the-slovak-republic).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nbu.gov.sk/security-strategy-of-the-slovak-republic/2021).",
             "examples": [
               {
                 "input": "I",

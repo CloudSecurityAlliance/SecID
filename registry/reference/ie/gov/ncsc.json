@@ -28,7 +28,7 @@
         "examples": [
           "national-cyber-security-strategy@2023"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2023",
@@ -57,7 +57,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -69,13 +71,7 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/",
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/"
-              }
-            ]
+            "url": "https://www.gov.ie/en/publication/1969d-national-cyber-security-strategy-mid-term-review-2023/"
           }
         },
         {
@@ -87,76 +83,73 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf",
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf"
+            "url": "https://www.ncsc.gov.ie/pdfs/National_Cyber_Security_Strategy.pdf"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.4|5|5\\.1|5\\.2|5\\.3|6|6\\.1|6\\.2|6\\.3|7|7\\.1|7\\.2|7\\.3|8|9|8\\.1|8\\.2|8\\.3|9\\.1|9\\.2|10|10\\.1|10\\.2|10\\.3|11|11\\.1|11\\.2|11\\.3|12|12\\.1|12\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "6",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "7",
+                  "7.1",
+                  "7.2",
+                  "7.3",
+                  "8",
+                  "9",
+                  "8.1",
+                  "8.2",
+                  "8.3",
+                  "9.1",
+                  "9.2",
+                  "10",
+                  "10.1",
+                  "10.2",
+                  "10.3",
+                  "11",
+                  "11.1",
+                  "11.2",
+                  "11.3",
+                  "12",
+                  "12.1",
+                  "12.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.gov.ie/national-cyber-security-strategy/2019).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2019",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2019",
+                    "note": "Vision"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|2|3|4|4\\.1|4\\.2|4\\.3|4\\.4|5|5\\.1|5\\.2|5\\.3|6|6\\.1|6\\.2|6\\.3|7|7\\.1|7\\.2|7\\.3|8|8\\.1|8\\.2|8\\.3|9|9\\.1|9\\.2|15|10|10\\.1|10\\.2|10\\.3|11|11\\.1|11\\.2|11\\.3|12|12\\.1|12\\.2)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.4",
-              "5",
-              "5.1",
-              "5.2",
-              "5.3",
-              "6",
-              "6.1",
-              "6.2",
-              "6.3",
-              "7",
-              "7.1",
-              "7.2",
-              "7.3",
-              "8",
-              "8.1",
-              "8.2",
-              "8.3",
-              "9",
-              "9.1",
-              "9.2",
-              "15",
-              "10",
-              "10.1",
-              "10.2",
-              "10.3",
-              "11",
-              "11.1",
-              "11.2",
-              "11.3",
-              "12",
-              "12.1",
-              "12.2"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.gov.ie/national-cyber-security-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "Introduction"
-              },
-              {
-                "input": "2",
-                "note": "Vision"
-              }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -173,7 +166,7 @@
         "examples": [
           "ai-here-for-good@2024"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2024",
@@ -196,7 +189,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -208,13 +203,7 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html",
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html"
-              }
-            ]
+            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy-refresh-2024.html"
           }
         },
         {
@@ -225,69 +214,70 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html"
+            "url": "https://enterprise.gov.ie/en/publications/national-ai-strategy.html"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.3|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|4\\.1|4\\.2|4\\.3|4\\.4|5\\.1|5\\.2|5\\.3|6\\.1|6\\.2|6\\.3|6\\.4|6\\.5|6\\.6|7\\.1|7\\.2|1\\.4|1\\.5|1\\.6|5\\.4|4\\.5|7\\.3|7\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "6.4",
+                  "6.5",
+                  "6.6",
+                  "7.1",
+                  "7.2",
+                  "1.4",
+                  "1.5",
+                  "1.6",
+                  "5.4",
+                  "4.5",
+                  "7.3",
+                  "7.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.gov.ie/ai-here-for-good/2021).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2021",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2021",
+                    "note": "AI for Societal Good and Sustainability"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1\\.1|1\\.2|1\\.3|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|4\\.2|4\\.4|5\\.1|5\\.3|6\\.1|6\\.2|6\\.3|6\\.4|6\\.5|6\\.6|7\\.1|7\\.2|1\\.4|1\\.5|1\\.6|5\\.4|4\\.5|7\\.3|7\\.4)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1.1",
-              "1.2",
-              "1.3",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "2.5",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.4",
-              "3.5",
-              "4.2",
-              "4.4",
-              "5.1",
-              "5.3",
-              "6.1",
-              "6.2",
-              "6.3",
-              "6.4",
-              "6.5",
-              "6.6",
-              "7.1",
-              "7.2",
-              "1.4",
-              "1.5",
-              "1.6",
-              "5.4",
-              "4.5",
-              "7.3",
-              "7.4"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.gov.ie/ai-here-for-good).",
-            "examples": [
-              {
-                "input": "1.1",
-                "note": "Introduction"
-              },
-              {
-                "input": "1.2",
-                "note": "AI for Societal Good and Sustainability"
-              }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

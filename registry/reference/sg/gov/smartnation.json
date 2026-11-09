@@ -102,7 +102,10 @@
         "examples": [
           "national-ai-strategy@2023",
           "national-ai-strategy@2019"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -125,13 +128,6 @@
                 "type": "website",
                 "url": "https://www.smartnation.gov.sg/initiatives/national-ai-strategy/"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://file.go.gov.sg/nais2023.pdf",
-                "note": "Singapore National AI Strategy 2.0 (2023)"
-              }
             ]
           }
         },
@@ -151,40 +147,40 @@
                 "type": "pdf",
                 "url": "https://file.go.gov.sg/nais2019.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://file.go.gov.sg/nais2019.pdf",
-                "note": "Singapore National AI Strategy 1.0 (2019)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:4|5)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "4",
-              "5"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/smartnation.gov.sg/national-ai-strategy).",
-            "examples": [
-              {
-                "input": "4",
-                "note": "PERSONALISED EDUCATION THROUGH ADAPTIVE LEARNING AND ASSESSMENT Challenge Objective"
-              },
-              {
-                "input": "5",
-                "note": "BORDER CLEARANCE OPERATIONS Challenge Objective"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/smartnation.gov.sg/national-ai-strategy/2019).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2019",
+                    "note": "Emphasise deployment"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2019",
+                    "note": "Focus on key sectors"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

@@ -127,7 +127,10 @@
         "examples": [
           "national-security-strategy@2025",
           "national-security-strategy@2015"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -149,15 +152,41 @@
                 "type": "docs",
                 "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world-html"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.gov.uk/government/publications/national-security-strategy-2025-security-for-the-british-people-in-a-dangerous-world",
-                "note": "UK National Security Strategy 2025"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ \\(i\\)|Pillar\\ \\(i\\)\\ Section|Pillar\\ \\(ii\\)|Pillar\\ \\(ii\\)\\ Section|Pillar\\ \\(iii\\)|Pillar\\ \\(iii\\)\\ Section)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar (i)",
+                  "Pillar (i) Section",
+                  "Pillar (ii)",
+                  "Pillar (ii) Section",
+                  "Pillar (iii)",
+                  "Pillar (iii) Section"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-security-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "Pillar (i)",
+                    "version": "2025",
+                    "note": "Security at Home"
+                  },
+                  {
+                    "input": "Pillar (i) Section",
+                    "version": "2025",
+                    "note": "Defend our territory"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -174,15 +203,56 @@
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015"
               }
-            ],
-            "examples": [
-              {
-                "input": "2015",
-                "url": "https://www.gov.uk/government/publications/national-security-strategy-and-strategic-defence-and-security-review-2015",
-                "note": "UK National Security Strategy and SDSR 2015"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|A|B|C|D|E|F|G|Chapter\\ 5|Chapter\\ 5\\ A|Chapter\\ 5\\ B|Chapter\\ 6|Chapter\\ 6\\ A|Chapter\\ 6\\ B|Chapter\\ 6\\ C|Chapter\\ 7|Annex\\ A|Annex\\ B)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Chapter 1",
+                  "Chapter 2",
+                  "Chapter 3",
+                  "Chapter 4",
+                  "A",
+                  "B",
+                  "C",
+                  "D",
+                  "E",
+                  "F",
+                  "G",
+                  "Chapter 5",
+                  "Chapter 5 A",
+                  "Chapter 5 B",
+                  "Chapter 6",
+                  "Chapter 6 A",
+                  "Chapter 6 B",
+                  "Chapter 6 C",
+                  "Chapter 7",
+                  "Annex A",
+                  "Annex B"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-security-strategy/2015).",
+                "examples": [
+                  {
+                    "input": "Chapter 1",
+                    "version": "2015",
+                    "note": "Our Vision, Values and Approach"
+                  },
+                  {
+                    "input": "Chapter 2",
+                    "version": "2015",
+                    "note": "The UK: Strong, Influential, Global"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -198,54 +268,6 @@
               {
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2010",
-                "url": "https://www.gov.uk/government/publications/the-national-security-strategy-a-strong-britain-in-an-age-of-uncertainty",
-                "note": "UK National Security Strategy 2010"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:part\\-One|part\\-two|part\\-three|part\\-four|annex\\-A|chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|A|B|E|F|G|chapter\\-5|chapter\\-6|chapter\\-7|annex\\-B)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "part-One",
-              "part-two",
-              "part-three",
-              "part-four",
-              "annex-A",
-              "chapter-1",
-              "chapter-2",
-              "chapter-3",
-              "chapter-4",
-              "A",
-              "B",
-              "E",
-              "F",
-              "G",
-              "chapter-5",
-              "chapter-6",
-              "chapter-7",
-              "annex-B"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-security-strategy).",
-            "examples": [
-              {
-                "input": "part-One",
-                "note": "Part One"
-              },
-              {
-                "input": "part-two",
-                "note": "Part two"
               }
             ]
           }
@@ -301,7 +323,10 @@
         "examples": [
           "integrated-review@2023",
           "integrated-review@2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -319,15 +344,42 @@
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world"
               }
-            ],
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://www.gov.uk/government/publications/integrated-review-refresh-2023-responding-to-a-more-contested-and-volatile-world",
-                "note": "UK Integrated Review Refresh 2023"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|III|Pillar\\ 1|Pillar\\ 2|Pillar\\ 3|Pillar\\ 4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "III",
+                  "Pillar 1",
+                  "Pillar 2",
+                  "Pillar 3",
+                  "Pillar 4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/integrated-review/2023).",
+                "examples": [
+                  {
+                    "input": "I",
+                    "version": "2023",
+                    "note": "Foreword from the Prime Minister"
+                  },
+                  {
+                    "input": "II",
+                    "version": "2023",
+                    "note": "Overview"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -344,48 +396,38 @@
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.gov.uk/government/publications/global-britain-in-a-competitive-age-the-integrated-review-of-security-defence-development-and-foreign-policy",
-                "note": "UK Integrated Review 2021"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:annex\\-A|annex\\-B|annex\\-C|I|II|III|pillar\\-1|pillar\\-2|pillar\\-3|pillar\\-4)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "annex-A",
-              "annex-B",
-              "annex-C",
-              "I",
-              "II",
-              "III",
-              "pillar-1",
-              "pillar-2",
-              "pillar-3",
-              "pillar-4"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/integrated-review).",
-            "examples": [
-              {
-                "input": "annex-A",
-                "note": "Integrated Review priorities funded in Spending Review 2020"
-              },
-              {
-                "input": "annex-B",
-                "note": "Evidence and engagement"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Annex\\ A|Annex\\ B|Annex\\ C)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Annex A",
+                  "Annex B",
+                  "Annex C"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/integrated-review/2021).",
+                "examples": [
+                  {
+                    "input": "Annex A",
+                    "version": "2021",
+                    "note": "Integrated Review priorities funded in Spending Review 2020"
+                  },
+                  {
+                    "input": "Annex B",
+                    "version": "2021",
+                    "note": "Evidence and engagement"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -445,7 +487,10 @@
         "examples": [
           "national-cyber-strategy@2022",
           "national-cyber-strategy@2016-2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -463,15 +508,60 @@
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://www.gov.uk/government/publications/national-cyber-strategy-2022",
-                "note": "UK National Cyber Strategy 2022"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Part\\ 1|Part\\ 2|Pillar\\ 1|Pillar\\ 1\\ Objective\\ 1|Pillar\\ 1\\ Objective\\ 2|Pillar\\ 1\\ Objective\\ 3|Pillar\\ 2|Pillar\\ 2\\ Objective\\ 1|Pillar\\ 2\\ Objective\\ 2|Pillar\\ 2\\ Objective\\ 3|Pillar\\ 3|Pillar\\ 3\\ Objective\\ 1|Pillar\\ 3\\ Objective\\ 2|Pillar\\ 3\\ Objective\\ 3|Pillar\\ 4|Pillar\\ 4\\ Objective\\ 1|Pillar\\ 4\\ Objective\\ 2|Pillar\\ 4\\ Objective\\ 3|Pillar\\ 5|Pillar\\ 5\\ Objective\\ 1|Pillar\\ 5\\ Objective\\ 2|Pillar\\ 5\\ Objective\\ 3|Annex\\ A|Annex\\ B|Annex\\ C)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Part 1",
+                  "Part 2",
+                  "Pillar 1",
+                  "Pillar 1 Objective 1",
+                  "Pillar 1 Objective 2",
+                  "Pillar 1 Objective 3",
+                  "Pillar 2",
+                  "Pillar 2 Objective 1",
+                  "Pillar 2 Objective 2",
+                  "Pillar 2 Objective 3",
+                  "Pillar 3",
+                  "Pillar 3 Objective 1",
+                  "Pillar 3 Objective 2",
+                  "Pillar 3 Objective 3",
+                  "Pillar 4",
+                  "Pillar 4 Objective 1",
+                  "Pillar 4 Objective 2",
+                  "Pillar 4 Objective 3",
+                  "Pillar 5",
+                  "Pillar 5 Objective 1",
+                  "Pillar 5 Objective 2",
+                  "Pillar 5 Objective 3",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-cyber-strategy/2022).",
+                "examples": [
+                  {
+                    "input": "Part 1",
+                    "version": "2022",
+                    "note": "Strategy"
+                  },
+                  {
+                    "input": "Part 2",
+                    "version": "2022",
+                    "note": "Implementation"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -488,81 +578,63 @@
                 "type": "website",
                 "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021"
               }
-            ],
-            "examples": [
-              {
-                "input": "2016-2021",
-                "url": "https://www.gov.uk/government/publications/national-cyber-security-strategy-2016-to-2021",
-                "note": "UK National Cyber Security Strategy 2016 to 2021"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|2|3|4|5|5\\.1|5\\.2|5\\.3|5\\.4|5\\.5|5\\.6|6|6\\.1|6\\.2|6\\.3|6\\.4|6\\.5|6\\.6|7|7\\.1|7\\.2|7\\.3|7\\.4|8|9|annex\\-1|annex\\-2|annex\\-3|10|12|13|part\\-1|part\\-2|pillar\\-1|pillar\\-2|pillar\\-3|objective\\-2a|objective\\-4|pillar\\-4|pillar\\-5|annex\\-A|annex\\-B|annex\\-C)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "5.1",
-              "5.2",
-              "5.3",
-              "5.4",
-              "5.5",
-              "5.6",
-              "6",
-              "6.1",
-              "6.2",
-              "6.3",
-              "6.4",
-              "6.5",
-              "6.6",
-              "7",
-              "7.1",
-              "7.2",
-              "7.3",
-              "7.4",
-              "8",
-              "9",
-              "annex-1",
-              "annex-2",
-              "annex-3",
-              "10",
-              "12",
-              "13",
-              "part-1",
-              "part-2",
-              "pillar-1",
-              "pillar-2",
-              "pillar-3",
-              "objective-2a",
-              "objective-4",
-              "pillar-4",
-              "pillar-5",
-              "annex-A",
-              "annex-B",
-              "annex-C"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-cyber-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "EXECUTIVE SUMMARY"
-              },
-              {
-                "input": "2",
-                "note": "INTRODUCTION"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|5\\.1|5\\.2|5\\.3|5\\.4|5\\.5|5\\.6|6|6\\.1|6\\.2|6\\.3|6\\.4|6\\.5|6\\.6|7|7\\.1|7\\.2|7\\.3|7\\.4|8|9|ANNEX\\ 1|ANNEX\\ 2|ANNEX\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "5.3",
+                  "5.4",
+                  "5.5",
+                  "5.6",
+                  "6",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "6.4",
+                  "6.5",
+                  "6.6",
+                  "7",
+                  "7.1",
+                  "7.2",
+                  "7.3",
+                  "7.4",
+                  "8",
+                  "9",
+                  "ANNEX 1",
+                  "ANNEX 2",
+                  "ANNEX 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-cyber-strategy/2016-2021).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2016-2021",
+                    "note": "EXECUTIVE SUMMARY"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2016-2021",
+                    "note": "INTRODUCTION"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -633,7 +705,10 @@
           "ai-opportunities-action-plan@2025",
           "national-ai-strategy@2025",
           "national-ai-strategy@2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -655,15 +730,59 @@
                 "type": "pdf",
                 "url": "https://assets.publishing.service.gov.uk/media/67851771f0528401055d2329/ai_opportunities_action_plan.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
-                "note": "UK AI Opportunities Action Plan (2025)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.3|2\\.4|1|1\\.1|2|3|4|5|6|1\\.2|7|8|9|10|11|12|13|1\\.1\\.3|15|1\\.4|2\\.1|2\\.2|2\\.3|2\\.2\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.3",
+                  "2.4",
+                  "1",
+                  "1.1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "1.2",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "1.1.3",
+                  "15",
+                  "1.4",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.2.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-ai-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "2.4",
+                    "version": "2025",
+                    "note": "Address private-sector-user-adoption barriers"
+                  },
+                  {
+                    "input": "1",
+                    "version": "2025",
+                    "note": "Lay the foundations to enable AI"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -684,93 +803,38 @@
                 "type": "pdf",
                 "url": "https://assets.publishing.service.gov.uk/media/614db4d1e90e077a2cbdf3c4/National_AI_Strategy_-_PDF_version.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.gov.uk/government/publications/national-ai-strategy",
-                "note": "UK National AI Strategy (2021)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:10|pillar\\-1|pillar\\-2|pillar\\-3|1\\.3|2\\.4|1|1\\.1|4|5|6|1\\.2|7|8|9|11|12|13|1\\.1\\.3|15|18|19|20|21|1\\.4|23|24|25|26|27|28|29|30|2|2\\.1|2\\.2|31|32|33|35|37|38|39|40|41|42|2\\.3|43|45|46|2\\.2\\.4|47|48|3|50)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "10",
-              "pillar-1",
-              "pillar-2",
-              "pillar-3",
-              "1.3",
-              "2.4",
-              "1",
-              "1.1",
-              "4",
-              "5",
-              "6",
-              "1.2",
-              "7",
-              "8",
-              "9",
-              "11",
-              "12",
-              "13",
-              "1.1.3",
-              "15",
-              "18",
-              "19",
-              "20",
-              "21",
-              "1.4",
-              "23",
-              "24",
-              "25",
-              "26",
-              "27",
-              "28",
-              "29",
-              "30",
-              "2",
-              "2.1",
-              "2.2",
-              "31",
-              "32",
-              "33",
-              "35",
-              "37",
-              "38",
-              "39",
-              "40",
-              "41",
-              "42",
-              "2.3",
-              "43",
-              "45",
-              "46",
-              "2.2.4",
-              "47",
-              "48",
-              "3",
-              "50"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-ai-strategy).",
-            "examples": [
-              {
-                "input": "10",
-                "note": "Year Vision"
-              },
-              {
-                "input": "pillar-1",
-                "note": "Investing in the long-term needs of the AI ecosystem"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Pillar\\ 1|Pillar\\ 2|Pillar\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Pillar 1",
+                  "Pillar 2",
+                  "Pillar 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-ai-strategy/2021).",
+                "examples": [
+                  {
+                    "input": "Pillar 1",
+                    "version": "2021",
+                    "note": "Investing in the long-term needs of the AI ecosystem"
+                  },
+                  {
+                    "input": "Pillar 2",
+                    "version": "2021",
+                    "note": "Ensuring AI benefits all sectors and regions"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

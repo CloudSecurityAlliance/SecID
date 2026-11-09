@@ -172,7 +172,10 @@
         "examples": [
           "ki-strategie@2020",
           "ki-strategie@2018"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -194,13 +197,6 @@
                 "type": "website",
                 "url": "https://www.ki-strategie-deutschland.de/"
               }
-            ],
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Fortschreibung_KI-Strategie_engl.pdf",
-                "note": "German National AI Strategy (2020 Update)"
-              }
             ]
           }
         },
@@ -219,54 +215,51 @@
                 "type": "pdf",
                 "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://www.ki-strategie-deutschland.de/files/downloads/Nationale_KI-Strategie_engl.pdf",
-                "note": "German National AI Strategy (2018)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|III|2|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|3\\.7|3\\.8|3\\.9|3\\.10|3\\.11|3\\.12)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "III",
-              "2",
-              "3",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.4",
-              "3.5",
-              "3.6",
-              "3.7",
-              "3.8",
-              "3.9",
-              "3.10",
-              "3.11",
-              "3.12"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/bundesregierung.de/ki-strategie).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "Goals"
-              },
-              {
-                "input": "III",
-                "note": "We will integrate AI in society in ethical, legal, cultural and institutional terms in the context of a broad"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|III|2|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|3\\.7|3\\.8|3\\.9|3\\.10|3\\.11|3\\.12)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "III",
+                  "2",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "3.6",
+                  "3.7",
+                  "3.8",
+                  "3.9",
+                  "3.10",
+                  "3.11",
+                  "3.12"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/bundesregierung.de/ki-strategie/2018).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2018",
+                    "note": "Goals"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2018",
+                    "note": "Current situation"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

@@ -147,7 +147,10 @@
         "examples": [
           "national-ai-strategy@2024",
           "national-ai-strategy@2018"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -169,13 +172,6 @@
                 "type": "website",
                 "url": "https://www.psa.gov.in/ai-mission"
               }
-            ],
-            "examples": [
-              {
-                "input": "2024",
-                "url": "https://indiaai.gov.in/",
-                "note": "IndiaAI Mission (2024)"
-              }
             ]
           }
         },
@@ -194,44 +190,44 @@
                 "type": "pdf",
                 "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf",
-                "note": "India National Strategy for Artificial Intelligence (#AIforAll, 2018)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|2|appendix\\-I|appendix\\-II|appendix\\-III|appendix\\-IV)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "2",
-              "appendix-I",
-              "appendix-II",
-              "appendix-III",
-              "appendix-IV"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/meity.gov.in/national-ai-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "Workforce"
-              },
-              {
-                "input": "2",
-                "note": "Students"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:Recommendation\\ 1|Recommendation\\ 2|Recommendation\\ 3|Recommendation\\ 4|Recommendation\\ 5|Appendix\\ I|Appendix\\ II|Appendix\\ III|Appendix\\ IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "Recommendation 1",
+                  "Recommendation 2",
+                  "Recommendation 3",
+                  "Recommendation 4",
+                  "Recommendation 5",
+                  "Appendix I",
+                  "Appendix II",
+                  "Appendix III",
+                  "Appendix IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/meity.gov.in/national-ai-strategy/2018).",
+                "examples": [
+                  {
+                    "input": "Recommendation 1",
+                    "version": "2018",
+                    "note": "Creating a multi-stakeholder Marketplace"
+                  },
+                  {
+                    "input": "Recommendation 2",
+                    "version": "2018",
+                    "note": "Facilitating creation of large foundational annotated data sets"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

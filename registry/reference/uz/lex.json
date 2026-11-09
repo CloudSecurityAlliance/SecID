@@ -65,31 +65,6 @@
               }
             ]
           }
-        },
-        {
-          "patterns": [
-            "^(?:1\\-ИЛОВА|2\\-ИЛОВА)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1-ИЛОВА",
-              "2-ИЛОВА"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/lex.uz/uzbekistan-2030-strategy).",
-            "examples": [
-              {
-                "input": "1-ИЛОВА",
-                "note": "1-ИЛОВА"
-              },
-              {
-                "input": "2-ИЛОВА",
-                "note": "2-ИЛОВА"
-              }
-            ]
-          }
         }
       ]
     },
@@ -151,33 +126,29 @@
         },
         {
           "patterns": [
-            "^(?:1\\-ИЛОВА|1\\-боб|2\\-боб|3\\-боб|4\\-боб|5\\-боб|6\\-боб|ИЛОВА|2\\-ИЛОВА|3\\-ИЛОВА)$"
+            "^(?:1\\-боб|2\\-боб|3\\-боб|4\\-боб|5\\-боб|6\\-боб)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "1-ИЛОВА",
               "1-боб",
               "2-боб",
               "3-боб",
               "4-боб",
               "5-боб",
-              "6-боб",
-              "ИЛОВА",
-              "2-ИЛОВА",
-              "3-ИЛОВА"
+              "6-боб"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/lex.uz/ai-technologies-development-strategy-2030).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/lex.uz/ai-technologies-development-strategy-2030/2024).",
             "examples": [
-              {
-                "input": "1-ИЛОВА",
-                "note": "1-ИЛОВА"
-              },
               {
                 "input": "1-боб",
                 "note": "Умумий маълумот"
+              },
+              {
+                "input": "3-боб",
+                "note": "Стратегиянинг мақсад ва вазифалари"
               }
             ]
           }

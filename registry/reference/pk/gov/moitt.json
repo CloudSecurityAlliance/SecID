@@ -65,6 +65,37 @@
               }
             ]
           }
+        },
+        {
+          "patterns": [
+            "^(?:SECTION\\ I|SECTION\\ II|SECTION\\ III|SECTION\\ IV|SECTION\\ V|SECTION\\ VI|SECTION\\ VII|SECTION\\ VIII)$"
+          ],
+          "description": "Section, chapter, pillar, or objective identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION I",
+              "SECTION II",
+              "SECTION III",
+              "SECTION IV",
+              "SECTION V",
+              "SECTION VI",
+              "SECTION VII",
+              "SECTION VIII"
+            ],
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/moitt.gov.pk/national-security-policy-of-pakistan/2022).",
+            "examples": [
+              {
+                "input": "SECTION I",
+                "note": "POLICY FORMULATION POLICY FORMULATION"
+              },
+              {
+                "input": "SECTION II",
+                "note": "NATIONAL SECURITY FRAMEWORK NATIONAL SECURITY FRAMEWORK"
+              }
+            ]
+          }
         }
       ]
     },

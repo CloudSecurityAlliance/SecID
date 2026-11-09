@@ -127,34 +127,6 @@
               }
             ]
           }
-        },
-        {
-          "patterns": [
-            "^(?:1|7|3|5|6)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "7",
-              "3",
-              "5",
-              "6"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/strategic-compass).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "Reinforce our civilian and military CSDP missions and operations by providing them with"
-              },
-              {
-                "input": "7",
-                "note": "Spend more and better in defence and improve our capability development and planning"
-              }
-            ]
-          }
         }
       ]
     },
@@ -223,7 +195,10 @@
           "cybersecurity-strategy@2020",
           "cybersecurity-strategy@2017",
           "cybersecurity-strategy@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -241,15 +216,57 @@
                 "type": "website",
                 "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018"
               }
-            ],
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020JC0018",
-                "note": "EU Cybersecurity Strategy for the Digital Decade (2020)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:I|II|1|1\\.1|1\\.2|1\\.3|1\\.4|1\\.5|1\\.6|1\\.7|1\\.8|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|3\\.2|3\\.3|III|IV)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "I",
+                  "II",
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "1.4",
+                  "1.5",
+                  "1.6",
+                  "1.7",
+                  "1.8",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "III",
+                  "IV"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/cybersecurity-strategy/2020).",
+                "examples": [
+                  {
+                    "input": "II",
+                    "version": "2020",
+                    "note": "THINKING GLOBAL, ACTING EUROPEAN"
+                  },
+                  {
+                    "input": "1",
+                    "version": "2020",
+                    "note": "RESILIENCE, TECHNOLOGICAL SOVEREIGNTY AND LEADERSHIP"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -266,15 +283,55 @@
                 "type": "website",
                 "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450"
               }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017JC0450",
-                "note": "EU Cybersecurity Strategy (2017)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|2\\.6|2\\.7|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|4|4\\.1|4\\.2|4\\.3|5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "2.6",
+                  "2.7",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "3.5",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/cybersecurity-strategy/2017).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2017",
+                    "note": "INTRODUCTION"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2017",
+                    "note": "BUILDING EU RESILIENCE TO CYBER ATTACKS"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -291,70 +348,46 @@
                 "type": "website",
                 "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001"
               }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52013JC0001",
-                "note": "EU Cybersecurity Strategy (2013)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|4|1|2\\.6|2\\.7|3\\.3|3\\.4|3\\.5|4\\.1|4\\.2|4\\.3|5|I|II|1\\.3|1\\.4|1\\.5|1\\.6|1\\.7|1\\.8|III|IV)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1.1",
-              "1.2",
-              "2",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "2.5",
-              "3",
-              "3.1",
-              "3.2",
-              "4",
-              "1",
-              "2.6",
-              "2.7",
-              "3.3",
-              "3.4",
-              "3.5",
-              "4.1",
-              "4.2",
-              "4.3",
-              "5",
-              "I",
-              "II",
-              "1.3",
-              "1.4",
-              "1.5",
-              "1.6",
-              "1.7",
-              "1.8",
-              "III",
-              "IV"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/cybersecurity-strategy).",
-            "examples": [
-              {
-                "input": "1.1",
-                "note": "Context"
-              },
-              {
-                "input": "1.2",
-                "note": "Principles for cybersecurity"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "3",
+                  "3.1",
+                  "3.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/cybersecurity-strategy/2013).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2013",
+                    "note": "Context"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2013",
+                    "note": "Principles for cybersecurity"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -424,7 +457,10 @@
           "ai-strategy@2025",
           "ai-strategy@2021",
           "ai-strategy@2018"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -442,15 +478,50 @@
                 "type": "website",
                 "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://digital-strategy.ec.europa.eu/en/library/ai-continent-action-plan",
-                "note": "EU AI Continent Action Plan (2025)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|1\\.2|1\\.3|2|3|3\\.1|3\\.2|3\\.3|4|4\\.1|4\\.2|5|6|Annex\\ I)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "2",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "5",
+                  "6",
+                  "Annex I"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/ai-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2025",
+                    "note": "Deploy and scale AI Factories"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2025",
+                    "note": "Invest in AI Gigafactories"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -467,15 +538,67 @@
                 "type": "website",
                 "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review"
               }
-            ],
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence-2021-review",
-                "note": "EU Coordinated Plan on Artificial Intelligence (2021 Review)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|6|Annex\\ I|I|Chapter\\ 1|1\\.1|1\\.2|1\\.3|Chapter\\ 2|Chapter\\ 3|II|Chapter\\ 4|Chapter\\ 5|Chapter\\ 6|Chapter\\ 7|Chapter\\ 8|Chapter\\ 9|Chapter\\ 10|IV|Chapter\\ 11|Chapter\\ 12|Chapter\\ 13|Chapter\\ 14|Chapter\\ 15|Chapter\\ 16|Chapter\\ 17|Appendix\\ 1|Appendix\\ 2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "Annex I",
+                  "I",
+                  "Chapter 1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "Chapter 2",
+                  "Chapter 3",
+                  "II",
+                  "Chapter 4",
+                  "Chapter 5",
+                  "Chapter 6",
+                  "Chapter 7",
+                  "Chapter 8",
+                  "Chapter 9",
+                  "Chapter 10",
+                  "IV",
+                  "Chapter 11",
+                  "Chapter 12",
+                  "Chapter 13",
+                  "Chapter 14",
+                  "Chapter 15",
+                  "Chapter 16",
+                  "Chapter 17",
+                  "Appendix 1",
+                  "Appendix 2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/ai-strategy/2021).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2021",
+                    "note": "Introduction"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2021",
+                    "note": "The two sides of artificial intelligence: opportunities and risks"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -492,90 +615,53 @@
                 "type": "website",
                 "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence"
               }
-            ],
-            "examples": [
-              {
-                "input": "2018",
-                "url": "https://digital-strategy.ec.europa.eu/en/library/coordinated-plan-artificial-intelligence",
-                "note": "EU Coordinated Plan on Artificial Intelligence (2018)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|2\\.6|2\\.7|3|annex\\-I|A|B|D|E|F|G|H|4|5|6|I|chapter\\-1|1\\.1|1\\.2|1\\.3|chapter\\-2|chapter\\-3|II|chapter\\-4|chapter\\-5|chapter\\-6|chapter\\-7|III|chapter\\-8|chapter\\-9|chapter\\-10|IV|chapter\\-11|chapter\\-12|chapter\\-13|chapter\\-14|chapter\\-15|chapter\\-16|chapter\\-17|appendix\\-1|appendix\\-2|3\\.1|3\\.2|3\\.3|4\\.1|4\\.2)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "2",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "2.5",
-              "2.6",
-              "2.7",
-              "3",
-              "annex-I",
-              "A",
-              "B",
-              "D",
-              "E",
-              "F",
-              "G",
-              "H",
-              "4",
-              "5",
-              "6",
-              "I",
-              "chapter-1",
-              "1.1",
-              "1.2",
-              "1.3",
-              "chapter-2",
-              "chapter-3",
-              "II",
-              "chapter-4",
-              "chapter-5",
-              "chapter-6",
-              "chapter-7",
-              "III",
-              "chapter-8",
-              "chapter-9",
-              "chapter-10",
-              "IV",
-              "chapter-11",
-              "chapter-12",
-              "chapter-13",
-              "chapter-14",
-              "chapter-15",
-              "chapter-16",
-              "chapter-17",
-              "appendix-1",
-              "appendix-2",
-              "3.1",
-              "3.2",
-              "3.3",
-              "4.1",
-              "4.2"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/ai-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "INTRODUCTION – THE EUROPEAN AI STRATEGY"
-              },
-              {
-                "input": "2",
-                "note": "THE COORDINATED PLAN ON AI – OVERVIEW"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|2\\.6|2\\.7|3|Annex\\ I|A|B|D|E|F|G|H)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "2.6",
+                  "2.7",
+                  "3",
+                  "Annex I",
+                  "A",
+                  "B",
+                  "D",
+                  "E",
+                  "F",
+                  "G",
+                  "H"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/europa.eu/ai-strategy/2018).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2018",
+                    "note": "INTRODUCTION – THE EUROPEAN AI STRATEGY"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2018",
+                    "note": "THE COORDINATED PLAN ON AI – OVERVIEW"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

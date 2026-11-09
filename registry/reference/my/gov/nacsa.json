@@ -68,28 +68,30 @@
         },
         {
           "patterns": [
-            "^(?:3|5|7|9|11)$"
+            "^(?:BAHAGIAN\\ I|BAHAGIAN\\ II|BAHAGIAN\\ III|BAHAGIAN\\ IV|BAHAGIAN\\ V|BAHAGIAN\\ VI|BAHAGIAN\\ VII)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "3",
-              "5",
-              "7",
-              "9",
-              "11"
+              "BAHAGIAN I",
+              "BAHAGIAN II",
+              "BAHAGIAN III",
+              "BAHAGIAN IV",
+              "BAHAGIAN V",
+              "BAHAGIAN VI",
+              "BAHAGIAN VII"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/dasar-keselamatan-negara).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/dasar-keselamatan-negara/2021).",
             "examples": [
               {
-                "input": "3",
-                "note": "Ciri sifat perihal keselamatan tradisional yang masih relevan dengan persekitaran geostrategik keselamatan;"
+                "input": "BAHAGIAN I",
+                "note": "PENGENALAN DASAR KESELAMATAN NEGARA"
               },
               {
-                "input": "5",
-                "note": "Isu, cabaran dan ancaman merentas pelbagai sektor dalam negara;"
+                "input": "BAHAGIAN II",
+                "note": "NILAI TERAS KESELAMATAN NEGARA DASAR KESELAMATAN NEGARA"
               }
             ]
           }
@@ -109,7 +111,7 @@
         "examples": [
           "malaysia-cyber-security-strategy@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -138,7 +140,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -150,14 +154,50 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.nacsa.gov.my/mcss.php",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.nacsa.gov.my/mcss.php"
+            "url": "https://www.nacsa.gov.my/mcss.php"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1\\.1|1\\.2|1\\.3|1\\.4|2\\.1|2\\.2|2\\.3|3\\.1|4\\.1|4\\.2|4\\.3|5\\.1|5\\.3|5\\.4|5\\.2)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "1.4",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3.1",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "5.1",
+                  "5.3",
+                  "5.4",
+                  "5.2"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/malaysia-cyber-security-strategy/2025).",
+                "examples": [
+                  {
+                    "input": "1.1",
+                    "version": "2025",
+                    "note": "Cyber Security Threat Landscape"
+                  },
+                  {
+                    "input": "1.2",
+                    "version": "2025",
+                    "note": "Public Trust and Perspectives"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "patterns": [
@@ -168,45 +208,7 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.nacsa.gov.my/mcss.php",
-            "examples": [
-              {
-                "input": "2020",
-                "url": "https://www.nacsa.gov.my/mcss.php"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:27|58|80|2\\.2|2\\.3|3\\.1|4\\.3|5\\.1|5\\.2)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "27",
-              "58",
-              "80",
-              "2.2",
-              "2.3",
-              "3.1",
-              "4.3",
-              "5.1",
-              "5.2"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nacsa.gov.my/malaysia-cyber-security-strategy).",
-            "examples": [
-              {
-                "input": "27",
-                "note": "Participants 24 Participants 24 Participants 57 Participants"
-              },
-              {
-                "input": "58",
-                "note": "Participants 44 Participants 43 Participants"
-              }
-            ]
+            "url": "https://www.nacsa.gov.my/mcss.php"
           }
         }
       ]

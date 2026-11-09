@@ -91,7 +91,10 @@
         "examples": [
           "estrategia-nacional-ciberseguridad@2022-2030",
           "estrategia-nacional-ciberseguridad@2018-2021"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -115,15 +118,40 @@
                 "type": "pdf",
                 "url": "https://presidencia.gob.do/sites/default/files/decree/2022-08/313-22.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2022-2030",
-                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
-                "note": "Dominican Republic National Cybersecurity Strategy 2030"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:ARTÍCULO\\ 1|ARTÍCULO\\ 2|ARTÍCULO\\ 4|ARTÍCULO\\ 5|ARTÍCULO\\ 6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "ARTÍCULO 1",
+                  "ARTÍCULO 2",
+                  "ARTÍCULO 4",
+                  "ARTÍCULO 5",
+                  "ARTÍCULO 6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ciberseguridad/2022-2030).",
+                "examples": [
+                  {
+                    "input": "ARTÍCULO 1",
+                    "version": "2022-2030",
+                    "note": "Objeto y vigencia de la Estrategia Nacional de Ciberseguridad 2030. Se"
+                  },
+                  {
+                    "input": "ARTÍCULO 2",
+                    "version": "2022-2030",
+                    "note": "Misión de la Estrategia Nacional de Ciberseguridad 2030. La Estrategia"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -140,42 +168,6 @@
               {
                 "type": "pdf",
                 "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2018-2021",
-                "url": "https://cncs.gob.do/wp-content/uploads/2022/07/Decreto-313-22.pdf",
-                "note": "Dominican Republic National Cybersecurity Strategy 2018-2021"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:articulo\\-1|articulo\\-2|articulo\\-3|articulo\\-4|articulo\\-5|articulo\\-6)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "articulo-1",
-              "articulo-2",
-              "articulo-3",
-              "articulo-4",
-              "articulo-5",
-              "articulo-6"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ciberseguridad).",
-            "examples": [
-              {
-                "input": "articulo-1",
-                "note": "Objeto y vigencia de la Estrategia Nacional de Ciberseguridad 2030. Se"
-              },
-              {
-                "input": "articulo-2",
-                "note": "Misión de la Estrategia Nacional de Ciberseguridad 2030. La Estrategia"
               }
             ]
           }
@@ -249,88 +241,44 @@
         },
         {
           "patterns": [
-            "^(?:01|04|1\\.1\\.1|1\\.2\\.2|1\\.2\\.4|1\\.2\\.5|1\\.3\\.1|1\\.3\\.2|1\\.3\\.4|15|1\\.3\\.5|2\\.1\\.1|2\\.1\\.2|2\\.1\\.4|2\\.1\\.5|2\\.1\\.6|2\\.1\\.7|2\\.2\\.1|2\\.2\\.2|3\\.1\\.1|3\\.1\\.2|4\\.1\\.2|4\\.2\\.1|4\\.2\\.4|4\\.2\\.5|4\\.3\\.2|4\\.4\\.1|5\\.1\\.1|5\\.1\\.3|5\\.2\\.1|5\\.2\\.2|5\\.2\\.3|5\\.3\\.1|5\\.3\\.2|6\\.1\\.1|6\\.1\\.2|7\\.1\\.1|7\\.1\\.2|7\\.1\\.3|7\\.1\\.4|7\\.1\\.5|7\\.1\\.6|7\\.2\\.1|98\\.0|90\\.00|7\\.00|17\\.9|36\\.7|3\\.0|3\\.7|2\\.0|50\\.4|12|14|16|18|26|34|7\\.50|24|10\\.0|1\\.0|15\\.0|4\\.0|13\\.0)$"
+            "^(?:10|11|12|13|14|15|2\\.1\\.6|2\\.1\\.7|4\\.2\\.2|3\\.0|3\\.7|2\\.0|16|18|20|8|10\\.0|1\\.0|15\\.0|4\\.0|13\\.0)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "01",
-              "04",
-              "1.1.1",
-              "1.2.2",
-              "1.2.4",
-              "1.2.5",
-              "1.3.1",
-              "1.3.2",
-              "1.3.4",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
               "15",
-              "1.3.5",
-              "2.1.1",
-              "2.1.2",
-              "2.1.4",
-              "2.1.5",
               "2.1.6",
               "2.1.7",
-              "2.2.1",
-              "2.2.2",
-              "3.1.1",
-              "3.1.2",
-              "4.1.2",
-              "4.2.1",
-              "4.2.4",
-              "4.2.5",
-              "4.3.2",
-              "4.4.1",
-              "5.1.1",
-              "5.1.3",
-              "5.2.1",
-              "5.2.2",
-              "5.2.3",
-              "5.3.1",
-              "5.3.2",
-              "6.1.1",
-              "6.1.2",
-              "7.1.1",
-              "7.1.2",
-              "7.1.3",
-              "7.1.4",
-              "7.1.5",
-              "7.1.6",
-              "7.2.1",
-              "98.0",
-              "90.00",
-              "7.00",
-              "17.9",
-              "36.7",
+              "4.2.2",
               "3.0",
               "3.7",
               "2.0",
-              "50.4",
-              "12",
-              "14",
               "16",
               "18",
-              "26",
-              "34",
-              "7.50",
-              "24",
+              "20",
+              "8",
               "10.0",
               "1.0",
               "15.0",
               "4.0",
               "13.0"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ia).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cncs.gob.do/estrategia-nacional-ia/2023).",
             "examples": [
               {
-                "input": "01",
-                "note": "Desarrollar la Industria 4.0 con un enfoque inspirado en misiones"
+                "input": "10",
+                "note": "Tratado para prohibir armas autónomas"
               },
               {
-                "input": "04",
-                "note": "HUB de Talento Humano e"
+                "input": "11",
+                "note": "Revisión norma datos abiertos"
               }
             ]
           }

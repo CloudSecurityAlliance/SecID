@@ -85,7 +85,10 @@
         "examples": [
           "national-cybersecurity-strategy@2025-2028",
           "national-cybersecurity-strategy@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -108,15 +111,68 @@
                 "type": "website",
                 "url": "https://www.gov.il/en/pages/cyber_strategy_2025"
               }
-            ],
-            "examples": [
-              {
-                "input": "2025-2028",
-                "url": "https://en-cyber.tau.ac.il/sites/cyberstudies-english.tau.ac.il/files/media_server/cyber%20center/cyber-center/Israel%20National%20Cyber%20Security%20Strategy%202025.pdf",
-                "note": "Israel National Cybersecurity Strategy 2025-2028"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|3|3\\.1|3\\.2|3\\.3|3\\.4|4|4\\.1|4\\.2|4\\.3|4\\.4|5|5\\.1|5\\.2|6|6\\.1|7|7\\.1|7\\.2|7\\.3|7\\.4|8|8\\.1|8\\.2|8\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "1.4",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3",
+                  "3.4",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "6",
+                  "6.1",
+                  "7",
+                  "7.1",
+                  "7.2",
+                  "7.3",
+                  "7.4",
+                  "8",
+                  "8.1",
+                  "8.2",
+                  "8.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cyber.gov.il/national-cybersecurity-strategy/2025-2028).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2025-2028",
+                    "note": "פרק ראשון: אזרחים ועסקים בטוחים יותר"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2025-2028",
+                    "note": "יעד ראשון: העלאת מודעות ואוריינות למול איומי סייבר"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -132,69 +188,6 @@
               {
                 "type": "pdf",
                 "url": "https://en-cyber.tau.ac.il/sites/cyberstudies-english.tau.ac.il/files/media_server/cyber%20center/cyber-center/Israel%20Cyber%20Security%20Strategy%20-%20Brief%20-%20English%20-%20Book%20-%20Final%20-%202017.pdf"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://en-cyber.tau.ac.il/sites/cyberstudies-english.tau.ac.il/files/media_server/cyber%20center/cyber-center/Israel%20Cyber%20Security%20Strategy%20-%20Brief%20-%20English%20-%20Book%20-%20Final%20-%202017.pdf",
-                "note": "Israel National Cyber Security Strategy 2017"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|3|3\\.1|3\\.2|3\\.3|3\\.4|4|4\\.1|4\\.2|4\\.3|4\\.4|5|5\\.1|5\\.2|6|6\\.1|7|7\\.1|7\\.2|7\\.3|7\\.4|8|8\\.1|8\\.2|8\\.3)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "1.1",
-              "1.2",
-              "1.3",
-              "1.4",
-              "2",
-              "2.1",
-              "2.2",
-              "2.3",
-              "3",
-              "3.1",
-              "3.2",
-              "3.3",
-              "3.4",
-              "4",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.4",
-              "5",
-              "5.1",
-              "5.2",
-              "6",
-              "6.1",
-              "7",
-              "7.1",
-              "7.2",
-              "7.3",
-              "7.4",
-              "8",
-              "8.1",
-              "8.2",
-              "8.3"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/cyber.gov.il/national-cybersecurity-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "פרק ראשון: אזרחים ועסקים בטוחים יותר"
-              },
-              {
-                "input": "1.1",
-                "note": "יעד ראשון: העלאת מודעות ואוריינות למול איומי סייבר"
               }
             ]
           }

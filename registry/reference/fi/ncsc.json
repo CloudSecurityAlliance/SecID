@@ -127,7 +127,10 @@
           "kyberturvallisuusstrategia@2024-2035",
           "kyberturvallisuusstrategia@2019",
           "kyberturvallisuusstrategia@2013"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -145,13 +148,6 @@
               {
                 "type": "website",
                 "url": "https://urn.fi/URN:ISBN:978-952-383-425-5"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2024-2035",
-                "url": "https://urn.fi/URN:ISBN:978-952-383-425-5",
-                "note": "Finland's Cyber Security Strategy 2024-2035"
               }
             ]
           }
@@ -171,13 +167,6 @@
                 "type": "pdf",
                 "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2019",
-                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2019/10/Kyberturvallisuusstrategia_A4_ENG_WEB_031019.pdf",
-                "note": "Finland's Cyber Security Strategy (2019)"
-              }
             ]
           }
         },
@@ -196,56 +185,55 @@
                 "type": "pdf",
                 "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf"
               }
-            ],
-            "examples": [
-              {
-                "input": "2013",
-                "url": "https://turvallisuuskomitea.fi/wp-content/uploads/2018/09/Cyber-Strategy-for-Finland.pdf",
-                "note": "Finland's Cyber Security Strategy (2013)"
-              }
             ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:3|4|3\\.1|3\\.2|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|5|5\\.1|5\\.2|6|6\\.1|6\\.2|6\\.3|6\\.4)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "3",
-              "4",
-              "3.1",
-              "3.2",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.4",
-              "4.5",
-              "4.6",
-              "5",
-              "5.1",
-              "5.2",
-              "6",
-              "6.1",
-              "6.2",
-              "6.3",
-              "6.4"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.fi/kyberturvallisuusstrategia).",
-            "examples": [
-              {
-                "input": "3",
-                "note": "CYBER SECURITY MANAGEMENT AND THE NATIONAL APPROACH"
-              },
-              {
-                "input": "4",
-                "note": "STRATEGIC GUIDELINES FOR CYBER SECURITY"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|3\\.1|3\\.2|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|5|5\\.1|5\\.2|6|6\\.1|6\\.2|6\\.3|6\\.4)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "3.1",
+                  "3.2",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "4.5",
+                  "4.6",
+                  "5",
+                  "5.1",
+                  "5.2",
+                  "6",
+                  "6.1",
+                  "6.2",
+                  "6.3",
+                  "6.4"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.fi/kyberturvallisuusstrategia/2013).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2013",
+                    "note": "INTRODUCTION"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2013",
+                    "note": "VISION FOR CYBER SECURITY"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     },

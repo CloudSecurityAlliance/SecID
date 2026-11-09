@@ -107,30 +107,30 @@
         },
         {
           "patterns": [
-            "^(?:chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5|chapter\\-6|chapter\\-7|chapter\\-8)$"
+            "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|Chapter\\ 5|Chapter\\ 6|Chapter\\ 7|Chapter\\ 8)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "chapter-1",
-              "chapter-2",
-              "chapter-3",
-              "chapter-4",
-              "chapter-5",
-              "chapter-6",
-              "chapter-7",
-              "chapter-8"
+              "Chapter 1",
+              "Chapter 2",
+              "Chapter 3",
+              "Chapter 4",
+              "Chapter 5",
+              "Chapter 6",
+              "Chapter 7",
+              "Chapter 8"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-security-policy).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-security-policy/2004).",
             "examples": [
               {
-                "input": "chapter-1",
+                "input": "Chapter 1",
                 "note": "Canada’s Approach to National Security"
               },
               {
-                "input": "chapter-2",
+                "input": "Chapter 2",
                 "note": "Building an Integrated Security System"
               }
             ]
@@ -270,7 +270,7 @@
         },
         {
           "patterns": [
-            "^(?:I|II|III|IV|annex\\-A|annex\\-B|annex\\-C|annex\\-D)$"
+            "^(?:I|II|III|IV|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -281,12 +281,12 @@
               "II",
               "III",
               "IV",
-              "annex-A",
-              "annex-B",
-              "annex-C",
-              "annex-D"
+              "Annex A",
+              "Annex B",
+              "Annex C",
+              "Annex D"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/our-north-strong-and-free).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/our-north-strong-and-free/2024).",
             "examples": [
               {
                 "input": "I",
@@ -328,38 +328,7 @@
         "examples": [
           "national-security-transparency-commitment"
         ]
-      },
-      "children": [
-        {
-          "patterns": [
-            "^(?:principle\\-1|principle\\-2|principle\\-3|principle\\-4|principle\\-5|principle\\-6)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "principle-1",
-              "principle-2",
-              "principle-3",
-              "principle-4",
-              "principle-5",
-              "principle-6"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-security-transparency-commitment).",
-            "examples": [
-              {
-                "input": "principle-1",
-                "note": "Principle 1"
-              },
-              {
-                "input": "principle-2",
-                "note": "Principle 2"
-              }
-            ]
-          }
-        }
-      ]
+      }
     },
     {
       "patterns": [
@@ -426,7 +395,7 @@
         },
         {
           "patterns": [
-            "^(?:1|1\\.1|1\\.2|1\\.3|2|2\\.1|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|2\\.3\\.3|2\\.3\\.4|2\\.4|3|4|Appendix A|Appendix B)$"
+            "^(?:1|1\\.1|1\\.2|1\\.3|2|2\\.1|2\\.2|2\\.3|2\\.3\\.1|2\\.3\\.2|2\\.3\\.3|2\\.3\\.4|2\\.4|3|4)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -447,11 +416,9 @@
               "2.3.4",
               "2.4",
               "3",
-              "4",
-              "Appendix A",
-              "Appendix B"
+              "4"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/enterprise-cyber-security-strategy).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/enterprise-cyber-security-strategy/2024).",
             "examples": [
               {
                 "input": "1",
@@ -561,7 +528,10 @@
           "national-ai-strategy@2026",
           "pan-canadian-ai-strategy@2022",
           "pan-canadian-ai-strategy@2017"
-        ]
+        ],
+        "version_required": true,
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -583,15 +553,41 @@
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all"
               }
-            ],
-            "examples": [
-              {
-                "input": "2026",
-                "url": "https://ised-isde.canada.ca/site/ised/sites/default/files/documents/ai-strategy-en.pdf",
-                "note": "Canada's National Artificial Intelligence Strategy: AI for All (2026)"
-              }
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PILLAR\\ 4|PILLAR\\ 1|PILLAR\\ 2|PILLAR\\ 3|PILLAR\\ 5|PILLAR\\ 6)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PILLAR 4",
+                  "PILLAR 1",
+                  "PILLAR 2",
+                  "PILLAR 3",
+                  "PILLAR 5",
+                  "PILLAR 6"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-ai-strategy/2026).",
+                "examples": [
+                  {
+                    "input": "PILLAR 4",
+                    "version": "2026",
+                    "note": "Building the Canadian Sovereign AI Foundation"
+                  },
+                  {
+                    "input": "PILLAR 1",
+                    "version": "2026",
+                    "note": "Protecting Canadians and Safeguarding our Democracy"
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "patterns": [
@@ -607,13 +603,6 @@
               {
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2022",
-                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
-                "note": "Pan-Canadian AI Strategy Phase 2 (2022)"
               }
             ]
           }
@@ -632,43 +621,6 @@
               {
                 "type": "website",
                 "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy"
-              }
-            ],
-            "examples": [
-              {
-                "input": "2017",
-                "url": "https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy",
-                "note": "Pan-Canadian AI Strategy Phase 1 (2017)"
-              }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:6|pillar\\-4|pillar\\-1|pillar\\-2|pillar\\-3|pillar\\-5|pillar\\-6)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "6",
-              "pillar-4",
-              "pillar-1",
-              "pillar-2",
-              "pillar-3",
-              "pillar-5",
-              "pillar-6"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/canada.ca/national-ai-strategy).",
-            "examples": [
-              {
-                "input": "6",
-                "note": "Research and development:"
-              },
-              {
-                "input": "pillar-4",
-                "note": "Building the Canadian Sovereign AI Foundation"
               }
             ]
           }

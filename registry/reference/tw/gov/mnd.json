@@ -28,7 +28,7 @@
         "examples": [
           "national-defense-report@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -57,7 +57,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -69,13 +71,7 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
-              }
-            ]
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
           }
         },
         {
@@ -87,43 +83,37 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288",
-            "examples": [
-              {
-                "input": "2023",
-                "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+            "url": "https://www.mnd.gov.tw/en/informationservices/publication/85288"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:PART\\ 1|PART\\ 5)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "PART 1",
+                  "PART 5"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/national-defense-report/2023).",
+                "examples": [
+                  {
+                    "input": "PART 1",
+                    "version": "2023",
+                    "note": "國防開支 投資和平"
+                  },
+                  {
+                    "input": "PART 5",
+                    "version": "2023",
+                    "note": "犧牲 團結 負責"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:part\\-1|part\\-2|part\\-3|part\\-4|part\\-5|2\\.3)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "part-1",
-              "part-2",
-              "part-3",
-              "part-4",
-              "part-5",
-              "2.3"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/national-defense-report).",
-            "examples": [
-              {
-                "input": "part-1",
-                "note": "國防開支 投資和平"
-              },
-              {
-                "input": "part-2",
-                "note": "PART 2"
-              }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
@@ -140,7 +130,7 @@
         "examples": [
           "quadrennial-defense-review@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -169,7 +159,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -181,14 +173,69 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|4|5|Chapter\\ 1|Chapter\\ 1\\ Section\\ 1|Chapter\\ 1\\ Section\\ 2|Chapter\\ 1\\ Section\\ 3|Chapter\\ 1\\ Section\\ 4|Chapter\\ 2|Chapter\\ 2\\ Section\\ 1|Chapter\\ 2\\ Section\\ 2|Chapter\\ 3|Chapter\\ 3\\ Section\\ 1|Chapter\\ 3\\ Section\\ 2|Chapter\\ 3\\ Section\\ 3|Chapter\\ 3\\ Section\\ 4|Chapter\\ 3\\ Section\\ 5|Section\\ 6|Chapter\\ 4|Chapter\\ 4\\ Section\\ 1|Chapter\\ 4\\ Section\\ 2|Chapter\\ 4\\ Section\\ 3|Chapter\\ 4\\ Section\\ 4|Chapter\\ 4\\ Section\\ 5|Chapter\\ 5|Chapter\\ 5\\ Section\\ 1|Chapter\\ 5\\ Section\\ 2|Chapter\\ 5\\ Section\\ 3|Chapter\\ 6|Chapter\\ 6\\ Section\\ 1|Chapter\\ 6\\ Section\\ 2|Chapter\\ 6\\ Section\\ 3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "Chapter 1",
+                  "Chapter 1 Section 1",
+                  "Chapter 1 Section 2",
+                  "Chapter 1 Section 3",
+                  "Chapter 1 Section 4",
+                  "Chapter 2",
+                  "Chapter 2 Section 1",
+                  "Chapter 2 Section 2",
+                  "Chapter 3",
+                  "Chapter 3 Section 1",
+                  "Chapter 3 Section 2",
+                  "Chapter 3 Section 3",
+                  "Chapter 3 Section 4",
+                  "Chapter 3 Section 5",
+                  "Section 6",
+                  "Chapter 4",
+                  "Chapter 4 Section 1",
+                  "Chapter 4 Section 2",
+                  "Chapter 4 Section 3",
+                  "Chapter 4 Section 4",
+                  "Chapter 4 Section 5",
+                  "Chapter 5",
+                  "Chapter 5 Section 1",
+                  "Chapter 5 Section 2",
+                  "Chapter 5 Section 3",
+                  "Chapter 6",
+                  "Chapter 6 Section 1",
+                  "Chapter 6 Section 2",
+                  "Chapter 6 Section 3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2025).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2025",
+                    "note": "Security in Taiwan Strait amid the International Shifts"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2025",
+                    "note": "Strategic Guidance for National Defense and Security"
+                  }
+                ]
               }
-            ]
-          }
+            }
+          ]
         },
         {
           "patterns": [
@@ -199,49 +246,43 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+            "url": "https://www.mnd.gov.tw/en/InformationServices/QDR"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|2|3|5|6|7|4|8)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "3",
+                  "5",
+                  "6",
+                  "7",
+                  "4",
+                  "8"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2021).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2021",
+                    "note": "Regional Situation: Monitoring Emerging Security Challenges"
+                  },
+                  {
+                    "input": "2",
+                    "version": "2021",
+                    "note": "Strategic Guidance: To Ensure Security with Fortified Defense"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:8|1|2|3|4|5|chapter\\-1|chapter\\-2|chapter\\-3|chapter\\-4|chapter\\-5|chapter\\-6)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "8",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "chapter-1",
-              "chapter-2",
-              "chapter-3",
-              "chapter-4",
-              "chapter-5",
-              "chapter-6"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review).",
-            "examples": [
-              {
-                "input": "8",
-                "note": "Joint Logistic Support Capabilities"
-              },
-              {
-                "input": "1",
-                "note": "Security in Taiwan Strait amid the International Shifts"
-              }
-            ]
-          }
+            }
+          ]
         }
       ]
     }

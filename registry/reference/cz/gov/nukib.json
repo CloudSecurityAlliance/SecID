@@ -75,7 +75,7 @@
               "V",
               "VI"
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nukib.gov.cz/security-strategy-czech-republic).",
+            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nukib.gov.cz/security-strategy-czech-republic/2023).",
             "examples": [
               {
                 "input": "I",
@@ -103,7 +103,7 @@
         "examples": [
           "national-cyber-security-strategy@2025"
         ],
-        "version_required": false,
+        "version_required": true,
         "versions_available": [
           {
             "version": "2025",
@@ -132,7 +132,9 @@
         ],
         "subtype": [
           "strategy"
-        ]
+        ],
+        "unversioned_behavior": "all_with_guidance",
+        "version_disambiguation": "Specify the edition version (e.g., @YYYY) — section, chapter, and pillar identifiers are specific to each published strategy edition."
       },
       "children": [
         {
@@ -144,13 +146,7 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
-            "examples": [
-              {
-                "input": "2025",
-                "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
-              }
-            ]
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
           }
         },
         {
@@ -162,52 +158,50 @@
           "weight": 100,
           "data": {
             "type": "version",
-            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/",
-            "examples": [
-              {
-                "input": "2021",
-                "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
+            "url": "https://nukib.gov.cz/en/cyber-security/strategy-action-plan/"
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|1\\.5|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|3\\.2|3\\.3)$"
+              ],
+              "description": "Section, chapter, pillar, or objective identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "1.3",
+                  "1.4",
+                  "1.5",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "3.3"
+                ],
+                "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nukib.gov.cz/national-cyber-security-strategy/2021).",
+                "examples": [
+                  {
+                    "input": "1",
+                    "version": "2021",
+                    "note": "CONFIDENCE IN CYBERSPACE"
+                  },
+                  {
+                    "input": "1.1",
+                    "version": "2021",
+                    "note": "A Common Approach to Cyber Security"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "patterns": [
-            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|1\\.5|2|2\\.1|2\\.2|2\\.3|2\\.4|3|3\\.1|3\\.2|3\\.3)$"
-          ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
-          "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "1.1",
-              "1.2",
-              "1.3",
-              "1.4",
-              "1.5",
-              "2",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "3",
-              "3.1",
-              "3.2",
-              "3.3"
-            ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/nukib.gov.cz/national-cyber-security-strategy).",
-            "examples": [
-              {
-                "input": "1",
-                "note": "CONFIDENCE IN CYBERSPACE"
-              },
-              {
-                "input": "1.1",
-                "note": "A Common Approach to Cyber Security"
-              }
-            ]
-          }
+            }
+          ]
         }
       ]
     },
