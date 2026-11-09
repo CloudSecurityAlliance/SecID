@@ -100,7 +100,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:I|II|III|III\\.1|2|3|4|IV|2\\.2\\.1|2\\.2\\.2|2\\.3|3\\.3\\.1|3\\.3\\.2|IV\\.1|1\\.3|1\\.4|3\\.3|4\\.1|4\\.2|4\\.3|V|VI)$"
+                "^(?:I|II|III|III\\.1|III\\.2|III\\.3|III\\.4|IV|V|VI)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -111,37 +111,18 @@
                   "II",
                   "III",
                   "III.1",
-                  "2",
-                  "3",
-                  "4",
+                  "III.2",
+                  "III.3",
+                  "III.4",
                   "IV",
-                  "2.2.1",
-                  "2.2.2",
-                  "2.3",
-                  "3.3.1",
-                  "3.3.2",
-                  "IV.1",
-                  "1.3",
-                  "1.4",
-                  "3.3",
-                  "4.1",
-                  "4.2",
-                  "4.3",
                   "V",
                   "VI"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/moda.gov.tw/national-cyber-security-program/2021).",
                 "examples": [
-                  {
-                    "input": "I",
-                    "version": "2021",
-                    "note": "Background"
-                  },
-                  {
-                    "input": "II",
-                    "version": "2021",
-                    "note": "Global Cyber Security Threats and International Policy Trends"
-                  }
+                  "I",
+                  "III.3",
+                  "VI"
                 ]
               }
             }

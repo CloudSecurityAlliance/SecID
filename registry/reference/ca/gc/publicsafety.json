@@ -1270,27 +1270,26 @@
       "children": [
         {
           "patterns": [
-            "^(?:I|II|III)$"
+            "^(?:Objective\\ 1\\ I|Objective\\ 1\\ II|Objective\\ 2\\ I|Objective\\ 2\\ II|Objective\\ 3\\ I|Objective\\ 3\\ II|Objective\\ 3\\ III)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "I",
-              "II",
-              "III"
+              "Objective 1 I",
+              "Objective 1 II",
+              "Objective 2 I",
+              "Objective 2 II",
+              "Objective 3 I",
+              "Objective 3 II",
+              "Objective 3 III"
             ],
             "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/critical-infrastructure-consultation-report-2022).",
             "examples": [
-              {
-                "input": "I",
-                "note": "Broad Partnerships"
-              },
-              {
-                "input": "II",
-                "note": "Cross-Sector Collaboration"
-              }
+              "Objective 1 I",
+              "Objective 2 II",
+              "Objective 3 III"
             ]
           }
         }
@@ -1477,7 +1476,7 @@
       "children": [
         {
           "patterns": [
-            "^(?:1|1\\.1|1\\.2|2|2\\.2\\.1|2\\.2\\.2|2\\.2\\.3|2\\.4|2\\.5|3|Recommendation\\ 1|Recommendation\\ 2|Recommendation\\ 3|Recommendation\\ 4|Recommendation\\ 5|Recommendation\\ 6|Recommendation\\ 7|Recommendation\\ 8|Recommendation\\ 9|Recommendation\\ 10|Recommendation\\ 11|Recommendation\\ 12|Recommendation\\ 13|Recommendation\\ 14|Recommendation\\ 15|Recommendation\\ 16|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D|3\\.1|3\\.2|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5)$"
+            "^(?:1|1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|Recommendation\\ 1|Recommendation\\ 2|Recommendation\\ 3|Recommendation\\ 4|Recommendation\\ 5|Recommendation\\ 6|Recommendation\\ 7|Recommendation\\ 8|Recommendation\\ 9|Recommendation\\ 10|Recommendation\\ 11|Recommendation\\ 12|Recommendation\\ 13|Recommendation\\ 14|Recommendation\\ 15|Recommendation\\ 16|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D)$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
@@ -1488,12 +1487,20 @@
               "1.1",
               "1.2",
               "2",
-              "2.2.1",
-              "2.2.2",
-              "2.2.3",
+              "2.1",
+              "2.2",
+              "2.3",
               "2.4",
               "2.5",
               "3",
+              "3.1",
+              "3.2",
+              "4",
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4",
+              "4.5",
               "Recommendation 1",
               "Recommendation 2",
               "Recommendation 3",
@@ -1513,25 +1520,13 @@
               "Annex A",
               "Annex B",
               "Annex C",
-              "Annex D",
-              "3.1",
-              "3.2",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.4",
-              "4.5"
+              "Annex D"
             ],
             "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
             "examples": [
-              {
-                "input": "1",
-                "note": "Introduction"
-              },
-              {
-                "input": "1.1",
-                "note": "Public trust and government response"
-              }
+              "1",
+              "Recommendation 2",
+              "Annex D"
             ]
           }
         }

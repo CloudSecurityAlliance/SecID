@@ -559,49 +559,39 @@
           "children": [
             {
               "patterns": [
-                "^(?:1\\.4|3\\.4|3\\.4\\.5|1|1\\.1|1\\.1\\.2|1\\.3|1\\.1\\.4|2|3|3\\.1|3\\.2|3\\.3|3\\.3\\.4|4|Anexo\\ 1|Anexo\\ 2|1\\.2|2\\.1|2\\.2|2\\.3|4\\.2|Anexo\\ 3)$"
+                "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.4\\.5|4|4\\.2|Anexo\\ 1|Anexo\\ 2|Anexo\\ 3)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
-                  "1.4",
-                  "3.4",
-                  "3.4.5",
                   "1",
                   "1.1",
-                  "1.1.2",
+                  "1.2",
                   "1.3",
-                  "1.1.4",
+                  "1.4",
                   "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
                   "3",
                   "3.1",
                   "3.2",
                   "3.3",
-                  "3.3.4",
+                  "3.4",
+                  "3.4.5",
                   "4",
+                  "4.2",
                   "Anexo 1",
                   "Anexo 2",
-                  "1.2",
-                  "2.1",
-                  "2.2",
-                  "2.3",
-                  "4.2",
                   "Anexo 3"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.br/pbia/2024-2028).",
                 "examples": [
-                  {
-                    "input": "1.4",
-                    "version": "2024-2028",
-                    "note": "Programa de Pesquisa e Desenvolvimento em IA"
-                  },
-                  {
-                    "input": "3.4",
-                    "version": "2024-2028",
-                    "note": "Ações estruturantes"
-                  }
+                  "1",
+                  "3.1",
+                  "Anexo 3"
                 ]
               }
             }

@@ -192,7 +192,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:I|I\\.1|2|V|C|D|3|II|II\\.4|5|1|4|III|7|IV|8)$"
+                "^(?:I|I\\.1|I\\.2|I\\.3|II|II\\.4|II\\.5|III|III\\.7|IV|IV\\.8|V)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -201,33 +201,22 @@
                 "known_values": [
                   "I",
                   "I.1",
-                  "2",
-                  "V",
-                  "C",
-                  "D",
-                  "3",
+                  "I.2",
+                  "I.3",
                   "II",
                   "II.4",
-                  "5",
-                  "1",
-                  "4",
+                  "II.5",
                   "III",
-                  "7",
+                  "III.7",
                   "IV",
-                  "8"
+                  "IV.8",
+                  "V"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.mx/programa-seguridad-nacional/2014-2018).",
                 "examples": [
-                  {
-                    "input": "I.1",
-                    "version": "2014-2018",
-                    "note": "Visión del Ejecutivo Federal"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2014-2018",
-                    "note": "Marco jurídico y conceptual"
-                  }
+                  "I",
+                  "II.5",
+                  "V"
                 ]
               }
             }

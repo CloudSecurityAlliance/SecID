@@ -105,7 +105,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:Deel\\ 1|4|5|7|Deel\\ 2|1|2|3|Deel\\ 3)$"
+                "^(?:Deel\\ 1|Deel\\ 1\\ 1|Deel\\ 1\\ 2|Deel\\ 1\\ 4|Deel\\ 1\\ 5|Deel\\ 1\\ 7|Deel\\ 2|Deel\\ 2\\ 1|Deel\\ 2\\ 2|Deel\\ 2\\ 3|Deel\\ 3|Deel\\ 3\\ 1|Deel\\ 3\\ 2|Deel\\ 3\\ 3)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -113,27 +113,25 @@
                 "type": "section",
                 "known_values": [
                   "Deel 1",
-                  "4",
-                  "5",
-                  "7",
+                  "Deel 1 1",
+                  "Deel 1 2",
+                  "Deel 1 4",
+                  "Deel 1 5",
+                  "Deel 1 7",
                   "Deel 2",
-                  "1",
-                  "2",
-                  "3",
-                  "Deel 3"
+                  "Deel 2 1",
+                  "Deel 2 2",
+                  "Deel 2 3",
+                  "Deel 3",
+                  "Deel 3 1",
+                  "Deel 3 2",
+                  "Deel 3 3"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/rijksoverheid.nl/veiligheidsstrategie/2023-2029).",
                 "examples": [
-                  {
-                    "input": "Deel 1",
-                    "version": "2023-2029",
-                    "note": "Dreigingen tegen de nationale veiligheid"
-                  },
-                  {
-                    "input": "5",
-                    "version": "2023-2029",
-                    "note": "Druk op de democratische rechtsorde"
-                  }
+                  "Deel 1",
+                  "Deel 2 1",
+                  "Deel 3 3"
                 ]
               }
             }

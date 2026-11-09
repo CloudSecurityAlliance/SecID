@@ -106,37 +106,27 @@
           "children": [
             {
               "patterns": [
-                "^(?:ARTÍCULO\\ 4°|2|3|4|6|7|8|1|5|9|10)$"
+                "^(?:ARTÍCULO\\ 1°|ARTÍCULO\\ 2°|ARTÍCULO\\ 3°|ARTÍCULO\\ 4°|ARTÍCULO\\ 5°|ARTÍCULO\\ 6°|ARTÍCULO\\ 7°|ARTÍCULO\\ 8°)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
+                  "ARTÍCULO 1°",
+                  "ARTÍCULO 2°",
+                  "ARTÍCULO 3°",
                   "ARTÍCULO 4°",
-                  "2",
-                  "3",
-                  "4",
-                  "6",
-                  "7",
-                  "8",
-                  "1",
-                  "5",
-                  "9",
-                  "10"
+                  "ARTÍCULO 5°",
+                  "ARTÍCULO 6°",
+                  "ARTÍCULO 7°",
+                  "ARTÍCULO 8°"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/argentina.gob.ar/estrategia-nacional-ciberseguridad/2023).",
                 "examples": [
-                  {
-                    "input": "ARTÍCULO 4°",
-                    "version": "2023",
-                    "note": "Establécese que la UNIDAD EJECUTIVA del COMITÉ NACIONAL"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2023",
-                    "note": "RESPETO POR LOS DERECHOS HUMANOS Y LIBERTADES FUNDAMENTALES: La"
-                  }
+                  "ARTÍCULO 1°",
+                  "ARTÍCULO 5°",
+                  "ARTÍCULO 8°"
                 ]
               }
             }

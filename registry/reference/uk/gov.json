@@ -157,7 +157,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:Pillar\\ \\(i\\)|Pillar\\ \\(i\\)\\ Section|Pillar\\ \\(ii\\)|Pillar\\ \\(ii\\)\\ Section|Pillar\\ \\(iii\\)|Pillar\\ \\(iii\\)\\ Section)$"
+                "^(?:Pillar\\ \\(i\\)|Pillar\\ \\(i\\)\\ Section\\ \\(1\\)|Pillar\\ \\(i\\)\\ Section\\ \\(2\\)|Pillar\\ \\(i\\)\\ Section\\ \\(3\\)|Pillar\\ \\(ii\\)|Pillar\\ \\(ii\\)\\ Section\\ \\(1\\)|Pillar\\ \\(ii\\)\\ Section\\ \\(2\\)|Pillar\\ \\(ii\\)\\ Section\\ \\(3\\)|Pillar\\ \\(iii\\)|Pillar\\ \\(iii\\)\\ Section\\ \\(1\\)|Pillar\\ \\(iii\\)\\ Section\\ \\(2\\)|Pillar\\ \\(iii\\)\\ Section\\ \\(3\\))$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -165,24 +165,23 @@
                 "type": "section",
                 "known_values": [
                   "Pillar (i)",
-                  "Pillar (i) Section",
+                  "Pillar (i) Section (1)",
+                  "Pillar (i) Section (2)",
+                  "Pillar (i) Section (3)",
                   "Pillar (ii)",
-                  "Pillar (ii) Section",
+                  "Pillar (ii) Section (1)",
+                  "Pillar (ii) Section (2)",
+                  "Pillar (ii) Section (3)",
                   "Pillar (iii)",
-                  "Pillar (iii) Section"
+                  "Pillar (iii) Section (1)",
+                  "Pillar (iii) Section (2)",
+                  "Pillar (iii) Section (3)"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-security-strategy/2025).",
                 "examples": [
-                  {
-                    "input": "Pillar (i)",
-                    "version": "2025",
-                    "note": "Security at Home"
-                  },
-                  {
-                    "input": "Pillar (i) Section",
-                    "version": "2025",
-                    "note": "Defend our territory"
-                  }
+                  "Pillar (i)",
+                  "Pillar (ii) Section (2)",
+                  "Pillar (iii) Section (3)"
                 ]
               }
             }
@@ -208,7 +207,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|A|B|C|D|E|F|G|Chapter\\ 5|Chapter\\ 5\\ A|Chapter\\ 5\\ B|Chapter\\ 6|Chapter\\ 6\\ A|Chapter\\ 6\\ B|Chapter\\ 6\\ C|Chapter\\ 7|Annex\\ A|Annex\\ B)$"
+                "^(?:Chapter\\ 1|Chapter\\ 2|Chapter\\ 3|Chapter\\ 4|Chapter\\ 4\\ A|Chapter\\ 4\\ B|Chapter\\ 4\\ C|Chapter\\ 4\\ D|Chapter\\ 4\\ E|Chapter\\ 4\\ F|Chapter\\ 4\\ G|Chapter\\ 5|Chapter\\ 5\\ A|Chapter\\ 5\\ B|Chapter\\ 5\\ C|Chapter\\ 5\\ D|Chapter\\ 6|Chapter\\ 6\\ A|Chapter\\ 6\\ B|Chapter\\ 6\\ C|Chapter\\ 7|Annex\\ A|Annex\\ B)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -219,16 +218,18 @@
                   "Chapter 2",
                   "Chapter 3",
                   "Chapter 4",
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
+                  "Chapter 4 A",
+                  "Chapter 4 B",
+                  "Chapter 4 C",
+                  "Chapter 4 D",
+                  "Chapter 4 E",
+                  "Chapter 4 F",
+                  "Chapter 4 G",
                   "Chapter 5",
                   "Chapter 5 A",
                   "Chapter 5 B",
+                  "Chapter 5 C",
+                  "Chapter 5 D",
                   "Chapter 6",
                   "Chapter 6 A",
                   "Chapter 6 B",
@@ -239,16 +240,9 @@
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-security-strategy/2015).",
                 "examples": [
-                  {
-                    "input": "Chapter 1",
-                    "version": "2015",
-                    "note": "Our Vision, Values and Approach"
-                  },
-                  {
-                    "input": "Chapter 2",
-                    "version": "2015",
-                    "note": "The UK: Strong, Influential, Global"
-                  }
+                  "Chapter 1",
+                  "Chapter 5",
+                  "Annex B"
                 ]
               }
             }
@@ -735,50 +729,30 @@
           "children": [
             {
               "patterns": [
-                "^(?:1\\.3|2\\.4|1|1\\.1|2|3|4|5|6|1\\.2|7|8|9|10|11|12|13|1\\.1\\.3|15|1\\.4|2\\.1|2\\.2|2\\.3|2\\.2\\.4)$"
+                "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|2\\.4|3)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
-                  "1.3",
-                  "2.4",
                   "1",
                   "1.1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
                   "1.2",
-                  "7",
-                  "8",
-                  "9",
-                  "10",
-                  "11",
-                  "12",
-                  "13",
-                  "1.1.3",
-                  "15",
+                  "1.3",
                   "1.4",
+                  "2",
                   "2.1",
                   "2.2",
                   "2.3",
-                  "2.2.4"
+                  "2.4",
+                  "3"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gov.uk/national-ai-strategy/2025).",
                 "examples": [
-                  {
-                    "input": "2.4",
-                    "version": "2025",
-                    "note": "Address private-sector-user-adoption barriers"
-                  },
-                  {
-                    "input": "1",
-                    "version": "2025",
-                    "note": "Lay the foundations to enable AI"
-                  }
+                  "1",
+                  "2",
+                  "3"
                 ]
               }
             }

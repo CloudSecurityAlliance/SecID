@@ -4,24 +4,28 @@ How we decide what data to host, where it goes, and how to handle licensing.
 
 ## The Three Rules (plus Rule 0)
 
-### Rule 0: Respect the License
+### Rule 0: The Four-Tier Access & License Rule (2026-11-09)
 
-**This gates everything else.** Before hosting any data, determine the license status.
+**This gates everything else.** On 2026-11-09, Kurt established the general 4-tier rule governing what goes into the public dataset repositories (`SecID-Data*` and `dataset-public-laws-regulations-standards`) versus `dataset-private-laws-regulations-standards`:
 
-| License Status | Action |
+> *"so in general anything we get from a public gov website, goes into the public dataset repo regardless of license. in general if it's on the web, and there's no login, we treat it as if we can mirror it. if there is a free login, ask me, and if it' a paid login, or paid access like iso.org, we do NOT mirror it publicly ever unless there is a specific exception granted, and it would have to be explicit and well documented and have solid reasons for it."* — Kurt Seifried, 2026-11-09
+
+| Tier | Access / Source Category | Public Hosting Action | Examples |
+|---|---|---|---|
+| **Tier 1: Public government website** | Any document, statute, regulation, control catalog, glossary, or strategy fetched from a public government or intergovernmental website | **Host publicly** in `SecID-Data*` (and `dataset-public-laws-regulations-standards`) **regardless of license**. Preserve attribution and upstream license fields in `-metadata.json` (`publicly_redistributable: true`). | National security, defense, cybersecurity & AI strategies (`404` editions), government glossaries (`bsi.bund.de/glossary`), national eID / payment / cyber frameworks |
+| **Tier 2: Public web, no login required** | Any document, specification, control framework, or glossary publicly accessible on the web without a login | **Host publicly** in `SecID-Data*` (and `dataset-public-laws-regulations-standards`). Treat open-web no-login material as publicly mirrorable with attribution and source terms preserved in `-metadata.json`. | Open standards (`owasp.org`, `mitre.org`, `etsi.org`, `aicpa.org/tsc`), public vendor security glossaries (`cloudflare.com`, `microsoft.com`, `cisco.com`, `apple.com`, `paloaltonetworks.com`) |
+| **Tier 3: Free login required** | Content behind a free account registration or click-through login wall | **Ask Kurt first** (open a `needs-kurt` issue in `CSA-Internal-Governance/SecID` before mirroring publicly). Until approved, register IDs/metadata in `SecID/registry/` and keep any local/private copy out of public repos. | CIS Benchmarks (`cisecurity.org`), Open Group (`opengroup.org/togaf`, `open-fair`), NFPA (`nfpa.org/1600`) |
+| **Tier 4: Paid login / paid access / members-only** | Paywalled standards, commercial subscriptions, or member-restricted portals | **DO NOT mirror publicly ever** unless a specific, explicit, well-documented exception with solid reasons is granted. Keep extracted reference copies strictly in `dataset-private-laws-regulations-standards`, and register only uncopyrighted identifiers, titles, and URLs in `SecID/registry/`. | `iso.org`, `iec.ch`, `bsigroup.com`, `cen.eu`, `isaca.org`, `hitrustalliance.net`, `securityforum.org`, `sharedassessments.org`, `swift.com` |
+
+| License / Access Status | Action |
 |---|---|
-| **Public domain / CC0 / US government work** | Host freely. Include attribution. |
-| **Permissive open license** (Apache 2.0, CC BY, MIT) | Host with attribution. LICENSE file + per-item provenance. |
-| **Share-alike** (CC BY-SA) | Host with same license. Document clearly. |
-| **Custom terms of use** (free use with attribution) | Host with terms reproduced in LICENSE. Follow specific requirements. |
-| **EU legislation** | Freely reusable per EUR-Lex reuse policy. Attribution to source. |
-| **Public-release government / intergovernmental strategy documents** (`reference/`, `subtype: ["strategy"]`) | **Host publicly** in `SecID-Data*` (and `dataset-public-laws-regulations-standards`) with attribution and source license caveats preserved, regardless of generic portal terms-of-use boilerplate, Crown/State copyright reservations, or IGO `CC-BY-NC` imprint boilerplate (Kurt directive, 2026-11-09). |
-| **Organization-owned** (need explicit permission) | Get written permission before hosting. Document in LICENSE. |
-| **Paywalled / all rights reserved / no license** | **DO NOT HOST CONTENT.** Registry entry with description + purchase/access URL only. |
+| **Public domain / CC0 / US government work / EU legislation** | Host freely (Tier 1). Include attribution. |
+| **Public government or IGO website (any stated portal license)** | **Host publicly (Tier 1)** with attribution and source license caveats preserved in `-metadata.json`. |
+| **Permissive open license (Apache 2.0, CC BY, MIT) or Share-alike (CC BY-SA)** | Host publicly (Tier 2) with attribution and license preserved. |
+| **Public web with no login (custom website terms / vendor copyright footer)** | **Host publicly (Tier 2)** with attribution and source terms preserved in `-metadata.json`. |
+| **Free login / registration wall** | **Ask Kurt first (Tier 3)** before mirroring publicly. |
+| **Paid login / paid access / members-only (`iso.org`, etc.)** | **DO NOT HOST PUBLICLY (Tier 4)** unless an explicit, well-documented exception with solid reasons is granted. Registry entry with description + purchase/access URL only (full text stays in `dataset-private-laws-regulations-standards`). |
 | **User-generated content** (social media, forums) | Archive for preservation (Rule 1) with clear provenance. Don't claim ownership. Link to original. |
-| **No explicit license** | **DO NOT HOST.** Treat as all rights reserved until clarified. |
-
-**When in doubt: don't host.** A registry entry pointing to the source is always safe. Hosting the data requires confirmed license compatibility.
 
 ### Rule 1: Persistence Risk
 
@@ -77,12 +81,14 @@ Data that already has good machine-readable, per-item, reliable sources:
 | OWASP Top 10 / LLM Top 10 | CC BY-SA 4.0 | **Yes** | Attribute OWASP, share-alike applies |
 | NIST 800-53 / CSF / AI RMF | US government work (public domain) | **Yes** | Attribution appreciated but not required |
 | GDPR / AI Act / NIS2 / DORA | EU legislation (EUR-Lex reuse policy) | **Yes** | Attribution to EUR-Lex |
-| National security, defense, cybersecurity & AI strategies (government & IGO) | Public-release government / intergovernmental publications | **Yes** | Per 2026-11-09 directive, all 404 registered strategy editions (`reference/`, `subtype: ["strategy"]`) are hosted publicly with attribution and source license caveats preserved |
-| CSA CCM / AICM | CSA-owned | **Confirm with CSA legal** | We are CSA but need internal confirmation |
+| National security, defense, cybersecurity & AI strategies (government & IGO) | Public-release government / intergovernmental publications (Tier 1) | **Yes** | Per 2026-11-09 directive, all 404 registered strategy editions (`reference/`, `subtype: ["strategy"]`) are hosted publicly with attribution and source license caveats preserved |
+| Public web vendor & government glossaries (no login required) | Open-web / public government pages (Tier 1 & Tier 2) | **Yes** | Per 2026-11-09 4-tier rule, no-login public web glossaries (`bsi.bund.de`, `cloudflare.com`, `microsoft.com`, `cisco.com`, `apple.com`, `paloaltonetworks.com`, etc.) are hosted publicly with attribution |
+| CSA CCM / AICM | CSA-owned (Tier 2 public download) | **Yes** | First-party CSA flagship corpus (`SecID-Data-cloudsecurityalliance.org`) |
+| CIS Benchmarks / Open Group (TOGAF, Open FAIR) / NFPA | Free login / registration required (Tier 3) | **Ask Kurt first** | Register control/section IDs in `SecID/registry/`; ask Kurt (`needs-kurt`) before mirroring prose publicly |
 | ATT&CK / ATLAS | Apache 2.0 | Yes but unnecessary | Excellent per-item sources exist |
 | CVE data | CVE Terms of Use | Yes but unnecessary | cvelistV5 already provides this |
-| ISO 27001/27002 | Paywalled, copyrighted | **NO** | Registry description only |
-| IEEE standards | Paywalled, copyrighted | **NO** | Registry description only |
+| ISO / IEC / BSI / CEN / ISACA / HITRUST / SWIFT standards | Paid access / members-only (Tier 4) | **NO** | Never mirror publicly without an explicit, well-documented exception; registry IDs + metadata only (`dataset-private` for internal reference) |
+| IEEE standards | Paid access (Tier 4) | **NO** | Registry description + IDs only |
 | Twitter/X posts | User content, platform ToS | **Carefully** | Archive for preservation, cite original |
 | Reddit posts | User content, Reddit ToS | **Carefully** | Archive for preservation, cite original |
 

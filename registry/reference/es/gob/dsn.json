@@ -609,7 +609,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:III|V|EJE\\ ESTRATÉGICO\\ 1|EJE\\ ESTRATÉGICO\\ 2|EJE\\ ESTRATÉGICO\\ 3|EJE\\ ESTRATÉGICO\\ 4|EJE\\ ESTRATÉGICO\\ 5|EJE\\ ESTRATÉGICO\\ 6|IV|1|6|2|8|9|3|4|5|V\\.1|V\\.2|ANEXO\\ 2)$"
+                "^(?:III|IV|V|V\\.1|V\\.2|EJE\\ ESTRATÉGICO\\ 1|EJE\\ ESTRATÉGICO\\ 2|EJE\\ ESTRATÉGICO\\ 3|EJE\\ ESTRATÉGICO\\ 4|EJE\\ ESTRATÉGICO\\ 5|EJE\\ ESTRATÉGICO\\ 6|ANEXO\\ 2)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -617,38 +617,23 @@
                 "type": "section",
                 "known_values": [
                   "III",
+                  "IV",
                   "V",
+                  "V.1",
+                  "V.2",
                   "EJE ESTRATÉGICO 1",
                   "EJE ESTRATÉGICO 2",
                   "EJE ESTRATÉGICO 3",
                   "EJE ESTRATÉGICO 4",
                   "EJE ESTRATÉGICO 5",
                   "EJE ESTRATÉGICO 6",
-                  "IV",
-                  "1",
-                  "6",
-                  "2",
-                  "8",
-                  "9",
-                  "3",
-                  "4",
-                  "5",
-                  "V.1",
-                  "V.2",
                   "ANEXO 2"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/dsn.gob.es/estrategia-nacional-ia/2020).",
                 "examples": [
-                  {
-                    "input": "III",
-                    "version": "2020",
-                    "note": "PLAN DE ACCIÓN"
-                  },
-                  {
-                    "input": "V",
-                    "version": "2020",
-                    "note": "GOBERNANZA Y PRESUPUESTOS"
-                  }
+                  "III",
+                  "EJE ESTRATÉGICO 2",
+                  "ANEXO 2"
                 ]
               }
             }

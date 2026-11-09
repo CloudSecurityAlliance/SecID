@@ -178,18 +178,13 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|2|3|4|5|Chapter\\ 1|Chapter\\ 1\\ Section\\ 1|Chapter\\ 1\\ Section\\ 2|Chapter\\ 1\\ Section\\ 3|Chapter\\ 1\\ Section\\ 4|Chapter\\ 2|Chapter\\ 2\\ Section\\ 1|Chapter\\ 2\\ Section\\ 2|Chapter\\ 3|Chapter\\ 3\\ Section\\ 1|Chapter\\ 3\\ Section\\ 2|Chapter\\ 3\\ Section\\ 3|Chapter\\ 3\\ Section\\ 4|Chapter\\ 3\\ Section\\ 5|Section\\ 6|Chapter\\ 4|Chapter\\ 4\\ Section\\ 1|Chapter\\ 4\\ Section\\ 2|Chapter\\ 4\\ Section\\ 3|Chapter\\ 4\\ Section\\ 4|Chapter\\ 4\\ Section\\ 5|Chapter\\ 5|Chapter\\ 5\\ Section\\ 1|Chapter\\ 5\\ Section\\ 2|Chapter\\ 5\\ Section\\ 3|Chapter\\ 6|Chapter\\ 6\\ Section\\ 1|Chapter\\ 6\\ Section\\ 2|Chapter\\ 6\\ Section\\ 3)$"
+                "^(?:Chapter\\ 1|Chapter\\ 1\\ Section\\ 1|Chapter\\ 1\\ Section\\ 2|Chapter\\ 1\\ Section\\ 3|Chapter\\ 1\\ Section\\ 4|Chapter\\ 2|Chapter\\ 2\\ Section\\ 1|Chapter\\ 2\\ Section\\ 2|Chapter\\ 3|Chapter\\ 3\\ Section\\ 1|Chapter\\ 3\\ Section\\ 2|Chapter\\ 3\\ Section\\ 3|Chapter\\ 3\\ Section\\ 4|Chapter\\ 3\\ Section\\ 5|Chapter\\ 3\\ Section\\ 6|Chapter\\ 4|Chapter\\ 4\\ Section\\ 1|Chapter\\ 4\\ Section\\ 2|Chapter\\ 4\\ Section\\ 3|Chapter\\ 4\\ Section\\ 4|Chapter\\ 4\\ Section\\ 5|Chapter\\ 5|Chapter\\ 5\\ Section\\ 1|Chapter\\ 5\\ Section\\ 2|Chapter\\ 5\\ Section\\ 3|Chapter\\ 6|Chapter\\ 6\\ Section\\ 1|Chapter\\ 6\\ Section\\ 2|Chapter\\ 6\\ Section\\ 3)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
                   "Chapter 1",
                   "Chapter 1 Section 1",
                   "Chapter 1 Section 2",
@@ -204,7 +199,7 @@
                   "Chapter 3 Section 3",
                   "Chapter 3 Section 4",
                   "Chapter 3 Section 5",
-                  "Section 6",
+                  "Chapter 3 Section 6",
                   "Chapter 4",
                   "Chapter 4 Section 1",
                   "Chapter 4 Section 2",
@@ -222,16 +217,9 @@
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2025).",
                 "examples": [
-                  {
-                    "input": "1",
-                    "version": "2025",
-                    "note": "Security in Taiwan Strait amid the International Shifts"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2025",
-                    "note": "Strategic Guidance for National Defense and Security"
-                  }
+                  "Chapter 1",
+                  "Chapter 3 Section 6",
+                  "Chapter 6 Section 3"
                 ]
               }
             }
@@ -251,7 +239,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|2|3|5|6|7|4|8)$"
+                "^(?:1|2|3|4|5|6|7)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -261,24 +249,16 @@
                   "1",
                   "2",
                   "3",
+                  "4",
                   "5",
                   "6",
-                  "7",
-                  "4",
-                  "8"
+                  "7"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/mnd.gov.tw/quadrennial-defense-review/2021).",
                 "examples": [
-                  {
-                    "input": "1",
-                    "version": "2021",
-                    "note": "Regional Situation: Monitoring Emerging Security Challenges"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2021",
-                    "note": "Strategic Guidance: To Ensure Security with Fortified Defense"
-                  }
+                  "1",
+                  "4",
+                  "7"
                 ]
               }
             }
