@@ -190,29 +190,33 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|2|3|4|3\\.1|3\\.2|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|4\\.6|5|5\\.1|5\\.2|6|6\\.1|6\\.2|6\\.3|6\\.4)$"
+                "^(?:Resolution [1-4]|Background Dossier [1-6]|\\d+\\.\\d+)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
-                  "1",
-                  "2",
-                  "3",
-                  "4",
+                  "Resolution 1",
+                  "Resolution 2",
+                  "Resolution 3",
+                  "Resolution 4",
+                  "Background Dossier 1",
+                  "Background Dossier 2",
+                  "Background Dossier 3",
                   "3.1",
                   "3.2",
+                  "Background Dossier 4",
                   "4.1",
                   "4.2",
                   "4.3",
                   "4.4",
                   "4.5",
                   "4.6",
-                  "5",
+                  "Background Dossier 5",
                   "5.1",
                   "5.2",
-                  "6",
+                  "Background Dossier 6",
                   "6.1",
                   "6.2",
                   "6.3",
@@ -220,16 +224,9 @@
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/ncsc.fi/kyberturvallisuusstrategia/2013).",
                 "examples": [
-                  {
-                    "input": "1",
-                    "version": "2013",
-                    "note": "INTRODUCTION"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2013",
-                    "note": "VISION FOR CYBER SECURITY"
-                  }
+                  "Resolution 1",
+                  "4.3",
+                  "6.4"
                 ]
               }
             }

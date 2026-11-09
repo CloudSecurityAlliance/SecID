@@ -1203,7 +1203,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|2|2\\.1|2\\.2|2\\.3|3|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D|Annex\\ E)$"
+                "^(?:\\d+(?:\\.\\d+)*|Annex A)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -1216,24 +1216,13 @@
                   "2.2",
                   "2.3",
                   "3",
-                  "Annex A",
-                  "Annex B",
-                  "Annex C",
-                  "Annex D",
-                  "Annex E"
+                  "Annex A"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/action-plan-critical-infrastructure/2010).",
                 "examples": [
-                  {
-                    "input": "1",
-                    "version": "2010",
-                    "note": "Introduction"
-                  },
-                  {
-                    "input": "2",
-                    "version": "2010",
-                    "note": "Action Plan"
-                  }
+                  "1",
+                  "2.2",
+                  "Annex A"
                 ]
               }
             }
@@ -1476,59 +1465,162 @@
       "children": [
         {
           "patterns": [
-            "^(?:1|1\\.1|1\\.2|2|2\\.1|2\\.2|2\\.3|2\\.4|2\\.5|3|3\\.1|3\\.2|4|4\\.1|4\\.2|4\\.3|4\\.4|4\\.5|Recommendation\\ 1|Recommendation\\ 2|Recommendation\\ 3|Recommendation\\ 4|Recommendation\\ 5|Recommendation\\ 6|Recommendation\\ 7|Recommendation\\ 8|Recommendation\\ 9|Recommendation\\ 10|Recommendation\\ 11|Recommendation\\ 12|Recommendation\\ 13|Recommendation\\ 14|Recommendation\\ 15|Recommendation\\ 16|Annex\\ A|Annex\\ B|Annex\\ C|Annex\\ D)$"
+            "^2024$"
           ],
-          "description": "Section, chapter, pillar, or objective identifier",
-          "weight": 80,
+          "description": "Third Report (2024) — The Digitization of National Security: Technology, Transparency & Trust",
+          "weight": 100,
           "data": {
-            "type": "section",
-            "known_values": [
-              "1",
-              "1.1",
-              "1.2",
-              "2",
-              "2.1",
-              "2.2",
-              "2.3",
-              "2.4",
-              "2.5",
-              "3",
-              "3.1",
-              "3.2",
-              "4",
-              "4.1",
-              "4.2",
-              "4.3",
-              "4.4",
-              "4.5",
-              "Recommendation 1",
-              "Recommendation 2",
-              "Recommendation 3",
-              "Recommendation 4",
-              "Recommendation 5",
-              "Recommendation 6",
-              "Recommendation 7",
-              "Recommendation 8",
-              "Recommendation 9",
-              "Recommendation 10",
-              "Recommendation 11",
-              "Recommendation 12",
-              "Recommendation 13",
-              "Recommendation 14",
-              "Recommendation 15",
-              "Recommendation 16",
-              "Annex A",
-              "Annex B",
-              "Annex C",
-              "Annex D"
+            "type": "version",
+            "official_name": "The Digitization of National Security: Technology, Transparency & Trust (2024)",
+            "release_date": "2024-03-01",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/nstag-gctsn-dgtztn-ntnl-scrt-2024/index-en.aspx",
+                "note": "Primary official publication — NS-TAG 2024 Digitization of National Security Report"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports.md",
+                "note": "CSA public dataset extraction (Markdown)"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports-sections.json",
+                "note": "CSA public dataset extracted sections index (JSON)"
+              }
             ],
-            "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
             "examples": [
-              "1",
-              "Recommendation 2",
-              "Annex D"
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2024",
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2024#2",
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2024#Recommendation 2"
             ]
-          }
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:\\d+(?:\\.\\d+)*|Recommendation \\d+|Annex [A-D])$"
+              ],
+              "description": "Section, recommendation, or annex identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "1.1",
+                  "1.2",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "2.4",
+                  "2.5",
+                  "3",
+                  "Recommendation 1",
+                  "Recommendation 2",
+                  "Recommendation 3",
+                  "Recommendation 4",
+                  "Recommendation 5",
+                  "Recommendation 6",
+                  "Recommendation 7",
+                  "Recommendation 8",
+                  "Recommendation 9",
+                  "Recommendation 10",
+                  "Recommendation 11",
+                  "Recommendation 12",
+                  "Recommendation 13",
+                  "Recommendation 14",
+                  "Recommendation 15",
+                  "Recommendation 16",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C",
+                  "Annex D"
+                ],
+                "note": "Extracted section/heading identifiers for the 2024 NS-TAG digitization report in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
+                "examples": [
+                  "1",
+                  "Recommendation 2",
+                  "Annex D"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "patterns": [
+            "^2022$"
+          ],
+          "description": "Second Report (2022) — How National Security and Intelligence Institutions Engage with Racialized Communities",
+          "weight": 95,
+          "data": {
+            "type": "version",
+            "official_name": "How National Security and Intelligence Institutions Engage with Racialized Communities (2022)",
+            "release_date": "2022-05-12",
+            "status": "effective",
+            "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-gctsn-eng/index-en.aspx",
+            "urls": [
+              {
+                "type": "website",
+                "url": "https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2022-nstag-gctsn-eng/index-en.aspx",
+                "note": "Primary official publication — NS-TAG 2022 Racialized Communities Report"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports.md",
+                "note": "CSA public dataset extraction (Markdown)"
+              },
+              {
+                "type": "docs",
+                "url": "https://github.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/blob/main/reference/publicsafety.gc.ca/nstag-reports/nstag-reports-sections.json",
+                "note": "CSA public dataset extracted sections index (JSON)"
+              }
+            ],
+            "examples": [
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2022",
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2022#2",
+              "secid:reference/publicsafety.gc.ca/nstag-reports@2022#4.1"
+            ]
+          },
+          "children": [
+            {
+              "patterns": [
+                "^(?:\\d+(?:\\.\\d+)*|Annex [A-C])$"
+              ],
+              "description": "Section or annex identifier",
+              "weight": 80,
+              "data": {
+                "type": "section",
+                "known_values": [
+                  "1",
+                  "2",
+                  "2.1",
+                  "2.2",
+                  "2.3",
+                  "3",
+                  "3.1",
+                  "3.2",
+                  "4",
+                  "4.1",
+                  "4.2",
+                  "4.3",
+                  "4.4",
+                  "4.5",
+                  "Annex A",
+                  "Annex B",
+                  "Annex C"
+                ],
+                "note": "Extracted section/heading identifiers for the 2022 NS-TAG racialized-communities report in dataset-public-laws-regulations-standards (reference/publicsafety.gc.ca/nstag-reports).",
+                "examples": [
+                  "1",
+                  "2.1",
+                  "Annex A"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

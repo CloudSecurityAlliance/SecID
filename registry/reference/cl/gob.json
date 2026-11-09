@@ -145,7 +145,7 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|2|3|3\\ A|3\\ B|3\\ C|3\\ D|4|4\\ A|4\\ B|5|5\\ A|5\\ B|5\\ C|6|7|7\\ A|7\\ B|8|9)$"
+                "^[1-9](?:\\.[A-D])?$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
@@ -155,21 +155,21 @@
                   "1",
                   "2",
                   "3",
-                  "3 A",
-                  "3 B",
-                  "3 C",
-                  "3 D",
+                  "3.A",
+                  "3.B",
+                  "3.C",
+                  "3.D",
                   "4",
-                  "4 A",
-                  "4 B",
+                  "4.A",
+                  "4.B",
                   "5",
-                  "5 A",
-                  "5 B",
-                  "5 C",
+                  "5.A",
+                  "5.B",
+                  "5.C",
                   "6",
                   "7",
-                  "7 A",
-                  "7 B",
+                  "7.A",
+                  "7.B",
                   "8",
                   "9"
                 ],
@@ -296,32 +296,35 @@
           "children": [
             {
               "patterns": [
-                "^(?:1|1\\.1|1\\.2|1\\.3|2|3|3\\.1|3\\.2|3\\.3|3\\.4|3\\.5|3\\.6|4)$"
+                "^(?:Principio [1-4]|Eje [1-3]|\\d+\\.\\d+)$"
               ],
               "description": "Section, chapter, pillar, or objective identifier",
               "weight": 80,
               "data": {
                 "type": "section",
                 "known_values": [
-                  "1",
+                  "Principio 1",
+                  "Principio 2",
+                  "Principio 3",
+                  "Principio 4",
+                  "Eje 1",
                   "1.1",
                   "1.2",
                   "1.3",
-                  "2",
-                  "3",
+                  "Eje 2",
+                  "Eje 3",
                   "3.1",
                   "3.2",
                   "3.3",
                   "3.4",
                   "3.5",
-                  "3.6",
-                  "4"
+                  "3.6"
                 ],
                 "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/gob.cl/politica-nacional-ia/2021-2030).",
                 "examples": [
-                  "1",
-                  "3.1",
-                  "4"
+                  "Principio 1",
+                  "Eje 2",
+                  "3.6"
                 ]
               }
             }

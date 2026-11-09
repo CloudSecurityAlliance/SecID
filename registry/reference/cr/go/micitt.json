@@ -270,30 +270,36 @@
         },
         {
           "patterns": [
-            "^(?:1|2|3|4|5|6)$"
+            "^(?:Guiding Principle [1-6]|Cross-cutting Principle [1-4]|Axis [1-7])$"
           ],
           "description": "Section, chapter, pillar, or objective identifier",
           "weight": 80,
           "data": {
             "type": "section",
             "known_values": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6"
+              "Guiding Principle 1",
+              "Guiding Principle 2",
+              "Guiding Principle 3",
+              "Guiding Principle 4",
+              "Guiding Principle 5",
+              "Guiding Principle 6",
+              "Cross-cutting Principle 1",
+              "Cross-cutting Principle 2",
+              "Cross-cutting Principle 3",
+              "Cross-cutting Principle 4",
+              "Axis 1",
+              "Axis 2",
+              "Axis 3",
+              "Axis 4",
+              "Axis 5",
+              "Axis 6",
+              "Axis 7"
             ],
             "note": "Extracted section/heading identifiers in dataset-public-laws-regulations-standards (reference/micitt.go.cr/estrategia-nacional-ia/2024-2027).",
             "examples": [
-              {
-                "input": "1",
-                "note": "SOCIETY AND SOCIAL SCIENCES. 2. POLICY AND GOVERNMENT. 3. CENTRAL"
-              },
-              {
-                "input": "2",
-                "note": "Human Oversight"
-              }
+              "Guiding Principle 1",
+              "Cross-cutting Principle 3",
+              "Axis 7"
             ]
           }
         }
