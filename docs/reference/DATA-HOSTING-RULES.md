@@ -157,15 +157,15 @@ For large, authoritative upstream GitHub vulnerability, advisory, TTP, and schem
 | Mirror Repository (`CloudSecurityAlliance/*`) | Tracking Issue | Upstream Source Repository | Measured Upstream Git Size | Primary SecID Namespace(s) Protected |
 |---|---|---|---|---|
 | **`SecID-Data-cvelistV5`** | [`#263`](https://github.com/CloudSecurityAlliance/SecID/issues/263) | [`CVEProject/cvelistV5`](https://github.com/CVEProject/cvelistV5) | `3,253.2 MB` (`~3.25 GB`) | `secid:advisory/mitre.org/cve` (335,000+ CVE v5 JSON records) |
-| **`SecID-Data-advisory-database`** | [`#264`](https://github.com/CloudSecurityAlliance/SecID/issues/264) | [`github/advisory-database`](https://github.com/github/advisory-database) | `3,503.0 MB` (`~3.50 GB`) | `secid:advisory/github.com/advisories/ghsa`, `secid:advisory/osv.dev` |
+| **`SecID-Data-advisory-database`** | [`#264`](https://github.com/CloudSecurityAlliance/SecID/issues/264) | [`github/advisory-database`](https://github.com/github/advisory-database) | `3,503.0 MB` (`~3.50 GB`) | `secid:advisory/github.com/ghsa`, `secid:advisory/google.com/osv` |
 | **`SecID-Data-vulnrichment`** | [`#265`](https://github.com/CloudSecurityAlliance/SecID/issues/265) | [`cisagov/vulnrichment`](https://github.com/cisagov/vulnrichment) | `375.7 MB` | `secid:advisory/cisa.gov/vulnrichment` (CISA ADP SSVC/KEV/CVSS/CWE enrichment) |
 | **`SecID-Data-attack-stix-data`** | [`#266`](https://github.com/CloudSecurityAlliance/SecID/issues/266) | [`mitre-attack/attack-stix-data`](https://github.com/mitre-attack/attack-stix-data) | `134.3 MB` | `secid:ttp/mitre.org/attack` (Enterprise, Mobile & ICS STIX 2.1 bundles) |
 | **`SecID-Data-cve-schema`** | [`#267`](https://github.com/CloudSecurityAlliance/SecID/issues/267) | [`CVEProject/cve-schema`](https://github.com/CVEProject/cve-schema) | `482.8 MB` | `secid:reference/cve.org/cve-schema` (CVE Record Format v5.x JSON Schemas) |
-| **`SecID-Data-osv-schema`** | [`#268`](https://github.com/CloudSecurityAlliance/SecID/issues/268) | [`ossf/osv-schema`](https://github.com/ossf/osv-schema) | `0.9 MB` | `secid:reference/openssf.org/osv-schema` (OSV JSON Schema & ecosystems) |
-| **`SecID-Data-CSAF`** | [`#269`](https://github.com/CloudSecurityAlliance/SecID/issues/269) | [`cisagov/CSAF`](https://github.com/cisagov/CSAF) | `59.0 MB` | `secid:advisory/cisa.gov/ics-cert` (CISA ICS & Medical CSAF 2.0 advisories) |
+| **`SecID-Data-osv-schema`** | [`#268`](https://github.com/CloudSecurityAlliance/SecID/issues/268) | [`ossf/osv-schema`](https://github.com/ossf/osv-schema) | `0.9 MB` | `secid:reference/ossf.github.io/osv-schema` (OSV JSON Schema & ecosystems) |
+| **`SecID-Data-CSAF`** | [`#269`](https://github.com/CloudSecurityAlliance/SecID/issues/269) | [`cisagov/CSAF`](https://github.com/cisagov/CSAF) | `59.0 MB` | `secid:advisory/cisa.gov/csaf` (CISA ICS & Medical CSAF 2.0 advisories) |
 | **`SecID-Data-vulndb`** | [`#270`](https://github.com/CloudSecurityAlliance/SecID/issues/270) | [`golang/vulndb`](https://github.com/golang/vulndb) | `53.8 MB` | `secid:advisory/go.dev/vulndb` (`GO-YYYY-NNNN` advisories) |
 | **`SecID-Data-rustsec-advisory-db`** | [`#271`](https://github.com/CloudSecurityAlliance/SecID/issues/271) | [`rustsec/advisory-db`](https://github.com/rustsec/advisory-db) | `44.5 MB` | `secid:advisory/rustsec.org/advisories` (`RUSTSEC-YYYY-NNNN` advisories) |
-| **`SecID-Data-pypa-advisory-database`** | [`#272`](https://github.com/CloudSecurityAlliance/SecID/issues/272) | [`pypa/advisory-database`](https://github.com/pypa/advisory-database) | `21.9 MB` | `secid:advisory/pypa.io/advisory-db` (`PYSEC-YYYY-NNN` advisories) |
+| **`SecID-Data-pypa-advisory-database`** | [`#272`](https://github.com/CloudSecurityAlliance/SecID/issues/272) | [`pypa/advisory-database`](https://github.com/pypa/advisory-database) | `21.9 MB` | `secid:advisory/pypi.org/advisory-db` (`PYSEC-YYYY-NNN` advisories) |
 
 ### 4. Standard Repository Layout (`ADR-014`)
 
