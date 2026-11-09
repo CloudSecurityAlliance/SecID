@@ -448,6 +448,7 @@ Resolution URLs are defined in each namespace's registry file. Item versions (li
 | [RATIONALE.md](docs/explanation/RATIONALE.md) | Why SecID exists and how we got here |
 | [DESIGN-DECISIONS.md](docs/explanation/DESIGN-DECISIONS.md) | Key decisions and alternatives considered |
 | [EDGE-CASES.md](docs/reference/EDGE-CASES.md) | Domain-name namespace edge cases and how SecID handles them |
+| [DATA-HOSTING-RULES.md](docs/reference/DATA-HOSTING-RULES.md) | SecID 2.0 data hosting rules and the canonical list of separate `SecID-Data-*` repositories |
 | [STRATEGY.md](docs/future/STRATEGY.md) | Adoption, governance, and positioning |
 | [ROADMAP.md](ROADMAP.md) | Implementation phases and priorities |
 | [USE-CASES.md](docs/future/USE-CASES.md) | Concrete examples of what SecID enables |
@@ -507,8 +508,8 @@ SecID is built across multiple repositories under the [CloudSecurityAlliance](ht
 | **[SecID-Service](https://github.com/CloudSecurityAlliance/SecID-Service)** | Cloudflare Worker REST API + MCP server, plus the public website (an Astro static site in its `website/` directory, served by the same Worker) — **live** at [secid.cloudsecurityalliance.org](https://secid.cloudsecurityalliance.org/) |
 | **[SecID-Server-API](https://github.com/CloudSecurityAlliance/SecID-Server-API)** | Self-hosted resolver — Python reference implementation (REST API + optional MCP); TypeScript and Go implementations are planned. Run your own SecID server. |
 | **[SecID-Client-SDK](https://github.com/CloudSecurityAlliance/SecID-Client-SDK)** | Client libraries + AI instructions (Python, TypeScript, Go) |
-| **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | **Live.** DISA STIG/SRG content (document-releases and rules), ingested quarterly. The first SecID 2.0 data repository; it sets the standard data-repo layout. |
-| **SecID-Data-\*** | Extracted security content, sharded by the authority behind it — `International`, `North-America`, `Latin-America`, `Europe`, `Asia`, `Middle-East`, `Africa`, `Oceania`, plus `Staging` for material not yet classified (planned, SecID 2.0), plus `Vendor` for product capabilities (sharded by vendor, not region — capability data has no jurisdiction). |
+| **[SecID-Data-disa.mil](https://github.com/CloudSecurityAlliance/SecID-Data-disa.mil)** | **Live.** DISA STIG/SRG content (document-releases and rules), ingested quarterly. The first SecID 2.0 data repository; it sets the standard data-repo layout (`ADR-014`). |
+| **SecID-Data-\*** | Extracted public security content served via `raw.githubusercontent.com`, sharded into dedicated repositories for major anchor authorities (`SecID-Data-nist.gov`, `SecID-Data-cisa.gov`, `SecID-Data-fedramp.gov`, `SecID-Data-cloudsecurityalliance.org`, `SecID-Data-mitre.org`, `SecID-Data-owasp.org`), major national/supranational jurisdictions (`SecID-Data-europa.eu`, `SecID-Data-gov`, `SecID-Data-ca`, `SecID-Data-jp`, `SecID-Data-uk`, `SecID-Data-de`, `SecID-Data-au`, `SecID-Data-sg`, `SecID-Data-in`, `SecID-Data-cn`), the shared `SecID-Data` repository (`<50 MB` domains), and defensive upstream mirror forks (`SecID-Data-cvelistV5`, `SecID-Data-advisory-database`, `SecID-Data-vulnrichment`, `SecID-Data-attack-stix-data`, etc.). See [DATA-HOSTING-RULES.md §3](docs/reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories) for the complete list of all 28 repositories and their tracking issues (`#238`–`#272`). |
 
 From 3.0, content that CSA holds under agreement but may not redistribute — ISO standards and similar — lives in
 identically-named private repositories under

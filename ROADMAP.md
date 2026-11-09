@@ -157,60 +157,20 @@ Registry and data separate cleanly. **The SecID registry keeps holding exactly w
 resolution, disambiguation — and refers out. All content, and all metadata about acquiring that content, lives in the
 data repositories.
 
-Data shards by the **authority** behind the material, grouped into regions:
+Per the 2026-11-06 architecture decision ([DECISIONS.md](DECISIONS.md), amending `ADR-010`, `ADR-011`, and `ADR-013`), public structured data is served at zero egress via `raw.githubusercontent.com` from **28 `SecID-Data-*` repositories** across four groups (canonical table and per-repo tracking issues `#238`–`#272` in [DATA-HOSTING-RULES.md §3](docs/reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories)):
 
-| Repository | Holds |
-|---|---|
-| `SecID-Data-International` | Bodies whose authority spans states — ISO, PCI SSC, MITRE, SWIFT, EMVCo, IETF, CSA |
-| `SecID-Data-North-America` | United States, Canada |
-| `SecID-Data-Latin-America` | Mexico, Central America, the Caribbean, South America |
-| `SecID-Data-Europe` | EU institutions and European national authorities |
-| `SecID-Data-Asia` | |
-| `SecID-Data-Middle-East` | |
-| `SecID-Data-Africa` | |
-| `SecID-Data-Oceania` | |
-| `SecID-Data-Staging` | Acquired but not yet classified — type, authority, or extraction still unresolved. **Everything here has an exit.** |
-| `SecID-Data-Vendor` | Product security capabilities — AWS, Azure, GCP and every other vendor's configurable security features |
+| Repository Group | Repositories (`CloudSecurityAlliance/*`) | Holds |
+|---|---|---|
+| **1. US Gov & Global Anchor Authorities** | `SecID-Data-disa.mil` (**live**), `SecID-Data-cloudsecurityalliance.org` (`#238`), `SecID-Data-nist.gov` (`#239`), `SecID-Data-fedramp.gov` (`#240`), `SecID-Data-cisa.gov` (`#241`), `SecID-Data-mitre.org` (`#245`, incl. `cve.org`), `SecID-Data-owasp.org` (`#262`, incl. `cyclonedx.org` & `owaspai.org`) | Major standards and US federal operational authorities (`>50–100 MB` or high-demand anchors) |
+| **2. Major National & Supranational Jurisdictions** | `SecID-Data-europa.eu` (`#242`), `SecID-Data-gov` (`#247`, US non-anchor federal & 50 states + `uscode.house.gov`), `SecID-Data-ca` (`#248`), `SecID-Data-jp` (`#249`), `SecID-Data-uk` (`#250`, incl. `ico.org.uk` & `fca.org.uk`), `SecID-Data-de` (`#251`, incl. `gesetze-im-internet.de` & `bafin.de`), `SecID-Data-au` (`#258`), `SecID-Data-sg` (`#259`), `SecID-Data-in` (`#260`, incl. `cert-in.org.in` & `rbi.org.in`), `SecID-Data-cn` (`#261`, incl. `tc260.org.cn`) | All statutes, codified regulations, national cyber controls, sector regulator guidelines (`tags.sector`), and national strategies for each major jurisdiction |
+| **3. Shared General Repository** | `SecID-Data` (`#243`, `#254`, `#203`, `#62`) | `<50 MB` open global standards (OpenSSF/SPDX/OpenVEX/SLSA/CNCF, IETF/RFCs, FIRST, OASIS), format schemas (`#203`), cross-domain glossaries (`#62`), vendor capability baselines, and smaller country jurisdictions until promoted at the ~50–100 MB threshold |
+| **4. Defensive Upstream Dataset Mirror Forks** | `SecID-Data-cvelistV5` (`#263`), `SecID-Data-advisory-database` (`#264`), `SecID-Data-vulnrichment` (`#265`), `SecID-Data-attack-stix-data` (`#266`), `SecID-Data-cve-schema` (`#267`), `SecID-Data-osv-schema` (`#268`), `SecID-Data-CSAF` (`#269`), `SecID-Data-vulndb` (`#270`), `SecID-Data-rustsec-advisory-db` (`#271`), `SecID-Data-pypa-advisory-database` (`#272`) | Gated-sync public GitHub forks (`$0` GitHub storage quota) providing one-line failover insurance if an upstream repository breaks layout or corrupts records |
 
-**Why authority, not address or reach.** A Japanese government standard belongs to Asia even when the world adopts it,
-because the Japanese state owns and amends it. SWIFT is International despite being headquartered in Belgium, because
-its authority comes from its member network rather than from Belgian law. A local company's supplier standard belongs
-to its own region. One question — *whose authority does this instrument derive from?* — answers all three.
+**Why jurisdiction-first and authority-first sharding.** A practitioner in Japan, Canada, the EU, or Germany wants to clone one repository containing 100% of their jurisdiction's laws, national controls, and banking/healthcare sector guidelines (`tags.sector`). Rolling sibling domains (such as `cve.org` into `SecID-Data-mitre.org`, or `ico.org.uk` into `SecID-Data-uk`) into their parent authority or jurisdiction repository avoids repository sprawl while preserving the exact `data/<type>/<tld>/<domain>/<name>/<version>/...` `ADR-014` path inside the repository.
 
-**Why capability data is not sharded by region.** The region axis exists to serve *jurisdictional relevance*, and
-product capabilities have none — AWS S3 encryption is identical in every country. Nobody syncs `Europe` to obtain AWS
-configuration data, and nobody syncing AWS configuration data cares about jurisdiction. Sharding it geographically
-would also put AWS, Azure and GCP all in `North-America` (their publishers are US companies), where a projected
-10,000–20,000 capability entries would outweigh every standards body in the repository by an order of magnitude.
+**Why exhaustive local extraction before committing to Git.** Removing files from Git (`git rm`) does not reclaim space in `.git/objects/pack` without rewriting history. Every domain or jurisdiction is inventoried and extracted locally first (`#244`), stripped of binary bloat (`.pdf`, `.xlsx`, `.jpeg`, `.png`), and sized before committing to its permanent `SecID-Data-*` repository.
 
-So the rule generalises: **data that is not jurisdictional does not shard jurisdictionally.** Capability is the only
-type where this matters at scale — `weakness` and `ttp` are also global but are 13 and 4 namespaces respectively.
-
-Two placement rules result, both still derivable from the SecID with no lookup:
-
-```
-secid:capability/<domain>/…   →  SecID-Data-Vendor  (or SecID-Data-<domain> once promoted)
-everything else               →  its region, by authority
-```
-
-`SecID-Data-Vendor` starts as a single repository to avoid a repo explosion. A vendor is promoted to its own
-`SecID-Data-<domain>` repository — `SecID-Data-amazon.com` — when its capability set crosses a **published size
-threshold**. The threshold is deliberately mechanical rather than editorial: a vendor earns a repository by arithmetic,
-not by anyone's judgement about its importance, and any vendor can earn one by documenting its own product. Promotion
-is free because the shard key is the publishing domain, which never changes.
-
-Vendor promotion also carries the strongest ownership case in the design. A national CERT maintaining a regional
-repository is speculative; a vendor maintaining the documentation of its own security features is how vendor
-documentation already works.
-
-**Why shard the rest at all.** Not for storage; the extracted corpus is small. Sharding buys three things: regional bodies and
-CSA chapters can own their own material outright, reclassifying an item's *type* never moves bytes because the shard
-key is the publishing domain and that never changes, and — looking ahead to 3.0 — consumers can sync only the
-jurisdictions they care about rather than the whole world.
-
-**Where the bytes go.** Structured, human-legible output — Markdown, JSON, CSV — lives in git, where it is diffable,
-reviewable, and cheap to clone. Source originals and extraction artifacts live in object storage: R2 for serving, S3
-with requester-pays for bulk and archival access.
+**Where the bytes go.** Structured, human-legible output — JSON, Markdown, CSV, YAML — lives in Git and is served directly via `raw.githubusercontent.com` at `$0` egress cost (shelving Cloudflare R2 direct serving).
 
 ### Consolidating the existing datasets
 
@@ -219,9 +179,9 @@ into the structure above and states a disposition for everything else:
 
 | Material | Disposition |
 |---|---|
-| `dataset-public-laws-regulations-standards` | Migrates into the region repositories; the original becomes a pointer to its successors and is retired |
-| `dataset-private-laws-regulations-standards` | Unchanged through 2.0. Migrates to private data repositories in 3.0, once the internal resolver exists |
-| NVD, CPE, cvelistV5 | **Upstream-only.** The publisher hosts authoritative, version-tagged data. SecID points; it never mirrors |
+| `dataset-public-laws-regulations-standards` | Phases out into `SecID-Data-*` (`#238`–`#262`); registry `raw.githubusercontent.com` links are added only once a corpus lands in its permanent `SecID-Data-*` repo (Point Once rule) |
+| `dataset-private-laws-regulations-standards` | Holds licensed/paywalled texts (ISO/IEC, PCI DSS, HITRUST) for internal use; complete control/clause ID catalogs are registered in `SecID/registry/` (`Rule 0`, `#255`). Migrates to private `CloudSecurityAlliance-Internal/SecID-Data-*` repos in 3.0 |
+| `cvelistV5`, `github/advisory-database`, `vulnrichment`, `attack-stix-data` | **Upstream primary + defensive fork insurance (`#246`, `#263`–`#272`).** The registry resolves directly to the publisher's upstream repository in normal operation, backed by gated-sync public GitHub forks (`SecID-Data-cvelistV5`, etc.) for instant failover |
 | Papers and preprints | In scope, later phase — already SecID-shaped as `reference` entries |
 | Entity crawl products | Stay whole. Keyed by domain but produced by a single pipeline, so the pipeline is the unit |
 | CSA internal content, website archives, video extractions | Not SecID data |

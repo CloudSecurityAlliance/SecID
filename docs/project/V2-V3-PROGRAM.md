@@ -15,12 +15,12 @@ outcomes live in [GOALS.md](../../GOALS.md) and [ROADMAP.md](../../ROADMAP.md).
 | Decision | Recorded |
 |---|---|
 | v2.0 serves content; the registry format is unchanged | ADR-010 |
-| Data shards by region, keyed by the authority behind the material | ADR-011 |
-| A single-source corpus promotes out of its region repo at a threshold; named `SecID-Data-<domain>` | ADR-013 |
-| Every `SecID-Data-*` repo uses one layout, mirroring the registry's reverse-DNS | ADR-014 |
-| Capability data shards by vendor, not region (`SecID-Data-Vendor`) | ADR-011 |
+| Data shards into 28 `SecID-Data-*` repos across Anchor Authorities, Major Jurisdictions, Shared `SecID-Data`, and Defensive Upstream Mirror Forks (superseding ADR-011's 8-region grid) | 2026-11-06 Decision (`#237`, `#257`, `#238`–`#272`), [DATA-HOSTING-RULES.md §3](../reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories) |
+| A single-source or jurisdiction corpus promotes out of `SecID-Data` at ~50–100 MB; named `SecID-Data-<domain/cc>` | ADR-013, 2026-11-06 Decision |
+| Every `SecID-Data-*` repo uses one layout, mirroring the registry's reverse-DNS (even when sibling domains roll into an umbrella repo) | ADR-014, `#245` |
+| Sector (`financial`, `healthcare`, etc.) is a `tags.sector` / `data.tags.sector` metadata axis, not a repository boundary | `#256` |
 | Extraction equivalence is tiered; extractions are *reproduced* or *attested* | ADR-012 |
-| Structured text in git; originals and extraction artifacts in R2, S3 requester-pays for bulk | ROADMAP |
+| Deterministic text in git served at zero egress via `raw.githubusercontent.com` (Cloudflare R2 shelved) | 2026-11-06 Decision (`#237`) |
 | Data repositories are CC0, with per-source sub-licences | ROADMAP |
 | Type list stays frozen at ten; new categories are `subtype:` | ROADMAP, TYPES-AND-SUBTYPES |
 | `reference` is the catch-all, by design | CLASSIFY.md |
@@ -90,14 +90,11 @@ The test: **SecID owns what defines the system; everything else owns what instan
 ### W3 — Repository architecture and migration *(depends on W2 tagging)*
 
 - ~~Create the first data repository~~ — **`SecID-Data-disa.mil` created 2026-09-04**: 6 quarterly ingests
-  (`v2025.04`-`v2026.07`), 511 document-releases, 53,674 rule records, 18 MiB packed. Sets the layout (ADR-014)
-- Create the region repositories, `SecID-Data-Vendor`, and `SecID-Data-Staging`
-- Migrate `dataset-public-laws-regulations-standards` (167 MB in git; originals already gitignored) and retire it
-  behind a README pointing at successors
-- Move originals and extraction images to R2; keep the existing S3 archive as requester-pays
-- Break the registry out of SecID into its own repository, with the contribution tooling
-- Record dispositions for the other dataset repositories: NVD/CPE/cvelistV5 upstream-only, papers later, entity crawl
-  products stay whole, CSA internal content out of scope
+  (`v2025.04`-`v2026.07`), 511 document-releases, 53,674 rule records, 18 MiB packed. Sets the layout (ADR-014), wired with document-level `stig.json` URLs in `#237`
+- Execute pre-extraction upstream catalog discovery (`#244`), paywalled SDO catalog completeness (`#255`), and stand up the planned `SecID-Data-*` repositories (`#238`–`#272`; canonical list in [DATA-HOSTING-RULES.md §3](../reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories))
+- Migrate `dataset-public-laws-regulations-standards` into `SecID-Data-*` (stripping binary/image bloat and moving proprietary PCI DSS/HITRUST to `dataset-private`) and wire `raw.githubusercontent.com` URLs once landed (Point Once rule)
+- Stand up defensive upstream dataset mirror forks (`SecID-Data-cvelistV5`, `SecID-Data-advisory-database`, `SecID-Data-vulnrichment`, `SecID-Data-attack-stix-data`, etc., `#246`, `#263`–`#272`)
+- Break the registry out of SecID into its own repository, with the contribution tooling (future phase)
 
 ### W4 — Content promotion *(can start in parallel with W3)*
 
