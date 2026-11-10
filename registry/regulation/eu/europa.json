@@ -1043,46 +1043,40 @@
       "children": [
         {
           "patterns": [
-            "^(?:3|Article 1|Article 2|H|ANNEX I \\(1\\)|ANNEX I \\(2\\)|ANNEX II|ANNEX I \\(3\\)|ANNEX V \\(1\\)|ANNEX V \\(2\\)|ANNEX VI)$"
+            "^Article\\ 1$",
+            "^Article\\ 2$",
+            "^ANNEX\\ I$",
+            "^ANNEX\\ II$",
+            "^ANNEX\\ III$",
+            "^ANNEX\\ IV$",
+            "^ANNEX\\ V$",
+            "^ANNEX\\ VI$",
+            "^ANNEX\\ VII$"
           ],
-          "description": "eIDAS 2 section identifier",
-          "weight": 80,
+          "description": "Section/article/part identifier in eidas-2 (9 extracted sections)",
+          "weight": 100,
           "data": {
-            "type": "section",
-            "known_values": [
-              "3",
-              "Article 1",
-              "Article 2",
-              "H",
-              "ANNEX I (1)",
-              "ANNEX I (2)",
-              "ANNEX II",
-              "ANNEX I (3)",
-              "ANNEX V (1)",
-              "ANNEX V (2)",
-              "ANNEX VI"
-            ],
-            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/eidas-2).",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/europa.eu/eidas-2/eidas-2-sections.json in dataset-public-laws-regulations-standards.",
             "examples": [
               {
-                "input": "3",
-                "note": "Regulation - EU - 2024/1183 - EN - EUR-Lex",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json"
+                "input": "Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "Article 1"
               },
               {
-                "input": "Article 1",
-                "note": "Section Article 1",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json"
+                "input": "Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "Article 2"
               },
               {
-                "input": "Article 2",
-                "note": "Section Article 2",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json"
+                "input": "ANNEX I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "ANNEX I"
               }
-            ],
-            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
-            "format": "json",
-            "content_type": "application/json"
+            ]
           }
         }
       ]

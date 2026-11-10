@@ -56,47 +56,85 @@
       "children": [
         {
           "patterns": [
-            "^(?:CHAPTER I \\(1\\)|SECTION 1|\\(1\\)|CHAPTER I \\(2\\)|CHAPTER II|CHAPTER I \\(3\\)|\\(7\\)|CHAPTER V \\(1\\)|CHAPTER V \\(2\\)|CHAPTER VI|CHAPTER VII|CHAPTER I \\(4\\))$"
+            "^CHAPTER\\ I$",
+            "^SECTION\\ 1$",
+            "^SEC\\.\\ 2$",
+            "^SEC\\.\\ 3$",
+            "^SEC\\.\\ 4$",
+            "^SEC\\.\\ 5$",
+            "^SEC\\.\\ 6$",
+            "^CHAPTER\\ II$",
+            "^SEC\\.\\ 7$",
+            "^SEC\\.\\ 8$",
+            "^SEC\\.\\ 9$",
+            "^SEC\\.\\ 10$",
+            "^CHAPTER\\ III$",
+            "^SEC\\.\\ 11$",
+            "^SEC\\.\\ 12$",
+            "^SEC\\.\\ 13$",
+            "^SEC\\.\\ 14$",
+            "^SEC\\.\\ 15$",
+            "^CHAPTER\\ IV$",
+            "^SEC\\.\\ 16$",
+            "^SEC\\.\\ 17$",
+            "^SEC\\.\\ 18$",
+            "^SEC\\.\\ 19$",
+            "^CHAPTER\\ V$",
+            "^SEC\\.\\ 20$",
+            "^CHAPTER\\ VI$",
+            "^SEC\\.\\ 21$",
+            "^CHAPTER\\ VII$",
+            "^SEC\\.\\ 22$",
+            "^SEC\\.\\ 23$",
+            "^SEC\\.\\ 24$",
+            "^CHAPTER\\ VIII$",
+            "^SEC\\.\\ 25$",
+            "^SEC\\.\\ 26$",
+            "^SEC\\.\\ 27$",
+            "^SEC\\.\\ 28$",
+            "^SEC\\.\\ 29$",
+            "^SEC\\.\\ 30$",
+            "^SEC\\.\\ 31$",
+            "^SEC\\.\\ 32$",
+            "^SEC\\.\\ 33$",
+            "^SEC\\.\\ 34$",
+            "^SEC\\.\\ 35$",
+            "^SEC\\.\\ 36$",
+            "^SEC\\.\\ 37$",
+            "^CHAPTER\\ IX$",
+            "^SEC\\.\\ 38$",
+            "^SEC\\.\\ 39$",
+            "^SEC\\.\\ 40$",
+            "^SEC\\.\\ 41$",
+            "^SEC\\.\\ 42$",
+            "^SEC\\.\\ 43$",
+            "^SEC\\.\\ 44$",
+            "^SEC\\.\\ 45$"
           ],
-          "description": "Philippines Data Privacy Act section identifier",
-          "weight": 80,
+          "description": "Section/article/part identifier in dpa (54 extracted sections)",
+          "weight": 100,
           "data": {
-            "type": "section",
-            "known_values": [
-              "CHAPTER I (1)",
-              "SECTION 1",
-              "(1)",
-              "CHAPTER I (2)",
-              "CHAPTER II",
-              "CHAPTER I (3)",
-              "(7)",
-              "CHAPTER V (1)",
-              "CHAPTER V (2)",
-              "CHAPTER VI",
-              "CHAPTER VII",
-              "CHAPTER I (4)"
-            ],
-            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/privacy.gov.ph/dpa).",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/privacy.gov.ph/dpa/dpa-sections.json in dataset-public-laws-regulations-standards.",
             "examples": [
               {
-                "input": "CHAPTER I (1)",
-                "note": "CHAPTER I",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
+                "input": "CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+                "note": "CHAPTER I"
               },
               {
                 "input": "SECTION 1",
-                "note": "Short Title. – This Act shall be known as the “Data Privacy Act of 2012”.",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+                "note": "SECTION 1"
               },
               {
-                "input": "(1)",
-                "note": "The entity carries on business in the Philippines; and",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
+                "input": "SEC. 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+                "note": "SEC. 2"
               }
-            ],
-            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
-            "format": "json",
-            "content_type": "application/json"
+            ]
           }
         }
       ]
