@@ -123,17 +123,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
               },
               {
                 "input": "2",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
               },
               {
                 "input": "3",
-                "note": "Purpose"
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -162,6 +168,20 @@
             "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36/json",
             "format": "json",
             "note": "LEGISinfo machine-readable bill status JSON"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -399,17 +419,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "1"
+                "note": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
               },
               {
                 "input": "PPCDA:Preamble",
-                "note": "PPCDA:Preamble"
+                "note": "PPCDA:Preamble",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
               },
               {
                 "input": "PPCDA:1",
-                "note": "PPCDA:1"
+                "note": "PPCDA:1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         },
         {
@@ -427,9 +453,13 @@
             "examples": [
               {
                 "input": "SCHEDULE",
-                "note": "SCHEDULE"
+                "note": "SCHEDULE",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

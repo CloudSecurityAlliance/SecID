@@ -33,6 +33,20 @@
           {
             "type": "legal_text",
             "url": "https://uaelegislation.gov.ae/en/legislations/1972"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -83,17 +97,23 @@
             "examples": [
               {
                 "input": "Article (1)",
-                "note": "Section Article (1)"
+                "note": "Section Article (1)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
               },
               {
                 "input": "Article (2)",
-                "note": "Section Article (2)"
+                "note": "Section Article (2)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
               },
               {
                 "input": "Article (3)",
-                "note": "Section Article (3)"
+                "note": "Section Article (3)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

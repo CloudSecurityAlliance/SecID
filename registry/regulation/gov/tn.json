@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1181"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -70,17 +84,23 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "This act is known and may be cited as the \"Tennessee Information"
+                "note": "This act is known and may be cited as the \"Tennessee Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa-sections.json"
               },
               {
                 "input": "SECTION 2",
-                "note": "Tennessee Code Annotated, Title 47, Chapter 18, is amended by adding"
+                "note": "Tennessee Code Annotated, Title 47, Chapter 18, is amended by adding",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa-sections.json"
               },
               {
                 "input": "47-18-3201",
-                "note": "Part definitions."
+                "note": "Part definitions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/tn.gov/tipa/tipa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

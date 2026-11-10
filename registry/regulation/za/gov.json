@@ -33,6 +33,20 @@
           {
             "type": "legal_text",
             "url": "https://www.gov.za/documents/protection-personal-information-act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -83,17 +97,23 @@
             "examples": [
               {
                 "input": "CHAPTER 1",
-                "note": "Section CHAPTER 1"
+                "note": "Section CHAPTER 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia-sections.json"
               },
               {
                 "input": "CHAPTER 2",
-                "note": "Section CHAPTER 2"
+                "note": "Section CHAPTER 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia-sections.json"
               },
               {
                 "input": "CHAPTER 3",
-                "note": "Section CHAPTER 3"
+                "note": "Section CHAPTER 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/popia/popia-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -114,6 +134,20 @@
           {
             "type": "legal_text",
             "url": "https://www.gov.za/documents/acts/cybercrimes-act-19-2020-english-afrikaans-01-jun-2021"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -172,17 +206,23 @@
             "examples": [
               {
                 "input": "CHAPTER 1",
-                "note": "Section CHAPTER 1"
+                "note": "Section CHAPTER 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act-sections.json"
               },
               {
                 "input": "CHAPTER 2",
-                "note": "CYBERCRIMES, MALICIOUS COMMUNICATIONS, SENTENCING AND"
+                "note": "CYBERCRIMES, MALICIOUS COMMUNICATIONS, SENTENCING AND",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act-sections.json"
               },
               {
                 "input": "PART I (1)",
-                "note": "CYBERCRIMES"
+                "note": "CYBERCRIMES",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.za/cybercrimes-act/cybercrimes-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

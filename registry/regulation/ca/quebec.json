@@ -47,6 +47,13 @@
           {
             "type": "website",
             "url": "https://www.legisquebec.gouv.qc.ca/en/document/cs/p-39.1"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/quebec.ca/loi-25/loi-25-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -245,17 +252,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Section 1"
+                "note": "Section 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/quebec.ca/loi-25/loi-25-sections.json"
               },
               {
                 "input": "1.1",
-                "note": "Section 1.1"
+                "note": "Section 1.1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/quebec.ca/loi-25/loi-25-sections.json"
               },
               {
                 "input": "2",
-                "note": "Section 2"
+                "note": "Section 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/quebec.ca/loi-25/loi-25-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/quebec.ca/loi-25/loi-25-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

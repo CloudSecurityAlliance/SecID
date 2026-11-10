@@ -39,6 +39,20 @@
           {
             "type": "website",
             "url": "https://www.csa.gov.sg/legislation/cybersecurity-act/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -64,17 +78,23 @@
             "examples": [
               {
                 "input": "Part 1",
-                "note": "PRELIMINARY"
+                "note": "PRELIMINARY",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act-sections.json"
               },
               {
                 "input": "Part 2",
-                "note": "ADMINISTRATION"
+                "note": "ADMINISTRATION",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act-sections.json"
               },
               {
                 "input": "Part 3",
-                "note": "CRITICAL INFORMATION INFRASTRUCTURE"
+                "note": "CRITICAL INFORMATION INFRASTRUCTURE",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/csa.gov.sg/cybersecurity-act/cybersecurity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://mgaleg.maryland.gov/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -64,17 +78,23 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "BE IT ENACTED BY THE GENERAL ASSEMBLY OF MARYLAND,"
+                "note": "BE IT ENACTED BY THE GENERAL ASSEMBLY OF MARYLAND,",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws-sections.json"
               },
               {
                 "input": "Section 2-501",
-                "note": "Section Section 2-501"
+                "note": "Section Section 2-501",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws-sections.json"
               },
               {
                 "input": "Section 2-502",
-                "note": "Section Section 2-502"
+                "note": "Section Section 2-502",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/facial-recognition-laws/facial-recognition-laws-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -97,6 +117,20 @@
           {
             "type": "website",
             "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0541?ys=2024RS"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -104,20 +138,48 @@
       "children": [
         {
           "patterns": [
-            "^(?:SUBTITLE 46)$"
+            "^(?:SUBTITLE\\ 46|Section\\ 14–4601|Section\\ 14–4602|Section\\ 14–4603|Section\\ 14–4604|Section\\ 14–4605|Section\\ 14–4606|Section\\ 14–4607|Section\\ 14–4608|Section\\ 14–4609|Section\\ 14–4610|Section\\ 14–4611|Section\\ 14–4612|Section\\ 14–4613|Section\\ 14–4614)$"
           ],
           "description": "MODPA section identifier",
           "weight": 80,
           "data": {
             "type": "section",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
             "known_values": [
-              "SUBTITLE 46"
+              "SUBTITLE 46",
+              "Section 14–4601",
+              "Section 14–4602",
+              "Section 14–4603",
+              "Section 14–4604",
+              "Section 14–4605",
+              "Section 14–4606",
+              "Section 14–4607",
+              "Section 14–4608",
+              "Section 14–4609",
+              "Section 14–4610",
+              "Section 14–4611",
+              "Section 14–4612",
+              "Section 14–4613",
+              "Section 14–4614"
             ],
             "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/maryland.gov/modpa).",
             "examples": [
               {
                 "input": "SUBTITLE 46",
-                "note": "ONLINE DATA PRIVACY ACT. 30 14–4601. 31"
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa-sections.json",
+                "note": "ONLINE DATA PRIVACY ACT. 30"
+              },
+              {
+                "input": "Section 14–4601",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa-sections.json",
+                "note": "Section 14–4601"
+              },
+              {
+                "input": "Section 14–4602",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/maryland.gov/modpa/modpa-sections.json",
+                "note": "Section 14–4602"
               }
             ]
           }

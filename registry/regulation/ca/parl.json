@@ -55,6 +55,20 @@
           {
             "type": "source",
             "url": "https://www.parl.ca/Content/Bills/441/Government/C-27/C-27_1/C-27_E.xml"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -324,17 +338,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "1"
+                "note": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json"
               },
               {
                 "input": "2",
-                "note": "2"
+                "note": "2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json"
               },
               {
                 "input": "CPPA:Preamble",
-                "note": "CPPA:Preamble"
+                "note": "CPPA:Preamble",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         },
         {
@@ -352,9 +372,13 @@
             "examples": [
               {
                 "input": "SCHEDULE",
-                "note": "SCHEDULE"
+                "note": "SCHEDULE",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/aida/aida-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -393,6 +417,20 @@
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/44-1/c-26",
             "note": "44th Parliament, 1st Session predecessor — Bill C-26"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -569,17 +607,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json"
               },
               {
                 "input": "2",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json"
               },
               {
                 "input": "22",
-                "note": "Exemption from Statutory Instruments Act"
+                "note": "Exemption from Statutory Instruments Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         },
         {
@@ -615,13 +659,18 @@
             "examples": [
               {
                 "input": "Clause 1",
-                "note": "PART 1 — Telecommunications Act"
+                "note": "PART 1 — Telecommunications Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json"
               },
               {
                 "input": "SCHEDULE 1",
-                "note": "Vital Services and Vital Systems"
+                "note": "Vital Services and Vital Systems",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/ccspa/ccspa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -653,6 +702,20 @@
             "type": "api",
             "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-34/json",
             "note": "LEGISinfo machine-readable bill status JSON"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -842,17 +905,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "1"
+                "note": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34-sections.json"
               },
               {
                 "input": "2",
-                "note": "2"
+                "note": "2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34-sections.json"
               },
               {
                 "input": "DSA:Preamble",
-                "note": "DSA:Preamble"
+                "note": "DSA:Preamble",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/bill-c-34/bill-c-34-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -883,6 +952,20 @@
           {
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/42-1/c-59"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -1086,17 +1169,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017-sections.json"
               },
               {
                 "input": "2",
-                "note": "Enactment of Act"
+                "note": "Enactment of Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017-sections.json"
               },
               {
                 "input": "SCHEDULE",
-                "note": "Deputy Heads to Whom Directions Have Been Issued"
+                "note": "Deputy Heads to Whom Directions Have Been Issued",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/national-security-act-2017/national-security-act-2017-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -1122,6 +1211,20 @@
           {
             "type": "source",
             "url": "https://laws-lois.justice.gc.ca/eng/acts/N-16.62/FullText.html"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -1202,17 +1305,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act-sections.json"
               },
               {
                 "input": "2",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act-sections.json"
               },
               {
                 "input": "8",
-                "note": "Review and investigation"
+                "note": "Review and investigation",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsira-act/nsira-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -1243,6 +1352,20 @@
           {
             "type": "website",
             "url": "https://www.parl.ca/legisinfo/en/bill/42-1/c-22"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -1315,17 +1438,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act-sections.json"
               },
               {
                 "input": "2",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act-sections.json"
               },
               {
                 "input": "4",
-                "note": "Committee established"
+                "note": "Committee established",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/parl.ca/nsicop-act/nsicop-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

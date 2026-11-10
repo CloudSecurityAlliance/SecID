@@ -33,6 +33,13 @@
           {
             "type": "website",
             "url": "https://www.pdpc.gov.sg/Overview-of-PDPA/The-Legislation/Personal-Data-Protection-Act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -143,17 +150,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
               },
               {
                 "input": "2",
-                "note": "Interpretation"
+                "note": "Interpretation",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
               },
               {
                 "input": "3",
-                "note": "Purpose"
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

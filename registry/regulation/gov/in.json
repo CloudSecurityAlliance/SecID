@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://iga.in.gov/legislative/2023/bills/senate/5/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -136,17 +150,23 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "IC 24-15 IS ADDED TO THE INDIANA CODE AS A NEW ARTICLE TO READ AS FOLLOWS [EFFECTIVE JANUARY 1, 2026]:"
+                "note": "IC 24-15 IS ADDED TO THE INDIANA CODE AS A NEW ARTICLE TO READ AS FOLLOWS [EFFECTIVE JANUARY 1, 2026]:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa-sections.json"
               },
               {
                 "input": "(1) (1)",
-                "note": "Either of the following:"
+                "note": "Either of the following:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa-sections.json"
               },
               {
                 "input": "(2)",
-                "note": "Any financial institutions and affiliates, or data subject to"
+                "note": "Any financial institutions and affiliates, or data subject to",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/in.gov/incdpa/incdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

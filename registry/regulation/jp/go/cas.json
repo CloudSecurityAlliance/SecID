@@ -31,6 +31,20 @@
             "type": "official_translation",
             "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/3933/en",
             "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -77,17 +91,23 @@
             "examples": [
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal-sections.json"
               },
               {
                 "input": "第三条",
-                "note": "（不正アクセス行為の禁止）"
+                "note": "（不正アクセス行為の禁止）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ucal/ucal-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -115,6 +135,20 @@
             "type": "official_summary",
             "url": "https://www.cas.go.jp/jp/tokuteihimitsu/gaiyou_en.pdf",
             "note": "Cabinet Secretariat's own 5-page overview slide deck (not full text) — fetched successfully."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -196,17 +230,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/specified-secret-protection/specified-secret-protection-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -224,6 +264,22 @@
         "url": "https://laws.e-gov.go.jp/law/507AC0000000053",
         "examples": [
           "ai-promotion-act"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
       },
       "children": [
@@ -276,17 +332,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cas.go.jp/ai-promotion-act/ai-promotion-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://leg.mt.gov/bills/2023/billpdf/SB0384.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -69,17 +83,23 @@
             "examples": [
               {
                 "input": "Part 28",
-                "note": "Consumer Data Privacy Act"
+                "note": "Consumer Data Privacy Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa-sections.json"
               },
               {
                 "input": "30-14-2801",
-                "note": "Short title. This part may be cited as the \"Consumer Data Privacy"
+                "note": "Short title. This part may be cited as the \"Consumer Data Privacy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa-sections.json"
               },
               {
                 "input": "30-14-2802",
-                "note": "Definitions. As used in this part, unless the context clearly"
+                "note": "Definitions. As used in this part, unless the context clearly",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mt.gov/mcdpa/mcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

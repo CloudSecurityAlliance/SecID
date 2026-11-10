@@ -98,6 +98,20 @@
           {
             "type": "legal_text",
             "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -208,17 +222,23 @@
             "examples": [
               {
                 "input": "LEGGI ED ALTRI ATTI NORMATIVI: 2 (1)",
-                "note": "Le disposizioni della presente legge si interpreta- no e si applicano conformemente al regolamento (UE) 2024/1689 del Pa"
+                "note": "Le disposizioni della presente legge si interpreta- no e si applicano conformemente al regolamento (UE) 2024/1689 del Pa",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
               },
               {
                 "input": "LEGGI ED ALTRI ATTI NORMATIVI: 1 (1)",
-                "note": "Ai fini della presente legge, si intendono per:"
+                "note": "Ai fini della presente legge, si intendono per:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
               },
               {
                 "input": "LEGGI ED ALTRI ATTI NORMATIVI: 2 (2)",
-                "note": "Per quanto non espressamente previsto, si rimanda"
+                "note": "Per quanto non espressamente previsto, si rimanda",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

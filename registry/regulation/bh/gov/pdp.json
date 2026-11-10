@@ -31,6 +31,20 @@
           {
             "type": "document",
             "url": "https://www.pdp.gov.bh/en/assets/pdf/regulations.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdp.gov.bh/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdp.gov.bh/pdpl/pdpl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -52,13 +66,18 @@
             "examples": [
               {
                 "input": "Part II",
-                "note": "Data Protection Authority Section One: General provisions"
+                "note": "Data Protection Authority Section One: General provisions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdp.gov.bh/pdpl/pdpl-sections.json"
               },
               {
                 "input": "Part 3",
-                "note": "Accountability of Data Controller and Data Guardian"
+                "note": "Accountability of Data Controller and Data Guardian",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdp.gov.bh/pdpl/pdpl-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdp.gov.bh/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

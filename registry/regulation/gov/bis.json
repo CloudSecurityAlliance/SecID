@@ -36,6 +36,20 @@
             "type": "document",
             "url": "https://www.bis.gov/press-release/department-commerce-rescinds-biden-era-artificial-intelligence-diffusion-rule-strengthens-chip-related",
             "note": "Rescission announcement"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -83,17 +97,23 @@
             "examples": [
               {
                 "input": "I",
-                "note": "Background"
+                "note": "Background",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
               },
               {
                 "input": "II",
-                "note": "Expanded Advanced Computing"
+                "note": "Expanded Advanced Computing",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
               },
               {
                 "input": "III",
-                "note": "Overview of New Controls for AI"
+                "note": "Overview of New Controls for AI",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

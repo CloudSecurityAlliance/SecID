@@ -31,6 +31,20 @@
             "type": "official_summary",
             "url": "https://www.japaneselawtranslation.go.jp/outline/127/905R626.pdf",
             "note": "Government-produced English OUTLINE only, not a full statutory translation. Returned HTTP 403 to automated fetch as of 2026-07-16."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -57,17 +71,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Designation of Critical Economic Security Information"
+                "note": "Designation of Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
               },
               {
                 "input": "2",
-                "note": "Provision of Critical Economic Security Information"
+                "note": "Provision of Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
               },
               {
                 "input": "3",
-                "note": "Restrictions on Persons Who Handle Critical Economic Security Information"
+                "note": "Restrictions on Persons Who Handle Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -95,6 +115,20 @@
             "type": "official_summary",
             "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/infra/doc/infra_gaiyou_eng.pdf",
             "note": "Cabinet Office English overview PDF, not fetch-tested — separate domain from the blocked translation portal."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -276,17 +310,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（基本方針）"
+                "note": "（基本方針）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

@@ -35,6 +35,20 @@
           {
             "type": "legal_text",
             "url": "https://officialgazette.gov.ph/2012/08/15/republic-act-no-10173/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -66,17 +80,23 @@
             "examples": [
               {
                 "input": "CHAPTER I (1)",
-                "note": "CHAPTER I"
+                "note": "CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
               },
               {
                 "input": "SECTION 1",
-                "note": "Short Title. – This Act shall be known as the “Data Privacy Act of 2012”."
+                "note": "Short Title. – This Act shall be known as the “Data Privacy Act of 2012”.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
               },
               {
                 "input": "(1)",
-                "note": "The entity carries on business in the Philippines; and"
+                "note": "The entity carries on business in the Philippines; and",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/privacy.gov.ph/dpa/dpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

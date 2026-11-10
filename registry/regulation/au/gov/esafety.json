@@ -46,6 +46,20 @@
           {
             "type": "legal_text",
             "url": "https://www.legislation.gov.au/C2021A00076/latest/text"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -533,17 +547,23 @@
             "examples": [
               {
                 "input": "Part 3 (1)",
-                "note": "Complaints, objections and investigations 31"
+                "note": "Complaints, objections and investigations 31",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021-sections.json"
               },
               {
                 "input": "Part 4 (1)",
-                "note": "Basic online safety expectations 47"
+                "note": "Basic online safety expectations 47",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021-sections.json"
               },
               {
                 "input": "Part 5 (1)",
-                "note": "Cyber-bullying material targeted at an Australian"
+                "note": "Cyber-bullying material targeted at an Australian",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/esafety.gov.au/online-safety-act-2021/online-safety-act-2021-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

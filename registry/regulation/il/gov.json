@@ -34,6 +34,20 @@
             "type": "reference",
             "url": "https://www.wipo.int/wipolex/en/text/347462",
             "note": "WIPO Lex mirror"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -60,17 +74,23 @@
             "examples": [
               {
                 "input": "Chapter one",
-                "note": "Infringement of Privacy"
+                "note": "Infringement of Privacy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
               },
               {
                 "input": "Chapter Two",
-                "note": "Protection of Privacy in Databases"
+                "note": "Protection of Privacy in Databases",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
               },
               {
                 "input": "Chapter Three",
-                "note": "Defenses"
+                "note": "Defenses",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

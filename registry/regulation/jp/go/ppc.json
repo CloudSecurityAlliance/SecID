@@ -7,7 +7,7 @@
   "official_name": "Personal Information Protection Commission, Japan",
   "common_name": "PPC",
   "alternate_names": null,
-  "notes": "Japan's data protection authority \u2014 administers the Act on the Protection of Personal Information (APPI).",
+  "notes": "Japan's data protection authority — administers the Act on the Protection of Personal Information (APPI).",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -33,9 +33,25 @@
           {
             "type": "website",
             "url": "https://www.ppc.go.jp/en/legal/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ppc.go.jp/appi/appi-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ppc.go.jp/appi/appi.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
-        "examples": ["appi"]
+        "examples": [
+          "appi"
+        ]
       },
       "children": [
         {
@@ -79,5 +95,9 @@
       ]
     }
   ],
-  "tags": {"country": ["JP"]}
+  "tags": {
+    "country": [
+      "JP"
+    ]
+  }
 }

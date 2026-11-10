@@ -45,6 +45,13 @@
           {
             "type": "source",
             "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01/xml"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -125,17 +132,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
               },
               {
                 "input": "2",
-                "note": "Purpose"
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
               },
               {
                 "input": "3",
-                "note": "Application"
+                "note": "Application",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

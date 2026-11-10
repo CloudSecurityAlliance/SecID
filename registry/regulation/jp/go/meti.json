@@ -39,6 +39,20 @@
             "type": "third_party_mirror",
             "url": "https://www.wipo.int/wipolex/en/legislation/details/19229",
             "note": "WIPO Lex mirror; fetched but content wasn't text-extractable in this pass."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -203,17 +217,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/unfair-competition-prevention/unfair-competition-prevention-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -235,6 +255,20 @@
             "type": "official_translation",
             "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4499/en",
             "note": "Returned HTTP 403 to automated fetch as of 2026-07-16."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -553,17 +587,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的及び運用上の配慮）"
+                "note": "（目的及び運用上の配慮）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/meti.go.jp/installment-sales/installment-sales-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

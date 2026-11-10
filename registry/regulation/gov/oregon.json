@@ -34,6 +34,20 @@
           {
             "type": "website",
             "url": "https://olis.oregonlegislature.gov/liz/2023R1/Measures/Overview/SB619"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -98,17 +112,23 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "As used in sections 1 to 9 of this 2023 Act:"
+                "note": "As used in sections 1 to 9 of this 2023 Act:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa-sections.json"
               },
               {
                 "input": "SECTION 2",
-                "note": "(1) Sections 1 to 9 of this 2023 Act apply to any person that conducts busi-"
+                "note": "(1) Sections 1 to 9 of this 2023 Act apply to any person that conducts busi-",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa-sections.json"
               },
               {
                 "input": "(2) (1)",
-                "note": "Sections 1 to 9 of this 2023 Act do not apply to:"
+                "note": "Sections 1 to 9 of this 2023 Act do not apply to:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/ocpa/ocpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -132,6 +152,20 @@
           {
             "type": "legal_text",
             "url": "https://olis.oregonlegislature.gov/liz/2026R1/Measures/Overview/SB1546"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/sb-1546/sb-1546-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/sb-1546/sb-1546.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -155,13 +189,18 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "(1) As used in this section:"
+                "note": "(1) As used in this section:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/sb-1546/sb-1546-sections.json"
               },
               {
                 "input": "SECTION 2",
-                "note": "(1) An individual who suffers an ascertainable loss of money or property or"
+                "note": "(1) An individual who suffers an ascertainable loss of money or property or",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/sb-1546/sb-1546-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oregon.gov/sb-1546/sb-1546-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

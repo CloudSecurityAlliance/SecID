@@ -35,6 +35,20 @@
           {
             "type": "website",
             "url": "https://www.industry.gov.au/publications/australias-artificial-intelligence-action-plan"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -63,17 +77,23 @@
             "examples": [
               {
                 "input": "Objective 1",
-                "note": "Action 1 — National Artificial Intelligence Centre"
+                "note": "Action 1 — National Artificial Intelligence Centre",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan-sections.json"
               },
               {
                 "input": "Goal 1",
-                "note": "Focus Area 1 — AI and Digital Capability Centres"
+                "note": "Focus Area 1 — AI and Digital Capability Centres",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan-sections.json"
               },
               {
                 "input": "Goal 2",
-                "note": "Focus Area 2 — Developing and adopting AI to transform Australian businesses"
+                "note": "Focus Area 2 — Developing and adopting AI to transform Australian businesses",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/industry.gov.au/ai-action-plan/ai-action-plan-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

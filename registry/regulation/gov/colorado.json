@@ -35,6 +35,20 @@
           {
             "type": "website",
             "url": "https://leg.colorado.gov/bills/sb24-205"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -61,17 +75,23 @@
             "examples": [
               {
                 "input": "6-1-1701",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act-sections.json"
               },
               {
                 "input": "6-1-1702",
-                "note": "Developer duty to avoid algorithmic discrimination required documentation"
+                "note": "Developer duty to avoid algorithmic discrimination required documentation",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act-sections.json"
               },
               {
                 "input": "6-1-1703",
-                "note": "Deployer duty to avoid algorithmic discrimination risk management policy and program"
+                "note": "Deployer duty to avoid algorithmic discrimination risk management policy and program",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/ai-act/ai-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -95,6 +115,20 @@
           {
             "type": "website",
             "url": "https://leg.colorado.gov/bills/sb21-190"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -127,17 +161,23 @@
             "examples": [
               {
                 "input": "6-1-1301",
-                "note": "Short title"
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa-sections.json"
               },
               {
                 "input": "6-1-1302",
-                "note": "Legislative declaration"
+                "note": "Legislative declaration",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa-sections.json"
               },
               {
                 "input": "6-1-1303",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/colorado.gov/cpa-privacy-act/cpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

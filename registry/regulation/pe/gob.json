@@ -27,6 +27,22 @@
         "url": "https://busquedas.elperuano.pe/dispositivo/NL/2192926-1",
         "examples": [
           "ley-31814"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
       },
       "children": [
@@ -51,17 +67,23 @@
             "examples": [
               {
                 "input": "CAPÍTULO I",
-                "note": "Section CAPÍTULO I"
+                "note": "Section CAPÍTULO I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814-sections.json"
               },
               {
                 "input": "Artículo 1",
-                "note": "Objeto de la Ley"
+                "note": "Objeto de la Ley",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814-sections.json"
               },
               {
                 "input": "Artículo 2",
-                "note": "Interés nacional"
+                "note": "Interés nacional",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gob.pe/ley-31814/ley-31814-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -176,17 +190,23 @@
             "examples": [
               {
                 "input": "Section 1",
-                "note": "This act shall be known as the Alabama"
+                "note": "This act shall be known as the Alabama",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa-sections.json"
               },
               {
                 "input": "Section 2",
-                "note": "For the purposes of this act, the following"
+                "note": "For the purposes of this act, the following",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa-sections.json"
               },
               {
                 "input": "(1) (1)",
-                "note": "AFFILIATE. A legal entity that shares common"
+                "note": "AFFILIATE. A legal entity that shares common",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/alabama.gov/apdpa/apdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

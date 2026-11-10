@@ -71,6 +71,20 @@
           {
             "type": "legal_text",
             "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
       },
@@ -257,17 +271,23 @@
             "examples": [
               {
                 "input": "Chapitre Ier (1)",
-                "note": "Principes et définitions (Articles 1 à 7)"
+                "note": "Principes et définitions (Articles 1 à 7)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil-sections.json"
               },
               {
                 "input": "Chapitre II (1)",
-                "note": "La Commission nationale de l'informatique et des libertés (Articles 8 à 29)"
+                "note": "La Commission nationale de l'informatique et des libertés (Articles 8 à 29)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil-sections.json"
               },
               {
                 "input": "Chapitre II Section 1",
-                "note": "Organisation et missions (Articles 8 à 18)"
+                "note": "Organisation et missions (Articles 8 à 18)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/lil/lil-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -284,6 +304,22 @@
         "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049563368",
         "examples": [
           "loi-2024-449"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
       },
       "children": [
@@ -389,17 +425,23 @@
             "examples": [
               {
                 "input": "Titre IER",
-                "note": "PROTECTION DES MINEURS EN LIGNE (Articles 1 à 6)"
+                "note": "PROTECTION DES MINEURS EN LIGNE (Articles 1 à 6)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449-sections.json"
               },
               {
                 "input": "Section 1",
-                "note": "Renforcement des pouvoirs de l'Autorité de régulation de la communication audiovisuelle et numérique en matière de prote"
+                "note": "Renforcement des pouvoirs de l'Autorité de régulation de la communication audiovisuelle et numérique en matière de prote",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449-sections.json"
               },
               {
                 "input": "Section 2",
-                "note": "Pénalisation du défaut d'exécution en vingt-quatre heures d'une demande de l'autorité administrative de retrait de conte"
+                "note": "Pénalisation du défaut d'exécution en vingt-quatre heures d'une demande de l'autorité administrative de retrait de conte",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/legifrance.gouv.fr/loi-2024-449/loi-2024-449-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

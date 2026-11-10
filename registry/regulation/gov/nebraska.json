@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1101"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -123,17 +137,23 @@
             "examples": [
               {
                 "input": "Section 1",
-                "note": "Sections 1 to 30 of this act shall be known and may be cited as the Data Privacy Act."
+                "note": "Sections 1 to 30 of this act shall be known and may be cited as the Data Privacy Act.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
               },
               {
                 "input": "Sec. 4",
-                "note": "The Data Privacy Act does not apply to the following: (1) Protected health information under the Health Insurance Portab"
+                "note": "The Data Privacy Act does not apply to the following: (1) Protected health information under the Health Insurance Portab",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
               },
               {
                 "input": "Sec. 5",
-                "note": "The Data Privacy Act does not apply to the processing of personal data by a person in the course of a purely personal or"
+                "note": "The Data Privacy Act does not apply to the processing of personal data by a person in the course of a purely personal or",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -157,6 +177,20 @@
           {
             "type": "legal_text",
             "url": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID=59601"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -193,17 +227,23 @@
             "examples": [
               {
                 "input": "Section 1",
-                "note": "Sections 1 to 11 of this act shall be known and may be"
+                "note": "Sections 1 to 11 of this act shall be known and may be",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
               },
               {
                 "input": "Sec. 2",
-                "note": "The purposes of the Agricultural Data Privacy Act are to: 3"
+                "note": "The purposes of the Agricultural Data Privacy Act are to: 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
               },
               {
                 "input": "(2)",
-                "note": "Protect the agriculture industry in Nebraska. 5"
+                "note": "Protect the agriculture industry in Nebraska. 5",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

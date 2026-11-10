@@ -72,6 +72,20 @@
           {
             "type": "legal_text",
             "url": "https://wetten.overheid.nl/BWBR0040940"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
       },
@@ -158,17 +172,23 @@
             "examples": [
               {
                 "input": "Hoofdstuk 1",
-                "note": "Algemene bepalingen"
+                "note": "Algemene bepalingen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
               },
               {
                 "input": "Artikel 1",
-                "note": "Definities"
+                "note": "Definities",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
               },
               {
                 "input": "Artikel 2",
-                "note": "Materiële reikwijdte"
+                "note": "Materiële reikwijdte",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

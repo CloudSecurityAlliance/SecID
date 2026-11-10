@@ -33,6 +33,13 @@
           {
             "type": "website",
             "url": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/virginia.gov/vcdpa/vcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -63,17 +70,23 @@
             "examples": [
               {
                 "input": "59.1-575",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/virginia.gov/vcdpa/vcdpa-sections.json"
               },
               {
                 "input": "59.1-576",
-                "note": "Scope; exemptions"
+                "note": "Scope; exemptions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/virginia.gov/vcdpa/vcdpa-sections.json"
               },
               {
                 "input": "59.1-577",
-                "note": "Personal data rights; consumers"
+                "note": "Personal data rights; consumers",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/virginia.gov/vcdpa/vcdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/virginia.gov/vcdpa/vcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

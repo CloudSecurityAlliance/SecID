@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://www.leg.state.nv.us/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -187,17 +201,23 @@
             "examples": [
               {
                 "input": "CHAPTER 603A",
-                "note": "SECURITY AND PRIVACY OF"
+                "note": "SECURITY AND PRIVACY OF",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments-sections.json"
               },
               {
                 "input": "2 (1)",
-                "note": "The term does not include the last four"
+                "note": "The term does not include the last four",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments-sections.json"
               },
               {
                 "input": "2 (2)",
-                "note": "A data collector who is also an"
+                "note": "A data collector who is also an",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nv.gov/privacy-amendments/privacy-amendments-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

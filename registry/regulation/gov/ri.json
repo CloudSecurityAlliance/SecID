@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://webserver.rilegislature.gov/BillText24/HouseText24/H7787A.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -55,17 +69,23 @@
             "examples": [
               {
                 "input": "SECTION 1",
-                "note": "Legislative findings."
+                "note": "Legislative findings.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa-sections.json"
               },
               {
                 "input": "SECTION 2",
-                "note": "Title 6 of the General Laws entitled \"COMMERCIAL LAW — GENERAL"
+                "note": "Title 6 of the General Laws entitled \"COMMERCIAL LAW — GENERAL",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa-sections.json"
               },
               {
                 "input": "SECTION 3",
-                "note": "This act shall take effect on January 1, 2026."
+                "note": "This act shall take effect on January 1, 2026.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ri.gov/dtppa/dtppa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

@@ -34,6 +34,20 @@
           {
             "type": "website",
             "url": "https://legis.delaware.gov/BillDetail?LegislationId=140388"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -67,17 +81,23 @@
             "examples": [
               {
                 "input": "TITLE 6",
-                "note": "Section TITLE 6"
+                "note": "Section TITLE 6",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
               },
               {
                 "input": "SUBTITLE II",
-                "note": "Section SUBTITLE II"
+                "note": "Section SUBTITLE II",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
               },
               {
                 "input": "CHAPTER 12D",
-                "note": "Delaware Personal Data Privacy Act"
+                "note": "Delaware Personal Data Privacy Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

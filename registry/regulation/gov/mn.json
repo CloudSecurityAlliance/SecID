@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://www.revisor.mn.gov/bills/93/2024/0/HF/4757/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -281,17 +295,23 @@
             "examples": [
               {
                 "input": "Chapter 121",
-                "note": "Section Chapter 121"
+                "note": "Section Chapter 121",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa-sections.json"
               },
               {
                 "input": "CHAPTER 121",
-                "note": "H.F.No. 4757"
+                "note": "H.F.No. 4757",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa-sections.json"
               },
               {
                 "input": "ARTICLE 1",
-                "note": "Section ARTICLE 1"
+                "note": "Section ARTICLE 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mn.gov/mcdpa/mcdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

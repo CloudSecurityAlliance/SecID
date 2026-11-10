@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://malegislature.gov/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -77,17 +91,23 @@
             "examples": [
               {
                 "input": "H.495",
-                "note": "Sponsor / Committee —  Rogers, David M."
+                "note": "Sponsor / Committee —  Rogers, David M.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills-sections.json"
               },
               {
                 "input": "H.81",
-                "note": "Sponsor / Committee —  Howitt, Steven S."
+                "note": "Sponsor / Committee —  Howitt, Steven S.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills-sections.json"
               },
               {
                 "input": "H.97",
-                "note": "Sponsor / Committee —  Rogers, David M."
+                "note": "Sponsor / Committee —  Rogers, David M.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/mass.gov/ai-bills/ai-bills-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

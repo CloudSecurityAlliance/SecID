@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://app.leg.wa.gov/billsummary?BillNumber=1155&Year=2023"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -67,17 +81,23 @@
             "examples": [
               {
                 "input": "Chapter 19.373",
-                "note": "RCW"
+                "note": "RCW",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act-sections.json"
               },
               {
                 "input": "Sections",
-                "note": "Section Sections"
+                "note": "Section Sections",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act-sections.json"
               },
               {
                 "input": "RCW 19.373.005",
-                "note": "Finding—Intent—2023 c 191."
+                "note": "Finding—Intent—2023 c 191.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/my-health-my-data-act/my-health-my-data-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -101,6 +121,20 @@
           {
             "type": "legal_text",
             "url": "https://app.leg.wa.gov/billsummary?BillNumber=2225&Year=2025"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -131,17 +165,23 @@
             "examples": [
               {
                 "input": "Sec. 1",
-                "note": "Section Sec. 1"
+                "note": "Section Sec. 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225-sections.json"
               },
               {
                 "input": "Sec. 2",
-                "note": "Section Sec. 2"
+                "note": "Section Sec. 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225-sections.json"
               },
               {
                 "input": "Sec. 3",
-                "note": "Section Sec. 3"
+                "note": "Section Sec. 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wa.gov/hb-2225/hb-2225-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

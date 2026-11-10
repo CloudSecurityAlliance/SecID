@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://www.oaic.gov.au/privacy/the-privacy-act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -408,17 +422,23 @@
             "examples": [
               {
                 "input": "Part II (2)",
-                "note": "Interpretation 6"
+                "note": "Interpretation 6",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act-sections.json"
               },
               {
                 "input": "Part III (1)",
-                "note": "Information privacy 80"
+                "note": "Information privacy 80",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act-sections.json"
               },
               {
                 "input": "Part IIIC (1)",
-                "note": "Notification of eligible data breaches 202"
+                "note": "Notification of eligible data breaches 202",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/oaic.gov.au/privacy-act/privacy-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

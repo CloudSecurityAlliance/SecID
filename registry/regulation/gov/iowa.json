@@ -34,6 +34,20 @@
           {
             "type": "website",
             "url": "https://www.legis.iowa.gov/legislation/BillBook?ba=SF262"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -63,17 +77,23 @@
             "examples": [
               {
                 "input": "CHAPTER 715D",
-                "note": "Section CHAPTER 715D"
+                "note": "Section CHAPTER 715D",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
               },
               {
                 "input": "715D.1",
-                "note": "Definitions."
+                "note": "Definitions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
               },
               {
                 "input": "715D.2",
-                "note": "Scope and exemptions."
+                "note": "Scope and exemptions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

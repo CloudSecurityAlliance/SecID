@@ -39,6 +39,13 @@
           {
             "type": "website",
             "url": "https://www.ontario.ca/laws/statute/04p03"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ontario.ca/phipa/phipa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -167,17 +174,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Purposes"
+                "note": "Purposes",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ontario.ca/phipa/phipa-sections.json"
               },
               {
                 "input": "2",
-                "note": "Definitions"
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ontario.ca/phipa/phipa-sections.json"
               },
               {
                 "input": "3",
-                "note": "Health information custodian"
+                "note": "Health information custodian",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ontario.ca/phipa/phipa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ontario.ca/phipa/phipa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

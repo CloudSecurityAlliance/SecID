@@ -36,6 +36,20 @@
             "type": "alternate_official",
             "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/Resources/laws/pdf/090204_2.pdf",
             "note": "MIC-hosted English PDF, likely an older/possibly outdated version; not fetch-tested."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -484,17 +498,23 @@
             "examples": [
               {
                 "input": "第一章",
-                "note": "総則"
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act-sections.json"
               },
               {
                 "input": "第一条",
-                "note": "（目的）"
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act-sections.json"
               },
               {
                 "input": "第二条",
-                "note": "（定義）"
+                "note": "（定義）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/soumu.go.jp/telecommunications-business-act/telecommunications-business-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

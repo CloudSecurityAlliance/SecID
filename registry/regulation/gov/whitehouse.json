@@ -34,6 +34,20 @@
           {
             "type": "website",
             "url": "https://www.whitehouse.gov/briefing-room/presidential-actions/2024/10/24/memorandum-on-advancing-the-united-states-leadership-in-artificial-intelligence-harnessing-artificial-intelligence-to-fulfill-national-security-objectives-and-fostering-the-safety-security/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -61,17 +75,23 @@
             "examples": [
               {
                 "input": "Section 1",
-                "note": "Policy. (a) This memorandum fulfills the directive set forth in"
+                "note": "Policy. (a) This memorandum fulfills the directive set forth in",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai-sections.json"
               },
               {
                 "input": "Sec. 2",
-                "note": "Objectives. It is the policy of the United States Government that the"
+                "note": "Objectives. It is the policy of the United States Government that the",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai-sections.json"
               },
               {
                 "input": "Sec. 3",
-                "note": "Promoting and Securing the United States’ Foundational AI"
+                "note": "Promoting and Securing the United States’ Foundational AI",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/nsm-ai/nsm-ai-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -91,6 +111,20 @@
           {
             "type": "source",
             "url": "https://www.federalregister.gov/documents/2021/05/17/2021-10460/improving-the-nations-cybersecurity"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -123,17 +157,23 @@
             "examples": [
               {
                 "input": "1",
-                "note": "Policy"
+                "note": "Policy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028-sections.json"
               },
               {
                 "input": "2",
-                "note": "Removing Barriers to Sharing Threat Information"
+                "note": "Removing Barriers to Sharing Threat Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028-sections.json"
               },
               {
                 "input": "3",
-                "note": "Modernizing Federal Government Cybersecurity"
+                "note": "Modernizing Federal Government Cybersecurity",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/whitehouse.gov/eo-14028/eo-14028-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

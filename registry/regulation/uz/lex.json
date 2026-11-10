@@ -40,6 +40,22 @@
         "url": "https://lex.uz/docs/5960604",
         "examples": [
           "orq-764"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
       },
       "children": [
@@ -105,17 +121,23 @@
             "examples": [
               {
                 "input": "1-боб",
-                "note": "Умумий қоидалар"
+                "note": "Умумий қоидалар",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764-sections.json"
               },
               {
                 "input": "1-модда",
-                "note": "Ушбу Қонуннинг мақсади"
+                "note": "Ушбу Қонуннинг мақсади",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764-sections.json"
               },
               {
                 "input": "2-модда",
-                "note": "Киберхавфсизлик тўғрисидаги қонунчилик"
+                "note": "Киберхавфсизлик тўғрисидаги қонунчилик",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/lex.uz/orq-764/orq-764-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]

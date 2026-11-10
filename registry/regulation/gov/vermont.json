@@ -33,6 +33,20 @@
           {
             "type": "website",
             "url": "https://legislature.vermont.gov/bill/status/2026/S.71"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
@@ -75,17 +89,23 @@
             "examples": [
               {
                 "input": "Sec. 1",
-                "note": "9 V.S.A. chapter 61A is added to read: 11"
+                "note": "9 V.S.A. chapter 61A is added to read: 11",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa-sections.json"
               },
               {
                 "input": "CHAPTER 61A",
-                "note": "VERMONT DATA PRIVACY AND ONLINE 12"
+                "note": "VERMONT DATA PRIVACY AND ONLINE 12",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa-sections.json"
               },
               {
                 "input": "§ 2415",
-                "note": "DEFINITIONS 14"
+                "note": "DEFINITIONS 14",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/vermont.gov/vdpa/vdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
