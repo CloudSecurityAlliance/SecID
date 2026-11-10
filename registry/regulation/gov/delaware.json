@@ -37,7 +37,50 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:TITLE 6|SUBTITLE II|CHAPTER 12D|§ 12D-101|§ 12D-102|§ 12D-103|§ 12D-104|§ 12D-105|§ 12D-106|§ 12D-107|§ 12D-108|§ 12D-109|§ 12D-110|§ 12D-111)$"
+          ],
+          "description": "DPDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "TITLE 6",
+              "SUBTITLE II",
+              "CHAPTER 12D",
+              "§ 12D-101",
+              "§ 12D-102",
+              "§ 12D-103",
+              "§ 12D-104",
+              "§ 12D-105",
+              "§ 12D-106",
+              "§ 12D-107",
+              "§ 12D-108",
+              "§ 12D-109",
+              "§ 12D-110",
+              "§ 12D-111"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/delaware.gov/dpdpa).",
+            "examples": [
+              {
+                "input": "TITLE 6",
+                "note": "Section TITLE 6"
+              },
+              {
+                "input": "SUBTITLE II",
+                "note": "Section SUBTITLE II"
+              },
+              {
+                "input": "CHAPTER 12D",
+                "note": "Delaware Personal Data Privacy Act"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

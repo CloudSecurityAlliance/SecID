@@ -4,53 +4,78 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "New York State",
   "common_name": "New York",
   "alternate_names": null,
   "notes": "New York state privacy, cybersecurity, and AI laws. Strong enforcement through DFS (Department of Financial Services) and NYC Department of Consumer and Worker Protection.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.nysenate.gov/legislation"}
+    {
+      "type": "website",
+      "url": "https://www.nysenate.gov/legislation"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^dfs-500$"],
+      "patterns": [
+        "(?i)^dfs-500$",
+        "^nydfs-500$"
+      ],
       "description": "NYDFS Cybersecurity Regulation (23 NYCRR 500)",
       "weight": 100,
       "data": {
         "official_name": "NYDFS Cybersecurity Regulation (23 NYCRR 500)",
         "common_name": "DFS 500",
-        "alternate_names": ["23 NYCRR Part 500", "NYDFS Cybersecurity Regulation"],
+        "alternate_names": [
+          "23 NYCRR Part 500",
+          "NYDFS Cybersecurity Regulation"
+        ],
         "description": "Cybersecurity requirements for financial services companies regulated by NYDFS.",
         "notes": "Effective 2017, amended 2023. Requires cybersecurity program, CISO, penetration testing, risk assessments, incident response, third-party oversight. The 2023 amendment added requirements for privileged access management, endpoint detection, and enhanced governance. Applies to banks, insurance companies, and other financial services institutions licensed by NYDFS.",
         "urls": [
-          {"type": "website", "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity"}
+          {
+            "type": "website",
+            "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity"
+          }
         ],
-        "examples": ["500.12", "500.02", "500.05"]
+        "examples": [
+          "500.12",
+          "500.02",
+          "500.05"
+        ]
       },
       "children": [
         {
-          "patterns": ["^500\\.\\d{2}$"],
+          "patterns": [
+            "^500\\.\\d{2}$"
+          ],
           "description": "23 NYCRR 500 section reference (e.g., 500.12, 500.02).",
           "weight": 100,
           "data": {
             "note": "Section references to 23 NYCRR Part 500. Sections are numbered 500.00 through 500.24 (as of 2023 amendment). No per-section lookup URL; the full regulation is published as a single document by NYDFS.",
             "examples": [
-              {"input": "500.12", "note": "Multi-factor authentication requirements"},
-              {"input": "500.02", "note": "Cybersecurity program requirements"},
-              {"input": "500.05", "note": "Penetration testing and vulnerability assessments"}
+              {
+                "input": "500.12",
+                "note": "Multi-factor authentication requirements"
+              },
+              {
+                "input": "500.02",
+                "note": "Cybersecurity program requirements"
+              },
+              {
+                "input": "500.05",
+                "note": "Penetration testing and vulnerability assessments"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^shield-act$"],
+      "patterns": [
+        "(?i)^shield-act$"
+      ],
       "description": "Stop Hacks and Improve Electronic Data Security Act",
       "weight": 100,
       "data": {
@@ -60,14 +85,51 @@
         "description": "Broad-scope data breach notification and security requirements. Effective 2020.",
         "notes": "Broadened the definition of private information and expanded breach notification requirements beyond New York residents. Requires businesses that collect private information of New York residents to implement reasonable safeguards: administrative (designate coordinator, train employees), technical (assess risks, detect attacks), and physical (detect/prevent intrusions, dispose data securely). Applies to any person or business that owns or licenses computerized data including private information of a New York resident, regardless of where the business is located.",
         "urls": [
-          {"type": "website", "url": "https://www.nysenate.gov/legislation/bills/2019/S5575"}
+          {
+            "type": "website",
+            "url": "https://www.nysenate.gov/legislation/bills/2019/S5575"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|§ 2|§ 4|§ 6)$"
+          ],
+          "description": "SHIELD Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "§ 2",
+              "§ 4",
+              "§ 6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ny.gov/shield-act).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "This act shall be known and may be cited as the \"Stop Hacks 2 and Improve Electronic Data Security Act (SHIELD Act)\"."
+              },
+              {
+                "input": "§ 2",
+                "note": "The article heading of article 39-F of the general business law, 4 as added by chapter 442 of the laws of 2005, is amend"
+              },
+              {
+                "input": "§ 4",
+                "note": "The general business law is amended by adding a new section 899- 39 bb to read as follows:"
+              }
+            ]
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^nybcl$"],
+      "patterns": [
+        "(?i)^nybcl$"
+      ],
       "description": "New York Biometric Collection Law",
       "weight": 100,
       "data": {
@@ -77,29 +139,106 @@
         "description": "Restrictions on collection, storage, and use of biometric data. Effective 2021.",
         "notes": "Applies to businesses that collect biometric identifier information (fingerprints, retina/iris scans, voiceprints, hand geometry). Requires written notice and consent before collection. Prohibits selling, leasing, or trading biometric data. Businesses must implement reasonable safeguards for storage. Primarily targets commercial establishments in New York City. Private right of action with statutory damages.",
         "urls": [
-          {"type": "website", "url": "https://www.nysenate.gov/legislation/bills/2019/A8155"}
+          {
+            "type": "website",
+            "url": "https://www.nysenate.gov/legislation/bills/2019/A8155"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|Section 676|§ 676|§ 2)$"
+          ],
+          "description": "NYBCL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "Section 676",
+              "§ 676",
+              "§ 2"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ny.gov/nybcl).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "The general business law is amended by adding a new article 2 32-A to read as follows: 3 ARTICLE 32-A 4 BIOMETRIC PRIVAC"
+              },
+              {
+                "input": "Section 676",
+                "note": "Short title. 6 676-a. Definitions. 7 676-b. Retention; collection; disclosure; destruction. 8 676-c. Right of action. 9 "
+              },
+              {
+                "input": "§ 676",
+                "note": "Short title. This article shall be known and may be cited as 11 the \"biometric privacy act\"."
+              }
+            ]
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^ll144$"],
+      "patterns": [
+        "(?i)^ll144$",
+        "^local-law-144-ai-hiring$"
+      ],
       "description": "NYC Local Law 144 (Automated Employment Decision Tools)",
       "weight": 100,
       "data": {
         "official_name": "Local Law 144 of 2021",
         "common_name": "LL144",
-        "alternate_names": ["NYC AI Hiring Law", "Automated Employment Decision Tools Law"],
+        "alternate_names": [
+          "NYC AI Hiring Law",
+          "Automated Employment Decision Tools Law"
+        ],
         "description": "New York City law regulating the use of automated employment decision tools (AEDTs) in hiring and promotion.",
         "notes": "Effective July 5, 2023. Requires employers using AEDTs to: conduct annual independent bias audits, publish audit results, notify candidates of AEDT use, and allow candidates to request alternative selection processes. Enforced by NYC Department of Consumer and Worker Protection (DCWP). Penalties range from $500 to $1,500 per violation. First US law specifically regulating AI in hiring decisions.",
         "urls": [
-          {"type": "website", "url": "https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page"}
+          {
+            "type": "website",
+            "url": "https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|§ 5-300|§ 5-301|§ 5-302|§ 5-304)$"
+          ],
+          "description": "LL144 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "§ 5-300",
+              "§ 5-301",
+              "§ 5-302",
+              "§ 5-304"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ny.gov/local-law-144-ai-hiring).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "Chapter 5 of Title 6 of the Rules of the City of New York is amended to add Subchapter T to read as follows:"
+              },
+              {
+                "input": "§ 5-300",
+                "note": "Definitions."
+              },
+              {
+                "input": "§ 5-301",
+                "note": "Bias Audit."
+              }
+            ]
+          }
+        }
+      ]
     },
-
     {
       "patterns": [
         "^ai-companion-models-law$",
@@ -118,12 +257,128 @@
         "description": "New York state statute requiring operators of AI companion models to provide clear and conspicuous notice at the start of every interaction and at least every three hours during continuing interactions that the user is not communicating with a human, and to maintain suicidal-ideation and self-harm detection and crisis-service referral protocols.",
         "notes": "Status: In force November 5, 2025 (enacted May 9, 2025 as Part U of the FY 2026 Transportation, Economic Development and Environmental Conservation Budget Bill, S3008-C / A3008-C, effective 180 days after enactment; verified as of 2026-11-03). Enforced by the New York Attorney General with civil penalties up to $15,000 per day directed to the New York State Suicide Prevention Fund.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.nysenate.gov/legislation/bills/2025/S3008/amendment/C"},
-          {"type": "website", "url": "https://www.nysenate.gov/legislation/laws/GBS/A47"}
+          {
+            "type": "legal_text",
+            "url": "https://www.nysenate.gov/legislation/bills/2025/S3008/amendment/C"
+          },
+          {
+            "type": "website",
+            "url": "https://www.nysenate.gov/legislation/laws/GBS/A47"
+          }
         ],
-        "examples": ["ai-companion-models-law", "gbl-art-47"]
-      }
+        "examples": [
+          "ai-companion-models-law",
+          "gbl-art-47"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:§ 3 \\(1\\)|SENATE - ASSEMBLY: Section 1 \\(1\\)|§ 2 \\(1\\)|SENATE - ASSEMBLY: Section 1 \\(2\\)|§ 2 \\(2\\)|§ 3 \\(2\\)|§ 2 \\(3\\)|§ 2 \\(4\\)|SENATE - ASSEMBLY: Section 1 \\(3\\)|§ 2 \\(5\\)|§ 2 \\(6\\)|§ 3 \\(3\\)|§ 3 \\(4\\)|§ 5 \\(1\\)|§ 10|§ 11|§ 15 \\(1\\)|§ 15 \\(2\\)|§ 16|§ 5 \\(2\\)|§ 2 \\(7\\)|§ 2 \\(8\\)|SENATE - ASSEMBLY: Section 1 \\(4\\)|§ 2 \\(9\\)|§ 3 \\(5\\)|SENATE - ASSEMBLY: Section 1 \\(5\\)|§ 4 \\(1\\)|§ 2 \\(10\\)|§ 3 \\(6\\)|SENATE - ASSEMBLY: Section 1 \\(6\\)|§ 349-a|§ 2 \\(11\\)|SENATE - ASSEMBLY: Section 1 \\(7\\)|§ 735|§ 739|§ 4 \\(2\\)|§ 5 \\(3\\)|SENATE - ASSEMBLY: Section 1 \\(8\\)|§ 2 \\(12\\)|§ 3 \\(7\\)|§ 2 \\(13\\)|§ 3 \\(8\\)|§ 2 \\(14\\)|§ 2 \\(15\\)|§ 2 \\(16\\)|§ 3 \\(9\\)|§ 2 \\(17\\)|SENATE - ASSEMBLY: Section 1 \\(9\\)|§ 214|§ 2 \\(18\\)|§ 4 \\(3\\)|§ 5 \\(4\\)|§ 5 \\(5\\)|SENATE - ASSEMBLY: Section 1 \\(10\\)|§ 2 \\(19\\)|§ 2 \\(20\\)|§ 7 \\(1\\)|§ 15 \\(3\\)|§ 6 \\(1\\)|§ 2 \\(21\\)|§ 2 \\(22\\)|§ 6 \\(2\\)|§ 7 \\(2\\)|§ 2 \\(23\\)|§ 4 \\(4\\)|§ 2 \\(24\\)|§ 3 \\(10\\)|§ 2 \\(25\\)|§ 4 \\(5\\)|§ 4 \\(6\\)|§ 3 \\(11\\))$"
+          ],
+          "description": "NY AI Companion Models Law (GBL Art. 47) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "§ 3 (1)",
+              "SENATE - ASSEMBLY: Section 1 (1)",
+              "§ 2 (1)",
+              "SENATE - ASSEMBLY: Section 1 (2)",
+              "§ 2 (2)",
+              "§ 3 (2)",
+              "§ 2 (3)",
+              "§ 2 (4)",
+              "SENATE - ASSEMBLY: Section 1 (3)",
+              "§ 2 (5)",
+              "§ 2 (6)",
+              "§ 3 (3)",
+              "§ 3 (4)",
+              "§ 5 (1)",
+              "§ 10",
+              "§ 11",
+              "§ 15 (1)",
+              "§ 15 (2)",
+              "§ 16",
+              "§ 5 (2)",
+              "§ 2 (7)",
+              "§ 2 (8)",
+              "SENATE - ASSEMBLY: Section 1 (4)",
+              "§ 2 (9)",
+              "§ 3 (5)",
+              "SENATE - ASSEMBLY: Section 1 (5)",
+              "§ 4 (1)",
+              "§ 2 (10)",
+              "§ 3 (6)",
+              "SENATE - ASSEMBLY: Section 1 (6)",
+              "§ 349-a",
+              "§ 2 (11)",
+              "SENATE - ASSEMBLY: Section 1 (7)",
+              "§ 735",
+              "§ 739",
+              "§ 4 (2)",
+              "§ 5 (3)",
+              "SENATE - ASSEMBLY: Section 1 (8)",
+              "§ 2 (12)",
+              "§ 3 (7)",
+              "§ 2 (13)",
+              "§ 3 (8)",
+              "§ 2 (14)",
+              "§ 2 (15)",
+              "§ 2 (16)",
+              "§ 3 (9)",
+              "§ 2 (17)",
+              "SENATE - ASSEMBLY: Section 1 (9)",
+              "§ 214",
+              "§ 2 (18)",
+              "§ 4 (3)",
+              "§ 5 (4)",
+              "§ 5 (5)",
+              "SENATE - ASSEMBLY: Section 1 (10)",
+              "§ 2 (19)",
+              "§ 2 (20)",
+              "§ 7 (1)",
+              "§ 15 (3)",
+              "§ 6 (1)",
+              "§ 2 (21)",
+              "§ 2 (22)",
+              "§ 6 (2)",
+              "§ 7 (2)",
+              "§ 2 (23)",
+              "§ 4 (4)",
+              "§ 2 (24)",
+              "§ 3 (10)",
+              "§ 2 (25)",
+              "§ 4 (5)",
+              "§ 4 (6)",
+              "§ 3 (11)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ny.gov/ai-companion-models-law).",
+            "examples": [
+              {
+                "input": "§ 3 (1)",
+                "note": "This act shall take effect immediately."
+              },
+              {
+                "input": "SENATE - ASSEMBLY: Section 1 (1)",
+                "note": "Section 1 of part I of chapter 413 of the laws of 1999 28 relating to providing for mass transportation payments, as ame"
+              },
+              {
+                "input": "§ 2 (1)",
+                "note": "This act shall take effect immediately and shall be deemed to 43 have been in full force and effect on and after April 1"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["NY"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "NY"
+    ]
+  }
 }

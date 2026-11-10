@@ -4,52 +4,151 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Colorado State",
   "common_name": "Colorado",
   "alternate_names": null,
   "notes": "Colorado state AI and privacy laws. Colorado was among the first US states to enact comprehensive AI regulation.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://leg.colorado.gov"}
+    {
+      "type": "website",
+      "url": "https://leg.colorado.gov"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ai-act$"],
+      "patterns": [
+        "(?i)^ai-act$"
+      ],
       "description": "Colorado Artificial Intelligence Act",
       "weight": 100,
       "data": {
         "official_name": "Colorado Artificial Intelligence Act",
         "common_name": "Colorado AI Act",
-        "alternate_names": ["SB 24-205"],
+        "alternate_names": [
+          "SB 24-205"
+        ],
         "description": "Colorado law regulating the use of high-risk artificial intelligence systems to prevent algorithmic discrimination.",
         "notes": "Signed into law May 17, 2024. Effective February 1, 2026. Requires developers and deployers of high-risk AI systems to use reasonable care to avoid algorithmic discrimination. Deployers must conduct impact assessments, provide notice to consumers, and implement risk management policies. Developers must provide documentation, known limitations, and usage guidelines. Covers AI systems making consequential decisions in education, employment, financial services, government services, healthcare, housing, insurance, and legal services. Attorney General enforcement with private right of action.",
         "urls": [
-          {"type": "website", "url": "https://leg.colorado.gov/bills/sb24-205"}
+          {
+            "type": "website",
+            "url": "https://leg.colorado.gov/bills/sb24-205"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:6-1-1701|6-1-1702|6-1-1703|6-1-1704|6-1-1705|6-1-1706|6-1-1707)$"
+          ],
+          "description": "Colorado AI Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "6-1-1701",
+              "6-1-1702",
+              "6-1-1703",
+              "6-1-1704",
+              "6-1-1705",
+              "6-1-1706",
+              "6-1-1707"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/colorado.gov/ai-act).",
+            "examples": [
+              {
+                "input": "6-1-1701",
+                "note": "Definitions"
+              },
+              {
+                "input": "6-1-1702",
+                "note": "Developer duty to avoid algorithmic discrimination required documentation"
+              },
+              {
+                "input": "6-1-1703",
+                "note": "Deployer duty to avoid algorithmic discrimination risk management policy and program"
+              }
+            ]
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^cpa$"],
+      "patterns": [
+        "(?i)^cpa$",
+        "^cpa-privacy-act$"
+      ],
       "description": "Colorado Privacy Act",
       "weight": 100,
       "data": {
         "official_name": "Colorado Privacy Act",
         "common_name": "CPA",
-        "alternate_names": ["SB 21-190"],
+        "alternate_names": [
+          "SB 21-190"
+        ],
         "description": "Colorado's comprehensive consumer privacy law.",
         "notes": "Signed July 8, 2021. Effective July 1, 2023.",
         "urls": [
-          {"type": "website", "url": "https://leg.colorado.gov/bills/sb21-190"}
+          {
+            "type": "website",
+            "url": "https://leg.colorado.gov/bills/sb21-190"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:6-1-1301|6-1-1302|6-1-1303|6-1-1304|6-1-1305|6-1-1306|6-1-1307|6-1-1308|6-1-1309|6-1-1310|6-1-1311|6-1-1312|6-1-1313)$"
+          ],
+          "description": "CPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "6-1-1301",
+              "6-1-1302",
+              "6-1-1303",
+              "6-1-1304",
+              "6-1-1305",
+              "6-1-1306",
+              "6-1-1307",
+              "6-1-1308",
+              "6-1-1309",
+              "6-1-1310",
+              "6-1-1311",
+              "6-1-1312",
+              "6-1-1313"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/colorado.gov/cpa-privacy-act).",
+            "examples": [
+              {
+                "input": "6-1-1301",
+                "note": "Short title"
+              },
+              {
+                "input": "6-1-1302",
+                "note": "Legislative declaration"
+              },
+              {
+                "input": "6-1-1303",
+                "note": "Definitions"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["CO"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "CO"
+    ]
+  }
 }

@@ -36,25 +36,101 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|Section 2-501|Section 2-502|Section 2-503|Section 2-504|Section 2-505|Section 2-506|Section 2-507|Section 2-508|Section 2-509|Section 2-510|SECTION 2)$"
+          ],
+          "description": "MD Facial Recog section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "Section 2-501",
+              "Section 2-502",
+              "Section 2-503",
+              "Section 2-504",
+              "Section 2-505",
+              "Section 2-506",
+              "Section 2-507",
+              "Section 2-508",
+              "Section 2-509",
+              "Section 2-510",
+              "SECTION 2"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/maryland.gov/facial-recognition-laws).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "BE IT ENACTED BY THE GENERAL ASSEMBLY OF MARYLAND,"
+              },
+              {
+                "input": "Section 2-501",
+                "note": "Section Section 2-501"
+              },
+              {
+                "input": "Section 2-502",
+                "note": "Section Section 2-502"
+              }
+            ]
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^modpa$"],
+      "patterns": [
+        "(?i)^modpa$"
+      ],
       "description": "Maryland Online Data Privacy Act",
       "weight": 100,
       "data": {
         "official_name": "Maryland Online Data Privacy Act",
         "common_name": "MODPA",
-        "alternate_names": ["SB 541"],
+        "alternate_names": [
+          "SB 541"
+        ],
         "description": "Maryland's comprehensive consumer privacy law, notable for stricter data-minimization requirements than most other state laws (limits collection to what's \"reasonably necessary and proportionate\" rather than just requiring disclosure).",
         "notes": "Signed 2024. Effective October 1, 2025.",
         "urls": [
-          {"type": "website", "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0541?ys=2024RS"}
+          {
+            "type": "website",
+            "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0541?ys=2024RS"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SUBTITLE 46)$"
+          ],
+          "description": "MODPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SUBTITLE 46"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/maryland.gov/modpa).",
+            "examples": [
+              {
+                "input": "SUBTITLE 46",
+                "note": "ONLINE DATA PRIVACY ACT. 30 14–4601. 31"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["MD"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "MD"
+    ]
+  }
 }

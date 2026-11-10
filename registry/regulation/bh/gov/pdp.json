@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.pdp.gov.bh"}
+    {
+      "type": "website",
+      "url": "https://www.pdp.gov.bh"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^pdpl$"],
+      "patterns": [
+        "(?i)^pdpl$"
+      ],
       "description": "Bahrain Personal Data Protection Law",
       "weight": 100,
       "data": {
@@ -23,11 +28,45 @@
         "common_name": "Bahrain PDPL",
         "notes": "In force August 2019. Covers telecom/banking/insurance/healthcare and any entity processing personal data in or targeting Bahrain.",
         "urls": [
-          {"type": "document", "url": "https://www.pdp.gov.bh/en/assets/pdf/regulations.pdf"}
+          {
+            "type": "document",
+            "url": "https://www.pdp.gov.bh/en/assets/pdf/regulations.pdf"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Part II|Part 3)$"
+          ],
+          "description": "Bahrain PDPL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Part II",
+              "Part 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/pdp.gov.bh/pdpl).",
+            "examples": [
+              {
+                "input": "Part II",
+                "note": "Data Protection Authority Section One: General provisions"
+              },
+              {
+                "input": "Part 3",
+                "note": "Accountability of Data Controller and Data Guardian"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["BH"]}
+  "tags": {
+    "country": [
+      "BH"
+    ]
+  }
 }

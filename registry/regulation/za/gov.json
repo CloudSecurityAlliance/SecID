@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.gov.za"}
+    {
+      "type": "website",
+      "url": "https://www.gov.za"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^popia$"],
+      "patterns": [
+        "(?i)^popia$"
+      ],
       "description": "Protection of Personal Information Act",
       "weight": 100,
       "data": {
@@ -25,13 +30,78 @@
         "description": "South Africa's comprehensive data-protection statute, GDPR-like in scope. Signed November 19, 2013; effective July 1, 2020 (one-year compliance grace period ending mid-2021). Enforced by the Information Regulator.",
         "notes": "",
         "urls": [
-          {"type": "legal_text", "url": "https://www.gov.za/documents/protection-personal-information-act"}
+          {
+            "type": "legal_text",
+            "url": "https://www.gov.za/documents/protection-personal-information-act"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 1|CHAPTER 2|CHAPTER 3|Part C \\(1\\)|Part C: Part C CHAPTER 4 \\(1\\)|Part C: Part C CHAPTER 5 \\(1\\)|Part C: Part C CHAPTER 6 \\(1\\)|Part C: Part C CHAPTER 7 \\(1\\)|Part C: Part C CHAPTER 8 \\(1\\)|Part C: Part C CHAPTER 9 \\(1\\)|Part C: Part C CHAPTER 10 \\(1\\)|Part C: Part C CHAPTER 11 \\(1\\)|Part C: Part C CHAPTER 12 \\(1\\)|Part C CHAPTER 1|Part C CHAPTER 2|Part C \\(3\\)|Part C CHAPTER 3|Part C \\(2\\)|Part C: Part C CHAPTER 4 \\(2\\)|Part C: Part C CHAPTER 5 \\(2\\)|\\(6\\)|Part C: Part C CHAPTER 6 \\(2\\)|Part C: Part C CHAPTER 7 \\(2\\)|\\(4\\)|Part C: Part C CHAPTER 8 \\(2\\)|Part C: Part C CHAPTER 9 \\(2\\)|Part C: Part C CHAPTER 10 \\(2\\)|Part C: Part C CHAPTER 11 \\(2\\)|\\(2\\)|Part C: Part C CHAPTER 12 \\(2\\)|\\(3\\))$"
+          ],
+          "description": "POPIA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 1",
+              "CHAPTER 2",
+              "CHAPTER 3",
+              "Part C (1)",
+              "Part C: Part C CHAPTER 4 (1)",
+              "Part C: Part C CHAPTER 5 (1)",
+              "Part C: Part C CHAPTER 6 (1)",
+              "Part C: Part C CHAPTER 7 (1)",
+              "Part C: Part C CHAPTER 8 (1)",
+              "Part C: Part C CHAPTER 9 (1)",
+              "Part C: Part C CHAPTER 10 (1)",
+              "Part C: Part C CHAPTER 11 (1)",
+              "Part C: Part C CHAPTER 12 (1)",
+              "Part C CHAPTER 1",
+              "Part C CHAPTER 2",
+              "Part C (3)",
+              "Part C CHAPTER 3",
+              "Part C (2)",
+              "Part C: Part C CHAPTER 4 (2)",
+              "Part C: Part C CHAPTER 5 (2)",
+              "(6)",
+              "Part C: Part C CHAPTER 6 (2)",
+              "Part C: Part C CHAPTER 7 (2)",
+              "(4)",
+              "Part C: Part C CHAPTER 8 (2)",
+              "Part C: Part C CHAPTER 9 (2)",
+              "Part C: Part C CHAPTER 10 (2)",
+              "Part C: Part C CHAPTER 11 (2)",
+              "(2)",
+              "Part C: Part C CHAPTER 12 (2)",
+              "(3)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.za/popia).",
+            "examples": [
+              {
+                "input": "CHAPTER 1",
+                "note": "Section CHAPTER 1"
+              },
+              {
+                "input": "CHAPTER 2",
+                "note": "Section CHAPTER 2"
+              },
+              {
+                "input": "CHAPTER 3",
+                "note": "Section CHAPTER 3"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cybercrimes-act$"],
+      "patterns": [
+        "(?i)^cybercrimes-act$"
+      ],
       "description": "Cybercrimes Act",
       "weight": 100,
       "data": {
@@ -41,11 +111,86 @@
         "description": "Promulgated December 1, 2021. Consolidates cybercrime offenses (unlawful access, data interference, cyber-fraud/extortion/forgery), imposes reporting duties on electronic communications service providers and financial institutions.",
         "notes": "",
         "urls": [
-          {"type": "legal_text", "url": "https://www.gov.za/documents/acts/cybercrimes-act-19-2020-english-afrikaans-01-jun-2021"}
+          {
+            "type": "legal_text",
+            "url": "https://www.gov.za/documents/acts/cybercrimes-act-19-2020-english-afrikaans-01-jun-2021"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 1|CHAPTER 2|PART I \\(1\\)|PART II \\(1\\)|PART III \\(1\\)|PART IV \\(1\\)|PART V \\(1\\)|PART VI \\(1\\)|ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 3|ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 4|ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 5|PART VI CHAPTER 6|PART VI CHAPTER 7|PART VI CHAPTER 8|PART VI CHAPTER 9|PART VI CHAPTER 1|PART VI CHAPTER 2|PART I \\(2\\)|PART II \\(3\\)|PART II \\(2\\)|PART III \\(2\\)|PART IV \\(3\\)|PART IV \\(2\\)|PART V \\(2\\)|PART VI \\(2\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(3\\) \\(1\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(3\\) \\(2\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 3|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 4|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(3\\) \\(3\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(2\\) \\(1\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(2\\) \\(2\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(4\\) \\(1\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI \\(4\\) \\(2\\)|ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 5|CHAPTER 6|CHAPTER 7|CHAPTER 8|CHAPTER 9)$"
+          ],
+          "description": "Cybercrimes Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 1",
+              "CHAPTER 2",
+              "PART I (1)",
+              "PART II (1)",
+              "PART III (1)",
+              "PART IV (1)",
+              "PART V (1)",
+              "PART VI (1)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 3",
+              "ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 4",
+              "ORDERS TO PROTECT COMPLAINANTS FROM HARMFUL: PART VI CHAPTER 5",
+              "PART VI CHAPTER 6",
+              "PART VI CHAPTER 7",
+              "PART VI CHAPTER 8",
+              "PART VI CHAPTER 9",
+              "PART VI CHAPTER 1",
+              "PART VI CHAPTER 2",
+              "PART I (2)",
+              "PART II (3)",
+              "PART II (2)",
+              "PART III (2)",
+              "PART IV (3)",
+              "PART IV (2)",
+              "PART V (2)",
+              "PART VI (2)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (3) (1)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (3) (2)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 3",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 4",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (3) (3)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (2) (1)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (2) (2)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (4) (1)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI (4) (2)",
+              "ORDERS TO PROTECT COMPLAINANTS FROM THE HARMFUL: PART VI CHAPTER 5",
+              "CHAPTER 6",
+              "CHAPTER 7",
+              "CHAPTER 8",
+              "CHAPTER 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.za/cybercrimes-act).",
+            "examples": [
+              {
+                "input": "CHAPTER 1",
+                "note": "Section CHAPTER 1"
+              },
+              {
+                "input": "CHAPTER 2",
+                "note": "CYBERCRIMES, MALICIOUS COMMUNICATIONS, SENTENCING AND"
+              },
+              {
+                "input": "PART I (1)",
+                "note": "CYBERCRIMES"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["ZA"]}
+  "tags": {
+    "country": [
+      "ZA"
+    ]
+  }
 }

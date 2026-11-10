@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://privacy.gov.ph"}
+    {
+      "type": "website",
+      "url": "https://privacy.gov.ph"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^dpa$"],
+      "patterns": [
+        "(?i)^dpa$"
+      ],
       "description": "Data Privacy Act of 2012",
       "weight": 100,
       "data": {
@@ -23,12 +28,63 @@
         "common_name": "Philippines Data Privacy Act",
         "notes": "Took effect September 8, 2012. Congress-enacted, GDPR-like scope with extraterritorial reach. Created the National Privacy Commission (NPC), attached to the Department of Information and Communications Technology (DICT).",
         "urls": [
-          {"type": "website", "url": "https://privacy.gov.ph/data-privacy-act/"},
-          {"type": "legal_text", "url": "https://officialgazette.gov.ph/2012/08/15/republic-act-no-10173/"}
+          {
+            "type": "website",
+            "url": "https://privacy.gov.ph/data-privacy-act/"
+          },
+          {
+            "type": "legal_text",
+            "url": "https://officialgazette.gov.ph/2012/08/15/republic-act-no-10173/"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I \\(1\\)|SECTION 1|\\(1\\)|CHAPTER I \\(2\\)|CHAPTER II|CHAPTER I \\(3\\)|\\(7\\)|CHAPTER V \\(1\\)|CHAPTER V \\(2\\)|CHAPTER VI|CHAPTER VII|CHAPTER I \\(4\\))$"
+          ],
+          "description": "Philippines Data Privacy Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I (1)",
+              "SECTION 1",
+              "(1)",
+              "CHAPTER I (2)",
+              "CHAPTER II",
+              "CHAPTER I (3)",
+              "(7)",
+              "CHAPTER V (1)",
+              "CHAPTER V (2)",
+              "CHAPTER VI",
+              "CHAPTER VII",
+              "CHAPTER I (4)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/privacy.gov.ph/dpa).",
+            "examples": [
+              {
+                "input": "CHAPTER I (1)",
+                "note": "CHAPTER I"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Short Title. – This Act shall be known as the “Data Privacy Act of 2012”."
+              },
+              {
+                "input": "(1)",
+                "note": "The entity carries on business in the Philippines; and"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["PH"]}
+  "tags": {
+    "country": [
+      "PH"
+    ]
+  }
 }

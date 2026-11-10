@@ -37,7 +37,106 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|Sec\\. 2|Sec\\. 3|Sec\\. 4|Sec\\. 5|Sec\\. 6|Sec\\. 7|Sec\\. 8)$"
+          ],
+          "description": "NSM AI section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "Sec. 2",
+              "Sec. 3",
+              "Sec. 4",
+              "Sec. 5",
+              "Sec. 6",
+              "Sec. 7",
+              "Sec. 8"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/whitehouse.gov/nsm-ai).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "Policy. (a) This memorandum fulfills the directive set forth in"
+              },
+              {
+                "input": "Sec. 2",
+                "note": "Objectives. It is the policy of the United States Government that the"
+              },
+              {
+                "input": "Sec. 3",
+                "note": "Promoting and Securing the United States’ Foundational AI"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^eo-14028$"
+      ],
+      "description": "Executive Order 14028 — Improving the Nation’s Cybersecurity",
+      "weight": 95,
+      "data": {
+        "official_name": "Executive Order 14028 of May 12, 2021: Improving the Nation’s Cybersecurity (86 FR 26633)",
+        "common_name": "EO 14028",
+        "description": "Presidential Executive Order mandating federal zero-trust architecture adoption, software supply chain security (including SBOM requirements), endpoint detection and response, cloud security modernization, and cyber incident reporting by federal contractors.",
+        "notes": "Status: In force (Signed May 12, 2021; published at 86 FR 26633 on May 17, 2021; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.federalregister.gov/documents/2021/05/17/2021-10460/improving-the-nations-cybersecurity"
+          }
+        ],
+        "examples": [
+          "eo-14028"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11)$"
+          ],
+          "description": "EO 14028 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/whitehouse.gov/eo-14028).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Policy"
+              },
+              {
+                "input": "2",
+                "note": "Removing Barriers to Sharing Threat Information"
+              },
+              {
+                "input": "3",
+                "note": "Modernizing Federal Government Cybersecurity"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

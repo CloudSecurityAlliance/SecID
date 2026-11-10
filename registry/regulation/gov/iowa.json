@@ -37,7 +37,46 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 715D|715D\\.1|715D\\.2|715D\\.3|715D\\.4|715D\\.5|715D\\.6|715D\\.7|715D\\.8|715D\\.9)$"
+          ],
+          "description": "ICDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 715D",
+              "715D.1",
+              "715D.2",
+              "715D.3",
+              "715D.4",
+              "715D.5",
+              "715D.6",
+              "715D.7",
+              "715D.8",
+              "715D.9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/iowa.gov/icdpa).",
+            "examples": [
+              {
+                "input": "CHAPTER 715D",
+                "note": "Section CHAPTER 715D"
+              },
+              {
+                "input": "715D.1",
+                "note": "Definitions."
+              },
+              {
+                "input": "715D.2",
+                "note": "Scope and exemptions."
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

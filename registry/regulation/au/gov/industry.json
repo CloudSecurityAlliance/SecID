@@ -4,21 +4,25 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Australian Government Department of Industry",
   "common_name": null,
-  "alternate_names": ["Department of Industry, Science and Resources"],
+  "alternate_names": [
+    "Department of Industry, Science and Resources"
+  ],
   "notes": "Australian federal government department responsible for industry policy, science, and technology. Publishes national AI strategy and action plans.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.industry.gov.au"}
+    {
+      "type": "website",
+      "url": "https://www.industry.gov.au"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^ai-action-plan$"],
+      "patterns": [
+        "(?i)^ai-action-plan$"
+      ],
       "description": "Australia's Artificial Intelligence Action Plan",
       "weight": 100,
       "data": {
@@ -28,13 +32,58 @@
         "description": "Australian government strategy for AI adoption and governance.",
         "notes": "Government policy direction for AI adoption, not binding legislation. Outlines investment in AI capabilities, support for responsible AI practices, and plans for international AI governance engagement. Complements Australia's broader National AI Centre and AI Ethics Framework.",
         "urls": [
-          {"type": "website", "url": "https://www.industry.gov.au/publications/australias-artificial-intelligence-action-plan"}
+          {
+            "type": "website",
+            "url": "https://www.industry.gov.au/publications/australias-artificial-intelligence-action-plan"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Objective 1|Goal 1|Goal 2|Objective 2|Goal 3|Objective 3|Goal 4|Objective 4|Goal 5)$"
+          ],
+          "description": "AI Action Plan section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Objective 1",
+              "Goal 1",
+              "Goal 2",
+              "Objective 2",
+              "Goal 3",
+              "Objective 3",
+              "Goal 4",
+              "Objective 4",
+              "Goal 5"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/industry.gov.au/ai-action-plan).",
+            "examples": [
+              {
+                "input": "Objective 1",
+                "note": "Action 1 — National Artificial Intelligence Centre"
+              },
+              {
+                "input": "Goal 1",
+                "note": "Focus Area 1 — AI and Digital Capability Centres"
+              },
+              {
+                "input": "Goal 2",
+                "note": "Focus Area 2 — Developing and adopting AI to transform Australian businesses"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["AU"]},
+  "tags": {
+    "country": [
+      "AU"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

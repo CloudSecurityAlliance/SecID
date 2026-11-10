@@ -7,7 +7,7 @@
   "official_name": "Ministry of Electronics and Information Technology",
   "common_name": "MeitY",
   "alternate_names": null,
-  "notes": "India's Ministry of Electronics and Information Technology \u2014 administers the Digital Personal Data Protection Act (DPDP Act) and related digital regulations.",
+  "notes": "India's Ministry of Electronics and Information Technology — administers the Digital Personal Data Protection Act (DPDP Act) and related digital regulations.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -41,55 +41,286 @@
             "note": ""
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44)$"
+          ],
+          "description": "DPDP Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/meity.gov.in/dpdp).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Section 1"
+              },
+              {
+                "input": "2",
+                "note": "Section 2"
+              },
+              {
+                "input": "3",
+                "note": "Section 3"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^aadhaar-act$", "(?i)^aadhaar-act-2016$"],
+      "patterns": [
+        "(?i)^aadhaar-act$",
+        "(?i)^aadhaar-act-2016$"
+      ],
       "description": "Aadhaar Act 2016",
       "weight": 100,
       "data": {
         "official_name": "Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Act, 2016",
         "common_name": "Aadhaar Act",
-        "alternate_names": ["Act No. 18 of 2016"],
+        "alternate_names": [
+          "Act No. 18 of 2016"
+        ],
         "description": "Indian statute creating UIDAI as a statutory authority and authorizing the Aadhaar biometric identity programme. Establishes the legal basis for Aadhaar issuance, authentication, and use by public and private entities.",
         "notes": "Foundational law for the world's largest biometric identity system. Significantly amended by the Aadhaar and Other Laws (Amendment) Act, 2019 in response to Supreme Court rulings on permissible private-sector use.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.meity.gov.in/aadhaar-targeted-delivery-financial-and-other-subsidies-benefits-and-services-act-2016"}
+          {
+            "type": "legal_text",
+            "url": "https://www.meity.gov.in/aadhaar-targeted-delivery-financial-and-other-subsidies-benefits-and-services-act-2016"
+          }
         ]
       }
     },
     {
-      "patterns": ["(?i)^it-act$", "(?i)^it-act-2000$"],
+      "patterns": [
+        "(?i)^it-act$",
+        "(?i)^it-act-2000$"
+      ],
       "description": "Information Technology Act 2000",
       "weight": 100,
       "data": {
         "official_name": "Information Technology Act, 2000",
         "common_name": "IT Act 2000",
-        "alternate_names": ["Act No. 21 of 2000"],
+        "alternate_names": [
+          "Act No. 21 of 2000"
+        ],
         "description": "Indian foundational cyber law covering electronic commerce, digital signatures, computer-related offences, and intermediary liability. Significantly amended in 2008 (Section 43A on data protection, Section 79 intermediary safe-harbour, Sections 66/67 cyber offences).",
         "notes": "Operationalised via the IT Rules 2011 (SPDI Rules), IT Rules 2021 (intermediary guidelines), and CERT-In incident reporting directives.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.meity.gov.in/content/information-technology-act-2000"}
+          {
+            "type": "legal_text",
+            "url": "https://www.meity.gov.in/content/information-technology-act-2000"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:PART II|Section 1: PART II \\(1\\) \\(1\\)|Section 1: PART II \\(1\\) \\(2\\)|Section 1: PART II \\(1\\) \\(3\\)|Section 1: PART II \\(1\\) \\(4\\)|Section 1: PART II \\(1\\) \\(5\\)|Section 1: PART II \\(1\\) \\(6\\)|Section 1: PART II \\(1\\) \\(7\\)|Section 1: PART II \\(1\\) \\(8\\)|Section 1: PART II \\(1\\) \\(9\\)|Section 1: PART II \\(1\\) \\(10\\)|Section 1: PART II \\(1\\) \\(11\\)|Section 1: PART II \\(1\\) \\(12\\)|Section 1: PART II \\(1\\) \\(13\\)|Section 1: PART II \\(1\\) \\(14\\)|Section 1: PART II \\(1\\) \\(15\\)|Section 1: PART II \\(1\\) \\(16\\)|Section 1: PART II \\(1\\) \\(17\\)|Section 1: PART II \\(1\\) \\(18\\)|Section 1: PART II \\(1\\) \\(19\\)|Section 1: PART II \\(1\\) \\(20\\)|Section 1: PART II \\(1\\) \\(21\\)|Section 1: PART II \\(1\\) \\(22\\)|Section 1: PART II \\(1\\) \\(23\\)|Section 1: PART II \\(1\\) \\(24\\)|Section 1: PART II \\(1\\) \\(25\\)|Section 1: PART II \\(1\\) \\(26\\)|Section 1: PART II \\(1\\) \\(27\\)|Section 1: PART II \\(1\\) \\(28\\)|Section 1: PART II \\(1\\) \\(29\\)|Section 1: PART II \\(1\\) \\(30\\)|Section 1: PART II \\(1\\) \\(31\\)|Section 1: PART II \\(1\\) \\(32\\)|Section 1: PART II \\(1\\) \\(33\\)|Section 1: PART II \\(1\\) \\(34\\)|Section 1: PART II \\(1\\) \\(35\\)|Section 1: PART II \\(1\\) \\(36\\)|Section 1: PART II \\(1\\) \\(37\\)|Section 1: PART II \\(1\\) \\(38\\)|Section 1: PART II \\(1\\) \\(39\\)|Section 1: PART II \\(1\\) \\(40\\)|Section 1: PART II \\(2\\) \\(1\\)|Section 1: PART II \\(1\\) \\(41\\)|Section 1: PART II \\(1\\) \\(42\\)|Section 1: PART II \\(2\\) \\(2\\)|Section 1: PART II \\(1\\) \\(43\\)|Section 1: PART II \\(3\\) \\(1\\)|Section 1: PART II \\(1\\) \\(44\\)|Section 1: PART II \\(1\\) \\(45\\)|Section 1: PART II \\(1\\) \\(46\\)|Section 1: PART II \\(1\\) \\(47\\)|Section 1: PART II \\(1\\) \\(48\\)|Section 1: PART II \\(1\\) \\(49\\)|Section 1: PART II \\(1\\) \\(50\\)|Section 1: PART II \\(1\\) \\(51\\)|Section 1: PART II \\(3\\) \\(2\\)|Section 1: PART II \\(1\\) \\(52\\)|Section 1: PART II \\(1\\) \\(53\\)|Section 1: PART II \\(1\\) \\(54\\)|Section 1: PART II \\(1\\) \\(55\\)|Section 1: PART II \\(1\\) \\(56\\)|Section 1: PART II \\(1\\) \\(57\\)|Section 1: PART II \\(1\\) \\(58\\)|Section 1: PART II \\(1\\) \\(59\\)|Section 1: PART II \\(1\\) \\(60\\)|Section 1: PART II \\(1\\) \\(61\\)|Section 1: PART II \\(1\\) \\(62\\)|Section 1: PART II \\(1\\) \\(63\\)|Section 1: PART II \\(1\\) \\(64\\)|Section 1: PART II \\(1\\) \\(65\\)|Section 1: PART II \\(1\\) \\(66\\)|Section 1: PART II \\(1\\) \\(67\\)|Section 1: PART II \\(1\\) \\(68\\)|Section 1: PART II \\(1\\) \\(69\\)|Section 1: PART II \\(1\\) \\(70\\)|Section 1: PART II \\(1\\) \\(71\\))$"
+          ],
+          "description": "IT Act 2000 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "PART II",
+              "Section 1: PART II (1) (1)",
+              "Section 1: PART II (1) (2)",
+              "Section 1: PART II (1) (3)",
+              "Section 1: PART II (1) (4)",
+              "Section 1: PART II (1) (5)",
+              "Section 1: PART II (1) (6)",
+              "Section 1: PART II (1) (7)",
+              "Section 1: PART II (1) (8)",
+              "Section 1: PART II (1) (9)",
+              "Section 1: PART II (1) (10)",
+              "Section 1: PART II (1) (11)",
+              "Section 1: PART II (1) (12)",
+              "Section 1: PART II (1) (13)",
+              "Section 1: PART II (1) (14)",
+              "Section 1: PART II (1) (15)",
+              "Section 1: PART II (1) (16)",
+              "Section 1: PART II (1) (17)",
+              "Section 1: PART II (1) (18)",
+              "Section 1: PART II (1) (19)",
+              "Section 1: PART II (1) (20)",
+              "Section 1: PART II (1) (21)",
+              "Section 1: PART II (1) (22)",
+              "Section 1: PART II (1) (23)",
+              "Section 1: PART II (1) (24)",
+              "Section 1: PART II (1) (25)",
+              "Section 1: PART II (1) (26)",
+              "Section 1: PART II (1) (27)",
+              "Section 1: PART II (1) (28)",
+              "Section 1: PART II (1) (29)",
+              "Section 1: PART II (1) (30)",
+              "Section 1: PART II (1) (31)",
+              "Section 1: PART II (1) (32)",
+              "Section 1: PART II (1) (33)",
+              "Section 1: PART II (1) (34)",
+              "Section 1: PART II (1) (35)",
+              "Section 1: PART II (1) (36)",
+              "Section 1: PART II (1) (37)",
+              "Section 1: PART II (1) (38)",
+              "Section 1: PART II (1) (39)",
+              "Section 1: PART II (1) (40)",
+              "Section 1: PART II (2) (1)",
+              "Section 1: PART II (1) (41)",
+              "Section 1: PART II (1) (42)",
+              "Section 1: PART II (2) (2)",
+              "Section 1: PART II (1) (43)",
+              "Section 1: PART II (3) (1)",
+              "Section 1: PART II (1) (44)",
+              "Section 1: PART II (1) (45)",
+              "Section 1: PART II (1) (46)",
+              "Section 1: PART II (1) (47)",
+              "Section 1: PART II (1) (48)",
+              "Section 1: PART II (1) (49)",
+              "Section 1: PART II (1) (50)",
+              "Section 1: PART II (1) (51)",
+              "Section 1: PART II (3) (2)",
+              "Section 1: PART II (1) (52)",
+              "Section 1: PART II (1) (53)",
+              "Section 1: PART II (1) (54)",
+              "Section 1: PART II (1) (55)",
+              "Section 1: PART II (1) (56)",
+              "Section 1: PART II (1) (57)",
+              "Section 1: PART II (1) (58)",
+              "Section 1: PART II (1) (59)",
+              "Section 1: PART II (1) (60)",
+              "Section 1: PART II (1) (61)",
+              "Section 1: PART II (1) (62)",
+              "Section 1: PART II (1) (63)",
+              "Section 1: PART II (1) (64)",
+              "Section 1: PART II (1) (65)",
+              "Section 1: PART II (1) (66)",
+              "Section 1: PART II (1) (67)",
+              "Section 1: PART II (1) (68)",
+              "Section 1: PART II (1) (69)",
+              "Section 1: PART II (1) (70)",
+              "Section 1: PART II (1) (71)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/meity.gov.in/it-act).",
+            "examples": [
+              {
+                "input": "PART II",
+                "note": "Section 1"
+              },
+              {
+                "input": "Section 1: PART II (1) (1)",
+                "note": "(2) (3) (4) (5)"
+              },
+              {
+                "input": "Section 1: PART II (1) (2)",
+                "note": "(2) (3) (4) (5)"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^it-rules-2011$", "(?i)^spdi-rules$"],
+      "patterns": [
+        "(?i)^it-rules-2011$",
+        "(?i)^spdi-rules$"
+      ],
       "description": "IT (SPDI) Rules 2011",
       "weight": 100,
       "data": {
         "official_name": "Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011",
         "common_name": "SPDI Rules",
-        "alternate_names": ["IT Rules 2011"],
+        "alternate_names": [
+          "IT Rules 2011"
+        ],
         "description": "Subordinate rules under IT Act 2000 Section 43A specifying reasonable security practices for protection of sensitive personal data.",
         "notes": "Recognises ISO/IEC 27001 as one of the standards meeting 'reasonable security practices'. Largely superseded in scope by the DPDP Act 2023 but still relevant for pre-DPDP cases.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.meity.gov.in/writereaddata/files/GSR313E_10511%281%29_0.pdf"}
+          {
+            "type": "legal_text",
+            "url": "https://www.meity.gov.in/writereaddata/files/GSR313E_10511%281%29_0.pdf"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:3|\\(2\\))$"
+          ],
+          "description": "SPDI Rules section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3",
+              "(2)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/meity.gov.in/it-rules-2011).",
+            "examples": [
+              {
+                "input": "3",
+                "note": "Sensitive personal data or information.— Sensitive personal data or information of a person means such personal informat"
+              },
+              {
+                "input": "(2)",
+                "note": "Body corporate or any person on its behalf shall not collect sensitive"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^it-rules-2021$"],
+      "patterns": [
+        "(?i)^it-rules-2021$"
+      ],
       "description": "IT (Intermediary Guidelines) Rules 2021",
       "weight": 100,
       "data": {
@@ -99,12 +330,62 @@
         "description": "Rules governing intermediaries (social media, messaging platforms) including grievance officer requirements, traceability for significant social media intermediaries, and content moderation obligations.",
         "notes": "Amended multiple times since 2021; significant amendments in 2022 (online gaming) and 2023 (fact-checking).",
         "urls": [
-          {"type": "legal_text", "url": "https://www.meity.gov.in/writereaddata/files/Information%20Technology%20%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20%28updated%2006.04.2023%29-.pdf"}
+          {
+            "type": "legal_text",
+            "url": "https://www.meity.gov.in/writereaddata/files/Information%20Technology%20%28Intermediary%20Guidelines%20and%20Digital%20Media%20Ethics%20Code%29%20Rules%2C%202021%20%28updated%2006.04.2023%29-.pdf"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:PART I \\(1\\)|PART II \\(1\\)|4|5|PART III|CHAPTER I|CHAPTER II|\\(2\\)|\\(3\\)|CHAPTER III|CHAPTER IV|CHAPTER V|CHAPTER VI|APPENDIX|PART I \\(2\\)|PART II \\(2\\))$"
+          ],
+          "description": "IT Rules 2021 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "PART I (1)",
+              "PART II (1)",
+              "4",
+              "5",
+              "PART III",
+              "CHAPTER I",
+              "CHAPTER II",
+              "(2)",
+              "(3)",
+              "CHAPTER III",
+              "CHAPTER IV",
+              "CHAPTER V",
+              "CHAPTER VI",
+              "APPENDIX",
+              "PART I (2)",
+              "PART II (2)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/meity.gov.in/it-rules-2021).",
+            "examples": [
+              {
+                "input": "PART I (1)",
+                "note": "PRELIMINARY"
+              },
+              {
+                "input": "PART II (1)",
+                "note": "DUE DILIGENCE BY INTERMEDIARIES AND GRIEVANCE REDRESSAL"
+              },
+              {
+                "input": "4",
+                "note": "Additional due diligence to be observed by significant social media intermediary 2[and"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^dpdp-rules$"],
+      "patterns": [
+        "(?i)^dpdp-rules$"
+      ],
       "description": "Digital Personal Data Protection Rules 2025",
       "weight": 100,
       "data": {
@@ -114,13 +395,18 @@
         "description": "Implementing rules for the DPDP Act (secid:regulation/meity.gov.in/dpdp), notified in the Gazette of India November 13-14, 2025. Operationalizes itemized notices, breach notification, and DPO/audit obligations for Significant Data Fiduciaries.",
         "notes": "Most substantive provisions phase in over 18 months from notification (~May 2027).",
         "urls": [
-          {"type": "website", "url": "https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa"}
+          {
+            "type": "website",
+            "url": "https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa"
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^national-cyber-security-policy$"],
+      "patterns": [
+        "(?i)^national-cyber-security-policy$"
+      ],
       "description": "National Cyber Security Policy 2013",
       "weight": 90,
       "data": {
@@ -130,11 +416,53 @@
         "description": "India's first comprehensive cybersecurity policy framework — critical-infrastructure protection, capability building, and public-private collaboration. Published by the Department of Electronics and IT (now MeitY), effective July 2, 2013.",
         "notes": "A newer 'National Cyber Security Strategy' has reportedly been drafted by the National Security Council Secretariat but was not formally released as of this sweep entry — revisit.",
         "urls": [
-          {"type": "website", "url": "https://www.meity.gov.in/static/uploads/2024/02/National_cyber_security_policy-2013_0.pdf"}
+          {
+            "type": "website",
+            "url": "https://www.meity.gov.in/static/uploads/2024/02/National_cyber_security_policy-2013_0.pdf"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:I \\(1\\)|II|III|IV|I \\(2\\)|V)$"
+          ],
+          "description": "NCSP 2013 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I (1)",
+              "II",
+              "III",
+              "IV",
+              "I (2)",
+              "V"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/meity.gov.in/national-cyber-security-policy).",
+            "examples": [
+              {
+                "input": "I (1)",
+                "note": "Vision"
+              },
+              {
+                "input": "II",
+                "note": "Mission"
+              },
+              {
+                "input": "III",
+                "note": "Objectives"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["IN"]}
+  "tags": {
+    "country": [
+      "IN"
+    ]
+  }
 }

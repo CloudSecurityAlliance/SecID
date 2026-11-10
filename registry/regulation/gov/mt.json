@@ -36,7 +36,53 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Part 28|30-14-2801|30-14-2802|30-14-2803|30-14-2804|30-14-2808|30-14-2809|30-14-2811|30-14-2812|30-14-2813|30-14-2814|30-14-2815|30-14-2816|30-14-2817|30-14-2818|30-14-2819|30-14-2820)$"
+          ],
+          "description": "MCDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Part 28",
+              "30-14-2801",
+              "30-14-2802",
+              "30-14-2803",
+              "30-14-2804",
+              "30-14-2808",
+              "30-14-2809",
+              "30-14-2811",
+              "30-14-2812",
+              "30-14-2813",
+              "30-14-2814",
+              "30-14-2815",
+              "30-14-2816",
+              "30-14-2817",
+              "30-14-2818",
+              "30-14-2819",
+              "30-14-2820"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/mt.gov/mcdpa).",
+            "examples": [
+              {
+                "input": "Part 28",
+                "note": "Consumer Data Privacy Act"
+              },
+              {
+                "input": "30-14-2801",
+                "note": "Short title. This part may be cited as the \"Consumer Data Privacy"
+              },
+              {
+                "input": "30-14-2802",
+                "note": "Definitions. As used in this part, unless the context clearly"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

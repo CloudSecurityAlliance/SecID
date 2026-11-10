@@ -42,7 +42,46 @@
         "examples": [
           "ley-21663"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Artículo 11|Artículo 14|Artículo 15|Artículo 17|Artículo 22|Artículo 30|Artículo 38|Artículo 40|Artículo 49|Artículo 52)$"
+          ],
+          "description": "Ley N° 21.663 — Ley Marco de Ciberseguridad (Chile Cybersecurity Framework Law) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Artículo 11",
+              "Artículo 14",
+              "Artículo 15",
+              "Artículo 17",
+              "Artículo 22",
+              "Artículo 30",
+              "Artículo 38",
+              "Artículo 40",
+              "Artículo 49",
+              "Artículo 52"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/bcn.cl/ley-21663).",
+            "examples": [
+              {
+                "input": "Artículo 11",
+                "note": "Atribuciones. Para dar cumplimiento a su objeto, la Agencia tendrá las siguientes atribuciones:"
+              },
+              {
+                "input": "Artículo 14",
+                "note": "Atribuciones del Director o Directora Nacional. Corresponderá especialmente al Director o Directora Nacional:"
+              },
+              {
+                "input": "Artículo 15",
+                "note": "Del patrimonio de la Agencia. El patrimonio de la Agencia estará constituido por:"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

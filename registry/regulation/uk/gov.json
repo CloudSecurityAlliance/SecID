@@ -4,52 +4,364 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "United Kingdom Government",
   "common_name": "UK Government",
-  "alternate_names": ["HM Government"],
+  "alternate_names": [
+    "HM Government"
+  ],
   "notes": "United Kingdom government policy publications. GOV.UK is the single domain for government services and information.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.gov.uk"}
+    {
+      "type": "website",
+      "url": "https://www.gov.uk"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^dpa-2018$", "(?i)^uk-gdpr$"],
+      "patterns": [
+        "(?i)^dpa-2018$",
+        "(?i)^uk-gdpr$"
+      ],
       "description": "Data Protection Act 2018 / UK GDPR",
       "weight": 100,
       "data": {
         "official_name": "Data Protection Act 2018 (incorporating UK GDPR)",
         "common_name": "DPA 2018",
-        "alternate_names": ["UK GDPR"],
+        "alternate_names": [
+          "UK GDPR"
+        ],
         "description": "UK's data protection law. Incorporates the EU GDPR as UK GDPR via the European Union (Withdrawal) Act 2018. Supplemented by national provisions covering law enforcement, intelligence services, and exceptions. Enforced by the ICO.",
         "notes": "Post-Brexit divergence pending via the UK Data (Use and Access) Bill 2024.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2018/12/contents"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|9A|10|11|12|13|13A|14|15|16|17|17A|17B|17C|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|42A|43|44|45|45A|46|47|48|49|50|50A|50B|50C|50D|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|71A|72|73|74|74A|74AA|74AB|74B|75|76|77|78|78A|79|80|81|82|82A|82B|82C|82D|82E|83|84|85|86|87|88|89|90|91|91A|92|93|94|95|96|97|98|99|100|101|102|103|104|105|106|107|108|109|110|111|112|113|114|114A|115|116|117|118|119|119A|120|120A|120B|120C|120D|121|122|123|124|124A|124B|124C|125|126|127|128|129|130|131|132|133|134|135|136|137|138|139|139A|140|141|142|143|144|145|146|146A|147|148|148A|148B|148C|149|150|151|152|153|154|155|156|157|158|159|160|161|161A|162|163|164|164A|164B|165|166|167|168|169|170|171|172|173|174|175|176|177|178|179|180|180A|181|182|183|183A|183B|184|185|186|186A|187|188|189|190|191|192|193|194|195|196|197|198|199|200|201|202|203|204|205|206|207|208|209|210|211|212|213|214|215)$"
+          ],
+          "description": "DPA 2018 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "9A",
+              "10",
+              "11",
+              "12",
+              "13",
+              "13A",
+              "14",
+              "15",
+              "16",
+              "17",
+              "17A",
+              "17B",
+              "17C",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "42A",
+              "43",
+              "44",
+              "45",
+              "45A",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "50A",
+              "50B",
+              "50C",
+              "50D",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58",
+              "59",
+              "60",
+              "61",
+              "62",
+              "63",
+              "64",
+              "65",
+              "66",
+              "67",
+              "68",
+              "69",
+              "70",
+              "71",
+              "71A",
+              "72",
+              "73",
+              "74",
+              "74A",
+              "74AA",
+              "74AB",
+              "74B",
+              "75",
+              "76",
+              "77",
+              "78",
+              "78A",
+              "79",
+              "80",
+              "81",
+              "82",
+              "82A",
+              "82B",
+              "82C",
+              "82D",
+              "82E",
+              "83",
+              "84",
+              "85",
+              "86",
+              "87",
+              "88",
+              "89",
+              "90",
+              "91",
+              "91A",
+              "92",
+              "93",
+              "94",
+              "95",
+              "96",
+              "97",
+              "98",
+              "99",
+              "100",
+              "101",
+              "102",
+              "103",
+              "104",
+              "105",
+              "106",
+              "107",
+              "108",
+              "109",
+              "110",
+              "111",
+              "112",
+              "113",
+              "114",
+              "114A",
+              "115",
+              "116",
+              "117",
+              "118",
+              "119",
+              "119A",
+              "120",
+              "120A",
+              "120B",
+              "120C",
+              "120D",
+              "121",
+              "122",
+              "123",
+              "124",
+              "124A",
+              "124B",
+              "124C",
+              "125",
+              "126",
+              "127",
+              "128",
+              "129",
+              "130",
+              "131",
+              "132",
+              "133",
+              "134",
+              "135",
+              "136",
+              "137",
+              "138",
+              "139",
+              "139A",
+              "140",
+              "141",
+              "142",
+              "143",
+              "144",
+              "145",
+              "146",
+              "146A",
+              "147",
+              "148",
+              "148A",
+              "148B",
+              "148C",
+              "149",
+              "150",
+              "151",
+              "152",
+              "153",
+              "154",
+              "155",
+              "156",
+              "157",
+              "158",
+              "159",
+              "160",
+              "161",
+              "161A",
+              "162",
+              "163",
+              "164",
+              "164A",
+              "164B",
+              "165",
+              "166",
+              "167",
+              "168",
+              "169",
+              "170",
+              "171",
+              "172",
+              "173",
+              "174",
+              "175",
+              "176",
+              "177",
+              "178",
+              "179",
+              "180",
+              "180A",
+              "181",
+              "182",
+              "183",
+              "183A",
+              "183B",
+              "184",
+              "185",
+              "186",
+              "186A",
+              "187",
+              "188",
+              "189",
+              "190",
+              "191",
+              "192",
+              "193",
+              "194",
+              "195",
+              "196",
+              "197",
+              "198",
+              "199",
+              "200",
+              "201",
+              "202",
+              "203",
+              "204",
+              "205",
+              "206",
+              "207",
+              "208",
+              "209",
+              "210",
+              "211",
+              "212",
+              "213",
+              "214",
+              "215"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.uk/data-protection-act-2018).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Preliminary"
+              },
+              {
+                "input": "2",
+                "note": "Preliminary"
+              },
+              {
+                "input": "3",
+                "note": "Preliminary"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^osa$", "(?i)^online-safety-act$"],
+      "patterns": [
+        "(?i)^osa$",
+        "(?i)^online-safety-act$"
+      ],
       "description": "Online Safety Act 2023",
       "weight": 100,
       "data": {
         "official_name": "Online Safety Act 2023",
         "common_name": "OSA",
-        "alternate_names": ["2023 c. 50"],
+        "alternate_names": [
+          "2023 c. 50"
+        ],
         "description": "UK law imposing duties of care on online platforms regarding illegal content and content harmful to children. Enforced by Ofcom.",
         "notes": "Status: In force (Royal Assent October 26, 2023; phased commencement through 2025-2026; verified as of 2026-11-04). Amended in April 2026 to explicitly regulate AI chatbots: Section 216A (inserted by the Crime and Policing Act 2026, s. 248) empowers the Secretary of State to bring standalone AI chatbot providers and AI content-generation tools within OSA scope, and Section 214A (inserted by the Children's Wellbeing and Schools Act 2026, s. 70) empowers regulations restricting or preventing children's access to high-risk interactive or AI features.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2023/50/contents"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/ukpga/2023/50/contents"
+          }
         ],
-        "examples": ["s-1", "s-214A", "s-216A"]
+        "examples": [
+          "s-1",
+          "s-214A",
+          "s-216A"
+        ]
       },
       "children": [
         {
-          "patterns": ["^s-\\d+[A-Z]?$"],
+          "patterns": [
+            "^s-\\d+[A-Z]?$"
+          ],
           "description": "Online Safety Act 2023 section reference (e.g., s-1, s-214A, s-216A)",
           "weight": 100,
           "data": {
@@ -63,7 +375,9 @@
             "examples": [
               {
                 "input": "s-1",
-                "variables": {"num": "1"},
+                "variables": {
+                  "num": "1"
+                },
                 "url": "https://www.legislation.gov.uk/ukpga/2023/50/section/1",
                 "note": "Introduction and overview of the Online Safety Act 2023"
               }
@@ -73,23 +387,35 @@
       ]
     },
     {
-      "patterns": ["^crime-and-policing-act-2026$", "^ukpga-2026-20$"],
+      "patterns": [
+        "^crime-and-policing-act-2026$",
+        "^ukpga-2026-20$"
+      ],
       "description": "Crime and Policing Act 2026 (including s. 248 / OSA s. 216A AI chatbot powers)",
       "weight": 95,
       "data": {
         "official_name": "Crime and Policing Act 2026",
         "common_name": "Crime and Policing Act 2026",
-        "alternate_names": ["2026 c. 20"],
+        "alternate_names": [
+          "2026 c. 20"
+        ],
         "description": "UK Act of Parliament reforming criminal justice, policing, and online offences; Section 248 inserts Section 216A into the Online Safety Act 2023 to bring standalone AI chatbots and AI-generated content providers within statutory online-safety regulation.",
         "notes": "Status: In force (Royal Assent April 2026; 2026 c. 20; verified as of 2026-11-04). Section 248 (introduced during parliamentary passage as government amendment New Clause NC120) inserts Section 216A into the Online Safety Act 2023, closing the OSA gap for one-to-one AI chatbot interactions that did not previously qualify as user-to-user or search services.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/20/contents"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/ukpga/2026/20/contents"
+          }
         ],
-        "examples": ["s-248"]
+        "examples": [
+          "s-248"
+        ]
       },
       "children": [
         {
-          "patterns": ["^s-\\d+[A-Z]?$"],
+          "patterns": [
+            "^s-\\d+[A-Z]?$"
+          ],
           "description": "Crime and Policing Act 2026 section reference (e.g., s-248)",
           "weight": 100,
           "data": {
@@ -103,7 +429,9 @@
             "examples": [
               {
                 "input": "s-248",
-                "variables": {"num": "248"},
+                "variables": {
+                  "num": "248"
+                },
                 "url": "https://www.legislation.gov.uk/ukpga/2026/20/section/248",
                 "note": "Section 248 (introduced as amendment NC120) — inserts Section 216A into the Online Safety Act 2023 to cover AI chatbot and content-generation providers"
               }
@@ -113,23 +441,35 @@
       ]
     },
     {
-      "patterns": ["^childrens-wellbeing-and-schools-act-2026$", "^ukpga-2026-21$"],
+      "patterns": [
+        "^childrens-wellbeing-and-schools-act-2026$",
+        "^ukpga-2026-21$"
+      ],
       "description": "Children's Wellbeing and Schools Act 2026 (including s. 70 / OSA s. 214A child online safety powers)",
       "weight": 95,
       "data": {
         "official_name": "Children's Wellbeing and Schools Act 2026",
         "common_name": "Children's Wellbeing and Schools Act 2026",
-        "alternate_names": ["2026 c. 21"],
+        "alternate_names": [
+          "2026 c. 21"
+        ],
         "description": "UK Act of Parliament on child protection and education; Section 70 inserts Section 214A into the Online Safety Act 2023 enabling secondary regulations to restrict, time-limit, or prevent children's access to specified services or interactive AI chatbot features of concern.",
         "notes": "Status: In force (Royal Assent April 2026; 2026 c. 21; verified as of 2026-11-04).",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/2026/21/contents"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/ukpga/2026/21/contents"
+          }
         ],
-        "examples": ["s-70"]
+        "examples": [
+          "s-70"
+        ]
       },
       "children": [
         {
-          "patterns": ["^s-\\d+[A-Z]?$"],
+          "patterns": [
+            "^s-\\d+[A-Z]?$"
+          ],
           "description": "Children's Wellbeing and Schools Act 2026 section reference (e.g., s-70)",
           "weight": 100,
           "data": {
@@ -143,7 +483,9 @@
             "examples": [
               {
                 "input": "s-70",
-                "variables": {"num": "70"},
+                "variables": {
+                  "num": "70"
+                },
                 "url": "https://www.legislation.gov.uk/ukpga/2026/21/section/70",
                 "note": "Section 70 — inserts Section 214A into the Online Safety Act 2023 on powers to restrict or prevent children's access to specified services or features"
               }
@@ -153,7 +495,10 @@
       ]
     },
     {
-      "patterns": ["(?i)^cma$", "(?i)^computer-misuse-act$"],
+      "patterns": [
+        "(?i)^cma$",
+        "(?i)^computer-misuse-act$"
+      ],
       "description": "Computer Misuse Act 1990",
       "weight": 100,
       "data": {
@@ -163,12 +508,68 @@
         "description": "UK's foundational computer-crime law. Criminalises unauthorised access (Section 1), unauthorised access with intent to commit further offences (Section 2), unauthorised modification (Section 3), and making/supplying tools for offences (Section 3A).",
         "notes": "Reform consultation ongoing (Home Office, 2023+) — possible new defence for legitimate security researchers.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/ukpga/1990/18/contents"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/ukpga/1990/18/contents"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|3A|3ZA|4|5|6|7|8|9|10|11|12|13|14|15|16|16A|17|18)$"
+          ],
+          "description": "CMA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "3A",
+              "3ZA",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "16A",
+              "17",
+              "18"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.uk/computer-misuse-act).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Unauthorised access to computer material."
+              },
+              {
+                "input": "2",
+                "note": "Unauthorised access with intent to commit or facilitate commission of further offences."
+              },
+              {
+                "input": "3",
+                "note": "Unauthorised acts with intent to impair, or with recklessness as to impairing, operation of computer, etc."
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^nis-regs-2018$"],
+      "patterns": [
+        "(?i)^nis-regs-2018$",
+        "^nis-regulations$"
+      ],
       "description": "Network and Information Systems Regulations 2018 (UK NIS)",
       "weight": 100,
       "data": {
@@ -178,12 +579,77 @@
         "description": "UK implementation of the original EU NIS Directive (now superseded in EU by NIS2). Covers Operators of Essential Services (OES) and Relevant Digital Service Providers (RDSPs).",
         "notes": "Pending modernisation via the UK Cyber Security and Resilience Bill announced 2024.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.legislation.gov.uk/uksi/2018/506/contents/made"}
+          {
+            "type": "legal_text",
+            "url": "https://www.legislation.gov.uk/uksi/2018/506/contents/made"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|10|11|12|13|14|14A|15|16|17|18|19|19A|19B|2|20|21|22|23|24|25|3|4|5|6|7|8|8A|9|A20)$"
+          ],
+          "description": "UK NIS section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "14A",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "19A",
+              "19B",
+              "2",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "8A",
+              "9",
+              "A20"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.uk/nis-regulations).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Introduction"
+              },
+              {
+                "input": "10",
+                "note": "Operators of essential services"
+              },
+              {
+                "input": "11",
+                "note": "Operators of essential services"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^ai-action-plan$"],
+      "patterns": [
+        "(?i)^ai-action-plan$",
+        "^ai-opportunities-action-plan$"
+      ],
       "description": "AI Opportunities Action Plan",
       "weight": 100,
       "data": {
@@ -193,13 +659,58 @@
         "description": "UK government plan for AI adoption and governance.",
         "notes": "Published January 2025. Policy direction, not binding legislation. Based on Matt Clifford's independent review. Covers AI infrastructure (compute, data), skills and talent, government adoption of AI, and regulatory approach. Emphasizes pro-innovation regulatory framework rather than comprehensive AI legislation.",
         "urls": [
-          {"type": "website", "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"}
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|1\\.1|1\\.2|1\\.3|1\\.4|2|2\\.1|2\\.2|2\\.3|2\\.4|3)$"
+          ],
+          "description": "AI Action Plan section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "1.1",
+              "1.2",
+              "1.3",
+              "1.4",
+              "2",
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4",
+              "3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.uk/ai-opportunities-action-plan).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Lay the foundations to enable AI"
+              },
+              {
+                "input": "1.1",
+                "note": "Building sufficient, secure and sustainable AI Infrastructure"
+              },
+              {
+                "input": "1.2",
+                "note": "Unlocking data assets in the public and private sector"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cyber-security-resilience-bill$"],
+      "patterns": [
+        "(?i)^cyber-security-resilience-bill$"
+      ],
       "description": "Cyber Security and Resilience Bill",
       "weight": 90,
       "data": {
@@ -209,13 +720,18 @@
         "description": "Proposed UK legislation (not yet enacted as of registration), sponsored by the Department for Science, Innovation and Technology (DSIT), expanding UK NIS Regulations 2018 (secid:regulation/gov.uk/nis-regs-2018) coverage to more digital services/supply chains, with stronger regulator enforcement and incident-reporting powers, and covering managed service providers.",
         "notes": "Status: Proposed (in progress; not yet Royal Assent; verified as of 2026-11-04). Revisit once enacted.",
         "urls": [
-          {"type": "website", "url": "https://www.gov.uk/government/publications/cyber-security-and-resilience-bill"}
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/cyber-security-and-resilience-bill"
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^atrs$"],
+      "patterns": [
+        "(?i)^atrs$"
+      ],
       "description": "Algorithmic Transparency Recording Standard",
       "weight": 90,
       "data": {
@@ -225,27 +741,178 @@
         "description": "Published by DSIT/Central Digital and Data Office. A structured template for publicly documenting how an algorithmic/AI tool used by a public sector body works, its data, oversight, and risks — the UK's answer to a public AI system-card registry. Mandatory since February 2024 for UK government departments/public bodies using algorithmic tools affecting the public.",
         "notes": "",
         "urls": [
-          {"type": "website", "url": "https://www.gov.uk/government/publications/algorithmic-transparency-recording-standard-guidance-for-public-sector-bodies"}
+          {
+            "type": "website",
+            "url": "https://www.gov.uk/government/publications/algorithmic-transparency-recording-standard-guidance-for-public-sector-bodies"
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^critical-third-parties-regime$"],
+      "patterns": [
+        "(?i)^critical-third-parties-regime$"
+      ],
       "description": "Critical Third Parties regime (financial sector operational resilience)",
       "weight": 90,
       "data": {
         "official_name": "Operational Resilience: Critical Third Parties to the UK Financial Sector",
         "common_name": "CTP Regime",
-        "alternate_names": ["PS16/24"],
+        "alternate_names": [
+          "PS16/24"
+        ],
         "description": "Joint rules from the Bank of England, Prudential Regulation Authority (PRA), and Financial Conduct Authority (FCA), under powers granted by the Financial Services and Markets Act 2023. Designates and regulates systemically important third-party service providers (cloud/tech vendors) to UK financial firms — operational resilience, incident notification, and testing requirements.",
         "notes": "Effective January 2025. Publishing bodies (Bank of England, PRA, FCA) do not yet have their own SecID entity entries -- this citation lives under the general gov.uk namespace as a sweep placeholder.",
         "urls": [
-          {"type": "website", "url": "https://www.bankofengland.co.uk/prudential-regulation/publication/2024/november/operational-resilience-critical-third-parties-uk-financial-sector-ps"}
+          {
+            "type": "website",
+            "url": "https://www.bankofengland.co.uk/prudential-regulation/publication/2024/november/operational-resilience-critical-third-parties-uk-financial-sector-ps"
+          }
         ],
         "examples": []
       }
+    },
+    {
+      "patterns": [
+        "^psti-act$",
+        "^ukpga-2022-46$"
+      ],
+      "description": "Product Security and Telecommunications Infrastructure Act 2022",
+      "weight": 90,
+      "data": {
+        "official_name": "Product Security and Telecommunications Infrastructure Act 2022 (c. 46)",
+        "common_name": "PSTI Act 2022",
+        "description": "UK Act of Parliament establishing mandatory cybersecurity requirements for consumer connectable products (Part 1) and updating telecommunications infrastructure code rights (Part 2).",
+        "notes": "Status: Enacted (Royal Assent December 6, 2022; Part 1 consumer connectable product security regime in force April 29, 2024; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.legislation.gov.uk/ukpga/2022/46/contents"
+          },
+          {
+            "type": "source",
+            "url": "https://www.legislation.gov.uk/ukpga/2022/46/data.xml"
+          }
+        ],
+        "examples": [
+          "psti-act",
+          "ukpga-2022-46"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73|74|75|76|77|78|79|80)$"
+          ],
+          "description": "PSTI Act 2022 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58",
+              "59",
+              "60",
+              "61",
+              "62",
+              "63",
+              "64",
+              "65",
+              "66",
+              "67",
+              "68",
+              "69",
+              "70",
+              "71",
+              "72",
+              "73",
+              "74",
+              "75",
+              "76",
+              "77",
+              "78",
+              "79",
+              "80"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.uk/psti-act).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Power to specify security requirements"
+              },
+              {
+                "input": "2",
+                "note": "Further provision about regulations under section 1"
+              },
+              {
+                "input": "3",
+                "note": "Power to deem compliance with security requirements"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["GB"]}
+  "tags": {
+    "country": [
+      "GB"
+    ]
+  }
 }

@@ -28,7 +28,43 @@
         "examples": [
           "ley-31814"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CAPÍTULO I|Artículo 1|Artículo 2|Artículo 3|CAPÍTULO II|Artículo 4|Artículo 5)$"
+          ],
+          "description": "Ley N.° 31814 — Ley que promueve el uso de la inteligencia artificial en favor del desarrollo económico y social del país (Peru AI Promotion Law) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CAPÍTULO I",
+              "Artículo 1",
+              "Artículo 2",
+              "Artículo 3",
+              "CAPÍTULO II",
+              "Artículo 4",
+              "Artículo 5"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gob.pe/ley-31814).",
+            "examples": [
+              {
+                "input": "CAPÍTULO I",
+                "note": "Section CAPÍTULO I"
+              },
+              {
+                "input": "Artículo 1",
+                "note": "Objeto de la Ley"
+              },
+              {
+                "input": "Artículo 2",
+                "note": "Interés nacional"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [

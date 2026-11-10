@@ -27,7 +27,7 @@
         "official_name": "Virginia Consumer Data Protection Act",
         "common_name": "VCDPA",
         "alternate_names": null,
-        "description": "Virginia's comprehensive consumer privacy law. Effective January 1, 2023 \u2014 the second US comprehensive privacy law after CCPA.",
+        "description": "Virginia's comprehensive consumer privacy law. Effective January 1, 2023 — the second US comprehensive privacy law after CCPA.",
         "notes": "",
         "urls": [
           {
@@ -36,7 +36,47 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:59\\.1-575|59\\.1-576|59\\.1-577|59\\.1-578|59\\.1-579|59\\.1-580|59\\.1-581|59\\.1-582|59\\.1-583|59\\.1-584|59\\.1-585)$"
+          ],
+          "description": "VCDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "59.1-575",
+              "59.1-576",
+              "59.1-577",
+              "59.1-578",
+              "59.1-579",
+              "59.1-580",
+              "59.1-581",
+              "59.1-582",
+              "59.1-583",
+              "59.1-584",
+              "59.1-585"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/virginia.gov/vcdpa).",
+            "examples": [
+              {
+                "input": "59.1-575",
+                "note": "Definitions"
+              },
+              {
+                "input": "59.1-576",
+                "note": "Scope; exemptions"
+              },
+              {
+                "input": "59.1-577",
+                "note": "Personal data rights; consumers"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

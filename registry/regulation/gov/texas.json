@@ -36,7 +36,29 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 3)$"
+          ],
+          "description": "CUBI section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/texas.gov/cubi-biometric-privacy).",
+            "examples": [
+              {
+                "input": "SECTION 3",
+                "note": "This Act takes effect September 1, 2009."
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -59,7 +81,56 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SECTION 2|CHAPTER 541|Sec\\. 541\\.004|Sec\\. 541\\.005|Sec\\. 541\\.051|Sec\\. 541\\.054|Sec\\. 541\\.103|Sec\\. 541\\.107|Sec\\. 541\\.151|Sec\\. 541\\.154|Sec\\. 541\\.156|Sec\\. 541\\.202|Sec\\. 541\\.203|Sec\\. 541\\.204|Sec\\. 541\\.205|SECTION 4|SECTION 5|SECTION 6|SECTION 7)$"
+          ],
+          "description": "TDPSA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SECTION 2",
+              "CHAPTER 541",
+              "Sec. 541.004",
+              "Sec. 541.005",
+              "Sec. 541.051",
+              "Sec. 541.054",
+              "Sec. 541.103",
+              "Sec. 541.107",
+              "Sec. 541.151",
+              "Sec. 541.154",
+              "Sec. 541.156",
+              "Sec. 541.202",
+              "Sec. 541.203",
+              "Sec. 541.204",
+              "Sec. 541.205",
+              "SECTION 4",
+              "SECTION 5",
+              "SECTION 6",
+              "SECTION 7"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/texas.gov/tdpsa).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "This Act may be cited as the Texas Data Privacy and Security Act."
+              },
+              {
+                "input": "SECTION 2",
+                "note": "Title 11, Business & Commerce Code, is amended by adding Subtitle C to read as follows:"
+              },
+              {
+                "input": "CHAPTER 541",
+                "note": "CONSUMER DATA PROTECTION"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -74,7 +145,59 @@
         "examples": [
           "hb-149"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SECTION 2|CHAPTER 551|Sec\\. 551\\.004|Sec\\. 551\\.051|Sec\\. 551\\.052|Sec\\. 551\\.054|Sec\\. 551\\.058|Sec\\. 551\\.061|Sec\\. 551\\.103|Sec\\. 551\\.105|Sec\\. 551\\.151|Sec\\. 551\\.152|CHAPTER 552|Sec\\. 552\\.053|CHAPTER 553|Sec\\. 553\\.004|Sec\\. 553\\.102|SECTION 4|SECTION 5|SECTION 7|SECTION 8|SECTION 9)$"
+          ],
+          "description": "Texas HB 149 — Texas Responsible Artificial Intelligence Governance Act (TRAIGA, Business & Commerce Code Subtitle D, enacted June 22, 2025, effective Jan 1, 2026) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SECTION 2",
+              "CHAPTER 551",
+              "Sec. 551.004",
+              "Sec. 551.051",
+              "Sec. 551.052",
+              "Sec. 551.054",
+              "Sec. 551.058",
+              "Sec. 551.061",
+              "Sec. 551.103",
+              "Sec. 551.105",
+              "Sec. 551.151",
+              "Sec. 551.152",
+              "CHAPTER 552",
+              "Sec. 552.053",
+              "CHAPTER 553",
+              "Sec. 553.004",
+              "Sec. 553.102",
+              "SECTION 4",
+              "SECTION 5",
+              "SECTION 7",
+              "SECTION 8",
+              "SECTION 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/texas.gov/hb-149).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "This Act may be cited as the Texas Responsible Artificial Intelligence Governance Act"
+              },
+              {
+                "input": "SECTION 2",
+                "note": "Title 11, Business & Commerce Code, is amended by adding Subtitle D to read as follows:"
+              },
+              {
+                "input": "CHAPTER 551",
+                "note": "ARTIFICIAL INTELLIGENCE PROTECTION"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -36,7 +36,54 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SECTION 2|47-18-3201|47-18-3202|47-18-3203|47-18-3204|47-18-3205|47-18-3207|47-18-3208|47-18-3209|47-18-3210|47-18-3211|47-18-3212|47-18-3213|SECTION 3|SECTION 4|SECTION 5|SECTION 6)$"
+          ],
+          "description": "TIPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SECTION 2",
+              "47-18-3201",
+              "47-18-3202",
+              "47-18-3203",
+              "47-18-3204",
+              "47-18-3205",
+              "47-18-3207",
+              "47-18-3208",
+              "47-18-3209",
+              "47-18-3210",
+              "47-18-3211",
+              "47-18-3212",
+              "47-18-3213",
+              "SECTION 3",
+              "SECTION 4",
+              "SECTION 5",
+              "SECTION 6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/tn.gov/tipa).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "This act is known and may be cited as the \"Tennessee Information"
+              },
+              {
+                "input": "SECTION 2",
+                "note": "Tennessee Code Annotated, Title 47, Chapter 18, is amended by adding"
+              },
+              {
+                "input": "47-18-3201",
+                "note": "Part definitions."
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

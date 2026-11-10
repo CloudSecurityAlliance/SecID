@@ -28,7 +28,42 @@
         "examples": [
           "law-230-viii"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Глава 1|Глава 2|Глава 3|Глава 4|Глава 5|Глава 6)$"
+          ],
+          "description": "Law of the Republic of Kazakhstan No. 230-VIII 'On Artificial Intelligence' (Об искусственном интеллекте, signed Nov 17, 2025) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Глава 1",
+              "Глава 2",
+              "Глава 3",
+              "Глава 4",
+              "Глава 5",
+              "Глава 6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/adilet.zan.kz/law-230-viii).",
+            "examples": [
+              {
+                "input": "Глава 1",
+                "note": "ОБЩИЕ ПОЛОЖЕНИЯ"
+              },
+              {
+                "input": "Глава 2",
+                "note": "ГОСУДАРСТВЕННОЕ РЕГУЛИРОВАНИЕ В СФЕРЕ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА"
+              },
+              {
+                "input": "Глава 3",
+                "note": "ПРАВА И ОБЯЗАННОСТИ СУБЪЕКТОВ ОБЩЕСТВЕННЫХ ОТНОШЕНИЙ В СФЕРЕ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

@@ -36,8 +36,47 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SECTION 2|SECTION 3)$"
+          ],
+          "description": "DTPPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SECTION 2",
+              "SECTION 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ri.gov/dtppa).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "Legislative findings."
+              },
+              {
+                "input": "SECTION 2",
+                "note": "Title 6 of the General Laws entitled \"COMMERCIAL LAW — GENERAL"
+              },
+              {
+                "input": "SECTION 3",
+                "note": "This act shall take effect on January 1, 2026."
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["RI"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "RI"
+    ]
+  }
 }

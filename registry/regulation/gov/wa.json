@@ -36,7 +36,51 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Chapter 19\\.373|Sections|RCW 19\\.373\\.005|RCW 19\\.373\\.010|RCW 19\\.373\\.020|RCW 19\\.373\\.030|RCW 19\\.373\\.040|RCW 19\\.373\\.050|RCW 19\\.373\\.060|RCW 19\\.373\\.070|RCW 19\\.373\\.080|RCW 19\\.373\\.090|RCW 19\\.373\\.100|\\(1\\)|RCW 19\\.373\\.900)$"
+          ],
+          "description": "MHMDA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Chapter 19.373",
+              "Sections",
+              "RCW 19.373.005",
+              "RCW 19.373.010",
+              "RCW 19.373.020",
+              "RCW 19.373.030",
+              "RCW 19.373.040",
+              "RCW 19.373.050",
+              "RCW 19.373.060",
+              "RCW 19.373.070",
+              "RCW 19.373.080",
+              "RCW 19.373.090",
+              "RCW 19.373.100",
+              "(1)",
+              "RCW 19.373.900"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/wa.gov/my-health-my-data-act).",
+            "examples": [
+              {
+                "input": "Chapter 19.373",
+                "note": "RCW"
+              },
+              {
+                "input": "Sections",
+                "note": "Section Sections"
+              },
+              {
+                "input": "RCW 19.373.005",
+                "note": "Finding—Intent—2023 c 191."
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -62,8 +106,53 @@
         "examples": [
           "hb-2225"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Sec\\. 1|Sec\\. 2|Sec\\. 3|Sec\\. 4|Sec\\. 5|Sec\\. 6|Sec\\. 7|Sec\\. 8|Sec\\. 9)$"
+          ],
+          "description": "Washington HB 2225 (AI Companion Chatbots) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Sec. 1",
+              "Sec. 2",
+              "Sec. 3",
+              "Sec. 4",
+              "Sec. 5",
+              "Sec. 6",
+              "Sec. 7",
+              "Sec. 8",
+              "Sec. 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/wa.gov/hb-2225).",
+            "examples": [
+              {
+                "input": "Sec. 1",
+                "note": "Section Sec. 1"
+              },
+              {
+                "input": "Sec. 2",
+                "note": "Section Sec. 2"
+              },
+              {
+                "input": "Sec. 3",
+                "note": "Section Sec. 3"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["WA"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "WA"
+    ]
+  }
 }

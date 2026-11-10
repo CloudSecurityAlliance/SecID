@@ -6,7 +6,9 @@
   "status_notes": "Source-level entries only — no article subpaths. Official translations (japaneselawtranslation.go.jp) return HTTP 403 to both plain HTTP fetches and a real browser (Playwright), even with browser-realistic headers; appears to be a network/WAF-level block rather than a JS-rendering issue. Structure below is sourced from secondary legal-summary sources (ICLG, Chambers Global Practice Guides), not the primary text. Revisit if the official translation becomes reachable.",
   "official_name": "National Cybersecurity Office (NCO)",
   "common_name": "NCO",
-  "alternate_names": ["NISC (predecessor name, 2015-2025)"],
+  "alternate_names": [
+    "NISC (predecessor name, 2015-2025)"
+  ],
   "notes": "See also registry/entity/jp/go/cyber.json (the NCO/NISC organization itself) and registry/control/jp/go/cyber.json (its control-type publications: Common Standards for Government Entities, Cybersecurity Policy for Critical Infrastructure Protection) for the other type-specific files under this same namespace. This regulation file covers the two laws administered through the NCO/Cybersecurity Strategic Headquarters: the Basic Act on Cybersecurity and the Active Cyber Defense Act.",
   "wikidata": null,
   "wikipedia": null,
@@ -35,24 +37,240 @@
             "note": "Returns HTTP 403 to automated and browser-based fetches as of 2026-07-16."
           }
         ],
-        "examples": ["basic-act-cybersecurity"]
-      }
+        "examples": [
+          "basic-act-cybersecurity"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一条|第二条|第三条|第四条|第五条|第六条|第七条|第八条|第九条|第十条|第十一条|第二章|第十二条|第三章|第十三条|第十四条|第十五条|第十六条|第十七条|第十八条|第十九条|第二十条|第二十一条|第二十二条|第二十三条|第四章|第二十四条|第二十五条|第二十六条|第二十七条|第二十八条|第二十九条|第三十条|第三十一条|第三十二条|第三十三条|第三十四条|第三十五条|第三十六条|第三十七条|第五章|第三十八条|附則|附則第一条|附則第二条|附則（平成二七年九月一一日法律第六六号）|附則（平成二七年九月一一日法律第六六号）第一条|附則（平成二七年九月三〇日法律第七六号）|附則（平成二七年九月三〇日法律第七六号）第一条|附則（平成二八年四月二二日法律第三一号）|附則（平成二八年四月二二日法律第三一号）第一条|附則（平成二八年四月二二日法律第三一号）第六条|附則（平成三〇年一二月一二日法律第九一号）|附則（令和元年五月二四日法律第一一号）|附則（令和元年五月二四日法律第一一号）第一条|附則（令和三年五月一九日法律第三五号）|附則（令和三年五月一九日法律第三五号）第一条|附則（令和三年五月一九日法律第三六号）|附則（令和三年五月一九日法律第三六号）第一条|附則（令和三年五月一九日法律第三六号）第五十七条|附則（令和三年五月一九日法律第三六号）第五十八条|附則（令和三年五月一九日法律第三六号）第五十九条|附則（令和三年五月一九日法律第三六号）第六十条|附則（令和四年六月一七日法律第六八号）|附則（令和七年五月二三日法律第四三号）|附則（令和七年五月二三日法律第四三号）第一条|附則（令和七年五月二三日法律第四三号）第二条|附則（令和七年五月二三日法律第四三号）第三条|附則（令和七年五月二三日法律第四三号）第四条)$"
+          ],
+          "description": "Basic Act on Cybersecurity (BAC) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一条",
+              "第二条",
+              "第三条",
+              "第四条",
+              "第五条",
+              "第六条",
+              "第七条",
+              "第八条",
+              "第九条",
+              "第十条",
+              "第十一条",
+              "第二章",
+              "第十二条",
+              "第三章",
+              "第十三条",
+              "第十四条",
+              "第十五条",
+              "第十六条",
+              "第十七条",
+              "第十八条",
+              "第十九条",
+              "第二十条",
+              "第二十一条",
+              "第二十二条",
+              "第二十三条",
+              "第四章",
+              "第二十四条",
+              "第二十五条",
+              "第二十六条",
+              "第二十七条",
+              "第二十八条",
+              "第二十九条",
+              "第三十条",
+              "第三十一条",
+              "第三十二条",
+              "第三十三条",
+              "第三十四条",
+              "第三十五条",
+              "第三十六条",
+              "第三十七条",
+              "第五章",
+              "第三十八条",
+              "附則",
+              "附則第一条",
+              "附則第二条",
+              "附則（平成二七年九月一一日法律第六六号）",
+              "附則（平成二七年九月一一日法律第六六号）第一条",
+              "附則（平成二七年九月三〇日法律第七六号）",
+              "附則（平成二七年九月三〇日法律第七六号）第一条",
+              "附則（平成二八年四月二二日法律第三一号）",
+              "附則（平成二八年四月二二日法律第三一号）第一条",
+              "附則（平成二八年四月二二日法律第三一号）第六条",
+              "附則（平成三〇年一二月一二日法律第九一号）",
+              "附則（令和元年五月二四日法律第一一号）",
+              "附則（令和元年五月二四日法律第一一号）第一条",
+              "附則（令和三年五月一九日法律第三五号）",
+              "附則（令和三年五月一九日法律第三五号）第一条",
+              "附則（令和三年五月一九日法律第三六号）",
+              "附則（令和三年五月一九日法律第三六号）第一条",
+              "附則（令和三年五月一九日法律第三六号）第五十七条",
+              "附則（令和三年五月一九日法律第三六号）第五十八条",
+              "附則（令和三年五月一九日法律第三六号）第五十九条",
+              "附則（令和三年五月一九日法律第三六号）第六十条",
+              "附則（令和四年六月一七日法律第六八号）",
+              "附則（令和七年五月二三日法律第四三号）",
+              "附則（令和七年五月二三日法律第四三号）第一条",
+              "附則（令和七年五月二三日法律第四三号）第二条",
+              "附則（令和七年五月二三日法律第四三号）第三条",
+              "附則（令和七年五月二三日法律第四三号）第四条"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cyber.go.jp/basic-act-cybersecurity).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "総則"
+              },
+              {
+                "input": "第一条",
+                "note": "（目的）"
+              },
+              {
+                "input": "第二条",
+                "note": "（定義）"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^active-cyber-defense-act$"],
+      "patterns": [
+        "(?i)^active-cyber-defense-act$"
+      ],
       "description": "Active Cyber Defense Act — Japan's first proactive/active cyber-defense law",
       "weight": 100,
       "data": {
         "official_name": "Act on Prevention of Damage Caused by Unauthorized Acts Against Important Computers",
-        "alternate_names": ["Active Cyber Defense Act", "Cyber Response Capability Enhancement Act", "ACD Law"],
+        "alternate_names": [
+          "Active Cyber Defense Act",
+          "Cyber Response Capability Enhancement Act",
+          "ACD Law"
+        ],
         "notes": "Act No. 42 of Reiwa 7 (2025). Promulgated/enacted May 2025; general provisions took effect July 1, 2025, with core incident-reporting obligations expected around October 1, 2026 and full operational deployment targeted FY2027. A companion 'arrangement act' (Act No. 43 of 2025) amends related laws, including interplay with the Telecommunications Business Act's secrecy-of-communications guarantee (secid:regulation/soumu.go.jp/telecommunications-business-act). Four main components: (1) government authority to acquire/analyze communications data for threat detection, (2) mandatory incident reporting by 'Special Social Infrastructure Operators' / critical-infrastructure operators, (3) public-private information-sharing agreements, (4) government authority to counter-access and neutralize attacker infrastructure, under new oversight by a Cyber Communications Information Management Committee (established April 2026). Japan's first 'active defense' law — structurally comparable to the EU's NIS2 Directive in its reporting-obligation scope, but distinct in authorizing government network monitoring and counter-access.",
         "urls": [
-          {"type": "official_japanese", "url": "https://laws.e-gov.go.jp/law/507AC0000000042", "note": "No official English statutory translation located as of 2026-07-16 (too recently enacted); japaneselawtranslation.go.jp does not yet list it."},
-          {"type": "secondary_summary", "url": "https://practiceguides.chambers.com/practice-guides/cybersecurity-2026/japan/trends-and-developments", "note": "Law-firm practice guide summary — fetched successfully, no block."}
+          {
+            "type": "official_japanese",
+            "url": "https://laws.e-gov.go.jp/law/507AC0000000042",
+            "note": "No official English statutory translation located as of 2026-07-16 (too recently enacted); japaneselawtranslation.go.jp does not yet list it."
+          },
+          {
+            "type": "secondary_summary",
+            "url": "https://practiceguides.chambers.com/practice-guides/cybersecurity-2026/japan/trends-and-developments",
+            "note": "Law-firm practice guide summary — fetched successfully, no block."
+          }
         ],
-        "examples": ["active-cyber-defense-act"]
-      }
+        "examples": [
+          "active-cyber-defense-act"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一条|第二条|第二条の二|第三条|第二章|第四条|第五条|第六条|第七条|第八条|第九条|第十条|第八章|第三十七条|第三十八条|第三十九条|第四十条|第四十一条|第四十二条|第四十三条|第四十四条|第九章|第四十五条|第十章|第一節|第四十六条|第四十七条|第四十八条|第四十九条|第五十条|第五十一条|第五十二条|第五十三条|第五十四条|第五十五条|第五十六条|第五十七条|第五十八条|第五十九条|第六十条|第六十一条|第六十二条|第十一章|第七十一条|第七十二条|第七十三条|第七十四条|第七十五条|第七十六条|第七十七条|第七十八条|第十二章|第八十二条|第八十三条|第八十四条|第八十五条|第八十六条|附則|附則第一条|附則第二条|附則第三条|附則第四条|附則第五条|附則第六条|附則第七条)$"
+          ],
+          "description": "Act on Prevention of Damage Caused by Unauthorized Acts Against Important Computers section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一条",
+              "第二条",
+              "第二条の二",
+              "第三条",
+              "第二章",
+              "第四条",
+              "第五条",
+              "第六条",
+              "第七条",
+              "第八条",
+              "第九条",
+              "第十条",
+              "第八章",
+              "第三十七条",
+              "第三十八条",
+              "第三十九条",
+              "第四十条",
+              "第四十一条",
+              "第四十二条",
+              "第四十三条",
+              "第四十四条",
+              "第九章",
+              "第四十五条",
+              "第十章",
+              "第一節",
+              "第四十六条",
+              "第四十七条",
+              "第四十八条",
+              "第四十九条",
+              "第五十条",
+              "第五十一条",
+              "第五十二条",
+              "第五十三条",
+              "第五十四条",
+              "第五十五条",
+              "第五十六条",
+              "第五十七条",
+              "第五十八条",
+              "第五十九条",
+              "第六十条",
+              "第六十一条",
+              "第六十二条",
+              "第十一章",
+              "第七十一条",
+              "第七十二条",
+              "第七十三条",
+              "第七十四条",
+              "第七十五条",
+              "第七十六条",
+              "第七十七条",
+              "第七十八条",
+              "第十二章",
+              "第八十二条",
+              "第八十三条",
+              "第八十四条",
+              "第八十五条",
+              "第八十六条",
+              "附則",
+              "附則第一条",
+              "附則第二条",
+              "附則第三条",
+              "附則第四条",
+              "附則第五条",
+              "附則第六条",
+              "附則第七条"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cyber.go.jp/active-cyber-defense-act).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "総則"
+              },
+              {
+                "input": "第一条",
+                "note": "（目的）"
+              },
+              {
+                "input": "第二条",
+                "note": "（定義）"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["JP"]}
+  "tags": {
+    "country": [
+      "JP"
+    ]
+  }
 }

@@ -6,47 +6,151 @@
   "status_notes": "Initial sweep entry — not deeply researched.",
   "official_name": "Gabinete de Segurança Institucional da Presidência da República",
   "common_name": "GSI",
-  "alternate_names": ["Institutional Security Office of the Presidency"],
+  "alternate_names": [
+    "Institutional Security Office of the Presidency"
+  ],
   "notes": "Coordinates Brazil's national cybersecurity policy and critical-infrastructure protection.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.gov.br/gsi/pt-br"}
+    {
+      "type": "website",
+      "url": "https://www.gov.br/gsi/pt-br"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^pnciber$"],
+      "patterns": [
+        "(?i)^pnciber$"
+      ],
       "description": "Política Nacional de Cibersegurança",
       "weight": 100,
       "data": {
         "official_name": "Política Nacional de Cibersegurança",
         "common_name": "PNCiber",
-        "alternate_names": ["Decreto 11.856/2023"],
+        "alternate_names": [
+          "Decreto 11.856/2023"
+        ],
         "description": "Brazil's first national cybersecurity policy, establishing the Comitê Nacional de Cibersegurança (CNCiber) and coordinating protection of critical infrastructure and federal public administration under GSI's executive secretariat.",
         "notes": "Superseded/updated by the second-generation Estratégia Nacional de Cibersegurança (e-Ciber, Decreto 12.573/2025) below.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11856.htm"}
+          {
+            "type": "legal_text",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11856.htm"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Art\\. 2º|Art\\. 3º|Art\\. 4º|Art\\. 6º|Art\\. 7º|Art\\. 8º|Art\\. 9º|Art\\. 10|Art\\. 12|Art\\. 13)$"
+          ],
+          "description": "PNCiber section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Art. 2º",
+              "Art. 3º",
+              "Art. 4º",
+              "Art. 6º",
+              "Art. 7º",
+              "Art. 8º",
+              "Art. 9º",
+              "Art. 10",
+              "Art. 12",
+              "Art. 13"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.br/gsi/pnciber).",
+            "examples": [
+              {
+                "input": "Art. 2º",
+                "note": "Section Art. 2º"
+              },
+              {
+                "input": "Art. 3º",
+                "note": "Section Art. 3º"
+              },
+              {
+                "input": "Art. 4º",
+                "note": "Section Art. 4º"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^e-ciber$"],
+      "patterns": [
+        "(?i)^e-ciber$"
+      ],
       "description": "Estratégia Nacional de Cibersegurança (e-Ciber)",
       "weight": 100,
       "data": {
         "official_name": "Estratégia Nacional de Cibersegurança",
         "common_name": "e-Ciber",
-        "alternate_names": ["Decreto 12.573/2025"],
+        "alternate_names": [
+          "Decreto 12.573/2025"
+        ],
         "description": "Second-generation national cybersecurity strategy, published August 4, 2025, replacing the 2020 strategy. Emphasizes digital sovereignty, resilience, and critical-services protection alongside PNCiber (secid:regulation/gov.br/gsi/pnciber).",
         "notes": "",
         "urls": [
-          {"type": "legal_text", "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12573.htm"},
-          {"type": "website", "url": "https://www.gov.br/gsi/pt-br/assuntos/seguranca-da-informacao-e-cibernetica/estrategia-nacional-de-ciberseguranca-eciber/p-ciber-1"}
+          {
+            "type": "legal_text",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12573.htm"
+          },
+          {
+            "type": "website",
+            "url": "https://www.gov.br/gsi/pt-br/assuntos/seguranca-da-informacao-e-cibernetica/estrategia-nacional-de-ciberseguranca-eciber/p-ciber-1"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Art\\. 1º|Art\\. 2º|Art\\. 3º|Art\\. 4º|Art\\. 5º|Art\\. 6º|Art\\. 7º|Art\\. 8º|Art\\. 9º|Art\\. 10)$"
+          ],
+          "description": "e-Ciber section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Art. 1º",
+              "Art. 2º",
+              "Art. 3º",
+              "Art. 4º",
+              "Art. 5º",
+              "Art. 6º",
+              "Art. 7º",
+              "Art. 8º",
+              "Art. 9º",
+              "Art. 10"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.br/gsi/e-ciber).",
+            "examples": [
+              {
+                "input": "Art. 1º",
+                "note": "Section Art. 1º"
+              },
+              {
+                "input": "Art. 2º",
+                "note": "Section Art. 2º"
+              },
+              {
+                "input": "Art. 3º",
+                "note": "Section Art. 3º"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["BR"]}
+  "tags": {
+    "country": [
+      "BR"
+    ]
+  }
 }

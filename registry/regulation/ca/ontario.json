@@ -4,37 +4,190 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Government of Ontario",
   "common_name": "Ontario",
   "alternate_names": null,
   "notes": "Government of Ontario canonical portal. e-Laws (ontario.ca/laws) publishes the consolidated text of provincial statutes.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.ontario.ca"},
-    {"type": "legislation", "url": "https://www.ontario.ca/laws"}
+    {
+      "type": "website",
+      "url": "https://www.ontario.ca"
+    },
+    {
+      "type": "legislation",
+      "url": "https://www.ontario.ca/laws"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^phipa$", "(?i)^ontario-phipa$"],
+      "patterns": [
+        "(?i)^phipa$",
+        "(?i)^ontario-phipa$"
+      ],
       "description": "Personal Health Information Protection Act, 2004",
       "weight": 100,
       "data": {
         "official_name": "Personal Health Information Protection Act, 2004",
         "common_name": "PHIPA",
-        "alternate_names": ["Ontario PHIPA"],
+        "alternate_names": [
+          "Ontario PHIPA"
+        ],
         "description": "Ontario's health information privacy law (SO 2004 c 3 Sched A). Governs health information custodians.",
         "urls": [
-          {"type": "website", "url": "https://www.ontario.ca/laws/statute/04p03"}
+          {
+            "type": "website",
+            "url": "https://www.ontario.ca/laws/statute/04p03"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|11\\.1|11\\.2|12|13|14|15|16|17|17\\.1|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|55\\.1|55\\.2|55\\.3|55\\.4|55\\.5|55\\.6|55\\.7|55\\.8|55\\.9|55\\.10|55\\.11|55\\.12|55\\.13|55\\.14|55\\.15|55\\.16|55\\.17|55\\.18|55\\.19|55\\.20|55\\.21|55\\.22|55\\.23|55\\.24|55\\.25|55\\.26|55\\.27|56|57|58|59|60|61|61\\.1|62|63|64|65|65\\.1|66|67|68|70|71|71\\.1|72|73|74|75|99|100)$"
+          ],
+          "description": "PHIPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "11.1",
+              "11.2",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "17.1",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "55.1",
+              "55.2",
+              "55.3",
+              "55.4",
+              "55.5",
+              "55.6",
+              "55.7",
+              "55.8",
+              "55.9",
+              "55.10",
+              "55.11",
+              "55.12",
+              "55.13",
+              "55.14",
+              "55.15",
+              "55.16",
+              "55.17",
+              "55.18",
+              "55.19",
+              "55.20",
+              "55.21",
+              "55.22",
+              "55.23",
+              "55.24",
+              "55.25",
+              "55.26",
+              "55.27",
+              "56",
+              "57",
+              "58",
+              "59",
+              "60",
+              "61",
+              "61.1",
+              "62",
+              "63",
+              "64",
+              "65",
+              "65.1",
+              "66",
+              "67",
+              "68",
+              "70",
+              "71",
+              "71.1",
+              "72",
+              "73",
+              "74",
+              "75",
+              "99",
+              "100"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ontario.ca/phipa).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Purposes"
+              },
+              {
+                "input": "2",
+                "note": "Definitions"
+              },
+              {
+                "input": "3",
+                "note": "Health information custodian"
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["CA"]},
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

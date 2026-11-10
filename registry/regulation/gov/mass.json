@@ -36,7 +36,61 @@
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:H\\.495|H\\.81|H\\.97|H\\.90|H\\.77|S\\.35|S\\.46|S\\.264|S\\.49|H\\.94|S\\.2632|S\\.2630|S\\.37|H\\.5073|H\\.5178|H\\.846|H\\.5094-A|H\\.1931|H\\.3983|H\\.76|HD\\.4827|S\\.44|S\\.2631|H\\.1136|S\\.1403)$"
+          ],
+          "description": "MA AI Bills section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "H.495",
+              "H.81",
+              "H.97",
+              "H.90",
+              "H.77",
+              "S.35",
+              "S.46",
+              "S.264",
+              "S.49",
+              "H.94",
+              "S.2632",
+              "S.2630",
+              "S.37",
+              "H.5073",
+              "H.5178",
+              "H.846",
+              "H.5094-A",
+              "H.1931",
+              "H.3983",
+              "H.76",
+              "HD.4827",
+              "S.44",
+              "S.2631",
+              "H.1136",
+              "S.1403"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/mass.gov/ai-bills).",
+            "examples": [
+              {
+                "input": "H.495",
+                "note": "Sponsor / Committee —  Rogers, David M."
+              },
+              {
+                "input": "H.81",
+                "note": "Sponsor / Committee —  Howitt, Steven S."
+              },
+              {
+                "input": "H.97",
+                "note": "Sponsor / Committee —  Rogers, David M."
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
