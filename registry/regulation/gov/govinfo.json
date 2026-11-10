@@ -89,25 +89,13 @@
         {
           "patterns": [
             "^1$",
-            "^101$",
-            "^2711$",
-            "^221$",
-            "^231$",
-            "^271$",
-            "^300$",
-            "^301$",
-            "^311$",
-            "^351$",
-            "^361$",
-            "^371$",
             "^401$",
-            "^500$",
-            "^501$",
-            "^511$",
-            "^512$",
-            "^513$",
-            "^521$",
+            "^101$",
+            "^701$",
             "^702$",
+            "^703$",
+            "^704$",
+            "^705$",
             "^706$",
             "^707$",
             "^102$",
@@ -115,8 +103,10 @@
             "^2702$",
             "^2712$",
             "^2713$",
+            "^2721$",
             "^2722$",
             "^2723$",
+            "^2791$",
             "^2792$",
             "^103$",
             "^104$",
@@ -124,6 +114,7 @@
             "^2741$",
             "^2742$",
             "^2743$",
+            "^2744$",
             "^2745$",
             "^2746$",
             "^2747$",
@@ -134,11 +125,13 @@
             "^195$",
             "^200$",
             "^201$",
+            "^1128C$",
             "^202$",
             "^1893$",
             "^203$",
             "^204$",
             "^205$",
+            "^1128D$",
             "^211$",
             "^212$",
             "^213$",
@@ -147,6 +140,9 @@
             "^216$",
             "^217$",
             "^218$",
+            "^221$",
+            "^1128E$",
+            "^231$",
             "^232$",
             "^241$",
             "^24$",
@@ -169,13 +165,19 @@
             "^1171$",
             "^1172$",
             "^1173$",
+            "^1174$",
             "^1175$",
             "^1176$",
             "^1177$",
+            "^1179$",
             "^263$",
             "^264$",
+            "^271$",
+            "^300$",
+            "^301$",
             "^220$",
             "^4980E$",
+            "^311$",
             "^321$",
             "^322$",
             "^6050Q$",
@@ -187,15 +189,27 @@
             "^332$",
             "^341$",
             "^342$",
+            "^351$",
+            "^361$",
+            "^371$",
             "^9801$",
             "^9802$",
             "^9803$",
+            "^9804$",
+            "^9805$",
+            "^9806$",
             "^402$",
             "^4980D$",
             "^421$",
-            "^6039F$"
+            "^500$",
+            "^501$",
+            "^511$",
+            "^512$",
+            "^6039F$",
+            "^513$",
+            "^521$"
           ],
-          "description": "Section/article/part identifier in hipaa (106 extracted sections)",
+          "description": "Section/article/part identifier in hipaa (120 extracted sections)",
           "weight": 90,
           "data": {
             "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
@@ -209,14 +223,14 @@
                 "note": "SHORT TITLE; TABLE OF CONTENTS."
               },
               {
+                "input": "401",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+                "note": "Group health plan portability, access, and renewability requirements. Sec. 402. Penalty on failure to meet certain gr..."
+              },
+              {
                 "input": "101",
                 "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
                 "note": "THROUGH THE EMPLOYEE RETIREMENT INCOME SECURITY **ACT OF 1974."
-              },
-              {
-                "input": "2711",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
-                "note": "Guaranteed availability of coverage for employers in the group market."
               }
             ]
           }
@@ -271,10 +285,9 @@
             "^3555$",
             "^3556$",
             "^3557$",
-            "^3558$",
-            "^223$"
+            "^3558$"
           ],
-          "description": "Section/article/part identifier in fisma (11 extracted sections)",
+          "description": "Section/article/part identifier in fisma (10 extracted sections)",
           "weight": 100,
           "data": {
             "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
@@ -343,13 +356,6 @@
         {
           "patterns": [
             "^1$",
-            "^151$",
-            "^161$",
-            "^231$",
-            "^241$",
-            "^315$",
-            "^341$",
-            "^401$",
             "^101$",
             "^102$",
             "^103$",
@@ -379,6 +385,8 @@
             "^133$",
             "^141$",
             "^142$",
+            "^151$",
+            "^161$",
             "^201$",
             "^202$",
             "^203$",
@@ -405,17 +413,21 @@
             "^223$",
             "^224$",
             "^225$",
+            "^231$",
+            "^241$",
             "^301$",
             "^302$",
             "^303$",
             "^304$",
             "^305$",
+            "^47$",
             "^306$",
             "^307$",
             "^308$",
             "^311$",
             "^312$",
             "^313$",
+            "^315$",
             "^316$",
             "^321$",
             "^322$",
@@ -432,6 +444,8 @@
             "^334$",
             "^335$",
             "^336$",
+            "^341$",
+            "^401$",
             "^501$",
             "^502$",
             "^503$",
@@ -457,12 +471,14 @@
             "^606$",
             "^607$",
             "^608$",
+            "^6$",
             "^701$",
             "^702$",
             "^703$",
             "^704$",
             "^705$",
             "^711$",
+            "^48$",
             "^712$",
             "^809$",
             "^713$",
@@ -501,7 +517,7 @@
             "^739$",
             "^740$"
           ],
-          "description": "Section/article/part identifier in glba (158 extracted sections)",
+          "description": "Section/article/part identifier in glba (161 extracted sections)",
           "weight": 100,
           "data": {
             "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
@@ -515,14 +531,14 @@
                 "note": "SHORT TITLE; TABLE OF CONTENTS."
               },
               {
-                "input": "151",
+                "input": "101",
                 "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
-                "note": "AUTHORITY OF NATIONAL BANKS TO UNDERWRITE CER-TAIN MUNICIPAL BONDS."
+                "note": "GLASS-STEAGALL ACT REPEALS."
               },
               {
-                "input": "161",
+                "input": "102",
                 "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
-                "note": "Effective date."
+                "note": "ACTIVITY RESTRICTIONS APPLICABLE TO BANK HOLDING COMPANIES THAT ARE NOT FINANCIAL HOLDING COMPA-"
               }
             ]
           }
@@ -1309,9 +1325,7 @@
         {
           "patterns": [
             "^1$",
-            "^231$",
             "^401$",
-            "^601$",
             "^101$",
             "^102$",
             "^103$",
@@ -1332,6 +1346,7 @@
             "^216$",
             "^221$",
             "^222$",
+            "^231$",
             "^241$",
             "^242$",
             "^243$",
@@ -1373,6 +1388,10 @@
             "^501$",
             "^502$",
             "^503$",
+            "^601$",
+            "^152601$",
+            "^152602$",
+            "^152603$",
             "^152604$",
             "^152605$",
             "^152606$",
@@ -1402,7 +1421,7 @@
             "^905$",
             "^906$"
           ],
-          "description": "Section/article/part identifier in hava (93 extracted sections)",
+          "description": "Section/article/part identifier in hava (96 extracted sections)",
           "weight": 100,
           "data": {
             "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
@@ -1416,14 +1435,14 @@
                 "note": "SHORT TITLE; TABLE OF CONTENTS."
               },
               {
-                "input": "231",
-                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
-                "note": "CERTIFICATION AND TESTING OF VOTING SYSTEMS.** 42 USC 15371."
-              },
-              {
                 "input": "401",
                 "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
-                "note": "ACTIONS BY THE ATTORNEY GENERAL FOR DECLARATORY 42 USC 15511. AND INJUNCTIVE RELIEF."
+                "note": "Actions by the Attorney General for declaratory and injunctive relief. Sec. 402. Establishment of State-based adminis..."
+              },
+              {
+                "input": "101",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+                "note": "PAYMENTS TO STATES FOR ACTIVITIES TO IMPROVE ADMINISTRATION OF ELECTIONS."
               }
             ]
           }
