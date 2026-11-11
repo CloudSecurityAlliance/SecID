@@ -7,7 +7,7 @@
   "official_name": "Personal Data Protection Commission, Singapore",
   "common_name": "PDPC",
   "alternate_names": null,
-  "notes": "Singapore's data protection authority \u2014 administers the Personal Data Protection Act 2012.",
+  "notes": "Singapore's data protection authority — administers the Personal Data Protection Act 2012.",
   "wikidata": null,
   "wikipedia": null,
   "urls": [
@@ -33,6 +33,13 @@
           {
             "type": "website",
             "url": "https://www.pdpc.gov.sg/Overview-of-PDPA/The-Legislation/Personal-Data-Protection-Act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -41,10 +48,135 @@
             "note": ""
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|15A|16|17|18|19|20|21|22|22A|23|24|25|26|26A|26B|26C|26D|26E|36|37|38|39|40|41|42|43|43A|44|45|46|47|48|48A|48B|48C|48D|48E|48F|48G|48H|48I|48J|48K|48L|48M|48N|48O|48P|48Q|48R|49|50|51|52|52A|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68)$"
+          ],
+          "description": "PDPA (Singapore) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "15A",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "22A",
+              "23",
+              "24",
+              "25",
+              "26",
+              "26A",
+              "26B",
+              "26C",
+              "26D",
+              "26E",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "43A",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "48A",
+              "48B",
+              "48C",
+              "48D",
+              "48E",
+              "48F",
+              "48G",
+              "48H",
+              "48I",
+              "48J",
+              "48K",
+              "48L",
+              "48M",
+              "48N",
+              "48O",
+              "48P",
+              "48Q",
+              "48R",
+              "49",
+              "50",
+              "51",
+              "52",
+              "52A",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58",
+              "59",
+              "60",
+              "61",
+              "62",
+              "63",
+              "64",
+              "65",
+              "66",
+              "67",
+              "68"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/pdpc.gov.sg/pdpa).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
+              },
+              {
+                "input": "2",
+                "note": "Interpretation",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
+              },
+              {
+                "input": "3",
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/pdpc.gov.sg/pdpa/pdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["SG"]},
+  "tags": {
+    "country": [
+      "SG"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

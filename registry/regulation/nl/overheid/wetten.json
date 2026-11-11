@@ -72,12 +72,133 @@
           {
             "type": "legal_text",
             "url": "https://wetten.overheid.nl/BWBR0040940"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Hoofdstuk 1|Artikel 1|Artikel 2|Artikel 2a|Artikel 3|Artikel 4|Artikel 5|Hoofdstuk 2|Artikel 6|Artikel 7|Artikel 8|Artikel 9|Artikel 10|Artikel 11|Artikel 12|Artikel 13|Artikel 14|Artikel 15|Artikel 16|Artikel 17|Artikel 18|Artikel 19|Artikel 20|Artikel 21|Artikel 21a|Artikel 21b|Hoofdstuk 3|Artikel 22|Artikel 23|Artikel 23a|Artikel 24|Artikel 25|Artikel 26|Artikel 27|Artikel 28|Artikel 29|Artikel 30|Artikel 30a|Artikel 30b|Artikel 31|Artikel 32|Artikel 33|Artikel 34|Artikel 35|Artikel 36|Artikel 37|Artikel 38|Artikel 39|Hoofdstuk 4|Artikel 40|Artikel 41|Artikel 42|Artikel 43|Artikel 44|Artikel 45|Artikel 46|Artikel 47|Artikel 47a|Hoofdstuk 5|Artikel 48|Artikel 48a|Artikel 48b|Artikel 49|Artikel 50|Artikel 51|Artikel 52|Artikel 53|Artikel 54)$"
+          ],
+          "description": "UAVG section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Hoofdstuk 1",
+              "Artikel 1",
+              "Artikel 2",
+              "Artikel 2a",
+              "Artikel 3",
+              "Artikel 4",
+              "Artikel 5",
+              "Hoofdstuk 2",
+              "Artikel 6",
+              "Artikel 7",
+              "Artikel 8",
+              "Artikel 9",
+              "Artikel 10",
+              "Artikel 11",
+              "Artikel 12",
+              "Artikel 13",
+              "Artikel 14",
+              "Artikel 15",
+              "Artikel 16",
+              "Artikel 17",
+              "Artikel 18",
+              "Artikel 19",
+              "Artikel 20",
+              "Artikel 21",
+              "Artikel 21a",
+              "Artikel 21b",
+              "Hoofdstuk 3",
+              "Artikel 22",
+              "Artikel 23",
+              "Artikel 23a",
+              "Artikel 24",
+              "Artikel 25",
+              "Artikel 26",
+              "Artikel 27",
+              "Artikel 28",
+              "Artikel 29",
+              "Artikel 30",
+              "Artikel 30a",
+              "Artikel 30b",
+              "Artikel 31",
+              "Artikel 32",
+              "Artikel 33",
+              "Artikel 34",
+              "Artikel 35",
+              "Artikel 36",
+              "Artikel 37",
+              "Artikel 38",
+              "Artikel 39",
+              "Hoofdstuk 4",
+              "Artikel 40",
+              "Artikel 41",
+              "Artikel 42",
+              "Artikel 43",
+              "Artikel 44",
+              "Artikel 45",
+              "Artikel 46",
+              "Artikel 47",
+              "Artikel 47a",
+              "Hoofdstuk 5",
+              "Artikel 48",
+              "Artikel 48a",
+              "Artikel 48b",
+              "Artikel 49",
+              "Artikel 50",
+              "Artikel 51",
+              "Artikel 52",
+              "Artikel 53",
+              "Artikel 54"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/wetten.overheid.nl/uavg).",
+            "examples": [
+              {
+                "input": "Hoofdstuk 1",
+                "note": "Algemene bepalingen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
+              },
+              {
+                "input": "Artikel 1",
+                "note": "Definities",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
+              },
+              {
+                "input": "Artikel 2",
+                "note": "Materiële reikwijdte",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/wetten.overheid.nl/uavg/uavg-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["NL"]},
+  "tags": {
+    "country": [
+      "NL"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

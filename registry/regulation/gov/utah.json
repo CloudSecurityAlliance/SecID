@@ -33,10 +33,74 @@
           {
             "type": "website",
             "url": "https://le.utah.gov/~2022/bills/static/SB0227.html"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:13-61-101|13-61-102|13-61-103|13-61-201|13-61-202|13-61-203|13-61-301|13-61-302|13-61-303|13-61-304|13-61-305|13-61-401|13-61-402|13-61-403|13-61-404)$"
+          ],
+          "description": "UCPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "13-61-101",
+              "13-61-102",
+              "13-61-103",
+              "13-61-201",
+              "13-61-202",
+              "13-61-203",
+              "13-61-301",
+              "13-61-302",
+              "13-61-303",
+              "13-61-304",
+              "13-61-305",
+              "13-61-401",
+              "13-61-402",
+              "13-61-403",
+              "13-61-404"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/utah.gov/ucpa).",
+            "examples": [
+              {
+                "input": "13-61-101",
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa-sections.json"
+              },
+              {
+                "input": "13-61-102",
+                "note": "Applicability",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa-sections.json"
+              },
+              {
+                "input": "13-61-103",
+                "note": "Preemption Reference to other laws",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/ucpa/ucpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -58,12 +122,74 @@
           {
             "type": "legal_text",
             "url": "https://le.utah.gov/~2025/bills/static/HB0452.html"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "hb-452"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:13-2-1|Chapter 72a|Part 1|13-72a-101|Part 2|13-72a-201|13-72a-202|13-72a-203|13-72a-204|Part 3|13-72a-301|58-60-118|Section 9)$"
+          ],
+          "description": "Utah HB 452 (Mental Health Chatbots) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "13-2-1",
+              "Chapter 72a",
+              "Part 1",
+              "13-72a-101",
+              "Part 2",
+              "13-72a-201",
+              "13-72a-202",
+              "13-72a-203",
+              "13-72a-204",
+              "Part 3",
+              "13-72a-301",
+              "58-60-118",
+              "Section 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/utah.gov/hb-452).",
+            "examples": [
+              {
+                "input": "13-2-1",
+                "note": "Consumer protection division established -- Functions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452-sections.json"
+              },
+              {
+                "input": "Chapter 72a",
+                "note": "ARTIFICIAL INTELLIGENCE APPLICATIONS RELATING TO MENTAL HEALTH",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452-sections.json"
+              },
+              {
+                "input": "Part 1",
+                "note": "General Provisions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/hb-452/hb-452-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -77,8 +203,75 @@
         "url": "https://le.utah.gov/~2024/bills/static/SB0149.html",
         "examples": [
           "sb-149"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:13-2-12|13-11-4|13-61-101|Chapter 70|Part 1|13-70-101|Part 2|13-70-201|Part 3|13-70-301|13-70-302|13-70-303|13-70-304|13-70-305|76-2-107|Section 13)$"
+          ],
+          "description": "Utah SB 149 — Artificial Intelligence Policy Act (UAIPA, generative AI consumer interaction disclosure requirements, enacted March 2024, amended by SB 226 in 2025) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "13-2-12",
+              "13-11-4",
+              "13-61-101",
+              "Chapter 70",
+              "Part 1",
+              "13-70-101",
+              "Part 2",
+              "13-70-201",
+              "Part 3",
+              "13-70-301",
+              "13-70-302",
+              "13-70-303",
+              "13-70-304",
+              "13-70-305",
+              "76-2-107",
+              "Section 13"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/utah.gov/sb-149).",
+            "examples": [
+              {
+                "input": "13-2-12",
+                "note": "Generative artificial intelligence -- Impact on liability for violation of consumer protection law.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149-sections.json"
+              },
+              {
+                "input": "13-11-4",
+                "note": "Deceptive act or practice by supplier.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149-sections.json"
+              },
+              {
+                "input": "13-61-101",
+                "note": "Definitions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-149/sb-149-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -91,8 +284,66 @@
         "url": "https://le.utah.gov/~2025/bills/static/SB0226.html",
         "examples": [
           "sb-226"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:13-75-101|13-75-102|13-75-103|13-75-104|13-75-105|13-75-106|Section\\ 9)$"
+          ],
+          "description": "Utah SB 226 — Artificial Intelligence Consumer Protection Amendments (enacted March 2025, effective May 7, 2025) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "known_values": [
+              "13-75-101",
+              "13-75-102",
+              "13-75-103",
+              "13-75-104",
+              "13-75-105",
+              "13-75-106",
+              "Section 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/utah.gov/sb-226).",
+            "examples": [
+              {
+                "input": "13-75-101",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226-sections.json",
+                "note": "Effective 05/07/25. Definitions."
+              },
+              {
+                "input": "13-75-102",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226-sections.json",
+                "note": "Effective 05/07/25. Liability for violation of consumer protection law."
+              },
+              {
+                "input": "13-75-103",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/utah.gov/sb-226/sb-226-sections.json",
+                "note": "Effective 05/07/25. Required disclosures."
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "tags": {

@@ -19,7 +19,8 @@
   "match_nodes": [
     {
       "patterns": [
-        "(?i)^ccpa$"
+        "(?i)^ccpa$",
+        "^ccpa-cpra$"
       ],
       "description": "California Consumer Privacy Act",
       "weight": 100,
@@ -35,6 +36,13 @@
           {
             "type": "website",
             "url": "https://oag.ca.gov/privacy/ccpa"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -55,17 +63,23 @@
             "examples": [
               {
                 "input": "1798.100",
-                "note": "Right to know what personal information is collected"
+                "note": "Right to know what personal information is collected",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json"
               },
               {
                 "input": "1798.120",
-                "note": "Right to opt out of sale of personal information"
+                "note": "Right to opt out of sale of personal information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json"
               },
               {
                 "input": "1798.150",
-                "note": "Private right of action for data breaches (limited scope)"
+                "note": "Private right of action for data breaches (limited scope)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -88,6 +102,13 @@
           {
             "type": "website",
             "url": "https://cppa.ca.gov"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -107,9 +128,13 @@
             "examples": [
               {
                 "input": "1798.185",
-                "note": "CPPA rulemaking authority — regulations implementing CCPA/CPRA"
+                "note": "CPPA rulemaking authority — regulations implementing CCPA/CPRA",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ccpa-cpra/ccpa-cpra-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
@@ -132,6 +157,20 @@
           {
             "type": "website",
             "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=8.&chapter=22.&lawCode=BPC"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/caloppa/caloppa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/caloppa/caloppa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
@@ -151,20 +190,26 @@
             "examples": [
               {
                 "input": "22575",
-                "note": "Requirement to conspicuously post privacy policy"
+                "note": "Requirement to conspicuously post privacy policy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/caloppa/caloppa-sections.json"
               },
               {
                 "input": "22577",
-                "note": "Required contents of privacy policy"
+                "note": "Required contents of privacy policy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/caloppa/caloppa-sections.json"
               }
-            ]
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/caloppa/caloppa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
           }
         }
       ]
     },
     {
       "patterns": [
-        "(?i)^sb-53$"
+        "(?i)^sb-53$",
+        "^sb-53-transparency-in-frontier-ai-act$"
       ],
       "description": "California SB-53 (Frontier AI Transparency Act)",
       "weight": 100,
@@ -181,10 +226,71 @@
           {
             "type": "website",
             "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-53-transparency-in-frontier-ai-act/sb-53-transparency-in-frontier-ai-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SECTION 2|CHAPTER 25\\.1|22757\\.10|22757\\.11|22757\\.12|22757\\.13|22757\\.14|22757\\.15|22757\\.16|SECTION 3|11546\\.8|SECTION 4|CHAPTER 5\\.1|1107|1107\\.1|1107\\.2|SECTION 5|SECTION 6)$"
+          ],
+          "description": "SB-53 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SECTION 2",
+              "CHAPTER 25.1",
+              "22757.10",
+              "22757.11",
+              "22757.12",
+              "22757.13",
+              "22757.14",
+              "22757.15",
+              "22757.16",
+              "SECTION 3",
+              "11546.8",
+              "SECTION 4",
+              "CHAPTER 5.1",
+              "1107",
+              "1107.1",
+              "1107.2",
+              "SECTION 5",
+              "SECTION 6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-53-transparency-in-frontier-ai-act).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "Legislative Findings and Declarations",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-53-transparency-in-frontier-ai-act/sb-53-transparency-in-frontier-ai-act-sections.json"
+              },
+              {
+                "input": "SECTION 2",
+                "note": "Transparency in Frontier Artificial Intelligence Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-53-transparency-in-frontier-ai-act/sb-53-transparency-in-frontier-ai-act-sections.json"
+              },
+              {
+                "input": "CHAPTER 25.1",
+                "note": "Transparency in Frontier Artificial Intelligence Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-53-transparency-in-frontier-ai-act/sb-53-transparency-in-frontier-ai-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-53-transparency-in-frontier-ai-act/sb-53-transparency-in-frontier-ai-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -206,12 +312,72 @@
           {
             "type": "legal_text",
             "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "sb-243"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 677|SECTION 1|CHAPTER  22\\.6|22601|22602|22603|\\(1\\)|22604|22605|22606|SEC\\. 2)$"
+          ],
+          "description": "SB 243 (Companion Chatbots) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 677",
+              "SECTION 1",
+              "CHAPTER  22.6",
+              "22601",
+              "22602",
+              "22603",
+              "(1)",
+              "22604",
+              "22605",
+              "22606",
+              "SEC. 2"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-243).",
+            "examples": [
+              {
+                "input": "CHAPTER 677",
+                "note": "Section CHAPTER 677",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243-sections.json"
+              },
+              {
+                "input": "CHAPTER  22.6",
+                "note": "Companion Chatbots",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-243/sb-243-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -233,13 +399,89 @@
           {
             "type": "legal_text",
             "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "sb-1119",
           "adams-law"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 190|SECTION 1|22602|SEC\\. 2|CHAPTER  11\\.6|21810|21810\\.5|\\(1\\)|\\(2\\) \\(1\\)|21811|\\(2\\) \\(2\\)|21812|\\(2\\) \\(3\\)|\\(5\\) \\(1\\)|21812\\.5|21813|\\(A\\) Reasonable: 21814 \\(1\\)|\\(A\\) Reasonable: 21814 \\(2\\)|\\(5\\) \\(2\\)|21815|21816|\\(3\\)|21817|21818|SEC\\. 3|SEC\\. 4|SEC\\. 5)$"
+          ],
+          "description": "SB 1119 (Adam's Law) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 190",
+              "SECTION 1",
+              "22602",
+              "SEC. 2",
+              "CHAPTER  11.6",
+              "21810",
+              "21810.5",
+              "(1)",
+              "(2) (1)",
+              "21811",
+              "(2) (2)",
+              "21812",
+              "(2) (3)",
+              "(5) (1)",
+              "21812.5",
+              "21813",
+              "(A) Reasonable: 21814 (1)",
+              "(A) Reasonable: 21814 (2)",
+              "(5) (2)",
+              "21815",
+              "21816",
+              "(3)",
+              "21817",
+              "21818",
+              "SEC. 3",
+              "SEC. 4",
+              "SEC. 5"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-1119).",
+            "examples": [
+              {
+                "input": "CHAPTER 190",
+                "note": "Section CHAPTER 190",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119-sections.json"
+              },
+              {
+                "input": "22602",
+                "note": "Section 22602",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1119/sb-1119-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -260,12 +502,66 @@
           {
             "type": "legal_text",
             "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB867"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "sb-867"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 189|SECTION 1|22601|SEC\\. 2|22604\\.5)$"
+          ],
+          "description": "SB 867 (Chatbots in Toys) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 189",
+              "SECTION 1",
+              "22601",
+              "SEC. 2",
+              "22604.5"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-867).",
+            "examples": [
+              {
+                "input": "CHAPTER 189",
+                "note": "Section CHAPTER 189",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867-sections.json"
+              },
+              {
+                "input": "22601",
+                "note": "Section 22601",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-867/sb-867-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -278,8 +574,66 @@
         "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB2013",
         "examples": [
           "ab-2013"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 817|SECTION 1|TITLE 15\\.2|3110|3111|\\(1\\)|\\(2\\))$"
+          ],
+          "description": "California AB 2013 — Generative Artificial Intelligence: Training Data Transparency (Civil Code § 3110 et seq., enacted Sept 28, 2024, effective Jan 1, 2026) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 817",
+              "SECTION 1",
+              "TITLE 15.2",
+              "3110",
+              "3111",
+              "(1)",
+              "(2)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/ab-2013).",
+            "examples": [
+              {
+                "input": "CHAPTER 817",
+                "note": "Section CHAPTER 817",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013-sections.json"
+              },
+              {
+                "input": "TITLE 15.2",
+                "note": "Artificial Intelligence Training Data Transparency",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-2013/ab-2013-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -292,8 +646,75 @@
         "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB942",
         "examples": [
           "sb-942"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 291|SECTION 1|CHAPTER  25|22757|22757\\.1|\\(1\\) \\(1\\)|\\(1\\) \\(2\\)|\\(2\\) \\(1\\)|22757\\.2|\\(6\\)|22757\\.3|22757\\.4|\\(1\\) \\(3\\)|\\(2\\) \\(2\\)|22757\\.5|22757\\.6)$"
+          ],
+          "description": "California SB 942 — California AI Transparency Act (Business and Professions Code § 22757 et seq., enacted Sept 19, 2024) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 291",
+              "SECTION 1",
+              "CHAPTER  25",
+              "22757",
+              "22757.1",
+              "(1) (1)",
+              "(1) (2)",
+              "(2) (1)",
+              "22757.2",
+              "(6)",
+              "22757.3",
+              "22757.4",
+              "(1) (3)",
+              "(2) (2)",
+              "22757.5",
+              "22757.6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-942).",
+            "examples": [
+              {
+                "input": "CHAPTER 291",
+                "note": "Section CHAPTER 291",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942-sections.json"
+              },
+              {
+                "input": "CHAPTER  25",
+                "note": "AI Transparency Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-942/sb-942-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -306,8 +727,64 @@
         "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB3030",
         "examples": [
           "ab-3030"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 848|SECTION 1|CHAPTER  2\\.13|1339\\.75|\\(4\\))$"
+          ],
+          "description": "California AB 3030 — Health Care Services: Artificial Intelligence (GenAI patient communication disclosures, Health and Safety Code § 1339.75, effective Jan 1, 2025) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 848",
+              "SECTION 1",
+              "CHAPTER  2.13",
+              "1339.75",
+              "(4)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/ab-3030).",
+            "examples": [
+              {
+                "input": "CHAPTER 848",
+                "note": "Section CHAPTER 848",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030-sections.json"
+              },
+              {
+                "input": "CHAPTER  2.13",
+                "note": "Artificial Intelligence in Health Care Services",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-3030/ab-3030-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -320,8 +797,301 @@
         "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB1008",
         "examples": [
           "ab-1008"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 802|SECTION 1|1798\\.140 \\(1\\)|\\(5\\)|\\(6\\) \\(1\\)|\\(1\\) \\(1\\)|\\(2\\) \\(1\\)|\\(3\\) \\(1\\)|SEC\\. 1\\.5|1798\\.140 \\(2\\)|\\(6\\) \\(2\\)|\\(1\\) \\(2\\)|\\(2\\) \\(2\\)|\\(3\\) \\(2\\)|SEC\\. 2|SEC\\. 3)$"
+          ],
+          "description": "California AB 1008 — California Consumer Privacy Act of 2018: Personal Information in AI Systems (Civil Code § 1798.140, enacted Sept 28, 2024) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 802",
+              "SECTION 1",
+              "1798.140 (1)",
+              "(5)",
+              "(6) (1)",
+              "(1) (1)",
+              "(2) (1)",
+              "(3) (1)",
+              "SEC. 1.5",
+              "1798.140 (2)",
+              "(6) (2)",
+              "(1) (2)",
+              "(2) (2)",
+              "(3) (2)",
+              "SEC. 2",
+              "SEC. 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/ab-1008).",
+            "examples": [
+              {
+                "input": "CHAPTER 802",
+                "note": "Section CHAPTER 802",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008-sections.json"
+              },
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008-sections.json"
+              },
+              {
+                "input": "1798.140 (1)",
+                "note": "1798.140",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/ab-1008/ab-1008-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^physicians-make-decisions-act$",
+        "^sb-1120$"
+      ],
+      "description": "California SB 1120 — Physicians Make Decisions Act",
+      "weight": 90,
+      "data": {
+        "official_name": "California SB-1120: Physicians Make Decisions Act (Health & Safety Code § 1367.01; Insurance Code § 10123.135)",
+        "common_name": "Physicians Make Decisions Act (SB 1120)",
+        "description": "Requires health care service plans and disability insurers using artificial intelligence or algorithmic decision tools for utilization review to ensure medical necessity determinations are made by licensed physicians or health care professionals.",
+        "notes": "Status: Enacted (Approved by Governor September 28, 2024; Chapter 879, Statutes of 2024; effective January 1, 2025; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB1120"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "physicians-make-decisions-act",
+          "sb-1120"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|1367\\.01|Section 1363\\.5|SEC\\. 2|10123\\.135|SEC\\. 3)$"
+          ],
+          "description": "Physicians Make Decisions Act (SB 1120) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "1367.01",
+              "Section 1363.5",
+              "SEC. 2",
+              "10123.135",
+              "SEC. 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/physicians-make-decisions-act).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act-sections.json"
+              },
+              {
+                "input": "1367.01",
+                "note": "Section 1367.01",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act-sections.json"
+              },
+              {
+                "input": "Section 1363.5",
+                "note": "Section Section 1363.5",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/physicians-make-decisions-act/physicians-make-decisions-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^sb-1001-bot-disclosure$",
+        "^sb-1001$"
+      ],
+      "description": "California SB 1001 — Bolstering Online Transparency Act (Bot Disclosure)",
+      "weight": 90,
+      "data": {
+        "official_name": "Bolstering Online Transparency Act (California Business and Professions Code §§ 17940–17943)",
+        "common_name": "California Bot Disclosure Law (SB 1001)",
+        "description": "Prohibits using an automated online account (bot) to communicate or interact with another person in California online with the intent to mislead about its artificial identity for commercial transactions or election influence.",
+        "notes": "Status: Enacted (Approved by Governor September 28, 2018; Chapter 892, Statutes of 2018; effective July 1, 2019; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180SB1001"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "sb-1001-bot-disclosure",
+          "sb-1001"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|17940|17941|17942|17943)$"
+          ],
+          "description": "California Bot Disclosure Law (SB 1001) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "17940",
+              "17941",
+              "17942",
+              "17943"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-1001-bot-disclosure).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "Section SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure-sections.json"
+              },
+              {
+                "input": "17940",
+                "note": "Section 17940",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure-sections.json"
+              },
+              {
+                "input": "17941",
+                "note": "Section 17941",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-1001-bot-disclosure/sb-1001-bot-disclosure-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^sb-327-iot-security$",
+        "^sb-327$"
+      ],
+      "description": "California SB 327 — Information Privacy: Connected Devices",
+      "weight": 90,
+      "data": {
+        "official_name": "California SB-327: Information Privacy: Connected Devices (Civil Code §§ 1798.91.04–1798.91.06)",
+        "common_name": "California IoT Security Law (SB 327)",
+        "description": "Requires manufacturers of connected devices sold or offered for sale in California to equip devices with reasonable security features appropriate to the nature and function of the device, including unique preprogrammed passwords or first-use password generation.",
+        "notes": "Status: Enacted (Approved by Governor September 28, 2018; Chapter 886, Statutes of 2018; effective January 1, 2020; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.26.&part=4.&chapter="
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-327-iot-security/sb-327-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "sb-327-iot-security",
+          "sb-327"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1798\\.91\\.04|1798\\.91\\.05|1798\\.91\\.06)$"
+          ],
+          "description": "California IoT Security Law (SB 327) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1798.91.04",
+              "1798.91.05",
+              "1798.91.06"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/ca.gov/sb-327-iot-security).",
+            "examples": [
+              {
+                "input": "1798.91.04",
+                "note": "Section 1798.91.04",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-327-iot-security/sb-327-sections.json"
+              },
+              {
+                "input": "1798.91.05",
+                "note": "Section 1798.91.05",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-327-iot-security/sb-327-sections.json"
+              },
+              {
+                "input": "1798.91.06",
+                "note": "Section 1798.91.06",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-327-iot-security/sb-327-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/ca.gov/sb-327-iot-security/sb-327-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
   "tags": {

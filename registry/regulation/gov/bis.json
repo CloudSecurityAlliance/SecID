@@ -11,23 +11,117 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.bis.gov"}
+    {
+      "type": "website",
+      "url": "https://www.bis.gov"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^ear-advanced-computing$"],
+      "patterns": [
+        "(?i)^ear-advanced-computing$"
+      ],
       "description": "Export Administration Regulations — advanced computing / AI model weight export controls",
       "weight": 80,
       "data": {
         "official_name": "Export Administration Regulations (EAR) — advanced computing and semiconductor manufacturing items controls",
         "notes": "Complicated, fast-moving area as of mid-2026. The 'Framework for Artificial Intelligence Diffusion' rule (Jan 15, 2025) revised EAR advanced-computing controls and added ECCN 4E091 (a worldwide license requirement for closed model weights of the most advanced dual-use AI models) but was RESCINDED by the following administration before its May 15 2025 compliance date, with no consolidated replacement rule as of this registration. Current posture is a patchwork: pre-existing EAR Entity List / ECCN 3A090 controls, non-regulatory guidance warning against supporting Chinese AI model training/inference, and a narrower Jan 2026 rule adjusting license-review policy for advanced-computing semiconductor exports to China/Macau. Cite the original Diffusion Rule as historical/superseded context; do not treat as the current rule.",
         "urls": [
-          {"type": "document", "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00636/framework-for-artificial-intelligence-diffusion", "note": "Original rule, superseded/rescinded"},
-          {"type": "document", "url": "https://www.bis.gov/press-release/department-commerce-rescinds-biden-era-artificial-intelligence-diffusion-rule-strengthens-chip-related", "note": "Rescission announcement"}
+          {
+            "type": "document",
+            "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00636/framework-for-artificial-intelligence-diffusion",
+            "note": "Original rule, superseded/rescinded"
+          },
+          {
+            "type": "document",
+            "url": "https://www.bis.gov/press-release/department-commerce-rescinds-biden-era-artificial-intelligence-diffusion-rule-strengthens-chip-related",
+            "note": "Rescission announcement"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
-        "examples": ["ear-advanced-computing"]
-      }
+        "examples": [
+          "ear-advanced-computing"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:I|II|III|IV|PART 734|PART 732|§ 740\\.8|PART 740|§ 740\\.2|§ 740\\.27|§ 740\\.28|§ 740\\.29|PART 742|§ 742\\.6|PART 748|PART 744|§ 748\\.15|PART 744 I|PART 744 II|PART 750|§ 762\\.2|\\(60\\)|PART 772|§ 772\\.1|PART 774|PART 762)$"
+          ],
+          "description": "Export Administration Regulations (EAR) — advanced computing and semiconductor manufacturing items controls section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "I",
+              "II",
+              "III",
+              "IV",
+              "PART 734",
+              "PART 732",
+              "§ 740.8",
+              "PART 740",
+              "§ 740.2",
+              "§ 740.27",
+              "§ 740.28",
+              "§ 740.29",
+              "PART 742",
+              "§ 742.6",
+              "PART 748",
+              "PART 744",
+              "§ 748.15",
+              "PART 744 I",
+              "PART 744 II",
+              "PART 750",
+              "§ 762.2",
+              "(60)",
+              "PART 772",
+              "§ 772.1",
+              "PART 774",
+              "PART 762"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/bis.gov/ear-advanced-computing).",
+            "examples": [
+              {
+                "input": "I",
+                "note": "Background",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
+              },
+              {
+                "input": "II",
+                "note": "Expanded Advanced Computing",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
+              },
+              {
+                "input": "III",
+                "note": "Overview of New Controls for AI",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/bis.gov/ear-advanced-computing/ear-advanced-computing-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"]}
+  "tags": {
+    "country": [
+      "US"
+    ]
+  }
 }

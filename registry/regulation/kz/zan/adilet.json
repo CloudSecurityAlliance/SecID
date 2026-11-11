@@ -27,8 +27,65 @@
         "url": "https://adilet.zan.kz/rus/docs/Z2500000230",
         "examples": [
           "law-230-viii"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Глава 1|Глава 2|Глава 3|Глава 4|Глава 5|Глава 6)$"
+          ],
+          "description": "Law of the Republic of Kazakhstan No. 230-VIII 'On Artificial Intelligence' (Об искусственном интеллекте, signed Nov 17, 2025) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Глава 1",
+              "Глава 2",
+              "Глава 3",
+              "Глава 4",
+              "Глава 5",
+              "Глава 6"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/adilet.zan.kz/law-230-viii).",
+            "examples": [
+              {
+                "input": "Глава 1",
+                "note": "ОБЩИЕ ПОЛОЖЕНИЯ",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii-sections.json"
+              },
+              {
+                "input": "Глава 2",
+                "note": "ГОСУДАРСТВЕННОЕ РЕГУЛИРОВАНИЕ В СФЕРЕ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii-sections.json"
+              },
+              {
+                "input": "Глава 3",
+                "note": "ПРАВА И ОБЯЗАННОСТИ СУБЪЕКТОВ ОБЩЕСТВЕННЫХ ОТНОШЕНИЙ В СФЕРЕ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/adilet.zan.kz/law-230-viii/law-230-viii-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ]
 }

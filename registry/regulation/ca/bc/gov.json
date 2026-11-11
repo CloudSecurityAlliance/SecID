@@ -4,38 +4,161 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Government of British Columbia",
   "common_name": "British Columbia",
-  "alternate_names": ["BC"],
+  "alternate_names": [
+    "BC"
+  ],
   "notes": "Government of British Columbia canonical portal. BC Laws (bclaws.gov.bc.ca) publishes the consolidated text of provincial statutes in HTML and XML.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www2.gov.bc.ca"},
-    {"type": "legislation", "url": "https://www.bclaws.gov.bc.ca"}
+    {
+      "type": "website",
+      "url": "https://www2.gov.bc.ca"
+    },
+    {
+      "type": "legislation",
+      "url": "https://www.bclaws.gov.bc.ca"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^pipa$", "(?i)^bc-pipa$"],
+      "patterns": [
+        "(?i)^pipa$",
+        "(?i)^bc-pipa$"
+      ],
       "description": "Personal Information Protection Act (BC)",
       "weight": 100,
       "data": {
         "official_name": "Personal Information Protection Act",
         "common_name": "PIPA (BC)",
-        "alternate_names": ["BC PIPA"],
+        "alternate_names": [
+          "BC PIPA"
+        ],
         "description": "British Columbia's private-sector privacy law (SBC 2003 c 63). Substantially similar to PIPEDA.",
         "urls": [
-          {"type": "website", "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"},
-          {"type": "source", "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01/xml"}
+          {
+            "type": "website",
+            "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01"
+          },
+          {
+            "type": "source",
+            "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/03063_01/xml"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|38\\.1|38\\.2|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59)$"
+          ],
+          "description": "PIPA (BC) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "38.1",
+              "38.2",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58",
+              "59"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.bc.ca/pipa).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
+              },
+              {
+                "input": "2",
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
+              },
+              {
+                "input": "3",
+                "note": "Application",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.bc.ca/pipa/pipa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["CA"]},
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

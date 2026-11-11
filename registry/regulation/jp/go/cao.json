@@ -11,37 +11,330 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.cao.go.jp/"}
+    {
+      "type": "website",
+      "url": "https://www.cao.go.jp/"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^economic-security-information$"],
+      "patterns": [
+        "(?i)^economic-security-information$"
+      ],
       "description": "Act on the Protection and Use of Critical Economic Security Information — security clearance system",
       "weight": 100,
       "data": {
         "official_name": "Act on the Protection and Use of Critical Economic Security Information",
         "notes": "Act No. 27 of Reiwa 6 (2024), published May 2024, effective May 16, 2025. 8 chapters: I General Provisions, II Critical Economic Security Information (designation/scope), III Provision of Information, IV Management of Information, V Restrictions on Handlers, VI Suitability Assessment (security-clearance vetting, 10-year validity), VII Miscellaneous, VIII Penal Provisions. Establishes Japan's first formal security-clearance system for economic-security-sensitive government information — relevant to any cloud/vendor handling classified-adjacent economic-security data or seeking clearance-gated government contracts.",
         "urls": [
-          {"type": "official_summary", "url": "https://www.japaneselawtranslation.go.jp/outline/127/905R626.pdf", "note": "Government-produced English OUTLINE only, not a full statutory translation. Returned HTTP 403 to automated fetch as of 2026-07-16."}
+          {
+            "type": "official_summary",
+            "url": "https://www.japaneselawtranslation.go.jp/outline/127/905R626.pdf",
+            "note": "Government-produced English OUTLINE only, not a full statutory translation. Returned HTTP 403 to automated fetch as of 2026-07-16."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
-        "examples": ["economic-security-information"]
-      }
+        "examples": [
+          "economic-security-information"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|5)$"
+          ],
+          "description": "Act on the Protection and Use of Critical Economic Security Information section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cao.go.jp/economic-security-information).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Designation of Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
+              },
+              {
+                "input": "2",
+                "note": "Provision of Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
+              },
+              {
+                "input": "3",
+                "note": "Restrictions on Persons Who Handle Critical Economic Security Information",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-information/economic-security-information-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^economic-security-promotion$"],
+      "patterns": [
+        "(?i)^economic-security-promotion$"
+      ],
       "description": "Act on the Promotion of Ensuring National Security through Integrated Implementation of Economic Measures — critical infrastructure operator designation",
       "weight": 100,
       "data": {
         "official_name": "Act on the Promotion of Ensuring National Security through Integrated Implementation of Economic Measures",
-        "alternate_names": ["Economic Security Promotion Act", "ESPA"],
+        "alternate_names": [
+          "Economic Security Promotion Act",
+          "ESPA"
+        ],
         "notes": "Act No. 43 of Reiwa 4 (2022), enacted May 2022, phased in through 2023-2024. Chapter I General Provisions, then 4 pillars: Ch. II stable supply of specified critical products (supply-chain resilience), Ch. III stable provision of specified critical infrastructure services (critical-infrastructure operator designation — 14-15 designated sectors incl. electricity, gas, water, rail, telecom, finance, credit cards; ~257 designated 'Specified Essential Infrastructure Service Providers' as of April 2026), Ch. IV support for critical/advanced technology development, Ch. V non-publication (secrecy) system for sensitive patent applications. Chapter III's designated operators must pre-notify and undergo government screening before introducing or outsourcing critical facilities/systems — a major supply-chain/vendor-risk control directly relevant to cloud providers serving Japanese critical infrastructure.",
         "urls": [
-          {"type": "official_translation", "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4523/en", "note": "Full English translation listed on the portal; returned HTTP 403 to automated fetch as of 2026-07-16."},
-          {"type": "official_summary", "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/infra/doc/infra_gaiyou_eng.pdf", "note": "Cabinet Office English overview PDF, not fetch-tested — separate domain from the blocked translation portal."}
+          {
+            "type": "official_translation",
+            "url": "https://www.japaneselawtranslation.go.jp/en/laws/view/4523/en",
+            "note": "Full English translation listed on the portal; returned HTTP 403 to automated fetch as of 2026-07-16."
+          },
+          {
+            "type": "official_summary",
+            "url": "https://www.cao.go.jp/keizai_anzen_hosho/suishinhou/infra/doc/infra_gaiyou_eng.pdf",
+            "note": "Cabinet Office English overview PDF, not fetch-tested — separate domain from the blocked translation portal."
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
-        "examples": ["economic-security-promotion"]
-      }
+        "examples": [
+          "economic-security-promotion"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一条|第二条|第三条|第三条の二|第三条の三|第三条の四|第四条|第五条|第二章|第一節|第六条|第七条|第八条|第八条の二|第二節|第九条|第九条の二|第十条|第十一条|第十一条の二|第十二条|第三節|第十三条|第十四条|第十五条|第十六条|第十七条|第十八条|第十九条|第二十条|第二十一条|第二十二条|第二十三条|第二十四条|第二十五条|第四節|第二十六条|第二十七条|第二十八条|第五節|第二十九条|第三十条|第六節|第三十一条|第三十二条|第三十三条|第三十四条|第三十五条|第三十六条|第三十七条|第三十八条|第三十九条|第四十条|第四十一条|第七節|第四十二条|第四十三条|第八節|第四十四条|第四十五条|第九節|第四十六条|第四十七条|第四十八条|第三章|第四十九条|第五十条|第五十一条|第五十二条|第五十三条|第五十四条|第五十五条|第五十六条|第五十七条|第五十八条|第五十九条|第四章|第六十条|第六十一条|第六十二条|第六十三条|第六十四条|第五章 \\(1\\)|第六十五条|第六十六条|第六十七条|第六十八条|第六十九条|第七十条|第七十一条|第七十二条|第七十三条|第七十四条|第七十五条|第七十六条|第七十七条|第七十八条|第七十九条|第八十条|第八十一条|第八十二条|第八十三条|第八十四条|第八十五条|第五章 \\(2\\)|第八十五条の二|第八十五条の三|第八十五条の四|第八十五条の五|第八十五条の六|第八十五条の七|第八十五条の八|第八十五条の九|第八十五条の十|第六章|第八十六条|第八十七条|第八十八条|第八十九条|第九十条|第九十一条|第七章|第九十二条|第九十三条|第九十四条|第九十五条|第九十六条|第九十七条|第九十八条|第九十九条|附則|附則第一条|附則第二条|附則第三条|附則第四条|附則（令和四年五月二〇日法律第四六号）|附則（令和四年五月二〇日法律第四六号）第一条|附則（令和四年五月二〇日法律第四六号）第三十二条|附則（令和四年六月一〇日法律第六一号）|附則（令和四年六月一〇日法律第六一号）第一条|附則（令和四年六月一七日法律第六八号）|附則（令和五年五月一二日法律第二四号）|附則（令和五年五月一二日法律第二四号）第一条|附則（令和六年五月一七日法律第二八号）|附則（令和七年六月一三日法律第六六号）|附則（令和七年六月一三日法律第六六号）第一条|附則（令和七年六月一三日法律第六六号）第七条|附則（令和八年三月三一日法律第五号）|附則（令和八年三月三一日法律第五号）第一条|附則（令和八年六月一七日法律第三八号）|附則（令和八年六月一七日法律第三八号）第一条|附則（令和八年六月一七日法律第三八号）第二条|附則（令和八年六月一七日法律第三八号）第三条|附則（令和八年六月一七日法律第三八号）第四条|附則（令和八年六月一七日法律第三八号）第六条|附則（令和八年六月一七日法律第三八号）第七条|附則（令和八年七月二三日法律第六四号）|附則（令和八年七月二三日法律第六四号）第一条|附則（令和八年七月二三日法律第六四号）第八十九条)$"
+          ],
+          "description": "Act on the Promotion of Ensuring National Security through Integrated Implementation of Economic Measures section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一条",
+              "第二条",
+              "第三条",
+              "第三条の二",
+              "第三条の三",
+              "第三条の四",
+              "第四条",
+              "第五条",
+              "第二章",
+              "第一節",
+              "第六条",
+              "第七条",
+              "第八条",
+              "第八条の二",
+              "第二節",
+              "第九条",
+              "第九条の二",
+              "第十条",
+              "第十一条",
+              "第十一条の二",
+              "第十二条",
+              "第三節",
+              "第十三条",
+              "第十四条",
+              "第十五条",
+              "第十六条",
+              "第十七条",
+              "第十八条",
+              "第十九条",
+              "第二十条",
+              "第二十一条",
+              "第二十二条",
+              "第二十三条",
+              "第二十四条",
+              "第二十五条",
+              "第四節",
+              "第二十六条",
+              "第二十七条",
+              "第二十八条",
+              "第五節",
+              "第二十九条",
+              "第三十条",
+              "第六節",
+              "第三十一条",
+              "第三十二条",
+              "第三十三条",
+              "第三十四条",
+              "第三十五条",
+              "第三十六条",
+              "第三十七条",
+              "第三十八条",
+              "第三十九条",
+              "第四十条",
+              "第四十一条",
+              "第七節",
+              "第四十二条",
+              "第四十三条",
+              "第八節",
+              "第四十四条",
+              "第四十五条",
+              "第九節",
+              "第四十六条",
+              "第四十七条",
+              "第四十八条",
+              "第三章",
+              "第四十九条",
+              "第五十条",
+              "第五十一条",
+              "第五十二条",
+              "第五十三条",
+              "第五十四条",
+              "第五十五条",
+              "第五十六条",
+              "第五十七条",
+              "第五十八条",
+              "第五十九条",
+              "第四章",
+              "第六十条",
+              "第六十一条",
+              "第六十二条",
+              "第六十三条",
+              "第六十四条",
+              "第五章 (1)",
+              "第六十五条",
+              "第六十六条",
+              "第六十七条",
+              "第六十八条",
+              "第六十九条",
+              "第七十条",
+              "第七十一条",
+              "第七十二条",
+              "第七十三条",
+              "第七十四条",
+              "第七十五条",
+              "第七十六条",
+              "第七十七条",
+              "第七十八条",
+              "第七十九条",
+              "第八十条",
+              "第八十一条",
+              "第八十二条",
+              "第八十三条",
+              "第八十四条",
+              "第八十五条",
+              "第五章 (2)",
+              "第八十五条の二",
+              "第八十五条の三",
+              "第八十五条の四",
+              "第八十五条の五",
+              "第八十五条の六",
+              "第八十五条の七",
+              "第八十五条の八",
+              "第八十五条の九",
+              "第八十五条の十",
+              "第六章",
+              "第八十六条",
+              "第八十七条",
+              "第八十八条",
+              "第八十九条",
+              "第九十条",
+              "第九十一条",
+              "第七章",
+              "第九十二条",
+              "第九十三条",
+              "第九十四条",
+              "第九十五条",
+              "第九十六条",
+              "第九十七条",
+              "第九十八条",
+              "第九十九条",
+              "附則",
+              "附則第一条",
+              "附則第二条",
+              "附則第三条",
+              "附則第四条",
+              "附則（令和四年五月二〇日法律第四六号）",
+              "附則（令和四年五月二〇日法律第四六号）第一条",
+              "附則（令和四年五月二〇日法律第四六号）第三十二条",
+              "附則（令和四年六月一〇日法律第六一号）",
+              "附則（令和四年六月一〇日法律第六一号）第一条",
+              "附則（令和四年六月一七日法律第六八号）",
+              "附則（令和五年五月一二日法律第二四号）",
+              "附則（令和五年五月一二日法律第二四号）第一条",
+              "附則（令和六年五月一七日法律第二八号）",
+              "附則（令和七年六月一三日法律第六六号）",
+              "附則（令和七年六月一三日法律第六六号）第一条",
+              "附則（令和七年六月一三日法律第六六号）第七条",
+              "附則（令和八年三月三一日法律第五号）",
+              "附則（令和八年三月三一日法律第五号）第一条",
+              "附則（令和八年六月一七日法律第三八号）",
+              "附則（令和八年六月一七日法律第三八号）第一条",
+              "附則（令和八年六月一七日法律第三八号）第二条",
+              "附則（令和八年六月一七日法律第三八号）第三条",
+              "附則（令和八年六月一七日法律第三八号）第四条",
+              "附則（令和八年六月一七日法律第三八号）第六条",
+              "附則（令和八年六月一七日法律第三八号）第七条",
+              "附則（令和八年七月二三日法律第六四号）",
+              "附則（令和八年七月二三日法律第六四号）第一条",
+              "附則（令和八年七月二三日法律第六四号）第八十九条"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cao.go.jp/economic-security-promotion).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "総則",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
+              },
+              {
+                "input": "第一条",
+                "note": "（目的）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
+              },
+              {
+                "input": "第二条",
+                "note": "（基本方針）",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cao.go.jp/economic-security-promotion/economic-security-promotion-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["JP"]}
+  "tags": {
+    "country": [
+      "JP"
+    ]
+  }
 }

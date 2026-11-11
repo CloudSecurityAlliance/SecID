@@ -37,28 +37,202 @@
           {
             "type": "website",
             "url": "https://www.leg.state.fl.us/statutes/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 171|501\\.171|Section \\(1\\)|Section \\(2\\)|Section \\(3\\)|Section \\(4\\)|Section \\(5\\)|Section \\(7\\)|Section \\(8\\)|Section \\(9\\)|Section \\(10\\)|Section \\(11\\))$"
+          ],
+          "description": "FL Biometric section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 171",
+              "501.171",
+              "Section (1)",
+              "Section (2)",
+              "Section (3)",
+              "Section (4)",
+              "Section (5)",
+              "Section (7)",
+              "Section (8)",
+              "Section (9)",
+              "Section (10)",
+              "Section (11)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/florida.gov/biometric-privacy-laws).",
+            "examples": [
+              {
+                "input": "SECTION 171",
+                "note": "Section SECTION 171",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws-sections.json"
+              },
+              {
+                "input": "501.171",
+                "note": "Security of confidential personal information.—",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws-sections.json"
+              },
+              {
+                "input": "Section (1)",
+                "note": "DEFINITIONS.—As used in this section, the term:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/biometric-privacy-laws/biometric-privacy-laws-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^fdbr$"],
+      "patterns": [
+        "(?i)^fdbr$"
+      ],
       "description": "Florida Digital Bill of Rights",
       "weight": 100,
       "data": {
         "official_name": "Florida Digital Bill of Rights",
         "common_name": "FDBR",
-        "alternate_names": ["SB 262"],
+        "alternate_names": [
+          "SB 262"
+        ],
         "description": "Florida's consumer privacy law, narrower in scope than most other state comprehensive laws — applies only to entities with over $1 billion in global gross revenue meeting additional criteria (e.g. operating a digital app store, or deriving revenue from smart-speaker/voice-recognition or advertising with search-engine features).",
         "notes": "Signed 2023. Effective July 1, 2024.",
         "urls": [
-          {"type": "website", "url": "https://www.flsenate.gov/Session/Bill/2023/262"}
+          {
+            "type": "website",
+            "url": "https://www.flsenate.gov/Session/Bill/2023/262"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|112\\.23|Section 2|501\\.1735|Section 3|Section 4|501\\.701|Section 5|501\\.702|Section 6|501\\.703|Section 7|501\\.704|Section 8|501\\.705|Section 9|501\\.706|Section 10|501\\.707|Section 11|501\\.708|Section 12|501\\.709|Section 13|501\\.71|Section 14|501\\.711|Section 15|501\\.712|Section 16|501\\.713|Section 17|501\\.714|Section 18|501\\.715|Section 19|501\\.716|Section 20|501\\.717|Section 21|501\\.718|Section 22|501\\.719|Section 23|501\\.72|Section 24|501\\.721|Section 25|501\\.171|Section 26|Section 27)$"
+          ],
+          "description": "FDBR section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "112.23",
+              "Section 2",
+              "501.1735",
+              "Section 3",
+              "Section 4",
+              "501.701",
+              "Section 5",
+              "501.702",
+              "Section 6",
+              "501.703",
+              "Section 7",
+              "501.704",
+              "Section 8",
+              "501.705",
+              "Section 9",
+              "501.706",
+              "Section 10",
+              "501.707",
+              "Section 11",
+              "501.708",
+              "Section 12",
+              "501.709",
+              "Section 13",
+              "501.71",
+              "Section 14",
+              "501.711",
+              "Section 15",
+              "501.712",
+              "Section 16",
+              "501.713",
+              "Section 17",
+              "501.714",
+              "Section 18",
+              "501.715",
+              "Section 19",
+              "501.716",
+              "Section 20",
+              "501.717",
+              "Section 21",
+              "501.718",
+              "Section 22",
+              "501.719",
+              "Section 23",
+              "501.72",
+              "Section 24",
+              "501.721",
+              "Section 25",
+              "501.171",
+              "Section 26",
+              "Section 27"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/florida.gov/fdbr).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "Effective July 1, 2023, section 112.23, Florida",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr-sections.json"
+              },
+              {
+                "input": "112.23",
+                "note": "Government-directed content moderation of social",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr-sections.json"
+              },
+              {
+                "input": "Section 2",
+                "note": "Section 501.1735, Florida Statutes, is created",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/florida.gov/fdbr/fdbr-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["FL"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "FL"
+    ]
+  }
 }

@@ -27,8 +27,93 @@
         "url": "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=225",
         "examples": [
           "cets-225"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Chapter I|Article 1|Article 2|Article 3|Article 4|Chapter II|Section 1|Article 5|Section 2|Article 6|Article 7|Section 3|Article 8|Article 9|Section 4|Article 10|Section 5|Article 11|Article 12|Chapter III|Article 13|Article 14|Chapter IV|Article 15|Article 16|Article 17|Article 18|Article 19|Article 20|Article 21|Article 22|Article 23|Article 24|Article 25)$"
+          ],
+          "description": "Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225, Vilnius, 5 September 2024) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Chapter I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Chapter II",
+              "Section 1",
+              "Article 5",
+              "Section 2",
+              "Article 6",
+              "Article 7",
+              "Section 3",
+              "Article 8",
+              "Article 9",
+              "Section 4",
+              "Article 10",
+              "Section 5",
+              "Article 11",
+              "Article 12",
+              "Chapter III",
+              "Article 13",
+              "Article 14",
+              "Chapter IV",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/coe.int/cets-225).",
+            "examples": [
+              {
+                "input": "Chapter I",
+                "note": "Common provisions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Scope of application",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/cets-225/cets-225-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -42,8 +127,133 @@
         "url": "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=185",
         "examples": [
           "ets-185"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Chapter I|Article 1|Chapter II|Section 1 \\(1\\)|Title 1 \\(1\\)|Article 2|Article 3|Article 4|Article 5|Article 6|Title 2 \\(1\\)|Article 7|Article 8|Title 3 \\(1\\)|Article 9|Title 4 \\(1\\)|Article 10|Title 5 \\(1\\)|Article 11|Article 12|Article 13|Section 2 \\(1\\)|Title 1 \\(2\\)|Article 14|Article 15|Title 2 \\(2\\)|Article 16|Article 17|Title 3 \\(2\\)|Article 18|Title 4 \\(2\\)|Article 19|Title 5 \\(2\\)|Article 20|Article 21|Section 3|Article 22|Chapter III|Section 1 \\(2\\)|Title 1 \\(3\\)|Article 23|Title 2 \\(3\\)|Article 24|Title 3 \\(3\\)|Article 25|Article 26|Title 4 \\(3\\)|Article 27|Article 28|Section 2 \\(2\\)|Title 1 \\(4\\)|Article 29|Article 30|Title 2 \\(4\\)|Article 31|Article 32|Article 33|Article 34|Title 3 \\(4\\)|Article 35|Chapter IV|Article 36|Article 37|Article 38|Article 39|Article 40|Article 41|Article 42|Article 43|Article 44|Article 45|Article 46|Article 47|Article 48)$"
+          ],
+          "description": "Council of Europe Convention on Cybercrime (Budapest Convention, ETS No. 185) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Chapter I",
+              "Article 1",
+              "Chapter II",
+              "Section 1 (1)",
+              "Title 1 (1)",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Title 2 (1)",
+              "Article 7",
+              "Article 8",
+              "Title 3 (1)",
+              "Article 9",
+              "Title 4 (1)",
+              "Article 10",
+              "Title 5 (1)",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Section 2 (1)",
+              "Title 1 (2)",
+              "Article 14",
+              "Article 15",
+              "Title 2 (2)",
+              "Article 16",
+              "Article 17",
+              "Title 3 (2)",
+              "Article 18",
+              "Title 4 (2)",
+              "Article 19",
+              "Title 5 (2)",
+              "Article 20",
+              "Article 21",
+              "Section 3",
+              "Article 22",
+              "Chapter III",
+              "Section 1 (2)",
+              "Title 1 (3)",
+              "Article 23",
+              "Title 2 (3)",
+              "Article 24",
+              "Title 3 (3)",
+              "Article 25",
+              "Article 26",
+              "Title 4 (3)",
+              "Article 27",
+              "Article 28",
+              "Section 2 (2)",
+              "Title 1 (4)",
+              "Article 29",
+              "Article 30",
+              "Title 2 (4)",
+              "Article 31",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "Title 3 (4)",
+              "Article 35",
+              "Chapter IV",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "Article 46",
+              "Article 47",
+              "Article 48"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/coe.int/ets-185).",
+            "examples": [
+              {
+                "input": "Chapter I",
+                "note": "Use of terms",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185-sections.json"
+              },
+              {
+                "input": "Chapter II",
+                "note": "Measures to be taken at the national level",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/coe.int/ets-185/ets-185-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ]
 }

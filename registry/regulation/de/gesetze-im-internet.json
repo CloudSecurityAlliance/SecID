@@ -36,9 +36,134 @@
           {
             "type": "legal_text",
             "url": "https://www.gesetze-im-internet.de/zag_2018/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:§ 1|§ 1a|§ 2|§ 3|§ 4|§ 4a|§ 4b|§ 5|§ 6|§ 7|§ 8|§ 9|§ 10|§ 11|§ 12|§ 13|§ 14|§ 15|§ 16|§ 17|§ 18|§ 19|§ 20|§ 21|§ 22|§ 23|§ 24|§ 25|§ 26|§ 27|§ 28|§ 29|§ 30|§ 31|§ 32|§ 33|§ 34|§ 35|§ 36|§ 37|§ 38|§ 39|§ 40|§ 41|§ 42|§ 43|§ 44|§ 45|§ 46|§ 47|§ 48|§ 49|§ 50|§ 51|§ 52|§ 53|§ 54|§ 55|§ 56|§ 57|§ 57a|§ 58|§ 58a|§ 59|§ 60|§ 61|§ 62|§ 62a|§ 63|§ 64|§ 65|§ 65a|§ 66|§ 67|§ 68|§ 69)$"
+          ],
+          "description": "ZAG 2018 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "§ 1",
+              "§ 1a",
+              "§ 2",
+              "§ 3",
+              "§ 4",
+              "§ 4a",
+              "§ 4b",
+              "§ 5",
+              "§ 6",
+              "§ 7",
+              "§ 8",
+              "§ 9",
+              "§ 10",
+              "§ 11",
+              "§ 12",
+              "§ 13",
+              "§ 14",
+              "§ 15",
+              "§ 16",
+              "§ 17",
+              "§ 18",
+              "§ 19",
+              "§ 20",
+              "§ 21",
+              "§ 22",
+              "§ 23",
+              "§ 24",
+              "§ 25",
+              "§ 26",
+              "§ 27",
+              "§ 28",
+              "§ 29",
+              "§ 30",
+              "§ 31",
+              "§ 32",
+              "§ 33",
+              "§ 34",
+              "§ 35",
+              "§ 36",
+              "§ 37",
+              "§ 38",
+              "§ 39",
+              "§ 40",
+              "§ 41",
+              "§ 42",
+              "§ 43",
+              "§ 44",
+              "§ 45",
+              "§ 46",
+              "§ 47",
+              "§ 48",
+              "§ 49",
+              "§ 50",
+              "§ 51",
+              "§ 52",
+              "§ 53",
+              "§ 54",
+              "§ 55",
+              "§ 56",
+              "§ 57",
+              "§ 57a",
+              "§ 58",
+              "§ 58a",
+              "§ 59",
+              "§ 60",
+              "§ 61",
+              "§ 62",
+              "§ 62a",
+              "§ 63",
+              "§ 64",
+              "§ 65",
+              "§ 65a",
+              "§ 66",
+              "§ 67",
+              "§ 68",
+              "§ 69"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gesetze-im-internet.de/zag).",
+            "examples": [
+              {
+                "input": "§ 1",
+                "note": "Begriffsbestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag-sections.json"
+              },
+              {
+                "input": "§ 1a",
+                "note": "Unzuverlässigkeit von sanktionierten Personen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag-sections.json"
+              },
+              {
+                "input": "§ 2",
+                "note": "Ausnahmen; Verordnungsermächtigung",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/zag/zag-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -64,9 +189,138 @@
           {
             "type": "website",
             "url": "https://www.bsi.bund.de/DE/Das-BSI/Auftrag/Rechtsgrundlagen/NIS-2/nis-2_node.html"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Teil 1|§ 1|§ 2|Teil 2|Teil 2 Kapitel 1|§ 3|§ 4|§ 5|§ 6|§ 7|§ 8|§ 9|§ 10|§ 11|§ 12|§ 13|§ 14|§ 15|§ 16|§ 17|§ 18|§ 19|Teil 2 Kapitel 2|§ 20|§ 21|§ 22|§ 23|§ 24|§ 25|§ 26|§ 27|Teil 3|Teil 3 Kapitel 1|§ 28|§ 29|Teil 3 Kapitel 2|§ 30|§ 31|§ 32|§ 33|§ 34|§ 35|§ 36|§ 37|§ 38|§ 39|§ 40|§ 41|§ 42|Kapitel 3|§ 43|§ 44|§ 45|§ 46|§ 47|§ 48|Teil 4|§ 49|§ 50|§ 51|Teil 5|§ 52|§ 53|§ 54|§ 55|Teil 6|§ 56|§ 57|§ 58|Teil 7|§ 59|§ 60|§ 61|§ 62|§ 63|§ 64|Teil 8|§ 65|Teil 9|§ 66)$"
+          ],
+          "description": "NIS2UmsuCG section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Teil 1",
+              "§ 1",
+              "§ 2",
+              "Teil 2",
+              "Teil 2 Kapitel 1",
+              "§ 3",
+              "§ 4",
+              "§ 5",
+              "§ 6",
+              "§ 7",
+              "§ 8",
+              "§ 9",
+              "§ 10",
+              "§ 11",
+              "§ 12",
+              "§ 13",
+              "§ 14",
+              "§ 15",
+              "§ 16",
+              "§ 17",
+              "§ 18",
+              "§ 19",
+              "Teil 2 Kapitel 2",
+              "§ 20",
+              "§ 21",
+              "§ 22",
+              "§ 23",
+              "§ 24",
+              "§ 25",
+              "§ 26",
+              "§ 27",
+              "Teil 3",
+              "Teil 3 Kapitel 1",
+              "§ 28",
+              "§ 29",
+              "Teil 3 Kapitel 2",
+              "§ 30",
+              "§ 31",
+              "§ 32",
+              "§ 33",
+              "§ 34",
+              "§ 35",
+              "§ 36",
+              "§ 37",
+              "§ 38",
+              "§ 39",
+              "§ 40",
+              "§ 41",
+              "§ 42",
+              "Kapitel 3",
+              "§ 43",
+              "§ 44",
+              "§ 45",
+              "§ 46",
+              "§ 47",
+              "§ 48",
+              "Teil 4",
+              "§ 49",
+              "§ 50",
+              "§ 51",
+              "Teil 5",
+              "§ 52",
+              "§ 53",
+              "§ 54",
+              "§ 55",
+              "Teil 6",
+              "§ 56",
+              "§ 57",
+              "§ 58",
+              "Teil 7",
+              "§ 59",
+              "§ 60",
+              "§ 61",
+              "§ 62",
+              "§ 63",
+              "§ 64",
+              "Teil 8",
+              "§ 65",
+              "Teil 9",
+              "§ 66"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gesetze-im-internet.de/nis2umsucg).",
+            "examples": [
+              {
+                "input": "Teil 1",
+                "note": "Allgemeine Vorschriften",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg-sections.json"
+              },
+              {
+                "input": "§ 1",
+                "note": "Bundesamt für Sicherheit in der Informationstechnik",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg-sections.json"
+              },
+              {
+                "input": "§ 2",
+                "note": "Begriffsbestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/nis2umsucg/nis2umsucg-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -86,9 +340,167 @@
           {
             "type": "legal_text",
             "url": "https://www.gesetze-im-internet.de/bdsg_2018/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Teil 1|Teil 1 Kapitel 1|§ 1|§ 2|Teil 1 Kapitel 2|§ 3|§ 4|Teil 1 Kapitel 3|§ 5|§ 6|§ 7|Teil 1 Kapitel 4|§ 8|§ 9|§ 10|§ 11|§ 12|§ 13|§ 14|§ 15|§ 16|Teil 1 Kapitel 5|§ 17|§ 18|§ 19|Teil 1 Kapitel 6|§ 20|§ 21|Teil 2|Teil 2 Kapitel 1|§ 22|§ 23|§ 24|§ 25|§ 26|§ 27|§ 28|§ 29|§ 30|§ 31|Teil 2 Kapitel 2|§ 32|§ 33|§ 34|§ 35|§ 36|§ 37|Teil 2 Kapitel 3|§ 38|§ 39|Teil 2 Kapitel 4|§ 40|Teil 2 Kapitel 5|§ 41|§ 42|§ 43|Teil 2 Kapitel 6|§ 44|Teil 3|Teil 3 Kapitel 1|§ 45|§ 46|§ 47|Teil 3 Kapitel 2|§ 48|§ 49|§ 50|§ 51|§ 52|§ 53|§ 54|Teil 3 Kapitel 3|§ 55|§ 56|§ 57|§ 58|§ 59|§ 60|§ 61|Teil 3 Kapitel 4|§ 62|§ 63|§ 64|§ 65|§ 66|§ 67|§ 68|§ 69|§ 70|§ 71|§ 72|§ 73|§ 74|§ 75|§ 76|§ 77|Teil 3 Kapitel 5|§ 78|§ 79|§ 80|§ 81|Teil 3 Kapitel 6|§ 82|Kapitel 7|§ 83|§ 84|Teil 4|§ 85|§ 86)$"
+          ],
+          "description": "BDSG section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Teil 1",
+              "Teil 1 Kapitel 1",
+              "§ 1",
+              "§ 2",
+              "Teil 1 Kapitel 2",
+              "§ 3",
+              "§ 4",
+              "Teil 1 Kapitel 3",
+              "§ 5",
+              "§ 6",
+              "§ 7",
+              "Teil 1 Kapitel 4",
+              "§ 8",
+              "§ 9",
+              "§ 10",
+              "§ 11",
+              "§ 12",
+              "§ 13",
+              "§ 14",
+              "§ 15",
+              "§ 16",
+              "Teil 1 Kapitel 5",
+              "§ 17",
+              "§ 18",
+              "§ 19",
+              "Teil 1 Kapitel 6",
+              "§ 20",
+              "§ 21",
+              "Teil 2",
+              "Teil 2 Kapitel 1",
+              "§ 22",
+              "§ 23",
+              "§ 24",
+              "§ 25",
+              "§ 26",
+              "§ 27",
+              "§ 28",
+              "§ 29",
+              "§ 30",
+              "§ 31",
+              "Teil 2 Kapitel 2",
+              "§ 32",
+              "§ 33",
+              "§ 34",
+              "§ 35",
+              "§ 36",
+              "§ 37",
+              "Teil 2 Kapitel 3",
+              "§ 38",
+              "§ 39",
+              "Teil 2 Kapitel 4",
+              "§ 40",
+              "Teil 2 Kapitel 5",
+              "§ 41",
+              "§ 42",
+              "§ 43",
+              "Teil 2 Kapitel 6",
+              "§ 44",
+              "Teil 3",
+              "Teil 3 Kapitel 1",
+              "§ 45",
+              "§ 46",
+              "§ 47",
+              "Teil 3 Kapitel 2",
+              "§ 48",
+              "§ 49",
+              "§ 50",
+              "§ 51",
+              "§ 52",
+              "§ 53",
+              "§ 54",
+              "Teil 3 Kapitel 3",
+              "§ 55",
+              "§ 56",
+              "§ 57",
+              "§ 58",
+              "§ 59",
+              "§ 60",
+              "§ 61",
+              "Teil 3 Kapitel 4",
+              "§ 62",
+              "§ 63",
+              "§ 64",
+              "§ 65",
+              "§ 66",
+              "§ 67",
+              "§ 68",
+              "§ 69",
+              "§ 70",
+              "§ 71",
+              "§ 72",
+              "§ 73",
+              "§ 74",
+              "§ 75",
+              "§ 76",
+              "§ 77",
+              "Teil 3 Kapitel 5",
+              "§ 78",
+              "§ 79",
+              "§ 80",
+              "§ 81",
+              "Teil 3 Kapitel 6",
+              "§ 82",
+              "Kapitel 7",
+              "§ 83",
+              "§ 84",
+              "Teil 4",
+              "§ 85",
+              "§ 86"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gesetze-im-internet.de/bdsg).",
+            "examples": [
+              {
+                "input": "Teil 1",
+                "note": "Gemeinsame Bestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg-sections.json"
+              },
+              {
+                "input": "Teil 1 Kapitel 1",
+                "note": "Anwendungsbereich und Begriffsbestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg-sections.json"
+              },
+              {
+                "input": "§ 1",
+                "note": "Anwendungsbereich des Gesetzes",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bdsg/bdsg-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -112,9 +524,26 @@
           {
             "type": "legal_text",
             "url": "https://www.gesetze-im-internet.de/sgb_5/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/sgb-v/sgb-v-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/sgb-v/sgb-v.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
-        "examples": ["§393", "393"]
+        "examples": [
+          "§393",
+          "393"
+        ]
       },
       "children": [
         {
@@ -179,9 +608,138 @@
           {
             "type": "website",
             "url": "https://www.bsi.bund.de/EN/Das-BSI/Auftrag/Gesetze-und-Verordnungen/gesetze-und-verordnungen_node.html"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Teil 1|§ 1|§ 2|Teil 2|Teil 2 Kapitel 1|§ 3|§ 4|§ 5|§ 6|§ 7|§ 8|§ 9|§ 10|§ 11|§ 12|§ 13|§ 14|§ 15|§ 16|§ 17|§ 18|§ 19|Teil 2 Kapitel 2|§ 20|§ 21|§ 22|§ 23|§ 24|§ 25|§ 26|§ 27|Teil 3|Teil 3 Kapitel 1|§ 28|§ 29|Teil 3 Kapitel 2|§ 30|§ 31|§ 32|§ 33|§ 34|§ 35|§ 36|§ 37|§ 38|§ 39|§ 40|§ 41|§ 42|Kapitel 3|§ 43|§ 44|§ 45|§ 46|§ 47|§ 48|Teil 4|§ 49|§ 50|§ 51|Teil 5|§ 52|§ 53|§ 54|§ 55|Teil 6|§ 56|§ 57|§ 58|Teil 7|§ 59|§ 60|§ 61|§ 62|§ 63|§ 64|Teil 8|§ 65|Teil 9|§ 66)$"
+          ],
+          "description": "BSIG section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Teil 1",
+              "§ 1",
+              "§ 2",
+              "Teil 2",
+              "Teil 2 Kapitel 1",
+              "§ 3",
+              "§ 4",
+              "§ 5",
+              "§ 6",
+              "§ 7",
+              "§ 8",
+              "§ 9",
+              "§ 10",
+              "§ 11",
+              "§ 12",
+              "§ 13",
+              "§ 14",
+              "§ 15",
+              "§ 16",
+              "§ 17",
+              "§ 18",
+              "§ 19",
+              "Teil 2 Kapitel 2",
+              "§ 20",
+              "§ 21",
+              "§ 22",
+              "§ 23",
+              "§ 24",
+              "§ 25",
+              "§ 26",
+              "§ 27",
+              "Teil 3",
+              "Teil 3 Kapitel 1",
+              "§ 28",
+              "§ 29",
+              "Teil 3 Kapitel 2",
+              "§ 30",
+              "§ 31",
+              "§ 32",
+              "§ 33",
+              "§ 34",
+              "§ 35",
+              "§ 36",
+              "§ 37",
+              "§ 38",
+              "§ 39",
+              "§ 40",
+              "§ 41",
+              "§ 42",
+              "Kapitel 3",
+              "§ 43",
+              "§ 44",
+              "§ 45",
+              "§ 46",
+              "§ 47",
+              "§ 48",
+              "Teil 4",
+              "§ 49",
+              "§ 50",
+              "§ 51",
+              "Teil 5",
+              "§ 52",
+              "§ 53",
+              "§ 54",
+              "§ 55",
+              "Teil 6",
+              "§ 56",
+              "§ 57",
+              "§ 58",
+              "Teil 7",
+              "§ 59",
+              "§ 60",
+              "§ 61",
+              "§ 62",
+              "§ 63",
+              "§ 64",
+              "Teil 8",
+              "§ 65",
+              "Teil 9",
+              "§ 66"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gesetze-im-internet.de/bsig).",
+            "examples": [
+              {
+                "input": "Teil 1",
+                "note": "Allgemeine Vorschriften",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig-sections.json"
+              },
+              {
+                "input": "§ 1",
+                "note": "Bundesamt für Sicherheit in der Informationstechnik",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig-sections.json"
+              },
+              {
+                "input": "§ 2",
+                "note": "Begriffsbestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsig/bsig-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -227,12 +785,86 @@
           {
             "type": "legal_text",
             "url": "https://www.gesetze-im-internet.de/bsi-kritisv/"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:§ 1|§ 2|§ 3|§ 4|§ 5|§ 6|§ 7|§ 8|§ 9|§ 10|§ 11|§ 12|Anhang 1|Anhang 2|Anhang 3|Anhang 4|Anhang 5|Anhang 6|Anhang 7|Anhang 8|Anhang 9)$"
+          ],
+          "description": "BSI-KritisV section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "§ 1",
+              "§ 2",
+              "§ 3",
+              "§ 4",
+              "§ 5",
+              "§ 6",
+              "§ 7",
+              "§ 8",
+              "§ 9",
+              "§ 10",
+              "§ 11",
+              "§ 12",
+              "Anhang 1",
+              "Anhang 2",
+              "Anhang 3",
+              "Anhang 4",
+              "Anhang 5",
+              "Anhang 6",
+              "Anhang 7",
+              "Anhang 8",
+              "Anhang 9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gesetze-im-internet.de/bsi-kritisv).",
+            "examples": [
+              {
+                "input": "§ 1",
+                "note": "Begriffsbestimmungen",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv-sections.json"
+              },
+              {
+                "input": "§ 2",
+                "note": "Sektor Energie",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv-sections.json"
+              },
+              {
+                "input": "§ 3",
+                "note": "Sektor Wasser",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gesetze-im-internet.de/bsi-kritisv/bsi-kritisv-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["DE"]},
+  "tags": {
+    "country": [
+      "DE"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

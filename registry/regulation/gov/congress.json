@@ -4,34 +4,412 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "United States Congress",
   "common_name": null,
   "alternate_names": null,
   "notes": "United States Congress legislation. Congress.gov provides official text and status of federal legislation.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.congress.gov"}
+    {
+      "type": "website",
+      "url": "https://www.congress.gov"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^chips-act$"],
+      "patterns": [
+        "(?i)^chips-act$"
+      ],
       "description": "CHIPS and Science Act of 2022",
       "weight": 100,
       "data": {
         "official_name": "CHIPS and Science Act of 2022",
         "common_name": "CHIPS Act",
-        "alternate_names": ["Public Law 117-167", "H.R. 4346"],
+        "alternate_names": [
+          "Public Law 117-167",
+          "H.R. 4346"
+        ],
         "description": "Invests in domestic semiconductor manufacturing and research. Includes cybersecurity provisions for supply chain security.",
         "notes": "Public Law 117-167. Signed August 9, 2022. Provides $52.7 billion for semiconductor manufacturing incentives and research. Includes guardrails preventing recipients from expanding semiconductor manufacturing in countries of concern. Title III addresses science and innovation including cybersecurity research.",
         "urls": [
-          {"type": "website", "url": "https://www.congress.gov/bill/117th-congress/house-bill/4346"}
+          {
+            "type": "website",
+            "url": "https://www.congress.gov/bill/117th-congress/house-bill/4346"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SEC\\. 2|DIVISION A|SEC\\. 101|SEC\\. 102|SEC\\. 103|SEC\\. 104|SEC\\. 105|SEC\\. 106|SEC\\. 107|DIVISION B|SEC\\. 10000|SEC\\. 10001|SEC\\. 10002|SEC\\. 10003|DIVISION B TITLE I|SEC\\. 10101|SEC\\. 10102|SEC\\. 10103|SEC\\. 10104|SEC\\. 10105|SEC\\. 10106|SEC\\. 10107|SEC\\. 10108|SEC\\. 10109|SEC\\. 10110|SEC\\. 10111|SEC\\. 10112|SEC\\. 10113|SEC\\. 10114|DIVISION B TITLE II|SEC\\. 10201|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A \\(1\\)|SEC\\. 10211|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B \\(1\\)|SEC\\. 10221|SEC\\. 10222|SEC\\. 10223|SEC\\. 10224|SEC\\. 10225|SEC\\. 10226|SEC\\. 10227|SEC\\. 10228|SEC\\. 10229|SEC\\. 10230|SEC\\. 10231|SEC\\. 10232|SEC\\. 10233|SEC\\. 10234|SEC\\. 10235|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C \\(1\\)|SEC\\. 10241|SEC\\. 10242|SEC\\. 10243|SEC\\. 10244|SEC\\. 10245|SEC\\. 10246|SEC\\. 10247|SEC\\. 10248|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D \\(1\\)|SEC\\. 10251|SEC\\. 10252|SEC\\. 10253|SEC\\. 10254|SEC\\. 10255|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E \\(1\\)|SEC\\. 10261|SEC\\. 10262|SEC\\. 10263|DIVISION B TITLE III|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A \\(2\\)|SEC\\. 10301|SEC\\. 10302|SEC\\. 10303|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B \\(2\\)|SEC\\. 10311|SEC\\. 10312|SEC\\. 10313|SEC\\. 10314|SEC\\. 10315|SEC\\. 10316|SEC\\. 10317|SEC\\. 10318|SEC\\. 10319|SEC\\. 10320|DIVISION B Subtitle B SEC\\. 10321|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C \\(2\\)|DIVISION B Subtitle C SEC\\. 10321|SEC\\. 10322|SEC\\. 10323|SEC\\. 10324|SEC\\. 10325|SEC\\. 10326|SEC\\. 10327|SEC\\. 10328|SEC\\. 10329|SEC\\. 10330|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D \\(2\\)|SEC\\. 10331|SEC\\. 10332|SEC\\. 10333|SEC\\. 10334|SEC\\. 10335|SEC\\. 10336|SEC\\. 10337|SEC\\. 10338|SEC\\. 10339|SEC\\. 10339A|SEC\\. 10339B|SEC\\. 10339C|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E \\(2\\)|SEC\\. 10341|SEC\\. 10342|SEC\\. 10343|SEC\\. 10344|SEC\\. 10345|SEC\\. 10346|SEC\\. 10347|SEC\\. 10348|SEC\\. 10349|SEC\\. 10350|SEC\\. 10351|SEC\\. 10352|SEC\\. 10353|SEC\\. 10354|SEC\\. 10355|SEC\\. 10356|SEC\\. 10357|SEC\\. 10358|SEC\\. 10359|SEC\\. 10360|SEC\\. 10361|SEC\\. 10362|SEC\\. 10363|SEC\\. 10364|SEC\\. 10365|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F \\(1\\)|SEC\\. 10371|SEC\\. 10372|SEC\\. 10373|SEC\\. 10374|SEC\\. 10375|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle G \\(1\\)|SEC\\. 10381|SEC\\. 10382|SEC\\. 10383|SEC\\. 10384|SEC\\. 10385|SEC\\. 10386|SEC\\. 10387|SEC\\. 10388|SEC\\. 10389|SEC\\. 10390|SEC\\. 10391|SEC\\. 10392|SEC\\. 10393|SEC\\. 10394|SEC\\. 10395|SEC\\. 10396|SEC\\. 10397|SEC\\. 10398|SEC\\. 10399|SEC\\. 10399A|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle H \\(1\\)|SEC\\. 10399D|SEC\\. 10399E|SEC\\. 10399F|TITLE IV|SEC\\. 10401|SEC\\. 10402|SEC\\. 10403|SEC\\. 10404|SEC\\. 10405|SEC\\. 10406|SEC\\. 10407|TITLE V|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A \\(3\\)|SEC\\. 10501|SEC\\. 10502|SEC\\. 10503|SEC\\. 10504|SEC\\. 10505|SEC\\. 10506|SEC\\. 10507|SEC\\. 10508|SEC\\. 10509|SEC\\. 10510|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B \\(3\\)|SEC\\. 10511|SEC\\. 10512|SEC\\. 10513|SEC\\. 10514|SEC\\. 10515|SEC\\. 10516|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C \\(3\\)|SEC\\. 10521|SEC\\. 10522|SEC\\. 10523|SEC\\. 10524|SEC\\. 10525|SEC\\. 10526|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D \\(3\\)|SEC\\. 10531|SEC\\. 10532|SEC\\. 10533|SEC\\. 10534|SEC\\. 10535|SEC\\. 10536|SEC\\. 10537|SEC\\. 10538|SEC\\. 10539|TITLE VI|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A \\(4\\)|SEC\\. 10601|SEC\\. 10602|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B \\(4\\)|SEC\\. 10611|SEC\\. 10612|SEC\\. 10613|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C \\(4\\)|SEC\\. 10621|SEC\\. 10622|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D \\(4\\)|SEC\\. 10631|SEC\\. 10632|SEC\\. 10633|SEC\\. 10634|SEC\\. 10635|SEC\\. 10636|SEC\\. 10637|SEC\\. 10638|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E \\(3\\)|SEC\\. 10641|SEC\\. 10642|SEC\\. 10643|SEC\\. 10644|SEC\\. 10645|SEC\\. 10646|SEC\\. 10647|SEC\\. 10648|SEC\\. 10649|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F \\(2\\)|SEC\\. 10651|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle G \\(2\\)|SEC\\. 10661|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle H \\(2\\)|SEC\\. 10671|Subtitle I|SEC\\. 10691|Subtitle J|SEC\\. 10701|PART 1|SEC\\. 10713|SEC\\. 10714|SEC\\. 10715|PART 2|SEC\\. 10716|SEC\\. 10717|SEC\\. 10718|SEC\\. 10719|SEC\\. 10720|PART 3|SEC\\. 10722|SEC\\. 10723|SEC\\. 10724|SEC\\. 10725|SEC\\. 10726|SEC\\. 10727|Subtitle K|SEC\\. 10731|Subtitle L|SEC\\. 10741|SEC\\. 10742|SEC\\. 10743|SEC\\. 10744|SEC\\. 10745|Subtitle M|SEC\\. 10751|Subtitle N|SEC\\. 10761|Subtitle O|SEC\\. 10771|Subtitle P|SEC\\. 10781|TITLE VII|SEC\\. 10801|SEC\\. 10802|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A \\(5\\)|SEC\\. 10811|SEC\\. 10812|SEC\\. 10813|SEC\\. 10814|SEC\\. 10815|SEC\\. 10816|SEC\\. 10817|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B \\(5\\)|SEC\\. 10821|SEC\\. 10822|SEC\\. 10823|SEC\\. 10824|SEC\\. 10825|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C \\(5\\)|SEC\\. 10831|SEC\\. 10832|SEC\\. 10833|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D \\(5\\)|SEC\\. 10841|SEC\\. 10842|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E \\(4\\)|SEC\\. 10851|RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F \\(3\\)|SEC\\. 10861|SEC\\. 10862|DIVISION C|DIVISION C TITLE I|DIVISION C TITLE II|DIVISION C TITLE III|Sec\\. 301|Sec\\. 302|Sec\\. 303|Sec\\. 304)$"
+          ],
+          "description": "CHIPS Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SEC. 2",
+              "DIVISION A",
+              "SEC. 101",
+              "SEC. 102",
+              "SEC. 103",
+              "SEC. 104",
+              "SEC. 105",
+              "SEC. 106",
+              "SEC. 107",
+              "DIVISION B",
+              "SEC. 10000",
+              "SEC. 10001",
+              "SEC. 10002",
+              "SEC. 10003",
+              "DIVISION B TITLE I",
+              "SEC. 10101",
+              "SEC. 10102",
+              "SEC. 10103",
+              "SEC. 10104",
+              "SEC. 10105",
+              "SEC. 10106",
+              "SEC. 10107",
+              "SEC. 10108",
+              "SEC. 10109",
+              "SEC. 10110",
+              "SEC. 10111",
+              "SEC. 10112",
+              "SEC. 10113",
+              "SEC. 10114",
+              "DIVISION B TITLE II",
+              "SEC. 10201",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A (1)",
+              "SEC. 10211",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B (1)",
+              "SEC. 10221",
+              "SEC. 10222",
+              "SEC. 10223",
+              "SEC. 10224",
+              "SEC. 10225",
+              "SEC. 10226",
+              "SEC. 10227",
+              "SEC. 10228",
+              "SEC. 10229",
+              "SEC. 10230",
+              "SEC. 10231",
+              "SEC. 10232",
+              "SEC. 10233",
+              "SEC. 10234",
+              "SEC. 10235",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C (1)",
+              "SEC. 10241",
+              "SEC. 10242",
+              "SEC. 10243",
+              "SEC. 10244",
+              "SEC. 10245",
+              "SEC. 10246",
+              "SEC. 10247",
+              "SEC. 10248",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D (1)",
+              "SEC. 10251",
+              "SEC. 10252",
+              "SEC. 10253",
+              "SEC. 10254",
+              "SEC. 10255",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E (1)",
+              "SEC. 10261",
+              "SEC. 10262",
+              "SEC. 10263",
+              "DIVISION B TITLE III",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A (2)",
+              "SEC. 10301",
+              "SEC. 10302",
+              "SEC. 10303",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B (2)",
+              "SEC. 10311",
+              "SEC. 10312",
+              "SEC. 10313",
+              "SEC. 10314",
+              "SEC. 10315",
+              "SEC. 10316",
+              "SEC. 10317",
+              "SEC. 10318",
+              "SEC. 10319",
+              "SEC. 10320",
+              "DIVISION B Subtitle B SEC. 10321",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C (2)",
+              "DIVISION B Subtitle C SEC. 10321",
+              "SEC. 10322",
+              "SEC. 10323",
+              "SEC. 10324",
+              "SEC. 10325",
+              "SEC. 10326",
+              "SEC. 10327",
+              "SEC. 10328",
+              "SEC. 10329",
+              "SEC. 10330",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D (2)",
+              "SEC. 10331",
+              "SEC. 10332",
+              "SEC. 10333",
+              "SEC. 10334",
+              "SEC. 10335",
+              "SEC. 10336",
+              "SEC. 10337",
+              "SEC. 10338",
+              "SEC. 10339",
+              "SEC. 10339A",
+              "SEC. 10339B",
+              "SEC. 10339C",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E (2)",
+              "SEC. 10341",
+              "SEC. 10342",
+              "SEC. 10343",
+              "SEC. 10344",
+              "SEC. 10345",
+              "SEC. 10346",
+              "SEC. 10347",
+              "SEC. 10348",
+              "SEC. 10349",
+              "SEC. 10350",
+              "SEC. 10351",
+              "SEC. 10352",
+              "SEC. 10353",
+              "SEC. 10354",
+              "SEC. 10355",
+              "SEC. 10356",
+              "SEC. 10357",
+              "SEC. 10358",
+              "SEC. 10359",
+              "SEC. 10360",
+              "SEC. 10361",
+              "SEC. 10362",
+              "SEC. 10363",
+              "SEC. 10364",
+              "SEC. 10365",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F (1)",
+              "SEC. 10371",
+              "SEC. 10372",
+              "SEC. 10373",
+              "SEC. 10374",
+              "SEC. 10375",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle G (1)",
+              "SEC. 10381",
+              "SEC. 10382",
+              "SEC. 10383",
+              "SEC. 10384",
+              "SEC. 10385",
+              "SEC. 10386",
+              "SEC. 10387",
+              "SEC. 10388",
+              "SEC. 10389",
+              "SEC. 10390",
+              "SEC. 10391",
+              "SEC. 10392",
+              "SEC. 10393",
+              "SEC. 10394",
+              "SEC. 10395",
+              "SEC. 10396",
+              "SEC. 10397",
+              "SEC. 10398",
+              "SEC. 10399",
+              "SEC. 10399A",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle H (1)",
+              "SEC. 10399D",
+              "SEC. 10399E",
+              "SEC. 10399F",
+              "TITLE IV",
+              "SEC. 10401",
+              "SEC. 10402",
+              "SEC. 10403",
+              "SEC. 10404",
+              "SEC. 10405",
+              "SEC. 10406",
+              "SEC. 10407",
+              "TITLE V",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A (3)",
+              "SEC. 10501",
+              "SEC. 10502",
+              "SEC. 10503",
+              "SEC. 10504",
+              "SEC. 10505",
+              "SEC. 10506",
+              "SEC. 10507",
+              "SEC. 10508",
+              "SEC. 10509",
+              "SEC. 10510",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B (3)",
+              "SEC. 10511",
+              "SEC. 10512",
+              "SEC. 10513",
+              "SEC. 10514",
+              "SEC. 10515",
+              "SEC. 10516",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C (3)",
+              "SEC. 10521",
+              "SEC. 10522",
+              "SEC. 10523",
+              "SEC. 10524",
+              "SEC. 10525",
+              "SEC. 10526",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D (3)",
+              "SEC. 10531",
+              "SEC. 10532",
+              "SEC. 10533",
+              "SEC. 10534",
+              "SEC. 10535",
+              "SEC. 10536",
+              "SEC. 10537",
+              "SEC. 10538",
+              "SEC. 10539",
+              "TITLE VI",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A (4)",
+              "SEC. 10601",
+              "SEC. 10602",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B (4)",
+              "SEC. 10611",
+              "SEC. 10612",
+              "SEC. 10613",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C (4)",
+              "SEC. 10621",
+              "SEC. 10622",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D (4)",
+              "SEC. 10631",
+              "SEC. 10632",
+              "SEC. 10633",
+              "SEC. 10634",
+              "SEC. 10635",
+              "SEC. 10636",
+              "SEC. 10637",
+              "SEC. 10638",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E (3)",
+              "SEC. 10641",
+              "SEC. 10642",
+              "SEC. 10643",
+              "SEC. 10644",
+              "SEC. 10645",
+              "SEC. 10646",
+              "SEC. 10647",
+              "SEC. 10648",
+              "SEC. 10649",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F (2)",
+              "SEC. 10651",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle G (2)",
+              "SEC. 10661",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle H (2)",
+              "SEC. 10671",
+              "Subtitle I",
+              "SEC. 10691",
+              "Subtitle J",
+              "SEC. 10701",
+              "PART 1",
+              "SEC. 10713",
+              "SEC. 10714",
+              "SEC. 10715",
+              "PART 2",
+              "SEC. 10716",
+              "SEC. 10717",
+              "SEC. 10718",
+              "SEC. 10719",
+              "SEC. 10720",
+              "PART 3",
+              "SEC. 10722",
+              "SEC. 10723",
+              "SEC. 10724",
+              "SEC. 10725",
+              "SEC. 10726",
+              "SEC. 10727",
+              "Subtitle K",
+              "SEC. 10731",
+              "Subtitle L",
+              "SEC. 10741",
+              "SEC. 10742",
+              "SEC. 10743",
+              "SEC. 10744",
+              "SEC. 10745",
+              "Subtitle M",
+              "SEC. 10751",
+              "Subtitle N",
+              "SEC. 10761",
+              "Subtitle O",
+              "SEC. 10771",
+              "Subtitle P",
+              "SEC. 10781",
+              "TITLE VII",
+              "SEC. 10801",
+              "SEC. 10802",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle A (5)",
+              "SEC. 10811",
+              "SEC. 10812",
+              "SEC. 10813",
+              "SEC. 10814",
+              "SEC. 10815",
+              "SEC. 10816",
+              "SEC. 10817",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle B (5)",
+              "SEC. 10821",
+              "SEC. 10822",
+              "SEC. 10823",
+              "SEC. 10824",
+              "SEC. 10825",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle C (5)",
+              "SEC. 10831",
+              "SEC. 10832",
+              "SEC. 10833",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle D (5)",
+              "SEC. 10841",
+              "SEC. 10842",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle E (4)",
+              "SEC. 10851",
+              "RESEARCH AND INNOVATION <<NOTE: DIVISION B Subtitle F (3)",
+              "SEC. 10861",
+              "SEC. 10862",
+              "DIVISION C",
+              "DIVISION C TITLE I",
+              "DIVISION C TITLE II",
+              "DIVISION C TITLE III",
+              "Sec. 301",
+              "Sec. 302",
+              "Sec. 303",
+              "Sec. 304"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/congress.gov/chips-act).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "TABLE OF CONTENTS.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act-sections.json"
+              },
+              {
+                "input": "SEC. 2",
+                "note": "<<NOTE: 15 USC 4652 note.>> REFERENCES.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act-sections.json"
+              },
+              {
+                "input": "DIVISION A",
+                "note": "CHIPS ACT OF 2022 <<NOTE: CHIPS Act of 2022.>>",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chips-act/chips-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -51,13 +429,84 @@
         "description": "Proposed US federal bipartisan legislation restricting AI companion chatbots for minors, mandating periodic non-human disclosures (at least every 30 minutes), prohibiting chatbots from claiming to be human or licensed mental health professionals, and establishing criminal penalties for designing AI companions that solicit sexually explicit content or encourage self-harm/suicide in minors.",
         "notes": "Status: Proposed (introduced October 28, 2025 in the 119th Congress by Senators Hawley, Blumenthal, Blackburn, Britt, and Moody; ordered reported favorably by the Senate Judiciary Committee on April 23, 2026; House companion H.R. 8623 introduced May 2026; verified as of 2026-11-03).",
         "urls": [
-          {"type": "website", "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3062"}
+          {
+            "type": "website",
+            "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3062"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": [
           "guard-act-s3062",
           "s-3062"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SEC\\. 2|\\(5\\) \\(1\\)|SEC\\. 3|\\(1\\) \\(1\\)|\\(5\\) \\(2\\)|\\(6\\)|SEC\\. 4|SEC\\. 5|\\(2\\) \\(1\\)|\\(3\\)|\\(4\\)|\\(5\\) \\(3\\)|\\(1\\) \\(2\\)|\\(2\\) \\(2\\)|SEC\\. 6|SEC\\. 7|\\(2\\) \\(3\\)|SEC\\. 8)$"
+          ],
+          "description": "GUARD Act (S.3062) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SEC. 2",
+              "(5) (1)",
+              "SEC. 3",
+              "(1) (1)",
+              "(5) (2)",
+              "(6)",
+              "SEC. 4",
+              "SEC. 5",
+              "(2) (1)",
+              "(3)",
+              "(4)",
+              "(5) (3)",
+              "(1) (2)",
+              "(2) (2)",
+              "SEC. 6",
+              "SEC. 7",
+              "(2) (3)",
+              "SEC. 8"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/congress.gov/guard-act-s3062).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "SHORT TITLE.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062-sections.json"
+              },
+              {
+                "input": "SEC. 2",
+                "note": "FINDINGS.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062-sections.json"
+              },
+              {
+                "input": "(5) (1)",
+                "note": "Protecting children from artificial intelligence",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/guard-act-s3062/guard-act-s3062-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -76,14 +525,85 @@
         "description": "Proposed US federal bipartisan legislation requiring AI companion chatbot operators to implement age verification, obtain verifiable parental consent for minor accounts, display pop-up disclosures that the companion is not human, and block sexually explicit or self-harm/suicide content for minor users, enforced by the FTC and state attorneys general.",
         "notes": "Status: Proposed (introduced September 4, 2025 in the 119th Congress by Senators Cassidy,Ossoff, Britt, and Luján; referred to the Senate Committee on Commerce, Science, and Transportation; verified as of 2026-11-03).",
         "urls": [
-          {"type": "website", "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2714"}
+          {
+            "type": "website",
+            "url": "https://www.congress.gov/bill/119th-congress/senate-bill/2714"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": [
           "chat-act-s2714",
           "s-2714"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:SECTION 1|SEC\\. 2|\\(2\\) \\(1\\)|\\(7\\)|SEC\\. 3|\\(2\\) \\(2\\)|SEC\\. 4|SEC\\. 5|\\(2\\) \\(3\\)|\\(1\\)|\\(2\\) \\(4\\)|\\(3\\)|\\(5\\)|SEC\\. 6|SEC\\. 7)$"
+          ],
+          "description": "CHAT Act (S.2714) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SECTION 1",
+              "SEC. 2",
+              "(2) (1)",
+              "(7)",
+              "SEC. 3",
+              "(2) (2)",
+              "SEC. 4",
+              "SEC. 5",
+              "(2) (3)",
+              "(1)",
+              "(2) (4)",
+              "(3)",
+              "(5)",
+              "SEC. 6",
+              "SEC. 7"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/congress.gov/chat-act-s2714).",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "note": "SHORT TITLE.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714-sections.json"
+              },
+              {
+                "input": "SEC. 2",
+                "note": "DEFINITIONS.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714-sections.json"
+              },
+              {
+                "input": "(2) (1)",
+                "note": "Companion ai chatbot.--The term ``companion AI",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/congress.gov/chat-act-s2714/chat-act-s2714-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"]}
+  "tags": {
+    "country": [
+      "US"
+    ]
+  }
 }

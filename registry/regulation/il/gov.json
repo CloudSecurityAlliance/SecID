@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.gov.il"}
+    {
+      "type": "website",
+      "url": "https://www.gov.il"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^privacy-protection-law$"],
+      "patterns": [
+        "(?i)^privacy-protection-law$"
+      ],
       "description": "Protection of Privacy Law",
       "weight": 100,
       "data": {
@@ -25,11 +30,75 @@
         "description": "Israel's foundational privacy statute, enacted by the Knesset. Amendment No. 13 (passed August 5, 2024, effective August 14, 2025) is the largest overhaul since 1981, adding DPO requirements, database-registration streamlining, and GDPR-aligned enforcement powers.",
         "notes": "",
         "urls": [
-          {"type": "reference", "url": "https://www.wipo.int/wipolex/en/text/347462", "note": "WIPO Lex mirror"}
+          {
+            "type": "reference",
+            "url": "https://www.wipo.int/wipolex/en/text/347462",
+            "note": "WIPO Lex mirror"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Chapter one|Chapter Two|Chapter Three|\\(5\\)|Chapter Four|\\(3\\)|Chapter Five)$"
+          ],
+          "description": "Israel Privacy Protection Law section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Chapter one",
+              "Chapter Two",
+              "Chapter Three",
+              "(5)",
+              "Chapter Four",
+              "(3)",
+              "Chapter Five"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/gov.il/privacy-protection-law).",
+            "examples": [
+              {
+                "input": "Chapter one",
+                "note": "Infringement of Privacy",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
+              },
+              {
+                "input": "Chapter Two",
+                "note": "Protection of Privacy in Databases",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
+              },
+              {
+                "input": "Chapter Three",
+                "note": "Defenses",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/gov.il/privacy-protection-law/privacy-protection-law-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["IL"]}
+  "tags": {
+    "country": [
+      "IL"
+    ]
+  }
 }

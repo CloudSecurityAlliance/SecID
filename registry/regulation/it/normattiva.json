@@ -98,16 +98,157 @@
           {
             "type": "legal_text",
             "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "legge-132-2025",
           "law-132-2025"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 5 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(4\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(4\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(5\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(5\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 5 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 6 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 6 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(6\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(7\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(4\\)|LEGGI ED ALTRI ATTI NORMATIVI: 4 \\(1\\)|LEGGI ED ALTRI ATTI NORMATIVI: 5 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(6\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(8\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(7\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(5\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(9\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(8\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(9\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(6\\)|LEGGI ED ALTRI ATTI NORMATIVI: 4 \\(2\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(10\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(10\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(7\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(8\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(11\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(12\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(9\\)|8|LEGGI ED ALTRI ATTI NORMATIVI: 4 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 5 \\(4\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(13\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(14\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(10\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(11\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(11\\)|LEGGI ED ALTRI ATTI NORMATIVI: 5 \\(5\\)|LEGGI ED ALTRI ATTI NORMATIVI: 6 \\(3\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(15\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(16\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(12\\)|LEGGI ED ALTRI ATTI NORMATIVI: 3 \\(12\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(17\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(18\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(13\\)|Art\\. 7|Art\\. 33|Art\\. 32|Art\\. 61|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(19\\)|LEGGI ED ALTRI ATTI NORMATIVI: 2 \\(14\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(20\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(21\\)|Art\\. 105|Art\\. 106|— 35 —: Art\\. 13|— 35 —: Art\\. 14|— 36 —: Art\\. 15|— 36 —: Art\\. 16|Art\\. 6|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(22\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(23\\)|LEGGI ED ALTRI ATTI NORMATIVI: 1 \\(24\\)|— 46 —: Art\\. 13|— 46 —: Art\\. 14|— 47 —: Art\\. 15|— 47 —: Art\\. 16|Art\\. 3|DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 \\(1\\)|DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 \\(2\\)|DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 3|DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 5|DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 \\(3\\)|TESTI COORDINATI E AGGIORNATI: 1 \\(1\\)|TESTI COORDINATI E AGGIORNATI: 2|TESTI COORDINATI E AGGIORNATI: 4|TESTI COORDINATI E AGGIORNATI: 5|TESTI COORDINATI E AGGIORNATI: 1 \\(2\\))$"
+          ],
+          "description": "Legge 132/2025 (Italian AI Law) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 5 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (4)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (4)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (5)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (5)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 5 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 6 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 6 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (6)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (7)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (4)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 4 (1)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 5 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (6)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (8)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (7)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (5)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (9)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (8)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (9)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (6)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 4 (2)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (10)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (10)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (7)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (8)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (11)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (12)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (9)",
+              "8",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 4 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 5 (4)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (13)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (14)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (10)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (11)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (11)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 5 (5)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 6 (3)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (15)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (16)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (12)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 3 (12)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (17)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (18)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (13)",
+              "Art. 7",
+              "Art. 33",
+              "Art. 32",
+              "Art. 61",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (19)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 2 (14)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (20)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (21)",
+              "Art. 105",
+              "Art. 106",
+              "— 35 —: Art. 13",
+              "— 35 —: Art. 14",
+              "— 36 —: Art. 15",
+              "— 36 —: Art. 16",
+              "Art. 6",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (22)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (23)",
+              "LEGGI ED ALTRI ATTI NORMATIVI: 1 (24)",
+              "— 46 —: Art. 13",
+              "— 46 —: Art. 14",
+              "— 47 —: Art. 15",
+              "— 47 —: Art. 16",
+              "Art. 3",
+              "DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 (1)",
+              "DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 (2)",
+              "DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 3",
+              "DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 5",
+              "DECRETI, DELIBERE E ORDINANZE MINISTERIALI: 1 (3)",
+              "TESTI COORDINATI E AGGIORNATI: 1 (1)",
+              "TESTI COORDINATI E AGGIORNATI: 2",
+              "TESTI COORDINATI E AGGIORNATI: 4",
+              "TESTI COORDINATI E AGGIORNATI: 5",
+              "TESTI COORDINATI E AGGIORNATI: 1 (2)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/normattiva.it/legge-132-2025).",
+            "examples": [
+              {
+                "input": "LEGGI ED ALTRI ATTI NORMATIVI: 2 (1)",
+                "note": "Le disposizioni della presente legge si interpreta- no e si applicano conformemente al regolamento (UE) 2024/1689 del Pa",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
+              },
+              {
+                "input": "LEGGI ED ALTRI ATTI NORMATIVI: 1 (1)",
+                "note": "Ai fini della presente legge, si intendono per:",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
+              },
+              {
+                "input": "LEGGI ED ALTRI ATTI NORMATIVI: 2 (2)",
+                "note": "Per quanto non espressamente previsto, si rimanda",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/normattiva.it/legge-132-2025/legge-132-2025-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["IT"]},
+  "tags": {
+    "country": [
+      "IT"
+    ]
+  },
   "_country_provenance": {
     "method": "derived from country-code TLD",
     "date": "2026-08-15",

@@ -33,9 +33,224 @@
           {
             "type": "legal_text",
             "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2018-16036"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Artículo 1|Artículo 2|Artículo 3|Artículo 4|Artículo 5|Artículo 6|Artículo 7|Artículo 8|Artículo 9|Artículo 10|Artículo 11|Artículo 12|Artículo 13|Artículo 14|Artículo 15|Artículo 16|Artículo 17|Artículo 18|Artículo 19|Artículo 20|Artículo 21|Artículo 22|Artículo 23|Artículo 24|Artículo 25|Artículo 26|Artículo 27|Artículo 28|Artículo 29|Artículo 30|Artículo 31|Artículo 32|Artículo 33|Capítulo I|Capítulo I Artículo 34|Capítulo I Artículo 35|Capítulo II|Capítulo II Artículo 36|Capítulo II Artículo 37|Capítulo II Artículo 38|Capítulo II Artículo 39|Capítulo II Artículo 40|Capítulo II Artículo 41|Capítulo II Artículo 42|Capítulo II Artículo 43|Capítulo II Artículo 44|Artículo 45|Capítulo II Artículo 46|Capítulo II Artículo 47|Capítulo II Artículo 48|Capítulo II Artículo 49|Capítulo III|Capítulo III Artículo 50|Capítulo III Artículo 51|Capítulo III Artículo 52|Capítulo III Artículo 53|Capítulo III Artículo 54|Capítulo III Artículo 55|Capítulo III Artículo 56|Capítulo III Artículo 57|Capítulo III Artículo 58|Capítulo III Artículo 59|Capítulo III Artículo 60|Capítulo III Artículo 61|Capítulo III Artículo 62|Capítulo III Artículo 63|Capítulo III Artículo 64|Capítulo IV|Capítulo IV Artículo 65|Capítulo V|Capítulo V Artículo 66|Capítulo V Artículo 67|Capítulo V Artículo 68|Capítulo VI|Capítulo VI Artículo 69|Capítulo VI Artículo 70|Capítulo VI Artículo 71|Capítulo VI Artículo 72|Capítulo VI Artículo 1|Capítulo VI Artículo 2|Capítulo VI Artículo 3|Capítulo VI Artículo 4|Capítulo VI Artículo 5|Capítulo VI Artículo 6|Capítulo VI Artículo 7|Capítulo VI Artículo 8|Capítulo VI Artículo 9|Capítulo VI Artículo 10|Capítulo VI Artículo 11|Capítulo VI Artículo 12|Capítulo VI Artículo 13|Capítulo VI Artículo 14|Capítulo VI Artículo 15|Capítulo VI Artículo 16|Capítulo VI Artículo 17|Capítulo VI Artículo 18|Capítulo VI Artículo 19|Capítulo VI Artículo 20|Capítulo VI Artículo 21|Capítulo VI Artículo 22|Capítulo VI Artículo 23|Capítulo VI Artículo 24|Capítulo VI Artículo 25|Capítulo VI Artículo 26|Capítulo VI Artículo 27|Capítulo VI Artículo 28|Capítulo VI Artículo 29|Capítulo VI Artículo 30|Capítulo VI Artículo 31|Capítulo VI Artículo 32|Capítulo VI Artículo 33|CAPÍTULO I|Artículo 34|Artículo 35|CAPÍTULO II|Artículo 36|Artículo 37|Artículo 38|Artículo 39|Artículo 40|Artículo 41|Artículo 42|Artículo 43|Artículo 44|Artículo 45|Artículo 46|Artículo 47|Artículo 48|Artículo 49|CAPÍTULO III|Artículo 50|Artículo 51|Artículo 52|Artículo 53|Artículo 54|Artículo 55|Artículo 56|Artículo 57|Artículo 58|Artículo 59|Artículo 60|Artículo 61|Artículo 62|Artículo 63|Artículo 64|CAPÍTULO IV|Artículo 65|CAPÍTULO V|Artículo 66|Artículo 67|Artículo 68|CAPÍTULO VI|Artículo 69|Artículo 70|Artículo 71|Artículo 72|Artículo 119|Artículo 120|Artículo 121|Artículo 122|Artículo 226|Artículo 227|Artículo 228|Artículo 229|Artículo 230|Artículo 231)$"
+          ],
+          "description": "RDL 19/2018 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Artículo 1",
+              "Artículo 2",
+              "Artículo 3",
+              "Artículo 4",
+              "Artículo 5",
+              "Artículo 6",
+              "Artículo 7",
+              "Artículo 8",
+              "Artículo 9",
+              "Artículo 10",
+              "Artículo 11",
+              "Artículo 12",
+              "Artículo 13",
+              "Artículo 14",
+              "Artículo 15",
+              "Artículo 16",
+              "Artículo 17",
+              "Artículo 18",
+              "Artículo 19",
+              "Artículo 20",
+              "Artículo 21",
+              "Artículo 22",
+              "Artículo 23",
+              "Artículo 24",
+              "Artículo 25",
+              "Artículo 26",
+              "Artículo 27",
+              "Artículo 28",
+              "Artículo 29",
+              "Artículo 30",
+              "Artículo 31",
+              "Artículo 32",
+              "Artículo 33",
+              "Capítulo I",
+              "Capítulo I Artículo 34",
+              "Capítulo I Artículo 35",
+              "Capítulo II",
+              "Capítulo II Artículo 36",
+              "Capítulo II Artículo 37",
+              "Capítulo II Artículo 38",
+              "Capítulo II Artículo 39",
+              "Capítulo II Artículo 40",
+              "Capítulo II Artículo 41",
+              "Capítulo II Artículo 42",
+              "Capítulo II Artículo 43",
+              "Capítulo II Artículo 44",
+              "Artículo 45",
+              "Capítulo II Artículo 46",
+              "Capítulo II Artículo 47",
+              "Capítulo II Artículo 48",
+              "Capítulo II Artículo 49",
+              "Capítulo III",
+              "Capítulo III Artículo 50",
+              "Capítulo III Artículo 51",
+              "Capítulo III Artículo 52",
+              "Capítulo III Artículo 53",
+              "Capítulo III Artículo 54",
+              "Capítulo III Artículo 55",
+              "Capítulo III Artículo 56",
+              "Capítulo III Artículo 57",
+              "Capítulo III Artículo 58",
+              "Capítulo III Artículo 59",
+              "Capítulo III Artículo 60",
+              "Capítulo III Artículo 61",
+              "Capítulo III Artículo 62",
+              "Capítulo III Artículo 63",
+              "Capítulo III Artículo 64",
+              "Capítulo IV",
+              "Capítulo IV Artículo 65",
+              "Capítulo V",
+              "Capítulo V Artículo 66",
+              "Capítulo V Artículo 67",
+              "Capítulo V Artículo 68",
+              "Capítulo VI",
+              "Capítulo VI Artículo 69",
+              "Capítulo VI Artículo 70",
+              "Capítulo VI Artículo 71",
+              "Capítulo VI Artículo 72",
+              "Capítulo VI Artículo 1",
+              "Capítulo VI Artículo 2",
+              "Capítulo VI Artículo 3",
+              "Capítulo VI Artículo 4",
+              "Capítulo VI Artículo 5",
+              "Capítulo VI Artículo 6",
+              "Capítulo VI Artículo 7",
+              "Capítulo VI Artículo 8",
+              "Capítulo VI Artículo 9",
+              "Capítulo VI Artículo 10",
+              "Capítulo VI Artículo 11",
+              "Capítulo VI Artículo 12",
+              "Capítulo VI Artículo 13",
+              "Capítulo VI Artículo 14",
+              "Capítulo VI Artículo 15",
+              "Capítulo VI Artículo 16",
+              "Capítulo VI Artículo 17",
+              "Capítulo VI Artículo 18",
+              "Capítulo VI Artículo 19",
+              "Capítulo VI Artículo 20",
+              "Capítulo VI Artículo 21",
+              "Capítulo VI Artículo 22",
+              "Capítulo VI Artículo 23",
+              "Capítulo VI Artículo 24",
+              "Capítulo VI Artículo 25",
+              "Capítulo VI Artículo 26",
+              "Capítulo VI Artículo 27",
+              "Capítulo VI Artículo 28",
+              "Capítulo VI Artículo 29",
+              "Capítulo VI Artículo 30",
+              "Capítulo VI Artículo 31",
+              "Capítulo VI Artículo 32",
+              "Capítulo VI Artículo 33",
+              "CAPÍTULO I",
+              "Artículo 34",
+              "Artículo 35",
+              "CAPÍTULO II",
+              "Artículo 36",
+              "Artículo 37",
+              "Artículo 38",
+              "Artículo 39",
+              "Artículo 40",
+              "Artículo 41",
+              "Artículo 42",
+              "Artículo 43",
+              "Artículo 44",
+              "Artículo 45",
+              "Artículo 46",
+              "Artículo 47",
+              "Artículo 48",
+              "Artículo 49",
+              "CAPÍTULO III",
+              "Artículo 50",
+              "Artículo 51",
+              "Artículo 52",
+              "Artículo 53",
+              "Artículo 54",
+              "Artículo 55",
+              "Artículo 56",
+              "Artículo 57",
+              "Artículo 58",
+              "Artículo 59",
+              "Artículo 60",
+              "Artículo 61",
+              "Artículo 62",
+              "Artículo 63",
+              "Artículo 64",
+              "CAPÍTULO IV",
+              "Artículo 65",
+              "CAPÍTULO V",
+              "Artículo 66",
+              "Artículo 67",
+              "Artículo 68",
+              "CAPÍTULO VI",
+              "Artículo 69",
+              "Artículo 70",
+              "Artículo 71",
+              "Artículo 72",
+              "Artículo 119",
+              "Artículo 120",
+              "Artículo 121",
+              "Artículo 122",
+              "Artículo 226",
+              "Artículo 227",
+              "Artículo 228",
+              "Artículo 229",
+              "Artículo 230",
+              "Artículo 231"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/boe.es/rdl-19-2018).",
+            "examples": [
+              {
+                "input": "Artículo 1",
+                "note": "Objeto.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018-sections.json"
+              },
+              {
+                "input": "Artículo 2",
+                "note": "Ámbito de aplicación a los servicios de pago.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018-sections.json"
+              },
+              {
+                "input": "Artículo 3",
+                "note": "Definiciones.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rdl-19-2018/rdl-19-2018-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -71,9 +286,163 @@
           {
             "type": "legal_text",
             "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Artículo 1|Artículo 2|Artículo 3|Artículo 4|Artículo 5|Artículo 6|Artículo 7|Artículo 8|Artículo 9|Artículo 10|Texto consolidado: CAPÍTULO I \\(1\\)|Artículo 11|Texto consolidado: CAPÍTULO II \\(1\\)|Artículo 12|Artículo 13|Artículo 14|Artículo 15|Artículo 16|Artículo 17|Artículo 18|Artículo 19|Artículo 20|Artículo 21|Artículo 22|Artículo 23|Artículo 24|Artículo 25|Artículo 26|Artículo 27|Texto consolidado: CAPÍTULO I \\(2\\)|Artículo 28|Artículo 29|Artículo 30|Artículo 31|Artículo 32|Texto consolidado: CAPÍTULO II \\(2\\)|Artículo 33|CAPÍTULO III|Artículo 34|Artículo 35|Artículo 36|Artículo 37|CAPÍTULO IV|Artículo 38|Artículo 39|Artículo 40|Artículo 41|Artículo 42|Artículo 43|Texto consolidado: CAPÍTULO I \\(3\\)|Artículo 44|Artículo 45|Artículo 46|Artículo 47|Artículo 48|Artículo 49|Artículo 50|Artículo 51|Artículo 52|Artículo 53|Artículo 54|Artículo 55|Artículo 56|Texto consolidado: CAPÍTULO II \\(3\\)|Artículo 57|Artículo 58|Artículo 59|Artículo 60|Artículo 61|Artículo 62|Artículo 63|Artículo 64|Artículo 65|Artículo 66|Artículo 67|Artículo 68|Artículo 69|Artículo 70|Artículo 71|Artículo 72|Artículo 73|Artículo 74|Artículo 75|Artículo 76|Artículo 77|Artículo 78|Artículo 79|Artículo 80|Artículo 81|Artículo 82|Artículo 83|Artículo 84|Artículo 85|Artículo 86|Artículo 87|Artículo 88|Artículo 89|Artículo 90|Artículo 91|Artículo 92|Artículo 93|Artículo 94|Artículo 95|Artículo 96|Artículo 97)$"
+          ],
+          "description": "LOPDGDD section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Artículo 1",
+              "Artículo 2",
+              "Artículo 3",
+              "Artículo 4",
+              "Artículo 5",
+              "Artículo 6",
+              "Artículo 7",
+              "Artículo 8",
+              "Artículo 9",
+              "Artículo 10",
+              "Texto consolidado: CAPÍTULO I (1)",
+              "Artículo 11",
+              "Texto consolidado: CAPÍTULO II (1)",
+              "Artículo 12",
+              "Artículo 13",
+              "Artículo 14",
+              "Artículo 15",
+              "Artículo 16",
+              "Artículo 17",
+              "Artículo 18",
+              "Artículo 19",
+              "Artículo 20",
+              "Artículo 21",
+              "Artículo 22",
+              "Artículo 23",
+              "Artículo 24",
+              "Artículo 25",
+              "Artículo 26",
+              "Artículo 27",
+              "Texto consolidado: CAPÍTULO I (2)",
+              "Artículo 28",
+              "Artículo 29",
+              "Artículo 30",
+              "Artículo 31",
+              "Artículo 32",
+              "Texto consolidado: CAPÍTULO II (2)",
+              "Artículo 33",
+              "CAPÍTULO III",
+              "Artículo 34",
+              "Artículo 35",
+              "Artículo 36",
+              "Artículo 37",
+              "CAPÍTULO IV",
+              "Artículo 38",
+              "Artículo 39",
+              "Artículo 40",
+              "Artículo 41",
+              "Artículo 42",
+              "Artículo 43",
+              "Texto consolidado: CAPÍTULO I (3)",
+              "Artículo 44",
+              "Artículo 45",
+              "Artículo 46",
+              "Artículo 47",
+              "Artículo 48",
+              "Artículo 49",
+              "Artículo 50",
+              "Artículo 51",
+              "Artículo 52",
+              "Artículo 53",
+              "Artículo 54",
+              "Artículo 55",
+              "Artículo 56",
+              "Texto consolidado: CAPÍTULO II (3)",
+              "Artículo 57",
+              "Artículo 58",
+              "Artículo 59",
+              "Artículo 60",
+              "Artículo 61",
+              "Artículo 62",
+              "Artículo 63",
+              "Artículo 64",
+              "Artículo 65",
+              "Artículo 66",
+              "Artículo 67",
+              "Artículo 68",
+              "Artículo 69",
+              "Artículo 70",
+              "Artículo 71",
+              "Artículo 72",
+              "Artículo 73",
+              "Artículo 74",
+              "Artículo 75",
+              "Artículo 76",
+              "Artículo 77",
+              "Artículo 78",
+              "Artículo 79",
+              "Artículo 80",
+              "Artículo 81",
+              "Artículo 82",
+              "Artículo 83",
+              "Artículo 84",
+              "Artículo 85",
+              "Artículo 86",
+              "Artículo 87",
+              "Artículo 88",
+              "Artículo 89",
+              "Artículo 90",
+              "Artículo 91",
+              "Artículo 92",
+              "Artículo 93",
+              "Artículo 94",
+              "Artículo 95",
+              "Artículo 96",
+              "Artículo 97"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/boe.es/lopdgdd).",
+            "examples": [
+              {
+                "input": "Artículo 1",
+                "note": "Objeto de la ley.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd-sections.json"
+              },
+              {
+                "input": "Artículo 2",
+                "note": "Ámbito de aplicación de los Títulos I a IX y de los artículos 89 a 94.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd-sections.json"
+              },
+              {
+                "input": "Artículo 3",
+                "note": "Datos de las personas fallecidas.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/lopdgdd/lopdgdd-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -87,8 +456,117 @@
         "url": "https://www.boe.es/eli/es/rd/2023/08/22/729",
         "examples": [
           "rd-729-2023"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CAPÍTULO I|Artículo 1|Artículo 2|Artículo 3|Artículo 4|Artículo 5|Artículo 6|Artículo 7|CAPÍTULO II|Artículo 8|Artículo 9|Artículo 10|CAPÍTULO III|Artículo 11|Artículo 12|Artículo 13|Artículo 14|Artículo 15|Artículo 16|Artículo 17|Artículo 18|Artículo 19|Artículo 20|Artículo 21|Artículo 22|Artículo 23|Artículo 24|Artículo 25|Artículo 26|Artículo 27|CAPÍTULO IV|Artículo 28|Artículo 29|Artículo 30|Artículo 31|Artículo 32|Artículo 33|Artículo 34|Artículo 35|Artículo 36|Artículo 37|Artículo 38|CAPÍTULO V|Artículo 39|Artículo 40|Artículo 41|CAPÍTULO VI|Artículo 42|Artículo 43|Artículo 44|Artículo 45|Artículo 46|Artículo 47|Artículo 48|Artículo 49|Artículo 50|CAPÍTULO VII|Artículo 51)$"
+          ],
+          "description": "Real Decreto 729/2023 — Estatuto de la Agencia Española de Supervisión de la Inteligencia Artificial (AESIA Statute) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CAPÍTULO I",
+              "Artículo 1",
+              "Artículo 2",
+              "Artículo 3",
+              "Artículo 4",
+              "Artículo 5",
+              "Artículo 6",
+              "Artículo 7",
+              "CAPÍTULO II",
+              "Artículo 8",
+              "Artículo 9",
+              "Artículo 10",
+              "CAPÍTULO III",
+              "Artículo 11",
+              "Artículo 12",
+              "Artículo 13",
+              "Artículo 14",
+              "Artículo 15",
+              "Artículo 16",
+              "Artículo 17",
+              "Artículo 18",
+              "Artículo 19",
+              "Artículo 20",
+              "Artículo 21",
+              "Artículo 22",
+              "Artículo 23",
+              "Artículo 24",
+              "Artículo 25",
+              "Artículo 26",
+              "Artículo 27",
+              "CAPÍTULO IV",
+              "Artículo 28",
+              "Artículo 29",
+              "Artículo 30",
+              "Artículo 31",
+              "Artículo 32",
+              "Artículo 33",
+              "Artículo 34",
+              "Artículo 35",
+              "Artículo 36",
+              "Artículo 37",
+              "Artículo 38",
+              "CAPÍTULO V",
+              "Artículo 39",
+              "Artículo 40",
+              "Artículo 41",
+              "CAPÍTULO VI",
+              "Artículo 42",
+              "Artículo 43",
+              "Artículo 44",
+              "Artículo 45",
+              "Artículo 46",
+              "Artículo 47",
+              "Artículo 48",
+              "Artículo 49",
+              "Artículo 50",
+              "CAPÍTULO VII",
+              "Artículo 51"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/boe.es/rd-729-2023).",
+            "examples": [
+              {
+                "input": "CAPÍTULO I",
+                "note": "Section CAPÍTULO I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023-sections.json"
+              },
+              {
+                "input": "Artículo 1",
+                "note": "Naturaleza jurídica de la Agencia Española de Supervisión de Inteligencia Artificial.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023-sections.json"
+              },
+              {
+                "input": "Artículo 2",
+                "note": "Sede.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-729-2023/rd-729-2023-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -102,8 +580,95 @@
         "url": "https://www.boe.es/eli/es/rd/2023/11/08/817",
         "examples": [
           "rd-817-2023"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Artículo 1|Artículo 2|Artículo 3|CAPÍTULO I|Artículo 4|Artículo 5|CAPÍTULO II|Artículo 6|Artículo 7|Artículo 8|Artículo 9|Artículo 10|CAPÍTULO III|Artículo 11|Artículo 12|Artículo 13|Artículo 14|Artículo 15|CAPÍTULO IV|Artículo 16|Artículo 17|Artículo 18|Artículo 19|CAPÍTULO V|Artículo 20|Artículo 21|Artículo 22|CAPÍTULO VI|Artículo 23|Artículo 24|Artículo 25|Artículo 26|Artículo 27|Artículo 28|Artículo 29|Artículo 30)$"
+          ],
+          "description": "Real Decreto 817/2023 — Entorno controlado de pruebas para el ensayo del cumplimiento de la propuesta de Reglamento de Inteligencia Artificial (Spain AI Regulatory Sandbox) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Artículo 1",
+              "Artículo 2",
+              "Artículo 3",
+              "CAPÍTULO I",
+              "Artículo 4",
+              "Artículo 5",
+              "CAPÍTULO II",
+              "Artículo 6",
+              "Artículo 7",
+              "Artículo 8",
+              "Artículo 9",
+              "Artículo 10",
+              "CAPÍTULO III",
+              "Artículo 11",
+              "Artículo 12",
+              "Artículo 13",
+              "Artículo 14",
+              "Artículo 15",
+              "CAPÍTULO IV",
+              "Artículo 16",
+              "Artículo 17",
+              "Artículo 18",
+              "Artículo 19",
+              "CAPÍTULO V",
+              "Artículo 20",
+              "Artículo 21",
+              "Artículo 22",
+              "CAPÍTULO VI",
+              "Artículo 23",
+              "Artículo 24",
+              "Artículo 25",
+              "Artículo 26",
+              "Artículo 27",
+              "Artículo 28",
+              "Artículo 29",
+              "Artículo 30"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/boe.es/rd-817-2023).",
+            "examples": [
+              {
+                "input": "Artículo 1",
+                "note": "Objeto.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023-sections.json"
+              },
+              {
+                "input": "Artículo 2",
+                "note": "Ámbito de aplicación.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023-sections.json"
+              },
+              {
+                "input": "Artículo 3",
+                "note": "Definiciones.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/boe.es/rd-817-2023/rd-817-2023-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
   "tags": {

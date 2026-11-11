@@ -23,8 +23,101 @@
         "url": "https://au.int/en/treaties/african-union-convention-cyber-security-and-personal-data-protection",
         "examples": [
           "malabo-convention"
+        ],
+        "urls": [
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Article 1|Article 2|Article 3|Article 4|Article 5|Article 6|Article 7|CHAPTER II|Article 8|Article 9|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Section IV|Article 16|Article 17|Article 18|Article 19|Section V|Article 20|Article 21|Article 22|Article 23|Article 24|Article 25|Article 26|Article 27|Article 28|Article 29|Article 30|Article 31|CHAPTER IV|Article 32|Article 33|Article 34|Article 35|Article 36|Article 37|Article 38)$"
+          ],
+          "description": "African Union Convention on Cyber Security and Personal Data Protection (Malabo Convention, adopted June 27, 2014, entered into force June 8, 2023) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "CHAPTER II",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Section IV",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "Section V",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "CHAPTER IV",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/au.int/malabo-convention).",
+            "examples": [
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention-sections.json"
+              },
+              {
+                "input": "Article 3",
+                "note": "Section Article 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/au.int/malabo-convention/malabo-convention-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ]
 }

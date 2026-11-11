@@ -4,161 +4,803 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "Cyberspace Administration of China",
   "common_name": "CAC",
-  "alternate_names": ["国家互联网信息办公室"],
+  "alternate_names": [
+    "国家互联网信息办公室"
+  ],
   "notes": "China's primary internet and cyberspace regulator. Responsible for AI regulation, data security, content moderation, and cybersecurity oversight. Part of the Central Cyberspace Affairs Commission.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.cac.gov.cn"}
+    {
+      "type": "website",
+      "url": "https://www.cac.gov.cn"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^generative-ai-measures$"],
+      "patterns": [
+        "(?i)^generative-ai-measures$"
+      ],
       "description": "Interim Measures for the Management of Generative Artificial Intelligence Services",
       "weight": 100,
       "data": {
         "official_name": "Interim Measures for the Management of Generative Artificial Intelligence Services",
         "common_name": "Generative AI Measures",
-        "alternate_names": ["生成式人工智能服务管理暂行办法"],
+        "alternate_names": [
+          "生成式人工智能服务管理暂行办法"
+        ],
         "description": "Regulates generative AI services in China. Requires security assessments, content moderation, and data compliance.",
         "notes": "Effective August 15, 2023. Jointly issued by CAC, NDRC, Ministry of Education, MOST, MIIT, MPS, and SARFT. Requires providers to: conduct security assessments before public launch, implement content moderation, ensure training data legality, protect user privacy, and prevent generation of content that subverts state power or promotes terrorism. Applies to services offered to the public within China.",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm"
+          }
         ],
         "examples": []
       }
     },
     {
-      "patterns": ["(?i)^pipl$"],
+      "patterns": [
+        "(?i)^pipl$"
+      ],
       "description": "Personal Information Protection Law",
       "weight": 100,
       "data": {
         "official_name": "Personal Information Protection Law of the People's Republic of China",
         "common_name": "PIPL",
-        "alternate_names": ["中华人民共和国个人信息保护法"],
+        "alternate_names": [
+          "中华人民共和国个人信息保护法"
+        ],
         "description": "China's comprehensive personal information protection law (effective November 2021). Imposes GDPR-like obligations including consent, data minimisation, cross-border transfer restrictions, and DPO requirements.",
         "notes": "Companion to the Cybersecurity Law (CSL 2017) and Data Security Law (DSL 2021) — together form China's data-governance trinity.",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一章 （三）|第二章|第一节|（七）|第一节 （四）|第二节|第三节|第三章|第三章 （四）|第四章|第四章 （五）|第五章|（六）|第五章 （五）|个人信息处理者的义务: 第五章 （三） \\(1\\)|个人信息处理者的义务: 第五章 （三） \\(2\\)|第五章 （四）|第六章|履行个人信息保护职责的部门: 第六章 （五） \\(1\\)|履行个人信息保护职责的部门: 第六章 （五） \\(2\\)|第七章|第八章|（一）|第八章 （三）|第八章 （四）)$"
+          ],
+          "description": "PIPL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一章 （三）",
+              "第二章",
+              "第一节",
+              "（七）",
+              "第一节 （四）",
+              "第二节",
+              "第三节",
+              "第三章",
+              "第三章 （四）",
+              "第四章",
+              "第四章 （五）",
+              "第五章",
+              "（六）",
+              "第五章 （五）",
+              "个人信息处理者的义务: 第五章 （三） (1)",
+              "个人信息处理者的义务: 第五章 （三） (2)",
+              "第五章 （四）",
+              "第六章",
+              "履行个人信息保护职责的部门: 第六章 （五） (1)",
+              "履行个人信息保护职责的部门: 第六章 （五） (2)",
+              "第七章",
+              "第八章",
+              "（一）",
+              "第八章 （三）",
+              "第八章 （四）"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/pipl).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "总　　则",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl-sections.json"
+              },
+              {
+                "input": "第一章 （三）",
+                "note": "法律、行政法规规定的其他情形",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl-sections.json"
+              },
+              {
+                "input": "第二章",
+                "note": "个人信息处理规则",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/pipl/pipl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^dsl$", "(?i)^data-security-law$"],
+      "patterns": [
+        "(?i)^dsl$",
+        "(?i)^data-security-law$"
+      ],
       "description": "Data Security Law",
       "weight": 100,
       "data": {
         "official_name": "Data Security Law of the People's Republic of China",
         "common_name": "DSL",
-        "alternate_names": ["中华人民共和国数据安全法"],
+        "alternate_names": [
+          "中华人民共和国数据安全法"
+        ],
         "description": "China's data security law establishing tiered data classification (important data, core data), security obligations across the data lifecycle, and cross-border transfer restrictions for industrial / non-personal data. Effective September 2021.",
         "notes": "Operates alongside PIPL (personal information) and CSL (cybersecurity).",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2021-06/11/c_1624994566919140.htm"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2021-06/11/c_1624994566919140.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一条|第二条|第三条|第四条|第五条|第六条|第七条|第八条|第九条|第十条|第十一条|第十二条|第二章|第十三条|第十四条|第十五条|第十六条|第十七条|第十八条|第十九条|第二十条|第三章|第二十一条|第二十二条|第二十三条|第二十四条|第二十五条|第二十六条|第四章|第二十七条|第二十八条|第二十九条|第三十条|第三十一条|第三十二条|第三十三条|第三十四条|第三十五条|第三十六条|第五章|第三十七条|第三十八条|第三十九条|第四十条|第四十一条|第四十二条|第四十三条|第六章|第四十四条|第四十五条|第四十六条|第四十七条|第四十八条|第四十九条|第五十条|第五十一条|第五十二条|第七章|第五十三条|第五十四条|第五十五条)$"
+          ],
+          "description": "DSL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一条",
+              "第二条",
+              "第三条",
+              "第四条",
+              "第五条",
+              "第六条",
+              "第七条",
+              "第八条",
+              "第九条",
+              "第十条",
+              "第十一条",
+              "第十二条",
+              "第二章",
+              "第十三条",
+              "第十四条",
+              "第十五条",
+              "第十六条",
+              "第十七条",
+              "第十八条",
+              "第十九条",
+              "第二十条",
+              "第三章",
+              "第二十一条",
+              "第二十二条",
+              "第二十三条",
+              "第二十四条",
+              "第二十五条",
+              "第二十六条",
+              "第四章",
+              "第二十七条",
+              "第二十八条",
+              "第二十九条",
+              "第三十条",
+              "第三十一条",
+              "第三十二条",
+              "第三十三条",
+              "第三十四条",
+              "第三十五条",
+              "第三十六条",
+              "第五章",
+              "第三十七条",
+              "第三十八条",
+              "第三十九条",
+              "第四十条",
+              "第四十一条",
+              "第四十二条",
+              "第四十三条",
+              "第六章",
+              "第四十四条",
+              "第四十五条",
+              "第四十六条",
+              "第四十七条",
+              "第四十八条",
+              "第四十九条",
+              "第五十条",
+              "第五十一条",
+              "第五十二条",
+              "第七章",
+              "第五十三条",
+              "第五十四条",
+              "第五十五条"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/dsl).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "总则",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl-sections.json"
+              },
+              {
+                "input": "第一条",
+                "note": "Section 第一条",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl-sections.json"
+              },
+              {
+                "input": "第二条",
+                "note": "Section 第二条",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/dsl/dsl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^csl$", "(?i)^cybersecurity-law$"],
+      "patterns": [
+        "(?i)^csl$",
+        "(?i)^cybersecurity-law$"
+      ],
       "description": "Cybersecurity Law",
       "weight": 100,
       "data": {
         "official_name": "Cybersecurity Law of the People's Republic of China",
         "common_name": "CSL",
-        "alternate_names": ["中华人民共和国网络安全法"],
+        "alternate_names": [
+          "中华人民共和国网络安全法"
+        ],
         "description": "China's foundational cybersecurity law (effective June 2017). Establishes the Multi-Level Protection Scheme (MLPS, operationalised via GB/T 22239), critical information infrastructure (CII) designation, network operator obligations, and cross-border data transfer constraints.",
         "notes": "Foundation for the broader Chinese cyber-governance framework.",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2016-11/07/c_1119867116.htm"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2016-11/07/c_1119867116.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第一条|第二条|第三条|第四条|第五条|第六条|第七条|第八条|第九条|第十条|第十一条|第十二条|第十三条|第十四条|第二章|第十五条|第十六条|第十七条|第十八条|第十九条|第二十条)$"
+          ],
+          "description": "CSL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第一条",
+              "第二条",
+              "第三条",
+              "第四条",
+              "第五条",
+              "第六条",
+              "第七条",
+              "第八条",
+              "第九条",
+              "第十条",
+              "第十一条",
+              "第十二条",
+              "第十三条",
+              "第十四条",
+              "第二章",
+              "第十五条",
+              "第十六条",
+              "第十七条",
+              "第十八条",
+              "第十九条",
+              "第二十条"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/csl).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "总　则",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl-sections.json"
+              },
+              {
+                "input": "第一条",
+                "note": "Section 第一条",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl-sections.json"
+              },
+              {
+                "input": "第二条",
+                "note": "Section 第二条",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/csl/csl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cybersecurity-review-measures$"],
+      "patterns": [
+        "(?i)^cybersecurity-review-measures$"
+      ],
       "description": "Cybersecurity Review Measures",
       "weight": 100,
       "data": {
         "official_name": "Measures for Cybersecurity Review",
         "common_name": "Cybersecurity Review Measures",
-        "alternate_names": ["网络安全审查办法"],
+        "alternate_names": [
+          "网络安全审查办法"
+        ],
         "description": "Establishes a mandatory pre-clearance security-review regime for critical information infrastructure operators (CIIOs) procuring network products/services that could affect national security, and for network platform operators holding personal data of over 1 million users seeking a listing abroad. Reviews conducted by the Cybersecurity Review Office under CAC, jointly with 12 other departments (NDRC, MIIT, MPS, MSS, MOF, MOFCOM, PBOC, SAMR, and others).",
         "notes": "First issued 2020, revised 2021. Current version effective February 15, 2022.",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm"},
-          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/17598-2/", "note": "China Law Translate English translation, 2022 revised version"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm"
+          },
+          {
+            "type": "translation",
+            "url": "https://www.chinalawtranslate.com/en/17598-2/",
+            "note": "China Law Translate English translation, 2022 revised version"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cybersecurity-review-measures/cybersecurity-review-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cybersecurity-review-measures/cybersecurity-review-measures.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:（四）|（七）)$"
+          ],
+          "description": "Cybersecurity Review Measures section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "（四）",
+              "（七）"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/cybersecurity-review-measures).",
+            "examples": [
+              {
+                "input": "（四）",
+                "note": "网络安全审查工作需要的其他材料",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cybersecurity-review-measures/cybersecurity-review-measures-sections.json"
+              },
+              {
+                "input": "（七）",
+                "note": "其他可能危害关键信息基础设施安全、网络安全和数据安全的因素",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cybersecurity-review-measures/cybersecurity-review-measures-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cybersecurity-review-measures/cybersecurity-review-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cross-border-data-transfer-security-assessment$"],
+      "patterns": [
+        "(?i)^cross-border-data-transfer-security-assessment$"
+      ],
       "description": "Measures for Security Assessment of Outbound Data Transfer",
       "weight": 100,
       "data": {
         "official_name": "Measures for Security Assessment of Outbound Data Transfer",
         "common_name": "Data Export Security Assessment Measures",
-        "alternate_names": ["数据出境安全评估办法"],
+        "alternate_names": [
+          "数据出境安全评估办法"
+        ],
         "description": "Implements PIPL Article 40 and DSL cross-border provisions. Requires a CAC security assessment before export of 'important data' or personal information above defined thresholds (e.g. CIIOs, processors handling PI of 1M+ individuals, or sensitive PI of 10,000+ individuals) collected/generated in China. Companion lower-threshold mechanisms (standard contract, certification) were introduced in later 2023 relaxation rules.",
         "notes": "Effective September 1, 2022, with a compliance grace period to March 1, 2023.",
         "urls": [
-          {"type": "translation", "url": "https://digichina.stanford.edu/work/translation-outbound-data-transfer-security-assessment-measures-effective-sept-1-2022/", "note": "DigiChina/Stanford English translation"}
+          {
+            "type": "translation",
+            "url": "https://digichina.stanford.edu/work/translation-outbound-data-transfer-security-assessment-measures-effective-sept-1-2022/",
+            "note": "DigiChina/Stanford English translation"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:数据出境安全评估办法: （四） \\(1\\)|（六）|数据出境安全评估办法: （四） \\(2\\)|（七）|（三）)$"
+          ],
+          "description": "Data Export Security Assessment Measures section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "数据出境安全评估办法: （四） (1)",
+              "（六）",
+              "数据出境安全评估办法: （四） (2)",
+              "（七）",
+              "（三）"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/cross-border-data-transfer-security-assessment).",
+            "examples": [
+              {
+                "input": "数据出境安全评估办法: （四） (1)",
+                "note": "国家网信部门规定的其他需要申报数据出境安全评估的情形",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment-sections.json"
+              },
+              {
+                "input": "（六）",
+                "note": "其他可能影响数据出境安全的事项",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment-sections.json"
+              },
+              {
+                "input": "数据出境安全评估办法: （四） (2)",
+                "note": "安全评估工作需要的其他材料",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/cross-border-data-transfer-security-assessment/cross-border-data-transfer-security-assessment-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^algorithm-recommendation-provisions$"],
+      "patterns": [
+        "(?i)^algorithm-recommendation-provisions$"
+      ],
       "description": "Algorithm Recommendation Management Provisions",
       "weight": 100,
       "data": {
         "official_name": "Provisions on the Administration of Algorithm Recommendation for Internet Information Services",
         "common_name": "Algorithm Recommendation Provisions",
-        "alternate_names": ["互联网信息服务算法推荐管理规定"],
+        "alternate_names": [
+          "互联网信息服务算法推荐管理规定"
+        ],
         "description": "China's first dedicated algorithm-governance regulation, grounded in the CSL, DSL, and PIPL. Regulates recommendation-algorithm use in internet information services (search, feeds, e-commerce, gig platforms): requires algorithm filing/registration with CAC for services with public-opinion or social-mobilization capability, mandates user opt-out/control over recommendation profiling, bans algorithmic price discrimination, and requires labor-rights protections for algorithm-managed gig workers. Jointly issued by CAC, MIIT, MPS, and SAMR.",
         "notes": "Adopted January 4, 2022; effective March 1, 2022.",
         "urls": [
-          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/algorithms/", "note": "China Law Translate English translation"}
+          {
+            "type": "translation",
+            "url": "https://www.chinalawtranslate.com/en/algorithms/",
+            "note": "China Law Translate English translation"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^Chapter\\ I$",
+            "^Article\\ 1$",
+            "^Article\\ 2$",
+            "^Article\\ 3$",
+            "^Article\\ 4$",
+            "^Article\\ 5$",
+            "^Chapter\\ II$",
+            "^Article\\ 6$",
+            "^Article\\ 7$",
+            "^Article\\ 8$",
+            "^Article\\ 9$",
+            "^Article\\ 10$",
+            "^Article\\ 11$",
+            "^Article\\ 12$",
+            "^Article\\ 13$",
+            "^Article\\ 14$",
+            "^Article\\ 15$",
+            "^Chapter\\ III$",
+            "^Article\\ 16$",
+            "^Article\\ 17$",
+            "^Article\\ 18$",
+            "^Article\\ 19$",
+            "^Article\\ 20$",
+            "^Article\\ 21$",
+            "^Article\\ 22$",
+            "^Chapter\\ IV$",
+            "^Article\\ 23$",
+            "^Article\\ 24$",
+            "^Article\\ 25$",
+            "^Article\\ 26$",
+            "^Article\\ 27$",
+            "^Article\\ 28$",
+            "^Article\\ 29$",
+            "^Article\\ 30$",
+            "^Chapter\\ V$",
+            "^Article\\ 31$",
+            "^Article\\ 32$",
+            "^Article\\ 33$",
+            "^Chapter\\ VI$",
+            "^Article\\ 34$",
+            "^Article\\ 35$"
+          ],
+          "description": "Section/article/part identifier in algorithm-recommendation-provisions (41 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "Chapter I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json",
+                "note": "Chapter I"
+              },
+              {
+                "input": "Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json",
+                "note": "Article 1"
+              },
+              {
+                "input": "Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/algorithm-recommendation-provisions/algorithm-recommendation-provisions-sections.json",
+                "note": "Article 2"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^deep-synthesis-provisions$"],
+      "patterns": [
+        "(?i)^deep-synthesis-provisions$"
+      ],
       "description": "Deep Synthesis Provisions",
       "weight": 100,
       "data": {
         "official_name": "Provisions on the Administration of Deep Synthesis of Internet-Based Information Services",
         "common_name": "Deep Synthesis Provisions",
-        "alternate_names": ["互联网信息服务深度合成管理规定"],
+        "alternate_names": [
+          "互联网信息服务深度合成管理规定"
+        ],
         "description": "Regulates 'deep synthesis' technology (deep learning/VR/generative-synthetic algorithms producing text, images, audio, video, or virtual scenes/persons). Requires provider security assessments, real-name verification of users, conspicuous labeling of synthetic content (predecessor to the 2025 AI-content labeling measures below), bans use for spreading disinformation or impersonation without consent, and requires algorithm filing with CAC similar to the Algorithm Recommendation Provisions. Jointly issued by CAC, MIIT, and MPS.",
         "notes": "Issued November 25, 2022; effective January 10, 2023.",
         "urls": [
-          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/deep-synthesis/", "note": "China Law Translate English translation"}
+          {
+            "type": "translation",
+            "url": "https://www.chinalawtranslate.com/en/deep-synthesis/",
+            "note": "China Law Translate English translation"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^Chapter\\ I$",
+            "^Article\\ 1$",
+            "^Article\\ 2$",
+            "^Article\\ 3$",
+            "^Article\\ 4$",
+            "^Article\\ 5$",
+            "^Chapter\\ II$",
+            "^Article\\ 6$",
+            "^Article\\ 7$",
+            "^Article\\ 8$",
+            "^Article\\ 9$",
+            "^Article\\ 10$",
+            "^Article\\ 11$",
+            "^Article\\ 12$",
+            "^Article\\ 13$",
+            "^Chapter\\ III$",
+            "^Article\\ 14$",
+            "^Article\\ 15$",
+            "^Article\\ 16$",
+            "^Article\\ 17$",
+            "^Article\\ 18$",
+            "^Chapter\\ IV$",
+            "^Article\\ 19$",
+            "^Article\\ 20$",
+            "^Article\\ 21$",
+            "^Article\\ 22$",
+            "^Chapter\\ V$",
+            "^Article\\ 23$",
+            "^Article\\ 24$",
+            "^Article\\ 25$"
+          ],
+          "description": "Section/article/part identifier in deep-synthesis-provisions (30 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "Chapter I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json",
+                "note": "Chapter I"
+              },
+              {
+                "input": "Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json",
+                "note": "Article 1"
+              },
+              {
+                "input": "Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/deep-synthesis-provisions/deep-synthesis-provisions-sections.json",
+                "note": "Article 2"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^ai-content-labeling-measures$"],
+      "patterns": [
+        "(?i)^ai-content-labeling-measures$"
+      ],
       "description": "Measures for Labeling of AI-Generated Synthetic Content",
       "weight": 100,
       "data": {
         "official_name": "Measures for the Labeling of AI-Generated and Synthetic Content",
         "common_name": "AI Content Labeling Measures",
-        "alternate_names": ["人工智能生成合成内容标识办法"],
+        "alternate_names": [
+          "人工智能生成合成内容标识办法"
+        ],
         "description": "Requires 'explicit' (visible text/audio/graphic) and 'implicit' (embedded metadata) labeling of AI-generated/synthetic content — text, image, audio, video, virtual scenes — by internet information service providers and content-distribution platforms. Paired with mandatory national standard GB 45438-2025 (Cybersecurity Technology — Labeling Method for Content Generated by Artificial Intelligence). Jointly issued by CAC, MPS, SAMR, and NRTA (National Radio and Television Administration).",
         "notes": "Issued March 14, 2025; effective September 1, 2025.",
         "urls": [
-          {"type": "website", "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm"},
-          {"type": "translation", "url": "https://www.chinalawtranslate.com/en/ai-labeling/", "note": "China Law Translate English translation"}
+          {
+            "type": "website",
+            "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm"
+          },
+          {
+            "type": "translation",
+            "url": "https://www.chinalawtranslate.com/en/ai-labeling/",
+            "note": "China Law Translate English translation"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/ai-content-labeling-measures/ai-content-labeling-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/ai-content-labeling-measures/ai-content-labeling-measures.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:（六）|（四）)$"
+          ],
+          "description": "AI Content Labeling Measures section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "（六）",
+              "（四）"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/ai-content-labeling-measures).",
+            "examples": [
+              {
+                "input": "（六）",
+                "note": "其他生成合成服务场景根据自身应用特点添加显著的提示标识",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/ai-content-labeling-measures/ai-content-labeling-measures-sections.json"
+              },
+              {
+                "input": "（四）",
+                "note": "提供必要的标识功能，并提醒用户主动声明发布内容中是否包含生成合成内容",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/ai-content-labeling-measures/ai-content-labeling-measures-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/ai-content-labeling-measures/ai-content-labeling-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -177,16 +819,89 @@
         "description": "World's first dedicated national regulation governing emotionally interactive and companion AI services simulating human personality, voice, or emotional attachment across text, audio, image, and video.",
         "notes": "Status: In force July 15, 2026 (public consultation draft released December 27, 2025; final measures jointly promulgated April 10, 2026 by CAC, NDRC, MIIT, MPS, and SAMR; verified as of 2026-11-03). Mandates conspicuous AI-interaction disclosure at login, during continuous use, and whenever dependency signs emerge; mandatory usage reminders after two hours of continuous interaction; Article 13 user emotion/dependency assessment, crisis and professional assistance channels, and emergency-contact/guardian intervention for extreme risk situations such as suicide or self-harm; prohibition on manipulating user emotions, inducing addiction, or replacing social interaction; and guardian consent, usage limits, and dedicated minor/elderly protections.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm", "note": "Final promulgated measures (published April 10, 2026; effective July 15, 2026)"},
-          {"type": "docs", "url": "https://www.cac.gov.cn/2026-04/17/c_1778166820059937.htm", "note": "CAC expert interpretation/commentary (April 17, 2026)"},
-          {"type": "proposal", "url": "https://www.cac.gov.cn/2025-12/27/c_1768571207311996.htm", "note": "Public consultation draft notice (December 27, 2025)"}
+          {
+            "type": "legal_text",
+            "url": "https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm",
+            "note": "Final promulgated measures (published April 10, 2026; effective July 15, 2026)"
+          },
+          {
+            "type": "docs",
+            "url": "https://www.cac.gov.cn/2026-04/17/c_1778166820059937.htm",
+            "note": "CAC expert interpretation/commentary (April 17, 2026)"
+          },
+          {
+            "type": "proposal",
+            "url": "https://www.cac.gov.cn/2025-12/27/c_1768571207311996.htm",
+            "note": "Public consultation draft notice (December 27, 2025)"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": [
           "anthropomorphic-interactive-ai-measures",
           "ai-companion-measures"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:第一章|第二章|（七）|（六）|（五）|（八）|第三章|第四章)$"
+          ],
+          "description": "Anthropomorphic Interactive AI Measures (AI Companion Rules) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "第一章",
+              "第二章",
+              "（七）",
+              "（六）",
+              "（五）",
+              "（八）",
+              "第三章",
+              "第四章"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures).",
+            "examples": [
+              {
+                "input": "第一章",
+                "note": "总 则",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures-sections.json"
+              },
+              {
+                "input": "第二章",
+                "note": "服务促进和规范",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures-sections.json"
+              },
+              {
+                "input": "（七）",
+                "note": "其他违反法律、行政法规和国家有关规定的活动",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/cac.gov.cn/anthropomorphic-interactive-ai-measures/anthropomorphic-interactive-ai-measures-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["CN"]}
+  "tags": {
+    "country": [
+      "CN"
+    ]
+  }
 }

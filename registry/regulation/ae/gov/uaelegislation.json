@@ -11,11 +11,16 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://uaelegislation.gov.ae"}
+    {
+      "type": "website",
+      "url": "https://uaelegislation.gov.ae"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^pdpl$"],
+      "patterns": [
+        "(?i)^pdpl$"
+      ],
       "description": "UAE Federal Data Protection Law",
       "weight": 100,
       "data": {
@@ -25,11 +30,98 @@
         "description": "First comprehensive UAE federal data-protection statute, in force January 2022. GDPR-influenced consent/rights/cross-border-transfer rules. Excludes DIFC and ADGM (which have their own separate free-zone data protection regimes) and national-security government data.",
         "notes": "",
         "urls": [
-          {"type": "legal_text", "url": "https://uaelegislation.gov.ae/en/legislations/1972"}
+          {
+            "type": "legal_text",
+            "url": "https://uaelegislation.gov.ae/en/legislations/1972"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Article \\(1\\)|Article \\(2\\)|Article \\(3\\)|Article \\(4\\)|Article \\(5\\)|Article \\(6\\)|Article \\(7\\)|Article \\(8\\)|Article \\(9\\)|Article \\(10\\)|Article \\(11\\)|Article \\(12\\)|Article \\(13\\)|Article \\(14\\)|Article \\(15\\)|Article \\(16\\)|Article \\(17\\)|Article \\(18\\)|Article \\(19\\)|Article \\(20\\)|Article 21|Article \\(22\\)|Article \\(23\\)|Article \\(24\\)|Article \\(25\\)|Article \\(26\\)|Article \\(27\\)|Article \\(28\\)|Article \\(29\\)|Article \\(30\\)|Article \\(31\\))$"
+          ],
+          "description": "UAE PDPL section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Article (1)",
+              "Article (2)",
+              "Article (3)",
+              "Article (4)",
+              "Article (5)",
+              "Article (6)",
+              "Article (7)",
+              "Article (8)",
+              "Article (9)",
+              "Article (10)",
+              "Article (11)",
+              "Article (12)",
+              "Article (13)",
+              "Article (14)",
+              "Article (15)",
+              "Article (16)",
+              "Article (17)",
+              "Article (18)",
+              "Article (19)",
+              "Article (20)",
+              "Article 21",
+              "Article (22)",
+              "Article (23)",
+              "Article (24)",
+              "Article (25)",
+              "Article (26)",
+              "Article (27)",
+              "Article (28)",
+              "Article (29)",
+              "Article (30)",
+              "Article (31)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/uaelegislation.gov.ae/pdpl).",
+            "examples": [
+              {
+                "input": "Article (1)",
+                "note": "Section Article (1)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
+              },
+              {
+                "input": "Article (2)",
+                "note": "Section Article (2)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
+              },
+              {
+                "input": "Article (3)",
+                "note": "Section Article (3)",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/uaelegislation.gov.ae/pdpl/pdpl-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["AE"]}
+  "tags": {
+    "country": [
+      "AE"
+    ]
+  }
 }

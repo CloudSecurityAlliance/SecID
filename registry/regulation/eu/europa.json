@@ -4,54 +4,113 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "European Union",
   "common_name": "EU",
   "alternate_names": null,
   "notes": "European Union regulations and directives governing data protection, AI, cybersecurity, and digital services. Regulations apply directly in member states; directives require national implementation. EUR-Lex provides access to EU law. The EU AI Act became effective August 2025.",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://eur-lex.europa.eu"}
+    {
+      "type": "website",
+      "url": "https://eur-lex.europa.eu"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^gdpr$"],
+      "patterns": [
+        "(?i)^gdpr$"
+      ],
       "description": "General Data Protection Regulation",
       "weight": 100,
       "data": {
         "official_name": "General Data Protection Regulation",
         "common_name": "GDPR",
-        "alternate_names": ["Regulation (EU) 2016/679"],
-        "description": "EU regulation on data protection and privacy (Regulation 2016/679). The global benchmark for data protection law.",
-        "notes": "Effective May 2018. Applies to organizations processing EU residents' data regardless of organization location. Enforced by national Data Protection Authorities (DPAs). Maximum penalties: 4% of annual global turnover or \u20ac20M.",
-        "urls": [
-          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"}
+        "alternate_names": [
+          "Regulation (EU) 2016/679"
         ],
-        "examples": ["art-32", "art-32.1.a", "art-5", "recital-78"]
+        "description": "EU regulation on data protection and privacy (Regulation 2016/679). The global benchmark for data protection law.",
+        "notes": "Effective May 2018. Applies to organizations processing EU residents' data regardless of organization location. Enforced by national Data Protection Authorities (DPAs). Maximum penalties: 4% of annual global turnover or €20M.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+          }
+        ],
+        "examples": [
+          "art-32",
+          "art-32.1.a",
+          "art-5",
+          "recital-78"
+        ]
       },
       "children": [
         {
-          "patterns": ["^art-(?:[1-9]|[1-9]\\d)(\\.\\d+)*(\\.[a-z])*$"],
+          "patterns": [
+            "^art-(?:[1-9]|[1-9]\\d)(\\.\\d+)*(\\.[a-z])*$"
+          ],
           "description": "GDPR article, paragraph, and point reference (Articles 1–99, e.g., art-32, art-32.1, art-32.1.a, art-5.1.f). Articles are the operative legal provisions.",
           "weight": 100,
           "data": {
             "url": "https://eur-lex.europa.eu/legal-content/{lang}/TXT/HTML/?uri=CELEX:32016R0679",
             "content_type": "text/html",
             "lang": {
-              "available": ["en", "de", "fr", "es", "it", "nl", "pt", "pl", "ro", "cs", "da", "el", "et", "fi", "ga", "hr", "hu", "lt", "lv", "mt", "sk", "sl", "sv", "bg"],
+              "available": [
+                "en",
+                "de",
+                "fr",
+                "es",
+                "it",
+                "nl",
+                "pt",
+                "pl",
+                "ro",
+                "cs",
+                "da",
+                "el",
+                "et",
+                "fi",
+                "ga",
+                "hr",
+                "hu",
+                "lt",
+                "lv",
+                "mt",
+                "sk",
+                "sl",
+                "sv",
+                "bg"
+              ],
               "default": "en",
               "url_transform": "uppercase"
             },
             "note": "EUR-Lex full-text HTML. Per-article anchors not available via stable URL pattern. Third-party sites (gdpr-info.eu) provide per-article pages but are not official EU resources.",
             "examples": [
-              {"input": "art-32", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Security of processing — requires appropriate technical and organizational measures"},
-              {"input": "art-32.1.a", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Article 32(1)(a) — pseudonymisation and encryption of personal data"},
-              {"input": "art-5", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Principles relating to processing of personal data"},
-              {"input": "art-17", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Right to erasure ('right to be forgotten')"},
-              {"input": "art-25", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Data protection by design and by default"}
+              {
+                "input": "art-32",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Security of processing — requires appropriate technical and organizational measures"
+              },
+              {
+                "input": "art-32.1.a",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Article 32(1)(a) — pseudonymisation and encryption of personal data"
+              },
+              {
+                "input": "art-5",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Principles relating to processing of personal data"
+              },
+              {
+                "input": "art-17",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Right to erasure ('right to be forgotten')"
+              },
+              {
+                "input": "art-25",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Data protection by design and by default"
+              }
             ]
           }
         },
@@ -66,64 +125,149 @@
             "url": "https://eur-lex.europa.eu/legal-content/{lang}/TXT/HTML/?uri=CELEX:32016R0679",
             "content_type": "text/html",
             "lang": {
-              "available": ["en", "de", "fr", "es", "it", "nl", "pt", "pl", "ro", "cs", "da", "el", "et", "fi", "ga", "hr", "hu", "lt", "lv", "mt", "sk", "sl", "sv", "bg"],
+              "available": [
+                "en",
+                "de",
+                "fr",
+                "es",
+                "it",
+                "nl",
+                "pt",
+                "pl",
+                "ro",
+                "cs",
+                "da",
+                "el",
+                "et",
+                "fi",
+                "ga",
+                "hr",
+                "hu",
+                "lt",
+                "lv",
+                "mt",
+                "sk",
+                "sl",
+                "sv",
+                "bg"
+              ],
               "default": "en",
               "url_transform": "uppercase"
             },
             "note": "Chapters group related articles. Recitals are non-binding interpretive guidance that precede the articles in the regulation text. Courts and DPAs frequently cite recitals to interpret article requirements.",
             "examples": [
-              {"input": "recital-78", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Recital on appropriate technical and organizational measures (supports art-25 and art-32)"},
-              {"input": "chapter-3", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679", "note": "Rights of the data subject"}
+              {
+                "input": "recital-78",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Recital on appropriate technical and organizational measures (supports art-25 and art-32)"
+              },
+              {
+                "input": "chapter-3",
+                "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+                "note": "Rights of the data subject"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^ai-act$"],
+      "patterns": [
+        "(?i)^ai-act$"
+      ],
       "description": "EU Artificial Intelligence Act",
       "weight": 100,
       "data": {
         "official_name": "EU Artificial Intelligence Act",
         "common_name": "AI Act",
-        "alternate_names": ["Regulation (EU) 2024/1689"],
+        "alternate_names": [
+          "Regulation (EU) 2024/1689"
+        ],
         "description": "World's first comprehensive AI regulation (Regulation 2024/1689). Risk-based framework classifying AI systems.",
         "notes": "Status: In force August 1, 2024 with phased application through 2027 (verified as of 2026-11-03). Prohibitions on unacceptable-risk practices (Article 5, including manipulative/deceptive techniques and exploitation of vulnerabilities of age or disability) applied from February 2, 2025; general-purpose AI rules applied from August 2, 2025; Article 50 transparency obligations for AI systems intended to interact directly with natural persons (chatbots and conversational agents, numbered Article 52 in the 2021 Commission draft) apply from August 2, 2026.",
         "urls": [
-          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+          }
         ],
-        "examples": ["art-6", "art-17.1.a", "annex-III", "annex-IV.2.f", "annex-IV.2.g", "recital-81", "art-50", "art-52"]
+        "examples": [
+          "art-6",
+          "art-17.1.a",
+          "annex-III",
+          "annex-IV.2.f",
+          "annex-IV.2.g",
+          "recital-81",
+          "art-50",
+          "art-52"
+        ]
       },
       "children": [
         {
-          "patterns": ["^art-(?:[1-9]|[1-9]\\d|10\\d|11[0-3])(\\.\\d+)*(\\.[a-z])*$"],
+          "patterns": [
+            "^art-(?:[1-9]|[1-9]\\d|10\\d|11[0-3])(\\.\\d+)*(\\.[a-z])*$"
+          ],
           "description": "AI Act article, paragraph, and point reference (Articles 1–113, e.g., art-6, art-17.1, art-17.1.a, art-16.c).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
             "examples": [
-              {"input": "art-5", "note": "Prohibited AI practices (subliminal/manipulative techniques and exploitation of vulnerable groups)"},
-              {"input": "art-6", "note": "Classification rules for high-risk AI systems"},
-              {"input": "art-16.c", "note": "Article 16, point (c) — provider obligation to have a quality management system in place which complies with Article 17"},
-              {"input": "art-17.1", "note": "Article 17(1) — quality management system requirement for providers of high-risk AI systems"},
-              {"input": "art-17.1.a", "note": "Article 17(1)(a) — strategy for regulatory compliance, including conformity assessment and management of modifications"},
-              {"input": "art-50", "note": "Transparency obligations for providers and deployers of certain AI systems (including chatbots interacting directly with natural persons; numbered art-52 in the 2021 Commission draft)"},
-              {"input": "art-52", "note": "Procedure for the classification of general-purpose AI models with systemic risk in enacted Regulation (EU) 2024/1689 (note: in the 2021 Commission draft proposal, art-52 was the chatbot transparency provision now enacted as art-50)"}
+              {
+                "input": "art-5",
+                "note": "Prohibited AI practices (subliminal/manipulative techniques and exploitation of vulnerable groups)"
+              },
+              {
+                "input": "art-6",
+                "note": "Classification rules for high-risk AI systems"
+              },
+              {
+                "input": "art-16.c",
+                "note": "Article 16, point (c) — provider obligation to have a quality management system in place which complies with Article 17"
+              },
+              {
+                "input": "art-17.1",
+                "note": "Article 17(1) — quality management system requirement for providers of high-risk AI systems"
+              },
+              {
+                "input": "art-17.1.a",
+                "note": "Article 17(1)(a) — strategy for regulatory compliance, including conformity assessment and management of modifications"
+              },
+              {
+                "input": "art-50",
+                "note": "Transparency obligations for providers and deployers of certain AI systems (including chatbots interacting directly with natural persons; numbered art-52 in the 2021 Commission draft)"
+              },
+              {
+                "input": "art-52",
+                "note": "Procedure for the classification of general-purpose AI models with systemic risk in enacted Regulation (EU) 2024/1689 (note: in the 2021 Commission draft proposal, art-52 was the chatbot transparency provision now enacted as art-50)"
+              }
             ]
           }
         },
         {
-          "patterns": ["^annex-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII)(\\.\\d+)*(\\.[a-z])*$"],
+          "patterns": [
+            "^annex-(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII)(\\.\\d+)*(\\.[a-z])*$"
+          ],
           "description": "AI Act annex, section, and point reference (Annexes I–XIII with optional section/point path, e.g., annex-III, annex-IV, annex-IV.2.f, annex-IV.2.g). Annexes define technical requirements and high-risk categories.",
           "weight": 100,
           "data": {
             "note": "Annexes are integral to the AI Act's risk classification and conformity system. Annex III lists high-risk AI system areas; Annex IV specifies required technical documentation elements.",
             "examples": [
-              {"input": "annex-III", "note": "Areas of high-risk AI systems (biometrics, critical infrastructure, education, employment, etc.)"},
-              {"input": "annex-IV", "note": "Technical documentation referred to in Article 11(1)"},
-              {"input": "annex-IV.2.f", "note": "Annex IV, Section 2, point (f) — detailed description of pre-determined changes to the AI system and its performance"},
-              {"input": "annex-IV.2.g", "note": "Annex IV, Section 2, point (g) — validation and testing procedures, data characteristics, and metrics for accuracy, robustness, and compliance"}
+              {
+                "input": "annex-III",
+                "note": "Areas of high-risk AI systems (biometrics, critical infrastructure, education, employment, etc.)"
+              },
+              {
+                "input": "annex-IV",
+                "note": "Technical documentation referred to in Article 11(1)"
+              },
+              {
+                "input": "annex-IV.2.f",
+                "note": "Annex IV, Section 2, point (f) — detailed description of pre-determined changes to the AI system and its performance"
+              },
+              {
+                "input": "annex-IV.2.g",
+                "note": "Annex IV, Section 2, point (g) — validation and testing procedures, data characteristics, and metrics for accuracy, robustness, and compliance"
+              }
             ]
           }
         },
@@ -137,40 +281,67 @@
           "data": {
             "note": "Chapters group related articles. Recitals precede the operative articles in Regulation (EU) 2024/1689 and provide interpretive context.",
             "examples": [
-              {"input": "recital-81", "note": "Recital on quality management systems and technical documentation for high-risk AI systems"},
-              {"input": "chapter-3", "note": "Chapter III — High-Risk AI Systems"}
+              {
+                "input": "recital-81",
+                "note": "Recital on quality management systems and technical documentation for high-risk AI systems"
+              },
+              {
+                "input": "chapter-3",
+                "note": "Chapter III — High-Risk AI Systems"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^nis2$"],
+      "patterns": [
+        "(?i)^nis2$"
+      ],
       "description": "Network and Information Security Directive 2",
       "weight": 100,
       "data": {
         "official_name": "Network and Information Security Directive 2",
         "common_name": "NIS2",
-        "alternate_names": ["Directive (EU) 2022/2555"],
+        "alternate_names": [
+          "Directive (EU) 2022/2555"
+        ],
         "description": "EU directive on cybersecurity requirements for essential and important entities (Directive 2022/2555).",
         "notes": "Expands scope beyond NIS1. Requires incident reporting within 24 hours. Applies to energy, transport, banking, health, digital infrastructure. As a directive, requires national transposition — implementation varies across member states.",
         "urls": [
-          {"type": "website", "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"}
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"
+          }
         ],
-        "examples": ["art-21", "art-21.2.a", "art-23"]
+        "examples": [
+          "art-21",
+          "art-21.2.a",
+          "art-23"
+        ]
       },
       "children": [
         {
-          "patterns": ["^art-(?:[1-9]|[1-3]\\d|4[0-6])(\\.\\d+)*(\\.[a-z])*$"],
+          "patterns": [
+            "^art-(?:[1-9]|[1-3]\\d|4[0-6])(\\.\\d+)*(\\.[a-z])*$"
+          ],
           "description": "NIS2 article, paragraph, and point reference (Articles 1–46, e.g., art-21, art-21.2.a, art-23).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full directive as a single document.",
             "examples": [
-              {"input": "art-21", "note": "Cybersecurity risk-management measures"},
-              {"input": "art-21.2.a", "note": "Article 21(2)(a) — policies on risk analysis and information system security"},
-              {"input": "art-23", "note": "Reporting obligations for significant incidents"}
+              {
+                "input": "art-21",
+                "note": "Cybersecurity risk-management measures"
+              },
+              {
+                "input": "art-21.2.a",
+                "note": "Article 21(2)(a) — policies on risk analysis and information system security"
+              },
+              {
+                "input": "art-23",
+                "note": "Reporting obligations for significant incidents"
+              }
             ]
           }
         },
@@ -184,39 +355,63 @@
           "data": {
             "note": "Chapters group related articles; recitals provide interpretive guidance for Directive (EU) 2022/2555.",
             "examples": [
-              {"input": "recital-85", "note": "Recital on cybersecurity risk-management and supply-chain security measures"}
+              {
+                "input": "recital-85",
+                "note": "Recital on cybersecurity risk-management and supply-chain security measures"
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^dora$"],
+      "patterns": [
+        "(?i)^dora$"
+      ],
       "description": "Digital Operational Resilience Act",
       "weight": 100,
       "data": {
         "official_name": "Digital Operational Resilience Act",
         "common_name": "DORA",
-        "alternate_names": ["Regulation (EU) 2022/2554"],
+        "alternate_names": [
+          "Regulation (EU) 2022/2554"
+        ],
         "description": "EU regulation on digital operational resilience for financial entities (Regulation 2022/2554).",
         "notes": "Applies to banks, insurance, investment firms, and their ICT service providers. Effective January 2025. Establishes requirements for ICT risk management, incident reporting, digital operational resilience testing, and third-party risk management.",
         "urls": [
-          {"type": "website", "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"}
+          {
+            "type": "website",
+            "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"
+          }
         ],
-        "examples": ["art-6", "art-6.1", "art-19"]
+        "examples": [
+          "art-6",
+          "art-6.1",
+          "art-19"
+        ]
       },
       "children": [
         {
-          "patterns": ["^art-(?:[1-9]|[1-5]\\d|6[0-4])(\\.\\d+)*(\\.[a-z])*$"],
+          "patterns": [
+            "^art-(?:[1-9]|[1-5]\\d|6[0-4])(\\.\\d+)*(\\.[a-z])*$"
+          ],
           "description": "DORA article, paragraph, and point reference (Articles 1–64, e.g., art-6, art-6.1, art-19).",
           "weight": 100,
           "data": {
             "note": "No per-article lookup URL. EUR-Lex publishes the full regulation as a single document.",
             "examples": [
-              {"input": "art-6", "note": "ICT risk management framework"},
-              {"input": "art-6.1", "note": "Article 6(1) — requirement to have a sound, comprehensive, and well-documented ICT risk management framework"},
-              {"input": "art-19", "note": "Reporting of major ICT-related incidents"}
+              {
+                "input": "art-6",
+                "note": "ICT risk management framework"
+              },
+              {
+                "input": "art-6.1",
+                "note": "Article 6(1) — requirement to have a sound, comprehensive, and well-documented ICT risk management framework"
+              },
+              {
+                "input": "art-19",
+                "note": "Reporting of major ICT-related incidents"
+              }
             ]
           }
         },
@@ -230,319 +425,2321 @@
           "data": {
             "note": "Chapters group related articles; recitals provide interpretive guidance for Regulation (EU) 2022/2554.",
             "examples": [
-              {"input": "chapter-2", "note": "Chapter II — ICT risk management"}
+              {
+                "input": "chapter-2",
+                "note": "Chapter II — ICT risk management"
+              }
             ]
           }
         }
       ]
     },
     {
-      "patterns": ["(?i)^psd2$"],
+      "patterns": [
+        "(?i)^psd2$"
+      ],
       "description": "Payment Services Directive 2",
       "weight": 100,
       "data": {
         "official_name": "Revised Payment Services Directive",
         "common_name": "PSD2",
-        "alternate_names": ["Directive (EU) 2015/2366"],
+        "alternate_names": [
+          "Directive (EU) 2015/2366"
+        ],
         "description": "EU directive mandating Strong Customer Authentication (SCA), open banking access for licensed third-party providers (AISPs/PISPs), and enhanced fraud reporting. Transposed into 27 national laws across EU member states.",
         "notes": "Adopted 2015, effective Jan 2018; SCA enforcement Sept 2019. Underpins the UK OBIE Read/Write API (post-Brexit), Berlin Group NextGenPSD2, STET PSD2 API, PolishAPI, and other European Open Banking specifications. Successor PSD3 / Payment Services Regulation (PSR) proposed 2023.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:TITLE I|Article 1|Article 2|Article 3|Article 4|TITLE II|CHAPTER 1 \\(1\\)|Section 1 \\(1\\)|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|Section 2 \\(1\\)|Article 19|Article 20|Article 21|Section 3 \\(1\\)|Article 22|Article 23|Article 24|Article 25|Article 26|Article 27|Article 28|Article 29|Article 30|Article 31|Section 4|Article 32|Article 33|Article 34|CHAPTER 2 \\(1\\)|Article 35|Article 36|Article 37|TITLE III|CHAPTER 1 \\(2\\)|Article 38|Article 39|Article 40|Article 41|Article 42|CHAPTER 2 \\(2\\)|Article 43|Article 44|Article 45|Article 46|Article 47|Article 48|Article 49|CHAPTER 3 \\(1\\)|Article 50|Article 51|Article 52|Article 53|Article 54|Article 55|Article 56|Article 57|Article 58|CHAPTER 4 \\(1\\)|Article 59|Article 60|TITLE IV|CHAPTER 1 \\(3\\)|Article 61|Article 62|Article 63|CHAPTER 2 \\(3\\)|Article 64|Article 65|Article 66|Article 67|Article 68|Article 69|Article 70|Article 71|Article 72|Article 73|Article 74|Article 75|Article 76|Article 77|CHAPTER 3 \\(2\\)|Section 1 \\(2\\)|Article 78|Article 79|Article 80|Article 81|Section 2 \\(2\\)|Article 82|Article 83|Article 84|Article 85|Article 86|Article 87|Section 3 \\(2\\)|Article 88|Article 89|Article 90|Article 91|Article 92|Article 93|CHAPTER 4 \\(2\\)|Article 94|CHAPTER 5|Article 95|Article 96|Article 97|Article 98|CHAPTER 6|Section 1 \\(3\\)|Article 99|Article 100|Section 2 \\(3\\)|Article 101|Article 102|Article 103|TITLE V|Article 104|Article 105|Article 106|TITLE VI|Article 107|Article 108|Article 109|Article 110|Article 111|Article 112|Article 113|Article 114|Article 115|Article 116|Article 117)$"
+          ],
+          "description": "PSD2 section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "TITLE I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "TITLE II",
+              "CHAPTER 1 (1)",
+              "Section 1 (1)",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Section 2 (1)",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Section 3 (1)",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Section 4",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "CHAPTER 2 (1)",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "TITLE III",
+              "CHAPTER 1 (2)",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "CHAPTER 2 (2)",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "Article 46",
+              "Article 47",
+              "Article 48",
+              "Article 49",
+              "CHAPTER 3 (1)",
+              "Article 50",
+              "Article 51",
+              "Article 52",
+              "Article 53",
+              "Article 54",
+              "Article 55",
+              "Article 56",
+              "Article 57",
+              "Article 58",
+              "CHAPTER 4 (1)",
+              "Article 59",
+              "Article 60",
+              "TITLE IV",
+              "CHAPTER 1 (3)",
+              "Article 61",
+              "Article 62",
+              "Article 63",
+              "CHAPTER 2 (3)",
+              "Article 64",
+              "Article 65",
+              "Article 66",
+              "Article 67",
+              "Article 68",
+              "Article 69",
+              "Article 70",
+              "Article 71",
+              "Article 72",
+              "Article 73",
+              "Article 74",
+              "Article 75",
+              "Article 76",
+              "Article 77",
+              "CHAPTER 3 (2)",
+              "Section 1 (2)",
+              "Article 78",
+              "Article 79",
+              "Article 80",
+              "Article 81",
+              "Section 2 (2)",
+              "Article 82",
+              "Article 83",
+              "Article 84",
+              "Article 85",
+              "Article 86",
+              "Article 87",
+              "Section 3 (2)",
+              "Article 88",
+              "Article 89",
+              "Article 90",
+              "Article 91",
+              "Article 92",
+              "Article 93",
+              "CHAPTER 4 (2)",
+              "Article 94",
+              "CHAPTER 5",
+              "Article 95",
+              "Article 96",
+              "Article 97",
+              "Article 98",
+              "CHAPTER 6",
+              "Section 1 (3)",
+              "Article 99",
+              "Article 100",
+              "Section 2 (3)",
+              "Article 101",
+              "Article 102",
+              "Article 103",
+              "TITLE V",
+              "Article 104",
+              "Article 105",
+              "Article 106",
+              "TITLE VI",
+              "Article 107",
+              "Article 108",
+              "Article 109",
+              "Article 110",
+              "Article 111",
+              "Article 112",
+              "Article 113",
+              "Article 114",
+              "Article 115",
+              "Article 116",
+              "Article 117"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/psd2).",
+            "examples": [
+              {
+                "input": "TITLE I",
+                "note": "Section TITLE I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd2/psd2-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^psd3$", "(?i)^psr$"],
+      "patterns": [
+        "(?i)^psd3$",
+        "(?i)^psr$"
+      ],
       "description": "Payment Services Directive 3 / Payment Services Regulation",
       "weight": 100,
       "data": {
         "official_name": "Payment Services Directive 3 and Payment Services Regulation",
         "common_name": "PSD3 / PSR",
-        "alternate_names": ["COM/2023/367", "COM/2023/366"],
+        "alternate_names": [
+          "COM/2023/367",
+          "COM/2023/366"
+        ],
         "description": "Proposed (2023) successor to PSD2; split into a Directive (PSD3, on licensing) and a Regulation (PSR, on conduct rules). Strengthens SCA, expands open finance scope, addresses payment fraud, and introduces VOP (Verification of Payee) requirements.",
         "notes": "Legislative proposals published June 2023; expected to apply ~2026-2027 once finalised.",
         "urls": [
-          {"type": "proposal", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52023PC0367"}
+          {
+            "type": "proposal",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52023PC0367"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:TITLE I|Article 1|Article 2|Article 3|\\(1\\)|TITLE II|CHAPTER 1 \\(1\\)|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|CHAPTER 2 \\(1\\)|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|CHAPTER 3|Article 18|Article 19|Article 20|Article 21|Article 22|Article 23|Article 24|Article 25|Article 26|TITLE III|CHAPTER 1 \\(2\\)|Article 27|Article 28|Article 29|Article 30|CHAPTER 2 \\(2\\)|Article 31|Article 32|Chapter 3|Section 1 \\(1\\)|Article 33|Article 34|Section 2 \\(1\\)|Article 35|Article 36|Article 37|Article 38|Article 39|Section 3|Article 40|Article 41|Article 42|Article 43|Article 44|Section 4|Article 45|Article 46|Article 47|Section 5|Article 48|CHAPTER 4|Article 49|Article 50|Article 51|Article 52|Article 53|Article 54|Article 55|Article 56|Article 57|Article 58|Article 59|Article 60|Article 61|Article 62|Article 63|CHAPTER 5|Section 1 \\(2\\)|Article 64|Article 65|Article 66|Article 67|Section 2 \\(2\\)|Article 68|Article 69|Article 70|Article 71|Article 72|Article 73|Article 74|Article 75|Article 76|Article 77|Article 78|Article 79|CHAPTER 6|Article 80|CHAPTER 7|Article 81|Article 82|Article 83|Article 84|Article 85|Article 86|Article 87|Article 88|Article 89|CHAPTER 8|Section 1 \\(3\\)|Article 90|Article 91|Article 92|Article 93|Section 2 \\(3\\)|Article 94|Article 95|Article 96|Article 97|Article 98|Article 99|Article 100|Article 101|Article 102|Article 103|CHAPTER 9|Article 104|TITLE IV|Article 105|Article 106|TITLE V|Article 107|Article 108|Article 109|Article 110|Article 111|Article 112|\\(3\\)|\\(4\\)|\\(5\\)|\\(6\\)|\\(7\\))$"
+          ],
+          "description": "PSD3 / PSR section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "TITLE I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "(1)",
+              "TITLE II",
+              "CHAPTER 1 (1)",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "CHAPTER 2 (1)",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "CHAPTER 3",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "Article 26",
+              "TITLE III",
+              "CHAPTER 1 (2)",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "CHAPTER 2 (2)",
+              "Article 31",
+              "Article 32",
+              "Chapter 3",
+              "Section 1 (1)",
+              "Article 33",
+              "Article 34",
+              "Section 2 (1)",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "Section 3",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "Article 43",
+              "Article 44",
+              "Section 4",
+              "Article 45",
+              "Article 46",
+              "Article 47",
+              "Section 5",
+              "Article 48",
+              "CHAPTER 4",
+              "Article 49",
+              "Article 50",
+              "Article 51",
+              "Article 52",
+              "Article 53",
+              "Article 54",
+              "Article 55",
+              "Article 56",
+              "Article 57",
+              "Article 58",
+              "Article 59",
+              "Article 60",
+              "Article 61",
+              "Article 62",
+              "Article 63",
+              "CHAPTER 5",
+              "Section 1 (2)",
+              "Article 64",
+              "Article 65",
+              "Article 66",
+              "Article 67",
+              "Section 2 (2)",
+              "Article 68",
+              "Article 69",
+              "Article 70",
+              "Article 71",
+              "Article 72",
+              "Article 73",
+              "Article 74",
+              "Article 75",
+              "Article 76",
+              "Article 77",
+              "Article 78",
+              "Article 79",
+              "CHAPTER 6",
+              "Article 80",
+              "CHAPTER 7",
+              "Article 81",
+              "Article 82",
+              "Article 83",
+              "Article 84",
+              "Article 85",
+              "Article 86",
+              "Article 87",
+              "Article 88",
+              "Article 89",
+              "CHAPTER 8",
+              "Section 1 (3)",
+              "Article 90",
+              "Article 91",
+              "Article 92",
+              "Article 93",
+              "Section 2 (3)",
+              "Article 94",
+              "Article 95",
+              "Article 96",
+              "Article 97",
+              "Article 98",
+              "Article 99",
+              "Article 100",
+              "Article 101",
+              "Article 102",
+              "Article 103",
+              "CHAPTER 9",
+              "Article 104",
+              "TITLE IV",
+              "Article 105",
+              "Article 106",
+              "TITLE V",
+              "Article 107",
+              "Article 108",
+              "Article 109",
+              "Article 110",
+              "Article 111",
+              "Article 112",
+              "(3)",
+              "(4)",
+              "(5)",
+              "(6)",
+              "(7)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/psd3).",
+            "examples": [
+              {
+                "input": "TITLE I",
+                "note": "Section TITLE I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/psd3/psd3-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^eidas$", "(?i)^eidas-1$"],
+      "patterns": [
+        "(?i)^eidas$",
+        "(?i)^eidas-1$"
+      ],
       "description": "eIDAS Regulation (electronic identification and trust services)",
       "weight": 100,
       "data": {
         "official_name": "Electronic Identification and Trust Services Regulation",
         "common_name": "eIDAS",
-        "alternate_names": ["Regulation (EU) 910/2014"],
+        "alternate_names": [
+          "Regulation (EU) 910/2014"
+        ],
         "description": "EU regulation establishing a framework for electronic identification, authentication, and trust services (electronic signatures, seals, time-stamps, registered delivery, website authentication) across the single market.",
         "notes": "Effective July 2016. Provides three Levels of Assurance (LoA) for eID schemes: low, substantial, high. Member states notify their national eID schemes (e.g., Italian SPID, German eID, French FranceConnect+) for cross-border recognition.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|Article 4|Article 5|CHAPTER II|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|Article 12|CHAPTER III|SECTION 1|Article 13|Article 14|Article 15|Article 16|SECTION 2|Article 17|Article 18|Article 19|SECTION 3|Article 20|Article 21|Article 22|Article 23|Article 24|SECTION 4|Article 25|Article 26|Article 27|Article 28|Article 29|Article 30|Article 31|Article 32|Article 33|Article 34|SECTION 5|Article 35|Article 36|Article 37|Article 38|Article 39|Article 40|SECTION 6|Article 41|Article 42|SECTION 7|Article 43|Article 44|SECTION 8|Article 45|CHAPTER IV|Article 46|CHAPTER V|Article 47|Article 48|CHAPTER VI|Article 49|Article 50|Article 51|Article 52)$"
+          ],
+          "description": "eIDAS section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "CHAPTER II",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "CHAPTER III",
+              "SECTION 1",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "SECTION 2",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "SECTION 3",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "SECTION 4",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "SECTION 5",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "SECTION 6",
+              "Article 41",
+              "Article 42",
+              "SECTION 7",
+              "Article 43",
+              "Article 44",
+              "SECTION 8",
+              "Article 45",
+              "CHAPTER IV",
+              "Article 46",
+              "CHAPTER V",
+              "Article 47",
+              "Article 48",
+              "CHAPTER VI",
+              "Article 49",
+              "Article 50",
+              "Article 51",
+              "Article 52"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/eidas).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas/eidas-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^eidas-2$", "(?i)^eidas2$"],
+      "patterns": [
+        "(?i)^eidas-2$",
+        "(?i)^eidas2$"
+      ],
       "description": "eIDAS 2 — Revised eIDAS Regulation (EUDI Wallet)",
       "weight": 100,
       "data": {
         "official_name": "Revised eIDAS Regulation establishing the European Digital Identity Wallet",
         "common_name": "eIDAS 2",
-        "alternate_names": ["Regulation (EU) 2024/1183"],
+        "alternate_names": [
+          "Regulation (EU) 2024/1183"
+        ],
         "description": "Updates eIDAS to mandate the EU Digital Identity Wallet (EUDI Wallet) — a sovereign cross-border digital-identity wallet for citizens, residents, and businesses. Member states must offer at least one notified wallet by November 2026.",
         "notes": "In force May 2024; wallet-rollout deadline 2026. Architecture Reference Framework (ARF) defines the wallet's technical specs and integrates Verifiable Credentials (W3C VC, OpenID4VC).",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1183"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1183"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^Article\\ 1$",
+            "^Article\\ 2$",
+            "^ANNEX\\ I$",
+            "^ANNEX\\ II$",
+            "^ANNEX\\ III$",
+            "^ANNEX\\ IV$",
+            "^ANNEX\\ V$",
+            "^ANNEX\\ VI$",
+            "^ANNEX\\ VII$"
+          ],
+          "description": "Section/article/part identifier in eidas-2 (9 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/europa.eu/eidas-2/eidas-2-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "Article 1"
+              },
+              {
+                "input": "Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "Article 2"
+              },
+              {
+                "input": "ANNEX I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eidas-2/eidas-2-sections.json",
+                "note": "ANNEX I"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cra$", "(?i)^cyber-resilience-act$"],
+      "patterns": [
+        "(?i)^cra$",
+        "(?i)^cyber-resilience-act$"
+      ],
       "description": "Cyber Resilience Act",
       "weight": 100,
       "data": {
         "official_name": "Cyber Resilience Act",
         "common_name": "CRA",
-        "alternate_names": ["Regulation (EU) 2024/2847"],
+        "alternate_names": [
+          "Regulation (EU) 2024/2847"
+        ],
         "description": "EU regulation imposing horizontal cybersecurity requirements on products with digital elements (hardware, software, components) placed on the EU market. Establishes essential requirements, conformity assessment, CE marking, and vulnerability handling obligations.",
         "notes": "Adopted December 2024. Main provisions apply from December 2027 (36 months after entry into force); vulnerability and incident reporting obligations apply earlier from September 2026. Companion to EN 18031 harmonised standard for radio equipment under the Radio Equipment Directive.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R2847"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R2847"
+          }
         ]
       }
     },
     {
-      "patterns": ["(?i)^eprivacy$", "(?i)^eprivacy-directive$"],
+      "patterns": [
+        "(?i)^eprivacy$",
+        "(?i)^eprivacy-directive$"
+      ],
       "description": "ePrivacy Directive",
       "weight": 100,
       "data": {
         "official_name": "Directive on Privacy and Electronic Communications",
         "common_name": "ePrivacy Directive",
-        "alternate_names": ["Directive 2002/58/EC", "Cookie Directive"],
+        "alternate_names": [
+          "Directive 2002/58/EC",
+          "Cookie Directive"
+        ],
         "description": "EU directive on privacy in electronic communications. Governs cookies, electronic marketing, traffic data, and confidentiality of communications. Pending replacement by an ePrivacy Regulation (long-stalled).",
         "notes": "Amended significantly by Directive 2009/136/EC (the 'Cookie Directive' amendments). The proposed ePrivacy Regulation has been in legislative limbo since 2017.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32002L0058"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32002L0058"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Article 1|Article 2|Article 3|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|Article 19|Article 20|Article 21)$"
+          ],
+          "description": "ePrivacy Directive section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/eprivacy).",
+            "examples": [
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy-sections.json"
+              },
+              {
+                "input": "Article 3",
+                "note": "Section Article 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eprivacy/eprivacy-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cer$", "(?i)^cer-directive$"],
+      "patterns": [
+        "(?i)^cer$",
+        "(?i)^cer-directive$"
+      ],
       "description": "Critical Entities Resilience Directive",
       "weight": 100,
       "data": {
         "official_name": "Critical Entities Resilience Directive",
         "common_name": "CER",
-        "alternate_names": ["Directive (EU) 2022/2557"],
+        "alternate_names": [
+          "Directive (EU) 2022/2557"
+        ],
         "description": "Companion directive to NIS2 covering physical and operational resilience of critical entities across 11 sectors (energy, transport, banking, financial market infrastructure, health, drinking water, wastewater, digital infrastructure, public administration, space, food).",
         "notes": "Adopted December 2022, transposition deadline October 2024.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2557"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2557"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|CHAPTER II|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|CHAPTER III|Article 12|Article 13|Article 14|Article 15|Article 16|CHAPTER IV|Article 17|Article 18|CHAPTER V|Article 19|Article 20|CHAPTER VI|Article 21|Article 22|CHAPTER VII|Article 23|Article 24|CHAPTER VIII|Article 25|Article 26|Article 27|Article 28|Article 29)$"
+          ],
+          "description": "CER section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "CHAPTER II",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "CHAPTER III",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "CHAPTER IV",
+              "Article 17",
+              "Article 18",
+              "CHAPTER V",
+              "Article 19",
+              "Article 20",
+              "CHAPTER VI",
+              "Article 21",
+              "Article 22",
+              "CHAPTER VII",
+              "Article 23",
+              "Article 24",
+              "CHAPTER VIII",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/cer).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cer/cer-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^red-3-3$", "(?i)^red-art-3-3$"],
+      "patterns": [
+        "(?i)^red-3-3$",
+        "(?i)^red-art-3-3$"
+      ],
       "description": "Radio Equipment Directive Article 3(3) cybersecurity requirements",
       "weight": 100,
       "data": {
         "official_name": "Radio Equipment Directive Article 3(3) cybersecurity essential requirements",
         "common_name": "RED 3(3)",
-        "alternate_names": ["Delegated Regulation (EU) 2022/30"],
+        "alternate_names": [
+          "Delegated Regulation (EU) 2022/30"
+        ],
         "description": "Activation of cybersecurity essential requirements under the Radio Equipment Directive (2014/53/EU) Article 3(3) for internet-connected radio equipment. Mandatory for radio equipment placed on the EU market from 1 August 2025.",
         "notes": "Harmonised standard for compliance: EN 18031 series.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0030"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0030"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:3|Article 1|Article 2|Article 3)$"
+          ],
+          "description": "RED 3(3) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "3",
+              "Article 1",
+              "Article 2",
+              "Article 3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/red-3-3).",
+            "examples": [
+              {
+                "input": "3",
+                "note": "Delegated regulation - 2022/30 - EN - EUR-Lex",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/red-3-3/red-3-3-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^data-act$"],
+      "patterns": [
+        "(?i)^data-act$"
+      ],
       "description": "Data Act",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2023/2854 on harmonised rules on fair access to and use of data",
         "common_name": "Data Act",
-        "alternate_names": ["Regulation (EU) 2023/2854"],
+        "alternate_names": [
+          "Regulation (EU) 2023/2854"
+        ],
         "description": "Establishes rights for users of connected products/IoT devices to access data they generate and share it with third parties, sets conditions for B2B and B2G data sharing, includes safeguards against unlawful third-country government access to non-personal data, and imposes switching obligations on cloud/data-processing service providers.",
         "notes": "Entered into force January 11, 2024; generally applicable from September 12, 2025.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng"
+          }
         ],
         "examples": []
       }
     },
-
     {
-      "patterns": ["(?i)^data-governance-act$", "(?i)^dga$"],
+      "patterns": [
+        "(?i)^data-governance-act$",
+        "(?i)^dga$"
+      ],
       "description": "Data Governance Act",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2022/868 on European data governance",
         "common_name": "DGA",
-        "alternate_names": ["Regulation (EU) 2022/868"],
+        "alternate_names": [
+          "Regulation (EU) 2022/868"
+        ],
         "description": "Creates a framework to increase trust in voluntary data sharing by regulating 'data intermediation services' (neutral brokers connecting data holders and reusers), setting conditions for public-sector bodies to allow reuse of protected data (trade secrets, personal data, IP), and establishing 'data altruism' organisations for voluntary donation of data for the public good.",
         "notes": "Entered into force June 23, 2022; applicable since September 24, 2023.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32022R0868"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:32022R0868"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|CHAPTER II|Article 3|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|CHAPTER III|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|CHAPTER IV|Article 16|Article 17|Article 18|Article 19|Article 20|Article 21|Article 22|Article 23|Article 24|Article 25|CHAPTER V|Article 26|Article 27|Article 28|CHAPTER VI|Article 29|Article 30|CHAPTER VII|Article 31|CHAPTER VIII|Article 32|Article 33|CHAPTER IX|Article 34|Article 35|Article 36|Article 37|Article 38)$"
+          ],
+          "description": "DGA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "CHAPTER II",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "CHAPTER III",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "CHAPTER IV",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "CHAPTER V",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "CHAPTER VI",
+              "Article 29",
+              "Article 30",
+              "CHAPTER VII",
+              "Article 31",
+              "CHAPTER VIII",
+              "Article 32",
+              "Article 33",
+              "CHAPTER IX",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/data-governance-act).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/data-governance-act/data-governance-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^dsa$"],
+      "patterns": [
+        "(?i)^dsa$"
+      ],
       "description": "Digital Services Act",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2022/2065 establishing rules for a safer digital space",
         "common_name": "DSA",
-        "alternate_names": ["Regulation (EU) 2022/2065"],
+        "alternate_names": [
+          "Regulation (EU) 2022/2065"
+        ],
         "description": "Imposes tiered obligations on intermediary/hosting services, online platforms, and especially Very Large Online Platforms/Search Engines (>45M EU monthly users) — covering illegal-content takedown, transparency of recommender systems and ads, risk assessments, and independent audits.",
         "notes": "Entered into force November 2022; VLOP/VLOSE obligations applied from August 2023, full applicability from February 17, 2024.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng"
+          }
         ],
         "examples": []
       }
     },
-
     {
-      "patterns": ["(?i)^dma$"],
+      "patterns": [
+        "(?i)^dma$"
+      ],
       "description": "Digital Markets Act",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2022/1925 on contestable and fair markets in the digital sector",
         "common_name": "DMA",
-        "alternate_names": ["Regulation (EU) 2022/1925"],
+        "alternate_names": [
+          "Regulation (EU) 2022/1925"
+        ],
         "description": "Targets designated 'gatekeeper' platforms with ex-ante obligations and prohibitions (interoperability, anti-self-preferencing, data-combination limits) enforced solely by the European Commission, with fines up to 10% (20% for repeat offences) of worldwide turnover.",
         "notes": "Entered into force November 1, 2022; applicable from May 2, 2023.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2022/1925/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2022/1925/oj/eng"
+          }
         ],
         "examples": []
       }
     },
-
     {
-      "patterns": ["(?i)^cybersecurity-act$"],
+      "patterns": [
+        "(?i)^cybersecurity-act$"
+      ],
       "description": "Cybersecurity Act (ENISA mandate + EU cybersecurity certification framework)",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2019/881 on ENISA and on ICT cybersecurity certification",
         "common_name": "Cybersecurity Act",
-        "alternate_names": ["Regulation (EU) 2019/881"],
+        "alternate_names": [
+          "Regulation (EU) 2019/881"
+        ],
         "description": "Establishes ENISA as a permanent EU agency and creates the EU cybersecurity certification framework — voluntary schemes for ICT products, services, and processes (e.g. EUCC, EUCS in progress).",
         "notes": "Applicable since June 27, 2019, with authority/penalty/complaint provisions applying from June 28, 2021. See secid:entity/enisa.europa.eu for the agency itself.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2019/881/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2019/881/oj/eng"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:TITLE I|Article 1|Article 2|TITLE II|CHAPTER I|Article 3|Article 4|CHAPTER II|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|Article 12|CHAPTER III|Article 13|Section 1|Article 14|Article 15|Article 16|Article 17|Article 18|Section 2|Article 19|Section 3|Article 20|Section 4|Article 21|Article 22|Article 23|Section 5|Article 24|Article 25|Article 26|Article 27|Article 28|CHAPTER IV|Article 29|Article 30|Article 31|Article 32|Article 33|CHAPTER V|Article 34|Article 35|Article 36|Article 37|CHAPTER VI|Article 38|Article 39|Article 40|Article 41|Article 42|Article 43|Article 44|Article 45|TITLE III|Article 46|Article 47|Article 48|Article 49|Article 50|Article 51|Article 52|Article 53|Article 54|Article 55|Article 56|Article 57|Article 58|Article 59|Article 60|Article 61|Article 62|Article 63|Article 64|Article 65|TITLE IV|Article 66|Article 67|Article 68|Article 69)$"
+          ],
+          "description": "Cybersecurity Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "TITLE I",
+              "Article 1",
+              "Article 2",
+              "TITLE II",
+              "CHAPTER I",
+              "Article 3",
+              "Article 4",
+              "CHAPTER II",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "CHAPTER III",
+              "Article 13",
+              "Section 1",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Section 2",
+              "Article 19",
+              "Section 3",
+              "Article 20",
+              "Section 4",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Section 5",
+              "Article 24",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "CHAPTER IV",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "Article 33",
+              "CHAPTER V",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "CHAPTER VI",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "TITLE III",
+              "Article 46",
+              "Article 47",
+              "Article 48",
+              "Article 49",
+              "Article 50",
+              "Article 51",
+              "Article 52",
+              "Article 53",
+              "Article 54",
+              "Article 55",
+              "Article 56",
+              "Article 57",
+              "Article 58",
+              "Article 59",
+              "Article 60",
+              "Article 61",
+              "Article 62",
+              "Article 63",
+              "Article 64",
+              "Article 65",
+              "TITLE IV",
+              "Article 66",
+              "Article 67",
+              "Article 68",
+              "Article 69"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/cybersecurity-act).",
+            "examples": [
+              {
+                "input": "TITLE I",
+                "note": "Section TITLE I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cybersecurity-act/cybersecurity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^cyber-solidarity-act$"],
+      "patterns": [
+        "(?i)^cyber-solidarity-act$"
+      ],
       "description": "Cyber Solidarity Act",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2025/38 strengthening solidarity and capacities in the Union to detect, prepare for and respond to cybersecurity threats and incidents",
         "common_name": "Cyber Solidarity Act",
-        "alternate_names": ["Regulation (EU) 2025/38"],
+        "alternate_names": [
+          "Regulation (EU) 2025/38"
+        ],
         "description": "Establishes a European Cybersecurity Alert System (interconnected National and Cross-Border Cyber Hubs) and a Cybersecurity Emergency Mechanism (stockpiling, incident response support, mutual assistance).",
         "notes": "Published January 15, 2025; entered into force February 4, 2025.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2025/38/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2025/38/oj/eng"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|CHAPTER II|Article 3|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|CHAPTER III|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|Article 19|Article 20|CHAPTER IV|Article 21|CHAPTER V|Article 22|Article 23|Article 24|Article 25|Article 26)$"
+          ],
+          "description": "Cyber Solidarity Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "CHAPTER II",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "CHAPTER III",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "CHAPTER IV",
+              "Article 21",
+              "CHAPTER V",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "Article 26"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/cyber-solidarity-act).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/cyber-solidarity-act/cyber-solidarity-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^product-liability-directive$"],
+      "patterns": [
+        "(?i)^product-liability-directive$"
+      ],
       "description": "Product Liability Directive (revised, 2024)",
       "weight": 100,
       "data": {
         "official_name": "Directive (EU) 2024/2853 on liability for defective products",
         "common_name": "Product Liability Directive",
-        "alternate_names": ["Directive (EU) 2024/2853"],
+        "alternate_names": [
+          "Directive (EU) 2024/2853"
+        ],
         "description": "Replaces the 1985 Product Liability Directive (85/374/EEC). Extends strict (no-fault) liability to software, AI systems, and digital manufacturing files as 'products', eases the claimant's burden of proof (including for AI's technical complexity), and covers damage from defective updates.",
         "notes": "Published November 18, 2024; member states must transpose by December 9, 2026.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|Article 4|CHAPTER II|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|CHAPTER III|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|CHAPTER IV|Article 18|Article 19|Article 20|Article 21|Article 22|Article 23|Article 24)$"
+          ],
+          "description": "Product Liability Directive section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "CHAPTER II",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "CHAPTER III",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "CHAPTER IV",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/product-liability-directive).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/product-liability-directive/product-liability-directive-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^gpsr$"],
+      "patterns": [
+        "(?i)^gpsr$"
+      ],
       "description": "General Product Safety Regulation",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2023/988 on general product safety",
         "common_name": "GPSR",
-        "alternate_names": ["Regulation (EU) 2023/988"],
+        "alternate_names": [
+          "Regulation (EU) 2023/988"
+        ],
         "description": "Replaces Directive 2001/95/EC. Requires consumer products not covered by sector-specific EU law to be safe, addressing risks from digitalisation, connected devices, and cybersecurity as safety factors, with new obligations for online marketplaces.",
         "notes": "Entered into force June 12, 2023; applicable from December 13, 2024.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R0988"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R0988"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|Article 4|CHAPTER II|Article 5|Article 6|Article 7|Article 8|CHAPTER III|SECTION 1|Article 9|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|SECTION 2|Article 19|Article 20|Article 21|CHAPTER IV|Article 22|CHAPTER V|Article 23|Article 24|CHAPTER VI|Article 25|Article 26|Article 27|CHAPTER VII|Article 28|Article 29|Article 30|Article 31|Article 32|CHAPTER VIII|Article 33|Article 34|Article 35|Article 36|Article 37|Article 38|Article 39|CHAPTER IX|Article 40|CHAPTER X|Article 41|Article 42|CHAPTER XI|Article 43|Article 44|Article 45|Article 46|Article 47|Article 48|Article 49|Article 50|Article 51|Article 52)$"
+          ],
+          "description": "GPSR section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "CHAPTER II",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "CHAPTER III",
+              "SECTION 1",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "SECTION 2",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "CHAPTER IV",
+              "Article 22",
+              "CHAPTER V",
+              "Article 23",
+              "Article 24",
+              "CHAPTER VI",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "CHAPTER VII",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "CHAPTER VIII",
+              "Article 33",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "CHAPTER IX",
+              "Article 40",
+              "CHAPTER X",
+              "Article 41",
+              "Article 42",
+              "CHAPTER XI",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "Article 46",
+              "Article 47",
+              "Article 48",
+              "Article 49",
+              "Article 50",
+              "Article 51",
+              "Article 52"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/gpsr).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/gpsr/gpsr-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^machinery-regulation$"],
+      "patterns": [
+        "(?i)^machinery-regulation$"
+      ],
       "description": "Machinery Regulation",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2023/1230 on machinery",
         "common_name": "Machinery Regulation",
-        "alternate_names": ["Regulation (EU) 2023/1230"],
+        "alternate_names": [
+          "Regulation (EU) 2023/1230"
+        ],
         "description": "Replaces the Machinery Directive 2006/42/EC. Sets health/safety requirements for machinery design and construction, adding explicit cybersecurity obligations — safety-related control systems and software must resist both accidental faults and deliberate cyberattacks, with manufacturers required to provide security updates for up to 10 years.",
         "notes": "Applies from January 20, 2027.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|CHAPTER II|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|Article 19|CHAPTER III|Article 20|Article 21|Article 22|Article 23|Article 24|CHAPTER IV|Article 25|CHAPTER V|Article 26|Article 27|Article 28|Article 29|Article 30|Article 31|Article 32|Article 33|Article 34|Article 35|Article 36|Article 37|Article 38|Article 39|Article 40|Article 41|Article 42|CHAPTER VI|Article 43|Article 44|Article 45|Article 46|CHAPTER VII|Article 47|Article 48|CHAPTER VIII|Article 49|Article 50|CHAPTER IX|Article 51|Article 52|Article 53|Article 54|PART A \\(1\\)|PART B \\(1\\)|PART A \\(2\\)|PART B \\(2\\)|1|1\\.1|1\\.1\\.1|1\\.1\\.2|1\\.1\\.3|1\\.1\\.4|1\\.1\\.5|1\\.1\\.6|1\\.1\\.7|1\\.1\\.8|1\\.1\\.9|1\\.2|1\\.2\\.1|1\\.2\\.2|1\\.2\\.3|1\\.2\\.4|1\\.2\\.4\\.1|1\\.2\\.4\\.2|1\\.2\\.4\\.3|1\\.2\\.4\\.4|1\\.2\\.5|1\\.2\\.6|1\\.3|1\\.3\\.1|1\\.3\\.2|1\\.3\\.3|1\\.3\\.4|1\\.3\\.5|1\\.3\\.6|1\\.3\\.7|1\\.3\\.8|1\\.3\\.8\\.1|1\\.3\\.8\\.2|1\\.3\\.9|1\\.4|1\\.4\\.1|1\\.4\\.2|1\\.4\\.2\\.1|1\\.4\\.2\\.2|1\\.4\\.2\\.3|1\\.4\\.3|1\\.5|1\\.5\\.1|1\\.5\\.2|1\\.5\\.3|1\\.5\\.4|1\\.5\\.5|1\\.5\\.6|1\\.5\\.7|1\\.5\\.8|1\\.5\\.9|1\\.5\\.10|1\\.5\\.11|1\\.5\\.12|1\\.5\\.13|1\\.5\\.14|1\\.5\\.15|1\\.5\\.16|1\\.6|1\\.6\\.1|1\\.6\\.2|1\\.6\\.3|1\\.6\\.4|1\\.6\\.5|1\\.7|1\\.7\\.1|1\\.7\\.1\\.1|1\\.7\\.1\\.2|1\\.7\\.2|1\\.7\\.3|1\\.7\\.4|1\\.7\\.4\\.1|1\\.7\\.4\\.2|1\\.7\\.5|2|2\\.1|2\\.1\\.1|2\\.1\\.2|2\\.2|2\\.2\\.1|2\\.2\\.1\\.1|2\\.2\\.2|2\\.2\\.2\\.1|2\\.2\\.2\\.2|2\\.3|2\\.4|2\\.4\\.2|2\\.4\\.3|2\\.4\\.4|2\\.4\\.5|2\\.4\\.5\\.1|2\\.4\\.5\\.2|2\\.4\\.5\\.3|2\\.4\\.5\\.4|2\\.4\\.6|2\\.4\\.6\\.1|2\\.4\\.6\\.2|2\\.4\\.7|2\\.4\\.8|2\\.4\\.9|2\\.4\\.10|3|3\\.1|3\\.1\\.1|3\\.2|3\\.2\\.1|3\\.2\\.2|3\\.2\\.3|3\\.2\\.4|3\\.3|3\\.3\\.1|3\\.3\\.2|3\\.3\\.3|3\\.3\\.4|3\\.3\\.5|3\\.4|3\\.4\\.1|3\\.4\\.2|3\\.4\\.3|3\\.4\\.4|3\\.4\\.5|3\\.4\\.6|3\\.4\\.7|3\\.5|3\\.5\\.1|3\\.5\\.2|3\\.5\\.3|3\\.5\\.4|3\\.6|3\\.6\\.1|3\\.6\\.2|3\\.6\\.3|3\\.6\\.3\\.1|3\\.6\\.3\\.2|3\\.6\\.3\\.3|4|4\\.1|4\\.1\\.2|4\\.1\\.2\\.1|4\\.1\\.2\\.2|4\\.1\\.2\\.3|4\\.1\\.2\\.4|4\\.1\\.2\\.5|4\\.1\\.2\\.6|4\\.1\\.2\\.7|4\\.1\\.2\\.8|4\\.1\\.3|4\\.2|4\\.2\\.1|4\\.2\\.2|4\\.2\\.3|4\\.3|4\\.3\\.1|4\\.3\\.2|4\\.3\\.3|4\\.4|4\\.4\\.1|4\\.4\\.2|5|5\\.1|5\\.2|5\\.3|5\\.4|5\\.5|Section 3\\.5\\.2|5\\.6|6|6\\.1|6\\.1\\.1|6\\.1\\.2|6\\.2|6\\.3|6\\.3\\.1|6\\.3\\.2|6\\.3\\.3|6\\.4|6\\.4\\.1|6\\.4\\.2|6\\.4\\.3|6\\.5|PART A \\(3\\)|PART B \\(3\\)|PART A \\(4\\)|PART B \\(4\\))$"
+          ],
+          "description": "Machinery Regulation section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "CHAPTER II",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "Article 19",
+              "CHAPTER III",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "CHAPTER IV",
+              "Article 25",
+              "CHAPTER V",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "CHAPTER VI",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "Article 46",
+              "CHAPTER VII",
+              "Article 47",
+              "Article 48",
+              "CHAPTER VIII",
+              "Article 49",
+              "Article 50",
+              "CHAPTER IX",
+              "Article 51",
+              "Article 52",
+              "Article 53",
+              "Article 54",
+              "PART A (1)",
+              "PART B (1)",
+              "PART A (2)",
+              "PART B (2)",
+              "1",
+              "1.1",
+              "1.1.1",
+              "1.1.2",
+              "1.1.3",
+              "1.1.4",
+              "1.1.5",
+              "1.1.6",
+              "1.1.7",
+              "1.1.8",
+              "1.1.9",
+              "1.2",
+              "1.2.1",
+              "1.2.2",
+              "1.2.3",
+              "1.2.4",
+              "1.2.4.1",
+              "1.2.4.2",
+              "1.2.4.3",
+              "1.2.4.4",
+              "1.2.5",
+              "1.2.6",
+              "1.3",
+              "1.3.1",
+              "1.3.2",
+              "1.3.3",
+              "1.3.4",
+              "1.3.5",
+              "1.3.6",
+              "1.3.7",
+              "1.3.8",
+              "1.3.8.1",
+              "1.3.8.2",
+              "1.3.9",
+              "1.4",
+              "1.4.1",
+              "1.4.2",
+              "1.4.2.1",
+              "1.4.2.2",
+              "1.4.2.3",
+              "1.4.3",
+              "1.5",
+              "1.5.1",
+              "1.5.2",
+              "1.5.3",
+              "1.5.4",
+              "1.5.5",
+              "1.5.6",
+              "1.5.7",
+              "1.5.8",
+              "1.5.9",
+              "1.5.10",
+              "1.5.11",
+              "1.5.12",
+              "1.5.13",
+              "1.5.14",
+              "1.5.15",
+              "1.5.16",
+              "1.6",
+              "1.6.1",
+              "1.6.2",
+              "1.6.3",
+              "1.6.4",
+              "1.6.5",
+              "1.7",
+              "1.7.1",
+              "1.7.1.1",
+              "1.7.1.2",
+              "1.7.2",
+              "1.7.3",
+              "1.7.4",
+              "1.7.4.1",
+              "1.7.4.2",
+              "1.7.5",
+              "2",
+              "2.1",
+              "2.1.1",
+              "2.1.2",
+              "2.2",
+              "2.2.1",
+              "2.2.1.1",
+              "2.2.2",
+              "2.2.2.1",
+              "2.2.2.2",
+              "2.3",
+              "2.4",
+              "2.4.2",
+              "2.4.3",
+              "2.4.4",
+              "2.4.5",
+              "2.4.5.1",
+              "2.4.5.2",
+              "2.4.5.3",
+              "2.4.5.4",
+              "2.4.6",
+              "2.4.6.1",
+              "2.4.6.2",
+              "2.4.7",
+              "2.4.8",
+              "2.4.9",
+              "2.4.10",
+              "3",
+              "3.1",
+              "3.1.1",
+              "3.2",
+              "3.2.1",
+              "3.2.2",
+              "3.2.3",
+              "3.2.4",
+              "3.3",
+              "3.3.1",
+              "3.3.2",
+              "3.3.3",
+              "3.3.4",
+              "3.3.5",
+              "3.4",
+              "3.4.1",
+              "3.4.2",
+              "3.4.3",
+              "3.4.4",
+              "3.4.5",
+              "3.4.6",
+              "3.4.7",
+              "3.5",
+              "3.5.1",
+              "3.5.2",
+              "3.5.3",
+              "3.5.4",
+              "3.6",
+              "3.6.1",
+              "3.6.2",
+              "3.6.3",
+              "3.6.3.1",
+              "3.6.3.2",
+              "3.6.3.3",
+              "4",
+              "4.1",
+              "4.1.2",
+              "4.1.2.1",
+              "4.1.2.2",
+              "4.1.2.3",
+              "4.1.2.4",
+              "4.1.2.5",
+              "4.1.2.6",
+              "4.1.2.7",
+              "4.1.2.8",
+              "4.1.3",
+              "4.2",
+              "4.2.1",
+              "4.2.2",
+              "4.2.3",
+              "4.3",
+              "4.3.1",
+              "4.3.2",
+              "4.3.3",
+              "4.4",
+              "4.4.1",
+              "4.4.2",
+              "5",
+              "5.1",
+              "5.2",
+              "5.3",
+              "5.4",
+              "5.5",
+              "Section 3.5.2",
+              "5.6",
+              "6",
+              "6.1",
+              "6.1.1",
+              "6.1.2",
+              "6.2",
+              "6.3",
+              "6.3.1",
+              "6.3.2",
+              "6.3.3",
+              "6.4",
+              "6.4.1",
+              "6.4.2",
+              "6.4.3",
+              "6.5",
+              "PART A (3)",
+              "PART B (3)",
+              "PART A (4)",
+              "PART B (4)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/machinery-regulation).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/machinery-regulation/machinery-regulation-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["(?i)^ehds$"],
+      "patterns": [
+        "(?i)^ehds$"
+      ],
       "description": "European Health Data Space",
       "weight": 100,
       "data": {
         "official_name": "Regulation (EU) 2025/327 on the European Health Data Space",
         "common_name": "EHDS",
-        "alternate_names": ["Regulation (EU) 2025/327"],
+        "alternate_names": [
+          "Regulation (EU) 2025/327"
+        ],
         "description": "Creates an EU-wide legal, technical, and governance framework for electronic health data — giving individuals control over/access to their own health data and enabling secondary use (research, policymaking, innovation) under strict security/governance controls.",
         "notes": "Entered into force March 26, 2025; primary-use provisions (patient summaries, ePrescriptions) phase in by March 2029.",
         "urls": [
-          {"type": "legal_text", "url": "https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng"}
+          {
+            "type": "legal_text",
+            "url": "https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|CHAPTER II|SECTION 1 \\(1\\)|Article 3|Article 4|Article 5|Article 6|Article 7|Article 8|Article 9|Article 10|Article 11|Article 12|Article 13|Article 14|Article 15|Article 16|Article 17|Article 18|SECTION 2 \\(1\\)|Article 19|Article 20|Article 21|Article 22|SECTION 3 \\(1\\)|Article 23|Article 24|CHAPTER III|SECTION 1 \\(2\\)|Article 25|Article 26|Article 27|Article 28|Article 29|SECTION 2 \\(2\\)|Article 30|Article 31|Article 32|Article 33|Article 34|Article 35|SECTION 3 \\(2\\)|Article 36|Article 37|Article 38|Article 39|Article 40|Article 41|Article 42|SECTION 4 \\(1\\)|Article 43|Article 44|Article 45|Article 46|SECTION 5 \\(1\\)|Article 47|Article 48|SECTION 6 \\(1\\)|Article 49|CHAPTER IV|SECTION 1 \\(3\\)|Article 50|Article 51|Article 52|Article 53|Article 54|SECTION 2 \\(3\\)|Article 55|Article 56|Article 57|Article 58|Article 59|Article 60|Article 61|Article 62|Article 63|Article 64|Article 65|SECTION 3 \\(3\\)|Article 66|Article 67|Article 68|Article 69|Article 70|Article 71|Article 72|Article 73|Article 74|SECTION 4 \\(2\\)|Article 75|Article 76|SECTION 5 \\(2\\)|Article 77|Article 78|Article 79|Article 80|SECTION 6 \\(2\\)|Article 81|CHAPTER V|Article 82|Article 83|Article 84|Article 85|Article 86|Article 87|Article 88|Article 89|Article 90|Article 91|CHAPTER VI|Article 92|Article 93|Article 94|Article 95|Article 96|CHAPTER VII|Article 97|Article 98|CHAPTER VIII|Article 99|Article 100|Article 101|Article 102|Article 103|Article 104|CHAPTER IX|Article 105)$"
+          ],
+          "description": "EHDS section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "CHAPTER II",
+              "SECTION 1 (1)",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "Article 6",
+              "Article 7",
+              "Article 8",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "Article 14",
+              "Article 15",
+              "Article 16",
+              "Article 17",
+              "Article 18",
+              "SECTION 2 (1)",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "Article 22",
+              "SECTION 3 (1)",
+              "Article 23",
+              "Article 24",
+              "CHAPTER III",
+              "SECTION 1 (2)",
+              "Article 25",
+              "Article 26",
+              "Article 27",
+              "Article 28",
+              "Article 29",
+              "SECTION 2 (2)",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "Article 33",
+              "Article 34",
+              "Article 35",
+              "SECTION 3 (2)",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "Article 39",
+              "Article 40",
+              "Article 41",
+              "Article 42",
+              "SECTION 4 (1)",
+              "Article 43",
+              "Article 44",
+              "Article 45",
+              "Article 46",
+              "SECTION 5 (1)",
+              "Article 47",
+              "Article 48",
+              "SECTION 6 (1)",
+              "Article 49",
+              "CHAPTER IV",
+              "SECTION 1 (3)",
+              "Article 50",
+              "Article 51",
+              "Article 52",
+              "Article 53",
+              "Article 54",
+              "SECTION 2 (3)",
+              "Article 55",
+              "Article 56",
+              "Article 57",
+              "Article 58",
+              "Article 59",
+              "Article 60",
+              "Article 61",
+              "Article 62",
+              "Article 63",
+              "Article 64",
+              "Article 65",
+              "SECTION 3 (3)",
+              "Article 66",
+              "Article 67",
+              "Article 68",
+              "Article 69",
+              "Article 70",
+              "Article 71",
+              "Article 72",
+              "Article 73",
+              "Article 74",
+              "SECTION 4 (2)",
+              "Article 75",
+              "Article 76",
+              "SECTION 5 (2)",
+              "Article 77",
+              "Article 78",
+              "Article 79",
+              "Article 80",
+              "SECTION 6 (2)",
+              "Article 81",
+              "CHAPTER V",
+              "Article 82",
+              "Article 83",
+              "Article 84",
+              "Article 85",
+              "Article 86",
+              "Article 87",
+              "Article 88",
+              "Article 89",
+              "Article 90",
+              "Article 91",
+              "CHAPTER VI",
+              "Article 92",
+              "Article 93",
+              "Article 94",
+              "Article 95",
+              "Article 96",
+              "CHAPTER VII",
+              "Article 97",
+              "Article 98",
+              "CHAPTER VIII",
+              "Article 99",
+              "Article 100",
+              "Article 101",
+              "Article 102",
+              "Article 103",
+              "Article 104",
+              "CHAPTER IX",
+              "Article 105"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/ehds).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "Section CHAPTER I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Section Article 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Section Article 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/ehds/ehds-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
-
     {
-      "patterns": ["^eu-kids-act$", "^com-2026-681$"],
+      "patterns": [
+        "^eu-kids-act$",
+        "^com-2026-681$"
+      ],
       "description": "EU KIDS Act — EU Keeping Internet Digital Spaces Accountable and Trustworthy (COM(2026) 681 final)",
       "weight": 95,
       "data": {
         "official_name": "EU KIDS ACT — 'EU Keeping Internet Digital Spaces Accountable and Trustworthy' (COM(2026) 681 final)",
         "common_name": "EU KIDS Act",
-        "alternate_names": ["COM(2026) 681 final", "CELEX:52026PC0681", "Proposal for a Regulation on the protection of minors online"],
+        "alternate_names": [
+          "COM(2026) 681 final",
+          "CELEX:52026PC0681",
+          "Proposal for a Regulation on the protection of minors online"
+        ],
         "description": "European Commission legislative proposal harmonizing child online safety, privacy-preserving age verification (via the EU Digital Identity Wallet), and restrictions on addictive or manipulative design features and AI companion interactions affecting minors.",
         "notes": "Status: Proposed (adopted by the European Commission September 17, 2026 as COM(2026) 681 final; pending ordinary legislative procedure in the European Parliament and Council; verified as of 2026-11-03). Complements the Digital Services Act (DSA Art. 28) and the EU AI Act (Art. 5 and Art. 50).",
         "urls": [
-          {"type": "proposal", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52026PC0681"}
+          {
+            "type": "proposal",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52026PC0681"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
-        "examples": ["eu-kids-act", "com-2026-681"]
-      }
+        "examples": [
+          "eu-kids-act",
+          "com-2026-681"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER I|Article 1|Article 2|Article 3|Article 4|Article 5|CHAPTER II|SECTION I \\(1\\)|Article 6|SECTION II \\(1\\)|Article 7|CHAPTER III|SECTION I \\(2\\)|Article 8|SECTION II \\(2\\)|Article 9|Article 10|Article 11|Article 12|Article 13|SECTION III|Article 14|SECTION IV|Article 15|SECTION V|Article 16|Article 17|SECTION VI|Article 18|Article 19|Article 20|Article 21|SECTION VII|Article 22|Article 23|Article 24|Article 25|CHAPTER IV|Article 26|CHAPTER V|Section I|Article 27|Article 28|Section II|Article 29|Article 30|Article 31|Article 32|CHAPTER VI|Article 33|CHAPTER VII|Article 34|Article 35|Article 36|Article 37|Article 38|CHAPTER VIII|Article 39|Article 40|CHAPTER IX|Article 41|Article 42|Article 43|3\\.2\\.3\\.1 \\(1\\)|3\\.2\\.3\\.1 \\(2\\)|3\\.3)$"
+          ],
+          "description": "EU KIDS Act section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER I",
+              "Article 1",
+              "Article 2",
+              "Article 3",
+              "Article 4",
+              "Article 5",
+              "CHAPTER II",
+              "SECTION I (1)",
+              "Article 6",
+              "SECTION II (1)",
+              "Article 7",
+              "CHAPTER III",
+              "SECTION I (2)",
+              "Article 8",
+              "SECTION II (2)",
+              "Article 9",
+              "Article 10",
+              "Article 11",
+              "Article 12",
+              "Article 13",
+              "SECTION III",
+              "Article 14",
+              "SECTION IV",
+              "Article 15",
+              "SECTION V",
+              "Article 16",
+              "Article 17",
+              "SECTION VI",
+              "Article 18",
+              "Article 19",
+              "Article 20",
+              "Article 21",
+              "SECTION VII",
+              "Article 22",
+              "Article 23",
+              "Article 24",
+              "Article 25",
+              "CHAPTER IV",
+              "Article 26",
+              "CHAPTER V",
+              "Section I",
+              "Article 27",
+              "Article 28",
+              "Section II",
+              "Article 29",
+              "Article 30",
+              "Article 31",
+              "Article 32",
+              "CHAPTER VI",
+              "Article 33",
+              "CHAPTER VII",
+              "Article 34",
+              "Article 35",
+              "Article 36",
+              "Article 37",
+              "Article 38",
+              "CHAPTER VIII",
+              "Article 39",
+              "Article 40",
+              "CHAPTER IX",
+              "Article 41",
+              "Article 42",
+              "Article 43",
+              "3.2.3.1 (1)",
+              "3.2.3.1 (2)",
+              "3.3"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/europa.eu/eu-kids-act).",
+            "examples": [
+              {
+                "input": "CHAPTER I",
+                "note": "GENERAL PROVISIONS",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act-sections.json"
+              },
+              {
+                "input": "Article 1",
+                "note": "Subject matter",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act-sections.json"
+              },
+              {
+                "input": "Article 2",
+                "note": "Scope",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/europa.eu/eu-kids-act/eu-kids-act-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["EU"]}
+  "tags": {
+    "country": [
+      "EU"
+    ]
+  }
 }

@@ -33,10 +33,130 @@
           {
             "type": "website",
             "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1101"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|Sec\\. 4|Sec\\. 5|Sec\\. 8|Sec\\. 13|Sec\\. 16|Sec\\. 17|Sec\\. 18|Sec\\. 19|Sec\\. 20|Sec\\. 25|Sec\\. 27|Sec\\. 31|\\(1\\)|Sec\\. 37|Sec\\. 38|Sec\\. 39|Sec\\. 40|Sec\\. 41|Sec\\. 42|Sec\\. 43|Sec\\. 44|Sec\\. 45|Sec\\. 46|Sec\\. 47|Sec\\. 48|Sec\\. 49|Sec\\. 50|Sec\\. 51|Sec\\. 52|Sec\\. 53|Sec\\. 54|Sec\\. 55|Sec\\. 56|Sec\\. 57|Sec\\. 58|Sec\\. 59|Sec\\. 60|Sec\\. 61|Sec\\. 62|Sec\\. 63|Sec\\. 64|Sec\\. 65|Sec\\. 67|Sec\\. 68|Sec\\. 69|Sec\\. 71|Sec\\. 72|Sec\\. 73|Sec\\. 74|Sec\\. 80|Sec\\. 81|Sec\\. 82|Sec\\. 83|Sec\\. 84|Sec\\. 85|Sec\\. 86|Sec\\. 87|Sec\\. 88|Sec\\. 89|Sec\\. 90|Sec\\. 91|Sec\\. 92|Sec\\. 93|Sec\\. 94|Sec\\. 95|Sec\\. 96|Sec\\. 97|Sec\\. 98|Sec\\. 101|Sec\\. 105)$"
+          ],
+          "description": "NDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "Sec. 4",
+              "Sec. 5",
+              "Sec. 8",
+              "Sec. 13",
+              "Sec. 16",
+              "Sec. 17",
+              "Sec. 18",
+              "Sec. 19",
+              "Sec. 20",
+              "Sec. 25",
+              "Sec. 27",
+              "Sec. 31",
+              "(1)",
+              "Sec. 37",
+              "Sec. 38",
+              "Sec. 39",
+              "Sec. 40",
+              "Sec. 41",
+              "Sec. 42",
+              "Sec. 43",
+              "Sec. 44",
+              "Sec. 45",
+              "Sec. 46",
+              "Sec. 47",
+              "Sec. 48",
+              "Sec. 49",
+              "Sec. 50",
+              "Sec. 51",
+              "Sec. 52",
+              "Sec. 53",
+              "Sec. 54",
+              "Sec. 55",
+              "Sec. 56",
+              "Sec. 57",
+              "Sec. 58",
+              "Sec. 59",
+              "Sec. 60",
+              "Sec. 61",
+              "Sec. 62",
+              "Sec. 63",
+              "Sec. 64",
+              "Sec. 65",
+              "Sec. 67",
+              "Sec. 68",
+              "Sec. 69",
+              "Sec. 71",
+              "Sec. 72",
+              "Sec. 73",
+              "Sec. 74",
+              "Sec. 80",
+              "Sec. 81",
+              "Sec. 82",
+              "Sec. 83",
+              "Sec. 84",
+              "Sec. 85",
+              "Sec. 86",
+              "Sec. 87",
+              "Sec. 88",
+              "Sec. 89",
+              "Sec. 90",
+              "Sec. 91",
+              "Sec. 92",
+              "Sec. 93",
+              "Sec. 94",
+              "Sec. 95",
+              "Sec. 96",
+              "Sec. 97",
+              "Sec. 98",
+              "Sec. 101",
+              "Sec. 105"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/nebraska.gov/ndpa).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "Sections 1 to 30 of this act shall be known and may be cited as the Data Privacy Act.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
+              },
+              {
+                "input": "Sec. 4",
+                "note": "The Data Privacy Act does not apply to the following: (1) Protected health information under the Health Insurance Portab",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
+              },
+              {
+                "input": "Sec. 5",
+                "note": "The Data Privacy Act does not apply to the processing of personal data by a person in the course of a purely personal or",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/ndpa/ndpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
       "patterns": [
@@ -57,14 +177,84 @@
           {
             "type": "legal_text",
             "url": "https://nebraskalegislature.gov/bills/view_bill.php?DocumentID=59601"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": [
           "lb-525",
           "conversational-ai-safety-act"
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:Section 1|Sec\\. 2|\\(2\\)|Sec\\. 3|Sec\\. 4|Sec\\. 5|Sec\\. 6|Sec\\. 7|Sec\\. 8|Sec\\. 9|LEGISLATIVE BILL 525: \\(1\\) \\(1\\)|Sec\\. 10|LEGISLATIVE BILL 525: \\(1\\) \\(2\\)|Sec\\. 11)$"
+          ],
+          "description": "Nebraska LB 525 (Conversational AI Safety Act) section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "Section 1",
+              "Sec. 2",
+              "(2)",
+              "Sec. 3",
+              "Sec. 4",
+              "Sec. 5",
+              "Sec. 6",
+              "Sec. 7",
+              "Sec. 8",
+              "Sec. 9",
+              "LEGISLATIVE BILL 525: (1) (1)",
+              "Sec. 10",
+              "LEGISLATIVE BILL 525: (1) (2)",
+              "Sec. 11"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/nebraska.gov/lb-525).",
+            "examples": [
+              {
+                "input": "Section 1",
+                "note": "Sections 1 to 11 of this act shall be known and may be",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
+              },
+              {
+                "input": "Sec. 2",
+                "note": "The purposes of the Agricultural Data Privacy Act are to: 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
+              },
+              {
+                "input": "(2)",
+                "note": "Protect the agriculture industry in Nebraska. 5",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/nebraska.gov/lb-525/lb-525-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["US"], "region": ["NE"]}
+  "tags": {
+    "country": [
+      "US"
+    ],
+    "region": [
+      "NE"
+    ]
+  }
 }

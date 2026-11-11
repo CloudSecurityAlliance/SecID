@@ -34,10 +34,69 @@
           {
             "type": "website",
             "url": "https://www.legis.iowa.gov/legislation/BillBook?ba=SF262"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 715D|715D\\.1|715D\\.2|715D\\.3|715D\\.4|715D\\.5|715D\\.6|715D\\.7|715D\\.8|715D\\.9)$"
+          ],
+          "description": "ICDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 715D",
+              "715D.1",
+              "715D.2",
+              "715D.3",
+              "715D.4",
+              "715D.5",
+              "715D.6",
+              "715D.7",
+              "715D.8",
+              "715D.9"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/iowa.gov/icdpa).",
+            "examples": [
+              {
+                "input": "CHAPTER 715D",
+                "note": "Section CHAPTER 715D",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
+              },
+              {
+                "input": "715D.1",
+                "note": "Definitions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
+              },
+              {
+                "input": "715D.2",
+                "note": "Scope and exemptions.",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/iowa.gov/icdpa/icdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ]
 }

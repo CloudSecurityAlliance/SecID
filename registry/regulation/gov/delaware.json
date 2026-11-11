@@ -34,10 +34,73 @@
           {
             "type": "website",
             "url": "https://legis.delaware.gov/BillDetail?LegislationId=140388"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
           }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:TITLE 6|SUBTITLE II|CHAPTER 12D|§ 12D-101|§ 12D-102|§ 12D-103|§ 12D-104|§ 12D-105|§ 12D-106|§ 12D-107|§ 12D-108|§ 12D-109|§ 12D-110|§ 12D-111)$"
+          ],
+          "description": "DPDPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "TITLE 6",
+              "SUBTITLE II",
+              "CHAPTER 12D",
+              "§ 12D-101",
+              "§ 12D-102",
+              "§ 12D-103",
+              "§ 12D-104",
+              "§ 12D-105",
+              "§ 12D-106",
+              "§ 12D-107",
+              "§ 12D-108",
+              "§ 12D-109",
+              "§ 12D-110",
+              "§ 12D-111"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/delaware.gov/dpdpa).",
+            "examples": [
+              {
+                "input": "TITLE 6",
+                "note": "Section TITLE 6",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
+              },
+              {
+                "input": "SUBTITLE II",
+                "note": "Section SUBTITLE II",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
+              },
+              {
+                "input": "CHAPTER 12D",
+                "note": "Delaware Personal Data Privacy Act",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/delaware.gov/dpdpa/dpdpa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ]
 }

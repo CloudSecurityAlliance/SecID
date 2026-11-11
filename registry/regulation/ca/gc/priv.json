@@ -11,42 +11,463 @@
   "wikidata": null,
   "wikipedia": null,
   "urls": [
-    {"type": "website", "url": "https://www.priv.gc.ca"}
+    {
+      "type": "website",
+      "url": "https://www.priv.gc.ca"
+    }
   ],
   "match_nodes": [
     {
-      "patterns": ["(?i)^pipeda$"],
+      "patterns": [
+        "(?i)^pipeda$"
+      ],
       "description": "Personal Information Protection and Electronic Documents Act",
       "weight": 100,
       "data": {
         "official_name": "Personal Information Protection and Electronic Documents Act",
         "common_name": "PIPEDA",
-        "alternate_names": ["S.C. 2000, c. 5"],
+        "alternate_names": [
+          "S.C. 2000, c. 5"
+        ],
         "description": "Canada's baseline federal private-sector data-protection law, in force since 2001. Governs collection, use, and disclosure of personal information in the course of commercial activity.",
         "notes": "The federal government has made multiple attempts to replace PIPEDA (CPPA under Bill C-27, died on the order paper Jan 2025; now Bill C-36 / PPCDA as of June 2026) — see secid:regulation/priv.gc.ca/ppcda-bill-c36. PIPEDA remains in force until a successor passes.",
         "urls": [
-          {"type": "legal_text", "url": "https://laws-lois.justice.gc.ca/eng/acts/p-8.6/"}
+          {
+            "type": "legal_text",
+            "url": "https://laws-lois.justice.gc.ca/eng/acts/p-8.6/"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|2|3|4|4\\.01|4\\.1|5|6|6\\.1|7|7\\.1|7\\.2|7\\.3|7\\.4|8|9|10|10\\.1|10\\.2|10\\.3|11|12|12\\.1|12\\.2|13|14|15|16|17|17\\.1|17\\.2|18|19|20|21|22|23|23\\.1|24|25|26|27|27\\.1|28|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52 to 57|58 and 59|60 to 71)$"
+          ],
+          "description": "PIPEDA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "4.01",
+              "4.1",
+              "5",
+              "6",
+              "6.1",
+              "7",
+              "7.1",
+              "7.2",
+              "7.3",
+              "7.4",
+              "8",
+              "9",
+              "10",
+              "10.1",
+              "10.2",
+              "10.3",
+              "11",
+              "12",
+              "12.1",
+              "12.2",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "17.1",
+              "17.2",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "23.1",
+              "24",
+              "25",
+              "26",
+              "27",
+              "27.1",
+              "28",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52 to 57",
+              "58 and 59",
+              "60 to 71"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/canada.ca/pipeda).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "Short title",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
+              },
+              {
+                "input": "2",
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
+              },
+              {
+                "input": "3",
+                "note": "Purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/canada.ca/pipeda/pipeda-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^ppcda-bill-c36$"],
+      "patterns": [
+        "(?i)^ppcda-bill-c36$"
+      ],
       "description": "Protecting Privacy and Consumer Data Act (Bill C-36) — proposed PIPEDA successor",
       "weight": 90,
       "data": {
         "official_name": "Protecting Privacy and Consumer Data Act",
         "common_name": "PPCDA / Bill C-36",
-        "alternate_names": ["Bill C-36"],
+        "alternate_names": [
+          "Bill C-36"
+        ],
         "description": "Third federal attempt at private-sector privacy reform (after the CPPA in the prior Bill C-27, which died on the order paper January 2025). First reading June 15, 2026. Would replace PIPEDA, introduce a new enforcement body (the Digital Safety and Data Protection Commission of Canada), and penalties up to CAD 25M or 5% of global revenue.",
         "notes": "Status: Proposed — At second reading in the House of Commons; First reading completed June 15, 2026 in the 45th Parliament, 1st Session (verified as of 2026-11-04). Not yet in force — track alongside PIPEDA (secid:regulation/priv.gc.ca/pipeda) which remains current law.",
         "urls": [
-          {"type": "website", "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36"},
-          {"type": "api", "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36/json", "format": "json", "note": "LEGISinfo machine-readable bill status JSON"}
+          {
+            "type": "website",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36"
+          },
+          {
+            "type": "api",
+            "url": "https://www.parl.ca/legisinfo/en/bill/45-1/c-36/json",
+            "format": "json",
+            "note": "LEGISinfo machine-readable bill status JSON"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1|PPCDA:Preamble|PPCDA:1|PPCDA:2|PPCDA:3|PPCDA:4|PPCDA:5|PPCDA:6|PPCDA:7|PPCDA:8|PPCDA:9|PPCDA:10|PPCDA:11|PPCDA:12|PPCDA:13|PPCDA:14|PPCDA:15|PPCDA:16|PPCDA:17|PPCDA:18|PPCDA:19|PPCDA:20|PPCDA:21|PPCDA:22|PPCDA:23|PPCDA:24|PPCDA:25|PPCDA:26|PPCDA:27|PPCDA:28|PPCDA:29|PPCDA:30|PPCDA:31|PPCDA:32|PPCDA:33|PPCDA:34|PPCDA:35|PPCDA:36|PPCDA:37|PPCDA:38|PPCDA:39|PPCDA:40|PPCDA:41|PPCDA:42|PPCDA:43|PPCDA:44|PPCDA:45|PPCDA:46|PPCDA:47|PPCDA:48|PPCDA:49|PPCDA:50|PPCDA:51|PPCDA:52|PPCDA:53|PPCDA:54|PPCDA:55|PPCDA:56|PPCDA:57|PPCDA:58|PPCDA:59|PPCDA:60|PPCDA:61|PPCDA:62|PPCDA:63|PPCDA:64|PPCDA:65|PPCDA:66|PPCDA:67|PPCDA:68|PPCDA:69|PPCDA:70|PPCDA:71|PPCDA:72|PPCDA:73|PPCDA:74|PPCDA:75|PPCDA:76|PPCDA:77|PPCDA:78|PPCDA:79|PPCDA:80|PPCDA:81|PPCDA:82|PPCDA:83|PPCDA:84|PPCDA:85|PPCDA:86|PPCDA:87|PPCDA:88|PPCDA:89|PPCDA:90|PPCDA:91|PPCDA:92|PPCDA:93|PPCDA:94|PPCDA:95|PPCDA:96|PPCDA:97|PPCDA:98|PPCDA:99|PPCDA:100|PPCDA:101|PPCDA:102|PPCDA:103|PPCDA:104|PPCDA:105|PPCDA:106|PPCDA:107|PPCDA:108|PPCDA:109|PPCDA:110|PPCDA:111|PPCDA:112|PPCDA:113|PPCDA:114|PPCDA:115|PPCDA:116|PPCDA:117|PPCDA:118|PPCDA:119|PPCDA:120|PPCDA:121|PPCDA:122|PPCDA:123|PPCDA:124|PPCDA:125|PPCDA:126|PPCDA:127|PPCDA:128|PPCDA:129|PPCDA:130|PPCDA:131|PPCDA:132|PPCDA:133|PPCDA:134|PPCDA:135|PPCDA:136|PPCDA:137|PPCDA:138|PPCDA:139|PPCDA:140|PPCDA:141|PPCDA:142|PPCDA:143|PPCDA:144|PPCDA:145|PPCDA:146|PPCDA:147|2|3|s3:1|4|5|6|7|8|9|s9:1|10|11|s11:4|12|13|s13:10|14|s14:19|15|s15:22|16|17|18|19|20|21|22|23|24|25|26|27|s27:4\\.83|28|29|30|s30:12\\.1|31|s31:29\\.3|32|33|34|35|36|37|38|s38:50|39|40|s40:2|41|42|s42:52|s42:53|s42:54|43|s43\\(1\\):56|44|s44:57|45|46|47|s47\\(1\\):60|48|s48:61|49|50|51|52)$"
+          ],
+          "description": "PPCDA / Bill C-36 statutory section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "1",
+              "PPCDA:Preamble",
+              "PPCDA:1",
+              "PPCDA:2",
+              "PPCDA:3",
+              "PPCDA:4",
+              "PPCDA:5",
+              "PPCDA:6",
+              "PPCDA:7",
+              "PPCDA:8",
+              "PPCDA:9",
+              "PPCDA:10",
+              "PPCDA:11",
+              "PPCDA:12",
+              "PPCDA:13",
+              "PPCDA:14",
+              "PPCDA:15",
+              "PPCDA:16",
+              "PPCDA:17",
+              "PPCDA:18",
+              "PPCDA:19",
+              "PPCDA:20",
+              "PPCDA:21",
+              "PPCDA:22",
+              "PPCDA:23",
+              "PPCDA:24",
+              "PPCDA:25",
+              "PPCDA:26",
+              "PPCDA:27",
+              "PPCDA:28",
+              "PPCDA:29",
+              "PPCDA:30",
+              "PPCDA:31",
+              "PPCDA:32",
+              "PPCDA:33",
+              "PPCDA:34",
+              "PPCDA:35",
+              "PPCDA:36",
+              "PPCDA:37",
+              "PPCDA:38",
+              "PPCDA:39",
+              "PPCDA:40",
+              "PPCDA:41",
+              "PPCDA:42",
+              "PPCDA:43",
+              "PPCDA:44",
+              "PPCDA:45",
+              "PPCDA:46",
+              "PPCDA:47",
+              "PPCDA:48",
+              "PPCDA:49",
+              "PPCDA:50",
+              "PPCDA:51",
+              "PPCDA:52",
+              "PPCDA:53",
+              "PPCDA:54",
+              "PPCDA:55",
+              "PPCDA:56",
+              "PPCDA:57",
+              "PPCDA:58",
+              "PPCDA:59",
+              "PPCDA:60",
+              "PPCDA:61",
+              "PPCDA:62",
+              "PPCDA:63",
+              "PPCDA:64",
+              "PPCDA:65",
+              "PPCDA:66",
+              "PPCDA:67",
+              "PPCDA:68",
+              "PPCDA:69",
+              "PPCDA:70",
+              "PPCDA:71",
+              "PPCDA:72",
+              "PPCDA:73",
+              "PPCDA:74",
+              "PPCDA:75",
+              "PPCDA:76",
+              "PPCDA:77",
+              "PPCDA:78",
+              "PPCDA:79",
+              "PPCDA:80",
+              "PPCDA:81",
+              "PPCDA:82",
+              "PPCDA:83",
+              "PPCDA:84",
+              "PPCDA:85",
+              "PPCDA:86",
+              "PPCDA:87",
+              "PPCDA:88",
+              "PPCDA:89",
+              "PPCDA:90",
+              "PPCDA:91",
+              "PPCDA:92",
+              "PPCDA:93",
+              "PPCDA:94",
+              "PPCDA:95",
+              "PPCDA:96",
+              "PPCDA:97",
+              "PPCDA:98",
+              "PPCDA:99",
+              "PPCDA:100",
+              "PPCDA:101",
+              "PPCDA:102",
+              "PPCDA:103",
+              "PPCDA:104",
+              "PPCDA:105",
+              "PPCDA:106",
+              "PPCDA:107",
+              "PPCDA:108",
+              "PPCDA:109",
+              "PPCDA:110",
+              "PPCDA:111",
+              "PPCDA:112",
+              "PPCDA:113",
+              "PPCDA:114",
+              "PPCDA:115",
+              "PPCDA:116",
+              "PPCDA:117",
+              "PPCDA:118",
+              "PPCDA:119",
+              "PPCDA:120",
+              "PPCDA:121",
+              "PPCDA:122",
+              "PPCDA:123",
+              "PPCDA:124",
+              "PPCDA:125",
+              "PPCDA:126",
+              "PPCDA:127",
+              "PPCDA:128",
+              "PPCDA:129",
+              "PPCDA:130",
+              "PPCDA:131",
+              "PPCDA:132",
+              "PPCDA:133",
+              "PPCDA:134",
+              "PPCDA:135",
+              "PPCDA:136",
+              "PPCDA:137",
+              "PPCDA:138",
+              "PPCDA:139",
+              "PPCDA:140",
+              "PPCDA:141",
+              "PPCDA:142",
+              "PPCDA:143",
+              "PPCDA:144",
+              "PPCDA:145",
+              "PPCDA:146",
+              "PPCDA:147",
+              "2",
+              "3",
+              "s3:1",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "s9:1",
+              "10",
+              "11",
+              "s11:4",
+              "12",
+              "13",
+              "s13:10",
+              "14",
+              "s14:19",
+              "15",
+              "s15:22",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "s27:4.83",
+              "28",
+              "29",
+              "30",
+              "s30:12.1",
+              "31",
+              "s31:29.3",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "s38:50",
+              "39",
+              "40",
+              "s40:2",
+              "41",
+              "42",
+              "s42:52",
+              "s42:53",
+              "s42:54",
+              "43",
+              "s43(1):56",
+              "44",
+              "s44:57",
+              "45",
+              "46",
+              "47",
+              "s47(1):60",
+              "48",
+              "s48:61",
+              "49",
+              "50",
+              "51",
+              "52"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/priv.gc.ca/ppcda-bill-c36).",
+            "examples": [
+              {
+                "input": "1",
+                "note": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
+              },
+              {
+                "input": "PPCDA:Preamble",
+                "note": "PPCDA:Preamble",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
+              },
+              {
+                "input": "PPCDA:1",
+                "note": "PPCDA:1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        },
+        {
+          "patterns": [
+            "^(?:SCHEDULE)$"
+          ],
+          "description": "Enclosing PPCDA / Bill C-36 bill clause, part, or schedule identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "SCHEDULE"
+            ],
+            "note": "Extracted bill clause and schedule identifiers in dataset-public-laws-regulations-standards (regulation/priv.gc.ca/ppcda-bill-c36).",
+            "examples": [
+              {
+                "input": "SCHEDULE",
+                "note": "SCHEDULE",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/priv.gc.ca/ppcda-bill-c36/ppcda-bill-c36-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     }
   ],
-  "tags": {"country": ["CA"]}
+  "tags": {
+    "country": [
+      "CA"
+    ]
+  }
 }

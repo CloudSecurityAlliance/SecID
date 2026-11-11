@@ -4,175 +4,1450 @@
   "type": "regulation",
   "status": "draft",
   "status_notes": null,
-
   "official_name": "United States Federal",
   "common_name": "US Federal",
   "alternate_names": null,
   "notes": "United States federal laws and regulations governing healthcare, financial, education, and cybersecurity. Federal laws apply nationally. CFR citations use standard format (Title/Part/Section).",
   "wikidata": null,
   "wikipedia": null,
-
   "urls": [
-    {"type": "website", "url": "https://www.govinfo.gov"}
+    {
+      "type": "website",
+      "url": "https://www.govinfo.gov"
+    }
   ],
-
   "match_nodes": [
     {
-      "patterns": ["(?i)^hipaa$"],
+      "patterns": [
+        "(?i)^hipaa$"
+      ],
       "description": "Health Insurance Portability and Accountability Act",
       "weight": 100,
       "data": {
         "official_name": "Health Insurance Portability and Accountability Act",
         "common_name": "HIPAA",
-        "alternate_names": ["Public Law 104-191"],
+        "alternate_names": [
+          "Public Law 104-191"
+        ],
         "description": "US healthcare data protection law. Security Rule (45 CFR 164.312) requires administrative, physical, and technical safeguards.",
         "notes": "Enforced by HHS Office for Civil Rights. Applies to covered entities (providers, plans, clearinghouses) and business associates. Three main rules: Privacy Rule (use/disclosure of PHI), Security Rule (ePHI safeguards), Breach Notification Rule (notification requirements). HITECH Act (2009) expanded enforcement and penalties.",
         "urls": [
-          {"type": "website", "url": "https://www.hhs.gov/hipaa/index.html"},
-          {"type": "lookup", "url": "https://www.ecfr.gov/current/title-45/part-164"}
+          {
+            "type": "website",
+            "url": "https://www.hhs.gov/hipaa/index.html"
+          },
+          {
+            "type": "lookup",
+            "url": "https://www.ecfr.gov/current/title-45/part-164"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
-        "examples": ["164.312", "164.312.a.1", "164.308"]
+        "examples": [
+          "164.312",
+          "164.312.a.1",
+          "164.308"
+        ]
       },
       "children": [
         {
-          "patterns": ["^\\d+\\.\\d+(\\.[a-z](\\.(\\d+|[ivx]+))?)?$"],
+          "patterns": [
+            "^\\d+\\.\\d+(\\.[a-z](\\.(\\d+|[ivx]+))?)?$"
+          ],
           "description": "CFR section reference (e.g., 164.312, 164.312.a.1). References 45 CFR Part 160/164.",
           "weight": 100,
           "data": {
             "note": "References to the Code of Federal Regulations (Title 45, Parts 160 and 164). The eCFR (Electronic Code of Federal Regulations) provides per-section browsing. Section references follow the pattern Part.Section(.subsection(.paragraph)).",
             "examples": [
-              {"input": "164.312", "note": "Technical safeguards for ePHI"},
-              {"input": "164.312.a.1", "note": "Access control \u2014 assign unique user ID"},
-              {"input": "164.308", "note": "Administrative safeguards"}
+              {
+                "input": "164.312",
+                "note": "Technical safeguards for ePHI"
+              },
+              {
+                "input": "164.312.a.1",
+                "note": "Access control — assign unique user ID"
+              },
+              {
+                "input": "164.308",
+                "note": "Administrative safeguards"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1$",
+            "^401$",
+            "^101$",
+            "^701$",
+            "^702$",
+            "^703$",
+            "^704$",
+            "^705$",
+            "^706$",
+            "^707$",
+            "^102$",
+            "^2701$",
+            "^2702$",
+            "^2712$",
+            "^2713$",
+            "^2721$",
+            "^2722$",
+            "^2723$",
+            "^2791$",
+            "^2792$",
+            "^103$",
+            "^104$",
+            "^111$",
+            "^2741$",
+            "^2742$",
+            "^2743$",
+            "^2744$",
+            "^2745$",
+            "^2746$",
+            "^2747$",
+            "^191$",
+            "^192$",
+            "^193$",
+            "^194$",
+            "^195$",
+            "^200$",
+            "^201$",
+            "^1128C$",
+            "^202$",
+            "^1893$",
+            "^203$",
+            "^204$",
+            "^205$",
+            "^1128D$",
+            "^211$",
+            "^212$",
+            "^213$",
+            "^214$",
+            "^215$",
+            "^216$",
+            "^217$",
+            "^218$",
+            "^221$",
+            "^1128E$",
+            "^231$",
+            "^232$",
+            "^241$",
+            "^24$",
+            "^242$",
+            "^1347$",
+            "^243$",
+            "^669$",
+            "^244$",
+            "^1035$",
+            "^245$",
+            "^1518$",
+            "^246$",
+            "^247$",
+            "^248$",
+            "^3486$",
+            "^249$",
+            "^250$",
+            "^261$",
+            "^262$",
+            "^1171$",
+            "^1172$",
+            "^1173$",
+            "^1174$",
+            "^1175$",
+            "^1176$",
+            "^1177$",
+            "^1179$",
+            "^263$",
+            "^264$",
+            "^271$",
+            "^300$",
+            "^301$",
+            "^220$",
+            "^4980E$",
+            "^311$",
+            "^321$",
+            "^322$",
+            "^6050Q$",
+            "^325$",
+            "^326$",
+            "^4980C$",
+            "^327$",
+            "^331$",
+            "^332$",
+            "^341$",
+            "^342$",
+            "^351$",
+            "^361$",
+            "^371$",
+            "^9801$",
+            "^9802$",
+            "^9803$",
+            "^9804$",
+            "^9805$",
+            "^9806$",
+            "^402$",
+            "^4980D$",
+            "^421$",
+            "^500$",
+            "^501$",
+            "^511$",
+            "^512$",
+            "^6039F$",
+            "^513$",
+            "^521$"
+          ],
+          "description": "Section/article/part identifier in hipaa (120 extracted sections)",
+          "weight": 90,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/hipaa/hipaa-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+                "note": "SHORT TITLE; TABLE OF CONTENTS."
+              },
+              {
+                "input": "401",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+                "note": "Group health plan portability, access, and renewability requirements. Sec. 402. Penalty on failure to meet certain gr..."
+              },
+              {
+                "input": "101",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hipaa/hipaa-sections.json",
+                "note": "THROUGH THE EMPLOYEE RETIREMENT INCOME SECURITY **ACT OF 1974."
+              }
             ]
           }
         }
       ]
     },
-
     {
-      "patterns": ["(?i)^fisma$"],
+      "patterns": [
+        "(?i)^fisma$"
+      ],
       "description": "Federal Information Security Management Act",
       "weight": 100,
       "data": {
         "official_name": "Federal Information Security Management Act",
         "common_name": "FISMA",
-        "alternate_names": ["Federal Information Security Modernization Act of 2014"],
+        "alternate_names": [
+          "Federal Information Security Modernization Act of 2014"
+        ],
         "description": "Requires federal agencies to develop information security programs. Originally enacted 2002, updated by FISMA 2014 (Federal Information Security Modernization Act).",
         "notes": "Requires agencies to implement NIST standards (SP 800-53, FIPS 199/200). Mandates annual security assessments and reporting to OMB. FISMA 2014 updated the original 2002 law, shifting oversight responsibilities and modernizing breach notification requirements. Compliance assessed through Inspector General audits.",
         "urls": [
-          {"type": "website", "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/federal-information-security-modernization-act"}
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/federal-information-security-modernization-act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ],
         "examples": []
-      }
-    },
-
-    {
-      "patterns": ["(?i)^glba$"],
-      "description": "Gramm-Leach-Bliley Act",
-      "weight": 100,
-      "data": {
-        "official_name": "Gramm-Leach-Bliley Act",
-        "common_name": "GLBA",
-        "alternate_names": ["Financial Services Modernization Act of 1999", "Public Law 106-102"],
-        "description": "Financial services data protection requirements. Requires financial institutions to explain information-sharing practices and safeguard sensitive data.",
-        "notes": "Three main rules: Financial Privacy Rule (notice and opt-out for sharing), Safeguards Rule (security program requirements, updated by FTC in 2023), Pretexting Provisions (prohibits fraudulent access to financial information). FTC Safeguards Rule (16 CFR 314) mandates specific technical controls including encryption, MFA, and penetration testing. Enforced by FTC, federal banking regulators, and state attorneys general.",
-        "urls": [
-          {"type": "website", "url": "https://www.ftc.gov/legal-library/browse/statutes/gramm-leach-bliley-act"}
-        ],
-        "examples": []
-      }
-    },
-
-    {
-      "patterns": ["(?i)^cfaa$"],
-      "description": "Computer Fraud and Abuse Act",
-      "weight": 100,
-      "data": {
-        "official_name": "Computer Fraud and Abuse Act",
-        "common_name": "CFAA",
-        "alternate_names": ["18 U.S.C. \u00a71030"],
-        "description": "Federal computer crime statute (18 U.S.C. \u00a71030). Criminalizes unauthorized access to computer systems.",
-        "notes": "Originally enacted 1986, amended multiple times. Covers: unauthorized access to government/financial/protected computers, trafficking in passwords, causing damage through unauthorized access. Provides both criminal penalties and civil cause of action. Supreme Court narrowed scope in Van Buren v. United States (2021), ruling that 'exceeds authorized access' requires accessing information in areas off-limits, not misusing information one is authorized to access.",
-        "urls": [
-          {"type": "website", "url": "https://www.law.cornell.edu/uscode/text/18/1030"}
-        ],
-        "examples": ["1030.a.2", "1030.a.5"]
       },
       "children": [
         {
-          "patterns": ["^1030\\.[a-g](\\.\\d+)?$"],
-          "description": "CFAA subsection reference (e.g., 1030.a.2). References 18 U.S.C. \u00a71030 subsections.",
+          "patterns": [
+            "^1$",
+            "^2$",
+            "^3551$",
+            "^3552$",
+            "^3553$",
+            "^3554$",
+            "^3555$",
+            "^3556$",
+            "^3557$",
+            "^3558$"
+          ],
+          "description": "Section/article/part identifier in fisma (10 extracted sections)",
           "weight": 100,
           "data": {
-            "note": "Subsection references to 18 U.S.C. \u00a71030. Subsection (a) defines offenses, (b) defines attempt/conspiracy, (c) defines penalties, (e) defines terms, (g) defines civil actions.",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/fisma/fisma-sections.json in dataset-public-laws-regulations-standards.",
             "examples": [
-              {"input": "1030.a.2", "note": "Intentionally accessing a computer to obtain information without or exceeding authorization"},
-              {"input": "1030.a.5", "note": "Knowingly causing damage to a protected computer"}
+              {
+                "input": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
+                "note": "SHORT TITLE."
+              },
+              {
+                "input": "2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
+                "note": "FISMA REFORM."
+              },
+              {
+                "input": "3551",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/fisma/fisma-sections.json",
+                "note": "Purposes"
+              }
             ]
           }
         }
       ]
     },
     {
-      "patterns": ["(?i)^sox$", "(?i)^sarbanes-oxley$"],
+      "patterns": [
+        "(?i)^glba$"
+      ],
+      "description": "Gramm-Leach-Bliley Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Gramm-Leach-Bliley Act",
+        "common_name": "GLBA",
+        "alternate_names": [
+          "Financial Services Modernization Act of 1999",
+          "Public Law 106-102"
+        ],
+        "description": "Financial services data protection requirements. Requires financial institutions to explain information-sharing practices and safeguard sensitive data.",
+        "notes": "Three main rules: Financial Privacy Rule (notice and opt-out for sharing), Safeguards Rule (security program requirements, updated by FTC in 2023), Pretexting Provisions (prohibits fraudulent access to financial information). FTC Safeguards Rule (16 CFR 314) mandates specific technical controls including encryption, MFA, and penetration testing. Enforced by FTC, federal banking regulators, and state attorneys general.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.ftc.gov/legal-library/browse/statutes/gramm-leach-bliley-act"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": []
+      },
+      "children": [
+        {
+          "patterns": [
+            "^1$",
+            "^101$",
+            "^102$",
+            "^103$",
+            "^104$",
+            "^105$",
+            "^106$",
+            "^107$",
+            "^108$",
+            "^109$",
+            "^111$",
+            "^112$",
+            "^45$",
+            "^113$",
+            "^10A$",
+            "^114$",
+            "^115$",
+            "^116$",
+            "^117$",
+            "^118$",
+            "^119$",
+            "^121$",
+            "^5136A$",
+            "^46$",
+            "^122$",
+            "^131$",
+            "^132$",
+            "^133$",
+            "^141$",
+            "^142$",
+            "^151$",
+            "^161$",
+            "^201$",
+            "^202$",
+            "^203$",
+            "^204$",
+            "^205$",
+            "^206$",
+            "^207$",
+            "^208$",
+            "^209$",
+            "^210$",
+            "^211$",
+            "^212$",
+            "^213$",
+            "^214$",
+            "^215$",
+            "^216$",
+            "^217$",
+            "^218$",
+            "^219$",
+            "^220$",
+            "^210A$",
+            "^221$",
+            "^222$",
+            "^223$",
+            "^224$",
+            "^225$",
+            "^231$",
+            "^241$",
+            "^301$",
+            "^302$",
+            "^303$",
+            "^304$",
+            "^305$",
+            "^47$",
+            "^306$",
+            "^307$",
+            "^308$",
+            "^311$",
+            "^312$",
+            "^313$",
+            "^315$",
+            "^316$",
+            "^321$",
+            "^322$",
+            "^323$",
+            "^324$",
+            "^325$",
+            "^326$",
+            "^327$",
+            "^328$",
+            "^330$",
+            "^331$",
+            "^332$",
+            "^333$",
+            "^334$",
+            "^335$",
+            "^336$",
+            "^341$",
+            "^401$",
+            "^501$",
+            "^502$",
+            "^503$",
+            "^504$",
+            "^505$",
+            "^506$",
+            "^507$",
+            "^508$",
+            "^509$",
+            "^510$",
+            "^521$",
+            "^522$",
+            "^523$",
+            "^524$",
+            "^525$",
+            "^526$",
+            "^527$",
+            "^601$",
+            "^602$",
+            "^603$",
+            "^604$",
+            "^605$",
+            "^606$",
+            "^607$",
+            "^608$",
+            "^6$",
+            "^701$",
+            "^702$",
+            "^703$",
+            "^704$",
+            "^705$",
+            "^711$",
+            "^48$",
+            "^712$",
+            "^809$",
+            "^713$",
+            "^714$",
+            "^715$",
+            "^721$",
+            "^722$",
+            "^723$",
+            "^724$",
+            "^725$",
+            "^171$",
+            "^172$",
+            "^173$",
+            "^174$",
+            "^175$",
+            "^176$",
+            "^177$",
+            "^178$",
+            "^179$",
+            "^180$",
+            "^181$",
+            "^726$",
+            "^11B$",
+            "^727$",
+            "^728$",
+            "^729$",
+            "^730$",
+            "^731$",
+            "^732$",
+            "^733$",
+            "^734$",
+            "^735$",
+            "^736$",
+            "^737$",
+            "^738$",
+            "^739$",
+            "^740$"
+          ],
+          "description": "Section/article/part identifier in glba (161 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/glba/glba-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
+                "note": "SHORT TITLE; TABLE OF CONTENTS."
+              },
+              {
+                "input": "101",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
+                "note": "GLASS-STEAGALL ACT REPEALS."
+              },
+              {
+                "input": "102",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/glba/glba-sections.json",
+                "note": "ACTIVITY RESTRICTIONS APPLICABLE TO BANK HOLDING COMPANIES THAT ARE NOT FINANCIAL HOLDING COMPA-"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "(?i)^cfaa$"
+      ],
+      "description": "Computer Fraud and Abuse Act",
+      "weight": 100,
+      "data": {
+        "official_name": "Computer Fraud and Abuse Act",
+        "common_name": "CFAA",
+        "alternate_names": [
+          "18 U.S.C. §1030"
+        ],
+        "description": "Federal computer crime statute (18 U.S.C. §1030). Criminalizes unauthorized access to computer systems.",
+        "notes": "Originally enacted 1986, amended multiple times. Covers: unauthorized access to government/financial/protected computers, trafficking in passwords, causing damage through unauthorized access. Provides both criminal penalties and civil cause of action. Supreme Court narrowed scope in Van Buren v. United States (2021), ruling that 'exceeds authorized access' requires accessing information in areas off-limits, not misusing information one is authorized to access.",
+        "urls": [
+          {
+            "type": "website",
+            "url": "https://www.law.cornell.edu/uscode/text/18/1030"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cfaa/cfaa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cfaa/cfaa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "1030.a.2",
+          "1030.a.5"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^1030\\.[a-g](\\.\\d+)?$"
+          ],
+          "description": "CFAA subsection reference (e.g., 1030.a.2). References 18 U.S.C. §1030 subsections.",
+          "weight": 100,
+          "data": {
+            "note": "Subsection references to 18 U.S.C. §1030. Subsection (a) defines offenses, (b) defines attempt/conspiracy, (c) defines penalties, (e) defines terms, (g) defines civil actions.",
+            "examples": [
+              {
+                "input": "1030.a.2",
+                "note": "Intentionally accessing a computer to obtain information without or exceeding authorization"
+              },
+              {
+                "input": "1030.a.5",
+                "note": "Knowingly causing damage to a protected computer"
+              }
+            ]
+          }
+        },
+        {
+          "patterns": [
+            "^1030$"
+          ],
+          "description": "Section/article/part identifier in cfaa (1 extracted sections)",
+          "weight": 90,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cfaa/cfaa-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/cfaa/cfaa-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "1030",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cfaa/cfaa-sections.json",
+                "note": "Fraud and related activity in connection with computers"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "(?i)^sox$",
+        "(?i)^sarbanes-oxley$"
+      ],
       "description": "Sarbanes-Oxley Act of 2002",
       "weight": 100,
       "data": {
         "official_name": "Sarbanes-Oxley Act of 2002",
         "common_name": "SOX",
-        "alternate_names": ["Public Company Accounting Reform and Investor Protection Act", "Public Law 107-204"],
+        "alternate_names": [
+          "Public Company Accounting Reform and Investor Protection Act",
+          "Public Law 107-204"
+        ],
         "description": "US federal law mandating financial-reporting and internal-controls requirements for publicly-traded companies. Sections 302 (CEO/CFO certification of internal controls) and 404 (assessment of internal controls over financial reporting) drive substantial IT general controls (ITGC) audit work.",
         "notes": "Audit oversight via PCAOB; cybersecurity implications via internal-controls audit scope.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.govinfo.gov/app/details/PLAW-107publ204"}
+          {
+            "type": "legal_text",
+            "url": "https://www.govinfo.gov/app/details/PLAW-107publ204"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^SECTION\\ 1$",
+            "^SEC\\.\\ 2$",
+            "^SEC\\.\\ 3$",
+            "^TITLE\\ I$",
+            "^SEC\\.\\ 101$",
+            "^SEC\\.\\ 102$",
+            "^SEC\\.\\ 103$",
+            "^SEC\\.\\ 104$",
+            "^SEC\\.\\ 105$",
+            "^SEC\\.\\ 106$",
+            "^SEC\\.\\ 107$",
+            "^SEC\\.\\ 108$",
+            "^SEC\\.\\ 109$",
+            "^TITLE\\ II$",
+            "^SEC\\.\\ 201$",
+            "^SEC\\.\\ 202$",
+            "^SEC\\.\\ 203$",
+            "^SEC\\.\\ 204$",
+            "^SEC\\.\\ 205$",
+            "^SEC\\.\\ 206$",
+            "^SEC\\.\\ 207$",
+            "^SEC\\.\\ 208$",
+            "^SEC\\.\\ 209$",
+            "^TITLE\\ III$",
+            "^SEC\\.\\ 301$",
+            "^SEC\\.\\ 302$",
+            "^SEC\\.\\ 303$",
+            "^SEC\\.\\ 304$",
+            "^SEC\\.\\ 305$",
+            "^SEC\\.\\ 306$",
+            "^SEC\\.\\ 307$",
+            "^SEC\\.\\ 308$",
+            "^TITLE\\ IV$",
+            "^SEC\\.\\ 401$",
+            "^SEC\\.\\ 402$",
+            "^SEC\\.\\ 403$",
+            "^SEC\\.\\ 404$",
+            "^SEC\\.\\ 405$",
+            "^SEC\\.\\ 406$",
+            "^SEC\\.\\ 407$",
+            "^SEC\\.\\ 408$",
+            "^SEC\\.\\ 409$",
+            "^TITLE\\ V$",
+            "^SEC\\.\\ 501$",
+            "^TITLE\\ VI$",
+            "^SEC\\.\\ 601$",
+            "^SEC\\.\\ 602$",
+            "^SEC\\.\\ 603$",
+            "^SEC\\.\\ 604$",
+            "^TITLE\\ VII$",
+            "^SEC\\.\\ 701$",
+            "^SEC\\.\\ 702$",
+            "^SEC\\.\\ 703$",
+            "^SEC\\.\\ 704$",
+            "^SEC\\.\\ 705$",
+            "^TITLE\\ VIII$",
+            "^SEC\\.\\ 801$",
+            "^SEC\\.\\ 802$",
+            "^SEC\\.\\ 803$",
+            "^SEC\\.\\ 804$",
+            "^SEC\\.\\ 805$",
+            "^SEC\\.\\ 806$",
+            "^SEC\\.\\ 807$",
+            "^TITLE\\ IX$",
+            "^SEC\\.\\ 901$",
+            "^SEC\\.\\ 902$",
+            "^SEC\\.\\ 903$",
+            "^SEC\\.\\ 904$",
+            "^SEC\\.\\ 905$",
+            "^SEC\\.\\ 906$",
+            "^TITLE\\ X$",
+            "^SEC\\.\\ 1001$",
+            "^TITLE\\ XI$",
+            "^SEC\\.\\ 1101$",
+            "^SEC\\.\\ 1102$",
+            "^SEC\\.\\ 1103$",
+            "^SEC\\.\\ 1104$",
+            "^SEC\\.\\ 1105$",
+            "^SEC\\.\\ 1106$",
+            "^SEC\\.\\ 1107$"
+          ],
+          "description": "Section/article/part identifier in sox (80 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/sox/sox-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "SECTION 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox-sections.json",
+                "note": "SECTION 1"
+              },
+              {
+                "input": "SEC. 2",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox-sections.json",
+                "note": "SEC. 2"
+              },
+              {
+                "input": "SEC. 3",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/sox/sox-sections.json",
+                "note": "SEC. 3"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^bsa$", "(?i)^bank-secrecy-act$"],
+      "patterns": [
+        "(?i)^bsa$",
+        "(?i)^bank-secrecy-act$"
+      ],
       "description": "Bank Secrecy Act",
       "weight": 100,
       "data": {
         "official_name": "Bank Secrecy Act of 1970",
         "common_name": "BSA",
-        "alternate_names": ["31 U.S.C. 5311 et seq."],
+        "alternate_names": [
+          "31 U.S.C. 5311 et seq."
+        ],
         "description": "US anti-money-laundering and counter-terrorism-financing law. Requires financial institutions to file Currency Transaction Reports (CTRs), Suspicious Activity Reports (SARs), and maintain BSA/AML compliance programs. Operated under Treasury FinCEN.",
         "notes": "Amended significantly by the USA PATRIOT Act (2001) and the Anti-Money Laundering Act of 2020.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title31/html/USCODE-2023-title31-subtitleIV-chap53-subchapII.htm"}
+          {
+            "type": "legal_text",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title31/html/USCODE-2023-title31-subtitleIV-chap53-subchapII.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:CHAPTER 53|SUBCHAPTER II|§5311|§5312|\\(2\\) \\(1\\)|\\(3\\) \\(1\\)|§5313|\\(2\\) \\(2\\)|\\(4\\) \\(1\\)|§5314|§5315|§5316|§5317|\\(1\\) \\(1\\)|\\(2\\) \\(3\\)|§5318|\\(2\\) \\(4\\)|\\(3\\) \\(2\\)|\\(6\\) \\(1\\)|\\(11\\) \\(1\\)|\\(2\\) \\(5\\)|\\(4\\) \\(2\\)|\\(4\\) \\(3\\)|\\(3\\) \\(3\\)|\\(4\\) \\(4\\)|\\(5\\) \\(1\\)|\\(3\\) \\(4\\)|\\(3\\) \\(5\\)|§5318A|§5319|§5320|§5321|\\(4\\) \\(5\\)|\\(5\\) \\(2\\)|\\(6\\) \\(2\\)|\\(3\\) \\(6\\)|§5322|§5323|\\(5\\) \\(3\\)|\\(2\\) \\(6\\)|\\(3\\) \\(7\\)|\\(4\\) \\(6\\)|\\(5\\) \\(4\\)|\\(1\\) \\(2\\)|\\(2\\) \\(7\\)|\\(2\\) \\(8\\)|\\(3\\) \\(8\\)|\\(4\\) \\(7\\)|§5324|§5325|§5326|§5329|§5330|\\(1\\) \\(3\\)|\\(2\\) \\(9\\)|§5331|\\(1\\) \\(4\\)|§5332|§5333|§5334|§5335|\\(1\\) \\(5\\)|\\(2\\) \\(10\\)|§5336|\\(3\\) \\(9\\)|\\(11\\) \\(2\\)|\\(1\\) \\(6\\)|\\(2\\) \\(11\\)|\\(3\\) \\(10\\)|\\(4\\) \\(8\\)|\\(2\\) \\(12\\)|\\(5\\) \\(5\\)|\\(11\\) \\(3\\)|\\(2\\) \\(13\\)|\\(3\\) \\(11\\)|\\(4\\) \\(9\\))$"
+          ],
+          "description": "BSA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "CHAPTER 53",
+              "SUBCHAPTER II",
+              "§5311",
+              "§5312",
+              "(2) (1)",
+              "(3) (1)",
+              "§5313",
+              "(2) (2)",
+              "(4) (1)",
+              "§5314",
+              "§5315",
+              "§5316",
+              "§5317",
+              "(1) (1)",
+              "(2) (3)",
+              "§5318",
+              "(2) (4)",
+              "(3) (2)",
+              "(6) (1)",
+              "(11) (1)",
+              "(2) (5)",
+              "(4) (2)",
+              "(4) (3)",
+              "(3) (3)",
+              "(4) (4)",
+              "(5) (1)",
+              "(3) (4)",
+              "(3) (5)",
+              "§5318A",
+              "§5319",
+              "§5320",
+              "§5321",
+              "(4) (5)",
+              "(5) (2)",
+              "(6) (2)",
+              "(3) (6)",
+              "§5322",
+              "§5323",
+              "(5) (3)",
+              "(2) (6)",
+              "(3) (7)",
+              "(4) (6)",
+              "(5) (4)",
+              "(1) (2)",
+              "(2) (7)",
+              "(2) (8)",
+              "(3) (8)",
+              "(4) (7)",
+              "§5324",
+              "§5325",
+              "§5326",
+              "§5329",
+              "§5330",
+              "(1) (3)",
+              "(2) (9)",
+              "§5331",
+              "(1) (4)",
+              "§5332",
+              "§5333",
+              "§5334",
+              "§5335",
+              "(1) (5)",
+              "(2) (10)",
+              "§5336",
+              "(3) (9)",
+              "(11) (2)",
+              "(1) (6)",
+              "(2) (11)",
+              "(3) (10)",
+              "(4) (8)",
+              "(2) (12)",
+              "(5) (5)",
+              "(11) (3)",
+              "(2) (13)",
+              "(3) (11)",
+              "(4) (9)"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/govinfo.gov/bsa).",
+            "examples": [
+              {
+                "input": "CHAPTER 53",
+                "note": "MONETARY TRANSACTIONS",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa-sections.json"
+              },
+              {
+                "input": "SUBCHAPTER II",
+                "note": "RECORDS AND REPORTS ON MONETARY INSTRUMENTS TRANSACTIONS",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa-sections.json"
+              },
+              {
+                "input": "§5311",
+                "note": "Declaration of purpose",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/bsa/bsa-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^cisa-2015$", "(?i)^cyber-information-sharing-act$"],
+      "patterns": [
+        "(?i)^cisa-2015$",
+        "(?i)^cyber-information-sharing-act$"
+      ],
       "description": "Cybersecurity Information Sharing Act of 2015",
       "weight": 100,
       "data": {
         "official_name": "Cybersecurity Information Sharing Act of 2015",
         "common_name": "CISA 2015",
-        "alternate_names": ["6 U.S.C. 1501-1510"],
+        "alternate_names": [
+          "6 U.S.C. 1501-1510"
+        ],
         "description": "US federal law authorizing voluntary cyber-threat-information sharing between private sector and federal government with liability protections. **NOTE: distinct from the agency CISA (Cybersecurity and Infrastructure Security Agency)** established by the CISA Act of 2018.",
         "notes": "Enables the AIS (Automated Indicator Sharing) program operated by CISA agency.",
         "urls": [
-          {"type": "legal_text", "url": "https://www.govinfo.gov/content/pkg/PLAW-114publ113/html/PLAW-114publ113.htm"}
+          {
+            "type": "legal_text",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-114publ113/html/PLAW-114publ113.htm"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^DIVISION\\ N$",
+            "^SEC\\.\\ 1$",
+            "^TITLE\\ I$",
+            "^SEC\\.\\ 101$",
+            "^SEC\\.\\ 102$",
+            "^SEC\\.\\ 103$",
+            "^SEC\\.\\ 104$",
+            "^SEC\\.\\ 105$",
+            "^SEC\\.\\ 106$",
+            "^SEC\\.\\ 107$",
+            "^SEC\\.\\ 108$",
+            "^SEC\\.\\ 109$",
+            "^SEC\\.\\ 110$",
+            "^SEC\\.\\ 111$",
+            "^TITLE\\ II$",
+            "^Subtitle\\ A$",
+            "^SEC\\.\\ 201$",
+            "^SEC\\.\\ 202$",
+            "^SEC\\.\\ 203$",
+            "^SEC\\.\\ 204$",
+            "^SEC\\.\\ 205$",
+            "^SEC\\.\\ 206$",
+            "^SEC\\.\\ 207$",
+            "^SEC\\.\\ 208$",
+            "^SEC\\.\\ 209$",
+            "^SEC\\.\\ 210$",
+            "^SEC\\.\\ 211$",
+            "^Subtitle\\ B$",
+            "^SEC\\.\\ 221$",
+            "^SEC\\.\\ 222$",
+            "^SEC\\.\\ 223$",
+            "^SEC\\.\\ 224$",
+            "^SEC\\.\\ 225$",
+            "^SEC\\.\\ 226$",
+            "^SEC\\.\\ 227$",
+            "^SEC\\.\\ 228$",
+            "^SEC\\.\\ 229$",
+            "^TITLE\\ III$",
+            "^SEC\\.\\ 301$",
+            "^SEC\\.\\ 302$",
+            "^SEC\\.\\ 303$",
+            "^SEC\\.\\ 304$",
+            "^SEC\\.\\ 305$",
+            "^TITLE\\ IV$",
+            "^SEC\\.\\ 401$",
+            "^SEC\\.\\ 402$",
+            "^SEC\\.\\ 403$",
+            "^SEC\\.\\ 404$",
+            "^SEC\\.\\ 405$",
+            "^SEC\\.\\ 406$",
+            "^SEC\\.\\ 407$"
+          ],
+          "description": "Section/article/part identifier in cisa-2015 (51 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "DIVISION N",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json",
+                "note": "DIVISION N"
+              },
+              {
+                "input": "SEC. 1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json",
+                "note": "SEC. 1"
+              },
+              {
+                "input": "TITLE I",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/cisa-2015/cisa-2015-sections.json",
+                "note": "TITLE I"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
-      "patterns": ["(?i)^circia$"],
+      "patterns": [
+        "(?i)^circia$"
+      ],
       "description": "Cyber Incident Reporting for Critical Infrastructure Act of 2022",
       "weight": 100,
       "data": {
         "official_name": "Cyber Incident Reporting for Critical Infrastructure Act of 2022",
         "common_name": "CIRCIA",
-        "alternate_names": ["6 U.S.C. 681 et seq."],
+        "alternate_names": [
+          "6 U.S.C. 681 et seq."
+        ],
         "description": "US federal law requiring critical infrastructure entities to report covered cyber incidents to CISA within 72 hours and ransomware payments within 24 hours. CISA rulemaking ongoing (Notice of Proposed Rulemaking April 2024).",
         "notes": "Final rule expected 2025-2026.",
         "urls": [
-          {"type": "website", "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia"}
+          {
+            "type": "website",
+            "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/circia/circia-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          }
         ]
-      }
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:226\\.1|226\\.2|226\\.3|226\\.4|226\\.5|226\\.6|226\\.7|226\\.8|226\\.9|226\\.10|226\\.11|226\\.12|226\\.13|226\\.14|226\\.15|226\\.16|226\\.17|226\\.18|226\\.19|226\\.20)$"
+          ],
+          "description": "CIRCIA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "known_values": [
+              "226.1",
+              "226.2",
+              "226.3",
+              "226.4",
+              "226.5",
+              "226.6",
+              "226.7",
+              "226.8",
+              "226.9",
+              "226.10",
+              "226.11",
+              "226.12",
+              "226.13",
+              "226.14",
+              "226.15",
+              "226.16",
+              "226.17",
+              "226.18",
+              "226.19",
+              "226.20"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/govinfo.gov/circia).",
+            "examples": [
+              {
+                "input": "226.1",
+                "note": "Definitions",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/circia/circia-sections.json"
+              },
+              {
+                "input": "226.2",
+                "note": "Applicability",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/circia/circia-sections.json"
+              },
+              {
+                "input": "226.3",
+                "note": "Required reporting on covered cyber incidents and ransom payments",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/circia/circia-sections.json"
+              }
+            ],
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/circia/circia-sections.json",
+            "format": "json",
+            "content_type": "application/json"
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^calea$"
+      ],
+      "description": "Communications Assistance for Law Enforcement Act (CALEA)",
+      "weight": 90,
+      "data": {
+        "official_name": "Communications Assistance for Law Enforcement Act (Pub. L. 103-414, 47 U.S.C. §§ 1001–1010)",
+        "common_name": "CALEA",
+        "description": "US federal statute requiring telecommunications carriers and manufacturers of telecommunications equipment to design their equipment, facilities, and services to ensure built-in capabilities for targeted lawful interception pursuant to court order.",
+        "notes": "Status: Enacted (Enacted October 25, 1994; Pub. L. 103-414, 108 Stat. 4279; codified at 47 U.S.C. §§ 1001–1010; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title47/pdf/USCODE-2023-title47-chap9-subchapI.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "calea"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:1001|1002|1003|1004|1005|1006|1007|1008|1009|1010|1021)$"
+          ],
+          "description": "CALEA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "known_values": [
+              "1001",
+              "1002",
+              "1003",
+              "1004",
+              "1005",
+              "1006",
+              "1007",
+              "1008",
+              "1009",
+              "1010",
+              "1021"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/govinfo.gov/calea).",
+            "examples": [
+              {
+                "input": "1001",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea-sections.json",
+                "note": "Definitions"
+              },
+              {
+                "input": "1002",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea-sections.json",
+                "note": "Assistance capability requirements"
+              },
+              {
+                "input": "1003",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/calea/calea-sections.json",
+                "note": "Notices of capacity requirements"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^coppa$"
+      ],
+      "description": "Children’s Online Privacy Protection Act of 1998 (COPPA)",
+      "weight": 90,
+      "data": {
+        "official_name": "Children’s Online Privacy Protection Act of 1998 (15 U.S.C. §§ 6501–6506)",
+        "common_name": "COPPA",
+        "description": "US federal statute regulating the online collection, use, and disclosure of personal information from children under 13 by operators of websites and online services, enforced by the Federal Trade Commission.",
+        "notes": "Status: Enacted (Enacted October 21, 1998; Title XIII of Pub. L. 105-277, 112 Stat. 2681-728; codified at 15 U.S.C. §§ 6501–6506; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/pdf/USCODE-2023-title15-chap91.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "coppa"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^(?:6501|6502|6503|6504|6505|6506)$"
+          ],
+          "description": "COPPA section identifier",
+          "weight": 80,
+          "data": {
+            "type": "section",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "known_values": [
+              "6501",
+              "6502",
+              "6503",
+              "6504",
+              "6505",
+              "6506"
+            ],
+            "note": "Extracted statutory section identifiers in dataset-public-laws-regulations-standards (regulation/govinfo.gov/coppa).",
+            "examples": [
+              {
+                "input": "6501",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa-sections.json",
+                "note": "Definitions"
+              },
+              {
+                "input": "6502",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa-sections.json",
+                "note": "Regulation of unfair and deceptive acts and practices in connection with collection and use of personal information from"
+              },
+              {
+                "input": "6503",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/coppa/coppa-sections.json",
+                "note": "Safe harbors"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "patterns": [
+        "^hava$"
+      ],
+      "description": "Help America Vote Act of 2002 (HAVA)",
+      "weight": 90,
+      "data": {
+        "official_name": "Help America Vote Act of 2002 (Pub. L. 107-252, 52 U.S.C. §§ 20901 et seq.)",
+        "common_name": "HAVA",
+        "description": "US federal statute establishing mandatory minimum election administration and voting system security/accessibility standards, creating the Election Assistance Commission (EAC), and requiring computerized statewide voter registration lists.",
+        "notes": "Status: Enacted (Enacted October 29, 2002; Pub. L. 107-252, 116 Stat. 1666; verified as of 2026-11-10).",
+        "urls": [
+          {
+            "type": "source",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ252/pdf/PLAW-107publ252.pdf"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+            "format": "json",
+            "content_type": "application/json",
+            "note": "Extracted section-level JSON in dataset-public-laws-regulations-standards"
+          },
+          {
+            "type": "bulk_data",
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava.md",
+            "format": "markdown",
+            "content_type": "text/markdown",
+            "note": "Extracted full-text Markdown in dataset-public-laws-regulations-standards"
+          }
+        ],
+        "examples": [
+          "hava"
+        ]
+      },
+      "children": [
+        {
+          "patterns": [
+            "^1$",
+            "^401$",
+            "^101$",
+            "^102$",
+            "^103$",
+            "^104$",
+            "^105$",
+            "^106$",
+            "^201$",
+            "^202$",
+            "^203$",
+            "^204$",
+            "^205$",
+            "^206$",
+            "^207$",
+            "^208$",
+            "^209$",
+            "^214$",
+            "^215$",
+            "^216$",
+            "^221$",
+            "^222$",
+            "^231$",
+            "^241$",
+            "^242$",
+            "^243$",
+            "^244$",
+            "^245$",
+            "^246$",
+            "^247$",
+            "^251$",
+            "^252$",
+            "^253$",
+            "^254$",
+            "^255$",
+            "^256$",
+            "^257$",
+            "^258$",
+            "^261$",
+            "^262$",
+            "^263$",
+            "^264$",
+            "^265$",
+            "^271$",
+            "^272$",
+            "^273$",
+            "^281$",
+            "^282$",
+            "^283$",
+            "^291$",
+            "^292$",
+            "^295$",
+            "^296$",
+            "^301$",
+            "^302$",
+            "^303$",
+            "^304$",
+            "^305$",
+            "^311$",
+            "^312$",
+            "^402$",
+            "^501$",
+            "^502$",
+            "^503$",
+            "^601$",
+            "^152601$",
+            "^152602$",
+            "^152603$",
+            "^152604$",
+            "^152605$",
+            "^152606$",
+            "^152607$",
+            "^152608$",
+            "^152609$",
+            "^152610$",
+            "^152611$",
+            "^152612$",
+            "^701$",
+            "^702$",
+            "^703$",
+            "^704$",
+            "^705$",
+            "^706$",
+            "^707$",
+            "^801$",
+            "^802$",
+            "^803$",
+            "^804$",
+            "^811$",
+            "^812$",
+            "^901$",
+            "^902$",
+            "^903$",
+            "^904$",
+            "^905$",
+            "^906$"
+          ],
+          "description": "Section/article/part identifier in hava (96 extracted sections)",
+          "weight": 100,
+          "data": {
+            "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+            "content_type": "application/json",
+            "format": "json",
+            "note": "Resolves to the extracted section in regulation/govinfo.gov/hava/hava-sections.json in dataset-public-laws-regulations-standards.",
+            "examples": [
+              {
+                "input": "1",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+                "note": "SHORT TITLE; TABLE OF CONTENTS."
+              },
+              {
+                "input": "401",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+                "note": "Actions by the Attorney General for declaratory and injunctive relief. Sec. 402. Establishment of State-based adminis..."
+              },
+              {
+                "input": "101",
+                "url": "https://raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/main/regulation/govinfo.gov/hava/hava-sections.json",
+                "note": "PAYMENTS TO STATES FOR ACTIVITIES TO IMPROVE ADMINISTRATION OF ELECTIONS."
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }
