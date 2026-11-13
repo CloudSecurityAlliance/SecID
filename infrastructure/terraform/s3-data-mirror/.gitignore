@@ -1,0 +1,14 @@
+# Terraform local state and runtime files.
+# .terraform.lock.hcl is deliberately NOT ignored: HashiCorp recommends committing
+# it so every init gets the same provider build.
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc

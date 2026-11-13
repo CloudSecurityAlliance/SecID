@@ -31,3 +31,10 @@ working-data/cna/*
 !working-data/cna/email-cna_verified.csv
 
 # Note: CLAUDE.md, AGENTS.md, and GEMINI.md are intentionally not blocked
+
+# Terraform state and local directories
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
