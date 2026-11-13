@@ -14,7 +14,7 @@ Never: CSA documents, corporate or vendor material even when it is on the open w
 
 ## Who can read it, and who pays
 
-- **Requester Pays is on.** S3 rejects anonymous requests to a Requester Pays bucket, so every request must be signed with AWS credentials and send `x-amz-request-payer: requester`. The account whose credentials signed it pays for that request and its data transfer. That is normally the reader, but for a presigned URL it is whoever presigned it.
+- **Requester Pays is on.** S3 rejects anonymous requests to a Requester Pays bucket, so every request must be signed with AWS credentials, and every reader outside CSA's account must send `x-amz-request-payer: requester` (the bucket owner's own requests don't need it). The account whose credentials signed it pays for that request and its data transfer. That is normally the reader, but for a presigned URL it is whoever presigned it.
 - **What CSA still pays for:** storage (including retained versions), its own uploads, listings and downloads, and the requests [AWS bills to the bucket owner](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) (for example, denied requests from within CSA's own account or organization). External readers cannot run up CSA's transfer bill.
 - **The bucket policy allows `s3:GetObject` and `s3:ListBucket` to `Principal: "*"`.** Because of Requester Pays, that means any AWS account willing to pay, not anonymous users.
 - **Never turn Requester Pays off on its own.** Without it the same policy makes the bucket anonymous-public, and CSA pays all egress.
@@ -51,8 +51,24 @@ Needs the `cino-prod` AWS profile (`aws sso login --profile cino-prod`).
 
 ```bash
 terraform init      # uses the committed .terraform.lock.hcl (aws provider 6.73.0)
-terraform plan      # expected: "No changes" against the live bucket
+terraform plan      # expected: "No changes" once the committed config has been applied
 terraform apply
+```
+
+**Rebuilding from scratch** (only if the bucket ever had to be re-created): stage it, so the public read policy never goes out before Requester Pays is in force. Terraform orders the calls, but AWS takes several minutes to propagate Requester Pays.
+
+```bash
+terraform apply -target=aws_s3_bucket_request_payment_configuration.secid_data \
+                -target=aws_s3_bucket_public_access_block.secid_data
+aws s3api get-bucket-request-payment --bucket secid-data-502869771730-us-west-2-an --profile cino-prod  # "Requester"
+# then wait several minutes for propagation before publishing the policy
+terraform apply     # publishes the bucket policy and the rest
+```
+
+After any apply, an **unsigned** request must be refused. That proves the public policy is not anonymous-public:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://secid-data-502869771730-us-west-2-an.s3.us-west-2.amazonaws.com/   # expect 403
 ```
 
 **State is local, on purpose.** `terraform.tfstate` lives in this directory on the maintainer's machine and is gitignored. Kurt, 2026-11-13: *"the terraform state is ok, because this is a permanent s3 bucket"*. The bucket is created once and rarely changed, so a remote backend isn't worth having. If the state file is ever lost, rebuild it from the live bucket instead of re-applying:

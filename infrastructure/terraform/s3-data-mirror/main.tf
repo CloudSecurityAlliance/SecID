@@ -91,8 +91,10 @@ resource "aws_s3_bucket_public_access_block" "secid_data" {
 # public version access would leave it readable by versionId.
 resource "aws_s3_bucket_policy" "secid_data" {
   bucket = aws_s3_bucket.secid_data.id
-  # Never publish the read grant before Requester Pays is in force: on a fresh
-  # build, a failure between the two would leave the bucket anonymous-public.
+  # Publish the read grant only after Requester Pays is configured, so a failure
+  # between the two cannot leave the bucket anonymous-public. depends_on orders the
+  # API calls but cannot wait out AWS's propagation delay of several minutes: a
+  # from-scratch rebuild must be staged (README, "Rebuilding from scratch").
   depends_on = [
     aws_s3_bucket_public_access_block.secid_data,
     aws_s3_bucket_request_payment_configuration.secid_data,
