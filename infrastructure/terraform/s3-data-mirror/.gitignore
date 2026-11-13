@@ -1,6 +1,7 @@
-# Terraform local state and runtime files
+# Terraform local state and runtime files.
+# .terraform.lock.hcl is deliberately NOT ignored: HashiCorp recommends committing
+# it so every init gets the same provider build.
 .terraform/
-.terraform.lock.hcl
 *.tfstate
 *.tfstate.*
 *.tfplan

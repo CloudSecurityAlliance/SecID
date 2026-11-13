@@ -638,7 +638,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 
 **Date:** 2026-11-12
 **Status:** Accepted
-**Decision method:** Pair decision (Kurt Seifried & Gemini), reviewed by Codex
+**Decision method:** Kurt Seifried's direction (2026-11-12), designed with Gemini, which built the bucket and opened #281. Gemini stopped on its usage quota before review; Claude took over as governing agent on 2026-11-13 and completed it. Review: Claude (own review); cross-vendor Codex review pending.
 
 **Context:**
 1. SecID references public security knowledge, laws, regulations, and standards. Publisher documents often originate as binaries (`.pdf`, `.docx`, `.xlsx`, `.zip`) from official government portals (`govinfo.gov`, `congress.gov`, `parl.ca`, `eur-lex.europa.eu`, `nist.gov`).
@@ -647,28 +647,32 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 4. On 2026-11-12, Kurt directed:
    - *"first lets talk S3 bucket, we mirror 'Safe' stuff like gov docs, public docs, not corp stuff, e.g. no csa, etc. does that make sense? also we can make an S3 bucket, using cino-prod aws cli profile, and lets create it using terraform, and the s3 bucket names needs to be compatible with https://aws.amazon.com/blogs/aws/introducing-account-regional-namespaces-for-amazon-s3-general-purpose-buckets/ and lets make it public, requestor pays from the start, can we do that? it would basically be called SecID-Data plus whatever account name stuff is needed, and the dir structure would be the same as we did in the github repo, remind me what that format is?"*
    - *"yeah, are we sure it's safe to include this, no sensitive data right?"* -> *"go for it"* -> *"yes"*.
+5. Earlier the same day, answering where binary originals should live, Kurt wrote: *"an s3 bucket, we can do a private bucket for now, with plans to make it public with requestor pays."* His later *"lets make it public, requestor pays from the start"* (above) supersedes the private-first step.
+6. On 2026-11-13, on keeping Terraform state local: *"the terraform state is ok, because this is a permanent s3 bucket"*.
 
 **Decision:**
 1. **Public S3 Binary Mirror Bucket:**
-   - Dedicated S3 bucket managed via Terraform (`infrastructure/terraform/s3-data-mirror/`) under the `cino-prod` AWS profile.
-   - Naming convention complies with AWS Account Regional Namespaces: `secid-data-{account-id}-{region}-an` (specifically `secid-data-502869771730-us-west-2-an`).
-   - Bucket configuration enforces:
-     - `payer = "Requester"`: Requester Pays enabled from day zero. Callers authenticate with their own AWS account and pay AWS directly for GET requests and data egress. CSA incurs $0 in egress fees.
-     - Public bucket policy allowing `s3:GetObject` and `s3:ListBucket` for all authenticated AWS principals (`Principal = "*"`).
-     - Modern public access block (`block_public_acls = true`, `ignore_public_acls = true`, `block_public_policy = false`, `restrict_public_buckets = false`).
-     - Object versioning enabled (`Status = Enabled`) for immutability and provenance tracking.
-2. **Strict Scope — Public Government & Open Legal Standards Only:**
-   - The S3 bucket is strictly reserved for publisher binaries from public government and open legal standards (U.S. Public Laws, NIST SPs, White House directives, EU EUR-Lex texts, Canadian LEGISinfo bills).
-   - No CSA documents, no corporate/vendor marketing material, and no Tier 4 paywalled standards (ISO/IEC).
-3. **Directory Structure (ADR-014 Reverse-DNS Layout):**
-   - Objects inside the bucket follow the standard ADR-014 mechanical reverse-DNS path format:
-     `data/<type>/<reverse-dns-namespace>/<name>/<version>/<filename>`
-     (e.g., `data/regulation/gov/govinfo/hipaa/hipaa.pdf`, `data/control/gov/nist/800-53/rev5/sp800-53r5.pdf`).
+   - One permanent S3 bucket managed by Terraform (`infrastructure/terraform/s3-data-mirror/`) under the `cino-prod` AWS profile, with `prevent_destroy` so Terraform cannot delete or replace it.
+   - Named per AWS Account Regional Namespaces: `secid-data-{account-id}-{region}-an`, here `secid-data-502869771730-us-west-2-an`. Creating an `-an` bucket requires the `x-amz-bucket-namespace: account-regional` header, which the `hashicorp/aws` provider sends from 6.x via `bucket_namespace` (5.100 rejects the argument). The provider is pinned `~> 6.73` and the lock file is committed.
+   - Bucket configuration:
+     - `payer = "Requester"` from day zero. S3 rejects anonymous requests to a Requester Pays bucket, so every reader signs with their own AWS account and pays for requests and transfer. CSA pays only for storage.
+     - Bucket policy allowing `s3:GetObject` and `s3:ListBucket` to `Principal = "*"`. Combined with Requester Pays, that means any AWS account willing to pay, not anonymous users. Turning Requester Pays off alone would make the bucket anonymous-public with CSA paying egress, so the two change together or not at all.
+     - Public access block: `block_public_acls = true`, `ignore_public_acls = true`, `block_public_policy = false`, `restrict_public_buckets = false` (ACLs off, policy-based access on).
+     - Object versioning enabled, so re-fetches of a document keep earlier copies.
+   - Terraform state stays local to the maintainer's machine (gitignored), per Kurt (context 6). The module README documents rebuilding state with `terraform import` if the file is lost.
+2. **Scope: public government publications and open standards only.**
+   - US public laws, NIST SPs, White House directives, EUR-Lex texts, Canadian bills and the like.
+   - Narrower than the Tier 1 + Tier 2 rule for the public text repositories: no CSA documents, and no corporate or vendor material even when it is on the open web. No Tier 3 (free login) and no Tier 4 paid standards (ISO/IEC).
+3. **Object layout (ADR-014):**
+   - `data/<type>/<tld>/<domain>/<name>[/<version>]/<publisher-filename>`, derived mechanically from the SecID, e.g. `secid:control/nist.gov/800-53@rev5` -> `data/control/gov/nist/800-53/rev5/NIST.SP.800-53r5.pdf`.
+   - The `<version>` level appears only when the SecID has a version (ADR-014 does not cover unversioned sources). Unversioned statutes sit directly under `<name>/`, e.g. `data/regulation/gov/govinfo/hipaa/`, and S3 object versioning keeps earlier fetches. The file keeps the publisher's original name, for provenance.
 
 **Rejected alternatives:**
 - **Storing PDFs in GitHub repositories** — Bloats `.git/objects/pack` permanently; Git is unsuitable for multi-gigabyte binary archives.
 - **Hosting binaries on standard public S3 with CSA-paid egress** — Risks unpredictable and potentially massive AWS egress billing spikes if automated web scrapers or AI agents download large PDF corpora. Requester-Pays eliminates financial risk to CSA.
 - **Global S3 bucket namespace (`secid-data`)** — Subject to global naming collisions and lacks account-regional namespace security/governance integration.
+- **Remote Terraform state backend (S3 + lock)** — Raised in review on 2026-11-13; Kurt kept local state because the bucket is permanent and rarely changed (context 6). Losing the state file is recoverable by `terraform import`.
+- **A `<version>` folder for every object, using the retrieval date for unversioned sources** — Would break mechanical derivation from the SecID (the path would hold something the identifier does not), and S3 object versioning already keeps the history.
 
 
 ---
