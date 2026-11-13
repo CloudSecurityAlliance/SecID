@@ -14,10 +14,13 @@ Never: CSA documents, corporate or vendor material even when it is on the open w
 
 ## Who can read it, and who pays
 
-- **Requester Pays is on.** S3 rejects anonymous requests to a Requester Pays bucket, so a reader must sign the request with their own AWS credentials and send `x-amz-request-payer: requester`. The reader pays for the request and the data transfer. CSA pays only for storage.
+- **Requester Pays is on.** S3 rejects anonymous requests to a Requester Pays bucket, so every request must be signed with AWS credentials and send `x-amz-request-payer: requester`. The account whose credentials signed it pays for that request and its data transfer. That is normally the reader, but for a presigned URL it is whoever presigned it.
+- **What CSA still pays for:** storage (including retained versions), its own uploads, listings and downloads, and the requests [AWS bills to the bucket owner](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) (for example, denied requests from within CSA's own account or organization). External readers cannot run up CSA's transfer bill.
 - **The bucket policy allows `s3:GetObject` and `s3:ListBucket` to `Principal: "*"`.** Because of Requester Pays, that means any AWS account willing to pay, not anonymous users.
 - **Never turn Requester Pays off on its own.** Without it the same policy makes the bucket anonymous-public, and CSA pays all egress.
-- Public ACLs are blocked; access is by policy only. Object versioning is on, so a re-fetched document keeps its earlier copies.
+- **HTTPS only.** The policy denies every request that doesn't use TLS.
+- **Only current versions are public.** Versioning is on, so an overwritten or deleted file keeps its earlier copy, but only maintainers can read old versions. This is deliberate: if something is uploaded by mistake, deleting it must actually take it out of public view. Versioning is not immutability; there is no Object Lock, so maintainers can purge a version that should never have been there.
+- Public ACLs are blocked; access is by policy only. Unfinished multipart uploads are aborted after 7 days, so abandoned uploads don't accrue storage charges.
 
 ```bash
 aws s3 cp --request-payer requester \
@@ -32,7 +35,7 @@ Keys follow the same mechanical derivation as the `SecID-Data-*` repositories ([
 data/<type>/<tld>/<domain>/<name>[/<version>]/<publisher-filename>
 ```
 
-- The `<version>` level appears **only when the SecID has a version**. For a source the registry does not version (most statutes), files sit directly under `<name>/`, and S3 object versioning keeps earlier fetches.
+- The `<version>` level appears **only when the SecID has a version**. For a source the registry does not version (most statutes), files sit directly under `<name>/`, and S3 object versioning keeps earlier fetches for maintainers.
 - `<publisher-filename>` is the file name as the publisher served it, unchanged, for provenance.
 
 | SecID | Object key |
@@ -61,5 +64,6 @@ terraform import aws_s3_bucket_request_payment_configuration.secid_data "$B"
 terraform import aws_s3_bucket_public_access_block.secid_data "$B"
 terraform import aws_s3_bucket_policy.secid_data "$B"
 terraform import aws_s3_bucket_versioning.secid_data "$B"
+terraform import aws_s3_bucket_lifecycle_configuration.secid_data "$B"
 terraform plan      # should again show "No changes"
 ```

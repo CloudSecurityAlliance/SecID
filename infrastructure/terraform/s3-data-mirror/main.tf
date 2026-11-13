@@ -3,9 +3,9 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      # `bucket_namespace` (below) needs the 6.x provider: 5.100 rejects it as an
-      # unsupported argument. Pinned to one major version, with the exact build in
-      # the committed .terraform.lock.hcl.
+      # `bucket_namespace` (below) arrived in provider 6.37.0; 5.100 rejects it as
+      # an unsupported argument. Pinned within 6.x, with the exact build in the
+      # committed .terraform.lock.hcl.
       version = "~> 6.73"
     }
   }
@@ -68,9 +68,18 @@ resource "aws_s3_bucket_public_access_block" "secid_data" {
 # that send x-amz-request-payer: requester succeed, and the caller pays.
 # Turning Requester Pays off would make this policy anonymous-public with CSA
 # paying egress: change both together or not at all.
+#
+# Only current versions are readable: no s3:GetObjectVersion / s3:ListBucketVersions.
+# If something is uploaded by mistake, deleting it must take it out of public view;
+# public version access would leave it readable by versionId.
 resource "aws_s3_bucket_policy" "secid_data" {
-  bucket     = aws_s3_bucket.secid_data.id
-  depends_on = [aws_s3_bucket_public_access_block.secid_data]
+  bucket = aws_s3_bucket.secid_data.id
+  # Never publish the read grant before Requester Pays is in force: on a fresh
+  # build, a failure between the two would leave the bucket anonymous-public.
+  depends_on = [
+    aws_s3_bucket_public_access_block.secid_data,
+    aws_s3_bucket_request_payment_configuration.secid_data,
+  ]
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -87,15 +96,49 @@ resource "aws_s3_bucket_policy" "secid_data" {
           aws_s3_bucket.secid_data.arn,
           "${aws_s3_bucket.secid_data.arn}/*"
         ]
+      },
+      {
+        # TLS only: documents must not be readable or replaceable in transit.
+        Sid       = "DenyInsecureTransport"
+        Effect    = "Deny"
+        Principal = "*"
+        Action    = "s3:*"
+        Resource = [
+          aws_s3_bucket.secid_data.arn,
+          "${aws_s3_bucket.secid_data.arn}/*"
+        ]
+        Condition = {
+          Bool = { "aws:SecureTransport" = "false" }
+        }
       }
     ]
   })
 }
 
-# 5. Versioning enabled for immutability and provenance tracking
+# 5. Versioning: an overwrite or delete keeps the earlier copy, recoverable by
+# maintainers. This is not immutability: anyone with s3:DeleteObjectVersion in the
+# account can still remove versions (no Object Lock, so a mistaken upload can be purged).
 resource "aws_s3_bucket_versioning" "secid_data" {
   bucket = aws_s3_bucket.secid_data.id
   versioning_configuration {
     status = "Enabled"
+  }
+}
+
+# 6. Abandoned multipart uploads of large binaries are billable until removed.
+# This rule only aborts incomplete uploads; it never expires objects or versions.
+resource "aws_s3_bucket_lifecycle_configuration" "secid_data" {
+  bucket     = aws_s3_bucket.secid_data.id
+  depends_on = [aws_s3_bucket_versioning.secid_data]
+
+  rule {
+    id     = "abort-incomplete-multipart-uploads"
+    status = "Enabled"
+
+    filter {}
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
   }
 }
