@@ -14,6 +14,9 @@ terraform {
 provider "aws" {
   region  = var.aws_region
   profile = var.aws_profile
+
+  # Refuse to plan or apply in any other account, whatever profile is active.
+  allowed_account_ids = [var.account_id]
 }
 
 data "aws_caller_identity" "current" {}
@@ -48,9 +51,23 @@ resource "aws_s3_bucket" "secid_data" {
 }
 
 # 2. Requester Pays: Egress and request costs billed to caller
+#
+# Owner pinning (CINO-Engineering DEC-035 §3): resources that accept
+# expected_bucket_owner send ExpectedBucketOwner, so S3 refuses the call if the
+# bucket is not owned by var.account_id.
 resource "aws_s3_bucket_request_payment_configuration" "secid_data" {
+  bucket                = aws_s3_bucket.secid_data.id
+  expected_bucket_owner = var.account_id
+  payer                 = "Requester"
+}
+
+# 2b. ACLs disabled: the bucket owner owns every object (DEC-035 §2).
+resource "aws_s3_bucket_ownership_controls" "secid_data" {
   bucket = aws_s3_bucket.secid_data.id
-  payer  = "Requester"
+
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
 }
 
 # 3. Allow public bucket policy while blocking legacy ACLs
@@ -119,7 +136,8 @@ resource "aws_s3_bucket_policy" "secid_data" {
 # maintainers. This is not immutability: anyone with s3:DeleteObjectVersion in the
 # account can still remove versions (no Object Lock, so a mistaken upload can be purged).
 resource "aws_s3_bucket_versioning" "secid_data" {
-  bucket = aws_s3_bucket.secid_data.id
+  bucket                = aws_s3_bucket.secid_data.id
+  expected_bucket_owner = var.account_id
   versioning_configuration {
     status = "Enabled"
   }
@@ -128,8 +146,9 @@ resource "aws_s3_bucket_versioning" "secid_data" {
 # 6. Abandoned multipart uploads of large binaries are billable until removed.
 # This rule only aborts incomplete uploads; it never expires objects or versions.
 resource "aws_s3_bucket_lifecycle_configuration" "secid_data" {
-  bucket     = aws_s3_bucket.secid_data.id
-  depends_on = [aws_s3_bucket_versioning.secid_data]
+  bucket                = aws_s3_bucket.secid_data.id
+  expected_bucket_owner = var.account_id
+  depends_on            = [aws_s3_bucket_versioning.secid_data]
 
   rule {
     id     = "abort-incomplete-multipart-uploads"

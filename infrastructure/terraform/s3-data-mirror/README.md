@@ -58,12 +58,23 @@ terraform apply
 **State is local, on purpose.** `terraform.tfstate` lives in this directory on the maintainer's machine and is gitignored. Kurt, 2026-11-13: *"the terraform state is ok, because this is a permanent s3 bucket"*. The bucket is created once and rarely changed, so a remote backend isn't worth having. If the state file is ever lost, rebuild it from the live bucket instead of re-applying:
 
 ```bash
-B=secid-data-502869771730-us-west-2-an
+B=secid-data-502869771730-us-west-2-an; A=502869771730
 terraform import aws_s3_bucket.secid_data "$B"
-terraform import aws_s3_bucket_request_payment_configuration.secid_data "$B"
 terraform import aws_s3_bucket_public_access_block.secid_data "$B"
+terraform import aws_s3_bucket_ownership_controls.secid_data "$B"
 terraform import aws_s3_bucket_policy.secid_data "$B"
-terraform import aws_s3_bucket_versioning.secid_data "$B"
-terraform import aws_s3_bucket_lifecycle_configuration.secid_data "$B"
+# Owner-pinned resources: the import ID carries the account, or the next plan
+# wants to replace them (replacing Requester Pays would briefly open the bucket).
+terraform import aws_s3_bucket_request_payment_configuration.secid_data "$B,$A"
+terraform import aws_s3_bucket_versioning.secid_data "$B,$A"
+terraform import aws_s3_bucket_lifecycle_configuration.secid_data "$B,$A"
 terraform plan      # should again show "No changes"
 ```
+
+## CINO bucket rules (DEC-035, rule B14)
+
+This module follows CINO-Engineering [DEC-035](https://github.com/CloudSecurityAlliance-Internal/CINO-Engineering/blob/main/DECISIONS.md) for S3:
+
+- **Account regional namespace.** The name ends `-<account>-<region>-an` and is created with `bucket_namespace = "account-regional"`. No other account can ever hold this name.
+- **Owner pinned.** `allowed_account_ids` stops Terraform running in any other account, and `expected_bucket_owner` makes S3 refuse calls if the bucket isn't owned by `502869771730`.
+- **Never deleted.** `prevent_destroy` on the bucket. If the mirror is ever retired, empty it and keep it as a tombstone; don't delete it.

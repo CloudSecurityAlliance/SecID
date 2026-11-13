@@ -638,7 +638,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 
 **Date:** 2026-11-12
 **Status:** Accepted
-**Decision method:** Kurt Seifried's direction (2026-11-12), designed with Gemini, which built the bucket and opened #281. Gemini stopped on its usage quota before review; Claude took over as governing agent on 2026-11-13 and completed it. Review: Claude (own review) and OpenAI Codex (`gpt-6-astra`, cross-vendor, fresh context) on 2026-11-13. Codex's findings (1 P1, 5 P2, 2 P3) are dispositioned in PR #281: seven fixed; one (public access to old versions) declined, with the reason recorded below. Where goals conflicted, the AI decided by the CINO goal order (safety and privacy first).
+**Decision method:** Kurt Seifried's direction (2026-11-12), designed with Gemini, which built the bucket and opened #281. Gemini stopped on its usage quota before review; Claude took over as governing agent on 2026-11-13 and completed it. Review: Claude (own review) and OpenAI Codex (`gpt-6-astra`, cross-vendor, fresh context) on 2026-11-13. Codex's findings (1 P1, 5 P2, 2 P3) are dispositioned in PR #281: seven fixed; one (public access to old versions) declined, with the reason recorded below. Owner pinning was then added to meet CINO-Engineering DEC-035. Where goals conflicted, the AI decided by the CINO goal order (safety and privacy first).
 
 **Context:**
 1. SecID references public security knowledge, laws, regulations, and standards. Publisher documents often originate as binaries (`.pdf`, `.docx`, `.xlsx`, `.zip`) from official government portals (`govinfo.gov`, `congress.gov`, `parl.ca`, `eur-lex.europa.eu`, `nist.gov`).
@@ -661,6 +661,8 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
      - Public access block: `block_public_acls = true`, `ignore_public_acls = true`, `block_public_policy = false`, `restrict_public_buckets = false` (ACLs off, policy-based access on).
      - Object versioning enabled: an overwrite or delete keeps the earlier copy, readable by maintainers only. This is a recoverable archive, not an immutable one.
      - A lifecycle rule that aborts incomplete multipart uploads after 7 days and never expires objects or versions.
+     - Object ownership `BucketOwnerEnforced` (ACLs disabled).
+   - Follows CINO-Engineering DEC-035 (rule B14, Kurt 2026-11-12) for S3: account regional namespace; owner pinned through the provider's `allowed_account_ids` and `expected_bucket_owner` on every resource that accepts it; never deleted (`prevent_destroy`; a retired bucket becomes an emptied tombstone).
    - Terraform state stays local to the maintainer's machine (gitignored), per Kurt (context 6). The module README documents rebuilding state with `terraform import` if the file is lost.
 2. **Scope: public government publications and open standards only.**
    - US public laws, NIST SPs, White House directives, EUR-Lex texts, Canadian bills and the like.
