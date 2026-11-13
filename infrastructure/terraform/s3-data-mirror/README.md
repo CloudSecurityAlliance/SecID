@@ -55,20 +55,27 @@ terraform plan      # expected: "No changes" once the committed config has been 
 terraform apply
 ```
 
-**Rebuilding from scratch** (only if the bucket ever had to be re-created): stage it, so the public read policy never goes out before Requester Pays is in force. Terraform orders the calls, but AWS takes several minutes to propagate Requester Pays.
+**Rebuilding from scratch** (only if the bucket ever had to be re-created): stage it, so the public read policy goes out only after Requester Pays has taken effect. Terraform orders the API calls, but AWS takes several minutes to propagate Requester Pays, and nothing reports when that has finished. So wait, and then prove it with the external test below *before* relying on the bucket.
 
 ```bash
 terraform apply -target=aws_s3_bucket_request_payment_configuration.secid_data \
                 -target=aws_s3_bucket_public_access_block.secid_data
-aws s3api get-bucket-request-payment --bucket secid-data-502869771730-us-west-2-an --profile cino-prod  # "Requester"
-# then wait several minutes for propagation before publishing the policy
+aws s3api get-bucket-request-payment --bucket secid-data-502869771730-us-west-2-an \
+  --expected-bucket-owner 502869771730 --profile cino-prod      # "Requester"
+# wait several minutes, then:
 terraform apply     # publishes the bucket policy and the rest
 ```
 
-After any apply, an **unsigned** request must be refused. That proves the public policy is not anonymous-public:
+**Checking access after any apply.** Run all three. A 403 on its own proves little, because a missing policy also returns 403.
 
 ```bash
-curl -s -o /dev/null -w '%{http_code}\n' https://secid-data-502869771730-us-west-2-an.s3.us-west-2.amazonaws.com/   # expect 403
+B=secid-data-502869771730-us-west-2-an
+# 1. Unsigned request: must be refused (403). Negative smoke test only.
+curl -s -o /dev/null -w '%{http_code}\n' "https://$B.s3.us-west-2.amazonaws.com/"
+# 2. Signed, from ANOTHER AWS account, without the payer header: must be refused (AccessDenied).
+aws s3api list-objects-v2 --bucket $B --max-keys 1 --profile <other-account>
+# 3. Signed, from another account, with the header: must succeed, showing "RequestCharged": "requester".
+aws s3api list-objects-v2 --bucket $B --max-keys 1 --request-payer requester --profile <other-account>
 ```
 
 **State is local, on purpose.** `terraform.tfstate` lives in this directory on the maintainer's machine and is gitignored. Kurt, 2026-11-13: *"the terraform state is ok, because this is a permanent s3 bucket"*. The bucket is created once and rarely changed, so a remote backend isn't worth having. If the state file is ever lost, rebuild it from the live bucket instead of re-applying:
@@ -79,8 +86,9 @@ terraform import aws_s3_bucket.secid_data "$B"
 terraform import aws_s3_bucket_public_access_block.secid_data "$B"
 terraform import aws_s3_bucket_ownership_controls.secid_data "$B"
 terraform import aws_s3_bucket_policy.secid_data "$B"
-# Owner-pinned resources: the import ID carries the account, or the next plan
-# wants to replace them (replacing Requester Pays would briefly open the bucket).
+# Owner-pinned resources: the import ID must carry the account. Without it,
+# Requester Pays and lifecycle plan a replacement (replacing Requester Pays would
+# briefly open the bucket), and versioning never persists its owner pin.
 terraform import aws_s3_bucket_request_payment_configuration.secid_data "$B,$A"
 terraform import aws_s3_bucket_versioning.secid_data "$B,$A"
 terraform import aws_s3_bucket_lifecycle_configuration.secid_data "$B,$A"
@@ -92,5 +100,6 @@ terraform plan      # should again show "No changes"
 This module follows CINO-Engineering [DEC-035](https://github.com/CloudSecurityAlliance-Internal/CINO-Engineering/blob/main/DECISIONS.md) for S3:
 
 - **Account regional namespace.** The name ends `-<account>-<region>-an` and is created with `bucket_namespace = "account-regional"`. No other account can ever hold this name.
-- **Owner pinned.** `allowed_account_ids` stops Terraform running in any other account, and `expected_bucket_owner` makes S3 refuse calls if the bucket isn't owned by `502869771730`.
+- **Owner pinned.** `allowed_account_ids` stops Terraform running in any other account, and `expected_bucket_owner` makes S3 refuse calls if the bucket isn't owned by `502869771730`. Pass `--expected-bucket-owner 502869771730` on CLI calls too.
+- **IAM grants by name carry the account.** This module has none. Any future IAM policy that grants access to this bucket by name, such as an upload role for CI, must include the condition `"StringEquals": {"s3:ResourceAccount": "502869771730"}`. The bucket's own policy doesn't need it, because it is attached to this bucket and cannot reach another.
 - **Never deleted.** `prevent_destroy` on the bucket. If the mirror is ever retired, empty it and keep it as a tombstone; don't delete it.
