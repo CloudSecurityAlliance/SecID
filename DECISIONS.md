@@ -633,3 +633,42 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 - **Adding `raw.githubusercontent.com/CloudSecurityAlliance-DataSets/dataset-public-laws-regulations-standards/...` URLs to the 107 strategy section nodes now** — violates the `Point Once` rule (`2026-11-06`) and would require touching all 101 registry files a second time when those domains move to `SecID-Data*`.
 
 ---
+
+## ADR-017: Public S3 binary mirror with Account-Regional Namespaces and Requester-Pays for public government and open legal standards
+
+**Date:** 2026-11-12
+**Status:** Accepted
+**Decision method:** Pair decision (Kurt Seifried & Gemini), reviewed by Codex
+
+**Context:**
+1. SecID references public security knowledge, laws, regulations, and standards. Publisher documents often originate as binaries (`.pdf`, `.docx`, `.xlsx`, `.zip`) from official government portals (`govinfo.gov`, `congress.gov`, `parl.ca`, `eur-lex.europa.eu`, `nist.gov`).
+2. Per ADR-014 and the 2026-11-06 data architecture directives, Git repositories (`SecID-Data-*`) are restricted to clean, lightweight, line-oriented text (`.json`, `.csv`, `.md`). Storing binary files (especially PDFs hundreds of megabytes in size) in Git inflates `.git/objects/pack` permanently and makes cloning painful for practitioners.
+3. However, an immutable, reliable upstream archive of publisher binaries is essential for provenance, verification, and offline extraction auditing.
+4. On 2026-11-12, Kurt directed:
+   - *"first lets talk S3 bucket, we mirror 'Safe' stuff like gov docs, public docs, not corp stuff, e.g. no csa, etc. does that make sense? also we can make an S3 bucket, using cino-prod aws cli profile, and lets create it using terraform, and the s3 bucket names needs to be compatible with https://aws.amazon.com/blogs/aws/introducing-account-regional-namespaces-for-amazon-s3-general-purpose-buckets/ and lets make it public, requestor pays from the start, can we do that? it would basically be called SecID-Data plus whatever account name stuff is needed, and the dir structure would be the same as we did in the github repo, remind me what that format is?"*
+   - *"yeah, are we sure it's safe to include this, no sensitive data right?"* -> *"go for it"* -> *"yes"*.
+
+**Decision:**
+1. **Public S3 Binary Mirror Bucket:**
+   - Dedicated S3 bucket managed via Terraform (`infrastructure/terraform/s3-data-mirror/`) under the `cino-prod` AWS profile.
+   - Naming convention complies with AWS Account Regional Namespaces: `secid-data-{account-id}-{region}-an` (specifically `secid-data-502869771730-us-west-2-an`).
+   - Bucket configuration enforces:
+     - `payer = "Requester"`: Requester Pays enabled from day zero. Callers authenticate with their own AWS account and pay AWS directly for GET requests and data egress. CSA incurs $0 in egress fees.
+     - Public bucket policy allowing `s3:GetObject` and `s3:ListBucket` for all authenticated AWS principals (`Principal = "*"`).
+     - Modern public access block (`block_public_acls = true`, `ignore_public_acls = true`, `block_public_policy = false`, `restrict_public_buckets = false`).
+     - Object versioning enabled (`Status = Enabled`) for immutability and provenance tracking.
+2. **Strict Scope — Public Government & Open Legal Standards Only:**
+   - The S3 bucket is strictly reserved for publisher binaries from public government and open legal standards (U.S. Public Laws, NIST SPs, White House directives, EU EUR-Lex texts, Canadian LEGISinfo bills).
+   - No CSA documents, no corporate/vendor marketing material, and no Tier 4 paywalled standards (ISO/IEC).
+3. **Directory Structure (ADR-014 Reverse-DNS Layout):**
+   - Objects inside the bucket follow the standard ADR-014 mechanical reverse-DNS path format:
+     `data/<type>/<reverse-dns-namespace>/<name>/<version>/<filename>`
+     (e.g., `data/regulation/gov/govinfo/hipaa/hipaa.pdf`, `data/control/gov/nist/800-53/rev5/sp800-53r5.pdf`).
+
+**Rejected alternatives:**
+- **Storing PDFs in GitHub repositories** — Bloats `.git/objects/pack` permanently; Git is unsuitable for multi-gigabyte binary archives.
+- **Hosting binaries on standard public S3 with CSA-paid egress** — Risks unpredictable and potentially massive AWS egress billing spikes if automated web scrapers or AI agents download large PDF corpora. Requester-Pays eliminates financial risk to CSA.
+- **Global S3 bucket namespace (`secid-data`)** — Subject to global naming collisions and lacks account-regional namespace security/governance integration.
+
+
+---
