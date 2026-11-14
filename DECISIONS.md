@@ -584,7 +584,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
    - Major anchor authorities and domains/TLDs that exceed (or are projected to exceed) ~50–100 MB get dedicated `CloudSecurityAlliance/SecID-Data-<domain/tld>` repositories from the start (e.g., `SecID-Data-disa.mil`, `SecID-Data-nist.gov`, `SecID-Data-cisa.gov`, `SecID-Data-fedramp.gov`, `SecID-Data-cloudsecurityalliance.org`, `SecID-Data-europa.eu`, `SecID-Data-gov`, `SecID-Data-ca`), while smaller domains share `CloudSecurityAlliance/SecID-Data`.
 4. **Point Once & Phase Out `dataset-public-laws-regulations-standards`:**
    - Gradually migrate public content out of `dataset-public-laws-regulations-standards` into `SecID-Data*` (moving proprietary content like PCI DSS/HITRUST to `dataset-private-laws-regulations-standards` and relying on upstream APIs/repos where authoritative per-item JSON already exists, such as MITRE's CWE REST API and `attack-stix-data`).
-   - Only add `raw.githubusercontent.com` links to `CloudSecurityAlliance/SecID` registry nodes **after** a domain's content is in its permanent `SecID-Data*` repository, so pointers are written once and never churned.
+   - Only add `raw.githubusercontent.com` links to `CloudSecurityAlliance/SecID` registry nodes **after** a domain's content is in its permanent `SecID-Data*` repository, so pointers are written once and never churned. *(Corrected 2026-11-14: see [the 2026-11-14 corrections](#2026-11-14-corrections-point-once-a-misdated-quote-and-the-hosting-rules).)*
 5. **Pre-extraction upstream catalog discovery, jurisdiction & umbrella domain grouping, sector metadata, and defensive upstream mirror insurance (2026-11-06–2026-11-09, [`#238`](https://github.com/CloudSecurityAlliance/SecID/issues/238)–[`#272`](https://github.com/CloudSecurityAlliance/SecID/issues/272); canonical list in [`DATA-HOSTING-RULES.md` §3](docs/reference/DATA-HOSTING-RULES.md#3-canonical-list-of-separate-secid-data--repositories)):**
    - **Upstream catalog & publishing architecture discovery before extraction ([`#244`](https://github.com/CloudSecurityAlliance/SecID/issues/244)):** Before extracting a jurisdiction or standards authority, map its complete publishing architecture (e.g., the 5 official US federal legal/regulatory portals: `congress.gov` bills, `govinfo.gov` Public Laws, `uscode.house.gov` U.S. Code, `ecfr.gov` Code of Federal Regulations, and `federalregister.gov`/`whitehouse.gov` daily rules & directives; Canada `parl.ca` & `laws-lois.justice.gc.ca`; UK `legislation.gov.uk`; EU `eur-lex.europa.eu`; Japan `laws.e-gov.go.jp`; Germany `gesetze-im-internet.de`) and enumerate full control/clause ID catalogs in `SecID/registry/` even for paywalled `Rule 0` SDOs (`iso.org`+`iec.ch`, `isaca.org`, `isc2.org`, `cisecurity.org`, `pcisecuritystandards.org`, `aicpa.org`, `etsi.org`+`cen.eu`, [`#255`](https://github.com/CloudSecurityAlliance/SecID/issues/255)).
    - **Jurisdiction-first repository sharding with sector as metadata ([`#242`](https://github.com/CloudSecurityAlliance/SecID/issues/242), [`#247`](https://github.com/CloudSecurityAlliance/SecID/issues/247)–[`#252`](https://github.com/CloudSecurityAlliance/SecID/issues/252), [`#256`](https://github.com/CloudSecurityAlliance/SecID/issues/256), [`#258`](https://github.com/CloudSecurityAlliance/SecID/issues/258)–[`#261`](https://github.com/CloudSecurityAlliance/SecID/issues/261)):** Major national/supranational jurisdictions (`SecID-Data-gov`, `SecID-Data-europa.eu`, `SecID-Data-ca`, `SecID-Data-jp`, `SecID-Data-uk`, `SecID-Data-de`, `SecID-Data-au`, `SecID-Data-sg`, `SecID-Data-in`, `SecID-Data-cn`) get dedicated repositories so practitioners can clone 100% of their jurisdiction's laws, controls, and sector guidelines, while industry sectors (`financial`, `healthcare`, `transportation`, `energy`, `telecom`, `government`, `cross-sector`) are modeled via the existing `tags.sector` / `match_nodes[].data.tags.sector` metadata field + cross-repo index manifests rather than competing sector Git repositories.
@@ -609,7 +609,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 2. On 2026-11-09, Kurt reviewed the split placement of national security strategies and established both the immediate strategy migration directive and the general 4-tier data-hosting policy:
    - *"ok pause. the national security strategies are gov docs and public release, they are freely available. I can comfortable violating the license on them, so lets move all the stuff from dataset-private-laws-regulations-standards  to the public. and then also update SecID."*
    - *"so in general anything we get from a public gov website, goes into the public dataset repo regardless of license. in general if it's on the web, and there's no login, we treat it as if we can mirror it. if there is a free login, ask me, and if it' a paid login, or paid access like iso.org, we do NOT mirror it publicly ever unless there is a specific exception granted, and it would have to be explicit and well documented and have solid reasons for it."*
-3. Separately, Kurt directed on 2026-11-09 (*"lets first extract and structure ALL the data, and then add all the items with subopaths/etc to secid, so basically two batches of work"*) that the extracted section/chapter/pillar subpaths from the 207 full-text extracted strategy editions and 4 extracted Canadian national security statutes (`ccspa`, `national-security-act-2017`, `nsira-act`, `nsicop-act`) be wired into `CloudSecurityAlliance/SecID` without adding interim `raw.githubusercontent.com` URLs before the permanent `SecID-Data*` domain split.
+3. Separately, Kurt directed on 2026-11-09 (*"lets first extract and structure ALL the data, and then add all the items with subopaths/etc to secid, so basically two batches of work"*) that the extracted section/chapter/pillar subpaths from the 207 full-text extracted strategy editions and 4 extracted Canadian national security statutes (`ccspa`, `national-security-act-2017`, `nsira-act`, `nsicop-act`) be wired into `CloudSecurityAlliance/SecID` without adding interim `raw.githubusercontent.com` URLs before the permanent `SecID-Data*` domain split. *(Corrected 2026-11-14: see [the 2026-11-14 corrections](#2026-11-14-corrections-point-once-a-misdated-quote-and-the-hosting-rules).)*
 
 **Decision:**
 1. **Four-Tier Public vs. Private Data-Hosting Rule ([`DATA-HOSTING-RULES.md` §Rule 0](docs/reference/DATA-HOSTING-RULES.md#rule-0-the-four-tier-access--license-rule-2026-11-09)):**
@@ -625,7 +625,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 4. **Add extracted section/chapter/pillar subpath child `match_nodes` (`#274`):**
    - Add `155` edition-scoped section/chapter/pillar child `match_nodes` (`patterns: ["^(?:...)$"]`, `data.type: "section"`, `data.known_values`, `data.examples`) across `101` files in `registry/reference/` from the extracted `-sections.json` corpus (`66` multi-version strategy sources scoped per edition under their version child nodes with `version_required: true`, plus `42` single-version strategy sources), preserving published section/chapter/pillar casing and spacing (`CHAPTER 1`, `Part 1`, `Pillar 1`, `Pillar (i) Section (1)`, `Shield 1`, etc.), scoping local per-chapter/per-initiative sub-numbering to its parent (`Chapter 4 A`..`Chapter 6 C`, `1.1`..`20.5`), and filtering out TOC dot-leader double-prefixes and PDF page/chart/indicator-table artifacts.
    - Add statutory section child `match_nodes` (`data.type: "section"`, `data.known_values`, `data.examples`) to the 4 extracted Canadian national security statutes in `registry/regulation/ca/parl.json`: `ccspa` (`154` CCSPA sections `Preamble`, `1`–`148` plus `19` enclosing Bill C-8 clauses/schedules), `national-security-act-2017` (`181` sections/schedules), `nsira-act` (`58` sections), and `nsicop-act` (`51` sections/schedules).
-   - Per the **Point Once** rule (`2026-11-06` decision), these section child nodes intentionally omit `raw.githubusercontent.com` URLs until each domain is migrated into its permanent `SecID-Data*` repository.
+   - Per the **Point Once** rule (`2026-11-06` decision), these section child nodes intentionally omit `raw.githubusercontent.com` URLs until each domain is migrated into its permanent `SecID-Data*` repository. *(Corrected 2026-11-14: see [the 2026-11-14 corrections](#2026-11-14-corrections-point-once-a-misdated-quote-and-the-hosting-rules).)*
 
 **Rejected alternatives:**
 - **Keeping the 46 government/IGO strategy editions in `dataset-private-laws-regulations-standards`** — splits publicly released government national security strategies across two repositories over boilerplate website terms when the documents themselves are freely published for public consumption.
@@ -682,3 +682,41 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 
 
 ---
+
+---
+
+## 2026-11-14: Corrections: Point Once, a misdated quote, and the hosting rules
+
+**Date:** 2026-11-14
+**Status:** Accepted (correction of the record; [#283](https://github.com/CloudSecurityAlliance/SecID/issues/283))
+**Decision method:** Correction by the governing agent (Claude), from the independent deep reviews of 2026-11-13 (review 2 F1, review 3 R-09, review 1 F2 and F5, in the internal governance repository). Kurt's words were checked against the Antigravity prompt history. Reviewed by Codex. This entry records a decision Kurt made on 2026-11-13 and points to where it is recorded. It makes no new decision.
+
+**Corrections:**
+1. **Point Once was not followed, and Kurt has since decided to point at both.**
+   - The 2026-11-06 entry (decision 4) adds `raw.githubusercontent.com` links only after a corpus reaches its permanent `SecID-Data*` repository. The 2026-11-09 entry (decision 4) says the new section nodes "intentionally omit" them.
+   - [#278](https://github.com/CloudSecurityAlliance/SecID/pull/278) (merged 2026-11-11) nevertheless added 1,020 links into `dataset-public-laws-regulations-standards`, across 72 files under `registry/regulation/`:
+     - 173 source-level `bulk_data` JSON;
+     - 157 source-level `bulk_data` Markdown;
+     - 176 child `data.url`;
+     - 514 child `examples[].url`.
+
+     No record acknowledged the departure at the time.
+   - On those links, Kurt said on 2026-11-13: *"so we want to point at both, the original "upstream" data, and also our copy (what if the website we point at is down?)."* This is recorded in governance ADR-004, Part 3, item 2.
+   - **What follows (from ADR-004):**
+     - Items resolve to the official upstream source first, and to our copy as a fallback.
+     - The 1,020 links stay as the interim copy. They gain their upstream URLs through a registry format change, done as a release train, and each is re-pointed once, when its domain reaches `SecID-Data-*`.
+     - New copy links still go only to permanent homes.
+2. **A misdated quote (2026-11-09 entry, context item 3).** The entry says Kurt directed on 2026-11-09 (*"lets first extract …"*) that subpaths be wired without interim raw URLs. The prompt history shows otherwise:
+   - **2026-11-06, 18:34 UTC:** Kurt said *"lets first extract and structure ALL the data, and then add all the items with subopaths/etc to secid, so basically two batches of work."* It says nothing about URLs.
+   - **2026-11-06, 19:06 UTC (31 minutes later):** *"ok lets do the data extraction, but NOT add it to secid yet, I am having another ai work on some stuff, we might move where the data lives from SecID to somewhere else."*
+   - **2026-11-09, 20:56 UTC:** the strategies directive quoted in context item 2, which ends *"and then also update SecID."*
+
+   The entry's link between that quote and a no-raw-URL directive is wrong.
+3. **The hosting rules ([`DATA-HOSTING-RULES.md`](docs/reference/DATA-HOSTING-RULES.md)), corrected in the same change:**
+   - `aicpa.org/tsc` is removed from the Tier 2 (no-login) examples. The AICPA download page asks for a free account, so it is Tier 3.
+   - Rule 0 claims "`0 MB` of copyrighted prose" from paywalled and membership publishers. It now carries a dated note: the interim public dataset held four such documents (HITRUST CSF v11.3.0, AICPA TSC 2017, CIS Controls v8, and PCI DSS 3.2.1, 4.0 and 4.0.1) from its first commit until 2026-11-13. They were then moved to the private dataset and purged from the public history.
+   - The Point Once paragraph now reflects item 1.
+
+**Rejected alternatives:**
+- **Rewriting the 2026-11-06 and 2026-11-09 entries in place.** That would erase what was recorded at the time. Each now carries a pointer to this entry instead.
+- **Removing the 1,020 links to restore Point Once.** Kurt chose to point at both, and the links resolve today. Removing them would break working answers for no gain.
