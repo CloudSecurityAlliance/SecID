@@ -717,7 +717,7 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
    - Rule 0 claims "`0 MB` of copyrighted prose" from paywalled and membership publishers. It now carries a dated note: the interim public dataset held four such documents (HITRUST CSF v11.3.0, AICPA TSC 2017, CIS Controls v8, and PCI DSS 3.2.1, 4.0 and 4.0.1) from its first commit until 2026-11-13. They were then moved to the private dataset and removed from the history of all 13 public branches. Old commit IDs and pull-request refs still reach them on GitHub. Kurt accepted that residual exposure on 2026-11-13 (governance ADR-004, Part 3, item 5).
    - The Point Once paragraph now reflects item 1.
 4. **Counts in the 2026-11-09 entry (decision 4).** A recount at #275's merge commit `aad0085` finds:
-   - 156 section child nodes for 108 sources (66 multi-version and 42 single-version), in 62 `registry/reference/` files.
+   - 156 section child nodes for 108 sources, in 62 `registry/reference/` files.
    - 102 `registry/reference/` files changed in total. Those that gained no section node changed for other reasons, such as the `"type": "version"` standardization.
 
    The entry says 155 nodes across 101 files.
