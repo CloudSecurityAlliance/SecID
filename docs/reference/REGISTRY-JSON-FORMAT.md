@@ -1938,3 +1938,21 @@ For sources with hierarchical identifiers, the tree naturally mirrors the hierar
 The `schema_version` field allows for future evolution. Parsers should check this field and handle unknown versions gracefully.
 
 Current version: `1.0` (draft)
+
+
+### Optional release trees (CWE, 2026-11-18)
+
+A source with `version_required: false` may provide live item children alongside
+release branches. Mark each release branch `data.type: "version"`, give it a
+`children` array (even if empty), and declare its canonical version in
+`versions_available`. Its first pattern is the canonical version literal.
+An explicit `@version` selects only that branch, including source descriptions;
+missing releases or items never fall back to live children. Without `@version`,
+only the direct item children participate in scoped and cross-source lookup.
+A `type: "version"` leaf with no `children` remains an ordinary item, such as a
+schema version addressed with `#8.0`. Required-version sources keep their existing
+layout and continue to require an explicit release for item lookup.
+
+Deploy compatible resolvers before publishing mixed trees. CWE release ZIP results
+carry XML parsing instructions identifying the requested CWE ID inside the catalog;
+they do not claim to be individual historical HTML/API documents.
