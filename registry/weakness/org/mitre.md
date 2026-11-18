@@ -107,3 +107,13 @@ including case variants and the absence of newer entries in older releases.
 - Hierarchical taxonomy (views, categories, weaknesses)
 - Referenced by CVE, NVD, and most vulnerability databases
 - CWE-1400s include AI/ML weaknesses
+
+Older release metadata remains listed with archive discovery links. Its empty item
+trees deliberately return no item URLs until membership has been verified.
+
+Release maintenance belongs to the SecID governing agent ([#301](https://github.com/CloudSecurityAlliance/SecID/issues/301)).
+At the next session and on CWE missing-entry feedback, compare MITRE's archive index
+and API version with the manifest. New IDs require a reviewed refresh; finite lists
+trade automatic acceptance of future IDs for rejecting nonexistent entries. Update
+`current_release` and `api_release` in the manifest when their catalogs are verified.
+Generated child metadata belongs in the generator/manifest, not hand edits to JSON.

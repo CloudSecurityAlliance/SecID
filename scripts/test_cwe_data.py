@@ -50,6 +50,27 @@ class CweDataTests(unittest.TestCase):
                 self.assertEqual(child["data"]["content_type"], "application/zip")
                 self.assertIn("@ID", child["data"]["parsing_instructions"])
 
+    def test_history_is_preserved_without_claiming_item_membership(self):
+        history = self.manifest["historical_releases"]
+        self.assertEqual(len(history), 49)
+        actual = {v["version"]: v for v in self.source["data"]["versions_available"]}
+        for entry in history:
+            self.assertEqual(actual[entry["version"]], entry)
+            branch = next(c for c in self.source["children"] if c.get("data", {}).get("type") == "version"
+                          and re.fullmatch(c["patterns"][0], entry["version"]))
+            self.assertEqual(branch["children"], [])
+            self.assertEqual(branch["data"]["urls"][0]["url"], "https://cwe.mitre.org/data/archive.html")
+
+    def test_current_and_api_releases_are_manifest_selections(self):
+        broken = copy.deepcopy(self.manifest)
+        broken["current_release"] = "not-verified"
+        with self.assertRaises(ValueError):
+            cwe.generated(broken)
+        changed = copy.deepcopy(self.manifest)
+        changed["current_release"] = "4.20"
+        versions, _ = cwe.generated(changed)
+        self.assertEqual([v["version"] for v in versions if v.get("status") == "current"], ["4.20"])
+
     def test_bad_ids_and_duplicate_kinds_are_rejected(self):
         for child in self.source["children"]:
             if "children" in child:

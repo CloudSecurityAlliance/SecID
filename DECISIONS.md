@@ -757,5 +757,19 @@ identifier lookup; echoing requested versions on live URLs misstates provenance;
 guessing numeric ID ranges invents entries; claiming historical per-item URLs
 without evidence would misdirect users. Dataset copies remain unwired until the
 user's independent extraction work and the permanent-home requirements are met.
-Earlier release metadata is replaced by a link to MITRE's archive index because
-those releases have no verified item tree here.
+Earlier release metadata is retained with empty item trees and archive-index links;
+those releases have no verified membership here. This preserves curated history
+without returning a moving URL under a historical version.
+
+
+**Review amendments:** preserve all 49 earlier release metadata entries (D1),
+with explicit empty branches and archive discovery; put current/API catalog
+selection in the manifest; assign maintenance to the governing agent in #301 (D2).
+At the next session and on CWE missing-entry feedback, compare upstream releases
+with the manifest. New IDs stay unresolved until reviewed; accepting arbitrary
+future numbers would reintroduce fabricated references. The offline CI membership
+check proves agreement with the reviewed manifest, not upstream freshness. The
+recorded `--archive-dir` check verifies all five hashes and extracted memberships
+against downloaded official archives; it is a separate author-run check (D3).
+The full replacement of generated children is intentional; edits belong in the
+generator or manifest, with `--check` catching registry-only drift (D5).
