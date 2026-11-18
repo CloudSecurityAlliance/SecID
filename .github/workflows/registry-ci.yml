@@ -49,6 +49,8 @@ on:
       - "scripts/canonical-names-todo.json"
       - "scripts/http-exception-allowlist.txt"
       - "scripts/test_*.py"
+      - "scripts/sync-cwe.py"
+      - "scripts/data/cwe-releases.json"
       - "scripts/_net_guard.py"
       - ".github/workflows/registry-ci.yml"
   workflow_dispatch:
@@ -179,6 +181,8 @@ jobs:
         run: python3 scripts/test_validate_version_aliases.py
       - name: CSA AICM/AI-CAIQ/CCM version data assertions
         run: python3 scripts/test_csa_version_data.py
+      - name: CWE release membership and generated references
+        run: python3 scripts/test_cwe_data.py
 
   ci-passed:
     # One stable check name for branch protection. New gates only need adding to

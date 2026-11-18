@@ -67,16 +67,30 @@ secid:weakness/mitre.org/cwe#CWE-NNN
 https://cwe.mitre.org/data/definitions/{num}.html
 ```
 
-### Subpaths
+### Releases and entry membership
 
-Reference sections within a CWE entry:
+`CWE-79`, `cwe-79`, and `secid:weakness/mitre.org/cwe#CWE-79` resolve to current
+MITRE HTML and API endpoints. Unknown numeric IDs do not produce fabricated URLs.
 
-```
-secid:weakness/mitre.org/cwe#CWE-79/extended-description
-secid:weakness/mitre.org/cwe#CWE-79/potential-mitigations
-secid:weakness/mitre.org/cwe#CWE-79/detection-methods
-secid:weakness/mitre.org/cwe#CWE-79/observed-examples
-```
+Pin a catalog release with `secid:weakness/mitre.org/cwe@4.19#CWE-79`.
+Registered releases are 4.19, 4.19.1, 4.20, 4.21 and 5.0. Each version checks
+its own weaknesses, categories/groupings and views against MITRE's XML archive.
+Version-pinned results link to the full official ZIP and explain how to select
+the requested ID from its XML. MITRE's current HTML/API URLs are not historical
+snapshots. The live API reported version 4.21 on 2026-11-18.
+
+CWE-1448 is the AI/ML Products view (introduced in 4.20). CWE-1425 is the
+2023 CWE Top 25 view. Categories became Groupings in the 5.0 XML schema;
+the API still uses `/category/`.
+
+Section suffixes such as `#CWE-79/potential-mitigations` are not registered.
+
+The reproducible membership manifest is `scripts/data/cwe-releases.json`, with
+release dates, schema versions, official URLs, SHA-256 hashes and all IDs by kind.
+Run `python3 scripts/sync-cwe.py --check` offline, or add
+`--archive-dir /path/to/archives` to check the downloaded catalogs against it.
+The CI regression gate checks every numeric ID from 0 through 2100 in each release,
+including case variants and the absence of newer entries in older releases.
 
 ### Key CWEs
 

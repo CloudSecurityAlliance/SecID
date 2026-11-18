@@ -726,3 +726,36 @@ Loud failure on unknown versions is chosen over a plausible-looking answer becau
 **Rejected alternatives:**
 - **Rewriting the 2026-11-06 and 2026-11-09 entries in place.** That would erase what was recorded at the time. Each now carries a pointer to this entry instead.
 - **Removing the 1,020 links to restore Point Once.** Kurt chose to point at both, and the links resolve today. Removing them would break working answers for no gain.
+
+
+## 2026-11-18: Optional release trees and reproducible CWE references
+
+**Decision method:** AI decision (Codex); independent Claude review required before merge.
+**Issue:** [#299](https://github.com/CloudSecurityAlliance/SecID/issues/299).
+
+CWE keeps live, case-insensitive identifier lookup while explicit releases use
+release-specific item trees. Optional version branches use the existing
+`data.type: "version"` and `children` fields. Resolvers select them only for
+`@version`, never as unversioned items. A version-shaped leaf remains an item.
+Service support and the Python port deploy before this registry change.
+
+MITRE's five official archives (4.19, 4.19.1, 4.20, 4.21, 5.0) supply the complete
+entry membership, split by weakness, category/grouping and view. A reviewed
+manifest pins each ZIP's SHA-256, release date, schema and IDs. `sync-cwe.py`
+reproduces the registry; `--archive-dir` verifies it against the upstream ZIPs.
+An added CI test checks generation and exhaustive numeric membership, case
+variants, invalid IDs, the category/grouping schema transition and CWE-1448's
+absence before 4.20. Existing CI gates and reviewer instructions are unchanged.
+
+Explicit versions link to the complete archived ZIP with instructions for selecting
+the requested ID. Unversioned HTML/API links remain live. The API reported 4.21
+on 2026-11-18; `/category/` is its working endpoint even though 5.0 XML uses
+Groupings. CWE-1425 is the 2023 Top 25 view; the AI/ML view is CWE-1448.
+
+**Rejected alternatives:** requiring a version for every CWE breaks ordinary
+identifier lookup; echoing requested versions on live URLs misstates provenance;
+guessing numeric ID ranges invents entries; claiming historical per-item URLs
+without evidence would misdirect users. Dataset copies remain unwired until the
+user's independent extraction work and the permanent-home requirements are met.
+Earlier release metadata is replaced by a link to MITRE's archive index because
+those releases have no verified item tree here.
